@@ -95,6 +95,10 @@ Generates ecobalyse properties TSV from `processes.json`.
 - `external-data/ecobalyse/base_ingredients_auto_proxies.tsv` (from Script 1)
 - `external-data/ecobalyse/off_ingredients_without_ecobalyse_data.tsv` (manual list of OFF ingredients
   that must not inherit Ecobalyse data from their parents, see below)
+- `external-data/ecobalyse/ecobalyse_entries_overrides.tsv` (manual fixes: for an OFF tagid,
+  force the default Ecobalyse entry, exclude an entry, or add an entry as a variant; overridden
+  entries are used even if hidden). The `ecobalyse_` properties are removed from the taxonomy
+  and regenerated, so fixes must be made in these input files, not in `ingredients.txt`.
 
 **Options**:
 - `--include-hidden-entries`: also use entries with `visible: false` (see below)

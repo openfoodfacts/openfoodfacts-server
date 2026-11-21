@@ -32,7 +32,9 @@ en:wheat-gluten	soft-wheat
 en:instant-coffee	coffee-ground
 en:vinegar  vinegar-alcohol
 en:soya	soybean
-en:coconut-oil	unknown-oil
+# coconut oil is not in Ecobalyse: palm oil (also a refined tropical oil) is used as a proxy.
+# Not unknown-oil: "Autres huiles (non encore répertoriées) (2025)" costs about 7460 points per kg (2026-11), 17 times more than palm oil
+en:coconut-oil	refined-palm-oil
 en:coffee	coffee-ground
 en:cocoa	cocoa-powder
 en:dextrose	glucose-syrup
@@ -59,4 +61,5 @@ en:sheep	lamb
 en:giant-squash	squash
 en:lime	lemon
 en:vegetable-oil	rapeseed-oil
-en:margarine	unknown-oil
+# margarine is not in Ecobalyse: rapeseed oil (the main oil of margarines sold in France) is used as a proxy (not unknown-oil, see coconut oil)
+en:margarine	rapeseed-oil
