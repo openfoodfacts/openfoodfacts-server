@@ -29,7 +29,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Display qw/init_request/;
 use ProductOpener::HTTP qw/single_param/;
-use ProductOpener::Tags qw/add_user_translation/;
+use ProductOpener::Tags qw/add_user_translation translation_value_is_valid/;
 use ProductOpener::Users qw/$User_id/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 
@@ -46,12 +46,28 @@ my $to = remove_tags_and_quote(decode utf8 => single_param('to'));
 
 my $status;
 
-if ((defined $tagtype) and (defined $from) and (defined $to) and ($to ne "")) {
+if (not defined $User_id) {
+	# Adding a translation writes to the translation files: only let a logged in user do it
+	$status = "not ok - authentication required";
+}
+elsif ((not defined $tagtype)
+	or (not defined $from)
+	or (not defined $to)
+	or ($tagtype eq "")
+	or ($to eq ""))
+{
+	$status = "not ok - missing tagtype, from or to parameter";
+}
+elsif ((not translation_value_is_valid($from)) or (not translation_value_is_valid($to))) {
+	# A tab or a newline in a value would forge the columns of the record we are about to append
+	$status = "not ok - the translation contains characters that are not allowed";
+}
+elsif (add_user_translation($lc, $tagtype, $User_id, $from, $to)) {
 	$status = "ok";
-	add_user_translation($lc, $tagtype, $User_id, $from, $to);
 }
 else {
-	$status = "not ok - missing tagtype, from or to parameter";
+	# The tagtype is not a known taxonomy: add_user_translation() refused to write the file
+	$status = "not ok - unknown tagtype";
 }
 
 my $data = encode_json({status => $status});
