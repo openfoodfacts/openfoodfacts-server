@@ -45,6 +45,9 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
     const timeoutWait = 300;
     let value = "";
     let isFocused = false;
+    // Incremented on every query change and edit cancellation, so that stale taxonomy
+    // responses and deferred callbacks cannot overwrite the current dropdown state.
+    let searchRequestId = 0;
 
     // Tags added or edited by the user during this session.
     // They are only added to the tags history when the form is submitted, see addTagsToRecentTags()
@@ -68,14 +71,22 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
         }
     }
 
-    function autocompleteWithSearch(newValue) {
+    function autocompleteWithSearch(newValue, deferShow) {
         value = newValue;
-        input.whitelist = null; // reset the whitelist
+        searchRequestId += 1;
+        const currentRequestId = searchRequestId;
+        // Initialize recent-history suggestions as the baseline whitelist
+        input.whitelist = get_recents(el.id, maximumRecentEntriesPerTag) || [];
 
         if (el.dataset.autocomplete && el.dataset.autocomplete !== "") {
             clearTimeout(debounceTimer);
 
             debounceTimer = setTimeout(function () {
+                // A newer query has been issued; this debounced callback is stale.
+                if (searchRequestId !== currentRequestId) {
+                    return;
+                }
+
                 // https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
                 if (abortController) {
                     abortController.abort();
@@ -88,9 +99,10 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
                 }).
                     then((RES) => RES.json()).
                     then(function (json) {
-                        // A taxonomy response can arrive after the field was blurred.
-                        // In that case, updateSuggestions(true) would reopen the dropdown.
-                        if (!isFocused) {
+                        // A taxonomy response can arrive after the field was blurred
+                        // or after a newer query was issued. In either case,
+                        // updateSuggestions(true) would show stale results.
+                        if (!isFocused || searchRequestId !== currentRequestId) {
                             return;
                         }
 
@@ -112,7 +124,19 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
                     });
             }, timeoutWait);
         }
-        updateSuggestions(true);
+
+        if (deferShow) {
+            // Defer updateSuggestions(true) using setTimeout(..., 0) so it runs
+            // after Tagify completes its synchronous edit initialization.
+            setTimeout(function () {
+                if (searchRequestId !== currentRequestId) {
+                    return;
+                }
+                updateSuggestions(true);
+            }, 0);
+        } else {
+            updateSuggestions(true);
+        }
     }
 
     input.on("input", function (event) {
@@ -125,10 +149,14 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
 
     input.on("edit:start", function (event) {
         tagValueBeforeEdit = event.detail.data.value;
-        autocompleteWithSearch(event.detail.data.value);
+        // Capture the tag value and initialize the edit session. Defer
+        // updateSuggestions(true) so Tagify finishes its synchronous edit
+        // initialization before the suggestions dropdown is displayed.
+        autocompleteWithSearch(event.detail.data.value, true);
     });
 
     input.on("change", function () {
+        searchRequestId += 1;
         value = "";
         updateSuggestions(false);
         if (changeCallback) {
@@ -145,6 +173,8 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
             tagsToCommit.add(newValue);
         }
         tagValueBeforeEdit = null;
+        // Invalidate any pending taxonomy request or deferred callback from edit:start
+        searchRequestId += 1;
         value = "";
         updateSuggestions(false);
     });
@@ -172,18 +202,32 @@ function initializeTagifyInput(el, maximumRecentEntriesPerTag, changeCallback) {
         // so that tags that are never submitted (typos, wrong tags) are not remembered
         tagsToCommit.add(event.detail.data.value);
 
+        searchRequestId += 1;
         value = "";
         updateSuggestions(false);
     });
 
     input.on("focus", function () {
         isFocused = true;
+
+        // During tag editing, do not reset the current query or suggestions.
+        // A focus event may fire when Tagify moves focus to the editable element,
+        // but the edit:start handler (or the user's typing) owns the query.
+        if (tagValueBeforeEdit !== null) {
+            return;
+        }
+
         value = "";
         updateSuggestions(false);
     });
 
     input.on("blur", function () {
         isFocused = false;
+        // Reset the editing state: if the edit was cancelled (Escape), edit:updated
+        // does not fire, so tagValueBeforeEdit would remain set and block normal focus.
+        tagValueBeforeEdit = null;
+        // Invalidate any pending taxonomy request or deferred edit:start callback
+        searchRequestId += 1;
         value = "";
         updateSuggestions(false);
     });
