@@ -29,6 +29,7 @@ ProductOpener::APIProductRead - implementation of READ API for accessing product
 package ProductOpener::APITagRead;
 
 use ProductOpener::PerlStandards;
+use ProductOpener::Auth qw/require_scope_if_token_present/;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
@@ -69,6 +70,8 @@ Reference to the request object.
 sub read_tag_api ($request_ref) {
 
 	$log->debug("read_tag_api - start", {request => $request_ref}) if $log->is_debug();
+
+	return if (not require_scope_if_token_present($request_ref, 'products:read'));
 
 	my $response_ref = $request_ref->{api_response};
 
