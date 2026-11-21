@@ -2,8 +2,8 @@
 <script src="[% static_subdomain %]/js/dist/JsBarcode.all.min.js"></script>
 
 [% INCLUDE web/common/includes/external_sources_scripts.tt.html %]
-<!-- <script src="[% static_subdomain %]/js/dist/open-prices.js" defer></script> PARA CUANDO VAYA A HACER EL PR-->
-<script src="[% static_subdomain %]/js/open-prices.js" defer></script>
+<script src="[% static_subdomain %]/js/dist/open-prices.js" defer></script> 
+<!-- <script src="[% static_subdomain %]/js/open-prices.js" defer></script> PARA CUANDO VAYA A HACER EL PR-->
 
 [% IF product_changes_saved %]
     <div data-alert class="alert-box info">
@@ -348,7 +348,7 @@
                 [% lang("open_prices_loading") %]
                 </p>
 
-                <div class="open-prices-actions" style="display: flex; gap: 0.75rem; flex-wrap: wrap;"></div>
+                <div class="open-prices-actions"></div>
                 <a
                     id="open-prices-view"
                     class="button small round"
