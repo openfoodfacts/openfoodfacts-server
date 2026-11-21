@@ -45,6 +45,8 @@ def test_is_valid_approval_code(code, header_keywords, expected):
         ("123", "fi", {"suffix": "EC"}, "FI 123 EC"),
         ("DK4772", "dk", {"strip_prefix": "DK", "suffix": "EF"}, "DK 4772 EF"),
         ("456-A", "hr", {"suffix": "EU"}, "HR 456-A EU"),
+        ("1014", "uk", {"prefix": "GB", "suffix": ""}, "GB 1014"),
+        ("9001", "uk", {"prefix": "UK(NI)", "suffix": "EC"}, "UK(NI) 9001 EC"),
         ("789", "fi", {}, "FI 789 EC"),  # Default suffix
     ]
 )
@@ -257,4 +259,37 @@ def test_preprocess_csv_postal_code_formatting():
             "code;name;street;city;postalcode",
             "FI 123 EC;Company A;Main St;Helsinki;00100",
             "FI 456 EC;Company B;Second Ave;Espoo;02100"
+        ]
+
+
+def test_preprocess_csv_handles_direct_csv_source():
+    with tempfile.TemporaryDirectory() as tmpdir:
+        input_csv = os.path.join(tmpdir, "input.csv")
+        output_csv = os.path.join(tmpdir, "output.csv")
+
+        with open(input_csv, "w", encoding="utf-8", newline="") as f:
+            f.write("AppNo,TradingName,Address1,Address2,Address3,Town,Postcode,Country\n")
+            f.write("1000,Company A,Main St,, ,London,SW1A 1AA,England\n")
+
+        file_config = {
+            "columns": {
+                "code": 0,
+                "name": 1,
+                "street": 2,
+                "city": 5,
+                "postalcode": 6
+            },
+            "header_keywords": ["appno", "tradingname"],
+            "code_format": {"suffix": "EC"},
+            "normalize_fields": ["code", "name", "street", "city", "postalcode"]
+        }
+
+        preprocess_csv("United Kingdom", "uk", input_csv, output_csv, file_config)
+
+        with open(output_csv, "r", encoding="utf-8") as f:
+            lines = [line.strip() for line in f.readlines()]
+
+        assert lines == [
+            "code;name;street;city;postalcode",
+            "UK 1000 EC;Company A;Main St;London;SW1A 1AA"
         ]

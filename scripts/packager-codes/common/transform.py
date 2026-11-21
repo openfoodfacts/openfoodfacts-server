@@ -63,11 +63,12 @@ def format_approval_code(raw_code: str, country_code: str, code_config: dict) ->
         raw_code: Raw code from source
         country_code: Two-letter country code (FI, DK, HR)
         code_config: Configuration dict with:
+            - prefix: Optional prefix to add instead of the country code (e.g. GB)
             - strip_prefix: Optional prefix to remove (e.g., "DK" for Denmark)
-            - suffix: Suffix to add (EC, EF, EU)
+            - suffix: Optional suffix to add (EC, EF, EU)
             
     Returns:
-        Formatted code: "{COUNTRY_CODE} {code} {suffix}"
+        Formatted code: "{prefix} {code} {suffix}"
     """
     code = raw_code
     
@@ -76,8 +77,14 @@ def format_approval_code(raw_code: str, country_code: str, code_config: dict) ->
     if strip_prefix and code.upper().startswith(strip_prefix.upper()):
         code = code[len(strip_prefix):].strip()
     
+    prefix = code_config.get('prefix', country_code.upper())
     suffix = code_config.get('suffix', 'EC')
-    return f"{country_code.upper()} {code} {suffix.upper()}"
+
+    parts = [prefix, code]
+    if suffix:
+        parts.append(suffix.upper())
+
+    return " ".join(parts)
 
 
 def extract_address(row: list, columns: dict) -> dict:
