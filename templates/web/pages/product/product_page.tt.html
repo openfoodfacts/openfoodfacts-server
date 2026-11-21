@@ -3,7 +3,6 @@
 
 [% INCLUDE web/common/includes/external_sources_scripts.tt.html %]
 <script src="[% static_subdomain %]/js/dist/open-prices.js" defer></script> 
-<!-- <script src="[% static_subdomain %]/js/open-prices.js" defer></script> PARA CUANDO VAYA A HACER EL PR-->
 
 [% IF product_changes_saved %]
     <div data-alert class="alert-box info">
@@ -348,7 +347,7 @@
                 [% lang("open_prices_loading") %]
                 </p>
 
-                <div class="open-prices-actions"></div>
+                <div class="open-prices-actions">
                 <a
                     id="open-prices-view"
                     class="button small round"
@@ -362,10 +361,10 @@
                     id="open-prices-add"
                     class="button small round"
                     href="#"
-                    hidden
                 >
                     [% lang("open_prices_add") %]
                 </a>
+                </div>
                 </div>
             </div>
         </div>
