@@ -2555,6 +2555,23 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				}
 			}
 
+			# Tag fields from %writable_tags_fields:
+			# If a tag field was updated via its _tags array (e.g. categories_tags, labels_tags),
+			# the scalar field may not be set or updated. We incorporate the tags so changes
+			# are detected in the product history.
+			foreach my $tag_field (@writable_tags_fields_list) {
+				my $tags_key = $tag_field . "_tags";
+				if (defined $product_ref->{$tags_key} and ref($product_ref->{$tags_key}) eq 'ARRAY' and @{$product_ref->{$tags_key}}) {
+					my $tags_signature = join(",", sort @{$product_ref->{$tags_key}});
+					if (defined $current{fields}{$tag_field} and $current{fields}{$tag_field} ne '') {
+						$current{fields}{$tag_field} = $tags_signature . " | " . $current{fields}{$tag_field};
+					}
+					else {
+						$current{fields}{$tag_field} = $tags_signature;
+					}
+				}
+			}
+
 			# Language specific fields
 			if (defined $product_ref->{languages_codes}) {
 				$current{languages_codes} = [keys %{$product_ref->{languages_codes}}];
@@ -3644,6 +3661,12 @@ sub compute_changes_diff_text ($change_ref) {
 	my $diffs = '';
 	if (defined $change_ref->{diffs}) {
 		my %diffs = %{$change_ref->{diffs}};
+
+		# Support both 'packagings' and legacy 'packaging' group key
+		if (defined $diffs{packagings} and not defined $diffs{packaging}) {
+			$diffs{packaging} = $diffs{packagings};
+		}
+
 		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutrition', 'packaging') {
 			if (defined $diffs{$group}) {
 				$diffs .= lang("change_$group") . " ";
