@@ -608,12 +608,11 @@
          "en:nutriscore-missing-nutrition-data-energy",
          "en:nutriscore-missing-nutrition-data-fat",
          "en:nutriscore-missing-nutrition-data-proteins",
-         "en:nutriscore-missing-nutrition-data-saturated-fat",
+         "en:nutriscore-missing-nutrition-data-sodium",
          "en:nutriscore-missing-nutrition-data-sugars",
          "en:nutriscore-not-computed",
          "en:nutrition-data-per-100g",
          "en:nutrition-data-per-serving",
-         "en:nutrition-grade-computed-for-prepared-product",
          "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
          "en:nutrition-no-fruits-vegetables-nuts",
          "en:nutrition-not-enough-data-to-compute-nutrition-score",
@@ -629,10 +628,10 @@
          "unknown"
       ],
       "nutrient_levels" : {
-         "salt" : "low"
+         "saturated-fat" : "moderate"
       },
       "nutrient_levels_tags" : [
-         "en:salt-in-low-quantity"
+         "en:saturated-fat-in-moderate-quantity"
       ],
       "nutriscore" : {
          "2021" : {
@@ -646,8 +645,8 @@
                "is_fat" : 0,
                "is_water" : 0,
                "proteins" : null,
-               "saturated_fat" : null,
-               "sodium" : 66.6666666666667,
+               "saturated_fat" : 5,
+               "sodium" : null,
                "sugars" : null
             },
             "estimated" : 0,
@@ -655,7 +654,7 @@
             "nutrients_available" : 0,
             "nutriscore_applicable" : 1,
             "nutriscore_computed" : 0,
-            "preparation" : "prepared"
+            "preparation" : "as_sold"
          },
          "2023" : {
             "category_available" : 1,
@@ -669,8 +668,8 @@
                "is_red_meat_product" : 0,
                "is_water" : 0,
                "proteins" : null,
-               "salt" : 0.166666666666667,
-               "saturated_fat" : null,
+               "salt" : null,
+               "saturated_fat" : 5,
                "sugars" : null
             },
             "estimated" : 0,
@@ -678,7 +677,7 @@
             "nutrients_available" : 0,
             "nutriscore_applicable" : 1,
             "nutriscore_computed" : 0,
-            "preparation" : "prepared"
+            "preparation" : "as_sold"
          }
       },
       "nutriscore_2021_tags" : [
@@ -695,24 +694,16 @@
       "nutrition" : {
          "aggregated_set" : {
             "nutrients" : {
-               "salt" : {
+               "saturated-fat" : {
                   "source" : "packaging",
-                  "source_index" : 0,
-                  "source_per" : "serving",
+                  "source_index" : 1,
+                  "source_per" : "100g",
                   "unit" : "g",
-                  "value" : 0.166666666666667
-               },
-               "sodium" : {
-                  "modifier" : "~",
-                  "source" : "packaging",
-                  "source_index" : 0,
-                  "source_per" : "serving",
-                  "unit" : "g",
-                  "value" : 0.0666666666666667
+                  "value" : 5
                }
             },
             "per" : "100g",
-            "preparation" : "prepared"
+            "preparation" : "as_sold"
          },
          "input_sets" : [
             {
@@ -728,8 +719,6 @@
                   }
                },
                "per" : "serving",
-               "per_quantity" : 30,
-               "per_unit" : "g",
                "preparation" : "prepared",
                "source" : "packaging"
             },
@@ -755,7 +744,7 @@
          "unknown"
       ],
       "nutrition_score_beverage" : 0,
-      "nutrition_score_debug" : "using prepared product data even if not necessary for category - missing prepared energy - missing prepared fat - missing prepared saturated-fat - missing prepared sugars - missing prepared proteins",
+      "nutrition_score_debug" : "missing as_sold energy - missing as_sold fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
       "nutrition_score_warning_no_fiber" : 1,
       "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
       "packaging_materials_tags" : [],

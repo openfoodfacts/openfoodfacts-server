@@ -463,15 +463,18 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 			$new_nutrition_sets_ref->{$set_type}{source} = $source;
 			$new_nutrition_sets_ref->{$set_type}{last_updated_t} = $update_time;
 
-			$new_nutrition_sets_ref->{$set_type}{per_unit}
-				= set_per_unit($product_ref->{product_quantity_unit}, $product_ref->{serving_quantity_unit}, $set_type);
-
-			# set per_quantity as the serving quantity if the set is generated with nutrient quantities per serving,
-			# or as 100 if it is generated with quantities per 100g/ml
-			$new_nutrition_sets_ref->{$set_type}{per_quantity}
-				= ($set_type eq "serving" or $set_type eq "prepared_serving")
-				? $product_ref->{serving_quantity}
-				: 100;
+			if ($set_type eq "prepared_serving") {
+				# The old schema has no preparation-specific serving size. Preserve
+				# per-serving values without assuming the shared size is prepared (#12867).
+				$new_nutrition_sets_ref->{$set_type}{per_unit} = undef;
+				$new_nutrition_sets_ref->{$set_type}{per_quantity} = undef;
+			}
+			else {
+				$new_nutrition_sets_ref->{$set_type}{per_unit} = set_per_unit($product_ref->{product_quantity_unit},
+					$product_ref->{serving_quantity_unit}, $set_type);
+				$new_nutrition_sets_ref->{$set_type}{per_quantity}
+					= ($set_type eq "serving") ? $product_ref->{serving_quantity} : 100;
+			}
 
 			# set per as serving if the set is generated with nutrient quantities per serving,
 			# or as 100g or 100ml if it is generated with quantities per 100g/ml
