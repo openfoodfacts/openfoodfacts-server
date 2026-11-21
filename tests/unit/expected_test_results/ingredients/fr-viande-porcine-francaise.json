@@ -108,13 +108,6 @@
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 4,
-   "labels" : "viande porcine française, oeufs de France",
-   "labels_hierarchy" : [
-      "en:french-meat",
-      "en:french-eggs",
-      "en:french-pork"
-   ],
-   "labels_lc" : "fr",
    "labels_tags" : [
       "en:french-meat",
       "en:french-eggs",
@@ -145,5 +138,16 @@
          "origins" : "en:france"
       }
    ],
+   "tags_sources" : {
+      "labels" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:french-pork",
+               "en:french-eggs"
+            ]
+         }
+      }
+   },
    "unknown_ingredients_n" : 0
 }

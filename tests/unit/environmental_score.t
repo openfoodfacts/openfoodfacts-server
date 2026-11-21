@@ -12,8 +12,8 @@ use JSON;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/canonicalize_taxonomy_tag/;
-use ProductOpener::ProductsTags qw/compute_field_tags/;
-use ProductOpener::Test qw/init_expected_results/;
+use ProductOpener::ProductsTags qw/compute_field_tags set_field_input_tags_for_source/;
+use ProductOpener::Test qw/init_expected_results normalize_product_for_test_comparison/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 use ProductOpener::EnvironmentalScore
 	qw/compute_environmental_score load_agribalyse_data load_environmental_score_data/;
@@ -677,8 +677,10 @@ foreach my $test_ref (@tests) {
 
 	# Run the test
 
+	# Labels input tags are stored in tags_sources (product schema 1004)
 	if (defined $product_ref->{labels}) {
-		compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+		set_field_input_tags_for_source($product_ref, $product_ref->{lc}, "labels", "packaging",
+			delete $product_ref->{labels});
 	}
 
 	if (defined $product_ref->{categories}) {
@@ -695,6 +697,8 @@ foreach my $test_ref (@tests) {
 	analyze_and_combine_packaging_data($product_ref, $response_ref);
 
 	compute_environmental_score($product_ref);
+
+	normalize_product_for_test_comparison($product_ref);
 
 	# Save the result
 
