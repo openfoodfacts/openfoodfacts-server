@@ -34,6 +34,10 @@ foreach my $url (
 	"https://world.$server_domain/?code=1",
 	"http://world.$server_domain/cgi/session.pl",    # http is accepted, as before
 	"https://world.$server_domain:8080/cgi/product.pl",
+	"https://world.$server_domain/facets/brands/Coca-Cola",
+	"https://world.$server_domain/facets/categories/Breads",
+	"https://world.$server_domain/facets/labels/organic",
+	"https://world.$server_domain/facets/countries/france",
 	"https://fr.$server_domain/cgi/product.pl",    # a url on a language subdomain
 	)
 {
@@ -41,7 +45,7 @@ foreach my $url (
 }
 
 # Urls that are not ours are refused. The first ones are the ones the prefix match accepted.
-my $other_domain = $server_domain =~ s/openfoodfacts/openpetfoodfacts/;
+my $other_domain = $server_domain =~ s/openfoodfacts/openpetfoodfacts/r;
 
 my @refused = (
 	["https://world.$server_domain.evil.example/steal", 'a host suffixed to ours'],
@@ -89,6 +93,17 @@ foreach my $target ("https://world.$server_domain.evil.example/steal", "https://
 	my $location = $response->header('Location') // '';
 	isnt($location, $target, "login.pl does not redirect to '$target'");
 	isnt($location, $target . '/', "login.pl does not redirect to '$target/'");
+}
+
+my $facet_url = "https://world.$server_domain/facets/brands/Coca-Cola";
+$response = $ua->get(construct_test_url('/cgi/session.pl?return_url=' . uri_escape($facet_url)));
+is($response->header('Location'), $facet_url, "session.pl redirects logged-in user to facet url");
+
+foreach my $target ("https://world.$server_domain.evil.example/steal", "https://evil.example/") {
+	$response = $ua->get(construct_test_url('/cgi/session.pl?return_url=' . uri_escape($target)));
+	my $location = $response->header('Location') // '';
+	isnt($location, $target, "session.pl does not redirect to '$target'");
+	isnt($location, $target . '/', "session.pl does not redirect to '$target/'");
 }
 
 done_testing();
