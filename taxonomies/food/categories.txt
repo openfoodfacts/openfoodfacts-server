@@ -102555,24 +102555,51 @@ origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0870
 protected_name_type:en: pgi
 
-< en: Pastas
-en: Udon
+< en: Noodles
+en: Udon noodles
 xx: Udon
+da: Udon-nudler
+sv: Udon-nudlar
 ja: 饂飩, うどん
 wikidata:en: Q471861
 
-< en: Pastas
-en: Soba
+< en: Noodles
+en: Soba noodles
 xx: Soba
+da: Soba-nudler
+sv: Soba-nudlar
 ja: 蕎麦, そば
 wikidata:en: Q753910
 
-< en: Pastas
-xx: lamian
-en: ramen noodles
-fr: Nouilles pour ramen
-zh: 拉面; lāmiàn
+< en: Noodles
+en: Sōmen noodles, Somen noodles
+xx: Sōmen, Somen
+cs: Sómen
+da: Soumen-nudler, Somen-nudler
+fa: سومن
+ja: 素麺
+ko: 소면
+ru: Сомэн
+sv: Somen-nudlar
+th: โซเม็ง
+uk: Сомен
+zh: 素麵
+wikidata:en: Q701057
+
+< en: Noodles
+en: Lamian noodles
+xx: Lamian
+da: Lamian-nudler
+ja: 拉麺
+ko: 라몐
+sv: Lamian-nudlar
+th: ลาเมี่ยน
+zh: 中式拉面, 拉面, 中式拉麵, 拉麵
 wikidata:en: Q1561248
+
+< en: Noodles
+en: Ramen noodles, Noodles for ramen
+fr: Nouilles pour ramen
 
 < en: Pastas
 en: Spätzle
@@ -102903,6 +102930,7 @@ it: Penne di grano duro
 nl: Durum tarwe penne, Penne van durum tarwe
 
 < en: Durum wheat pasta
+< en: Wheat noodles
 en: Durum wheat noodles
 es: Tallarines de trigo duro
 fr: Nouilles de blé dur
@@ -104230,15 +104258,25 @@ ciqual_food_code:en: 25923
 ciqual_food_name:en: Soup, Asian-style with noodles, dehydrated and reconstituted
 ciqual_food_name:fr: Soupe asiatique, avec pâtes, déshydratée reconstituée
 
+< en: Cereal pastas
 < en: Noodles
-en: Whole Wheat Noodles
+en: Wheat noodles
+da: Hvedenudler
+fr: Nouilles de blé, Nouilles au blé
+sv: Vetenudlar, Nudlar av vete
+
+< en: Wheat noodles
+en: Whole wheat noodles
+da: Fuldkornshvedenudler
 de: Vollkornnudeln
 fi: Täysjyvävehnänuudelit
 fr: Nouilles de blé complet, nouilles au blé complet
 hr: Rezanci od cjelovitog zrna pšenice
 it: Noodle di Grano
 nl: Volkorennoedels
+sv: Fullkornsvetenudlar
 
+< en: Legumes and their products
 < en: Noodles
 en: Soy vermicelli, soy noodles
 de: Soja-Vermicelli
