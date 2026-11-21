@@ -3844,18 +3844,13 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	# Run special analysis, score calculations that it specific to the product type
 
-	my $product_type
-		= ((defined $product_ref) and (defined $product_ref->{product_type}))
-		? $product_ref->{product_type}
-		: $options{product_type};
-
-	if ($product_type eq "food") {
+	if (($options{product_type} eq "food")) {
 		specific_processes_for_food_product($product_ref);
 	}
-	elsif ($product_type eq "petfood") {
+	elsif (($options{product_type} eq "petfood")) {
 		specific_processes_for_pet_food_product($product_ref);
 	}
-	elsif ($product_type eq "beauty") {
+	elsif (($options{product_type} eq "beauty")) {
 		specific_processes_for_beauty_product($product_ref);
 	}
 
