@@ -102,7 +102,7 @@
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>[% lang("environment") %]</span></a></li>
                         <li class="product-section-button">
                             <a class="nav-link scrollto button small round white-button" href="#prices">
-                                <span>Prices</span>
+                                <span>[% lang("open_prices_title") %]</span>
                             </a>
                         </li>
                         [% IF secondhand_card_panel %]
@@ -140,7 +140,7 @@
                     [% END %]
 
 
-                    <h2 class="title-1" property="food:name" itemprop="name">[% title %]</h1>
+                    <h2 class="title-1" property="food:name" itemprop="name">[% title %]</h2>
 
                     [% IF server_options_producers_platform %]
                         <p>→ <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
@@ -342,10 +342,10 @@
     <div class="large-12 column">
         <div class="card">
             <div class="card-section">
-                <h2>Prices</h2>
+                <h2>[% lang("open_prices_title") %]</h2>
 
                 <p id="open-prices-content" aria-live="polite">
-                Loading price information...
+                [% lang("open_prices_loading") %]
                 </p>
 
                 <div class="open-prices-actions" style="display: flex; gap: 0.75rem; flex-wrap: wrap;"></div>
@@ -355,7 +355,7 @@
                     href="#"
                     hidden
                 >
-                    View prices on Open Prices
+                    [% lang("open_prices_view") %]
                 </a>
 
                 <a
@@ -364,12 +364,11 @@
                     href="#"
                     hidden
                 >
-                    Add a price
+                    [% lang("open_prices_add") %]
                 </a>
                 </div>
             </div>
         </div>
-    </div>
 </section>
 
 <!-- Report problem card, if not on the platform for producers -->

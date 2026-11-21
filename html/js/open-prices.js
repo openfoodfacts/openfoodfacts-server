@@ -9,12 +9,16 @@ async function loadOpenPrices() {
     return;
   }
 
+  const messages =
+    typeof globalThis.lang === "function" ? globalThis.lang() : {};
   const viewLink = document.getElementById("open-prices-view");
   const addLink = document.getElementById("open-prices-add");
   const barcode = window.productData?.code;
 
   if (!barcode) {
-    container.textContent = "Price information is unavailable.";
+    container.textContent =
+      messages.open_prices_unavailable ||
+      "Price information is unavailable.";
 
     return;
   }
@@ -55,14 +59,21 @@ async function loadOpenPrices() {
     }
 
     if (data.total > 0) {
-      container.textContent =
-        `${data.total} price(s) found for this product.`;
+      const foundTemplate =
+        data.total === 1
+          ? messages.open_prices_found_one
+          : messages.open_prices_found_many;
+
+      container.textContent = foundTemplate
+        ? foundTemplate.replace("{count}", String(data.total))
+        : `${data.total} price(s) found for this product.`;
 
       if (viewLink) {
         viewLink.hidden = false;
       }
     } else {
       container.textContent =
+        messages.open_prices_none ||
         "No prices found for this product. Help us by adding one!";
 
       if (viewLink) {
@@ -71,6 +82,7 @@ async function loadOpenPrices() {
     }
   } catch (error) {
     container.textContent =
+      messages.open_prices_error ||
       "Could not load price information. You can still add a price.";
 
     if (viewLink) {
