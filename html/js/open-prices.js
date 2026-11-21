@@ -35,7 +35,6 @@ async function loadOpenPrices() {
     );
     addUrl.searchParams.set("code", barcode);
     addLink.href = addUrl.toString();
-    addLink.hidden = false;
   }
 
   try {
