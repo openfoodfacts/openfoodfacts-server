@@ -54,7 +54,9 @@
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:forest-footprint-unknown",
-      "en:nutrition-data-per-100g"
+      "en:nutrition-data-per-100g",
+      "en:protein-is-less-than-12-percent-of-energy",
+      "en:protein-is-less-than-20-percent-of-energy"
    ],
    "nova_group" : 2,
    "nova_group_debug" : "",
@@ -252,7 +254,7 @@
                }
             },
             "per" : "100g",
-            "per_quantity" : "100",
+            "per_quantity" : 100,
             "per_unit" : "g",
             "preparation" : "as_sold",
             "source" : "packaging"
