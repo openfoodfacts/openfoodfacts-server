@@ -1,0 +1,175 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "forest_footprint_2026" : {
+      "grade" : "c",
+      "primary_ingredients" : {
+         "en:chicken-and-eggs" : {
+            "footprint_per_kg" : 1.67284578696343,
+            "grade" : "c",
+            "ingredients" : [
+               {
+                  "conditions_tags" : [],
+                  "footprint_per_kg" : 1.67284578696343,
+                  "matching_tag_id" : "en:chicken",
+                  "percent" : 78,
+                  "processing_factor" : 1,
+                  "tag_id" : "en:chicken-gizzard",
+                  "tag_type" : "ingredients",
+                  "type" : {
+                     "deforestation_risk" : 0.71,
+                     "name" : "Poulet Importé",
+                     "soy_feed_factor" : 0.95,
+                     "soy_yield" : 0.3145
+                  }
+               }
+            ]
+         },
+         "en:cocoa" : {},
+         "en:coffee" : {},
+         "en:palm-oil" : {}
+      },
+      "summary" : "with_primary_ingredients",
+      "total_footprint_per_kg" : 1.67284578696343
+   },
+   "forest_footprint_data" : {
+      "footprint_per_kg" : 1.67284578696343,
+      "grade" : "c",
+      "ingredients" : [
+         {
+            "conditions_tags" : [],
+            "footprint_per_kg" : 1.67284578696343,
+            "matching_tag_id" : "en:chicken",
+            "percent" : 78,
+            "processing_factor" : 1,
+            "tag_id" : "en:chicken-gizzard",
+            "tag_type" : "ingredients",
+            "type" : {
+               "deforestation_risk" : 0.71,
+               "name" : "Poulet Importé",
+               "soy_feed_factor" : 0.95,
+               "soy_yield" : 0.3145
+            }
+         }
+      ]
+   },
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "40700",
+         "ecobalyse_proxy_id" : "8fb5024c-ceec-4201-b069-ea253c537ad6",
+         "ecobalyse_proxy_name" : "Blanc de poulet cru -alim. ani. 100%BR- par défaut",
+         "id" : "en:chicken-gizzard",
+         "is_in_taxonomy" : 1,
+         "percent" : 78,
+         "percent_estimate" : 78,
+         "percent_max" : 78,
+         "percent_min" : 78,
+         "processing" : "en:candied",
+         "text" : "Gésiers de poulet",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "ciqual_food_code" : "16550",
+         "from_palm_oil" : "maybe",
+         "id" : "en:duck-fat",
+         "is_in_taxonomy" : 1,
+         "percent" : 13,
+         "percent_estimate" : 13,
+         "percent_max" : 13,
+         "percent_min" : 13,
+         "text" : "graisse de canard",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+         "ecobalyse_name" : "Sel -2025-",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 6.75,
+         "percent_max" : 9,
+         "percent_min" : 4.5,
+         "text" : "sel",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:flavouring",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.25,
+         "percent_max" : 4.5,
+         "percent_min" : 0,
+         "text" : "arômes",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:may-contain-palm-oil" : [
+         "en:duck-fat"
+      ],
+      "en:non-vegan" : [
+         "en:chicken-gizzard",
+         "en:duck-fat"
+      ],
+      "en:non-vegetarian" : [
+         "en:chicken-gizzard",
+         "en:duck-fat"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:may-contain-palm-oil",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:chicken-gizzard",
+      "en:duck-fat",
+      "en:salt",
+      "en:flavouring"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:chicken-gizzard",
+      "en:chicken",
+      "en:poultry",
+      "en:duck-fat",
+      "en:poultry-fat",
+      "en:animal-fat",
+      "en:fat",
+      "en:oil-and-fat",
+      "en:salt",
+      "en:flavouring"
+   ],
+   "ingredients_text" : "Gésiers de poulet confits 78%, graisse de canard : 13%, sel, arômes",
+   "ingredients_with_specified_percent_n" : 2,
+   "ingredients_with_specified_percent_sum" : 91,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 9,
+   "ingredients_without_ciqual_codes" : [
+      "en:flavouring"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:duck-fat",
+      "en:flavouring"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 4,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-c",
+      "en:forest-footprint-grade-c"
+   ],
+   "unknown_ingredients_n" : 0
+}

@@ -538,42 +538,120 @@ sub compute_forest_footprint_2026 ($product_ref) {
 	return;
 }
 
+=head2 compute_footprints_of_ingredients_2026 ( $product_ref, $ingredients_ref )
+
+Computes the footprints of the ingredients (and their sub-ingredients), and adds them
+to the corresponding primary ingredients in $product_ref->{forest_footprint_2026}{primary_ingredients}
+
+Returns the number of footprints added.
+
+=cut
+
 sub compute_footprints_of_ingredients_2026 ($product_ref, $ingredients_ref) {
 
-	my $ingredients_with_footprint = 0;
+	my $footprints_ref = get_footprints_of_ingredients_2026($product_ref, $ingredients_ref);
+
+	foreach my $footprint_ref (@$footprints_ref) {
+		my $primary_ingredient_id = $footprint_ref->{primary_ingredient_id};
+		push @{$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_ingredient_id}{ingredients}},
+			$footprint_ref;
+	}
+
+	return scalar @$footprints_ref;
+}
+
+=head2 get_footprints_of_ingredients_2026 ( $product_ref, $ingredients_ref )
+
+Recursively computes the footprints of the ingredients and their sub-ingredients.
+
+When an ingredient has a footprint and has sub-ingredients that all have a footprint
+for the same primary ingredient, the sub-ingredients may describe only a part of the parent ingredient:
+we compare the footprint of the parent ingredient with the sum of the footprints of the sub-ingredients,
+and keep the larger one.
+
+e.g. "fat-reduced cocoa powder 32% (11% cocoa butter)": the sub-ingredient "cocoa butter" only
+describes part of the parent ingredient, so we need to keep the 32% cocoa powder.
+
+Otherwise, the sub-ingredients describe the recipe of the parent ingredient and are more precise,
+so we keep them.
+
+e.g. "chocolate 20% (sugar, cocoa paste 10%, cocoa butter 5%)"
+
+Footprints of sub-ingredients for other primary ingredients are always kept.
+
+=head3 Return value
+
+Reference to an array of footprints.
+
+=cut
+
+sub get_footprints_of_ingredients_2026 ($product_ref, $ingredients_ref) {
+
+	my @footprints = ();
 
 	foreach my $ingredient_ref (@$ingredients_ref) {
 
-		$log->debug("compute_footprints_of_ingredients_2026 - checking ingredient",
+		$log->debug("get_footprints_of_ingredients_2026 - checking ingredient",
 			{ingredient_id => $ingredient_ref->{id}})
 			if $log->is_debug();
 
+		my @sub_footprints = ();
 		if (defined $ingredient_ref->{ingredients}) {
-			$log->debug("compute_footprints_of_ingredients_2026 - ingredient has subingredients",
-				{ingredient_id => $ingredient_ref->{id}})
-				if $log->is_debug();
-			# Note: calling this method will add the sub ingredient footprint information
-			# to product primary_ingredients if it exists
-			my $sub_ingredients_with_footprint
-				= compute_footprints_of_ingredients_2026($product_ref, $ingredient_ref->{ingredients});
-			if ($sub_ingredients_with_footprint > 0) {
-				$ingredients_with_footprint += 1;
-				next;
-			}
+			@sub_footprints = @{get_footprints_of_ingredients_2026($product_ref, $ingredient_ref->{ingredients})};
 		}
 
 		my $ingredient_footprint_ref = get_forest_footprint_2026_ingredient_footprint($product_ref, $ingredient_ref);
 
-		if (defined $ingredient_footprint_ref) {
-			# Directly add to the appropriate primary_ingredient
-			my $primary_ingredient_id = $ingredient_footprint_ref->{primary_ingredient_id};
-			push @{$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_ingredient_id}{ingredients}},
-				$ingredient_footprint_ref;
-			$ingredients_with_footprint += 1;
+		if (not defined $ingredient_footprint_ref) {
+			push @footprints, @sub_footprints;
+			next;
+		}
+
+		# Compare the footprint of the parent ingredient with the sum of the footprints
+		# of the sub-ingredients that have the same primary ingredient
+		my $primary_ingredient_id = $ingredient_footprint_ref->{primary_ingredient_id};
+		my @same_primary_sub_footprints = grep {$_->{primary_ingredient_id} eq $primary_ingredient_id} @sub_footprints;
+		my @other_primary_sub_footprints = grep {$_->{primary_ingredient_id} ne $primary_ingredient_id} @sub_footprints;
+
+		push @footprints, @other_primary_sub_footprints;
+
+		if (scalar @same_primary_sub_footprints == 0) {
+			push @footprints, $ingredient_footprint_ref;
+			next;
+		}
+
+		# If some direct sub-ingredients are not of the same primary ingredient (e.g. sugar in chocolate),
+		# the sub-ingredients describe the recipe of the parent ingredient: we keep the sub-ingredients
+		my $all_sub_ingredients_of_same_primary_ingredient = 1;
+		foreach my $sub_ingredient_ref (@{$ingredient_ref->{ingredients}}) {
+			my $sub_footprint_ref = get_forest_footprint_2026_ingredient_footprint($product_ref, $sub_ingredient_ref);
+			if (   (not defined $sub_footprint_ref)
+				or ($sub_footprint_ref->{primary_ingredient_id} ne $primary_ingredient_id))
+			{
+				$all_sub_ingredients_of_same_primary_ingredient = 0;
+				last;
+			}
+		}
+
+		my $sub_footprints_sum = 0;
+		$sub_footprints_sum += ($_->{footprint_per_kg} // 0) for @same_primary_sub_footprints;
+
+		# Keep the parent only if its footprint is significantly greater (avoid floating point rounding issues)
+		if (    ($all_sub_ingredients_of_same_primary_ingredient)
+			and (($ingredient_footprint_ref->{footprint_per_kg} // 0) > $sub_footprints_sum * 1.000001))
+		{
+			$log->debug(
+				"get_footprints_of_ingredients_2026 - parent ingredient footprint is greater than sub-ingredients footprints",
+				{ingredient_id => $ingredient_ref->{id}}
+			) if $log->is_debug();
+			push @footprints, $ingredient_footprint_ref;
+		}
+		else {
+			push @footprints, @same_primary_sub_footprints;
 		}
 	}
 
-	return $ingredients_with_footprint;
+	return \@footprints;
 }
 
 =head2 get_forest_footprint_2026_ingredient_footprint ( $product_ref, $ingredient_ref )
