@@ -242,9 +242,6 @@ sub analyze_request($request_ref) {
 }
 
 ##### ROUTES #####
-
-# /
-# /[page]
 sub index_route($request_ref) {
 
 	# Root, ex: https://world.openfoodfacts.org/
@@ -265,11 +262,21 @@ sub index_route($request_ref) {
 		$request_ref->{text} = 'index-pro';
 	}
 
+	# Show the landing page to first-time visitors on the public platform.
+	if (    not $server_options{private_products}
+		and exists $texts{landing}
+		and (defined $texts{landing}{$request_ref->{lc}} or defined $texts{landing}{en})
+		and not defined cookie('off_landing_seen')
+		and not defined single_param('skip_landing')
+		and not exists $request_ref->{param}{page})
+	{
+		$request_ref->{text} = 'landing';
+	}
+
 	set_request_stats_value($request_ref->{stats}, "route", "index");
 
 	return 1;
 }
-
 # org/[orgid]
 # org/[orgid]/*
 sub org_route($request_ref) {
