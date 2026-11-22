@@ -190,6 +190,16 @@
 					<!-- Right Nav Section -->
 
 					<ul class="right">
+						<li class="has-dropdown theme-toggle">
+							<a href="#" id="theme_toggle_link" aria-label="[% edq(lang('theme_selector')) %]" title="[% edq(lang('theme_selector')) %]">
+								<span class="material-icons" aria-hidden="true">brightness_6</span>
+							</a>
+							<ul class="dropdown">
+								<li><a href="#" data-theme-choice="light">[% lang('theme_light') %]</a></li>
+								<li><a href="#" data-theme-choice="dark">[% lang('theme_dark') %]</a></li>
+								<li><a href="#" data-theme-choice="system">[% lang('theme_system') %]</a></li>
+							</ul>
+						</li>
 						[% IF not user_id.defined %]
 							<li class="h-space-tiny has-form">
 								<a href=[% IF oidc_implementation_level < 3 %]"/cgi/session.pl"[% ELSE %]"/cgi/oidc_signin.pl?return_url=[% uri_escape(canon_url) %]"[% END %] class="round button secondary">
@@ -549,6 +559,7 @@
 <script src="[% static_subdomain %]/js/dist/jquery.cookie.js"></script>
 <script src="[% static_subdomain %]/js/dist/select2.min.js"></script>
 <script src="[% static_subdomain %]/js/dist/matomo-events.js"></script>
+<script src="[% static_subdomain %]/js/dist/theme-toggle.js"></script>
 [% scripts %]
 <script>
 \$(document).foundation({

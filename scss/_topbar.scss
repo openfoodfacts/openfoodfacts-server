@@ -391,3 +391,20 @@
     z-index: 6;
   }
 }
+
+// Theme selector (Light / Dark / System)
+.theme-toggle [data-theme-choice][aria-current="true"]::after {
+  content: " \2713";
+  font-weight: bold;
+}
+
+
+  .theme-toggle > a {
+  position: relative;
+  top: 10px;
+}
+
+// Without JavaScript the selector cannot work, so hide it
+html:not([data-theme]) .theme-toggle {
+  display: none;
+}

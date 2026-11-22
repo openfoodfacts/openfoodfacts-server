@@ -31,6 +31,7 @@ const jsSrc = [
   "./html/js/rewind-browser.js",
   "./html/js/external-knowledge-panels.js",
   "./html/js/matomo-events.js",
+  "./html/js/theme-toggle.js",
   "./html/js/image-editor.js",
   "./html/js/image-editor-move-mode.mjs",
   "./html/js/image-editor-selection.js",

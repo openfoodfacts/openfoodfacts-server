@@ -18,6 +18,19 @@
     color: var(--text);
   }
 }
+  .toggle_food_preferences label {
+    color: var(--text);
+  }
+
+    .list_product_a_match_yes {
+    background-color: #1e3a24;
+    &:hover { background-color: #27502f; }
+  }
+
+  .list_product_a_match_no {
+    background-color: #4a2020;
+    &:hover { background-color: #5e2828; }
+  }
 
 html[data-theme="dark"] {
   @include dark-overrides;
