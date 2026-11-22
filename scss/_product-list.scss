@@ -86,7 +86,7 @@ $productsGutter:12;
 }
 
 .search_results .list_display_barcode {
-    color: black;
+    color: var(--text);
     font-size: .8em;
     display: block; // one line for barcode, to keep thing homogeneous
 }
@@ -125,7 +125,7 @@ $productsGutter:12;
     padding-right: 8px;
     padding-left: 8px;
     font-size: 14px;
-    color: $black;
+    color: var(--text);
     // Force the height and use line-clamp of the product name so that
     // icons below are vertically aligned with other cards on the same line
     display: -webkit-box;
@@ -259,8 +259,8 @@ $productsGutter:12;
 // Greeter CSS
 // ~/lang-default/en/texts/index.html
 
-$greeter-discover-bgcolor: #E3F6FF;
-$greeter-contribute-bgcolor: #FFF2DF;
+$greeter-discover-bgcolor: var(--greeter-discover-bg);
+$greeter-contribute-bgcolor: var(--greeter-contribute-bg);
 
 // RTL Support
 [dir=rtl] .homepage-greeter-wrapper::before {

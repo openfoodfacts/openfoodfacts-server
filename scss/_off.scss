@@ -101,7 +101,7 @@ $material-icons: "Material Icons";
 }
 
 .block_light {
-  color: $black;
+  color: var(--text);          
 }
 
 .block_dark.block_off a {
@@ -113,11 +113,12 @@ $material-icons: "Material Icons";
 }
 
 .block_latte {
-  background-color: $latte;
+  background-color: var(--surface-page);   
 }
 
+
 .block_cappucino {
-  background-color: $cappucino;
+  background-color: var(--surface-alt);   
 }
 
 .block_main {

@@ -110,7 +110,7 @@ $sveetoy-hr-default-color: #000000;
             font-family: $header-font-family;
             font-weight: $header-font-weight;
             font-style: $header-font-style;
-            color: $header-font-color;
+            color: var(--text-heading);
             text-rendering: $header-text-rendering;
             margin-top: $header-top-margin;
             margin-bottom: $header-bottom-margin;

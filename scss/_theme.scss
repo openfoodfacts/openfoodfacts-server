@@ -1,0 +1,46 @@
+@mixin theme-dark-tokens {
+  color-scheme: dark;
+  --surface-page: #252321;
+  --surface-card: #121212;
+  --surface-alt: #2e2420;
+  --surface-topbar: #2f2926;
+  --text-heading: #{$latte};
+  --greeter-discover-bg: #1b2a31;
+  --greeter-contribute-bg: #2e2420;
+  --text: #{$latte};
+  --text-muted: #{$macchiato};
+  --border: #{$cortado};
+  --border-control: #{$mocha};
+  --link: #{$cappucino};
+  --btn-primary-bg: #{$cappucino};
+  --btn-primary-text: #{$chocolate};
+}
+
+:root {
+  color-scheme: light;
+  --surface-page: #{$latte};
+  --surface-card: #{$white};
+  --surface-alt: #{$cappucino};
+  --surface-topbar: #{$cafecreme};
+  --text-heading: #{$jet};
+  --greeter-discover-bg: #e3f6ff;
+  --greeter-contribute-bg: #fff2df;
+  --text: #{$black};
+  --text-muted: #{$cortado};
+  --border: #{$gainsboro};
+  --border-control: #{$gainsboro};
+  --link: #{$chocolate};
+  --btn-primary-bg: #{$chocolate};
+  --btn-primary-text: #{$white};
+}
+
+html[data-theme="dark"] {
+  @include theme-dark-tokens;
+}
+
+// No-JavaScript fallback: follow the OS when the theme script has not run.
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) {
+    @include theme-dark-tokens;
+  }
+}

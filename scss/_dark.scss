@@ -1,0 +1,31 @@
+// scss/_dark.scss
+// Dark-mode overrides for Foundation/Sveetoy/legacy rules that cannot use tokens.
+// Must be imported last in app-ltr.scss and app-rtl.scss.
+
+@mixin dark-overrides {
+  body {
+    background-color: var(--surface-page);
+    color: var(--text);
+  }
+
+  .bg-white {
+    background-color: var(--surface-card);
+  }
+
+  // Product cards (search results, facets)
+  .list_product_a {
+    background-color: var(--surface-card);
+    color: var(--text);
+  }
+}
+
+html[data-theme="dark"] {
+  @include dark-overrides;
+}
+
+// No-JavaScript fallback: follow the OS when the theme script has not run.
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) {
+    @include dark-overrides;
+  }
+}

@@ -17,6 +17,40 @@
     [% options_favicons %]
 	<meta name="apple-itunes-app" content="app-id=588797948">
     <link rel="canonical" href="[% canon_url %]">
+	    <script>
+    (function () {
+        var KEY = 'off-theme';
+        var root = document.documentElement;
+        var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+        function read() {
+            try {
+                var v = localStorage.getItem(KEY);
+                return v === 'light' || v === 'dark' ? v : 'system';
+            } catch (e) { return 'system'; }
+        }
+        function apply() {
+            var pref = read();
+            root.setAttribute('data-theme', pref === 'system' ? (mq && mq.matches ? 'dark' : 'light') : pref);
+            root.setAttribute('data-theme-preference', pref);
+        }
+        apply();
+        function onSystemChange() { if (read() === 'system') { apply(); } }
+        if (mq) {
+            if (mq.addEventListener) { mq.addEventListener('change', onSystemChange); }
+            else if (mq.addListener) { mq.addListener(onSystemChange); }
+        }
+        window.addEventListener('storage', function (e) { if (e.key === KEY) { apply(); } });
+        window.offTheme = {
+            get: read,
+            set: function (pref) {
+                try {
+                    if (pref === 'system') { localStorage.removeItem(KEY); } else { localStorage.setItem(KEY, pref); }
+                } catch (e) {}
+                apply();
+            }
+        };
+    })();
+    </script>
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% edq(lang('text_direction')) %].css?v=[% css_timestamp %]" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/select2.min.css">

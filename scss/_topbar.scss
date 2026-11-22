@@ -161,7 +161,7 @@
     background: inherit;
   }
   #offNav {
-    background-color: $cafecreme;
+    background-color:var(--surface-topbar);
     transition: all 0.3s;
     @media #{$large-up} {
       border-radius: 0 0;
@@ -174,7 +174,7 @@
       @media #{$medium-up} {
         li:not(.has-form) a:not(.button):hover {
           background: transparent;
-          color: $black;
+          color: var(--text);
         }
       }
       &:not(.expanded) {
@@ -204,7 +204,7 @@
         }
       }
       .top-bar-links {
-        color: black;
+        color: var(--text);
       }
       .name {
         height: 62px;
@@ -269,7 +269,7 @@
     }
   }
   .top-bar {
-    background-color: $cafecreme;
+    background-color: var(--surface-topbar);
     .name h2 {
       font-size: 1.2rem;
       @media #{$large-up} {
