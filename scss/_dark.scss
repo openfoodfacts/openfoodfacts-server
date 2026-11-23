@@ -58,3 +58,28 @@ html[data-theme="dark"] {
     @include dark-overrides;
   }
 }
+
+// Header logo: show the dark variant in dark mode
+.logo-dark {
+  display: none;
+}
+
+html[data-theme="dark"] {
+  .logo-light {
+    display: none;
+  }
+  .logo-dark {
+    display: inline;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) {
+    .logo-light {
+      display: none;
+    }
+    .logo-dark {
+      display: inline;
+    }
+  }
+}

@@ -763,11 +763,11 @@ html[dir="rtl"] {
 }
 
 #product_banner {
-  color: black;
+  color: var(--text);
 }
 
 .product_banner_unranked {
-  background-color: #dff4ff;
+  background-color: var(--surface-info);
 }
 
 .product_banner_does_not_match {
@@ -1560,7 +1560,7 @@ $border-pink: #ff6e78;
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: var(--text);
 }
 
 #footer_install_the_app {

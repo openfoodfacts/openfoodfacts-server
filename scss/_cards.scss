@@ -8,11 +8,11 @@
 
 /// Default background color.
 /// @type Color
-$card-background: $white !default;
+$card-background: var(--surface-card) !default;
 
 /// Default font color for cards.
 /// @type Color
-$card-font-color: $body-font-color !default;
+$card-font-color: var(--text-body) !default;
 
 /// Default background.
 /// @type Color
