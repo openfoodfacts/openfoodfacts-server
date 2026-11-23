@@ -811,20 +811,16 @@ sub notify_user_requested_org ($user_ref, $org_created, $request_ref) {
 
 	# construct rejection / redirection email for non-producer signups
 	$mail = '';
-	process_template("emails/user_new_pro_account_rejection.tt.txt",
-		$template_data_ref, \$mail, $request_ref);
+	process_template("emails/user_new_pro_account_rejection.tt.txt", $template_data_ref, \$mail, $request_ref);
 	if ($mail =~ /^\s*Subject:\s*(.*)\n/im) {
 		my $subject = $1;
 		my $body = $';
 		$body =~ s/^\n+//;
-		$template_data_ref->{mail_subject_new_pro_account_rejection}
-			= URI::Escape::XS::encodeURIComponent($subject);
-		$template_data_ref->{mail_body_new_pro_account_rejection}
-			= URI::Escape::XS::encodeURIComponent($body);
+		$template_data_ref->{mail_subject_new_pro_account_rejection} = URI::Escape::XS::encodeURIComponent($subject);
+		$template_data_ref->{mail_body_new_pro_account_rejection} = URI::Escape::XS::encodeURIComponent($body);
 	}
 	else {
-		send_email_to_producers_admin(
-			"Error - broken template: emails/user_new_pro_account_rejection.tt.txt",
+		send_email_to_producers_admin("Error - broken template: emails/user_new_pro_account_rejection.tt.txt",
 			"Missing Subject line:\n\n" . $mail);
 	}
 
