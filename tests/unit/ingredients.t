@@ -2000,6 +2000,14 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	[
+		'ru-frequent-unknown-ingredients',
+		{
+			lc => "ru",
+			ingredients_text =>
+				"концентрат молочного белка, концентрат сывороточного белка, пищевые волокна, водорастворимые волокна кукурузы, соль морская пищевая, эритрит, мука миндальная, ароматизатор, сычужный фермент, рассол. Может содержать следы арахиса, кунжута, фундука, молока, яиц, глютена.",
+		}
+	],
+	[
 		'sv-recognise-origin-odlat-i',
 		{
 			# https://se.openfoodfacts.org/product/7318690501237/penne-rigate-ica-basic
