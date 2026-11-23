@@ -1,0 +1,37 @@
+[% IF user.preferred_language == 'fr' %]
+Subject: Votre compte sur la plateforme producteurs Open Food Facts - [% user.org or user.requested_org or user.org_id or user.requested_org_id %]
+
+Bonjour [% user.name or user.userid %],
+
+Nous avons bien reçu votre inscription sur la plateforme producteurs d'Open Food Facts (https://pro.openfoodfacts.org).
+
+La plateforme producteurs est spécifiquement réservée aux producteurs et marques agroalimentaires, ainsi qu'aux organisations ayant besoin d'effectuer des imports massifs de données de produits alimentaires.
+
+Si vous souhaitez utiliser ou réutiliser les données d'Open Food Facts (pour une application, un service, de la recherche ou une analyse), nous vous invitons à consulter notre documentation et notre espace dédié aux réutilisateurs de données :
+https://world.openfoodfacts.org/data
+
+Nous procédons donc à la suppression de votre compte sur la plateforme producteurs. Rassurez-vous : votre compte utilisateur Open Food Facts principal reste bien entendu actif, et vous pouvez continuer à l'utiliser normalement pour contribuer sur le site public ou sur l'application mobile.
+
+Si vous êtes bien un producteur agroalimentaire ou si vous souhaitiez accomplir une démarche particulière, n'hésitez pas à répondre directement à cet e-mail pour nous l'indiquer afin que nous puissions vous accompagner.
+
+Bien cordialement,
+L'équipe Open Food Facts
+[% ELSE %]
+Subject: Your account on the Open Food Facts producer platform - [% user.org or user.requested_org or user.org_id or user.requested_org_id %]
+
+Hello [% user.name or user.userid %],
+
+Thank you for signing up on the Open Food Facts producer platform (https://pro.openfoodfacts.org).
+
+The producer platform is strictly reserved for food producers, brands, and organizations that need to perform bulk imports of food product data.
+
+If you are looking to access or reuse Open Food Facts data (for an application, service, research, or data analysis), we invite you to consult our data reuser documentation and portal:
+https://world.openfoodfacts.org/data
+
+We are therefore removing your account from the producer platform. Please rest assured: your primary Open Food Facts user account remains fully active, and you can continue to use it as usual to contribute on the public website and mobile app.
+
+If you are indeed a food producer or if you were trying to achieve something specific with this account, please feel free to reply directly to this email to let us know so we can assist you.
+
+Best regards,
+The Open Food Facts team
+[% END %]
