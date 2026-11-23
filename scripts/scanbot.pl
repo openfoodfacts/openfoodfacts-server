@@ -40,7 +40,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products
-	qw/get_source_for_site_and_org product_path product_path_from_id retrieve_product store_product/;
+	qw/get_server_for_product get_source_for_site_and_org product_path product_path_from_id retrieve_product store_product/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -332,7 +332,12 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 	my $source = "crowdsourcing";
 	my $added_countries_list = "";
 
-	if ((defined $product_ref) and ($code ne '') and (defined $product_ref->{code}) and (defined $product_ref->{lc})) {
+	if (    (defined $product_ref)
+		and ($code ne '')
+		and (defined $product_ref->{code})
+		and (defined $product_ref->{lc})
+		and (not $product_ref->{deleted}))
+	{
 
 		my $path = product_path($product_ref);
 
@@ -525,7 +530,20 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 				print "updating scan count for $code\n";
 				$product_ref->{last_updated_t} = time() + 0;
 				store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
-				get_products_collection()->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				my $target_server = get_server_for_product($product_ref);
+				my $target_database = $options{other_servers}{$target_server}{mongodb};
+				my $products_collection = get_products_collection(
+					{
+						database => $target_database,
+						obsolete => $product_ref->{obsolete},
+					}
+				);
+				$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				if ($target_database and ($target_database ne $mongodb)) {
+					get_products_collection({database => $mongodb})->delete_one({"_id" => $product_ref->{_id}});
+					get_products_collection({database => $mongodb, obsolete => 1})
+						->delete_one({"_id" => $product_ref->{_id}});
+				}
 				push_product_update_to_redis($product_ref, {"userid" => 'scanbot', "comment" => $year}, "updated");
 			}
 		}

@@ -105,16 +105,15 @@ Determine if we can use off_query backend:
 sub can_use_off_query ($data_debug_ref) {
 
 	# TODO: pass parameters inside $request_ref instead, so that we don't have to call single_param() here
-	my $param_off_query = single_param("off_query") || 1;
+	my $param_off_query = single_param("off_query") // 1;
 	my $platform = $server_options{producers_platform} ? "producers" : "public";
 
 	$$data_debug_ref .= "off_query: $param_off_query\n";
 	$$data_debug_ref .= "platform: $platform\n";
 	$$data_debug_ref .= "query_url: " . ($query_url || '') . "\n";
 
-	# use !! operator to convert to boolean
 	my $can_use_off_query
-		= !!(($param_off_query) and (not $platform eq 'producers') and ($query_url));
+		= (($param_off_query) and (not $platform eq 'producers') and ($query_url)) ? 1 : 0;
 
 	$$data_debug_ref .= "can_use_off_query: $can_use_off_query\n";
 	return $can_use_off_query;

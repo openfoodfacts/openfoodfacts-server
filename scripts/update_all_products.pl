@@ -593,6 +593,35 @@ while (my $product_ref = $cursor->next) {
 	}
 
 	if ((defined $product_ref) and ($productid ne '')) {
+
+		if ($product_ref->{deleted}) {
+			print STDERR ". Skipped: product is deleted, deleting from MongoDB\n";
+			$products_collection->delete_one({"_id" => $productid});
+			$products_changed++;
+			next;
+		}
+
+		my $target_server = get_server_for_product($product_ref);
+		my $target_database = $options{other_servers}{$target_server}{mongodb};
+		if ($target_database and ($target_database ne $mongodb)) {
+			print STDERR ". Skipped: product belongs to $target_database ($target_server), deleting from $mongodb\n";
+			$products_collection->delete_one({"_id" => $productid});
+			if (!$pretend) {
+				my $target_collection = get_products_collection(
+					{
+						database => $target_database,
+						obsolete => $product_ref->{obsolete},
+						timeout => $socket_timeout_ms,
+					}
+				);
+				$target_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				push_product_update_to_redis($product_ref, {"userid" => 'update_all_products', "comment" => $comment},
+					"updated");
+			}
+			$products_changed++;
+			next;
+		}
+
 		# Delete the update_key if it exists, the field is used to keep track of which products have been processed by a run of this script,
 		# even if they were not updated because the updated product had the same content as the original product.
 		delete $product_ref->{update_key};
