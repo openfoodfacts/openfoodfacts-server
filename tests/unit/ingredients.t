@@ -1815,6 +1815,32 @@ puffed orange and caramelized unknown_fruit4.",
 				"Αλεύρι σίτου, σουσάμι 21%, αλεύρι σίτου ολικής άλεσης 20%, φυτικό έλαιο (φοινικέλαιο), ζάχαρη, σιρόπι γλυκόζης, μαλτοδεξτρίνη, αλάτι, γλουτένη σίτου, αλεύρι βύνης κριθαριού, μαγιά, αρωματική ύλη.",
 		}
 	],
+	# Portuguese origins in parenthesis: "origem", "país de origem"
+	[
+		'pt-origins-in-parenthesis',
+		{
+			lc => "pt",
+			ingredients_text =>
+				"Leite (Origem: UE), carne de porco (País de origem: Portugal), azeite (origem: Espanha, Itália), açúcar (país de origem: França), amido (de origem vegetal)",
+		}
+	],
+	# "Denominação de Origem Protegida" is a label (PDO), not an origin statement
+	[
+		'pt-pdo-not-origin',
+		{
+			lc => "pt",
+			ingredients_text =>
+				"Queijo (Denominação de Origem Protegida), vinho (Denominação de Origem Controlada), leite (origem: Portugal)",
+		}
+	],
+	# Portuguese vitamins enumeration
+	[
+		'pt-vitamins',
+		{
+			lc => "pt",
+			ingredients_text => "Leite, vitaminas (B1, B2, B6, B12, C, D3), vitaminas A e E",
+		}
+	],
 	# IT - frequent unknown Italian ingredients (cereals, sugars, fats, fibres)
 	[
 		'it-cereals-sugars-fats-fibres',
@@ -1908,6 +1934,14 @@ puffed orange and caramelized unknown_fruit4.",
 			lc => "sr",
 			ingredients_text =>
 				"aroma, pšenično brašno, obrano mleko u prahu, surutka u prahu, suncokretovo ulje, biljna mast, biljno ulje, palmino ulje, maltodekstrin, kakao masa, laktoza, crni luk, punomasno mleko u prahu, krompirov skrob, ekstrakt kvasca, prirodna aroma, kokosovo ulje, mleko, morska so, senf, beli luk u prahu, svinjsko meso, koncentrat paradajza, pirinčano brašno, pšenični skrob, seme susama, lešnik, kikiriki, med, kurkuma, čokolada, pekarski kvasac, prezle, instant kafa, jogurtna kultura, maslinovo ulje, pšenični griz, kukuruz, ražano brašno, vinsko sirće, sušeni crni luk, mrkva, ruzmarin, šećer u prahu, beli pasulj, suvo grožđe, cimet, grašak, jodirana so, tunjevina, crni čaj, sojino ulje, mleveni crni biber, pšenično brašno t500, kakao prah sa redukovanim sadržajem kakao maslaca, mononatrijum glutaminat, natrijum hidrogenkarbonat, askorbinska kiselina, guar guma, karagenan, ksantan guma, natrijum nitrit, aspartam, difosfati, sorbitol, natrijum benzoat, kalcijum karbonat, sukraloza, kalcijum propionat, želatin, riboflavini, karoteni, vitamini, tiamin, kalcijum d pantotenat, taurin, emulgator (E471), emulgatori (E322), konzervans (E202), konzervansi (E211), antioksidans (E300), stabilizator (E407), stabilizatori (E412), zgušnjivač (E415), zgušnjivači (E410), sredstvo za dizanje testa (E500), sredstva za dizanje testa (E503), pojačivač arome (E621), pojačivač ukusa (E631), boje (E150d), modifikovani skrob (E1422), zaslađivač (E951), zaslađivači (E955), sredstvo za želiranje (E440), humektant (E422), regulatori kiselosti (E330), sredstvo protiv zgrudnjavanja (E551), sredstvo za tretiranje brašna (E300), sredstvo za glaziranje (E903), učvršćivač (E509). može sadržati tragove jezgrastog voća, lešnika, mleka, slačice, glutena, susama, sezama, lupine, soju.",
+		}
+	],
+	[
+		'sv-recognise-origin-odlat-i',
+		{
+			# https://se.openfoodfacts.org/product/7318690501237/penne-rigate-ica-basic
+			lc => "sv",
+			ingredients_text => "Mjöl av _vete_* och _durumvete_**, vatten. *Odlat i: Lettland. **Odlat i: EU/icke EU.",
 		}
 	],
 );
