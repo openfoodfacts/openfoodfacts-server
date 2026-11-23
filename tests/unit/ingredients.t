@@ -2272,4 +2272,23 @@ my @origin_statement_texts = map {$_->{text}} flatten_ingredients($origin_statem
 ok((grep {$_ eq 'Viande et gras de porc'} @origin_statement_texts), 'origin statement keeps "viande et gras de porc"');
 is([grep {/Union/i} @origin_statement_texts], [], 'origin statement does not create an ingredient from an origin');
 
+# Single-ingredient synonyms and entries, each one checked on its own
+foreach my $case (
+	['en', 'Chrysanthemum', 'en:chrysanthemum'],
+	['en', 'Lemon Myrtle', 'en:lemon-myrtle'],
+	['en', 'food vinegar', 'en:table-vinegar'],
+	['de', 'Leinsamenmehl', 'en:flax-flour'],
+	['de', 'Hopfenauszüge', 'en:hop-extract'],
+	['fr', 'jus de cerises à base de jus concentré', 'en:cherry-juice-from-concentrated-cherry-juice'],
+	['pl', 'syrop z buraków cukrowych', 'en:sugar-beet-syrup'],
+	['pt', 'proteína isolada de soja', 'en:soy-protein-isolate'],
+	['hu', 'tejsav baktérium kultúra', 'en:lactic-ferments'],
+	)
+{
+	my ($lc, $text, $id) = @$case;
+	my $product_ref = {lc => $lc, ingredients_text => $text};
+	extract_ingredients_from_text($product_ref);
+	is([map {[$_->{id}, $_->{is_in_taxonomy}]} @{$product_ref->{ingredients}}], [[$id, 1]], "$lc: $text");
+}
+
 done_testing();
