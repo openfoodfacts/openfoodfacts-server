@@ -160,7 +160,7 @@ $symbols_regexp = join('|', @symbols);
 	bg => "продуктът може да съдържа следи от|mоже да съдържа следи от|може да съдържа|може да съдържа следи от",
 	bs => "može da sadrži",
 	ca => "pot contenir",
-	cs => "může obsahovat|může obsahovat stopy",
+	cs => "může obsahovat|může obsahovat stopy|muže obsahovat|muže obsahovat stopy",
 	da =>
 		"produktet kan indeholde|kan også indeholde bestanddele fra|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann enthalten|Kann Spuren|Spuren|Kann Anteile|Anteile|Kann auch|Kann|Enthält möglicherweise",
