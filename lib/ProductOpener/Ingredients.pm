@@ -6119,6 +6119,7 @@ sub normalize_vitamin ($lc, $a) {
 		($lc eq 'is') and return "$a-vítamín";
 		($lc eq 'pl') and return "witamina $a";
 		($lc eq 'pt') and return "vitamina $a";
+		($lc eq 'ru') and return "витамин $a";
 		return "vitamin $a";
 	}
 	else {
@@ -6153,6 +6154,7 @@ sub normalize_vitamins_enumeration ($lc, $vitamins_list) {
 	elsif ($lc eq 'nl') {$split_vitamins_list = "vitaminen"}
 	elsif ($lc eq 'is') {$split_vitamins_list = "vítamín"}
 	elsif ($lc eq 'pl') {$split_vitamins_list = "witaminy"}
+	elsif ($lc eq 'ru') {$split_vitamins_list = "витамины"}
 	else {$split_vitamins_list = "vitamins"}
 
 	$split_vitamins_list .= ", " . join(", ", map {normalize_vitamin($lc, $_)} @vitamins);
