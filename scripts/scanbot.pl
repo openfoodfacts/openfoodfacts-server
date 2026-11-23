@@ -40,7 +40,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products
-	qw/get_source_for_site_and_org product_path product_path_from_id retrieve_product store_product/;
+	qw/get_server_for_product get_source_for_site_and_org product_path product_path_from_id retrieve_product store_product/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -525,7 +525,15 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 				print "updating scan count for $code\n";
 				$product_ref->{last_updated_t} = time() + 0;
 				store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
-				get_products_collection()->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				if (not $product_ref->{deleted}) {
+					my $target_server = get_server_for_product($product_ref);
+					get_products_collection(
+						{
+							database => $options{other_servers}{$target_server}{mongodb},
+							obsolete => $product_ref->{obsolete}
+						}
+					)->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				}
 				push_product_update_to_redis($product_ref, {"userid" => 'scanbot', "comment" => $year}, "updated");
 			}
 		}
