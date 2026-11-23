@@ -53,8 +53,13 @@
 `
 `,                  
                     "source_text": "World Health Organization (WHO) - Fact sheet - Salt reduction",
+                    [% IF lc == 'ar' || lc == 'zh' || lc == 'fr' || lc == 'ru' || lc == 'es' %]
+                    "source_url": "https://www.who.int/[% lc %]/news-room/fact-sheets/detail/salt-reduction",
+                    "source_language": "[% lc %]",
+                    [% ELSE %]
                     "source_url": "https://www.who.int/news-room/fact-sheets/detail/salt-reduction",
                     "source_language": "en",
+                    [% END %]
             }
         },
         {

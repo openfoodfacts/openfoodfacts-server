@@ -47,17 +47,19 @@ use vars @EXPORT_OK;
 
 use ProductOpener::KnowledgePanels qw(create_panel_from_json_template);
 use ProductOpener::Tags
-	qw(canonicalize_taxonomy_tag display_taxonomy_tag_name get_tag_with_parents get_tag_direct_children cmp_taxonomy_tags_alphabetically);
+	qw(canonicalize_taxonomy_tag cc_to_country display_taxonomy_tag_name get_tag_with_parents get_tag_direct_children cmp_taxonomy_tags_alphabetically);
 use ProductOpener::Packaging qw(load_categories_packagings_materials_stats);
+use ProductOpener::PackagerCodes qw(%packager_codes);
 use ProductOpener::Stats qw(%categories_stats_per_country);
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
-use ProductOpener::Display qw/data_to_display_nutrition_table generate_query_cache_key/;
+use ProductOpener::Display qw/data_to_display_nutrition_table generate_query_cache_key get_packager_code_coordinates/;
 use ProductOpener::Data qw/can_use_off_query execute_aggregate_tags_query/;
 use ProductOpener::Cache qw/get_cache_results set_cache_results/;
 use ProductOpener::RequestStats qw/set_request_stats_time_start set_request_stats_time_end/;
 use ProductOpener::Lang qw/lang_in_other_lc/;
 
 use Encode;
+use Scalar::Util qw(looks_like_number);
 use Data::DeepAccess qw(deep_get deep_exists);
 
 =head2 create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref, $tagtype, $canon_tagid)
@@ -138,6 +140,11 @@ sub create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref,
 		create_panel_from_json_template("nova_unknown", "api/knowledge-panels/tags/nova_groups/nova_unknown.tt.json",
 			{}, $tag_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 		push(@panels, "nova_unknown");
+	}
+	elsif ($tagtype eq "emb_codes") {
+		my $created
+			= create_packager_code_panel($tag_ref, $target_lc, $target_cc, $options_ref, $canon_tagid, $request_ref);
+		push(@panels, $created) if $created;
 	}
 	if (@panels) {
 		my $panel_data_ref = {tags_panels => \@panels};
@@ -285,6 +292,67 @@ sub create_category_related_categories_panel ($tag_ref, $target_lc, $target_cc, 
 	);
 
 	return "related_categories";
+}
+
+# Field with the packager's name, then the fields of each address part, in each country's packager codes data
+my %packager_code_fields = (
+	be => ["denomination", "street_address", "city"],
+	ch => ["firmenname", "company_street", "company_city"],
+	de => ["name_des_betriebs", "strasse", "ort"],
+	ee => ["tegevuskoha_nimi", "tegevuskoha_aadress"],
+	es => ["razon_social", "dom_indl", "localidad", "provincia"],
+	fi => ["laitoksen_nimi", "kayntiosoite", "postinumero postitoimipaikka"],
+	fr => ["raison_sociale_enseigne_commerciale", "adresse", "code_postal commune"],
+	hr => ["approved_establishment", "street_address", "town_and_postal_code"],
+	lt => ["name_of_establishment", "adress", "region"],
+	rs => ["name", "place", "region"],
+	se => ["namn", "postadress"],
+	sk => ["nazov", "mesto", "okres"],
+	uk => ["name", "district", "local_authority"],
+);
+
+=head2 create_packager_code_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $packager_code, $request_ref)
+
+Creates a panel with the name and address of the packager, and a link to its location on OpenStreetMap.
+
+The panel is not created if the packager code is unknown, or has no name or address.
+
+=cut
+
+sub create_packager_code_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $packager_code, $request_ref) {
+
+	my $data_ref = $packager_codes{$packager_code} or return;
+
+	my $join_fields = sub ($fields) {
+		my $value = join(" ", grep {defined $_ and /\S/} @$data_ref{split(/ /, $fields)});
+		# backticks delimit strings in panel templates, and the title must be a single line
+		$value =~ tr/`/'/;
+		$value =~ s/\s+/ /g;
+		$value =~ s/^ | $//g;
+		return $value;
+	};
+	my ($name_field, @address_parts) = @{$packager_code_fields{$data_ref->{cc}} // ["name", "address"]};
+	my $name = $join_fields->($name_field);
+	my $address = join(", ", grep {$_ ne ""} map {$join_fields->($_)} @address_parts);
+	return if ($name eq "") or ($address eq "");
+
+	my ($lat, $lng) = get_packager_code_coordinates($packager_code);
+	my $panel_data_ref = {
+		name => $name,
+		address => $address,
+		country => cc_to_country($data_ref->{cc}),
+		siret => $data_ref->{siret},
+	};
+	# some packager codes have empty coordinates
+	if (looks_like_number($lat) and looks_like_number($lng)) {
+		$panel_data_ref->{lat} = $lat + 0.0;
+		$panel_data_ref->{lng} = $lng + 0.0;
+	}
+
+	create_panel_from_json_template("packager_code", "api/knowledge-panels/tags/emb_codes/packager_code.tt.json",
+		$panel_data_ref, $tag_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	return "packager_code";
 }
 
 sub get_children_product_counts ($category_id, $is_child_ref, $request_ref) {
