@@ -281,8 +281,11 @@ file we are allowed to read.
 
 Local paths are only accepted for imports that explicitly allow them (imports
 started by an operator script, or by our own exporters platform exporter), and
-the path must resolve inside the product images directory or inside one of the
-image directories of the import: an import must not be able to read an arbitrary
+the path must resolve inside the product images directory, inside the images
+directory of the platform that produced the export (local_images_root, set by the
+producers platform exporter: the import runs on the public platform, where the
+product images directory is a different one), or inside one of the image
+directories of the import: an import must not be able to read an arbitrary
 file of the server, e.g. to copy it into a product image.
 
 =head3 Arguments
@@ -334,8 +337,10 @@ sub get_local_image_path ($args_ref, $path) {
 
 		if (defined $candidate) {
 
-			my @roots = grep {defined $_ and $_ ne ''}
-				($BASE_DIRS{PRODUCTS_IMAGES}, $args_ref->{images_download_dir}, $args_ref->{images_dir});
+			my @roots = grep {defined $_ and $_ ne ''} (
+				$BASE_DIRS{PRODUCTS_IMAGES}, $args_ref->{local_images_root},
+				$args_ref->{images_download_dir}, $args_ref->{images_dir}
+			);
 
 			foreach my $root (@roots) {
 				my $realroot = realpath($root);
@@ -1700,6 +1705,13 @@ If the CSV contains a non-empty value for a field, the value from the CSV file i
 =head4 images_dir - optional
 
 Path to a directory that contains images for the products.
+
+=head4 local_images_root - optional
+
+Additional directory that local image paths are allowed to point to (only used with allow_local_image_paths).
+Set by the producers platform exporter to its own product images directory, as the CSV it produces
+contains paths to images of the producers platform, and is imported on the public platform.
+Unlike images_dir, the directory is not scanned for images.
 
 =head4 allow_local_image_paths - optional
 

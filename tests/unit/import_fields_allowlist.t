@@ -231,6 +231,19 @@ subtest 'local image paths are only read for operator imports' => sub {
 	is(get_local_image_path($args_ref, undef), undef, "an undefined path is refused");
 	is(get_local_image_path(undef, "$images_dir/product.jpg"), undef, "no import arguments is refused");
 
+	# The producers platform exporter passes its own product images directory,
+	# as the import runs on the public platform whose images directory is a different one
+	my $export_args_ref = {allow_local_image_paths => 1, local_images_root => $images_dir};
+
+	is(get_local_image_path($export_args_ref, "$images_dir/product.jpg"),
+		"$images_dir/product.jpg", "a file inside local_images_root is accepted");
+
+	is(get_local_image_path($export_args_ref, "$images_dir/../outside/secret.txt"),
+		undef, "a file outside of local_images_root is refused");
+
+	is(get_local_image_path({local_images_root => $images_dir}, "$images_dir/product.jpg"),
+		undef, "local_images_root alone does not allow local paths");
+
 	remove_tree($tmp_dir);
 
 	return;

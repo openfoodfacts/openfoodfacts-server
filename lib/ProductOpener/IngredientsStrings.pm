@@ -191,7 +191,8 @@ $symbols_regexp = join('|', @symbols);
 	ru => "Могут содержаться следы",
 	sk => "výrobok môže obsahovat|môže obsahovať",
 	sl => "lahko vsebuje sledi|lahko vsebuje sledove",
-	sr => "može sadržati tragove",
+	sr =>
+		"može da sadrži tragove|može da sadrži u tragovima|može sadržati u tragovima|može sadržati tragove|može sadrzati tragove|može da sadrži|može sadržati|može sadržavati",
 	sv =>
 		"denna produkt kan innet?h[åa]lla sp[åa]r av|kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
 );
@@ -267,6 +268,11 @@ $symbols_regexp = join('|', @symbols);
 		# geschützte Ursprungsbezeichnung / geschützte geografische Angabe (labels)
 		["g. g. A.", "ggA"],
 		["g. U.", "gU"],
+		# minimum / maximum before a percent: "Kakao mind. 30 %"
+		# (". " is an ingredients separator, so dotted abbreviations are expanded)
+		["mind.", "mindestens"],
+		["min.", "mindestens"],
+		["max.", "maximal"],
 	],
 
 	es => [["vit.", "vitamina"], ["m.g.", "materia grasa"]],
@@ -307,6 +313,18 @@ $symbols_regexp = join('|', @symbols);
 		["zgrud.", "zgrudnjavanja"],
 	],
 
+	hu => [
+		# minimum / maximum before a percent: "kakaó min. 50%"
+		["min.", "minimum"],
+		["max.", "maximum"],
+	],
+
+	it => [
+		# minimum / maximum before a percent: "pomodoro min. 60%"
+		["min.", "minimo"],
+		["max.", "massimo"],
+	],
+
 	nb => [
 		["bl. a.", "blant annet"],
 		["inkl.", "inklusive"],
@@ -318,6 +336,26 @@ $symbols_regexp = join('|', @symbols);
 		["fort.middel", "fortykningsmiddel"],
 		["veg.", "vegetabilsk"],
 		["pr.", "per"],
+	],
+
+	nl => [
+		# minimum / maximum before a percent: "zout max. 1%"
+		["min.", "minimaal"],
+		["max.", "maximaal"],
+	],
+
+	pt => [
+		# minimum / maximum before a percent: "avelãs mín. 10%"
+		["mín.", "mínimo"],
+		["min.", "mínimo"],
+		["máx.", "máximo"],
+		["max.", "máximo"],
+	],
+
+	ro => [
+		# minimum / maximum before a percent: "cacao min. 50%"
+		["min.", "minim"],
+		["max.", "maxim"],
 	],
 
 	ru => [
@@ -518,13 +556,19 @@ including localized strings like "minimum"
 	ca => "min|min\.|mín|mín\.|mínim|minim",
 	cs => "min|min\.",
 	da => "min\.|minimum|mindst",
+	de => "min|min\.|mind\.|mindestens",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
 	fr => "min|min\.|mini|minimum",
 	hr => "min|min\.|mini|minimum",
+	hu => "min|min\.|minimum|legalább",
+	it => "min|min\.|minimo|minima",
 	nb => "min\.|minimum",
+	nl => "min|min\.|minimaal|ten minste",
 	nn => "min\.|minimum",
 	no => "min\.|minimum",
 	pl => "min|min\.|minimum",
+	pt => "min|min\.|mín|mín\.|mínimo|minimo|no mínimo",
+	ro => "min|min\.|minim|minimum",
 	sv => "minimum|minst",
 );
 
@@ -533,13 +577,19 @@ including localized strings like "minimum"
 	ca => "max|max\.|màxim",
 	cs => "max|max\.",
 	da => "maks\.|maksimum|højst",
+	de => "max|max\.|maximal|höchstens",
 	es => "max|max\.|máximo",
 	fr => "max|max\.|maxi|maximum",
 	hr => "max|max\.|maxi|maximum",
+	hu => "max|max\.|maximum|legfeljebb",
+	it => "max|max\.|massimo|massima",
 	nb => "maks\.|maksimum",
+	nl => "max|max\.|maximaal",
 	nn => "maks\.|maksimum",
 	no => "maks\.|maksimum",
 	pl => "max|max\.|maximum",
+	pt => "max|max\.|máx|máx\.|máximo|maximo",
+	ro => "max|max\.|maxim|maximum",
 	sv => "max|maximum|högst",
 );
 
@@ -644,8 +694,14 @@ my @UNIT_MASS_NUMERATORS = ('mg', 'mcg', 'µg', 'ug', 'g');
 # ingredient-list and sentence parsing.
 # Colony-forming units: UFC / CFU
 my @UNIT_ACTIVITY_NUMERATORS = ('i\.?u', 'u\.?i', 'i\.?e', 'ufc', 'cfu');
-# Denominators after solidus (100 g before bare g)
-my @UNIT_DENOMINATORS = ('100\s*g', 'kg', 'g');
+# Denominators after solidus (100 g before bare g, 100 ml before ml):
+# per mass (mg/kg, UFC/g) and per volume (mineral water "Calcium 80 mg/l",
+# "Extraktgehalt: 1,2 g/l", "UFC/ml"). Without the volume denominators the
+# solidus splits the list and leaves an orphan "l" ingredient.
+my @UNIT_DENOMINATORS = ('100\s*g', '100\s*ml', 'kg', 'g', 'ml', 'cl', 'dl', 'l');
+# A denominator must not be the start of a longer word ("g/lait", "mg/litre")
+# or of an elided article ("hareng/l'huile")
+my $UNIT_DENOMINATOR_END_REGEXP = '(?![\p{L}\'\N{U+2019}])';
 
 =head2 _compound_unit_regexp_alternatives ()
 
@@ -660,7 +716,8 @@ sub _compound_unit_regexp_alternatives() {
 	my @alternatives;
 	foreach my $numerator (@numerators) {
 		foreach my $denominator (@UNIT_DENOMINATORS) {
-			push @alternatives, $numerator . '\s*' . $UNIT_SOLIDUS_REGEXP . '\s*' . $denominator;
+			push @alternatives,
+				$numerator . '\s*' . $UNIT_SOLIDUS_REGEXP . '\s*' . $denominator . $UNIT_DENOMINATOR_END_REGEXP;
 		}
 	}
 	return @alternatives;
@@ -685,7 +742,9 @@ sub protect_compound_unit_slashes ($text) {
 	my $denominators = join('|', @UNIT_DENOMINATORS);
 
 	# Only real solidus characters here (not U+2044): we replace them with U+2044.
+	# The numerator must start a token: "Sellerie/L-Cystein" is not "ie/l"
 	$text =~ s{
+		(?<!\p{L})
 		(
 			(?:$numerators)
 			\s*
@@ -694,6 +753,7 @@ sub protect_compound_unit_slashes ($text) {
 			(?:$denominators)
 		)
 		\b
+		$UNIT_DENOMINATOR_END_REGEXP
 	}{
 		my $unit = $1;
 		$unit =~ s{(?:/|\N{U+FF0F})}{\N{U+2044}}g;

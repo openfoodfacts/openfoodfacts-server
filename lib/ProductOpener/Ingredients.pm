@@ -241,6 +241,7 @@ my @labels = (
 	"en:fed-without-gmos", "fr:crc",
 	"en:without-gluten", "en:sustainable-farming",
 	"en:krav", "en:whole-grain",
+	"en:rainforest-alliance",
 );
 my %labels_regexps = ();
 
@@ -302,6 +303,9 @@ sub init_labels_regexps() {
 				# simple singulars and plurals
 				my $singular = $synonym;
 				$singular =~ s/s$//;
+				# a final dot is optional, as it is often removed with the ingredient separators:
+				# "Grana Padano D.O.P." -> "Grana Padano D.O.P"
+				$singular =~ s/\.$/\\.?/;
 				$label_regexp .= '|' . $singular . '|' . $singular . 's';
 
 				my $unaccented_synonym = unac_string_perl($singular);
@@ -1509,7 +1513,8 @@ sub _extract_ingredient_labels ($lc, $ingredient) {
 		my $regexp = $label_regexps_ref->{$labelid};
 		next unless defined $regexp;
 		my $is_dietary = $labelid =~ /^en:(?:vegan|vegetarian)$/;
-		while ($ingredient =~ compiled_regexp('\b(' . $regexp . ')\b')) {
+		# Use lookarounds instead of \b, as labels can end with a dot ("g.U.", "D.O.P.")
+		while ($ingredient =~ compiled_regexp('(?<!\w)(' . $regexp . ')(?!\w)')) {
 			my $label = $1;
 			my $before_the_label = $`;
 			my $after_the_label = $';
@@ -2670,10 +2675,14 @@ Text to analyze
 						$between = '';
 					}
 
-					if (    ($between =~ $separators)
-						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
+					if (
+						($between =~ $separators)
+						and ($`
+							!~ /\s*(origin|origins|origine|origem(?!\s+(?:protegida|controlada))|alkuperä|ursprung)\s*/i
+						)
 						and ($` !~ /\s*(allergens)\s*/i)
-						and ($between !~ compiled_regexp('^' . $percent_or_quantity_regexp . '$')))
+						and ($between !~ compiled_regexp('^' . $percent_or_quantity_regexp . '$'))
+						)
 					{
 						$between_level = $level + 1;
 						$log->debug(
@@ -2720,7 +2729,7 @@ Text to analyze
 
 							# try to remove the origin and store it as property
 							if ($between
-								=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i
+								=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong|pa[ií]s de origem|origem(?!\s+(?:protegida|controlada)))\s?:?\s?\b(.*)$/i
 								)
 							{
 								$log->debug("parse_ingredients_text - sub-ingredients: contains origin in $between")
@@ -6104,6 +6113,7 @@ sub normalize_vitamin ($lc, $a) {
 		($lc eq 'nl') and return "vitamine $a";
 		($lc eq 'is') and return "$a-vítamín";
 		($lc eq 'pl') and return "witamina $a";
+		($lc eq 'pt') and return "vitamina $a";
 		return "vitamin $a";
 	}
 	else {
@@ -7302,7 +7312,7 @@ my %ingredients_categories_and_types = (
 			# trailing word (e.g. "stearin") as an unexpanded ingredient.
 			types => [
 				"avocado", "coconut", "colza", "cottonseed", "olive", "palm kernel",
-				"palm stearin", "palm", "rapeseed", "safflower", "sunflower",
+				"palm stearin", "palm", "rapeseed", "safflower", "shea", "sunflower",
 			],
 		},
 	],
@@ -8094,10 +8104,31 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 		$text =~ s/($and_or)(?!($and_without_spaces |\d|$separators))/$and/ig;
 	}
 
+	# superscript parentheses used as footnote markers: "extrait de thé vert⁽¹⁾" -> "extrait de thé vert(1)"
+	$text =~ s/\N{U+207D}\s*([\N{U+00B9}\N{U+00B2}\N{U+00B3}\N{U+2070}\N{U+2074}-\N{U+2079}]+|[0-9]+|\*+)\s*\N{U+207E}/
+		my $s = $1; $s =~ tr{\N{U+2070}\N{U+00B9}\N{U+00B2}\N{U+00B3}\N{U+2074}-\N{U+2079}}{0-9}; "($s)"/eg;
+
 	$text =~ s/\&quot;/"/g;
 	$text =~ s/\&lt;/</g;
 	$text =~ s/\&gt;/>/g;
 	$text =~ s/\&apos;/'/g;
+	$text =~ s/\&nbsp;/ /g;
+	$text =~ s/\&#(?:39|x27);/'/gi;
+	$text =~ s/\&#(?:34|x22);/"/gi;
+	# HTML entities mangled by an import where & and ; became commas:
+	# "farina di grano tenero tipo ,quot,0,quot," -> "farina di grano tenero tipo "0""
+	# "zucchero ,lt,1%" -> "zucchero <1%"
+	# Only the exact tokens, and < > only before a number.
+	$text =~ s/,quot,/"/g;
+	$text =~ s/,apos,/'/g;
+	$text =~ s/,amp,/&/g;
+	$text =~ s/,lt,(?=\s*\d)/</g;
+	$text =~ s/,gt,(?=\s*\d)/>/g;
+
+	# Subscript digits to ASCII digits: "Vitamine (B₁, B₂, B₁₂, D₃)" -> "Vitamine (B1, B2, B12, D3)"
+	# (superscript digits are not converted: they are often footnote markers, as in "sucre¹")
+	$text =~ tr/\x{2080}-\x{2089}/0-9/;
+
 	# last, so that "&amp;lt;" is decoded once to "&lt;" and not to "<"
 	$text =~ s/\&amp;/&/g;
 	$text =~ s/’/'/g;
@@ -8170,7 +8201,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/(\d| )g(\*)/$1g/ig;
 
 	# transform 0,2% into 0.2%
-	$text =~ s/(\d),(\d+)( )?(\%|g\b)/$1.$2\%/ig;
+	# but not a concentration: "Extraktgehalt: 1,2 g/l" must not become "1.2%/l"
+	# (per 100 g / 100 ml is a percentage: "Fruchtgehalt: 45,5 g/100 g" -> 45.5%)
+	$text =~ s/(\d),(\d+)( )?(\%|g\b(?!\s*[\/\N{U+2044}\N{U+FF0F}](?!\s*100\s*(?:g|ml)\b)))/$1.$2\%/ig;
 	$text =~ s/—/-/g;
 	# transform 0,1-0.2% into 0.1-0.2%
 	$text =~ s/(\d),(\d+( )?-( )?\d)/$1.$2/ig;
@@ -8419,20 +8452,6 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text
 		=~ s/\b(e|[1-9][ab])(\d{3,4})([a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/normalize_additive_code($1,$2,$3,$4,$&)/ieg;
 
-	# stabilisant e420 (sans : ) -> stabilisant : e420
-	# but not acidifier (pectin) : acidifier : (pectin)
-
-	# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
-	# warning: the additive class may also be the start of the name of an additive.
-	# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
-	if (defined $additives_classes_regexps{$ingredients_lc}) {
-		my $regexp = $additives_classes_regexps{$ingredients_lc};
-		# negative look ahead so that the additive class is not preceded by other words
-		# e.g. "de l'acide" should not match "acide"
-		my $separate_additive_class_regexp = compiled_regexp('(?<!\w( |\'))\b(' . $regexp . ')(\s+)(:?)(?!\(| \()');
-		$text =~ s/$separate_additive_class_regexp/separate_additive_class($ingredients_lc,$2,$3,$4,$')/eg;
-	}
-
 	# dash with 1 missing space
 	$text =~ s/(\w)- /$1 - /ig;
 	$text =~ s/ -(\w)/ - $1/ig;
@@ -8455,6 +8474,22 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# only before words of 4+ letters, so that we do not join "and" words of other languages ("mono - und")
 	# or "di-t-butyl"
 	$text =~ s/\b(mono|di)\s?-\s?(\p{L}{4})/$1$2/ig;
+
+	# stabilisant e420 (sans : ) -> stabilisant : e420
+	# but not acidifier (pectin) : acidifier : (pectin)
+	# This is done after the normalization of mono-, di- prefixes above, so that the additive that follows
+	# the class is recognized: "Emulgator Mono - und Diglyceride" -> "Emulgator : Mono- und Diglyceride"
+
+	# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
+	# warning: the additive class may also be the start of the name of an additive.
+	# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
+	if (defined $additives_classes_regexps{$ingredients_lc}) {
+		my $regexp = $additives_classes_regexps{$ingredients_lc};
+		# negative look ahead so that the additive class is not preceded by other words
+		# e.g. "de l'acide" should not match "acide"
+		my $separate_additive_class_regexp = compiled_regexp('(?<!\w( |\'))\b(' . $regexp . ')(\s+)(:?)(?!\(| \()');
+		$text =~ s/$separate_additive_class_regexp/separate_additive_class($ingredients_lc,$2,$3,$4,$')/eg;
+	}
 
 	# acide gras -> acides gras
 	$text =~ s/acide gras/acides gras/ig;
@@ -8644,7 +8679,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 			# we need a negative look ahead (?!\)) to make sure we match (*) completely (otherwise we would match *)
 			# we use (\b|\s) before and after the symbol, to make sure we don't match a symbol that is part of another symbol
 			# e.g. * in **
-			if ($text =~ /^(.*)(\b|\s)(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*(\b|\s)/i) {
+			if ($text =~ /^(.*)(\b|\s|(?<=[,;.]))(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*(\b|\s)/i) {
 				my $after = $';
 				#print STDERR "symbol: $symbol - after: $after\n";
 				foreach my $labelid (@labels) {
@@ -8656,7 +8691,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 						if ($after =~ /^($regexp)\b\s*(\([^\)]+\))?\s*\.?\s*/i) {
 							my $label = $1;
 							$text
-								=~ s/^(.*)(\b|\s)(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*(\b|\s)$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
+								=~ s/^(.*)(\b|\s|(?<=[,;.]))(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*(\b|\s)$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
 							my $ingredients_lc_label = display_taxonomy_tag($ingredients_lc, "labels", $labelid);
 							# We don't want to match * in ** or ° in °° but we want to match them in *°
 							my $not_char_from_matched_symbol = '.';

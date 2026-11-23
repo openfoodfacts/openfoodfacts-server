@@ -5177,7 +5177,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	{
 
 		if (feature_enabled("popularity")) {
-			$sort_by = 'popularity_key';
+			$sort_by = 'popularity';
 		}
 		else {
 			$sort_by = 'last_modified_t';
@@ -5188,11 +5188,9 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		my $order = 1;
 		my $sort_by_key = $sort_by;
 
-		if ($sort_by eq "popularity") {
+		if ($sort_by eq "popularity" || $sort_by eq "popularity_key") {
 			$sort_by_key = "popularity_key";
-			$order = -1;
-		}
-		elsif ($sort_by eq "popularity_key") {
+			$sort_by = "popularity";
 			$order = -1;
 		}
 		elsif ($sort_by eq "environmental_score_score") {

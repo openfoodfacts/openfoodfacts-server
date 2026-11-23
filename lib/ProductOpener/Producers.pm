@@ -2071,6 +2071,9 @@ sub export_and_import_to_public_database ($args_ref) {
 	# name: local image paths inside the images directory, and source fields that
 	# belong to another organization than the exporting one.
 	$args_ref->{allow_local_image_paths} = 1;
+	# The import runs on the public platform, whose product images directory is not the one
+	# of the producers platform: allow paths to the images of the producers platform.
+	$args_ref->{local_images_root} = $BASE_DIRS{PRODUCTS_IMAGES};
 	$args_ref->{allow_any_source_fields} = 1;
 
 	$args_ref->{exported_t} = $started_t;

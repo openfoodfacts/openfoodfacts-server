@@ -685,11 +685,13 @@ sub export_csv ($args_ref) {
 						# File path for the image on the server, used for exporting from producers platform to public database
 						my $other = $1;
 
-						if (defined $other_images{$product_ref->{code} . "." . $other}) {
+						# include_image_paths() keys other images as "[code].other_[n]"
+						my $other_key = $product_ref->{code} . ".other_" . $other;
+						if (defined $other_images{$other_key}) {
 							$value
 								= "$BASE_DIRS{PRODUCTS_IMAGES}/"
 								. $product_path . "/"
-								. $other_images{$product_ref->{code} . "." . $other}{imgid} . ".jpg";
+								. $other_images{$other_key}{imgid} . ".jpg";
 						}
 					}
 
