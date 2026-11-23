@@ -1960,6 +1960,14 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	[
+		'lv-oils-fibres-and-traces',
+		{
+			lc => "lv",
+			ingredients_text =>
+				"cukurs, augu eļļas (rapšu, rapšu sēklu, palmu, kokosriekstu), augu tauki (palmu, palmu kodolu, palmu sēklu), šķiedrvielas (kartupeļu, ceļmalītes), augu eļļas un tauki (saulespuķu, kokosriekstu), sāls. Var saturēt olas un sojas daļiņas.",
+		}
+	],
+	[
 		'hr-frequent-unknown-ingredients',
 		{
 			lc => "hr",
