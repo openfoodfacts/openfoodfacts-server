@@ -87,7 +87,29 @@ html[data-theme="dark"] {
 // Knowledge panels (Foundation accordion), tables and select2 dropdowns.
 // Their colors are compiled by Foundation or vendor CSS, so they cannot use tokens.
 @mixin dark-overrides-panels {
-  .accordion .accordion-navigation > .content.active,
+  // Product page title strip: Sveetoy's .block sets #4f4f4f on text and headings
+  .product_banner_unranked,
+  .product_banner_unranked .title-1,
+  .product_banner_unranked .title-2,
+  .product_banner_unranked .title-3,
+  .product_banner_unranked h1,
+  .product_banner_unranked h2,
+  .product_banner_unranked h3 {
+    color: var(--text);
+  }
+  // Info alert boxes: Foundation compiles a taupe background that fails contrast
+  // with the light text and links used in dark mode.
+  .alert-box.info {
+    background-color: var(--surface-alt);
+    border-color: var(--border-control);
+    color: var(--text);
+
+    a {
+      color: var(--link);
+    }
+  }
+
+  .accordion .accordion-navigation > .content.active, > .content.active,
   .accordion dd > .content.active {
     background-color: var(--surface-card);
     color: var(--text);
