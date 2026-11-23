@@ -380,6 +380,16 @@ my @tests = (
 			lang => "lv",
 			ingredients_text_lv => "Cūkgaļa, sāls. Varsaturēt olas un sojas daļiņas."
 		}
+	],
+	# Russian "possible presence of traces"
+	[
+		'ru-traces-possible-presence',
+		{
+			lc => "ru",
+			lang => "ru",
+			ingredients_text_ru =>
+				"сахар, мука пшеничная. Возможно наличие следов: молочных продуктов, арахиса, кунжута."
+		}
 	]
 );
 
