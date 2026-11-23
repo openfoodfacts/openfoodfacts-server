@@ -2027,6 +2027,13 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	[
+		'ru-vitamins-list',
+		{
+			lc => "ru",
+			ingredients_text => "витамины (B6, B12), витамин d3, d3",
+		}
+	],
+	[
 		'sv-recognise-origin-odlat-i',
 		{
 			# https://se.openfoodfacts.org/product/7318690501237/penne-rigate-ica-basic
