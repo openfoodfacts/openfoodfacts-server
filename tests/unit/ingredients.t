@@ -1796,6 +1796,72 @@ puffed orange and caramelized unknown_fruit4.",
 				"pšenična bela moka, glukozni sirup, kakavova masa, palmino olje, repično olje, jagode 12 %, maline, korenje, paradižnikov koncentrat, krompirjev škrob, modificiran škrob, maltodekstrin, jogurt, posneto mleko v prahu, piščančje meso, jedilna želatina, alkoholni kis, vinski kis, ekstrakt kvasa, kvas, karoteni, sirilo, kumarice, emulgatorja (sojini lecitini, E471), stabilizatorji (E407, E412), gostilo (E415), antioksidanta (E300, E306), konzervansa (E202, E211), sredstvi za vzhajanje (E500, E450), sredstvo za ohranjanje vlage (E422), barvila (E160a), sladili (E950, E955), vanilin sladkor.",
 		}
 	],
+	# concentrations per volume (g/l, mg/l, mg/100 ml) must not leave an orphan "l" ingredient
+	[
+		'de-extract-content-g-per-l',
+		# 7616800204086
+		{
+			lc => "de",
+			ingredients_text =>
+				"Aufguss aus Schwarztee und Hagebutten/Karkadeblüten (Extraktgehalt: 1,2 g/l), Zucker, Zitronensaft aus Konzentrat 2%.",
+		}
+	],
+	[
+		'de-mineral-water-mg-per-l',
+		# 42376132
+		{
+			lc => "de",
+			ingredients_text =>
+				"Mineralwasser mit Natrium 19,7 mg/l, Magnesium 5,9 mg/l, Calcium 40,0 mg/l, Hydrogencarbonat 194 mg/l",
+		}
+	],
+	[
+		'it-mineral-water-mg-per-l',
+		# 80418207
+		{
+			lc => "it",
+			ingredients_text => "Bicarbonati 80 mg/l, Calcio 94.2 mg/l, Cloruri 17.9 mg/l, Sodio 10 mg/L",
+		}
+	],
+	[
+		'fr-mg-per-100-ml-and-dl',
+		{
+			lc => "fr",
+			ingredients_text => "Eau, sucre, calcium 120 mg/100 ml, magnésium 5 mg/dl, sel 2 g/l, ferments 10 UFC/ml",
+		}
+	],
+	# subscript digits in vitamin names
+	[
+		'de-vitamins-subscript-digits',
+		{
+			lc => "de",
+			ingredients_text => "Zucker, Vitamine (B₁, B₂, B₆, B₁₂, C, E, D₃), Salz",
+		}
+	],
+	[
+		'es-vitamins-subscript-digits',
+		{
+			lc => "es",
+			ingredients_text => "azúcar, vitaminas (B₁, B₂, B₆, B₁₂, D₃), sal",
+		}
+	],
+	# HTML entities mangled into ",quot,"
+	[
+		'it-mangled-html-entities',
+		# 8017596115225
+		{
+			lc => "it",
+			ingredients_text =>
+				"Farina di GRANO tenero tipo ,quot,0,quot, 32%, acqua, semi di chia ,quot,Salvia hispanica,quot, (2,7%), sale ,lt,1%",
+		}
+	],
+	[
+		'en-html-entities',
+		{
+			lc => "en",
+			ingredients_text => "wheat flour type ,quot,0,quot,, water, salt &amp; pepper, sugar &lt;1%",
+		}
+	],
 	# Portuguese origins in parenthesis: "origem", "país de origem"
 	[
 		'pt-origins-in-parenthesis',
@@ -1894,6 +1960,14 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	[
+		'lv-oils-fibres-and-traces',
+		{
+			lc => "lv",
+			ingredients_text =>
+				"cukurs, augu eļļas (rapšu, rapšu sēklu, palmu, kokosriekstu), augu tauki (palmu, palmu kodolu, palmu sēklu), šķiedrvielas (kartupeļu, ceļmalītes), augu eļļas un tauki (saulespuķu, kokosriekstu), sāls. Var saturēt olas un sojas daļiņas.",
+		}
+	],
+	[
 		'hr-frequent-unknown-ingredients',
 		{
 			lc => "hr",
@@ -1915,6 +1989,14 @@ puffed orange and caramelized unknown_fruit4.",
 			lc => "sr",
 			ingredients_text =>
 				"aroma, pšenično brašno, obrano mleko u prahu, surutka u prahu, suncokretovo ulje, biljna mast, biljno ulje, palmino ulje, maltodekstrin, kakao masa, laktoza, crni luk, punomasno mleko u prahu, krompirov skrob, ekstrakt kvasca, prirodna aroma, kokosovo ulje, mleko, morska so, senf, beli luk u prahu, svinjsko meso, koncentrat paradajza, pirinčano brašno, pšenični skrob, seme susama, lešnik, kikiriki, med, kurkuma, čokolada, pekarski kvasac, prezle, instant kafa, jogurtna kultura, maslinovo ulje, pšenični griz, kukuruz, ražano brašno, vinsko sirće, sušeni crni luk, mrkva, ruzmarin, šećer u prahu, beli pasulj, suvo grožđe, cimet, grašak, jodirana so, tunjevina, crni čaj, sojino ulje, mleveni crni biber, pšenično brašno t500, kakao prah sa redukovanim sadržajem kakao maslaca, mononatrijum glutaminat, natrijum hidrogenkarbonat, askorbinska kiselina, guar guma, karagenan, ksantan guma, natrijum nitrit, aspartam, difosfati, sorbitol, natrijum benzoat, kalcijum karbonat, sukraloza, kalcijum propionat, želatin, riboflavini, karoteni, vitamini, tiamin, kalcijum d pantotenat, taurin, emulgator (E471), emulgatori (E322), konzervans (E202), konzervansi (E211), antioksidans (E300), stabilizator (E407), stabilizatori (E412), zgušnjivač (E415), zgušnjivači (E410), sredstvo za dizanje testa (E500), sredstva za dizanje testa (E503), pojačivač arome (E621), pojačivač ukusa (E631), boje (E150d), modifikovani skrob (E1422), zaslađivač (E951), zaslađivači (E955), sredstvo za želiranje (E440), humektant (E422), regulatori kiselosti (E330), sredstvo protiv zgrudnjavanja (E551), sredstvo za tretiranje brašna (E300), sredstvo za glaziranje (E903), učvršćivač (E509). može sadržati tragove jezgrastog voća, lešnika, mleka, slačice, glutena, susama, sezama, lupine, soju.",
+		}
+	],
+	[
+		'cs-frequent-unknown-ingredients-2',
+		{
+			lc => "cs",
+			ingredients_text =>
+				"chilli, sóju, sóji, surový třtinový cukr, celeru, ibišek, petrželová nať, citronový koncentrát, švestky, sul, jablečný protlak, strouhaný kokos, sladká paprika, vajec, vanilkové aroma, zeleninová směs, citrónová šťáva, jedlá želatina, citrón, sezamová semínka, ředkev, pšeničná mouka hladká, bezvodý mléčný tuk, hořčici, saturejka, sezamu, škrobový sirup, extrakt z kurkumy, guma euchema, mandlová pasta, regulator kyselosti (E330). Muže obsahovat stopy mléka, celeru, hořčici.",
 		}
 	],
 	[
@@ -2205,5 +2287,24 @@ extract_ingredients_from_text($origin_statement);
 my @origin_statement_texts = map {$_->{text}} flatten_ingredients($origin_statement->{ingredients});
 ok((grep {$_ eq 'Viande et gras de porc'} @origin_statement_texts), 'origin statement keeps "viande et gras de porc"');
 is([grep {/Union/i} @origin_statement_texts], [], 'origin statement does not create an ingredient from an origin');
+
+# Single-ingredient synonyms and entries, each one checked on its own
+foreach my $case (
+	['en', 'Chrysanthemum', 'en:chrysanthemum'],
+	['en', 'Lemon Myrtle', 'en:lemon-myrtle'],
+	['en', 'food vinegar', 'en:table-vinegar'],
+	['de', 'Leinsamenmehl', 'en:flax-flour'],
+	['de', 'Hopfenauszüge', 'en:hop-extract'],
+	['fr', 'jus de cerises à base de jus concentré', 'en:cherry-juice-from-concentrated-cherry-juice'],
+	['pl', 'syrop z buraków cukrowych', 'en:sugar-beet-syrup'],
+	['pt', 'proteína isolada de soja', 'en:soy-protein-isolate'],
+	['hu', 'tejsav baktérium kultúra', 'en:lactic-ferments'],
+	)
+{
+	my ($lc, $text, $id) = @$case;
+	my $product_ref = {lc => $lc, ingredients_text => $text};
+	extract_ingredients_from_text($product_ref);
+	is([map {[$_->{id}, $_->{is_in_taxonomy}]} @{$product_ref->{ingredients}}], [[$id, 1]], "$lc: $text");
+}
 
 done_testing();

@@ -35922,6 +35922,14 @@ de: Roggenknäckebrote
 fi: Ruisnäkkileivät
 fr: Pains croustillants au seigle
 sv: Rågknäckebröd
+
+< en: Rye crispbreads
+en: Refined rye crispbreads, Light rye crispbreads
+da: Knækbrød af sigtet rugmel
+de: Helle Roggenknäckebrote
+fr: Pains croustillants au seigle non complets
+sv: Knäckebröd av siktat rågmjöl
+description:en: Rye crispbreads made with refined (light) rye flour, not wholemeal.
 foodex2_code:en: A006C
 foodex2_extended_name:en: Crisp bread, rye, refined flour
 foodex2_implicit_facets:en: F04.A001K$F10.A07XK$F33.A0C3Q
@@ -35959,11 +35967,13 @@ nl: Knäckebrot (volkoren)
 sv: Fullkornsknäckebröd, Knäckebröd (fullkorn)
 
 < en: Crispbreads
-en: Crispbreads (non-wholemeal), Crispbreads(non-wholemeal)
-da: Knækbrød (ikke-fuldkorn)
-fr: Pains croustillants non-complets
-nl: Knäckebrot (niet-volkoren)
-sv: Knäckebröd (icke-fullkorn)
+en: Refined wheat crispbreads, Light wheat crispbreads, Crispbreads (non-wholemeal), Crispbreads(non-wholemeal)
+da: Knækbrød af hvidt hvedemel, Knækbrød (ikke-fuldkorn)
+de: Helle Weizenknäckebrote
+fr: Pains croustillants au blé non complets, Pains croustillants non-complets
+nl: Tarweknäckebröd (niet-volkoren), Knäckebrot (niet-volkoren)
+sv: Veteknäckebröd (icke-fullkorn), Knäckebröd (icke-fullkorn)
+description:en: Crispbreads made with refined wheat flour, not wholemeal.
 foodex2_code:en: A006F
 foodex2_common_names:en: crackerbread light
 foodex2_extended_name:en: Crisp bread, wheat, refined flour
@@ -36990,6 +37000,15 @@ comment:en: Do not confuse these with the small snacks
 google_product_taxonomy_id:en: 3446
 sales_format:en: package, item
 wikidata:en: Q160525
+
+< en: Bread Pretzels
+en: Covrigi, Romanian pretzels
+ro: Covrigi, Covrig
+comment:en: Romanian bread rings or sticks, often topped with salt, sesame or poppy seeds. The small crunchy snacks are Covrigei.
+
+< en: Covrigi
+en: Covrigi de Buzău, Covrigi de Buzau
+ro: Covrigi de Buzău, Covrigi de Buzau
 
 < en: Special breads
 en: Bruschetta breads
@@ -41045,6 +41064,7 @@ fr: Meringues fantaisie, meringue fantaisie
 < en: Candies
 en: Gummi candies, Gelified candies, Jelly candy
 ca: Caramels gelificats
+da: Vingummi
 de: Gummibonbons, fruchtgummi
 es: Caramelos de goma
 fi: Hyytelömakeiset
@@ -41100,6 +41120,14 @@ pl: Żelki-truskawki
 < en: Gummi candies
 en: Wine gums
 nl: Wine gums
+description:en: Firm glazed gummies. Not coated in sugar (see Sugar-coated gummies).
+
+< en: Gummi candies
+en: Sugar-coated gummies, Sugared gummies, Gum drops, Gumdrops
+de: Gezuckerte Fruchtgummis, Fruchtgummi gezuckert
+fr: Bonbons gélifiés sucrés
+nl: Gesuikerde gummi-snoepjes
+description:en: Gummies coated in granulated sugar, including sour sugar-coated gummies.
 foodex2_code:en: A035K
 foodex2_common_names:en: Gumdrops
 foodex2_extended_name:en: Gum drops
@@ -83638,6 +83666,7 @@ origins:en: en:poland
 protected_name_file_number:en: TSG-PL-0053
 protected_name_type:en: tsg
 
+< en: Kielbasa
 < en: Polish meat products
 pl: Kiełbasa lisiecka
 origins:en: en:poland
@@ -98270,7 +98299,7 @@ it: Salsicce affumicate
 nl: Rookworsten, Gerookte worsten
 pl: Kiełbasy wędzone, Kiełbasa wędzona
 
-< en: Sausages
+< en: Cooked sausages
 en: Kielbasa, Polish sausages
 de: Polnische Würste
 fr: Saucisses polonaises
@@ -98379,9 +98408,10 @@ ciqual_food_code:en: 8705
 ciqual_food_name:en: Black or white pudding (blood sausage), sautéed (average)
 ciqual_food_name:fr: Boudin noir ou blanc, sauté/poêlé (aliment moyen)
 
+< en: Cooked sausages
 < en: Tripe dishes
 < fr: Boudins
-en: Black pudding
+en: Black pudding, Blood sausages
 de: Blutwürste, Schwarzwürste, Schwarze Wurst
 es: Morcilla
 fi: Veripalttu
@@ -104454,6 +104484,15 @@ de: Nussecken
 
 < en: Pastries
 de: Mandelhörnchen
+
+< en: Pastries
+en: Mazarins
+da: Mazariner
+de: Mazarin-Törtchen
+nb: Mazariner
+nn: Mazarinar
+sv: Mazariner
+wikidata:en: Q10578820
 
 < en: Pastries
 xx: Succès
@@ -128506,6 +128545,11 @@ wikidata:en: Q160525
 
 < en: Pretzel
 fr: mélange Sticks et Bretzels
+
+< en: Pretzel
+en: Covrigei
+ro: Covrigei, Covrigei cu sare
+comment:en: Small crunchy Romanian pretzel rings or sticks, eaten as a snack
 
 < en: Crackers(Appetizers)
 en: Salty flaky biscuits

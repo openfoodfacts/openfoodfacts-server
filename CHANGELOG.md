@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.126.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.125.0...v2.126.0) (2026-11-23)
+
+
+### Features
+
+* packager code knowledge panel for the packager code tag page ([#15348](https://github.com/openfoodfacts/openfoodfacts-server/issues/15348)) ([193c189](https://github.com/openfoodfacts/openfoodfacts-server/commit/193c18953d7516fcba99efce8f7871dada292cca))
+
+
+### Bug Fixes
+
+* **ingredients:** Latvian oil and fibre lists and "may contain" sentences ([#15526](https://github.com/openfoodfacts/openfoodfacts-server/issues/15526)) ([35162f1](https://github.com/openfoodfacts/openfoodfacts-server/commit/35162f1cabcafec775a7d8e2bb3182486065e319))
+* **ingredients:** unit denominators, subscript digits and HTML-entity debris in ingredient lists ([#15410](https://github.com/openfoodfacts/openfoodfacts-server/issues/15410)) ([7b5cfea](https://github.com/openfoodfacts/openfoodfacts-server/commit/7b5cfea5ca960d5b766dc1575c5660403cbcefb1))
+* **knowledge-panels:** localize WHO salt fact sheet source URL ([#7204](https://github.com/openfoodfacts/openfoodfacts-server/issues/7204)) ([#15468](https://github.com/openfoodfacts/openfoodfacts-server/issues/15468)) ([181b1ea](https://github.com/openfoodfacts/openfoodfacts-server/commit/181b1ea1eab4b69d7e42fe8e272b6a2259fbc444))
+
 ## [2.125.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.124.1...v2.125.0) (2026-11-20)
 
 
