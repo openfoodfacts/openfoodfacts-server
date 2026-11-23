@@ -2457,9 +2457,10 @@ my @tests = (
 				'text' => 'bananer'
 			},
 			{
-				'id' => "nb:dehydrert gressl\x{f8}k",
-				'is_in_taxonomy' => 0,
-				'text' => "dehydrert gressl\x{f8}k"
+				'id' => 'en:chives',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:dehydrated',
+				'text' => "gressl\x{f8}k"
 			},
 			{
 				'id' => 'en:banana',
