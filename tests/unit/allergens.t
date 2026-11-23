@@ -358,6 +358,28 @@ my @tests = (
 			lang => "sr",
 			ingredients_text_sr => "šećer, kakao maslac, mleko u prahu. Može da sadrži u tragovima: kikiriki."
 		}
+	],
+
+	# Latvian traces: first item after "Var saturēt", trailing "daļiņas", "iespējama ... klātbūtne"
+	# the first item right after "klātbūtne:" is not picked up yet
+	[
+		'lv-traces',
+		{
+			lc => "lv",
+			lang => "lv",
+			ingredients_text_lv =>
+				"Kviešu milti, cukurs, sāls. Var saturēt olas un sojas daļiņas. Produktā iespējama šādu alergēnu klātbūtne: piens, sinepes."
+		}
+	],
+
+	# Latvian traces: "Varsaturēt" without a space
+	[
+		'lv-traces-without-space',
+		{
+			lc => "lv",
+			lang => "lv",
+			ingredients_text_lv => "Cūkgaļa, sāls. Varsaturēt olas un sojas daļiņas."
+		}
 	]
 );
 
