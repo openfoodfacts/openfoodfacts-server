@@ -551,6 +551,13 @@ my $tests_ref = [
 		path => '/api/v3/tag/additives/e120',
 		expected_status_code => 200,
 	},
+	# a client that excludes the panel does not get it
+	{
+		test_case => 'api-v3-tag-additive-e250-additive-facts-panel-excluded',
+		method => 'GET',
+		path => '/api/v3/tag/additives/e250?knowledge_panels_excluded=additive_facts',
+		expected_status_code => 200,
+	},
 	{
 		test_case => 'api-v3-tag-additive-unknown-no-additive-facts-panel',
 		method => 'GET',

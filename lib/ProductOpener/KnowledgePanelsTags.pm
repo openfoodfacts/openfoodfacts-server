@@ -147,7 +147,7 @@ sub create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref,
 			= create_packager_code_panel($tag_ref, $target_lc, $target_cc, $options_ref, $canon_tagid, $request_ref);
 		push(@panels, $created) if $created;
 	}
-	elsif ($tagtype eq "additives") {
+	elsif (($tagtype eq "additives") and $options_ref->{knowledge_panels_includes}->("additive_facts")) {
 		my $created
 			= create_additive_facts_panel($tag_ref, $target_lc, $target_cc, $options_ref, $canon_tagid, $request_ref);
 		push(@panels, $created) if $created;
