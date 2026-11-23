@@ -1,5 +1,6 @@
-// scss/_dark.scss
-// Dark-mode overrides for Foundation/Sveetoy/legacy rules that cannot use tokens.
+
+// Dark-mode overrides for Foundation/Sveetoy/legacy rules
+// that cannot use tokens.
 // Must be imported last in app-ltr.scss and app-rtl.scss.
 
 @mixin dark-overrides {
@@ -17,20 +18,35 @@
     background-color: var(--surface-card);
     color: var(--text);
   }
-}
+
   .toggle_food_preferences label {
     color: var(--text);
   }
 
-    .list_product_a_match_yes {
+  :where(a:not(.button)) {
+    color: var(--link);
+  }
+
+  .footer_social_icon {
+    filter: invert(1);
+  }
+
+  .list_product_a_match_yes {
     background-color: #1e3a24;
-    &:hover { background-color: #27502f; }
+
+    &:hover {
+      background-color: #27502f;
+    }
   }
 
   .list_product_a_match_no {
     background-color: #4a2020;
-    &:hover { background-color: #5e2828; }
+
+    &:hover {
+      background-color: #5e2828;
+    }
   }
+}
 
 html[data-theme="dark"] {
   @include dark-overrides;
