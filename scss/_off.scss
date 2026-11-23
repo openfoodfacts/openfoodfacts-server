@@ -935,7 +935,7 @@ html[dir="rtl"] {
 
 /* smaller text for descriptions */
 .panel_text .description {
-  color: #555;
+  color: var(--text-subtle);
   font-size: 0.8em;
 }
 
