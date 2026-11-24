@@ -2059,6 +2059,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#make-dev-error-unknown-flag-env-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        make dev error: unknown flag: --env-file
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3199,6 +3210,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#make-dev-error-unknown-flag-env-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        make dev error: unknown flag: --env-file
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3248,9 +3270,16 @@ to instantly provision a ready-to-code development environment in the cloud.</p>
 <p><strong>Installation steps:</strong></p>
 <ul>
 <li>GIT version &gt;= 2.25.0</li>
-<li><a href="https://docs.docker.com/engine/install/">Install Docker CE</a><blockquote>
-<p>If you run e.g. Debian, don't forget to add your user to the <code>docker</code> group!</p>
+<li><a href="https://docs.docker.com/engine/install/">Install Docker CE</a> (Docker Engine)</li>
+<li><a href="https://docs.docker.com/compose/install/">Docker Compose v2 or later</a> (Docker Compose CLI plugin)<ul>
+<li>Ensure a supported version of Docker Compose V2 is installed and registered as a Docker CLI plugin. Note that Product Opener commands invoke Docker Compose through the Docker CLI plugin (<code>docker compose</code> with a space), rather than invoking a standalone <code>docker-compose</code> executable directly.</li>
+<li>Verify your installation by running:
+  <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>version
+</code></pre></div><blockquote>
+<p>If you run e.g. Debian or Ubuntu, don't forget to add your user to the <code>docker</code> group and ensure the <code>docker-compose-plugin</code> package is installed alongside Docker Engine.</p>
 </blockquote>
+</li>
+</ul>
 </li>
 </ul>
 <h3 id="macos-prerequisites-installing-gnu-grep-for-full-regex-support">MacOS Prerequisites: Installing GNU grep for Full Regex Support<a class="headerlink" href="#macos-prerequisites-installing-gnu-grep-for-full-regex-support" title="Permanent link">#</a></h3>
@@ -3788,6 +3817,64 @@ make:<span class="w"> </span>***<span class="w"> </span><span class="o">[</span>
 <p>Add the user to docker group :
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span>
 </code></pre></div></p>
+<h3 id="make-dev-error-unknown-flag-env-file">make dev error: unknown flag: --env-file<a class="headerlink" href="#make-dev-error-unknown-flag-env-file" title="Permanent link">#</a></h3>
+<p>When running <code>make dev</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">COMPOSE_FILE</span><span class="o">=</span><span class="s2">"docker-compose.yml;docker/dev.yml"</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>--env-file<span class="o">=</span>.env<span class="w"> </span>build
+unknown<span class="w"> </span>flag:<span class="w"> </span>--env-file
+
+Usage:<span class="w">  </span>docker<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARG...<span class="o">]</span>
+
+Run<span class="w"> </span><span class="s1">'docker --help'</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information
+</code></pre></div>
+<p><strong>Reason:</strong></p>
+<p>The banner <code>Usage: docker [OPTIONS] COMMAND [ARG...]</code> indicates that the root Docker CLI handled the flag rather than Docker Compose. This occurs when Docker CLI cannot dispatch <code>compose</code> to the Compose CLI plugin, such as when:</p>
+<ol>
+<li>The <strong>Docker Compose CLI plugin</strong> (<code>docker-compose-plugin</code>) is not installed.</li>
+<li>The Docker Compose CLI plugin is installed, but is not discoverable in standard Docker CLI plugin directories.</li>
+<li>A standalone <code>docker-compose</code> executable is present in PATH, but the Docker Compose CLI plugin (accessible through <code>docker compose</code>) is not installed or registered with the Docker CLI.</li>
+</ol>
+<blockquote>
+<p><strong>Note for Linux distributions (e.g. Arch Linux, Debian, Ubuntu):</strong> Docker Engine and Docker Compose are often packaged separately (such as <code>docker</code> and <code>docker-compose</code> on Arch Linux, or <code>docker-ce</code> and <code>docker-compose-plugin</code> on Debian/Ubuntu). Installing Docker Engine alone does not automatically install Docker Compose.</p>
+<p><strong>Compatibility Note:</strong> Once the Docker Compose CLI plugin is installed and discoverable, ensure your installed Compose version supports the global <code>--env-file</code> option by verifying <code>docker compose --help</code>.</p>
+</blockquote>
+<p><strong>Diagnostic steps &amp; Solution:</strong></p>
+<ol>
+<li>
+<p>Check your installed Docker Compose plugin:
+   <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>version
+</code></pre></div>
+   If this command produces either of the following errors:
+   <div class="highlight"><pre><span></span><code>docker:<span class="w"> </span>unknown<span class="w"> </span>command:<span class="w"> </span>docker<span class="w"> </span>compose
+docker:<span class="w"> </span><span class="s1">'compose'</span><span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>a<span class="w"> </span>docker<span class="w"> </span>command.
+</code></pre></div>
+   the Docker Compose CLI plugin may either be missing or not registered in your Docker plugins directory.</p>
+</li>
+<li>
+<p>Verify that <code>--env-file</code> is supported by your Docker Compose installation:
+   <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>--help
+</code></pre></div>
+   Look for <code>--env-file</code> under the listed options.</p>
+</li>
+<li>
+<p>On Arch Linux, verify that both packages are installed:
+   <div class="highlight"><pre><span></span><code>pacman<span class="w"> </span>-Q<span class="w"> </span>docker<span class="w"> </span>docker-compose
+</code></pre></div>
+   If <code>docker-compose</code> is missing, install it with:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>docker-compose
+</code></pre></div></p>
+</li>
+<li>
+<p>For other Linux distributions, macOS, or Windows, install or upgrade Docker Compose following the official documentation:</p>
+<ul>
+<li><a href="https://docs.docker.com/compose/install/">Official Docker Compose Installation Guide</a></li>
+<li><a href="https://docs.docker.com/compose/install/linux/">Docker Compose Linux Installation Guide</a></li>
+<li>For macOS and Windows, update <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>, which includes the Compose CLI plugin.</li>
+</ul>
+</li>
+<li>
+<p>Re-verify by running <code>docker compose version</code> to ensure the Docker Compose CLI plugin is recognized, then re-run <code>make dev</code>.</p>
+</li>
+</ol>
 
 
 
