@@ -160,7 +160,7 @@ $symbols_regexp = join('|', @symbols);
 	bg => "продуктът може да съдържа следи от|mоже да съдържа следи от|може да съдържа|може да съдържа следи от",
 	bs => "može da sadrži",
 	ca => "pot contenir",
-	cs => "může obsahovat|může obsahovat stopy",
+	cs => "může obsahovat|může obsahovat stopy|muže obsahovat|muže obsahovat stopy",
 	da =>
 		"produktet kan indeholde|kan også indeholde bestanddele fra|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann enthalten|Kann Spuren|Spuren|Kann Anteile|Anteile|Kann auch|Kann|Enthält möglicherweise",
@@ -178,7 +178,8 @@ $symbols_regexp = join('|', @symbols);
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	lt => "sudėtyje gali būti|Taip pat, gali būti|gali būti|dalių",
-	lv => "alergēni|kupātdesiņa var|pārpalikumi|produkts var|dalinas|sastāva var but|var saturé|var satur[ēé]t",
+	lv =>
+		"alergēni|iespējama šādu alergēnu klātbūtne|kupātdesiņa var|pārpalikumi|produkts var|dalinas|sastāva var but|var saturé|var ?satur[eēéë]t",
 	mk => "Производот може да содржи|може да содржи",
 	nl =>
 		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar|Kan ook",
