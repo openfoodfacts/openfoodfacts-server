@@ -515,7 +515,7 @@ de: Sojalecithine, Sojalecithin, Soja-Lecithine, Emulgator Sojalecithine, Soja-L
 el: λεκιθίνη σόγιας
 es: lecitina de soja, lecitina de soya, lecitinas de soja, lecitinas de soya
 et: sojaletsitiin
-fi: soijalesitiini, soijalesitiiniä, soijalesitiinit, E322 soijasta
+fi: soijalesitiini, soijalesitiiniä, soijalesitiinit, E322 soijasta, e322 soijalesitiini
 fr: lécithine de soja, lécithines de soja, lécithine de soja e322
 he: לציטין סויה
 hi: सोया लेसिथिन
@@ -574,7 +574,7 @@ de: Sonnenblumenlecithine, Sonnenblumenlecithin, Sonnenblumen-Lecithine, Sonnenb
 el: λεκιθίνες ηλιστροπιου
 es: lecitina de girasol, lecitinas de girasol
 et: päevalilleletsitiin, päevalille letsitiin
-fi: auringonkukkalesitiini, auringonkukkalesitiiniä
+fi: auringonkukkalesitiini, auringonkukkalesitiiniä, e322 auringonkukkalesitiini
 fr: lécithine de tournesol
 hr: suncokretov lecitin, E322 suncokretov lecitin, lecitin suncokreta
 hu: napraforgó lecitin
@@ -1667,7 +1667,7 @@ es: enzima
 et: ensüüm, ensüümid
 eu: entzima
 fa: آنزیم
-fi: entsyymi
+fi: entsyymi, entsyymit
 fo: kveiki
 fr: Enzyme
 ga: einsím
@@ -2908,7 +2908,7 @@ de: Magermilch, entrahmte Milch, fettarme Milch
 es: Leche descremada, Leche desnatada, leche sin grasas, Leche baja en grasa
 et: Lõss, rasvatu piim
 fa: شیر خشک بدون چربی
-fi: rasvaton maito, Vähärasvainen maito
+fi: rasvaton maito, Vähärasvainen maito, rasvaton maito jauheesta
 fr: lait écrémé, lait maigre
 gl: Leite desnatado
 he: חלב רזה
@@ -14120,6 +14120,7 @@ es: grasa de cerdo, grasa animal de cerdo
 et: seapekk
 eu: txerri-gantz
 fa: چربی خوک
+fi: silava
 fr: gras de porc
 hr: svinjska mast, svinjsko masno tkivo, svinjsko čvrsto masno tkivo
 hu: slanina, sertészsír
@@ -19664,7 +19665,7 @@ usda_ndb_name:en: Fish oil, sardine
 en: poultry fat
 de: Geflügelfett
 es: Grasa de aves
-fi: siipikarjarasva
+fi: siipikarjarasva, siipikarjanrasva
 fr: graisse de volaille
 hr: mast peradi
 hu: baromfizsír
@@ -20076,7 +20077,7 @@ bn: আপেল সিডার ভিনেগার
 da: æblecidereddike, æbleeddike
 de: Apfelweinessig
 es: vinagre de sidra de manzana
-fi: omenasiiderietikka
+fi: omenasiiderietikka, omenaviinietikka
 fr: vinaigre de cidre de pomme
 he: חומץ תפוחים
 # hr:jabučni ocat
@@ -32932,6 +32933,7 @@ fr: riz riceberry mélangé
 # is this the same as round rice?
 < en: rice
 en: sushi rice
+fi: sushiriisi
 fr: riz pour sushi
 hr: sushi riža
 it: riso per sushi
@@ -33522,7 +33524,7 @@ da: karamelliseret sukker
 de: Karamellzucker, karamellisierter Zucker
 es: azúcar caramelizado
 et: karamelliseeritud suhkur
-fi: karamellisoitu sokeri, karamellisoitua sokeria, karamellisokeri
+fi: karamellisoitu sokeri, karamellisoitua sokeria, karamellisokeri, poltettu sokeri
 fr: sucre brun, sucre caramel, sucre caramélisé
 hr: karamelizirani šećer, karameliziran šećer
 hu: karamellizált cukor
@@ -35109,6 +35111,7 @@ nl: oligofructosestroop
 
 < en: oligofructose
 en: oligofructose fibre
+fi: oligofruktoosikuitu
 it: fibra di oligofruttosio
 
 < en: oligofructose
@@ -35139,7 +35142,7 @@ de: Glukose-Fruktose-Sirup, Glukose-Fruktosesirup, Glukose Fruktose sirup, Gluco
 el: σιρόπι γλυκόζης-φρουκτόζης
 es: jarabe de glucosa y fructosa, jarabe de glucosa-fructosa, sirope de glucosa y fructosa, sirope de glucosa-fructosa
 et: glükoosi-fruktoosisiirup, glükoosifruktoosisiirup
-fi: glukoosi-fruktoosisiirappi, glukoosi-fruktoosisiirappia, fruktoosi-glukoosisiirappi, glukoosi-fruktoosi-siirappi
+fi: glukoosi-fruktoosisiirappi, glukoosi-fruktoosisiirappia, fruktoosi-glukoosisiirappi, glukoosi-fruktoosi-siirappi, glukoosifruktoosisiirappi
 fr: sirop de glucose-fructose, sirop de glucose et de fructose, sirop de fructose-glucose
 hr: fruktozno-glukozni sirup, glukozno-fruktozni sirup, glukozno-fruktani sirup
 hu: glükóz-fruktóz szirup, fruktóz-glükóz-szirup, glükóz-fruktózszirup, fruktóz-glükózszörp, glükóz-fruktózszörp, glükóz-fruktózszőrp
@@ -38827,7 +38830,7 @@ el: σόδα
 eo: Karbonata akvo
 es: Agua carbonatada
 et: Gaseeritud vesi, karboniseeritud vesi, mulliga vesi
-fi: soodavesi, hiilihapotettu vesi
+fi: soodavesi, hiilihapotettu vesi, hiilihappopitoinen vesi
 fr: Eau gazeuse, eau acidulée, eau effervescente, eau pétillante, eau gazéifiée, soda club, soda nature, eau gazéifié, eau gazéfiée, soda, eau de seltz
 he: מי סודה
 hr: gazirana voda
@@ -39357,6 +39360,7 @@ pl: kiełki soi
 < en: soya bean
 en: hulled soya bean
 cs: loupané sójové boby
+fi: kuorittu soijapapu
 it: fagioli di soia decorticati
 #da:afskallede sojabønner
 #de:geschälte Sojabohnen
@@ -48070,7 +48074,7 @@ eo: kokosnukso
 es: coco
 et: Kookospähkel
 eu: koko
-fi: kookos, kookospähkinä
+fi: kookos, kookospähkinä, puristettu kookospähkinä
 fr: noix de coco, coco
 gl: Coco
 he: קוקוס
@@ -54914,7 +54918,7 @@ da: icebergsalat, iceberg-salat
 de: Eisbergsalat
 eo: glacilaktuko
 es: lechuga iceberg, iceberg
-fi: jäävuorisalaatti
+fi: jäävuorisalaatti, jääsalaatti
 fr: laitue iceberg, iceberg
 hr: ledena salata
 hu: jégsaláta
@@ -56417,6 +56421,7 @@ usda_ndb_name:en: Cauliflower, green, raw
 en: pointed cabbage
 da: spidskål
 de: Spitzkohl
+fi: suippokaali
 la: Brassica oleracea var. capitata f. acuta
 sv: spetskål
 description:en: POINTED CABBAGE, also known as cone, sweetheart, hispi or sugarloaf cabbage is a form of cabbage (Brassica oleracea) with a tapering shape and large delicate leaves varying in colour from yellowish to blue-green. It tastes less pronounced and more delicate than common white cabbage (Brassica oleracea var. capitata f. alba).
@@ -59155,7 +59160,7 @@ eo: askolonio
 es: cebolla de primavera, cebolletas tiernas
 et: roheline sibul
 fa: پیازچه
-fi: vihersipuli, vihersipulit
+fi: vihersipuli, vihersipulit, kevätsipuli
 fr: oignon vert, cébette, oignon de printemps, oignons verts, cébettes, oignons de printemps, oignon nouveau, oignons nouveaux
 he: בצל ירוק
 hi: हरी प्याज
@@ -63873,6 +63878,7 @@ fr: feuille de chene rouge
 < en: salad
 en: salad mix
 de: Mischsalat
+fi: salaattisekoitus
 fr: mélange de salades, salade mélangée
 it: Insalata mista
 sv: salladsmix
@@ -64378,6 +64384,7 @@ it: purea di peperoncino
 < en: chili pepper
 en: chili paste, chilli paste
 es: pasta de pimiento
+fi: chilitahna
 fr: pâte de piment
 pt: massa de pimentão
 sv: chilipasta
@@ -64916,6 +64923,7 @@ sr: paprika u prahu
 
 < en: paprika
 en: smoked paprika
+fi: savupaprika
 it: paprika affumicata
 nl: gerookte paprika
 
@@ -66783,6 +66791,7 @@ el: χλωρά φασόλια, πράσινα φασόλια
 es: judía verde, judías verdes, alubias verdes
 eu: leka
 fa: لوبیا سبز
+fi: vihreä papu
 fr: haricot vert, haricots verts, haricot princesse, haricots princesses
 he: שעועית ירוקה
 hr: grah mahunar, mahuna zelena, zelene mahune, zeleni grah
@@ -69679,7 +69688,7 @@ it: farina integrale di lenticchie
 en: lentil protein
 cs: čočkový protein, čočková bílkovina
 da: linseprotein
-fi: linssiproteiinia
+fi: linssiproteiinia, linssiproteiini
 sv: linsprotein
 
 < en: lentil protein
@@ -98149,7 +98158,7 @@ nl: scharreleigeel, vrije-uitloopeigeel, vrije uitloop eigeel, vrije uitloopEIge
 en: chicken egg yolk
 de: Hühnereieigelb, Hühnereigelb, Hühnerei-Eigelb
 es: yema de huevo de pollo
-fi: kananmunankeltuainen
+fi: kananmunankeltuainen, kananmunan keltuainen
 fr: jaune d’œuf de poules
 hr: kokošji žumanjak
 it: Tuorlo d'uovo di gallina
@@ -102221,7 +102230,7 @@ eo: Muslio
 es: Muesli, Mueslis
 et: Müsli
 eu: Muesli
-fi: Mysli
+fi: Mysli, granola
 fr: muesli, müesli, Mueslis croustillants, Granolas
 gl: Muesli
 he: מוזלי
@@ -103892,6 +103901,7 @@ ciqual_food_name:en: Jam, strawberry
 en: raspberry jam
 bg: конфитюр от малини
 de: Himbeermarmelade
+fi: vadelmahillo
 fr: confiture de framboise
 hr: džem od malina
 it: confettura di lamponi, marmellata di lamponi
