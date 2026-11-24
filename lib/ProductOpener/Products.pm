@@ -2556,19 +2556,42 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 			}
 
 			# Tag fields from %writable_tags_fields:
-			# If a tag field was updated via its _tags array (e.g. categories_tags, labels_tags),
-			# the scalar field may not be set or updated. We incorporate the tags so changes
-			# are detected in the product history.
+			# If a tag field was updated via its input tags (stored in tags_sources),
+			# the scalar field is not set after schema 1004 (except for brands).
+			# We compare tags_sources (excluding source "ingredients") to track what the user
+			# wrote without false positives from taxonomy parents or ingredients-derived allergens.
 			foreach my $tag_field (@writable_tags_fields_list) {
-				my $tags_key = $tag_field . "_tags";
-				if (defined $product_ref->{$tags_key} and ref($product_ref->{$tags_key}) eq 'ARRAY' and @{$product_ref->{$tags_key}}) {
-					my $tags_signature = join(",", sort @{$product_ref->{$tags_key}});
-					if (defined $current{fields}{$tag_field} and $current{fields}{$tag_field} ne '') {
-						$current{fields}{$tag_field} = $tags_signature . " | " . $current{fields}{$tag_field};
+				# Brands keeps its scalar after schema 1004 upgrade, keep it for ?blame=1
+				next if defined $current{fields}{$tag_field} and $current{fields}{$tag_field} ne '';
+
+				my @user_tags;
+				if (defined $product_ref->{tags_sources}{$tag_field}) {
+					foreach my $source (sort keys %{$product_ref->{tags_sources}{$tag_field}}) {
+						next if $source eq 'ingredients';
+						my $source_tags = $product_ref->{tags_sources}{$tag_field}{$source}{tags};
+						if (defined $source_tags and ref($source_tags) eq 'ARRAY') {
+							push @user_tags, @$source_tags;
+						}
 					}
-					else {
-						$current{fields}{$tag_field} = $tags_signature;
+				}
+				elsif (not exists $product_ref->{tags_sources}) {
+					# Fallback for old schema revisions or test mocks without tags_sources
+					my $tags_key = $tag_field . '_tags';
+					if (    defined $product_ref->{$tags_key}
+						and ref($product_ref->{$tags_key}) eq 'ARRAY'
+						and @{$product_ref->{$tags_key}})
+					{
+						# Avoid ingredients-derived allergens when tags_sources is absent
+						if ($tag_field ne 'allergens' and $tag_field ne 'traces') {
+							push @user_tags, @{$product_ref->{$tags_key}};
+						}
 					}
+				}
+
+				if (@user_tags) {
+					my %seen;
+					my @unique_tags = sort grep {!$seen{$_}++} @user_tags;
+					$current{fields}{$tag_field} = join(',', @unique_tags);
 				}
 			}
 
