@@ -714,4 +714,33 @@ subtest 'NOVA groups query params backward compatibility (Issue #15405)' => sub 
 	);
 };
 
+subtest 'NOVA groups facet list coalescing and count summing' => sub {
+	no warnings 'redefine';
+	local *ProductOpener::Display::query_list_of_tags = sub {
+		return (
+			[
+				{_id => 'en:unknown', count => 10},
+				{_id => 'unknown', count => 5},
+				{_id => 'en:1-unprocessed-or-minimally-processed-foods', count => 20},
+				{_id => '1', count => 7},
+				{_id => 'en:not-applicable', count => 3},
+				{_id => 'not-applicable', count => 2},
+			],
+			'count'
+		);
+	};
+	my $req = {
+		lc => 'en',
+		groupby_tagtype => 'nova_groups',
+		structured_response => {},
+	};
+	display_list_of_tags($req, {});
+	my $tags = $req->{structured_response}{tags};
+	ok($tags, "structured_response tags populated");
+	my %counts_by_id = map { $_->{id} => $_->{products} } @$tags;
+	is($counts_by_id{'en:unknown'}, 15, 'unknown counts are summed');
+	is($counts_by_id{'en:1-unprocessed-or-minimally-processed-foods'}, 27, 'group 1 counts are summed');
+	is($counts_by_id{'en:not-applicable'}, 5, 'not-applicable counts are summed');
+};
+
 done_testing();

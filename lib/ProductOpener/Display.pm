@@ -1677,73 +1677,6 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		$group_field_name = "creator";
 		@unwind_req = ();
 	}
-	elsif ($groupby_tagtype eq 'nova_groups') {
-		# Normalize and deduplicate nova_groups_tags at the individual product level
-		# to ensure each product contributes at most once to each semantic group
-		my $normalized_nova_tags_expr = {
-			"\$setUnion" => [
-				{
-					"\$map" => {
-						input => {"\$ifNull" => ["\$nova_groups_tags", []]},
-						as => "tag",
-						in => {
-							"\$switch" => {
-								branches => [
-									{
-										case => {
-											"\$in" => [
-												"\$\$tag",
-												["1", "en:1", "en:1-unprocessed-or-minimally-processed-foods"]
-											]
-										},
-										then => "en:1-unprocessed-or-minimally-processed-foods",
-									},
-									{
-										case => {
-											"\$in" => ["\$\$tag", ["2", "en:2", "en:2-processed-culinary-ingredients"]]
-										},
-										then => "en:2-processed-culinary-ingredients",
-									},
-									{
-										case => {
-											"\$in" => ["\$\$tag", ["3", "en:3", "en:3-processed-foods"]]
-										},
-										then => "en:3-processed-foods",
-									},
-									{
-										case => {
-											"\$in" => [
-												"\$\$tag", ["4", "en:4", "en:4-ultra-processed-food-and-drink-products"]
-											]
-										},
-										then => "en:4-ultra-processed-food-and-drink-products",
-									},
-									{
-										case => {
-											"\$in" => ["\$\$tag", ["not-applicable", "en:not-applicable"]]
-										},
-										then => "en:not-applicable",
-									},
-									{
-										case => {
-											"\$in" => ["\$\$tag", ["unknown", "en:unknown"]]
-										},
-										then => "en:unknown",
-									},
-								],
-								default => "\$\$tag",
-							},
-						},
-					},
-				},
-				[],
-			],
-		};
-
-		$group_field_name = "normalized_nova_groups_tags";
-		@pre_unwind_stages = ({"\$addFields" => {"normalized_nova_groups_tags" => $normalized_nova_tags_expr}},);
-		@unwind_req = ({"\$unwind" => "\$normalized_nova_groups_tags"});
-	}
 
 	my $aggregate_count_parameters = [
 		{"\$match" => $query_ref},
@@ -1926,10 +1859,10 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		my @tags = @{$results};
 		my $tagtype = $request_ref->{groupby_tagtype};
 
-		# Normalize nova_groups tag IDs if needed while preserving deduplicated product counts
+		# Coalesce legacy and canonical nova_groups tags so each semantic group appears exactly once
 		if ($tagtype eq 'nova_groups') {
-			my %seen;
-			my @deduped_tags;
+			my %merged_tags;
+			my @order;
 			foreach my $tagcount_ref (@tags) {
 				my $raw_id = $tagcount_ref->{_id};
 				next if not defined $raw_id;
@@ -1950,12 +1883,13 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					$canon_id = canonicalize_taxonomy_tag("en", "nova_groups", $raw_id) || $raw_id;
 				}
 
-				if (not $seen{$canon_id}++) {
-					$tagcount_ref->{_id} = $canon_id;
-					push @deduped_tags, $tagcount_ref;
+				if (not exists $merged_tags{$canon_id}) {
+					push @order, $canon_id;
+					$merged_tags{$canon_id} = { _id => $canon_id, count => 0 };
 				}
+				$merged_tags{$canon_id}{count} += ($tagcount_ref->{count} || 0);
 			}
-			@tags = @deduped_tags;
+			@tags = map { $merged_tags{$_} } @order;
 		}
 
 		if (not defined $request_ref->{structured_response}{count}) {
@@ -2512,7 +2446,7 @@ HTML
 				{
 					$series_data .= (($products{$nova_group} || 0) + 0) . ',';
 				}
-				my $unknown_count = $products{"en:unknown"} // $products{"unknown"} // 0;
+				my $unknown_count = ($products{"en:unknown"} // 0) + ($products{"unknown"} // 0);
 				$series_data .= ($unknown_count + 0) . ',';
 			}
 

@@ -608,16 +608,9 @@ sub facets_route($request_ref) {
 			my $is_facet_value = 0;
 			if (scalar @{$request_ref->{components}} > 0) {
 				my ($tagtype, $lc, $is_singular) = _get_facet_tagtype($request_ref->{components}[-1], $target_lc);
-				if (defined $tagtype) {
-					# Check if the last component is a facet type if the page number is greater than 500 (PR #13360)
-					# If it's less than 500, it could be a page number for the facet aggregation, e.g /ingredients/100
-					if ($request_ref->{page} > 500) {
-						$is_facet_value = 1;
-					}
-					elsif ($is_singular && $tagtype eq 'nova_groups' && $request_ref->{page} =~ /^[1-4]$/) {
-						# NOVA groups are numeric (1 to 4) when preceded by a singular tag type (e.g. /nova-group/4)
-						$is_facet_value = 1;
-					}
+				if (defined $tagtype && $is_singular && $tagtype eq 'nova_groups' && $request_ref->{page} =~ /^[1-4]$/) {
+					# NOVA groups are numeric (1 to 4) when preceded by a singular tag type (e.g. /nova-group/4)
+					$is_facet_value = 1;
 				}
 			}
 
