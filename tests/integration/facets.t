@@ -558,6 +558,13 @@ my $tests_ref = [
 		path => '/api/v3/tag/additives/e250?knowledge_panels_excluded=additive_facts',
 		expected_status_code => 200,
 	},
+	# a Wikipedia link alone is enough for the panel
+	{
+		test_case => 'api-v3-tag-additive-wikipedia-link-only-additive-facts-panel',
+		method => 'GET',
+		path => '/api/v3/tag/additives/methylsulfonylmethane',
+		expected_status_code => 200,
+	},
 	{
 		test_case => 'api-v3-tag-additive-unknown-no-additive-facts-panel',
 		method => 'GET',

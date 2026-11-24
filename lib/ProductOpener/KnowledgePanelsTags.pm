@@ -364,7 +364,7 @@ sub create_packager_code_panel ($tag_ref, $target_lc, $target_cc, $options_ref, 
 =head2 create_additive_facts_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $additive_id, $request_ref)
 
 Creates a panel with facts about the additive from the additives taxonomy:
-description, functions and their purpose, vegan and vegetarian status, and a link to its EFSA evaluation.
+description, functions and their purpose, vegan and vegetarian status, and links to Wikipedia and its EFSA evaluation.
 
 The panel is not created if the additive has none of these facts.
 
@@ -408,7 +408,7 @@ sub create_additive_facts_panel ($tag_ref, $target_lc, $target_cc, $options_ref,
 	}
 
 	if (not grep {defined $panel_data_ref->{$_}}
-		qw(additive_description wikipedia_abstract classes vegan vegetarian evaluation))
+		qw(additive_description wikipedia_abstract wikipedia_url wikipedia classes vegan vegetarian evaluation))
 	{
 		return;
 	}
