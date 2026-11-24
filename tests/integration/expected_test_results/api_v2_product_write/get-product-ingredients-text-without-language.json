@@ -414,8 +414,8 @@
                   "name" : "wheat"
                },
                {
-                  "ecobalyse_name" : "Sel -2025-",
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+                  "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
+                  "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
                   "mass" : 41.6666666666666,
                   "name" : "salt"
                }
@@ -425,9 +425,9 @@
             "packaging" : [
                {
                   "category" : "en:sausages",
-                  "id" : "6ae763c1-16e1-478e-8a97-6b1a1d77c017",
-                  "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
-                  "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
+                  "id" : "ff640ca9-f9cb-4324-9863-dff59fd91196",
+                  "name" : "Sliced dry sausages, 100g | Packaging System, N0, All, APET/PE tray with lid {FR} U",
+                  "name_fr" : "Barquette en plastique (APET/PE) pour charcuteries tranchées - 100g"
                }
             ],
             "preparation" : [
@@ -471,7 +471,7 @@
                         {
                            "amount" : 0.041667,
                            "material" : {
-                              "id" : "77defb24-cec3-4de9-8388-63229d1052fb"
+                              "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3"
                            },
                            "transforms" : []
                         }
@@ -487,7 +487,7 @@
                "packagings" : [
                   {
                      "amount" : 1,
-                     "processId" : "6ae763c1-16e1-478e-8a97-6b1a1d77c017"
+                     "processId" : "ff640ca9-f9cb-4324-9863-dff59fd91196"
                   }
                ],
                "transportOptions" : {
@@ -553,8 +553,8 @@
          },
          {
             "ciqual_food_code" : "11058",
-            "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-            "ecobalyse_name" : "Sel -2025-",
+            "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+            "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
             "id" : "en:salt",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 16.6666666666667,
