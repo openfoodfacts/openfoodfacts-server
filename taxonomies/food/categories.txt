@@ -58350,13 +58350,14 @@ nl: Gerookte amandelen, Amandelen (gerookt)
 #############################################
 
 < en: Nuts
-en: Cashew nuts
+en: Cashew nuts, Cashews
 bg: Кашу
+da: Cashewnødder
 de: Cashewnüsse, Kaschunüsse
 es: Anacardos
-fi: cashewpähkinät
+fi: Cashewpähkinät
 fr: Noix de cajou, Anacardes
-hr: indijski oraščić
+hr: Indijski oraščić
 it: Noci di acagiu
 ja: カシューナッツ
 la: Anacardium occidentale
@@ -58364,6 +58365,7 @@ lt: Anakardžiai
 nl: Cashewnoten
 pt: Castanha de caju
 ru: Орехи Кешью
+sv: Cashewnötter
 tr: Kaju
 agribalyse_proxy_food_code:en: 15019
 agribalyse_proxy_food_name:en: Cashew nut, grilled, salted
@@ -58374,51 +58376,79 @@ wikidata:en: Q34007
 
 < en: Cashew nuts
 < en: Salted nuts
-en: Salted cashews, Salted cashew nuts
+en: Salted cashew nuts, Salted cashews
+da: Saltede cashewnødder
 de: Gesalzene Cashewnüsse, Gesalzene Cashewkerne
 fr: Noix de cajou salées
 hr: Slani indijski oraščići
 lt: Anakardžiai su druska, Sūdyti anakardžiai
-tr: Tuzlu Kaju
+sv: Saltade cashewnötter
+tr: Tuzlu kaju
+agribalyse_proxy_food_code:en: 15019
+ciqual_proxy_food_code:en: 15019
+ciqual_proxy_food_name:en: Cashew nut, grilled, salted
 opposite:en: en:unsalted-cashew-nuts
 
 < en: Cashew nuts
 < en: Unsalted nuts
-en: Unsalted cashews, Unsalted cashew nuts
+en: Unsalted cashew nuts, Unsalted cashews
+da: Usaltede cashewnødder
 de: Ungesalzene Cashewnüsse, Ungesalzene Cashewkerne
 fr: Noix de cajou non-salées
 hr: Neslani indijski oraščići
 lt: Anakardžiai (nesūdyti)
 nl: Cashewnoten (ongezouten), Ongezouten cashewnoten
+sv: Osaltade cashewnötter
+agribalyse_proxy_food_code:en: 15019
+ciqual_proxy_food_code:en: 15019
+ciqual_proxy_food_name:en: Cashew nut, grilled, salted
 opposite:en: en:salted-cashew-nuts
 
 < en: Non-roasted cashew nuts
-< en: Unsalted cashews
+< en: Unsalted cashew nuts
 en: Raw cashew nuts
+da: Rå cashewnødder
 fr: Noix de cajou crues
+sv: Råa cashewnötter
 expected_ingredients:en: en:cashew-nuts
 sales_format:en: weight, package
 
 < en: Cashew nuts
 < en: Roasted nuts
 en: Roasted cashew nuts
+da: Ristede cashewnødder
 de: Geröstete Cashews, Geröstete Cashewnüsse
-fi: paahdetut cashew-pähkinät
-fr: Noix de Cajou grillées
+fi: Paahdetut cashew-pähkinät
+fr: Noix de cajou grillées
 hr: Pečeni indijski oraščići
 lt: Skrudinti anakardžiai
 nl: Geroosterde cashewnoten
+sv: Rostade cashewnötter
 tr: Kavrulmuş Kaju
-agribalyse_food_code:en: 15019
-ciqual_food_code:en: 15019
-ciqual_food_name:en: Cashew nut, grilled, salted
+agribalyse_proxy_food_code:en: 15019
+ciqual_proxy_food_code:en: 15019
+ciqual_proxy_food_name:en: Cashew nut, grilled, salted
 opposite:en: en:non-roasted-cashew-nuts
 sales_format:en: weight, package
 
 < en: Cashew nuts
 en: Non-roasted cashew nuts
+da: Uristede cashewnødder
 fr: Noix de cajou non-grillées
+sv: Orostade cashewnötter
 opposite:en: en:roasted-cashew-nuts
+
+< en: Roasted cashew nuts
+< en: Salted cashew nuts
+en: Roasted and salted cashew nuts, Salted and roasted cashew nuts
+da: Ristede og saltede cashewnødder, Saltede og ristede cashewnødder
+fr: Noix de cajou grillées et salées
+sv: Rostade och saltade cashewnötter, Saltade och rostade cashewnötter
+agribalyse_food_code:en: 15019
+ciqual_food_code:en: 15019
+ciqual_food_name:en: Cashew nut, grilled, salted
+ciqual_food_name:fr: Noix de cajou, grillée, salée
+sales_format:en: weight, package
 
 < en: Nuts
 en: Chestnuts
