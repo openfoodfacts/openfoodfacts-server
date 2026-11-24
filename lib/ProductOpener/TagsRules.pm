@@ -95,7 +95,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Config qw/%options/;
 use ProductOpener::Tags qw/is_a exists_taxonomy_tag gen_tags_list_with_parents get_property
 	canonicalize_taxonomy_tag get_minimal_tags_subset %writable_tags_fields
-	get_all_taxonomy_entries get_taxonomy_entry_synonyms_regexps join_regexps_longest_first %translations_to/;
+	get_tag_direct_children get_taxonomy_entry_synonyms_regexps join_regexps_longest_first %translations_to/;
 use ProductOpener::Store qw/unac_string_perl/;
 use ProductOpener::ProductsTags
 	qw/set_field_input_tags_for_source get_field_input_tags_from_all_sources generate_field_tags_from_all_sources add_tag/;
@@ -625,14 +625,19 @@ sub _compile_ingredients_condition ($spec, $path, $errors_ref) {
 		elsif ($key eq 'processing') {
 			# One of the ingredients, at any depth, has one of the listed processings (or a child),
 			# e.g. "Kartoffeln getrocknet", "Sahnepulver" (en:cream with en:powder)
-			my @of = map {_check_tag("ingredients_processing", $_, $key_path, $errors_ref)} _as_list($value);
+			my @of = ();
+			foreach my $tag (_as_list($value)) {
+				push @of, _check_tag("ingredients_processing", $tag, $key_path, $errors_ref);
+			}
 			push @subs, sub ($ctx) {
 				my $found = 0;
 				_walk_ingredients(
 					$ctx->{product}{ingredients},
 					sub ($ingredient_ref) {
 						foreach my $processing (split(/,/, $ingredient_ref->{processing} // '')) {
-							$found = 1 if grep {is_a("ingredients_processing", $processing, $_)} @of;
+							foreach my $of (@of) {
+								$found = 1 if is_a("ingredients_processing", $processing, $of);
+							}
 						}
 					}
 				);
@@ -770,6 +775,7 @@ sub _compile_specific_ingredients_condition ($spec, $path, $errors_ref) {
 		foreach my $check_ref (@checks) {
 			my $found = 0;
 			foreach my $specific_ingredient_ref (@{$ctx->{product}{specific_ingredients} // []}) {
+				# only stated percents: specific ingredients have no estimates (no percent_estimate)
 				my $percent = $specific_ingredient_ref->{percent};
 				next if (not defined $percent) or (not defined $specific_ingredient_ref->{id});
 				next if not is_a("ingredients", $specific_ingredient_ref->{id}, $check_ref->{id});
@@ -847,14 +853,19 @@ sub _compile_regexp_condition ($spec, $fields_ref, $path, $errors_ref) {
 
 	return sub ($ctx) {
 		my $product_ref = $ctx->{product};
-		foreach my $lc (keys %regexps) {
-			foreach my $text (_get_texts($product_ref, $fields_ref, $lc)) {
-				return 1 if _normalize_text($text) =~ $regexps{$lc};
+		foreach my $text_ref (_get_texts_with_lc($product_ref, $fields_ref)) {
+			my ($lc, $text) = @$text_ref;
+			# "any" applies to all texts, even [field] when the main language is not set
+			my @text_regexps = ($regexps{any});
+			push @text_regexps, $regexps{$lc} if defined $lc;
+			foreach my $regexp (@text_regexps) {
+				return 1 if (defined $regexp) and (_normalize_text($text) =~ $regexp);
 			}
 		}
 		if (%entries) {
 			foreach my $text_ref (_get_texts_with_lc($product_ref, $fields_ref)) {
 				my ($lc, $text) = @$text_ref;
+				next if not defined $lc;
 				$lc = "any" if $all_languages;
 				# exists: also cache languages without synonyms (undef)
 				$entries_regexps{$lc} = _taxonomy_entries_regexp(\%entries, $lc) if not exists $entries_regexps{$lc};
@@ -871,13 +882,18 @@ my %children_cache = ();
 sub _taxonomy_entries_and_children ($taxonomy, $tags_ref) {
 	my $key = $taxonomy . ":" . join(",", @$tags_ref);
 	if (not defined $children_cache{$key}) {
-		my %parents = map {$_ => 1} @$tags_ref;
-		$children_cache{$key} = [
-			grep {
-				my $entry = $_;
-				$parents{$entry} or grep {is_a($taxonomy, $entry, $_)} @$tags_ref
-			} get_all_taxonomy_entries($taxonomy)
-		];
+		# walk down from the requested entries
+		my %seen = ();
+		my @entries = ();
+		my @to_visit = @$tags_ref;
+		while (@to_visit) {
+			my $entry = shift @to_visit;
+			next if $seen{$entry};
+			$seen{$entry} = 1;
+			push @entries, $entry;
+			push @to_visit, get_tag_direct_children($taxonomy, $entry);
+		}
+		$children_cache{$key} = \@entries;
 	}
 	return @{$children_cache{$key}};
 }
@@ -888,14 +904,22 @@ sub _taxonomy_entries_regexp ($entries_ref, $lc) {
 	my %synonyms_regexps = ();
 	foreach my $taxonomy (keys %$entries_ref) {
 		foreach my $entry (_taxonomy_entries_and_children($taxonomy, $entries_ref->{$taxonomy})) {
-			my @languages = ($lc eq 'any') ? (sort keys %{$translations_to{$taxonomy}{$entry} // {}}) : ($lc, "xx");
-			# spaces, dashes and apostrophes are interchangeable
-			foreach my $synonym_regexp (
-				map {get_taxonomy_entry_synonyms_regexps($taxonomy, $entry, $_, {loose_separators => 1})} @languages)
-			{
-				# whole words, except for languages written without spaces between words
-				my $type = ($synonym_regexp =~ /[\p{Han}\p{Hiragana}\p{Katakana}\p{Thai}]/) ? "anywhere" : "words";
-				$synonyms_regexps{$type}{$synonym_regexp} = 1;
+			my @languages = ($lc, "xx");
+			if ($lc eq 'any') {
+				@languages = sort keys %{$translations_to{$taxonomy}{$entry} // {}};
+			}
+			foreach my $language (@languages) {
+				# spaces, dashes and apostrophes are interchangeable
+				my @synonyms_regexps
+					= get_taxonomy_entry_synonyms_regexps($taxonomy, $entry, $language, {loose_separators => 1});
+				foreach my $synonym_regexp (@synonyms_regexps) {
+					# whole words, except for languages written without spaces between words
+					my $type = "words";
+					if ($synonym_regexp =~ /[\p{Han}\p{Hiragana}\p{Katakana}\p{Thai}]/) {
+						$type = "anywhere";
+					}
+					$synonyms_regexps{$type}{$synonym_regexp} = 1;
+				}
 			}
 		}
 	}
@@ -903,13 +927,19 @@ sub _taxonomy_entries_regexp ($entries_ref, $lc) {
 	my @alternatives = ();
 	foreach my $type (sort keys %synonyms_regexps) {
 		my $alternatives = join_regexps_longest_first(keys %{$synonyms_regexps{$type}});
-		push @alternatives, ($type eq "words") ? "(?<!\\w)(?:$alternatives)(?!\\w)" : "(?:$alternatives)";
+		if ($type eq "words") {
+			push @alternatives, "(?<!\\w)(?:$alternatives)(?!\\w)";
+		}
+		else {
+			push @alternatives, "(?:$alternatives)";
+		}
 	}
 	my $regexp = join('|', @alternatives);
 	return qr/$regexp/i;
 }
 
 # Return [lc, text] for the non-empty values of text fields: [field]_[lc], and [field] in the main language
+# (lc is undef for [field] if the main language is not set)
 sub _get_texts_with_lc ($product_ref, $fields_ref) {
 	my @texts = ();
 	foreach my $field (@$fields_ref) {
@@ -921,30 +951,14 @@ sub _get_texts_with_lc ($product_ref, $fields_ref) {
 			elsif ($key eq $field) {
 				$lc = $product_ref->{lc};
 			}
-			next if not defined $lc;
+			else {
+				next;
+			}
 			my $text = $product_ref->{$key};
 			push @texts, [$lc, $text] if (defined $text) and (ref($text) eq '') and ($text ne '');
 		}
 	}
 	return @texts;
-}
-
-# Return the non-empty values of text fields in a language ("any": all languages)
-sub _get_texts ($product_ref, $fields_ref, $lc) {
-	my @texts = ();
-	foreach my $field (@$fields_ref) {
-		if ($lc eq 'any') {
-			foreach my $key (keys %$product_ref) {
-				push @texts, $product_ref->{$key} if $key =~ /^${field}(_[a-z]{2})?$/;
-			}
-		}
-		else {
-			push @texts, $product_ref->{$field . "_" . $lc};
-			push @texts, $product_ref->{$field} if ($product_ref->{lc} // '') eq $lc;
-		}
-	}
-	my @non_empty_texts = grep {(defined $_) and (ref($_) eq '') and ($_ ne '')} @texts;
-	return @non_empty_texts;
 }
 
 =head2 Evaluation context
