@@ -2343,16 +2343,16 @@ ciqual_proxy_food_name:en: Butter, 82% fat, unsalted
 ciqual_proxy_food_name:fr: Beurre à 82% MG, doux
 comment:en: Butter is not added to the fat section (to much water?)
 description:en: BUTTER is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk. It is generally used as a spread on plain or toasted bread products and a condiment on cooked vegetables, as well as in cooking, such as baking, sauce making, and pan frying.
-ecobalyse_alias:en: butter-39-41pct-fat-light-default
+ecobalyse_alias:en: butter-82pct-fat-default
 ecobalyse_category:en: dairy
 ecobalyse_default_origin:en:
-ecobalyse_id:en: 1dd1d7ed-2266-4317-bb45-709f850bd1e1
+ecobalyse_id:en: 9f7ca704-e3b6-4ad9-b376-6c0662ebeeec
 ecobalyse_labels_en_organic_origins_en_france_alias:en: butter-organic-2025
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: aeedb0fa-81a7-4f21-9bf1-7ec9c4c69ed9
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Beurre Bio (2025)
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Beurre à 39-41% MG, léger, doux Origine Inconnue
+ecobalyse_name:fr: Beurre à 82% MG ou huile de beurre Origine Inconnue
 ecobalyse_origins_en_france_alias:en: butter-2025
 ecobalyse_origins_en_france_default_origin:en: FR
 ecobalyse_origins_en_france_id:en: bbda834e-1548-4682-a461-c367dc1ce517
@@ -2829,18 +2829,28 @@ ciqual_proxy_food_name:en: Milk, skimmed, pasteurised
 ciqual_proxy_food_name:fr: Lait écrémé, pasteurisé
 density_g_per_ml:en: 1.03
 description:en: MILK - a white liquid nutrient-rich food produced by the mammary glands of mammals.
-ecobalyse_alias:en: milk-non-eu-2025
-ecobalyse_category:en: dairy
-ecobalyse_default_origin:en:
-ecobalyse_id:en: 17cb3a3e-04e0-4550-bd9b-91a28d8bcec0
-ecobalyse_name:fr: Lait par défaut (2025)
-ecobalyse_origins_en_france_alias:en: milk-2025
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 8f3863e7-f981-4367-90a2-e1aaa096a6e0
-ecobalyse_origins_en_france_name:fr: Lait FR (2025)
-ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
-ecobalyse_transport_cooling:en: always
+ecobalyse_proxy_alias:en: cow-milk-non-eu
+ecobalyse_proxy_category:en: dairy
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_id:en: 413dbd30-f224-580c-bf02-51664910430e
+ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: cow-milk-organic
+ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: 2bf307e8-8cb0-400b-a4f1-cf615d9e96f4
+ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Lait Bio
+ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
+ecobalyse_proxy_name:fr: Lait de vache HORS UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: cow-milk-eu
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: f092e399-eb0c-5f4d-abc3-8df379b20dfc
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Lait de vache UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_origins_en_france_alias:en: cow-milk-fr
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: b757094f-7cb1-58ea-9d3d-b6d7e0e0d471
+ecobalyse_proxy_origins_en_france_name:fr: Lait de vache FR
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: always
 vegan:en: no
 vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Milk
@@ -4090,18 +4100,6 @@ carbon_footprint_fr_foodges_ingredient:fr: Yaourt
 carbon_footprint_fr_foodges_value:fr: 2.9
 ciqual_proxy_food_code:en: 19593
 ciqual_proxy_food_name:fr: Yaourt, lait fermenté ou spécialité laitière, nature
-ecobalyse_alias:en: yogurt-2025
-ecobalyse_category:en: dairy
-ecobalyse_default_origin:en: FR
-ecobalyse_id:en: 0e77146c-be67-4f16-b072-f4fdb43b4acf
-ecobalyse_name:fr: Fromage blanc FR (2025)
-ecobalyse_origins_en_france_alias:en: yogurt-2025
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 0e77146c-be67-4f16-b072-f4fdb43b4acf
-ecobalyse_origins_en_france_name:fr: Fromage blanc FR (2025)
-ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: reference
-ecobalyse_transport_cooling:en: always
 usda_ndb_proxy_code:en: 1116
 usda_ndb_proxy_name:en: Yogurt, plain, whole milk
 vegan:en: no
@@ -5949,18 +5947,6 @@ zh: 契福瑞芝士
 carbon_footprint_fr_foodges_ingredient:fr: Fromage frais de chèvre
 carbon_footprint_fr_foodges_value:fr: 3.6
 description:en: GOAT CHEESE, goats' cheese, or chèvre, is cheese made from goat's milk.
-ecobalyse_alias:en: goat-cheese-2025
-ecobalyse_category:en: dairy
-ecobalyse_default_origin:en: FR
-ecobalyse_id:en: d93c2c58-8073-47ef-99da-999ad7cba846
-ecobalyse_name:fr: Fromage de chèvre FR (2025)
-ecobalyse_origins_en_france_alias:en: goat-cheese-2025
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: d93c2c58-8073-47ef-99da-999ad7cba846
-ecobalyse_origins_en_france_name:fr: Fromage de chèvre FR (2025)
-ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: reference
-ecobalyse_transport_cooling:en: always
 wikidata:en: Q198815
 wikipedia:en: https://en.wikipedia.org/wiki/Goat_cheese
 
@@ -7090,15 +7076,15 @@ description:es: El emmental es un queso suizo hecho de leche de vaca y con aguje
 description:fr: L’emmental ou emmentaler est un fromage d'origine suisse à pâte dure dont le nom provient de la vallée de l'Emme, une région à l'est du canton de Berne.
 description:it: Emmental e Emmentaler sono formaggi a pasta dura o semidura a base di latte vaccino, prodotti in Svizzera, Germania e Francia.
 description:nl: Emmental is een kaas uit het Emmental in Zwitserland. Hij wordt eveneens in het Franse Alpengebied, in het hele berggebied in het oosten van Frankrijk, in de Jura, in Savoie en in Beieren (Allgäu, Duitsland) geproduceerd.
-ecobalyse_alias:en: emmental-2025
+ecobalyse_alias:en: emmental-cheese-fr
 ecobalyse_category:en: dairy
 ecobalyse_default_origin:en: FR
-ecobalyse_id:en: 74314f2e-aa88-4ac1-aa78-bb29dceebf0b
-ecobalyse_name:fr: Emmental FR (2025)
-ecobalyse_origins_en_france_alias:en: emmental-2025
+ecobalyse_id:en: 9a990c37-72b3-40c5-a700-aee1f686a029
+ecobalyse_name:fr: Emmental ou emmenthal FR
+ecobalyse_origins_en_france_alias:en: emmental-cheese-fr
 ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 74314f2e-aa88-4ac1-aa78-bb29dceebf0b
-ecobalyse_origins_en_france_name:fr: Emmental FR (2025)
+ecobalyse_origins_en_france_id:en: 9a990c37-72b3-40c5-a700-aee1f686a029
+ecobalyse_origins_en_france_name:fr: Emmental ou emmenthal FR
 ecobalyse_origins_en_france_scenario:en: reference
 ecobalyse_scenario:en: reference
 ecobalyse_transport_cooling:en: always
@@ -8243,10 +8229,10 @@ ecobalyse_category:en: dairy
 ecobalyse_default_origin:en:
 ecobalyse_id:en: 3a0c1c19-ef08-4abd-b441-df53b0e27f2a
 ecobalyse_name:fr: Mozzarella au lait de vache Origine Inconnue
-ecobalyse_origins_en_france_alias:en: mozzarella-2025
+ecobalyse_origins_en_france_alias:en: mozzarella-cow-milk-fr
 ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: faa513ae-9c32-4e6c-874e-58c13309339e
-ecobalyse_origins_en_france_name:fr: Mozzarella FR (2025)
+ecobalyse_origins_en_france_id:en: 09bf7ccc-baeb-4907-87ec-dc3a1b3cf9e1
+ecobalyse_origins_en_france_name:fr: Mozzarella au lait de vache FR
 ecobalyse_origins_en_france_scenario:en: reference
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
@@ -8740,15 +8726,15 @@ description:en: Reblochon is a soft washed-rind and smear-ripened French cheese 
 description:de: Reblochon ist ein feinwürziger AOC Kuhmilch-Käse aus der französischen Region Hochsavoyen und Savoyen.
 description:es: El reblochon es un queso francés AOC,a base de leche de vaca de raza Abondance, Tarine y Montbéliarde, de la Alta Saboya.
 description:fr: Reblochon, ou reblochon de Savoie, est un fromage français AOC au lait cru et entier de vache à pâte pressée non cuite et croûte lavée, produit principalement en Haute-Savoie.
-ecobalyse_alias:en: reblochon-2025
+ecobalyse_alias:en: reblochon-cheese-fr
 ecobalyse_category:en: dairy
 ecobalyse_default_origin:en: FR
-ecobalyse_id:en: d85576e1-ba3a-4ec7-80d5-c106f780498a
-ecobalyse_name:fr: Reblochon FR (2025)
-ecobalyse_origins_en_france_alias:en: reblochon-2025
+ecobalyse_id:en: c8d83557-46c6-46ab-9d01-fcb0e058f46f
+ecobalyse_name:fr: Reblochon FR
+ecobalyse_origins_en_france_alias:en: reblochon-cheese-fr
 ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: d85576e1-ba3a-4ec7-80d5-c106f780498a
-ecobalyse_origins_en_france_name:fr: Reblochon FR (2025)
+ecobalyse_origins_en_france_id:en: c8d83557-46c6-46ab-9d01-fcb0e058f46f
+ecobalyse_origins_en_france_name:fr: Reblochon FR
 ecobalyse_origins_en_france_scenario:en: reference
 ecobalyse_scenario:en: reference
 ecobalyse_transport_cooling:en: always
@@ -9563,19 +9549,23 @@ carbon_footprint_fr_foodges_value:fr: 0.5
 ciqual_food_code:en: 11058
 ciqual_food_name:fr: Sel blanc alimentaire, iodé, non fluoré (marin, ignigène ou gemme)
 description:en: SALT - is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts "sodium chloride" is defined in minerals.txt
-ecobalyse_alias:en: salt-2025
-ecobalyse_category:en: other_food_items
-ecobalyse_crop_group:en: DIVERS
-ecobalyse_default_origin:en: FR
-ecobalyse_id:en: 77defb24-cec3-4de9-8388-63229d1052fb
-ecobalyse_name:fr: Sel (2025)
-ecobalyse_origins_en_france_alias:en: salt-2025
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 77defb24-cec3-4de9-8388-63229d1052fb
-ecobalyse_origins_en_france_name:fr: Sel (2025)
-ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: reference
-ecobalyse_transport_cooling:en: none
+ecobalyse_proxy_alias:en: sea-salt-default
+ecobalyse_proxy_category:en: other_food_items
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_id:en: 9e3c5bdd-474a-561a-8d5f-ea03b9c537a3
+ecobalyse_proxy_name:fr: Sel de mer, sel de céleri ou fleur de sel Origine Inconnue
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: sea-salt-eu
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: d91d56f7-139a-55e5-b30d-b27b2fdfc026
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Sel de mer, sel de céleri ou fleur de sel UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_origins_en_france_alias:en: sea-salt-fr
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 64e82939-f3fe-52f4-8611-29b245c0e66e
+ecobalyse_proxy_origins_en_france_name:fr: Sel de mer, sel de céleri ou fleur de sel FR
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 usda_fdc_code:en: 173468
 usda_ndb_code:en: 2047
 usda_ndb_name:en: Salt, table
@@ -11716,17 +11706,7 @@ ecobalyse_proxy_alias:en: chicken-breast-br-max
 ecobalyse_proxy_category:en: poultry
 ecobalyse_proxy_default_origin:en:
 ecobalyse_proxy_id:en: 8fb5024c-ceec-4201-b069-ea253c537ad6
-ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: chicken-breast-organic
-ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: b19b0dc0-3478-46a0-b8a1-3225ea939ff1
-ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Blanc de poulet cru Bio
-ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_proxy_name:fr: Blanc de poulet cru (alim. ani. 100%BR) par défaut
-ecobalyse_proxy_origins_en_france_alias:en: chicken-breast
-ecobalyse_proxy_origins_en_france_default_origin:en: FR
-ecobalyse_proxy_origins_en_france_id:en: a360871c-fc35-4cb3-af2c-5eeb8bd6f984
-ecobalyse_proxy_origins_en_france_name:fr: Blanc de poulet cru FR
-ecobalyse_proxy_origins_en_france_scenario:en: reference
 ecobalyse_proxy_scenario:en: import
 ecobalyse_proxy_transport_cooling:en: always
 wikidata:en: Q9394
@@ -12014,8 +11994,8 @@ ecobalyse_proxy_origins_en_france_id:en: d79e0fce-8633-4189-a937-7b8010abafed
 ecobalyse_proxy_origins_en_france_name:fr: Viande d'agneau (désossée) FR
 ecobalyse_proxy_origins_en_france_scenario:en: reference
 ecobalyse_proxy_scenario:en: reference
-# usage:fr: mouton (graisse et viande)
 ecobalyse_proxy_transport_cooling:en: always
+# usage:fr: mouton (graisse et viande)
 nutriscore_red_meat:en: yes
 wikidata:en: Q7368
 wikipedia:en: https://en.wikipedia.org/wiki/Sheep
@@ -15982,16 +15962,16 @@ ciqual_food_code:en: 16401
 ciqual_food_name:en: Butter oil or concentrated butter
 comment:en: BUTTERFAT seems to be more than just butter, water has been removed
 description:en: BUTTERFAT - the fatty portion of milk.
-ecobalyse_proxy_alias:en: butter-39-41pct-fat-light-default
+ecobalyse_proxy_alias:en: butter-82pct-fat-default
 ecobalyse_proxy_category:en: dairy
 ecobalyse_proxy_default_origin:en:
-ecobalyse_proxy_id:en: 1dd1d7ed-2266-4317-bb45-709f850bd1e1
+ecobalyse_proxy_id:en: 9f7ca704-e3b6-4ad9-b376-6c0662ebeeec
 ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: butter-organic-2025
 ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: aeedb0fa-81a7-4f21-9bf1-7ec9c4c69ed9
 ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Beurre Bio (2025)
 ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_proxy_name:fr: Beurre à 39-41% MG, léger, doux Origine Inconnue
+ecobalyse_proxy_name:fr: Beurre à 82% MG ou huile de beurre Origine Inconnue
 ecobalyse_proxy_origins_en_france_alias:en: butter-2025
 ecobalyse_proxy_origins_en_france_default_origin:en: FR
 ecobalyse_proxy_origins_en_france_id:en: bbda834e-1548-4682-a461-c367dc1ce517
@@ -17067,19 +17047,6 @@ en: sustainable palm oil, sustainable palm fruit oil, sustainable palm
 fr: huile de palme issue de plantations durables et certifiées
 hr: održivo palmino ulje
 sv: hållbarhetscertifierad palmolja
-ecobalyse_proxy_alias:en: refined-palm-oil-non-ue-2025
-ecobalyse_proxy_category:en: other_food_items
-ecobalyse_proxy_crop_group:en: AUTRES CULTURES INDUSTRIELLES
-ecobalyse_proxy_default_origin:en:
-ecobalyse_proxy_id:en: 45658c32-66d9-4305-a34b-21d6a4cef89c
-ecobalyse_proxy_name:fr: Huile de palme (raffinée) par défaut (2025)
-ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: refined-palm-oil-2025
-ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 3612e931-f0e0-4263-a079-63650a941fbd
-ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Huile de palme (raffinée) UE (2025)
-ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_proxy_scenario:en: import
-ecobalyse_proxy_transport_cooling:en: none
 
 < en: palm oil
 en: fractionated palm oil
@@ -17557,16 +17524,16 @@ zh: 椰子油
 ciqual_food_code:en: 16040
 ciqual_food_name:en: Coconut fat or oil
 description:en: COCONUT OIL, or copra oil, is an edible oil extracted from the kernel or meat of mature coconuts harvested from the coconut palm (Cocos nucifera).
-ecobalyse_proxy_alias:en: unknown-oil-2025
+ecobalyse_proxy_alias:en: refined-palm-oil-non-ue-2025
 ecobalyse_proxy_category:en: other_food_items
-ecobalyse_proxy_crop_group:en: TOURNESOL
-ecobalyse_proxy_default_origin:en: REM
-ecobalyse_proxy_id:en: 66e7706b-5129-410c-b070-0a7feff2680f
-ecobalyse_proxy_name:fr: Autres huiles (non encore répertoriées) (2025)
-ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: unknown-oil-2025
+ecobalyse_proxy_crop_group:en: AUTRES CULTURES INDUSTRIELLES
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_id:en: 45658c32-66d9-4305-a34b-21d6a4cef89c
+ecobalyse_proxy_name:fr: Huile de palme (raffinée) par défaut (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: refined-palm-oil-2025
 ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 66e7706b-5129-410c-b070-0a7feff2680f
-ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Autres huiles (non encore répertoriées) (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 3612e931-f0e0-4263-a079-63650a941fbd
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Huile de palme (raffinée) UE (2025)
 ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
 ecobalyse_proxy_scenario:en: import
 ecobalyse_proxy_transport_cooling:en: none
@@ -19059,23 +19026,23 @@ ciqual_food_code:en: 17440
 ciqual_food_name:en: Sunflower oil
 density_g_per_ml:en: 0.96
 description:en: SUNFLOWER OIL is the non-volatile oil pressed from the seeds of sunflower (Helianthus annuus).
-ecobalyse_alias:en: sunflower-oil-2025
+ecobalyse_alias:en: refined-sunflower-oil-2025
 ecobalyse_category:en: other_food_items
 ecobalyse_crop_group:en: TOURNESOL
-ecobalyse_default_origin:en: REM
-ecobalyse_id:en: 3cfab110-363e-442a-9170-1af337fe9ea3
+ecobalyse_default_origin:en: FR
+ecobalyse_id:en: 583d00ab-0340-444b-9581-71175f0a937b
 ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_alias:en: sunflower-oil-organic-2025
 ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en: REM
 ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_id:en: 64fb23f2-0cac-403c-bbfa-1973c9a0ea40
 ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_name:fr: Huile de tournesol Bio (2025)
 ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_scenario:en: organic
-ecobalyse_name:fr: Huile de tournesol par défaut (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: sunflower-oil-2025
-ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 3cfab110-363e-442a-9170-1af337fe9ea3
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Huile de tournesol par défaut (2025)
-ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_scenario:en: import
+ecobalyse_name:fr: Huile de tournesol (raffinée) FR (2025)
+ecobalyse_origins_en_france_alias:en: refined-sunflower-oil-2025
+ecobalyse_origins_en_france_default_origin:en: FR
+ecobalyse_origins_en_france_id:en: 583d00ab-0340-444b-9581-71175f0a937b
+ecobalyse_origins_en_france_name:fr: Huile de tournesol (raffinée) FR (2025)
+ecobalyse_origins_en_france_scenario:en: reference
+ecobalyse_scenario:en: reference
 ecobalyse_transport_cooling:en: none
 from_palm_oil:en: no
 wikidata:en: Q94787
@@ -21251,8 +21218,10 @@ ecobalyse_proxy_origins_en_france_default_origin:en: FR
 ecobalyse_proxy_origins_en_france_id:en: 6621c18e-85de-4683-82be-7b236e68bc48
 ecobalyse_proxy_origins_en_france_name:fr: Vin rouge FR (2025)
 ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_origins_en_france_unit:en: L
 ecobalyse_proxy_scenario:en: reference
 ecobalyse_proxy_transport_cooling:en: none
+ecobalyse_proxy_unit:en: L
 wikidata:en: Q282
 wikipedia:en: https://en.wikipedia.org/wiki/Wine
 
@@ -21407,8 +21376,10 @@ ecobalyse_proxy_origins_en_france_default_origin:en: FR
 ecobalyse_proxy_origins_en_france_id:en: 6621c18e-85de-4683-82be-7b236e68bc48
 ecobalyse_proxy_origins_en_france_name:fr: Vin rouge FR (2025)
 ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_origins_en_france_unit:en: L
 ecobalyse_proxy_scenario:en: reference
 ecobalyse_proxy_transport_cooling:en: none
+ecobalyse_proxy_unit:en: L
 wikidata:en: Q10210
 wikipedia:en: https://en.wikipedia.org/wiki/White_wine
 
@@ -21444,8 +21415,10 @@ ecobalyse_proxy_origins_en_france_default_origin:en: FR
 ecobalyse_proxy_origins_en_france_id:en: 6621c18e-85de-4683-82be-7b236e68bc48
 ecobalyse_proxy_origins_en_france_name:fr: Vin rouge FR (2025)
 ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_origins_en_france_unit:en: L
 ecobalyse_proxy_scenario:en: reference
 ecobalyse_proxy_transport_cooling:en: none
+ecobalyse_proxy_unit:en: L
 # 2019-05-29
 wikidata:en: Q11060609
 
@@ -26931,14 +26904,19 @@ zh: 大麦
 allergens:en: en:gluten
 comment:en: the translations taken from wikipedia need to be checked. they can refer to the plant species.
 description:en: barley (hordeum vulgare), a member of the grass family, is a major cereal grain grown in temperate climates globally
-ecobalyse_alias:en: barley-non-eu-2025
-ecobalyse_category:en: cereals
-ecobalyse_crop_group:en: ORGE
-ecobalyse_default_origin:en:
-ecobalyse_id:en: de8ef49d-d235-4513-9496-aa8409bdc093
-ecobalyse_name:fr: Orge par défaut (2025)
-ecobalyse_scenario:en: import
-ecobalyse_transport_cooling:en: none
+ecobalyse_proxy_alias:en: barley-whole-fr
+ecobalyse_proxy_category:en: cereals
+ecobalyse_proxy_crop_group:en: ORGE
+ecobalyse_proxy_default_origin:en: FR
+ecobalyse_proxy_id:en: 00150a93-dea5-55d1-ba56-990d4fa43592
+ecobalyse_proxy_name:fr: Orge entière FR
+ecobalyse_proxy_origins_en_france_alias:en: barley-whole-fr
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 00150a93-dea5-55d1-ba56-990d4fa43592
+ecobalyse_proxy_origins_en_france_name:fr: Orge entière FR
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: reference
+ecobalyse_proxy_transport_cooling:en: none
 #23663 @2021-10-20
 ifct_food_code:en: A004
 ifct_food_name:en: Barley
@@ -29603,11 +29581,6 @@ ecobalyse_proxy_category:en: other_food_items
 ecobalyse_proxy_crop_group:en: BLE TENDRE
 ecobalyse_proxy_default_origin:en: REM
 ecobalyse_proxy_id:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
-ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_alias:en: flour-organic-2025
-ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_id:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
-ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_name:fr: Farine Bio (2025)
-ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_scenario:en: organic
 ecobalyse_proxy_name:fr: Farine UE agrégée (2025)
 ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: flour-2025
 ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
@@ -29774,11 +29747,6 @@ ecobalyse_category:en: other_food_items
 ecobalyse_crop_group:en: BLE TENDRE
 ecobalyse_default_origin:en: REM
 ecobalyse_id:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_alias:en: flour-organic-2025
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_id:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_name:fr: Farine Bio (2025)
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_scenario:en: organic
 ecobalyse_name:fr: Farine UE agrégée (2025)
 ecobalyse_origins_en_europe_and_maghreb_alias:en: flour-2025
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
@@ -31274,23 +31242,23 @@ pl: kukurydza słodka, słodka kukurydza
 pt: milgo doce
 sl: sladka koruza
 description:en: Sweet corn is a cultivar of maize (Zea mays var. saccharata) bred to accumulate higher natural sugar content, harvested young and tender before the kernels mature and starch fully develops. Compared to local field maize, it has a distinctly sweeter, juicier taste with a crisp, tender bite. Popular worldwide, sweet corn is boiled or steamed on the cob, grilled, or used kernel-off-cob in salads, soups, stir-fries, and Indian street snacks like corn chaat. Nutritionally, it offers dietary fiber, carbohydrates, and moderate protein, along with vitamin C, B vitamins (especially folate), magnesium, and antioxidants such as lutein and zeaxanthin, which support eye health. Its natural sweetness also makes it a favorite in both savory and lightly sweetened preparations.
-ecobalyse_alias:en: sweet-corn-br-2025
+ecobalyse_alias:en: sweet-corn-canned-drained-fr
 ecobalyse_category:en: other_food_items
 ecobalyse_crop_group:en: MAIS GRAIN ET ENSILAGE
-ecobalyse_default_origin:en:
-ecobalyse_id:en: be9a2aa4-4c8b-4801-abcf-01ba1581f053
-ecobalyse_labels_en_organic_origins_en_france_alias:en: sweet-corn-organic-fr-2025
+ecobalyse_default_origin:en: FR
+ecobalyse_id:en: f90f8157-2b73-48d0-86f0-039ee3a52618
+ecobalyse_labels_en_organic_origins_en_france_alias:en: sweet-corn-frozen-raw-fr-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 741c0970-2823-430a-b4e4-e61ce08ea95a
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Maïs doux Bio (2025)
+ecobalyse_labels_en_organic_origins_en_france_id:en: 230a1b18-686f-4cb7-9e0a-8ea91bc4b4b9
+ecobalyse_labels_en_organic_origins_en_france_name:fr: Maïs doux, surgelé, cru BIO
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Maïs doux par défaut (2025)
-ecobalyse_origins_en_france_alias:en: sweet-corn-fr-2025
+ecobalyse_name:fr: Maïs doux, appertisé, égoutté FR
+ecobalyse_origins_en_france_alias:en: sweet-corn-canned-drained-fr
 ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 40fa68b6-381e-4dd6-ba70-8b43cfdee64e
-ecobalyse_origins_en_france_name:fr: Maïs doux FR (2025)
+ecobalyse_origins_en_france_id:en: f90f8157-2b73-48d0-86f0-039ee3a52618
+ecobalyse_origins_en_france_name:fr: Maïs doux, appertisé, égoutté FR
 ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
+ecobalyse_scenario:en: reference
 ecobalyse_transport_cooling:en: none
 eurocode_2_group_3:en: 8.45.50
 ifct_food_code:en: A008
@@ -31719,26 +31687,21 @@ ciqual_proxy_food_code:en: 9100
 ciqual_proxy_food_name:fr: Riz blanc, cru
 comment:en: why is rice not marked as a cereal?
 description:en: Rice is a cereal grain domesticated independently in China and possibly India thousands of years ago, and it remains the staple food for over half the world's population, central to cuisines across Asia, Africa, and Latin America. It has a mild, subtly sweet flavor with a texture that varies widely by variety—from the fluffy separate grains of basmati to the sticky clumps of short-grain sushi rice. Naturally gluten-free, rice's nutrition depends heavily on processing: brown rice retains its bran and germ for fiber, B vitamins, magnesium, and manganese, while white rice is more refined and comparatively lower in nutrients.
-ecobalyse_alias:en: rice-basmati-non-eu-2025
+ecobalyse_alias:en: rice-raw-default
 ecobalyse_category:en: cereals
 ecobalyse_crop_group:en: RIZ
 ecobalyse_default_origin:en:
-ecobalyse_id:en: cce078cf-3d3e-4153-a0a1-35555b2da639
-ecobalyse_labels_en_organic_alias:en: rice-basmati-organic-2025
-ecobalyse_labels_en_organic_default_origin:en:
-ecobalyse_labels_en_organic_id:en: dcdcb4d1-1793-4f1b-bd1f-7578d02e4fb1
-ecobalyse_labels_en_organic_name:fr: Riz basmati Bio (2025)
+ecobalyse_id:en: cd75bf39-ee3a-5532-9d70-d8b853be0460
 ecobalyse_labels_en_organic_origins_en_france_alias:en: rice-raw-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: 2934f4bc-fec5-5eea-9ab3-127b32254a1d
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Riz cru, toutes variétés (blanc, sauvage, riz thaï ou basmati, cru) Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_labels_en_organic_scenario:en: organic
-ecobalyse_name:fr: Riz basmati par défaut (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: rice-basmati-eu-2025
+ecobalyse_name:fr: Riz cru, toutes variétés (blanc, sauvage, riz thaï ou basmati, cru) Origine Inconnue
+ecobalyse_origins_en_europe_and_maghreb_alias:en: rice-raw-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 3294e42c-c053-42e5-bcc0-a35f189681d6
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Riz basmati UE (2025)
+ecobalyse_origins_en_europe_and_maghreb_id:en: 4b967a1f-c621-5c68-878e-4c75a712b4ff
+ecobalyse_origins_en_europe_and_maghreb_name:fr: Riz cru, toutes variétés (blanc, sauvage, riz thaï ou basmati, cru) UE
 ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
 ecobalyse_origins_en_france_alias:en: rice-raw-fr
 ecobalyse_origins_en_france_default_origin:en: FR
@@ -35972,19 +35935,6 @@ sl: agavin sok
 sv: agavesaft
 ciqual_proxy_food_code:en: 31089
 ciqual_proxy_food_name:en: Syrup, agave
-ecobalyse_proxy_alias:en: glucose-syrup-2025
-ecobalyse_proxy_category:en: other_food_items
-ecobalyse_proxy_crop_group:en: DIVERS
-ecobalyse_proxy_default_origin:en: REM
-ecobalyse_proxy_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
-ecobalyse_proxy_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
-ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: glucose-syrup-2025
-ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 06dffb5c-07ad-48de-9630-632f4c84e02d
-ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Sirop de glucose FR ou UE ou par défaut (2025)
-ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_proxy_scenario:en: import
-ecobalyse_proxy_transport_cooling:en: none
 vegan:en: yes
 vegetarian:en: yes
 
@@ -36892,15 +36842,25 @@ sl: mlečne beljakovine
 sr: mliječni proteini, mlečni proteini, mlečni protein
 sv: mjölkprotein, mjölkproteiner
 allergens:en: en:milk
-ecobalyse_proxy_alias:en: milk-non-eu-2025
+ecobalyse_proxy_alias:en: cow-milk-non-eu
 ecobalyse_proxy_category:en: dairy
 ecobalyse_proxy_default_origin:en:
-ecobalyse_proxy_id:en: 17cb3a3e-04e0-4550-bd9b-91a28d8bcec0
-ecobalyse_proxy_name:fr: Lait par défaut (2025)
-ecobalyse_proxy_origins_en_france_alias:en: milk-2025
+ecobalyse_proxy_id:en: 413dbd30-f224-580c-bf02-51664910430e
+ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: cow-milk-organic
+ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: 2bf307e8-8cb0-400b-a4f1-cf615d9e96f4
+ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Lait Bio
+ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
+ecobalyse_proxy_name:fr: Lait de vache HORS UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: cow-milk-eu
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: f092e399-eb0c-5f4d-abc3-8df379b20dfc
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Lait de vache UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_origins_en_france_alias:en: cow-milk-fr
 ecobalyse_proxy_origins_en_france_default_origin:en: FR
-ecobalyse_proxy_origins_en_france_id:en: 8f3863e7-f981-4367-90a2-e1aaa096a6e0
-ecobalyse_proxy_origins_en_france_name:fr: Lait FR (2025)
+ecobalyse_proxy_origins_en_france_id:en: b757094f-7cb1-58ea-9d3d-b6d7e0e0d471
+ecobalyse_proxy_origins_en_france_name:fr: Lait de vache FR
 ecobalyse_proxy_origins_en_france_scenario:en: reference
 ecobalyse_proxy_scenario:en: import
 ecobalyse_proxy_transport_cooling:en: always
@@ -39429,7 +39389,7 @@ da: sojabase
 de: sojabasis
 es: zumo de soja, jugo de soja, zumo de soya, jugo de soya, base de soja
 fi: soijapohja
-fr: jus de soja
+fr: jus de soja, base de soja
 hr: baza soje
 it: base di soia
 ja: 大豆ベース
@@ -40187,7 +40147,6 @@ fr: levain sec, levain déshydraté
 hr: dehidrirano kiselo tijesto
 it: lievito naturale secco
 pl: zakwas w proszku, sproszkowany zakwas
-
 
 < en: dehydrated sourdough
 en: sourdough powder
@@ -41111,10 +41070,10 @@ ecobalyse_labels_en_organic_origins_en_france_id:en: 36158ea6-066c-4fd6-9e28-647
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Abricot Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Abricot, dénoyauté, cru Origine Inconnue
-ecobalyse_origins_en_europe_and_maghreb_alias:en: apricot-eu-2025
+ecobalyse_origins_en_europe_and_maghreb_alias:en: apricot-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 309e636c-bc57-4adc-bd3c-441c2ee8e42e
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Abricot UE (2025)
+ecobalyse_origins_en_europe_and_maghreb_id:en: 746c2ae1-5298-5ba6-a76f-2a43614c4d72
+ecobalyse_origins_en_europe_and_maghreb_name:fr: Abricot UE
 ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
 ecobalyse_origins_en_france_alias:en: apricot-fr
 ecobalyse_origins_en_france_default_origin:en: FR
@@ -41441,17 +41400,17 @@ ciqual_food_name:en: Banana, pulp, raw
 ciqual_food_name:fr: Banane, pulpe, crue
 ciqual_food_process:en: en:pulp, en:raw
 description:en: Bananas are tropical fruits believed to have originated in Southeast Asia and Papua New Guinea thousands of years ago, later spreading through Africa and eventually the Americas, where they became one of the world's most widely consumed and traded fruits. They have a sweet, mild, slightly tangy flavor with a soft, creamy texture that ripens from starchy and firm to soft and sugary as the fruit matures. Eaten fresh, cooked, or dried, and used in baking, smoothies, and desserts, bananas are notably rich in potassium, vitamin B6, and fiber, along with natural sugars that make them a popular quick energy source.
-ecobalyse_alias:en: banana-non-eu-2025
+ecobalyse_alias:en: banana-wi
 ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: VERGERS
 ecobalyse_default_origin:en:
-ecobalyse_id:en: f79d155e-3f9e-4882-8dd0-b03f28c1ff76
+ecobalyse_id:en: 127b7cfe-0686-4455-8f8d-3c8bc034cbf9
 ecobalyse_labels_en_organic_origins_en_france_alias:en: banana-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: b3f92ca9-3121-4e2d-9e1d-0cc2c5d392fe
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Banane Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Banane par défaut (2025)
+ecobalyse_name:fr: Banane antillaise
 ecobalyse_origins_en_europe_and_maghreb_alias:en: banana-eu-antilles
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
 ecobalyse_origins_en_europe_and_maghreb_id:en: aa3807aa-d855-5506-a799-88d49ccbe0d4
@@ -42062,17 +42021,17 @@ carbon_footprint_fr_foodges_value:fr: 0.8
 ciqual_food_code:en: 13025
 ciqual_food_name:en: Mango, pulp, raw
 ciqual_food_process:en: en:pulp, en:raw
-ecobalyse_alias:en: mango-non-eu-2025
+ecobalyse_alias:en: mango-fr
 ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: VERGERS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: db0e5f44-34b4-4160-b003-77c828d75e60
+ecobalyse_default_origin:en: FR
+ecobalyse_id:en: 49ca593f-7466-531a-8444-0746c68114a7
 ecobalyse_labels_en_organic_origins_en_france_alias:en: mango-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: c15d6695-452c-5401-b820-b3fe8c0f843b
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Mangue Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Mangue par défaut (2025)
+ecobalyse_name:fr: Mangue FR
 ecobalyse_origins_en_france_alias:en: mango-fr
 ecobalyse_origins_en_france_default_origin:en: FR
 ecobalyse_origins_en_france_id:en: 49ca593f-7466-531a-8444-0746c68114a7
@@ -42083,7 +42042,7 @@ ecobalyse_origins_en_france_overseas_id:en: 5d39ed23-3000-54af-9c47-6954802a3cf5
 ecobalyse_origins_en_france_overseas_name:fr: Mangue FR Outre-Mer
 ecobalyse_origins_en_france_overseas_scenario:en: reference
 ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
+ecobalyse_scenario:en: reference
 ecobalyse_transport_cooling:en: always
 usda_fdc_code:en: 169910
 usda_ndb_code:en: 9176
@@ -42287,10 +42246,10 @@ ecobalyse_labels_en_organic_origins_en_france_id:en: 5f8bd664-0922-5294-a8e1-63a
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Pêches Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Pêche, pulpe et peau, crue Origine Inconnue
-ecobalyse_origins_en_europe_and_maghreb_alias:en: peach-eu-2025
+ecobalyse_origins_en_europe_and_maghreb_alias:en: peach-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: fa9e9f34-acc9-4974-89c4-003d2428f502
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Pêche UE (2025)
+ecobalyse_origins_en_europe_and_maghreb_id:en: c4702f90-e428-5a44-867f-3f7261b04afe
+ecobalyse_origins_en_europe_and_maghreb_name:fr: Pêches UE
 ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
 ecobalyse_origins_en_france_alias:en: peach-fr
 ecobalyse_origins_en_france_default_origin:en: FR
@@ -42627,10 +42586,10 @@ ecobalyse_labels_en_organic_origins_en_france_id:en: b2acb297-fcbc-5553-832f-e65
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Poires Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Poire, pulpe, crue Origine Inconnue
-ecobalyse_origins_en_europe_and_maghreb_alias:en: pear-eu-2025
+ecobalyse_origins_en_europe_and_maghreb_alias:en: pear-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: bb00f430-ffda-46a3-ba45-267b0064a43e
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Poire UE (2025)
+ecobalyse_origins_en_europe_and_maghreb_id:en: 0054c2b4-012d-52a0-bc76-2e4ac48b8160
+ecobalyse_origins_en_europe_and_maghreb_name:fr: Poires UE
 ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
 ecobalyse_origins_en_france_alias:en: pear-fr
 ecobalyse_origins_en_france_default_origin:en: FR
@@ -42965,22 +42924,7 @@ ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: VERGERS
 ecobalyse_default_origin:en:
 ecobalyse_id:en: b83a6d8e-5afa-447b-be7b-5df9573e7d3b
-ecobalyse_labels_en_organic_origins_en_france_alias:en: plum-organic-2025
-ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 10af6fa1-e374-4748-b8a8-f735d2813489
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Prune Bio (2025)
-ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Prune par défaut (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: plum-eu-2025
-ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 07433a1e-66d9-45c2-889b-38afb54622de
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Prune UE (2025)
-ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_origins_en_france_alias:en: plum-fr-2025
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 7829330e-e744-4495-bbe3-c372323ba2a5
-ecobalyse_origins_en_france_name:fr: Prune FR (2025)
-ecobalyse_origins_en_france_scenario:en: reference
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
 eurocode_2_group_3:en: 9.20.30
@@ -43629,29 +43573,6 @@ usda_ndb_name:en: Apples, raw, with skin (Includes foods for USDA's Food Distrib
 
 < en: apple
 en: raw apples without skin
-ecobalyse_alias:en: apple-pulp-raw-default
-ecobalyse_category:en: fruits_and_vegetables
-ecobalyse_crop_group:en: VERGERS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: f489c1d2-d770-4614-9878-f6445a8a937f
-ecobalyse_labels_en_organic_origins_en_france_alias:en: apple-organic
-ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: e80c891a-a017-5f5f-9c2a-ddc993fb1769
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Pomme Bio
-ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Pomme, pulpe, crue Origine Inconnue
-ecobalyse_origins_en_europe_and_maghreb_alias:en: apple-eu
-ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: c7ecb41d-3f5b-54cd-84c2-f137bd3256e3
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Pomme UE
-ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_origins_en_france_alias:en: apple-fr
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: d9519b9d-d166-4bb0-8f34-27bb874b104a
-ecobalyse_origins_en_france_name:fr: Pomme FR
-ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
-ecobalyse_transport_cooling:en: always
 usda_fdc_code:en: 171689
 usda_ndb_code:en: 9004
 usda_ndb_name:en: Apples, raw, without skin
@@ -44996,10 +44917,10 @@ ecobalyse_labels_en_organic_origins_en_france_id:en: bfbc9e3d-6c73-51ad-8938-04d
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Kumquat Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Kumquat Origine Inconnue
-ecobalyse_origins_en_france_alias:en: kumquat-fr-2025
+ecobalyse_origins_en_france_alias:en: kumquat-fr
 ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 444b178e-2284-524a-894c-f5a5146c1755
-ecobalyse_origins_en_france_name:fr: Kumquat FR (2025)
+ecobalyse_origins_en_france_id:en: 6caaa004-8117-50c2-9977-8511cbb3e23f
+ecobalyse_origins_en_france_name:fr: Kumquat FR
 ecobalyse_origins_en_france_scenario:en: reference
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
@@ -45815,19 +45736,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mandarin_orange
 < en: mandarin
 en: tangerine, tangerines
 hr: crvena mandarina
-ecobalyse_alias:en: mandarin-non-eu-2025
-ecobalyse_category:en: fruits_and_vegetables
-ecobalyse_crop_group:en: VERGERS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: 6467c956-277d-4e09-80c2-b0b062f84086
-ecobalyse_name:fr: Mandarine par défaut (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: mandarin-eu-2025
-ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 7967ae83-ba85-4a8f-aed9-e96717fc4284
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Mandarine UE (2025)
-ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_scenario:en: import
-ecobalyse_transport_cooling:en: always
 usda_fdc_code:en: 169105
 usda_ndb_code:en: 9218
 usda_ndb_name:en: Tangerines, (mandarin oranges), raw
@@ -47135,16 +47043,11 @@ ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: VERGERS
 ecobalyse_default_origin:en:
 ecobalyse_id:en: 099aeeb2-bf69-5105-a94f-f1fde83a451e
-ecobalyse_labels_en_organic_alias:en: blueberry-organic-2025
-ecobalyse_labels_en_organic_default_origin:en:
-ecobalyse_labels_en_organic_id:en: df1fe70a-08c0-4b8a-9f88-0caeb002d26a
-ecobalyse_labels_en_organic_name:fr: Myrtille Bio (2025)
 ecobalyse_labels_en_organic_origins_en_france_alias:en: blueberry-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: 00484931-4bae-51e6-b779-b734d916acd4
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Myrtille Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_labels_en_organic_scenario:en: organic
 ecobalyse_name:fr: Myrtille Origine Inconnue
 ecobalyse_origins_en_europe_and_maghreb_alias:en: blueberry-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
@@ -48475,17 +48378,17 @@ description:es: Phoenix dactylifera, de nombre común palma (o palmera) datilera
 description:fr: Le dattier ou palmier-dattier (Phoenix dactylifera) est une espèce de plantes de la famille des Arécacées (Palmiers), largement cultivé d'abord pour ses fruits : les dattes.
 description:it: La palma da datteri (Phoenix dactylifera) è una pianta appartenente alla famiglia Arecaceae. Fu nota sin dall'antichità per i suoi frutti eduli chiamati datteri.
 description:nl: De dadelpalm (Phoenix dactylifera) behoort tot de palmenfamilie. Ze wordt op grote schaal aangeplant omwille van de eetbare vruchten, de dadels.
-ecobalyse_alias:en: date-default-2025
+ecobalyse_alias:en: date-default
 ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: VERGERS
 ecobalyse_default_origin:en:
-ecobalyse_id:en: b212ea5a-fc5d-533a-84b3-80add4011864
+ecobalyse_id:en: e888149b-0a27-50b7-bac8-26afc6e895f1
 ecobalyse_labels_en_organic_origins_en_france_alias:en: date-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: ec2ec730-91d6-5980-9230-817cc8386211
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Dattes Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Dattes Origine Inconnue (2025)
+ecobalyse_name:fr: Dattes Origine Inconnue
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
 eurocode_2_group_2:en: 9.25
@@ -49596,17 +49499,17 @@ ciqual_food_name:en: Lychee, pulp, raw
 ciqual_food_name:fr: Litchi, pulpe, cru
 ciqual_food_processe:en: en:pulp, en:raw
 description:en: LYCHEE is the sole member of the genus Litchi in the soapberry family, Sapindaceae.
-ecobalyse_alias:en: lychee-non-eu-2025
+ecobalyse_alias:en: lychee-fr
 ecobalyse_category:en: fruits_and_vegetables
-ecobalyse_crop_group:en: VERGERS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: e9764c3c-554f-4f1e-9ba1-8debc869e6ba
+ecobalyse_crop_group:en: ARBORICULTURE
+ecobalyse_default_origin:en: FR
+ecobalyse_id:en: 49f28010-4312-57ee-9a96-8058e2ca96f9
 ecobalyse_labels_en_organic_origins_en_france_alias:en: lychee-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: 97179c67-b8a8-5d3d-95b0-4b188de6ba92
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Litchi Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Litchi par défaut (2025)
+ecobalyse_name:fr: Litchi FR
 ecobalyse_origins_en_france_alias:en: lychee-fr
 ecobalyse_origins_en_france_default_origin:en: FR
 ecobalyse_origins_en_france_id:en: 49f28010-4312-57ee-9a96-8058e2ca96f9
@@ -49617,7 +49520,7 @@ ecobalyse_origins_en_france_overseas_id:en: d28fd59a-ae07-5813-b707-c9329ffc39ed
 ecobalyse_origins_en_france_overseas_name:fr: Litchi FR Outre-Mer
 ecobalyse_origins_en_france_overseas_scenario:en: reference
 ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
+ecobalyse_scenario:en: reference
 ecobalyse_transport_cooling:en: always
 eurocode_2_group_2:en: 9.25
 eurocode_2_group_3:en: 9.25.40
@@ -49719,17 +49622,17 @@ average_weight_per_unit:en: 540
 # zh-hk:瓜
 carbon_footprint_fr_foodges_ingredient:fr: Melon
 carbon_footprint_fr_foodges_value:fr: 0.5
-ecobalyse_alias:en: melon-non-eu-2025
+ecobalyse_alias:en: melon-eu
 ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: 7b30c4ad-e851-4274-8062-4e14850108a9
-ecobalyse_labels_en_organic_origins_en_france_alias:en: melon-organic-2025
+ecobalyse_default_origin:en: REM
+ecobalyse_id:en: d8814568-a69d-51ce-92ec-14b7c181d30b
+ecobalyse_labels_en_organic_origins_en_france_alias:en: melon-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 359ec82d-4f28-43bd-b5be-84256a45c03e
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Melon Bio (2025)
+ecobalyse_labels_en_organic_origins_en_france_id:en: 1897e16d-b313-537e-b765-2b20a3963a38
+ecobalyse_labels_en_organic_origins_en_france_name:fr: Melon (miellat, Charentais, Cataloupe, Cavaillon) Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Melon par défaut (2025)
+ecobalyse_name:fr: Melon (miellat, Charentais, Cataloupe, Cavaillon) UE
 ecobalyse_origins_en_europe_and_maghreb_alias:en: melon-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
 ecobalyse_origins_en_europe_and_maghreb_id:en: d8814568-a69d-51ce-92ec-14b7c181d30b
@@ -50692,17 +50595,17 @@ zh: 鳳梨
 ciqual_food_code:en: 13002
 ciqual_food_name:en: Pineapple, pulp, raw
 ciqual_food_name:fr: Ananas, pulpe, cru
-ecobalyse_alias:en: pineapple-non-eu-2025
+ecobalyse_alias:en: pineapple-non-eu
 ecobalyse_category:en: fruits_and_vegetables
-ecobalyse_crop_group:en: VERGERS
+ecobalyse_crop_group:en: ARBORICULTURE
 ecobalyse_default_origin:en:
-ecobalyse_id:en: c1ca415f-85bb-43f6-bf8f-8bedd6f95e9a
+ecobalyse_id:en: 413952d8-12d3-5999-8db7-d5126b710332
 ecobalyse_labels_en_organic_origins_en_france_alias:en: pineapple-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: c52c5693-d7b8-53ff-ba1e-5a0fa6e153a2
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Ananas Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Ananas par défaut (2025)
+ecobalyse_name:fr: Ananas HORS UE
 ecobalyse_origins_en_europe_and_maghreb_alias:en: pineapple-eu-antilles
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
 ecobalyse_origins_en_europe_and_maghreb_id:en: ca64d40e-3ab7-5479-9b38-3ab8dcc56431
@@ -51317,11 +51220,6 @@ ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: VERGERS
 ecobalyse_default_origin:en:
 ecobalyse_id:en: d93befed-4e46-58c0-ae12-f80cbdb79012
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_alias:en: raspberry-organic-2025
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_id:en: 091cda9d-3c9d-444c-ad0e-1d6f34491767
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_name:fr: Framboise Bio (2025)
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_scenario:en: organic
 ecobalyse_labels_en_organic_origins_en_france_alias:en: raspberry-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: ab97a5eb-d29c-5bb0-a2e7-d0aa2e719808
@@ -51834,28 +51732,28 @@ carbon_footprint_fr_foodges_value:fr: 3.5
 ciqual_food_code:en: 13014
 ciqual_food_name:en: Strawberry, raw
 ciqual_food_name:fr: Fraise, crue
-ecobalyse_alias:en: strawberry-non-eu-2025
+ecobalyse_alias:en: strawberry-fr
 ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: e5bf7d33-6afe-46d6-ac06-f69c5769b10e
+ecobalyse_default_origin:en: FR
+ecobalyse_id:en: 8ad09e31-6b20-56d1-b059-f871361a16d7
 ecobalyse_labels_en_organic_origins_en_france_alias:en: strawberry-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: 1c1f23ff-c50d-5060-ae07-e9dd8626bc2f
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Fraise Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Fraise par défaut (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: strawberry-eu-2025
+ecobalyse_name:fr: Fraise FR
+ecobalyse_origins_en_europe_and_maghreb_alias:en: strawberry-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: ce20da3d-0ce4-49e9-8942-6d99ff0221b1
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Fraise UE (2025)
+ecobalyse_origins_en_europe_and_maghreb_id:en: 7b6087bc-b370-56a8-a4c5-1afe960116a3
+ecobalyse_origins_en_europe_and_maghreb_name:fr: Fraise UE
 ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
 ecobalyse_origins_en_france_alias:en: strawberry-fr
 ecobalyse_origins_en_france_default_origin:en: FR
 ecobalyse_origins_en_france_id:en: 8ad09e31-6b20-56d1-b059-f871361a16d7
 ecobalyse_origins_en_france_name:fr: Fraise FR
 ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
+ecobalyse_scenario:en: reference
 ecobalyse_transport_cooling:en: always
 eurocode_2_group_3:en: 9.30.15
 ifct_food_code:en: E063
@@ -54496,10 +54394,10 @@ ecobalyse_labels_en_organic_origins_en_france_id:en: 34e21716-9d63-5f01-af35-857
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Endive Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Endive HORS UE
-ecobalyse_origins_en_europe_and_maghreb_alias:en: endive-eu-2025
+ecobalyse_origins_en_europe_and_maghreb_alias:en: endive-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: d680c44f-8458-406a-ac2c-13cd83e90a07
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Endive UE (2025)
+ecobalyse_origins_en_europe_and_maghreb_id:en: 0320e108-7550-5304-83cb-cbdd24172139
+ecobalyse_origins_en_europe_and_maghreb_name:fr: Endive UE
 ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
 ecobalyse_origins_en_france_alias:en: endive-fr
 ecobalyse_origins_en_france_default_origin:en: FR
@@ -55109,10 +55007,10 @@ ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
 ecobalyse_default_origin:en:
 ecobalyse_id:en: 3af7783a-ddd0-5feb-964f-570f25efcd55
-ecobalyse_labels_en_organic_origins_en_france_alias:en: chard-organic-2025
+ecobalyse_labels_en_organic_origins_en_france_alias:en: swiss-chard-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 7f26836d-f0ea-4c54-830f-d93f3e08863a
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Blette Bio (2025)
+ecobalyse_labels_en_organic_origins_en_france_id:en: 11994d0b-d3fc-52ce-84f2-5763a2c3ff98
+ecobalyse_labels_en_organic_origins_en_france_name:fr: Blette Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Blette Origine Inconnue
 ecobalyse_origins_en_europe_and_maghreb_alias:en: swiss-chard-eu
@@ -56373,10 +56271,10 @@ ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
 ecobalyse_default_origin:en:
 ecobalyse_id:en: 97b3f167-af9b-553e-aa6f-caa3f6d80559
-ecobalyse_labels_en_organic_origins_en_france_alias:en: cauliflower-organic-2025
+ecobalyse_labels_en_organic_origins_en_france_alias:en: cauliflower-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 0f747732-1b0d-40ba-89a2-715fecd5454f
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Chou-fleur Bio (2025)
+ecobalyse_labels_en_organic_origins_en_france_id:en: b304816b-5bc0-5216-a090-cdc2dc18b142
+ecobalyse_labels_en_organic_origins_en_france_name:fr: Chou-fleur Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Chou-fleur Origine Inconnue
 ecobalyse_origins_en_europe_and_maghreb_alias:en: cauliflower-eu
@@ -56598,11 +56496,6 @@ ecobalyse_labels_en_organic_origins_en_france_id:en: eeeb2205-848e-589e-83cd-1a5
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Chou blanc Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Chou blanc Origine Inconnue
-ecobalyse_origins_en_europe_and_maghreb_alias:en: white-cabbage-eu-2025
-ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 9f17139e-92b9-4bd4-9ba6-07da78f052ff
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Chou blanc UE (2025)
-ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
 ecobalyse_origins_en_france_alias:en: white-cabbage-fr
 ecobalyse_origins_en_france_default_origin:en: FR
 ecobalyse_origins_en_france_id:en: 7c78115b-3268-4b78-add5-98b0f85bfc34
@@ -56709,6 +56602,7 @@ ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Chou rouge par défaut (2025)
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
+# hsb:čerwjeny kał
 eurocode_2_group_3:en: 8.15.24
 # bar:blaukraut
 # bho:लाल पत्ता गोभी
@@ -56725,7 +56619,6 @@ usda_ndb_code:en: 11112
 usda_ndb_name:en: Cabbage, red, raw
 wikidata:en: q263203
 wikipedia:en: https://en.wikipedia.org/wiki/Red_cabbage
-# hsb:čerwjeny kał
 
 ###################################################################################################
 #
@@ -56963,17 +56856,17 @@ ciqual_food_code:en: 20058
 ciqual_food_name:en: Brussels sprout, raw
 ciqual_food_name:fr: Chou de Bruxelles, cru
 description:en: Brussels sprouts are small, leafy green vegetables belonging to the cabbage family, believed to have originated in Belgium, from which they take their name, though similar plants trace back to ancient Rome. They grow in tight, bud-like clusters along a thick stalk. Raw, they have a slightly bitter, peppery bite; cooked, they turn nuttier and sweeter, especially when roasted, caramelized, or charred. Popular worldwide, they're prepared by roasting, steaming, sautéing, or shredding into slaws, often paired with garlic, bacon, nuts, or citrus. Nutritionally, they're rich in fiber, vitamin C, vitamin K, folate, and antioxidant compounds, while remaining low in calories.
-ecobalyse_alias:en: brussels-sprout-non-ue-2025
+ecobalyse_alias:en: brussels-sprout-eu
 ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: f2ca7ffb-f4b2-478f-8008-41956b2aefa2
-ecobalyse_labels_en_organic_origins_en_france_alias:en: brussels-sprout-organic-2025
+ecobalyse_default_origin:en: REM
+ecobalyse_id:en: 2cebf403-f193-5904-93b6-1164e8f740f7
+ecobalyse_labels_en_organic_origins_en_france_alias:en: brussels-sprout-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 65296024-b028-46c2-be67-84068893cfe3
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Chou de Bruxelles Bio (2025)
+ecobalyse_labels_en_organic_origins_en_france_id:en: 82a126e9-e941-5043-8924-9c5b746e1c5a
+ecobalyse_labels_en_organic_origins_en_france_name:fr: Chou de Bruxelles Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Chou de Bruxelles par défaut (2025)
+ecobalyse_name:fr: Chou de Bruxelles UE
 ecobalyse_origins_en_europe_and_maghreb_alias:en: brussels-sprout-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
 ecobalyse_origins_en_europe_and_maghreb_id:en: 2cebf403-f193-5904-93b6-1164e8f740f7
@@ -57142,10 +57035,10 @@ ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
 ecobalyse_default_origin:en:
 ecobalyse_id:en: bb9215ce-cd54-51ea-adda-2e9a73dce44d
-ecobalyse_labels_en_organic_origins_en_france_alias:en: curly-kale-organic-2025
+ecobalyse_labels_en_organic_origins_en_france_alias:en: kale-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 577ca86a-b599-4757-9b98-712529a29738
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Chou frisé Bio (2025)
+ecobalyse_labels_en_organic_origins_en_france_id:en: b45d2791-50e0-589d-aa7e-cec7886b21f9
+ecobalyse_labels_en_organic_origins_en_france_name:fr: Chou frisé Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Chou frisé Origine Inconnue
 ecobalyse_origins_en_europe_and_maghreb_alias:en: kale-eu
@@ -57269,10 +57162,10 @@ ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
 ecobalyse_default_origin:en:
 ecobalyse_id:en: 0571c52e-d806-5faa-8105-8ae0d5726400
-ecobalyse_labels_en_organic_origins_en_france_alias:en: green-cabbage-organic-2025
+ecobalyse_labels_en_organic_origins_en_france_alias:en: green-cabbage-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: aef5e0f4-7f91-4b75-b1e8-04594c64a538
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Chou vert Bio (2025)
+ecobalyse_labels_en_organic_origins_en_france_id:en: d85fd30e-a235-5d74-99b7-e59a5f4bcd27
+ecobalyse_labels_en_organic_origins_en_france_name:fr: Chou vert Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Chou vert Origine Inconnue
 ecobalyse_origins_en_europe_and_maghreb_alias:en: green-cabbage-eu
@@ -58187,17 +58080,17 @@ description:fr: L’artichaut (Cynara cardunculus var. scolymus (L.) Benth.) est
 description:it: Il carciofo (Cynara cardunculus subsp. scolymus) è una pianta angiosperma dicotiledone della famiglia Asteraceae coltivata in Italia e in altri Paesi per uso alimentare.
 description:nl: De artisjok (Cynara scolymus) is een plant uit de composietenfamilie. De vlezige schutbladeren van het gesloten bloemhoofdje worden als groente gegeten.
 description:pt: Uma alcachofra (Cynara cardunculus subsp. scolymus) é uma planta com até um metro de altura, da família das compostas.
-ecobalyse_alias:en: artichoke-non-eu-2025
+ecobalyse_alias:en: artichoke-eu
 ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: 92200507-627e-4ae5-a5f8-cf62ef619b02
+ecobalyse_default_origin:en: REM
+ecobalyse_id:en: f370924b-f15c-53dc-9728-38010bb6a7c9
 ecobalyse_labels_en_organic_origins_en_france_alias:en: artichoke-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: f5ff010b-9397-5d2c-b950-6c29339f7714
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Artichaut Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Artichaut par défaut (2025)
+ecobalyse_name:fr: Artichaut UE
 ecobalyse_origins_en_europe_and_maghreb_alias:en: artichoke-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
 ecobalyse_origins_en_europe_and_maghreb_id:en: f370924b-f15c-53dc-9728-38010bb6a7c9
@@ -59775,21 +59668,21 @@ ciqual_food_code:en: 20039
 ciqual_food_name:en: Leek, raw
 ciqual_food_name:fr: Poireau, cru
 description:en: The LEEK is a vegetable, a cultivar of Allium ampeloprasum, the broadleaf wild leek. Leeks have a mild, onion-like taste. In its raw state, the vegetable is crunchy and firm. The edible portions of the leek are the white base of the leaves (above the roots and stem base), the light green parts, and to a lesser extent the dark green parts of the leaves. Leeks are typically chopped into slices 5–10 mm thick. The slices have a tendency to fall apart, due to the layered structure of the leek. The different ways of preparing the vegetable are: boiling, frying or raw.
-ecobalyse_alias:en: leek-non-eu-2025
+ecobalyse_alias:en: leek-non-eu
 ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
 ecobalyse_default_origin:en:
-ecobalyse_id:en: bb58047c-2b1d-42ad-b5a2-bc5ebf8289a1
+ecobalyse_id:en: 63672696-8c4b-599c-9be5-5c06bbf3d8b8
 ecobalyse_labels_en_organic_origins_en_france_alias:en: leek-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: 39684b70-725c-5245-8c76-d5e1133b027b
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Poireau Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Poireau par défaut (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: leek-eu-2025
+ecobalyse_name:fr: Poireau HORS UE
+ecobalyse_origins_en_europe_and_maghreb_alias:en: leek-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 7aea09f0-f3ae-4df0-9cbc-ba4007ce1459
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Poireau UE (2025)
+ecobalyse_origins_en_europe_and_maghreb_id:en: 0feaacf9-6320-5b4b-a607-6eefa00f68dd
+ecobalyse_origins_en_europe_and_maghreb_name:fr: Poireau UE
 ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
 ecobalyse_origins_en_france_alias:en: leek-fr
 ecobalyse_origins_en_france_default_origin:en: FR
@@ -61268,28 +61161,23 @@ allergens:en: en:celery
 ciqual_proxy_food_code:en: 20055
 ciqual_proxy_food_name:en: Celeriac, raw
 ciqual_proxy_food_name:fr: Céleri-rave, cru
-ecobalyse_alias:en: celeriac-non-eu-2025
+ecobalyse_alias:en: celeriac-fr
 ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: 1f5dd2a5-8439-4949-b5d8-2bce0ec3c9c7
+ecobalyse_default_origin:en: FR
+ecobalyse_id:en: 88c0d4ba-93d6-4a41-94e6-ccec49cce325
 ecobalyse_labels_en_organic_origins_en_france_alias:en: celeriac-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: 679f249e-5209-56e7-a43f-d78fee8c5cb5
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Céleri-rave Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Céleri-rave par défaut (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: celeriac-eu-2025
-ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: a4c2f300-9268-45cc-a14f-89c48fcabc14
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Céleri-rave UE (2025)
-ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_name:fr: Céleri-rave FR
 ecobalyse_origins_en_france_alias:en: celeriac-fr
 ecobalyse_origins_en_france_default_origin:en: FR
 ecobalyse_origins_en_france_id:en: 88c0d4ba-93d6-4a41-94e6-ccec49cce325
 ecobalyse_origins_en_france_name:fr: Céleri-rave FR
 ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
+ecobalyse_scenario:en: reference
 ecobalyse_transport_cooling:en: always
 eurocode_2_group_3:en: 8.38.30
 usda_ndb_proxy_code:en: 11141
@@ -62028,29 +61916,29 @@ eurocode_2_group_3:en: 8.34.10
 en: table potatoes
 de: Speisekartoffeln
 it: patate da tavola
-ecobalyse_alias:en: potato-table-non-eu-2025
-ecobalyse_category:en: fruits_and_vegetables
-ecobalyse_crop_group:en: LEGUMES-FLEURS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: 33c427df-1967-452a-91b0-cdc1a2c9ca04
-ecobalyse_labels_en_organic_origins_en_france_alias:en: potato-table-organic-2025
-ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 5ba9ada3-0712-42c4-a13c-a5c5df639943
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Pomme de terre de table Bio (2025)
-ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Pomme de terre de table par défaut (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: potato-table-eu-2025
-ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 9bdb3037-1154-4477-a99c-6ca4ba9c9168
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Pomme de terre de table UE (2025)
-ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_origins_en_france_alias:en: potato-table-fr-2025
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 1bcf7aa8-a26c-4340-b98a-c41d015a99b7
-ecobalyse_origins_en_france_name:fr: Pomme de terre de table FR (2025)
-ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
-ecobalyse_transport_cooling:en: always
+ecobalyse_proxy_alias:en: potato-default
+ecobalyse_proxy_category:en: fruits_and_vegetables
+ecobalyse_proxy_crop_group:en: LEGUMES-FLEURS
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_id:en: 999485a8-08af-5135-bf2c-48ce04c68f81
+ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: potato-organic
+ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: 6141ee7b-2ffe-51d1-9c48-b296f67329bd
+ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Pomme de terre Bio
+ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
+ecobalyse_proxy_name:fr: Pomme de terre Origine Inconnue
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: potato-eu
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: c8ceb21d-a33f-58b6-8f23-ebf2dc7f84f7
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Pomme de terre UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_origins_en_france_alias:en: potato-fr
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 0528ba96-12c6-5f56-8b9f-a2343fc8e12b
+ecobalyse_proxy_origins_en_france_name:fr: Pomme de terre FR
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: always
 
 < en: potato
 en: waxy potato, waxy potatoes, firm potato, firm potatoes
@@ -62447,21 +62335,21 @@ description:es: Persea americana, llamado popularmente aguacate, palto o aguacat
 description:fr: L'avocatier (Persea americana) est une espèce d'arbres fruitiers de la famille des Lauracées, originaire du Mexique et d'Amérique centrale. Il est notamment cultivé pour ses fruits, les avocats, riches en lipides.
 description:it: L'avocado (Persea americana) è una specie arborea da frutto che appartiene alla famiglia delle Lauracee.
 description:nl: De avocado (Persea americana) is een boom uit Centraal-Amerika. Hij is bekend om zijn gelijknamige voor consumptie geschikte vrucht.
-ecobalyse_alias:en: avocado-non-eu-2025
+ecobalyse_alias:en: avocado-default
 ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: VERGERS
 ecobalyse_default_origin:en:
-ecobalyse_id:en: 3c49c70f-7650-44f8-97f1-7490cbabf595
+ecobalyse_id:en: cfce40a0-1a82-5c9d-bfc1-f0912db6d7e6
 ecobalyse_labels_en_organic_alias:en: avocado-pulp-raw-default-organic
 ecobalyse_labels_en_organic_default_origin:en:
 ecobalyse_labels_en_organic_id:en: b4b400e0-1b44-450b-ae5c-8474b83af651
 ecobalyse_labels_en_organic_name:fr: Avocat, pulpe, cru BIO
 ecobalyse_labels_en_organic_scenario:en: organic
-ecobalyse_name:fr: Avocat par défaut (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: avocado-eu-2025
+ecobalyse_name:fr: Avocat Origine Inconnue
+ecobalyse_origins_en_europe_and_maghreb_alias:en: avocado-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: fa8cce35-0e6b-4a2f-bdc1-80c05e497616
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Avocat UE (2025)
+ecobalyse_origins_en_europe_and_maghreb_id:en: 87b75b49-4e10-56bd-8b88-08a6003cce51
+ecobalyse_origins_en_europe_and_maghreb_name:fr: Avocat UE
 ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
@@ -63545,11 +63433,6 @@ ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
 ecobalyse_default_origin:en:
 ecobalyse_id:en: f1769f71-8a52-5e10-b3a0-efdc2a1918f8
-ecobalyse_labels_en_organic_origins_en_france_alias:en: radish-organic-2025
-ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 076b3d53-fc81-454b-9c90-e19767de8b0b
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Radis Bio (2025)
-ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Radis Origine Inconnue
 ecobalyse_origins_en_europe_and_maghreb_alias:en: radish-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
@@ -64039,12 +63922,12 @@ ciqual_food_name:en: Sweet pepper, green, yellow or red, raw
 ciqual_food_name:fr: Poivron, vert, jaune ou rouge, cru
 comment:en: in some languages en:bell-pepper and en:parika are not distinguished, but the same word. wikipedia says "In many languages, but not English, the word paprika also refers to the plant and the fruit from which the spice is made, as well as to peppers in the Grossum group (e.g. bell peppers)."
 description:en: The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
-ecobalyse_alias:en: bell-pepper-unheated-greenhouse-non-eu-2025
+ecobalyse_alias:en: bell-pepper-eu
 ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: d018ec1f-d3c8-4fa1-a70d-bca1b0380c47
-ecobalyse_name:fr: Poivron sous serre non chauffée par défaut (2025)
+ecobalyse_default_origin:en: REM
+ecobalyse_id:en: f03947eb-3f24-5de7-ba45-a01c3b3deabb
+ecobalyse_name:fr: Poivron, vert, jaune ou rouge UE
 ecobalyse_origins_en_europe_and_maghreb_alias:en: bell-pepper-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
 ecobalyse_origins_en_europe_and_maghreb_id:en: f03947eb-3f24-5de7-ba45-a01c3b3deabb
@@ -65887,10 +65770,10 @@ ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
 ecobalyse_default_origin:en:
 ecobalyse_id:en: 022b51ee-ee0e-5ed6-b901-e4d6e9111d82
-ecobalyse_labels_en_organic_origins_en_france_alias:en: turnip-organic-2025
+ecobalyse_labels_en_organic_origins_en_france_alias:en: turnip-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 7e64fe4d-001c-42eb-9307-13c8a21d2805
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Navet Bio (2025)
+ecobalyse_labels_en_organic_origins_en_france_id:en: 514b5dfc-28c8-55f8-8dc9-7b44fb2f72f7
+ecobalyse_labels_en_organic_origins_en_france_name:fr: Navet Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Navet Origine Inconnue
 ecobalyse_origins_en_france_alias:en: turnip-fr
@@ -66242,29 +66125,29 @@ usda_ndb_name:en: Chayote, fruit, raw
 en: spaghetti squash
 fr: courge spaghetti
 it: spaghetti di zucca
-ecobalyse_alias:en: squash-eu-2025
-ecobalyse_category:en: fruits_and_vegetables
-ecobalyse_crop_group:en: LEGUMES-FLEURS
-ecobalyse_default_origin:en: REM
-ecobalyse_id:en: 14335872-a8d9-4496-b771-cb80c21ad604
-ecobalyse_labels_en_organic_origins_en_france_alias:en: squash-organic-2025
-ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: bbee841c-6675-49ae-92da-2064877f6d14
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Courge Bio (2025)
-ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Courge UE (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: squash-eu-2025
-ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 14335872-a8d9-4496-b771-cb80c21ad604
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Courge UE (2025)
-ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_origins_en_france_alias:en: squash-fr-2025
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 6689fb67-0118-4dff-b74e-0c8de81ef65b
-ecobalyse_origins_en_france_name:fr: Courge FR (2025)
-ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
-ecobalyse_transport_cooling:en: always
+ecobalyse_proxy_alias:en: squash-with-skin-raw-eu
+ecobalyse_proxy_category:en: fruits_and_vegetables
+ecobalyse_proxy_crop_group:en: LEGUMES-FLEURS
+ecobalyse_proxy_default_origin:en: REM
+ecobalyse_proxy_id:en: 209bb168-1e1b-5516-830b-72b369251d87
+ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: squash-with-skin-raw-organic
+ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: ca55bb19-751f-5f8a-bad2-35b3fc0f8941
+ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Courge crue, avec la peau Bio
+ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
+ecobalyse_proxy_name:fr: Courge crue, avec la peau UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: squash-with-skin-raw-eu
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 209bb168-1e1b-5516-830b-72b369251d87
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Courge crue, avec la peau UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_origins_en_france_alias:en: squash-with-skin-raw-fr
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 2017dfef-852b-5717-9f38-c0964cff7adc
+ecobalyse_proxy_origins_en_france_name:fr: Courge crue, avec la peau FR
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: always
 eurocode_2_group_3:en: 8.40.45
 wikidata:en: Q2142043
 
@@ -66318,26 +66201,26 @@ zh: 笋瓜
 ciqual_food_code:en: 20166
 ciqual_food_name:en: Pumpkin, pulp, raw
 ciqual_food_name:fr: Citrouille, pulpe, crue
-ecobalyse_proxy_alias:en: squash-eu-2025
+ecobalyse_proxy_alias:en: squash-with-skin-raw-eu
 ecobalyse_proxy_category:en: fruits_and_vegetables
 ecobalyse_proxy_crop_group:en: LEGUMES-FLEURS
 ecobalyse_proxy_default_origin:en: REM
-ecobalyse_proxy_id:en: 14335872-a8d9-4496-b771-cb80c21ad604
-ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: squash-organic-2025
+ecobalyse_proxy_id:en: 209bb168-1e1b-5516-830b-72b369251d87
+ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: squash-with-skin-raw-organic
 ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: bbee841c-6675-49ae-92da-2064877f6d14
-ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Courge Bio (2025)
+ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: ca55bb19-751f-5f8a-bad2-35b3fc0f8941
+ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Courge crue, avec la peau Bio
 ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_proxy_name:fr: Courge UE (2025)
-ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: squash-eu-2025
+ecobalyse_proxy_name:fr: Courge crue, avec la peau UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: squash-with-skin-raw-eu
 ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 14335872-a8d9-4496-b771-cb80c21ad604
-ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Courge UE (2025)
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 209bb168-1e1b-5516-830b-72b369251d87
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Courge crue, avec la peau UE
 ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_proxy_origins_en_france_alias:en: squash-fr-2025
+ecobalyse_proxy_origins_en_france_alias:en: squash-with-skin-raw-fr
 ecobalyse_proxy_origins_en_france_default_origin:en: FR
-ecobalyse_proxy_origins_en_france_id:en: 6689fb67-0118-4dff-b74e-0c8de81ef65b
-ecobalyse_proxy_origins_en_france_name:fr: Courge FR (2025)
+ecobalyse_proxy_origins_en_france_id:en: 2017dfef-852b-5717-9f38-c0964cff7adc
+ecobalyse_proxy_origins_en_france_name:fr: Courge crue, avec la peau FR
 ecobalyse_proxy_origins_en_france_scenario:en: reference
 ecobalyse_proxy_scenario:en: import
 ecobalyse_proxy_transport_cooling:en: always
@@ -66483,10 +66366,10 @@ ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
 ecobalyse_default_origin:en:
 ecobalyse_id:en: 0c28e3b8-0699-5524-9205-8915ff5c881a
-ecobalyse_labels_en_organic_origins_en_france_alias:en: zucchini-organic-2025
+ecobalyse_labels_en_organic_origins_en_france_alias:en: zucchini-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 59092383-9bfb-419e-ab63-825c8e6e6ed0
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Courgette Bio (2025)
+ecobalyse_labels_en_organic_origins_en_france_id:en: 7b5e5265-7e7d-53be-b7be-351fac920f42
+ecobalyse_labels_en_organic_origins_en_france_name:fr: Courgettes Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Courgettes Origine Inconnue
 ecobalyse_origins_en_europe_and_maghreb_alias:en: zucchini-eu
@@ -66746,29 +66629,6 @@ agribalyse_proxy_food_name:fr: Haricot blanc, sec
 carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve (type cassoulet)
 carbon_footprint_fr_foodges_value:fr: 2
 description:en: A BEAN is a seed of one of several genera of the flowering plant family Fabaceae, which are used for human or animal food.
-ecobalyse_alias:en: bean-non-eu-2025
-ecobalyse_category:en: legumes
-ecobalyse_crop_group:en: AUTRES CEREALES
-ecobalyse_default_origin:en:
-ecobalyse_id:en: 134bc97e-e3dc-44de-8ec6-947b608a2d42
-ecobalyse_labels_en_organic_alias:en: bean-organic-2025
-ecobalyse_labels_en_organic_default_origin:en:
-ecobalyse_labels_en_organic_id:en: 8cf0b0ce-7ae7-4123-8fee-823b4c190418
-ecobalyse_labels_en_organic_name:fr: Pois Bio (2025)
-ecobalyse_labels_en_organic_scenario:en: organic
-ecobalyse_name:fr: Pois par défaut (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: bean-eu-2025
-ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 0fdccf80-b169-4b34-8409-d15c0d100957
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Pois UE (2025)
-ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_origins_en_france_alias:en: bean-fr-2025
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: bfdf1505-8426-499e-8286-a1e4b4920c7e
-ecobalyse_origins_en_france_name:fr: Pois FR (2025)
-ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
-ecobalyse_transport_cooling:en: always
 eurocode_2_group_3:en: 7.10.30
 rare_crop:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Phaseolus_vulgaris
@@ -67875,10 +67735,10 @@ ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
 ecobalyse_origins_en_europe_and_maghreb_id:en: 1ab7c8e7-fb50-4e5d-b153-372f853514cf
 ecobalyse_origins_en_europe_and_maghreb_name:fr: Haricot flageolet UE (2025)
 ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_origins_en_france_alias:en: flageolet-bean-fr-2025
+ecobalyse_origins_en_france_alias:en: flageolet-bean-green-dried-fr
 ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: b5c5285f-8dfe-4865-bdc9-8d86b6977d14
-ecobalyse_origins_en_france_name:fr: Haricot flageolet FR (2025)
+ecobalyse_origins_en_france_id:en: c797468e-8020-58d2-aae9-2e0f956af969
+ecobalyse_origins_en_france_name:fr: Haricots flageolets verts FR
 ecobalyse_origins_en_france_scenario:en: reference
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
@@ -68774,24 +68634,29 @@ carbon_footprint_fr_foodges_value:fr: 1.5
 ciqual_food_code:en: 20532
 ciqual_food_name:fr: Pois chiche, appertisé, égoutté
 description:en: Chickpeas (Cicer arietinum), also known as garbanzo beans, are one of the world's oldest cultivated legumes, originating in the Middle East over 7,000 years ago and now grown widely across the Mediterranean, India, and the Americas. They have a mild, slightly nutty, earthy flavor with a firm yet creamy texture once cooked, making them extremely versatile in the kitchen. Chickpeas star in dishes like hummus, falafel, curries, soups, salads, and roasted snacks, and can be ground into flour for flatbreads and fritters. Nutritionally, they're a powerhouse: rich in plant-based protein, fiber, complex carbohydrates, iron, folate, and manganese, while being naturally low in fat. Their high fiber and protein content supports digestion, blood sugar stability, and satiety, making chickpeas a staple for vegetarian, vegan, and heart-healthy diets worldwide.
-ecobalyse_alias:en: chickpea-non-eu-2025
-ecobalyse_category:en: legumes
-ecobalyse_crop_group:en: LEGUMINEUSES A GRAIN
-ecobalyse_default_origin:en:
-ecobalyse_id:en: 227914fd-5cf5-4c05-958f-ac4321e6c557
-ecobalyse_labels_en_organic_origins_en_france_alias:en: chickpea-organic-2025
-ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 20aea108-cab8-4223-b8b7-4747599e228c
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Pois chiche Bio (2025)
-ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Pois chiche par défaut (2025)
-ecobalyse_origins_en_france_alias:en: chickpea-fr-2025
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 89035410-466b-4c9d-8726-98f0928b664b
-ecobalyse_origins_en_france_name:fr: Pois chiche FR (2025)
-ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
-ecobalyse_transport_cooling:en: always
+ecobalyse_proxy_alias:en: chickpea-dried-non-eu
+ecobalyse_proxy_category:en: fruits_and_vegetables
+ecobalyse_proxy_crop_group:en: LEGUMINEUSES A GRAIN
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_id:en: 5c830f3e-2467-58b4-b9cc-c5ce6eedf306
+ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: chickpea-dried-organic
+ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: afb6d3fe-f3ef-515f-b1c0-e6480c420bad
+ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Pois chiches Bio
+ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
+ecobalyse_proxy_name:fr: Pois chiches HORS UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: chickpea-dried-eu
+ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: c141b0e1-8755-5de3-91cd-44a45f00a7d1
+ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Pois chiches UE
+ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_origins_en_france_alias:en: chickpea-dried-fr
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: e1abc8f3-a037-53c1-8c1f-cc0cb45c098a
+ecobalyse_proxy_origins_en_france_name:fr: Pois chiches FR
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: always
 # eurocode_2_group_3:en: 7.10.15
 ## eurocode_2_group_2:en: 8.45
 rare_crop:en: yes
@@ -69039,30 +68904,25 @@ carbon_footprint_fr_foodges_value:fr: 1.5
 ciqual_food_code:en: 20072
 ciqual_food_name:en: Garden peas, raw
 ciqual_food_name:fr: Petits pois, crus
-ecobalyse_alias:en: garden-peas-eu-2025
-ecobalyse_category:en: legumes
+ecobalyse_proxy_alias:en: pea-shelled-raw-default
+ecobalyse_proxy_category:en: other_food_items
 #250 in 6 @2021-10-05
-ecobalyse_crop_group:en: LEGUMES-FLEURS
-ecobalyse_default_origin:en: REM
-ecobalyse_id:en: 3f4037f4-8c7a-45f7-b376-ec48357db98d
-ecobalyse_labels_en_organic_origins_en_france_alias:en: garden-peas-organic-2025
-ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 74a016ae-d486-4766-adfd-e44697b7be2f
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Petit pois Bio (2025)
-ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Petit pois UE (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: garden-peas-eu-2025
-ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 3f4037f4-8c7a-45f7-b376-ec48357db98d
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Petit pois UE (2025)
-ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_origins_en_france_alias:en: garden-peas-fr-2025
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 05c2db96-2658-4842-8c30-53e878b08931
-ecobalyse_origins_en_france_name:fr: Petit pois FR (2025)
-ecobalyse_origins_en_france_scenario:en: reference
-ecobalyse_scenario:en: import
-ecobalyse_transport_cooling:en: always
+ecobalyse_proxy_crop_group:en: PROTEAGINEUX
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_id:en: 6444663c-f3ef-4afa-a36d-767aa44ab8f9
+ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: pea-shelled-raw-fr-organic
+ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: fc6a3ecf-e661-4c38-a982-a3d053b77d0e
+ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Petits pois, écossés, crus BIO
+ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
+ecobalyse_proxy_name:fr: Petits pois, écossés, crus Origine Inconnue
+ecobalyse_proxy_origins_en_france_alias:en: pea-shelled-raw-fr
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: 79cca60b-cfb3-42b8-9847-4f5473cb61b7
+ecobalyse_proxy_origins_en_france_name:fr: Petits pois, écossés, crus FR
+ecobalyse_proxy_origins_en_france_scenario:en: reference
+ecobalyse_proxy_scenario:en: import
+ecobalyse_proxy_transport_cooling:en: none
 
 < en: garden peas
 fr: petits pois fins
@@ -70487,11 +70347,6 @@ ecobalyse_category:en: other_food_items
 ecobalyse_crop_group:en: FRUITS A COQUES
 ecobalyse_default_origin:en:
 ecobalyse_id:en: 6adadee7-7f65-5b0b-9361-386750d7c57f
-ecobalyse_labels_en_organic_origins_en_france_alias:en: chestnut-inshell-organic-2025
-ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: 17b171b8-1e5e-472f-a6c5-8053b5ae4c9a
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Châtaigne avec coque Bio (2025)
-ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Châtaigne Origine Inconnue
 ecobalyse_origins_en_europe_and_maghreb_alias:en: chestnut-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
@@ -70735,11 +70590,6 @@ ecobalyse_labels_en_organic_alias:en: hazelnut-shelled-default-organic
 ecobalyse_labels_en_organic_default_origin:en:
 ecobalyse_labels_en_organic_id:en: bbe32dc1-8689-454c-8777-70d0ec1f0491
 ecobalyse_labels_en_organic_name:fr: Noisette, décortiquée Origine Inconnue BIO
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_alias:en: hazelnut-organic-2025
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_id:en: df64fdd7-1900-402c-86b9-e766e22c27ed
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_name:fr: Noisette avec coque Bio (2025)
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_scenario:en: organic
 ecobalyse_labels_en_organic_origins_en_france_alias:en: hazelnut-in-shell-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: 964296d4-e55c-504d-9d3c-b5658656de58
@@ -70747,10 +70597,10 @@ ecobalyse_labels_en_organic_origins_en_france_name:fr: Noisettes en coquille Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_labels_en_organic_scenario:en: organic
 ecobalyse_name:fr: Noisette, décortiquée Origine Inconnue
-ecobalyse_origins_en_europe_and_maghreb_alias:en: hazelnut-eu-2025
+ecobalyse_origins_en_europe_and_maghreb_alias:en: hazelnut-in-shell-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: dd6c5ca4-9d8a-4b4f-9d5e-fada405f7c39
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Noisette avec coque UE (2025)
+ecobalyse_origins_en_europe_and_maghreb_id:en: 7b3e1b2d-5a38-585a-92d5-ebd497e18463
+ecobalyse_origins_en_europe_and_maghreb_name:fr: Noisettes en coquille UE
 ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
 ecobalyse_origins_en_france_alias:en: hazelnut-in-shell-fr
 ecobalyse_origins_en_france_default_origin:en: FR
@@ -71104,22 +70954,17 @@ zh: 花生仁, 花生
 allergens:en: en:peanuts
 ciqual_food_code:en: 15001
 ciqual_food_name:en: Peanut
-ecobalyse_alias:en: peanut-non-eu-2025
+ecobalyse_alias:en: peanut-non-eu
 ecobalyse_category:en: other_food_items
 ecobalyse_crop_group:en: FRUITS A COQUES
 ecobalyse_default_origin:en:
-ecobalyse_id:en: df428ef5-1745-404e-b7ab-22cdca785ca4
-ecobalyse_labels_en_organic_alias:en: peanut-organic-2025
-ecobalyse_labels_en_organic_default_origin:en:
-ecobalyse_labels_en_organic_id:en: 9dec26dd-bf7c-4336-996e-3f9bd8659d05
-ecobalyse_labels_en_organic_name:fr: Arachide avec coque Bio (2025)
+ecobalyse_id:en: 9f90423f-7c10-5aad-bed8-be5ed281aa3a
 ecobalyse_labels_en_organic_origins_en_france_alias:en: peanut-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: 863cf907-aeca-5d32-8c4e-8d95b7fca207
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Arachide Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_labels_en_organic_scenario:en: organic
-ecobalyse_name:fr: Arachide avec coque par défaut (2025)
+ecobalyse_name:fr: Arachide HORS UE
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: none
 usda_fdc_code:en: 172430
@@ -71472,22 +71317,17 @@ zh: 开心果, 阿月浑子
 #ciqual_food_name:en: Pistachio nut, grilled
 ciqual_proxy_food_code:en: 15043
 ciqual_proxy_food_name:en: Pistachio nut, raw
-ecobalyse_alias:en: pistachio-non-eu-2025
+ecobalyse_alias:en: pistachio-non-eu
 ecobalyse_category:en: other_food_items
 ecobalyse_crop_group:en: FRUITS A COQUES
 ecobalyse_default_origin:en:
-ecobalyse_id:en: 4c1bfb2c-9edd-4a15-8a08-b2ea85268771
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_alias:en: pistachio-organic-2025
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_id:en: 115a010d-270f-43f8-9827-b27348a08d13
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_name:fr: Pistache avec coque Bio (2025)
-ecobalyse_labels_en_organic_origins_en_europe_and_maghreb_scenario:en: organic
+ecobalyse_id:en: 1c54ed0a-a1c6-5808-a79d-dddf94b4c98b
 ecobalyse_labels_en_organic_origins_en_france_alias:en: pistachio-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: 420449d8-4485-57df-91cf-abcf592a8e58
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Pistaches Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Pistache avec coque par défaut (2025)
+ecobalyse_name:fr: Pistaches HORS UE
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: none
 usda_fdc_code:en: 170184
@@ -71630,17 +71470,17 @@ description:es: Una nuez es el fruto de cualquier árbol del género Juglans. De
 description:fr: La noix est un fruit comestible à coque. Elle est produite par les noyers, arbres du genre Juglans L.
 description:it: La noce è il frutto degli alberi del genere Juglans.
 description:nl: Met walnoot of okkernoot wordt meestal gedoeld op de vrucht van de gewone walnoten- of okkernotenboom (Juglans regia).
-ecobalyse_alias:en: walnut-inshell-non-eu-2025
+ecobalyse_alias:en: walnut-eu
 ecobalyse_category:en: other_food_items
 ecobalyse_crop_group:en: FRUITS A COQUES
-ecobalyse_default_origin:en:
-ecobalyse_id:en: 69d6cbd1-914d-40ea-aaa1-082911ed2fdd
-ecobalyse_labels_en_organic_origins_en_france_alias:en: walnut-inshell-organic-2025
+ecobalyse_default_origin:en: REM
+ecobalyse_id:en: 4e996d8a-160a-5f73-a9b5-ace3b8f69369
+ecobalyse_labels_en_organic_origins_en_france_alias:en: walnut-shelled-fr-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: e3a3bd70-1c8e-4b8b-b22f-b1f9958574c8
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Noix avec coque Bio (2025)
+ecobalyse_labels_en_organic_origins_en_france_id:en: 31e1240a-c67d-400c-a087-45b19a52a4d4
+ecobalyse_labels_en_organic_origins_en_france_name:fr: Noix, décortiquée, fraîche ou sèche BIO
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Noix avec coque par défaut (2025)
+ecobalyse_name:fr: Noix UE
 ecobalyse_origins_en_europe_and_maghreb_alias:en: walnut-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
 ecobalyse_origins_en_europe_and_maghreb_id:en: 4e996d8a-160a-5f73-a9b5-ace3b8f69369
@@ -80444,10 +80284,10 @@ ecobalyse_crop_group:en: OLIVIERS
 ecobalyse_default_origin:en:
 ecobalyse_id:en: 34e35753-f5ae-58d4-8f4e-5d15a3821a8e
 ecobalyse_name:fr: Olives Origine Inconnue
-ecobalyse_origins_en_europe_and_maghreb_alias:en: olive-eu-2025
+ecobalyse_origins_en_europe_and_maghreb_alias:en: olive-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 4234febf-7bb7-4713-a399-7fd586849e7b
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Olive UE (2025)
+ecobalyse_origins_en_europe_and_maghreb_id:en: c3519237-1565-5c43-b47c-a8cc2e002540
+ecobalyse_origins_en_europe_and_maghreb_name:fr: Olives UE
 ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
 ecobalyse_origins_en_france_alias:en: olive-fr
 ecobalyse_origins_en_france_default_origin:en: FR
@@ -81751,11 +81591,6 @@ ecobalyse_proxy_crop_group:en: DIVERS
 ecobalyse_proxy_default_origin:en:
 ecobalyse_proxy_id:en: b767e665-ad96-5200-ad67-11ac66e81559
 ecobalyse_proxy_name:fr: Thé, feuilles séchées HORS UE
-ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: tea-dried-2025
-ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 97f56acd-962e-4a4b-af42-1e468d2017a0
-ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Thé (feuilles) UE (2025)
-ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
 ecobalyse_proxy_scenario:en: import
 ecobalyse_proxy_transport_cooling:en: none
 wikidata:en: Q101815
@@ -83784,15 +83619,15 @@ ecobalyse_crop_group:en: LEGUMES-FLEURS
 ecobalyse_default_origin:en:
 ecobalyse_id:en: 5a29aa60-9bb9-5a93-acf3-bbba3afb2edd
 ecobalyse_name:fr: Champignon, morille Origine Inconnue
-ecobalyse_origins_en_europe_and_maghreb_alias:en: mushroom-eu-2025
+ecobalyse_origins_en_europe_and_maghreb_alias:en: mushroom-morel-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 5d22559d-c16d-4545-94b9-be2ff51e2879
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Champignon frais UE (2025)
+ecobalyse_origins_en_europe_and_maghreb_id:en: cf129ec2-588b-544b-8991-43cc70c93625
+ecobalyse_origins_en_europe_and_maghreb_name:fr: Champignon, morille UE
 ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_origins_en_france_alias:en: mushroom-fr-2025
+ecobalyse_origins_en_france_alias:en: mushroom-morel-fr
 ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: d330d763-6baa-442f-b479-55425b1fa54f
-ecobalyse_origins_en_france_name:fr: Champignon frais FR (2025)
+ecobalyse_origins_en_france_id:en: cb04bbd1-4b45-5e5d-8e6a-508d350b6487
+ecobalyse_origins_en_france_name:fr: Champignon, morille FR
 ecobalyse_origins_en_france_scenario:en: reference
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
@@ -95277,26 +95112,26 @@ description:fr: Le concombre (Cucumis sativus) est une plante potagère herbacé
 description:it: Il cetriolo (Cucumis sativus) è un ortaggio appartenente alla famiglia delle Cucurbitaceae.
 description:nl: De komkommer is een eenjarige plant uit de komkommerfamilie, waarvan de gelijknamige vrucht in Nederland en België vooral rauw als salade wordt gegeten.
 description:pt: O pepino é o fruto do pepineiro (Cucumis sativus), que se come geralmente em forma de salada.
-ecobalyse_alias:en: cucumber-default-2025
+ecobalyse_alias:en: cucumber-eu
 ecobalyse_category:en: fruits_and_vegetables
 ecobalyse_crop_group:en: LEGUMES-FLEURS
-ecobalyse_default_origin:en:
-ecobalyse_id:en: 542540f4-754f-53e5-88df-44afaffb6972
+ecobalyse_default_origin:en: REM
+ecobalyse_id:en: 198e4676-91fb-53de-9976-bc97a3a19078
 ecobalyse_labels_en_organic_origins_en_france_alias:en: cucumber-organic
 ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
 ecobalyse_labels_en_organic_origins_en_france_id:en: 6497feb5-6f7d-5ee2-aa99-c11948b4a64d
 ecobalyse_labels_en_organic_origins_en_france_name:fr: Concombre Bio
 ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
-ecobalyse_name:fr: Concombre Origine Inconnue (2025)
-ecobalyse_origins_en_europe_and_maghreb_alias:en: cucumber-eu-2025
+ecobalyse_name:fr: Concombre UE
+ecobalyse_origins_en_europe_and_maghreb_alias:en: cucumber-eu
 ecobalyse_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_origins_en_europe_and_maghreb_id:en: 7b62c28f-7234-4c81-abc0-721c421cbc3d
-ecobalyse_origins_en_europe_and_maghreb_name:fr: Concombre hors saison UE (2025)
+ecobalyse_origins_en_europe_and_maghreb_id:en: 198e4676-91fb-53de-9976-bc97a3a19078
+ecobalyse_origins_en_europe_and_maghreb_name:fr: Concombre UE
 ecobalyse_origins_en_europe_and_maghreb_scenario:en: import
-ecobalyse_origins_en_france_alias:en: cucumber-fr-2025
+ecobalyse_origins_en_france_alias:en: cucumber-fr-offseason-2025
 ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: 9517ce08-1b71-5722-8805-866d51d78215
-ecobalyse_origins_en_france_name:fr: Concombre FR (2025)
+ecobalyse_origins_en_france_id:en: 51cc3b34-c2de-4617-8954-3c35c703a6dc
+ecobalyse_origins_en_france_name:fr: Concombre hors saison FR (2025)
 ecobalyse_origins_en_france_scenario:en: reference
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
@@ -95532,17 +95367,7 @@ ecobalyse_proxy_alias:en: chicken-breast-br-max
 ecobalyse_proxy_category:en: poultry
 ecobalyse_proxy_default_origin:en:
 ecobalyse_proxy_id:en: 8fb5024c-ceec-4201-b069-ea253c537ad6
-ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: chicken-breast-organic
-ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: b19b0dc0-3478-46a0-b8a1-3225ea939ff1
-ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Blanc de poulet cru Bio
-ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_proxy_name:fr: Blanc de poulet cru (alim. ani. 100%BR) par défaut
-ecobalyse_proxy_origins_en_france_alias:en: chicken-breast
-ecobalyse_proxy_origins_en_france_default_origin:en: FR
-ecobalyse_proxy_origins_en_france_id:en: a360871c-fc35-4cb3-af2c-5eeb8bd6f984
-ecobalyse_proxy_origins_en_france_name:fr: Blanc de poulet cru FR
-ecobalyse_proxy_origins_en_france_scenario:en: reference
 ecobalyse_proxy_scenario:en: import
 ecobalyse_proxy_transport_cooling:en: always
 vegan:en: no
@@ -95843,17 +95668,7 @@ ecobalyse_proxy_alias:en: chicken-breast-br-max
 ecobalyse_proxy_category:en: poultry
 ecobalyse_proxy_default_origin:en:
 ecobalyse_proxy_id:en: 8fb5024c-ceec-4201-b069-ea253c537ad6
-ecobalyse_proxy_labels_en_organic_origins_en_france_alias:en: chicken-breast-organic
-ecobalyse_proxy_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_proxy_labels_en_organic_origins_en_france_id:en: b19b0dc0-3478-46a0-b8a1-3225ea939ff1
-ecobalyse_proxy_labels_en_organic_origins_en_france_name:fr: Blanc de poulet cru Bio
-ecobalyse_proxy_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_proxy_name:fr: Blanc de poulet cru (alim. ani. 100%BR) par défaut
-ecobalyse_proxy_origins_en_france_alias:en: chicken-breast
-ecobalyse_proxy_origins_en_france_default_origin:en: FR
-ecobalyse_proxy_origins_en_france_id:en: a360871c-fc35-4cb3-af2c-5eeb8bd6f984
-ecobalyse_proxy_origins_en_france_name:fr: Blanc de poulet cru FR
-ecobalyse_proxy_origins_en_france_scenario:en: reference
 ecobalyse_proxy_scenario:en: import
 ecobalyse_proxy_transport_cooling:en: always
 usda_ndb_proxy_code:en: 5332
@@ -96267,17 +96082,7 @@ ecobalyse_alias:en: chicken-breast-br-max
 ecobalyse_category:en: poultry
 ecobalyse_default_origin:en:
 ecobalyse_id:en: 8fb5024c-ceec-4201-b069-ea253c537ad6
-ecobalyse_labels_en_organic_origins_en_france_alias:en: chicken-breast-organic
-ecobalyse_labels_en_organic_origins_en_france_default_origin:en: FR
-ecobalyse_labels_en_organic_origins_en_france_id:en: b19b0dc0-3478-46a0-b8a1-3225ea939ff1
-ecobalyse_labels_en_organic_origins_en_france_name:fr: Blanc de poulet cru Bio
-ecobalyse_labels_en_organic_origins_en_france_scenario:en: organic
 ecobalyse_name:fr: Blanc de poulet cru (alim. ani. 100%BR) par défaut
-ecobalyse_origins_en_france_alias:en: chicken-breast
-ecobalyse_origins_en_france_default_origin:en: FR
-ecobalyse_origins_en_france_id:en: a360871c-fc35-4cb3-af2c-5eeb8bd6f984
-ecobalyse_origins_en_france_name:fr: Blanc de poulet cru FR
-ecobalyse_origins_en_france_scenario:en: reference
 ecobalyse_scenario:en: import
 ecobalyse_transport_cooling:en: always
 usda_fdc_code:en: 331960
@@ -100891,11 +100696,6 @@ ecobalyse_proxy_category:en: other_food_items
 ecobalyse_proxy_crop_group:en: BLE TENDRE
 ecobalyse_proxy_default_origin:en: REM
 ecobalyse_proxy_id:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
-ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_alias:en: flour-organic-2025
-ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_id:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
-ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_name:fr: Farine Bio (2025)
-ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_scenario:en: organic
 ecobalyse_proxy_name:fr: Farine UE agrégée (2025)
 ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: flour-2025
 ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
@@ -101852,11 +101652,6 @@ ecobalyse_proxy_category:en: other_food_items
 ecobalyse_proxy_crop_group:en: BLE TENDRE
 ecobalyse_proxy_default_origin:en: REM
 ecobalyse_proxy_id:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
-ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_alias:en: flour-organic-2025
-ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_id:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
-ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_name:fr: Farine Bio (2025)
-ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_scenario:en: organic
 ecobalyse_proxy_name:fr: Farine UE agrégée (2025)
 ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: flour-2025
 ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
@@ -105592,17 +105387,22 @@ description:fr: La margarine est une émulsion d'eau et d'huile végétale stabi
 description:it: La margarina è un grasso alimentare, costituito da due fasi: una lipidica (oli e grassi) e una acquosa intimamente mescolate.
 description:nl: Margarine is de benaming die in zwang kwam voor een vervangingsproduct voor boter.
 description:pt: Margarina é termo genérico para identificar gorduras alimentares de origem vegetal usadas em substituição da manteiga.
-ecobalyse_proxy_alias:en: unknown-oil-2025
+ecobalyse_proxy_alias:en: rapeseed-oil-2025
 ecobalyse_proxy_category:en: other_food_items
-ecobalyse_proxy_crop_group:en: TOURNESOL
-ecobalyse_proxy_default_origin:en: REM
-ecobalyse_proxy_id:en: 66e7706b-5129-410c-b070-0a7feff2680f
-ecobalyse_proxy_name:fr: Autres huiles (non encore répertoriées) (2025)
-ecobalyse_proxy_origins_en_europe_and_maghreb_alias:en: unknown-oil-2025
-ecobalyse_proxy_origins_en_europe_and_maghreb_default_origin:en: REM
-ecobalyse_proxy_origins_en_europe_and_maghreb_id:en: 66e7706b-5129-410c-b070-0a7feff2680f
-ecobalyse_proxy_origins_en_europe_and_maghreb_name:fr: Autres huiles (non encore répertoriées) (2025)
-ecobalyse_proxy_origins_en_europe_and_maghreb_scenario:en: import
+ecobalyse_proxy_crop_group:en: COLZA
+ecobalyse_proxy_default_origin:en:
+ecobalyse_proxy_id:en: 96b301d9-d21b-4cea-8903-bd7917e95a30
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_alias:en: rapeseed-oil-organic-2025
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_default_origin:en: REM
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_id:en: 51f8e8d2-13c0-446c-bf0a-9272fc46edde
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_name:fr: Huile de colza Bio (2025)
+ecobalyse_proxy_labels_en_organic_origins_en_europe_and_maghreb_scenario:en: organic
+ecobalyse_proxy_name:fr: Huile de colza par défaut (2025)
+ecobalyse_proxy_origins_en_france_alias:en: refined-rapeseed-oil-2025
+ecobalyse_proxy_origins_en_france_default_origin:en: FR
+ecobalyse_proxy_origins_en_france_id:en: c3697176-e682-43c3-b16a-3992ff8f1404
+ecobalyse_proxy_origins_en_france_name:fr: Huile de colza (raffinée) FR (2025)
+ecobalyse_proxy_origins_en_france_scenario:en: reference
 ecobalyse_proxy_scenario:en: import
 ecobalyse_proxy_transport_cooling:en: none
 wikidata:en: Q4287

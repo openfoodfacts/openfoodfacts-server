@@ -70,8 +70,8 @@
       },
       {
          "ciqual_food_code" : "13014",
-         "ecobalyse_id" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
-         "ecobalyse_name" : "Fraise par défaut -2025-",
+         "ecobalyse_id" : "8ad09e31-6b20-56d1-b059-f871361a16d7",
+         "ecobalyse_name" : "Fraise FR",
          "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
          "percent" : 12,
@@ -159,8 +159,6 @@
       },
       {
          "ciqual_proxy_food_code" : "19593",
-         "ecobalyse_id" : "0e77146c-be67-4f16-b072-f4fdb43b4acf",
-         "ecobalyse_name" : "Fromage blanc FR -2025-",
          "id" : "en:yogurt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0,
@@ -659,9 +657,10 @@
       "en:rennet",
       "en:soya-lecithin",
       "en:yeast",
-      "en:yeast-extract"
+      "en:yeast-extract",
+      "en:yogurt"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 20,
+   "ingredients_without_ecobalyse_ids_n" : 21,
    "known_ingredients_n" : 39,
    "lc" : "sl",
    "misc_tags" : [
