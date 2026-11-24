@@ -883,6 +883,9 @@ my @environmental_cost_stages = (
 	["usage", "environmental_cost_use", "consumption"],
 );
 
+# Ecobalyse stages that are not displayed in their own row (they are 0 for food products)
+my @environmental_cost_other_stages = qw(assembly endOfLife);
+
 # Ecobalyse complements (positive impact of ecosystem services)
 my @environmental_cost_complements = (
 	["permanentPasture", "environmental_cost_complement_permanent_pasture"],
@@ -946,6 +949,15 @@ sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $opti
 		# missing values are 0, non numeric values are displayed as an empty string
 		my $value = deep_get($response_ref, "stages", $stage) // 0;
 		push @stages, {id => $stage, label => $label, icon => $icon, %{$values->($value)}};
+	}
+	# Other stages (assembly and end of life) are 0 for food products in Ecobalyse, so they are not displayed,
+	# but if they are not 0, we display them in one row, so that the stages add up to the total impacts
+	my $other_stages_value = sum(
+		map {looks_like_number($_) ? $_ : 0}
+		map {deep_get($response_ref, "stages", $_)} @environmental_cost_other_stages
+	);
+	if ($other_stages_value != 0) {
+		push @stages, {id => "other", label => "environmental_cost_other_stages", %{$values->($other_stages_value)}};
 	}
 
 	# Impacts of each ingredient: the components of the request are the ingredients of ecobalyse_input,

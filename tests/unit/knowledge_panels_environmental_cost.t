@@ -159,6 +159,17 @@ is(
 	"stages values for the product and for 100 g"
 );
 
+# Other stages (assembly and end of life) are displayed only if they are not 0,
+# so that the stages add up to the total impacts
+ok(!exists get_rows($panel_ref)->{"Other stages"}, "no row for other stages when they are 0");
+my $other_stages_product_ref = product_with_ecs(ecs => 210);
+$other_stages_product_ref->{environmental_impact}{ecobalyse_response}{stages}{endOfLife} = 10;
+is(
+	get_rows(get_panel($other_stages_product_ref, {moderator => 1}))->{"Other stages"},
+	["10", "2.0", "4 %"],
+	"row for other stages when they are not 0"
+);
+
 # Ingredients: sorted by impacts (before the positive impact of the complements)
 is(
 	get_rows($panel_ref, "environmental_cost_ingredients"),

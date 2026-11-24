@@ -78,7 +78,7 @@
                         "id": "[% stage.id %]",
                         "values": [
                             {
-                                "icon_url": "[% static_subdomain %]/images/icons/dist/[% stage.icon %].svg",
+                                [% IF stage.icon %]"icon_url": "[% static_subdomain %]/images/icons/dist/[% stage.icon %].svg",[% END %]
                                 "text": "[% edq(lang(stage.label)) %]"
                             },
                             [% IF panel.has_per_product %]{ "text": "[% stage.per_product %]" },[% END %]
