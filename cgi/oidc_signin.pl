@@ -46,7 +46,7 @@ analyze_request($request_ref);
 
 # A return url is redirected to after the sign in: only keep it if it is one of our own urls
 $request_ref->{return_url} = single_param('return_url');
-if (not is_allowed_return_url($request_ref->{return_url}, $request_ref->{subdomain})) {
+if (not is_allowed_return_url($request_ref->{return_url})) {
 	delete $request_ref->{return_url};
 }
 access_to_protected_resource($request_ref);

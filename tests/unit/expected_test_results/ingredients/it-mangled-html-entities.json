@@ -1,0 +1,107 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_name" : "Farine UE agrégée -2025-",
+         "id" : "en:wheat-flour-type-0",
+         "is_in_taxonomy" : 1,
+         "percent" : 32,
+         "percent_estimate" : 32,
+         "text" : "Farina di GRANO tenero tipo \"0\"",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "18066",
+         "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_name" : "Eau du robinet UE -2025-",
+         "id" : "en:water",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 34,
+         "text" : "acqua",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "it:semi di chia \"Salvia hispanica\"",
+         "is_in_taxonomy" : 0,
+         "percent" : 2.7,
+         "percent_estimate" : 2.7,
+         "text" : "semi di chia \"Salvia hispanica\""
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+         "ecobalyse_name" : "Sel -2025-",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent" : 1,
+         "percent_estimate" : 31.3,
+         "text" : "sale",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "it:semi di chia \"Salvia hispanica\""
+      ],
+      "en:vegan-status-unknown" : [
+         "it:semi di chia \"Salvia hispanica\""
+      ],
+      "en:vegetarian-status-unknown" : [
+         "it:semi di chia \"Salvia hispanica\""
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "it",
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:wheat-flour-type-0",
+      "en:water",
+      "it:semi di chia \"Salvia hispanica\"",
+      "en:salt"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:wheat-flour-type-0",
+      "en:wheat-flour",
+      "en:cereal-flour",
+      "en:wheat",
+      "en:flour",
+      "en:cereal",
+      "en:water",
+      "it:semi di chia \"Salvia hispanica\"",
+      "en:salt"
+   ],
+   "ingredients_text" : "Farina di GRANO tenero tipo ,quot,0,quot, 32%, acqua, semi di chia ,quot,Salvia hispanica,quot, (2,7%), sale ,lt,1%",
+   "ingredients_with_specified_percent_n" : 3,
+   "ingredients_with_specified_percent_sum" : 35.7,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 34,
+   "ingredients_without_ciqual_codes" : [
+      "it:semi di chia \"Salvia hispanica\""
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "it:semi di chia \"Salvia hispanica\""
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 3,
+   "lc" : "it",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 1
+}

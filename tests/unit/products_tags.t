@@ -293,6 +293,49 @@ is($product_ref->{stores_tags}, ["intermarche"]);
 compute_field_tags($product_ref, "de", "stores");
 is($product_ref->{stores_tags}, ["intermarche"]);
 
+# "null" and "undefined" values sent by some apps must not become tags
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/11933
+
+$product_ref = {"categories" => "null, Pommes, undefined, NULL"};
+compute_field_tags($product_ref, "fr", "categories");
+ok(has_tag($product_ref, "categories", "en:apples"), "real category kept") or diag Dumper $product_ref;
+is([grep {/:(?:null|undefined)$/} @{$product_ref->{categories_tags}}], [], "no null/undefined categories")
+	or diag Dumper $product_ref;
+is([grep {/:(?:null|undefined)$/} @{$product_ref->{categories_hierarchy}}],
+	[], "no null/undefined in categories hierarchy")
+	or diag Dumper $product_ref;
+
+$product_ref = {"categories" => "undefined"};
+compute_field_tags($product_ref, "en", "categories");
+is($product_ref->{categories_tags}, [], "only undefined gives no category") or diag Dumper $product_ref;
+
+$product_ref = {"stores" => "null, Intermarché, Undefined"};
+compute_field_tags($product_ref, "fr", "stores");
+is($product_ref->{stores_tags}, ["intermarche"], "no null/undefined stores") or diag Dumper $product_ref;
+
+$product_ref = {"brands" => "Null"};
+compute_field_tags($product_ref, "fr", "brands");
+is($product_ref->{brands_tags}, [], "no null brand") or diag Dumper $product_ref;
+
+# Same for input tags set by the API (v2 and v3) through set_field_input_tags_for_source()
+$product_ref = {};
+set_field_input_tags_for_source($product_ref, "fr", "categories", "test", "null, Pommes, undefined, NULL");
+ok(has_tag($product_ref, "categories", "en:apples"), "input: real category kept") or diag Dumper $product_ref;
+is([grep {/:(?:null|undefined)$/i} @{$product_ref->{categories_tags}}], [], "input: no null/undefined categories")
+	or diag Dumper $product_ref;
+is($product_ref->{tags_sources}{categories}{test}{tags}, ["en:apples"], "input: null/undefined not stored")
+	or diag Dumper $product_ref;
+
+$product_ref = {};
+set_field_input_tags_for_source($product_ref, "fr", "stores", "test", "null, Carrefour, Undefined");
+is([grep {/^(?:null|undefined)$/i} @{$product_ref->{stores_tags}}], [], "input: no null/undefined stores")
+	or diag Dumper $product_ref;
+is(scalar @{$product_ref->{stores_tags}}, 1, "input: real store kept") or diag Dumper $product_ref;
+
+$product_ref = {};
+set_field_input_tags_for_source($product_ref, "fr", "brands", "test", "Null");
+is($product_ref->{brands_tags} // [], [], "input: no null brand") or diag Dumper $product_ref;
+
 # Test add_tags_to_field
 
 $product_ref = {
@@ -425,5 +468,27 @@ foreach my $test_ref (@tests) {
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json",
 		$update_expected_results, {id => $testid});
 }
+
+# generate_field_tags_from_all_sources: input tags stored with an old id (now a synonym) are canonicalized
+# when generating the tags field, and the parents are regenerated. The input tags of the sources are not changed.
+
+$product_ref = {
+	categories_tags => ['en:dark-chocolate-bar'],
+	tags_sources => {
+		categories => {
+			packaging => {tags => ['en:dark-chocolate-bar']},
+			manufacturer => {tags => ['en:dark-chocolates', 'en:Some unknown category']}
+		}
+	},
+};
+
+generate_field_tags_from_all_sources($product_ref, 'categories');
+
+is($product_ref->{tags_sources}{categories}{packaging}{tags}, ['en:dark-chocolate-bar']);
+is($product_ref->{tags_sources}{categories}{manufacturer}{tags}, ['en:dark-chocolates', 'en:Some unknown category']);
+ok((grep {$_ eq 'en:dark-chocolate-bars'} @{$product_ref->{categories_tags}}), 'categories_tags has the new id');
+ok((grep {$_ eq 'en:chocolate-bars'} @{$product_ref->{categories_tags}}), 'categories_tags has the new parent');
+ok(!(grep {$_ eq 'en:dark-chocolate-bar'} @{$product_ref->{categories_tags}}), 'categories_tags has not the old id');
+ok((grep {$_ eq 'en:Some unknown category'} @{$product_ref->{categories_tags}}), 'categories_tags keeps unknown tags');
 
 done_testing();

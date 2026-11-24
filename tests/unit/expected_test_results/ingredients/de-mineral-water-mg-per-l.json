@@ -1,0 +1,109 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "de:Mineralwasser mit Natrium",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 62.5,
+         "percent_max" : 100,
+         "percent_min" : 25,
+         "quantity" : "19.7 mg/l",
+         "text" : "Mineralwasser mit Natrium"
+      },
+      {
+         "id" : "en:magnesium",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 18.75,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "quantity" : "5.9 mg/l",
+         "text" : "Magnesium",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:calcium",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 9.375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "quantity" : "40.0 mg/l",
+         "text" : "Calcium",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "de:Hydrogencarbonat",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 9.375,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "quantity" : "194 mg/l",
+         "text" : "Hydrogencarbonat"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "de:Mineralwasser mit Natrium",
+         "de:Hydrogencarbonat"
+      ],
+      "en:vegan-status-unknown" : [
+         "de:Mineralwasser mit Natrium",
+         "de:Hydrogencarbonat"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "de:Mineralwasser mit Natrium",
+         "de:Hydrogencarbonat"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "de",
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "de:Mineralwasser mit Natrium",
+      "en:magnesium",
+      "en:calcium",
+      "de:Hydrogencarbonat"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "de:Mineralwasser mit Natrium",
+      "en:magnesium",
+      "en:minerals",
+      "en:calcium",
+      "de:Hydrogencarbonat"
+   ],
+   "ingredients_text" : "Mineralwasser mit Natrium 19,7 mg/l, Magnesium 5,9 mg/l, Calcium 40,0 mg/l, Hydrogencarbonat 194 mg/l",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 100.0,
+   "ingredients_without_ciqual_codes" : [
+      "de:Hydrogencarbonat",
+      "de:Mineralwasser mit Natrium",
+      "en:calcium",
+      "en:magnesium"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ecobalyse_ids" : [
+      "de:Hydrogencarbonat",
+      "de:Mineralwasser mit Natrium",
+      "en:calcium",
+      "en:magnesium"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 2,
+   "lc" : "de",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 2
+}

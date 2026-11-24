@@ -8,6 +8,7 @@
       "en:canned-foods",
       "en:vegetables-based-foods",
       "en:canned-plant-based-foods",
+      "en:processed-vegetables",
       "en:canned-vegetables"
    ],
    "categories_lc" : "fr",
@@ -19,6 +20,7 @@
       "en:canned-foods",
       "en:vegetables-based-foods",
       "en:canned-plant-based-foods",
+      "en:processed-vegetables",
       "en:canned-vegetables"
    ],
    "environmental_impact" : {
@@ -84,7 +86,7 @@
          "results" : {
             "distribution" : {
                "total" : {
-                  "ecs" : 0.236433
+                  "ecs" : 0.197146
                },
                "transports" : {
                   "air" : 0,
@@ -101,7 +103,7 @@
                "ecs" : 0
             },
             "perKg" : {
-               "ecs" : 179.054
+               "ecs" : 177.329
             },
             "preparation" : {
                "ecs" : 0
@@ -112,7 +114,7 @@
                   "ecs" : 4.99427
                },
                "total" : {
-                  "ecs" : 15.1391
+                  "ecs" : 15.0174
                },
                "totalBonusImpact" : {
                   "cropDiversity" : 0,
@@ -126,7 +128,7 @@
                "transports" : {
                   "air" : 0,
                   "impacts" : {
-                     "ecs" : 8.19084
+                     "ecs" : 8.06911
                   },
                   "road" : 3320,
                   "roadCooled" : 2660,
@@ -135,20 +137,20 @@
                }
             },
             "scoring" : {
-               "all" : 179.054,
-               "biodiversity" : 78.7886,
-               "climate" : 39.3557,
-               "health" : 21.7735,
-               "resources" : 39.1387
+               "all" : 177.329,
+               "biodiversity" : 76.8885,
+               "climate" : 39.9838,
+               "health" : 21.5421,
+               "resources" : 38.9194
             },
             "total" : {
-               "ecs" : 16.7117
+               "ecs" : 16.5507
             },
             "totalMass" : 0.0933333,
             "transports" : {
                "air" : 0,
                "impacts" : {
-                  "ecs" : 9.527
+                  "ecs" : 9.40527
                },
                "road" : 3320,
                "roadCooled" : 3260,
@@ -158,7 +160,7 @@
          }
       },
       "ecs_per" : "100g",
-      "ecs_per_100g_or_100ml" : 16.7117
+      "ecs_per_100g_or_100ml" : 16.5507
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [

@@ -1,0 +1,125 @@
+[
+   {
+      "id" : "en:cereal",
+      "ingredients" : [
+         {
+            "id" : "en:whole-wheat-flour",
+            "is_in_taxonomy" : 1,
+            "percent" : 66.2,
+            "percent_estimate" : 66.2,
+            "percent_max" : 66.2,
+            "percent_min" : 66.2,
+            "text" : "farine complète de blé"
+         },
+         {
+            "id" : "en:rye-flour",
+            "is_in_taxonomy" : 1,
+            "percent" : 12.1,
+            "percent_estimate" : 12.1,
+            "percent_max" : 12.1,
+            "percent_min" : 12.1,
+            "text" : "farine de seigle"
+         },
+         {
+            "id" : "en:wheat-flour",
+            "is_in_taxonomy" : 1,
+            "percent" : 10.1,
+            "percent_estimate" : 10.1,
+            "percent_max" : 10.1,
+            "percent_min" : 10.1,
+            "text" : "farine de blé"
+         },
+         {
+            "id" : "en:rice-flour",
+            "is_in_taxonomy" : 1,
+            "percent" : 3.2,
+            "percent_estimate" : 3.2,
+            "percent_max" : 3.19999999999996,
+            "percent_min" : 3.2,
+            "text" : "farine de riz"
+         },
+         {
+            "id" : "en:malted-wheat-flour",
+            "is_in_taxonomy" : 1,
+            "percent" : 2.1,
+            "percent_estimate" : 2.1,
+            "percent_max" : 2.09999999999996,
+            "percent_min" : 2.1,
+            "text" : "farine de blé malté"
+         },
+         {
+            "id" : "en:buckwheat-flour",
+            "is_in_taxonomy" : 1,
+            "percent" : 1.6,
+            "percent_estimate" : 1.6,
+            "percent_max" : 1.59999999999997,
+            "percent_min" : 1.6,
+            "text" : "farine de sarrasin"
+         },
+         {
+            "id" : "en:barley-flour",
+            "is_in_taxonomy" : 1,
+            "percent" : 1.6,
+            "percent_estimate" : 1.6,
+            "percent_max" : 1.59999999999997,
+            "percent_min" : 1.6,
+            "text" : "farine d'orge"
+         },
+         {
+            "id" : "en:wheat-semolina",
+            "is_in_taxonomy" : 1,
+            "percent" : 1.6,
+            "percent_estimate" : 1.59999999999998,
+            "percent_max" : 1.59999999999997,
+            "percent_min" : 1.6,
+            "text" : "semoule de blé"
+         }
+      ],
+      "is_in_taxonomy" : 1,
+      "percent" : 98.5,
+      "percent_estimate" : 98.5,
+      "percent_max" : 98.5,
+      "percent_min" : 98.5,
+      "text" : "Céréales"
+   },
+   {
+      "id" : "en:sugar",
+      "is_in_taxonomy" : 1,
+      "percent_estimate" : 0.9,
+      "percent_max" : 1.5,
+      "percent_min" : 0.3,
+      "text" : "sucre"
+   },
+   {
+      "id" : "en:whey-powder",
+      "is_in_taxonomy" : 1,
+      "percent_estimate" : 0.299999999999997,
+      "percent_max" : 1.2,
+      "percent_min" : 0,
+      "text" : "lactosérum en poudre"
+   },
+   {
+      "id" : "en:salt",
+      "is_in_taxonomy" : 1,
+      "percent_estimate" : 0.149999999999999,
+      "percent_max" : 0.600000000000001,
+      "percent_min" : 0,
+      "text" : "sel"
+   },
+   {
+      "id" : "en:palm-oil",
+      "is_in_taxonomy" : 1,
+      "percent_estimate" : 0.0750000000000028,
+      "percent_max" : 0.400000000000001,
+      "percent_min" : 0,
+      "text" : "huile de palme"
+   },
+   {
+      "id" : "en:wheat-germ",
+      "is_in_taxonomy" : 1,
+      "percent_estimate" : 0.0750000000000028,
+      "percent_max" : 0.300000000000001,
+      "percent_min" : 0,
+      "text" : "germes de blé"
+   }
+]

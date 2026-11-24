@@ -48,7 +48,7 @@ my $r = shift;
 # The redirect parameter is copied into a Location header below, so check that it is one of our
 # own urls before it is used for anything
 my $redirect = single_param('redirect');
-if (not is_allowed_return_url($redirect, $request_ref->{subdomain})) {
+if (not is_allowed_return_url($redirect)) {
 	$redirect = undef;
 }
 
