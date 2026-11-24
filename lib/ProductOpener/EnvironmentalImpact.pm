@@ -446,6 +446,7 @@ sub estimate_environmental_impact_service (
 		if (not defined $input_ingredient_ref) {
 			$input_ingredient_ref = $input_ingredients{$key} = {
 				id => $id,
+				# mass is computed below
 				mass => 0,
 				name => $ingredient_ref->{text} // '',
 				ecobalyse_name => $ingredient_ref->{ecobalyse_name} || $ingredient_ref->{ecobalyse_proxy_name} // '',
