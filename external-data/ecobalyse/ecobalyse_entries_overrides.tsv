@@ -13,15 +13,34 @@
 # "Huile de tournesol par défaut (2025)" costs about 7460 points per kg in the food2 API (2026-11),
 # 18 to 30 times more than the FR (417) and UE (250) sunflower oils and the default rapeseed oil (423)
 en:sunflower-oil	exclude	3cfab110-363e-442a-9170-1af337fe9ea3	Huile de tournesol par défaut (2025)
-en:sunflower-oil	default	ea419fa9-d69f-4735-8fe8-fab427ce5185	Huile de tournesol UE (2025)
-en:sunflower-oil	add	583d00ab-0340-444b-9581-71175f0a937b	Huile de tournesol (raffinée) FR (2025)
+# 2026-11-24: the UE sunflower oil ea419fa9 was removed from Ecobalyse (hidden entries are no longer exported): use the refined FR one
+en:sunflower-oil	default	583d00ab-0340-444b-9581-71175f0a937b	Huile de tournesol (raffinée) FR (2025)
 
 # The butter baseIngredient has 3 "Origine Inconnue" entries (light 39-41%, reduced 60-62%, standard 82% fat):
 # use the standard butter
 en:butter	default	9f7ca704-e3b6-4ad9-b376-6c0662ebeeec	Beurre à 82% MG ou huile de beurre Origine Inconnue
 en:butterfat	default	9f7ca704-e3b6-4ad9-b376-6c0662ebeeec	Beurre à 82% MG ou huile de beurre Origine Inconnue
 
-# The only goat milk entry is hidden: without it, goat milk would get the cow milk of the en:milk parent
-en:goat-milk	default	a9eed813-3242-4701-8d76-f4fb2f222121	Lait de chèvre FR (2025)
+# 2026-11-24: the only goat milk entry (a9eed813, hidden) was removed from Ecobalyse: there is no goat milk entry any more
 
 en:margarine	add	c3697176-e682-43c3-b16a-3992ff8f1404	Huile de colza (raffinée) FR (2025)
+
+# 2026-11-24: Ecobalyse removed the "par défaut (2025)" entries (MTES-MCT/ecobalyse#2922). Without overrides, the default
+# would often be a processed variant (pulp, frozen, shelled, grated) or an "Origine Inconnue" entry costing up to 30 times more.
+# For continuity, the default is the remaining non-organic, unprocessed entry closest to the old default (ECS points per kg: old -> automatic pick -> override)
+en:artichoke	default	f370924b-f15c-53dc-9728-38010bb6a7c9	Artichaut UE (31.6 -> 36.0 -> 31.6)
+en:avocado	default	cfce40a0-1a82-5c9d-bfc1-f0912db6d7e6	Avocat Origine Inconnue (153.3 -> 212.5 -> 139.2)
+en:barley	default	00150a93-dea5-55d1-ba56-990d4fa43592	Orge entière FR (80.5 -> 119.1 -> 92.3)
+en:bell-pepper	default	f03947eb-3f24-5de7-ba45-a01c3b3deabb	Poivron, vert, jaune ou rouge UE (24.6 -> 650.0 -> 24.6)
+en:brussels-sprouts	default	2cebf403-f193-5904-93b6-1164e8f740f7	Chou de Bruxelles UE (31.8 -> 36.0 -> 31.6)
+en:celeriac	default	88c0d4ba-93d6-4a41-94e6-ccec49cce325	Céleri-rave FR (43.0 -> 95.3 -> 64.2)
+en:cucumber	default	198e4676-91fb-53de-9976-bc97a3a19078	Concombre UE (192.6 -> 349.7 -> 104.0)
+en:emmental	default	9a990c37-72b3-40c5-a700-aee1f686a029	Emmental ou emmenthal FR (700.3 -> 701.8 -> 720.0)
+en:giant-squash	default	209bb168-1e1b-5516-830b-72b369251d87	Courge crue, avec la peau UE (22.8 -> 37.1 -> 22.8)
+en:spaghetti-squash	default	209bb168-1e1b-5516-830b-72b369251d87	Courge crue, avec la peau UE (22.8 -> 37.1 -> 22.8)
+en:lychee	default	49f28010-4312-57ee-9a96-8058e2ca96f9	Litchi FR (50.6 -> 184.0 -> 50.6)
+en:mango	default	49ca593f-7466-531a-8444-0746c68114a7	Mangue FR (50.6 -> 396.7 -> 50.6)
+en:melon	default	d8814568-a69d-51ce-92ec-14b7c181d30b	Melon (miellat, Charentais, Cataloupe, Cavaillon) UE (30.2 -> 40.4 -> 30.2)
+en:peanut	default	9f90423f-7c10-5aad-bed8-be5ed281aa3a	Arachide HORS UE (383.2 -> 1469.0 -> 323.0)
+en:strawberry	default	8ad09e31-6b20-56d1-b059-f871361a16d7	Fraise FR (141.0 -> 4379.0 -> 149.7)
+en:walnut	default	4e996d8a-160a-5f73-a9b5-ace3b8f69369	Noix UE (233.5 -> 1394.0 -> 233.5)

@@ -27,7 +27,7 @@ en:starch	potato-starch
 en:herb	herb-dried
 # Generic/parent ingredients proxied from more specific matched baseIngredients
 en:butterfat	butter
-en:milk-proteins	milk
+en:milk-proteins	cow-milk
 en:wheat-gluten	soft-wheat
 en:instant-coffee	coffee-ground
 en:vinegar  vinegar-alcohol
@@ -58,8 +58,16 @@ en:breadcrumbs	flour
 en:bread	flour
 en:mutton	lamb
 en:sheep	lamb
-en:giant-squash	squash
+en:giant-squash	squash-with-skin-raw
 en:lime	lemon
 en:vegetable-oil	rapeseed-oil
 # margarine is not in Ecobalyse: rapeseed oil (the main oil of margarines sold in France) is used as a proxy (not unknown-oil, see coconut oil)
 en:margarine	rapeseed-oil
+# 2026-11-24: Ecobalyse removed the "(2025)" entries that have a newer twin (MTES-MCT/ecobalyse#2922),
+# but the twins have a different baseIngredient: map the OFF ingredients that lost their data to the twins
+en:salt	sea-salt
+en:milk	cow-milk
+en:table-potatoes	potato
+en:barley	barley-whole
+en:garden-peas	pea-shelled-raw
+en:spaghetti-squash	squash-with-skin-raw

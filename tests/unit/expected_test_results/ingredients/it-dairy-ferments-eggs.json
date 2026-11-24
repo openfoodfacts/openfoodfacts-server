@@ -3,8 +3,6 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19593",
-         "ecobalyse_id" : "0e77146c-be67-4f16-b072-f4fdb43b4acf",
-         "ecobalyse_name" : "Fromage blanc FR -2025-",
          "id" : "en:whole-milk-yogurt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 57.1428571428571,
@@ -16,8 +14,6 @@
       },
       {
          "ciqual_proxy_food_code" : "19593",
-         "ecobalyse_id" : "0e77146c-be67-4f16-b072-f4fdb43b4acf",
-         "ecobalyse_name" : "Fromage blanc FR -2025-",
          "id" : "en:strained-yogurt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 21.4285714285714,
@@ -177,9 +173,11 @@
       "en:galactose",
       "en:lactic-ferments",
       "en:lactococcus-cremoris",
-      "en:leuconostoc-mesenteroides"
+      "en:leuconostoc-mesenteroides",
+      "en:strained-yogurt",
+      "en:whole-milk-yogurt"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 5,
+   "ingredients_without_ecobalyse_ids_n" : 7,
    "known_ingredients_n" : 9,
    "lc" : "it",
    "misc_tags" : [
