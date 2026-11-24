@@ -1889,7 +1889,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 				}
 				$merged_tags{$canon_id}{count} += ($tagcount_ref->{count} || 0);
 			}
-			@tags = map { $merged_tags{$_} } @order;
+			@tags = map {$merged_tags{$_}} @order;
 		}
 
 		if (not defined $request_ref->{structured_response}{count}) {

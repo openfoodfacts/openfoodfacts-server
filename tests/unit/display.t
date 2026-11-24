@@ -733,6 +733,9 @@ subtest 'NOVA groups facet list coalescing and count summing' => sub {
 		lc => 'en',
 		groupby_tagtype => 'nova_groups',
 		structured_response => {},
+		page_size => 100,
+		page => 1,
+		current_link => '/nova-groups',
 	};
 	ProductOpener::Display::display_list_of_tags($req, {});
 	my $tags = $req->{structured_response}{tags};
