@@ -166,6 +166,14 @@ sub wait_for_child ($children, $has_any_errors_ref) {
 			clear_status();
 			print map {colored("[$child->{taxonomy}] ", 'green') . $_ . "\n"} split("\n", $log);
 		}
+		else {
+			# Always display build warnings (e.g. entries merged because of a shared synonym)
+			my @warnings = grep {/^WARNING - /} split("\n", $log);
+			if (@warnings) {
+				clear_status();
+				print map {colored("[$child->{taxonomy}] ", 'yellow') . $_ . "\n"} @warnings;
+			}
+		}
 		print_status($children);
 	}
 	return;

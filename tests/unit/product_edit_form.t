@@ -32,7 +32,7 @@ use ProductOpener::Display qw/process_template/;
 # Both flags are computed for the product (and not for the site) in cgi/product_multilingual.pl,
 # as the producers platform can host products of different types.
 
-sub render_product_edit_form ($nutrition_feature_enabled, $product_has_nutrition_data = 0) {
+sub render_product_edit_form ($nutrition_feature_enabled, $product_has_nutrition_data = 0, $legacy_packaging = undef) {
 
 	my $html = '';
 	my $template_data_ref = {
@@ -41,6 +41,7 @@ sub render_product_edit_form ($nutrition_feature_enabled, $product_has_nutrition
 		pers => [],
 		nutrition_feature_enabled => $nutrition_feature_enabled,
 		product_has_nutrition_data => $product_has_nutrition_data,
+		display_field_packaging_legacy => $legacy_packaging,
 	};
 	my $request_ref = {lc => 'en'};
 
@@ -79,5 +80,17 @@ like(
 like($beauty_form_with_nutrition_data,
 	qr{name="no_nutrition_data"},
 	'beauty edit form includes the no nutrition data checkbox when the product has nutrition data');
+
+# Products without legacy packaging field do not render the packaging input
+my $form_without_legacy_packaging = render_product_edit_form(1, 0, undef);
+unlike($form_without_legacy_packaging,
+	qr{name="packaging"}, 'edit form excludes legacy packaging input when display_field_packaging_legacy is not set');
+
+# Products with legacy packaging field render the packaging input
+my $legacy_packaging_html = '<input type="text" name="packaging" id="packaging" value="legacy-box" />';
+my $form_with_legacy_packaging = render_product_edit_form(1, 0, $legacy_packaging_html);
+like($form_with_legacy_packaging, qr{name="packaging"},
+	'edit form includes legacy packaging input when display_field_packaging_legacy is provided');
+like($form_with_legacy_packaging, qr{legacy-box}, 'edit form includes legacy packaging value');
 
 done_testing();

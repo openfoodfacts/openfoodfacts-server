@@ -1,0 +1,10 @@
+# OFF ingredients that must not get Ecobalyse data from their parents in the ingredients taxonomy.
+# Used by extract_ecobalyse_ingredient_properties.pl, which emits ecobalyse_id:en: undef and
+# ecobalyse_proxy_id:en: undef properties for them: the "undef" value stops the inheritance
+# of the properties from the parents (children of these ingredients inherit the block).
+#
+# Format: tagid<TAB>reason
+en:duck-foie-gras	force-fed duck: much higher impact than poultry meat, no Ecobalyse data
+fr:foie-gras-d-oie	force-fed goose: much higher impact than poultry meat, no Ecobalyse data
+# under en:duck-liver instead of en:duck-foie-gras in the taxonomy
+fr:bloc-de-foie-gras-de-canard	force-fed duck: much higher impact than poultry meat, no Ecobalyse data

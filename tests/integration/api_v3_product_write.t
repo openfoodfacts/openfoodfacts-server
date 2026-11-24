@@ -518,7 +518,7 @@ my $tests_ref = [
 		headers_in => {
 			'Authorization' => 'Bearer 4711',
 		},
-		expected_status_code => 400,
+		expected_status_code => 403,
 	},
 	# Packaging complete
 	{
@@ -795,6 +795,22 @@ my $tests_ref = [
 			"fields" : "updated,brands,brands_tags",
 			"product": { 
 				"brands_tags_add": ["Marks & Spencers", "Some other brand"]
+			}
+		}',
+	},
+	# "null" and "undefined" values sent by some apps must not become tags
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/11933
+	{
+		test_case => 'patch-tags-fields-null-undefined',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890401',
+		body => '{
+			"fields" : "updated",
+			"product": {
+				"categories_tags": ["null", "coffee", "undefined"],
+				"labels_tags": ["undefined"],
+				"brands_tags": ["null", "Aldi"],
+				"stores_tags": ["null"]
 			}
 		}',
 	},

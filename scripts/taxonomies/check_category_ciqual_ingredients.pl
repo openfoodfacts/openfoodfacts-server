@@ -24,7 +24,7 @@
 # It writes missing properties to a CSV file that can be used to add them to the ingredients taxonomy
 # with the add_properties_to_taxonomy.pl script.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 binmode(STDIN, ":encoding(UTF-8)");

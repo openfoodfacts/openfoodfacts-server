@@ -7,7 +7,7 @@ on:
     types: [synchronize]
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 permissions:
@@ -24,4 +24,5 @@ jobs:
           dirtyLabel: "💥 Merge Conflicts"
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           retryMax: 5
-          retryAfter: 5000
+          # retryAfter is in seconds (the old mschilde action used WAIT_MS in ms)
+          retryAfter: 5

@@ -49,14 +49,10 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
-         "packaging" : [
-            {
-               "category" : "en:ground-coffees",
-               "id" : "b227b85d-b77c-4a34-8a81-a1e17fcefbdf",
-               "name" : "Coffee (grounded), 250g | Packaging System, Proxy Pack, Plastic film {FR} U",
-               "name_fr" : "Sachet en plastique (PE) pour café moulu - 250g - Proxy"
-            }
-         ]
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -65,12 +61,6 @@
                {
                   "id" : "77be5f12-5124-4828-861c-9ce4ed3fa661",
                   "mass" : 100
-               }
-            ],
-            "packaging" : [
-               {
-                  "amount" : 1,
-                  "id" : "b227b85d-b77c-4a34-8a81-a1e17fcefbdf"
                }
             ]
          },
@@ -154,6 +144,7 @@
       "en:nutriscore-not-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",

@@ -96,6 +96,7 @@ BEGIN {
 		&count_products
 		&add_params_to_query
 		&add_params_and_filters_to_query
+		&generate_query_cache_key
 
 		&process_template
 
@@ -158,7 +159,7 @@ use ProductOpener::Recipes qw(add_product_recipe_to_set analyze_recipes compute_
 use ProductOpener::PackagerCodes
 	qw($ec_code_regexp %geocode_addresses %packager_codes init_geocode_addresses init_packager_codes);
 use ProductOpener::Export qw(export_csv);
-use ProductOpener::API qw(add_error customize_response_for_product process_api_request process_auth_header sanitize);
+use ProductOpener::API qw(add_error customize_response_for_product process_api_request sanitize);
 use ProductOpener::Units qw/g_to_unit/;
 use ProductOpener::Cache qw/$max_memcached_object_size $memd generate_cache_key get_cache_results set_cache_results/;
 use ProductOpener::Permissions qw/has_permission/;
@@ -307,6 +308,80 @@ $tt = Template->new(
 				return $json_utf8->encode($text);
 			},
 		},
+		# Global template functions (not filters): e.g. [% encode_json(pointers) %]
+		# Filters stringify refs (ARRAY(0x...)), while a function preserves them,
+		# so structures must go through a function. Uses $json (utf8(0))
+		# to return character strings for TT with ENCODING => 'UTF-8'.
+		# Only pure / static subs live here: no per-request state ($request_ref,
+		# $target_lc, time()). Per-process stash values override these globals.
+		VARIABLES => {
+			encode_json => sub ($var) {
+				return $json->encode($var);
+			},
+			# Note: use late-binding wrappers (not \&foo refs) so that mocks
+			# and redefinitions (e.g. in unit tests) are honored at call time.
+			feature_enabled => sub {
+				return feature_enabled(@_);
+			},
+			# escaping quotes for use in javascript or json
+			# using short names to favour readability
+			esq => sub {escape_char(@_, "\'")},    # esq as escape_single_quote_and_newlines
+			edq => sub {escape_char(@_, '"')},    # edq as escape_double_quote
+			display_icon => sub {
+				return display_icon(@_);
+			},
+			display_date_without_time => sub {
+				return display_date_without_time(@_);
+			},
+			display_date_ymd => sub {
+				return display_date_ymd(@_);
+			},
+			display_date_tag => sub {
+				return display_date_tag(@_);
+			},
+			product_url => sub {
+				return product_url(@_);
+			},
+			product_action_url => sub {
+				return product_action_url(@_);
+			},
+			product_name_brand_quantity => sub {
+				return product_name_brand_quantity(@_);
+			},
+			# These closures read the global $lc at call time, same as before.
+			canonicalize_taxonomy_tag_link => sub ($tagtype, $tag) {
+				return canonicalize_taxonomy_tag_link($lc, $tagtype, $tag);
+			},
+			display_taxonomy_tag => sub ($tagtype, $tag) {
+				return display_taxonomy_tag($lc, $tagtype, $tag);
+			},
+			display_taxonomy_tag_name => sub ($tagtype, $tag) {
+				return display_taxonomy_tag_name($lc, $tagtype, $tag);
+			},
+			display_taxonomy_tags_list => sub ($tagtype, $tags_ref) {
+				if (defined $tags_ref) {
+					return join(", ", map {display_taxonomy_tag($lc, $tagtype, $_)} @$tags_ref);
+				}
+				else {
+					return "";
+				}
+			},
+			round => sub ($var) {
+				# Check if $var is defined and is numeric
+				if (defined $var && $var =~ /^-?\d+(\.\d+)?$/) {
+					return sprintf("%.0f", $var);
+				}
+				else {
+					return;
+				}
+			},
+			sprintf => sub ($var1, $var2) {
+				return sprintf($var1, $var2);
+			},
+			uri_escape => sub ($var) {
+				return uri_escape($var);
+			},
+		},
 	}
 );
 
@@ -344,9 +419,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	# give priority to request_ref lc but eventually fallback to global $lc
 	my $target_lc = $request_ref->{lc} // $lc;
 	# Add functions and values that are passed to all templates
-
-	# Features for each product type
-	$template_data_ref->{feature_enabled} = \&feature_enabled;
 
 	$template_data_ref->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
@@ -396,20 +468,9 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{f_lang} = sub ($stringid, $variables_ref) {
 		return f_lang_in_lc($target_lc, $stringid, $variables_ref);
 	};
-	# escaping quotes for use in javascript or json
-	# using short names to favour readability
-	$template_data_ref->{esq} = sub {escape_char(@_, "\'")};    # esq as escape_single_quote_and_newlines
-	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} //= $request_ref->{cc};
-	$template_data_ref->{display_icon} = \&display_icon;
 	$template_data_ref->{time_t} = time();
-	$template_data_ref->{display_date_without_time} = \&display_date_without_time;
-	$template_data_ref->{display_date_ymd} = \&display_date_ymd;
-	$template_data_ref->{display_date_tag} = \&display_date_tag;
-	$template_data_ref->{product_url} = \&product_url;
-	$template_data_ref->{product_action_url} = \&product_action_url;
-	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
 	$template_data_ref->{has_permission} = sub ($permission) {
 		return has_permission($request_ref, $permission);
 	};
@@ -419,53 +480,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{header} = $request_ref->{header};
 	$template_data_ref->{styles} = $request_ref->{styles};
 	$template_data_ref->{bodyabout} = $request_ref->{bodyabout};
-
-	# Return a link to one taxonomy entry in the target language
-	$template_data_ref->{canonicalize_taxonomy_tag_link} = sub ($tagtype, $tag) {
-		return canonicalize_taxonomy_tag_link($lc, $tagtype, $tag);
-	};
-
-	# Display one taxonomy entry in the target language
-	$template_data_ref->{display_taxonomy_tag} = sub ($tagtype, $tag) {
-		return display_taxonomy_tag($lc, $tagtype, $tag);
-	};
-
-	# Display one taxonomy entry in the target language, without language prefix
-	$template_data_ref->{display_taxonomy_tag_name} = sub ($tagtype, $tag) {
-		return display_taxonomy_tag_name($lc, $tagtype, $tag);
-	};
-
-	# Display a list of taxonomy entries in the target language
-	$template_data_ref->{display_taxonomy_tags_list} = sub ($tagtype, $tags_ref) {
-		if (defined $tags_ref) {
-			return join(", ", map {display_taxonomy_tag($lc, $tagtype, $_)} @$tags_ref);
-		}
-		else {
-			return "";
-		}
-	};
-
-	$template_data_ref->{round} = sub ($var) {
-		# Check if $var is defined and is numeric
-		if (defined $var && $var =~ /^-?\d+(\.\d+)?$/) {
-			return sprintf("%.0f", $var);
-		}
-		else {
-			return;
-		}
-	};
-
-	$template_data_ref->{sprintf} = sub ($var1, $var2) {
-		return sprintf($var1, $var2);
-	};
-
-	$template_data_ref->{encode_json} = sub ($var) {
-		return $json->encode($var);
-	};
-
-	$template_data_ref->{uri_escape} = sub ($var) {
-		return uri_escape($var);
-	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
 }
@@ -795,36 +809,22 @@ sub init_request ($request_ref = {}) {
 		}
 	) if $log->is_debug();
 
-	# Note we allow an OAuth token for all oidc_implementation_levels
-	my $signed_in_oidc = process_auth_header($request_ref, $r);
-	if ($signed_in_oidc < 0) {
-		# We were sent a bad bearer token
-		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
-		if (not((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3))
-			and (not($r->uri() =~ /\/cgi\/auth\.pl/)))
-		{
-			$log->debug(
-				"init_request - init_user error - display error page",
-				{init_user_error => $request_ref->{init_user_error}}
-			) if $log->is_debug();
-			display_error_and_exit($request_ref, $signed_in_oidc, 403);
-		}
-	}
-
-	my $error = ProductOpener::Users::init_user($request_ref);
+	my $error = ProductOpener::Users::init_user($request_ref, $r);
 	if ($error) {
 		# We were sent bad user_id / password credentials
 
 		# If it is an API v3 query, the error will be handled by API::process_api_request()
 		if ((defined $request_ref->{api_version}) and ($request_ref->{api_version} >= 3)) {
-			$log->debug(
-				"init_request - init_user error - API v3: continue",
-				{init_user_error => $request_ref->{init_user_error}}
-			) if $log->is_debug();
+			$log->debug("init_request - init_user error - API v3: continue", {init_user_error => $error})
+				if $log->is_debug();
+			if ($error eq "error_bad_login_password") {
+				# Use a generic API error message without the link to the login page
+				$error = "invalid_user_id_and_password";
+			}
 			add_error(
 				$request_ref->{api_response},
 				{
-					message => {id => "invalid_user_id_and_password"},
+					message => {id => $error},
 					impact => {id => "failure"},
 				},
 				403
@@ -833,18 +833,18 @@ sub init_request ($request_ref = {}) {
 		# /cgi/auth.pl returns a JSON body
 		# for requests to /cgi/auth.pl, we will now return a JSON body, set in /cgi/auth.pl
 		elsif ($r->uri() =~ /\/cgi\/auth\.pl/) {
-			$log->debug(
-				"init_request - init_user error - /cgi/auth.pl: continue",
-				{init_user_error => $request_ref->{init_user_error}}
-			) if $log->is_debug();
+			$log->debug("init_request - init_user error - /cgi/auth.pl: continue", {init_user_error => $error})
+				if $log->is_debug();
 		}
 		# Otherwise we return an error page in HTML (including for v0 / v1 / v2 API queries)
 		else {
-			$log->debug(
-				"init_request - init_user error - display error page",
-				{init_user_error => $request_ref->{init_user_error}}
-			) if $log->is_debug();
-			display_error_and_exit($request_ref, $error, 403);
+			$log->debug("init_request - init_user error - display error page", {init_user_error => $error})
+				if $log->is_debug();
+			if ($error eq "invalid_token") {
+				# Use the API message for invalid tokens
+				$error = "api_message_invalid_token";
+			}
+			display_error_and_exit($request_ref, $Lang{$error}{$lc}, 403);
 		}
 	}
 
@@ -1432,6 +1432,12 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 	if ($html =~ /<h1>(.*?)<\/h1>/) {
 		$title = $1;
 		$html = $` . $';
+	}
+
+	# The index page may not have a h1 title (e.g. on Open Food Facts),
+	# in that case we still need a title for the <title> tag in the HTML head
+	if (($textid eq 'index') and (not defined $title)) {
+		$request_ref->{head_title} = $options{site_name} . ' - ' . $country_name;
 	}
 
 	# Generate a table of content
@@ -3201,7 +3207,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 
 	# If the query contained tags in non-canonical form, redirect to the form with the canonical tags
 	# The redirect is temporary (302), as the canonicalization could change if the corresponding taxonomies change
-	if ($redirect_to_canonical_url) {
+	if ($redirect_to_canonical_url && !defined $request_ref->{api}) {
 		$request_ref->{redirect} = $request_ref->{formatted_subdomain} . $request_ref->{current_link};
 		$request_ref->{redirect} .= extension_and_query_parameters_to_redirect_url($request_ref);
 
@@ -3892,7 +3898,6 @@ sub display_tag_page ($request_ref) {
 			}
 		}
 
-		my @markers = ();
 		if ($tagtype eq 'emb_codes') {
 
 			my $city_code = get_city_code($tagid);
@@ -3908,198 +3913,13 @@ sub display_tag_page ($request_ref) {
 					. separator_before_colon($lc) . ": "
 					. display_tag_link('cities', $emb_codes_cities{$city_code}) . "</p>";
 			}
-
-			$log->debug("checking if the canon_tagid is a packager code") if $log->is_debug();
-			if (exists $packager_codes{$canon_tagid}) {
-				$log->debug("packager code found for the canon_tagid", {cc => $packager_codes{$canon_tagid}{cc}})
-					if $log->is_debug();
-
-				# Generate a map if we have coordinates
-				my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
-				if ((defined $lat) and (defined $lng)) {
-					my @geo = ($lat + 0.0, $lng + 0.0);
-					push @markers, \@geo;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'at') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Österreich)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'ch') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{full_address}</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'cy') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Cyprus)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'cz') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Czech)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'dk') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{postalcode} $packager_codes{$canon_tagid}{city} (Denmark)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'es') {
-					# Razón Social;Provincia/Localidad
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{razon_social}<br>
-$packager_codes{$canon_tagid}{provincia_localidad}
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'fi') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{postalcode} $packager_codes{$canon_tagid}{city} (Finland)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{raison_sociale_enseigne_commerciale}<br>
-$packager_codes{$canon_tagid}{adresse} $packager_codes{$canon_tagid}{code_postal} $packager_codes{$canon_tagid}{commune}<br>
-SIRET : $packager_codes{$canon_tagid}{siret} - <a href="$packager_codes{$canon_tagid}{section}">Source</a>
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'hr') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{city} $packager_codes{$canon_tagid}{postalcode} (Croatia/Hrvatska)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'hu') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Hungary)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'ie') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Ireland)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'it') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address}, $packager_codes{$canon_tagid}{region} (Italy)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'lu') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Luxembourg)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'si') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Slovenija)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'uk') {
-
-					my $district = '';
-					my $local_authority = '';
-					if ($packager_codes{$canon_tagid}{district} =~ /\w/) {
-						$district = "District: $packager_codes{$canon_tagid}{district}<br>";
-					}
-					if ($packager_codes{$canon_tagid}{local_authority} =~ /\w/) {
-						$local_authority = "Local authority: $packager_codes{$canon_tagid}{local_authority}<br>";
-					}
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$district
-$local_authority
-</p>
-HTML
-						;
-					# FSA ratings
-					if (exists $packager_codes{$canon_tagid}{fsa_rating_business_name}) {
-						my $logo = '';
-						my $img = "images/countries/uk/ratings/large/72ppi/"
-							. lc($packager_codes{$canon_tagid}{fsa_rating_key}) . ".jpg";
-						if (-e "$www_root/$img") {
-							$logo = <<HTML
-<img src="/$img" alt="Rating">
-HTML
-								;
-						}
-						$description .= <<HTML
-<div>
-<a href="https://ratings.food.gov.uk/">Food Hygiene Rating</a> from the Food Standards Agency (FSA):
-<p>
-Business name: $packager_codes{$canon_tagid}{fsa_rating_business_name}<br>
-Business type: $packager_codes{$canon_tagid}{fsa_rating_business_type}<br>
-Address: $packager_codes{$canon_tagid}{fsa_rating_address}<br>
-Local authority: $packager_codes{$canon_tagid}{fsa_rating_local_authority}<br>
-Rating: $packager_codes{$canon_tagid}{fsa_rating_value}<br>
-Rating date: $packager_codes{$canon_tagid}{fsa_rating_date}<br>
-</p>
-$logo
-</div>
-HTML
-							;
-					}
-				}
-			}
 		}
 
 		my $map_html;
-		if (((scalar @wikidata_objects) > 0) or ((scalar @markers) > 0)) {
+		if ((scalar @wikidata_objects) > 0) {
 			my $map_template_data_ref = {
 				wikidata => \@wikidata_objects,
-				pointers => \@markers
+				pointers => []
 			};
 			process_template('web/pages/tags_map/map_of_tags.tt.html', $map_template_data_ref, \$map_html, $request_ref)
 				|| ($map_html .= 'template error: ' . $tt->error());
@@ -4276,7 +4096,7 @@ HTML
 				my $tag_ref = {};    # Object to store the knowledge panels
 				my $panels_created
 					= create_tag_knowledge_panels($tag_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref,
-					$tagtype, $canon_tagid, $request_ref);
+					$tagtype, $canon_tagid // $new_tagid, $request_ref);
 				if ($panels_created) {
 					$tag_template_data_ref->{tag_panels}
 						= display_knowledge_panel($tag_ref, $tag_ref->{"knowledge_panels_" . $lc}, "root");
@@ -4311,12 +4131,13 @@ HTML
 
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
 		if ($tag_ref->{tagtype} eq 'users') {
-			deep_set($request_ref, "body_json", "creator", $tag_ref->{tagid});
+			deep_set($request_ref, "body_json", "creator", $tag_ref->{new_tagid} // $tag_ref->{tagid});
 		}
 		else {
 			my $field_name = $tag_ref->{tagtype} . "_tags";
 			my $current_value = deep_get($request_ref, "body_json", $field_name);
-			my $new_value = ($tag_ref->{tag_prefix} // '') . ($tag_ref->{canon_tagid} // $tag_ref->{tagid});
+			my $new_value = ($tag_ref->{tag_prefix} // '')
+				. ($tag_ref->{canon_tagid} // $tag_ref->{new_tagid} // $tag_ref->{tagid});
 			if ($current_value) {
 				$new_value = $current_value . ',' . $new_value;
 			}
@@ -5170,7 +4991,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	{
 
 		if (feature_enabled("popularity")) {
-			$sort_by = 'popularity_key';
+			$sort_by = 'popularity';
 		}
 		else {
 			$sort_by = 'last_modified_t';
@@ -5181,11 +5002,9 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		my $order = 1;
 		my $sort_by_key = $sort_by;
 
-		if ($sort_by eq "popularity") {
+		if ($sort_by eq "popularity" || $sort_by eq "popularity_key") {
 			$sort_by_key = "popularity_key";
-			$order = -1;
-		}
-		elsif ($sort_by eq "popularity_key") {
+			$sort_by = "popularity";
 			$order = -1;
 		}
 		elsif ($sort_by eq "environmental_score_score") {
@@ -7339,28 +7158,29 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 	while (my $product_ref = $products_iter->()) {
 		my $url = $request_ref->{formatted_subdomain} . product_url($product_ref->{code});
 
-		my $manufacturing_places = escape_single_quote_and_newlines($product_ref->{"manufacturing_places"});
+		# Plain-text lines for the map popup. Values are JSON-encoded by the
+		# template and rendered with textContent in display-map.js, so no
+		# HTML building or escaping is needed here.
+		my @origins_lines = ();
+
+		my $manufacturing_places = $product_ref->{"manufacturing_places"} // '';
 		$manufacturing_places =~ s/,( )?/, /g;
 		if ($manufacturing_places ne '') {
-			$manufacturing_places
-				= ucfirst(lang("manufacturing_places_p"))
-				. separator_before_colon($lc) . ": "
-				. $manufacturing_places . "<br>";
+			push @origins_lines,
+				ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places;
 		}
 
-		my $origins = escape_single_quote_and_newlines($product_ref->{origins});
+		my $origins = $product_ref->{origins} // '';
 		$origins =~ s/,( )?/, /g;
 		if ($origins ne '') {
-			$origins = ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins . "<br>";
+			push @origins_lines, ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins;
 		}
-
-		$origins = $manufacturing_places . $origins;
 
 		my $pointer = {
 			product_name => $product_ref->{product_name},
 			brands => $product_ref->{brands},
 			url => $url,
-			origins => $origins,
+			origins => \@origins_lines,
 			img => display_image($product_ref, "front", $request_ref->{lc}, $thumb_size)
 		};
 
@@ -7625,6 +7445,14 @@ sub display_page ($request_ref) {
 		$canon_title = $title;
 	}
 
+	# Title for the <title> tag in the HTML head: it can be different from the h1 title displayed in the page
+	# (e.g. the index page may not have a h1 title), and it should never be empty
+	my $head_title = $canon_title;
+	if ($head_title eq '') {
+		$head_title = remove_tags_and_quote($request_ref->{head_title} // $options{site_name});
+		$canon_title = $head_title;
+	}
+
 	my $canon_description = '';
 	if (defined $description) {
 		$canon_description = remove_tags_and_quote($description);
@@ -7684,6 +7512,7 @@ sub display_page ($request_ref) {
 	$template_data_ref->{canon_url} = $canon_url;
 	$template_data_ref->{meta_description} = $meta_description;
 	$template_data_ref->{canon_title} = $canon_title;
+	$template_data_ref->{head_title} = $head_title;
 	$template_data_ref->{canon_description} = $canon_description;
 	$template_data_ref->{og_images} = $og_images;
 	$template_data_ref->{og_images2} = $og_images2;
@@ -8290,7 +8119,8 @@ JS
 
 	$template_data_ref->{title} = $title;
 	$template_data_ref->{code} = $code;
-	$template_data_ref->{user_moderator} = $User{moderator};
+	$template_data_ref->{can_delete} = can_delete_product($product_ref);
+	$template_data_ref->{can_delete_image} = can_delete_image($product_ref);
 
 	# my @fields = qw(generic_name quantity packaging br brands br categories br labels origins br manufacturing_places br emb_codes link purchase_places stores countries);
 	my @fields = @ProductOpener::Config::display_fields;
@@ -9098,6 +8928,8 @@ sub compare_product_nutrition_facts_to_categories ($product_ref, $target_lc, $ta
 		if (defined $categories_stats_ref) {
 
 			foreach my $cid (@{$product_ref->{categories_tags}}) {
+
+				next unless exists_taxonomy_tag('categories', $cid);
 
 				if (    (defined $categories_stats_ref->{$cid})
 					and (defined $categories_stats_ref->{$cid}{stats}))
@@ -10386,8 +10218,8 @@ sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref,
 		${$ingredients_list_ref}
 			.= '<table id="ordered_ingredients_list" style="border-collapse:collapse;width:100%;font-size:0.85rem">'
 			. "\n<thead><tr>"
-			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Ingredient</th>'
-			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Taxonomy ID</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ingredient</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">taxonomy_id</th>'
 			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegan</th>'
 			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegetarian</th>'
 			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">palm_oil</th>'

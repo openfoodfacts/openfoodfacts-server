@@ -618,7 +618,7 @@
          "en:packagings-empty",
          "en:packagings-not-complete",
          "en:packagings-number-of-components-0",
-         "en:storage-conditions-not-set",
+         "en:storage-conditions-set",
          "en:main-countries-new-product"
       ],
       "nova_group_debug" : "no nova group when the product does not have ingredients",
@@ -732,6 +732,10 @@
          "en:quantity-to-be-completed",
          "en:product-name-to-be-completed",
          "en:photos-to-be-uploaded"
+      ],
+      "storage_conditions" : "en:refrigerated",
+      "storage_conditions_tags" : [
+         "en:refrigerated"
       ],
       "tags_sources" : {
          "allergens" : {

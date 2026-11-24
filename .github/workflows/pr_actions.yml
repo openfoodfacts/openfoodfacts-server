@@ -10,7 +10,7 @@ permissions:
   # the changes uses the release token, passed to the push step only.
   contents: read
   issues: write
-  pull-requests: read
+  pull-requests: write
 
 jobs:
   # Action to update test results by issuing /lint

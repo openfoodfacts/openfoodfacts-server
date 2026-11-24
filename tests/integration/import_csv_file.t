@@ -142,6 +142,11 @@ my @tests = (
 		test_case => "new_tags_updates",
 		csv_files => ["new_tags_1.csv", "new_tags_4_updates.csv"]
 	},
+	# Teams (e.g. exported from the producers platform) are added to existing teams
+	{
+		test_case => "teams",
+		csv_files => ["teams_1.csv", "teams_2.csv"]
+	},
 	# A Google Drive "view" share link should be rewritten to a direct-download link
 	# and the image downloaded, instead of being dropped because the link returns an HTML page
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/14308
@@ -224,6 +229,9 @@ foreach my $test_ref (@tests) {
 			"owner_id" => "org-test-org",
 			"csv_file" => $csv_file,
 			"exported_t" => $datestring,
+			# The GS1 fixture carries sources_fields:org-gs1:* columns of another source than
+			# the importer: import it the way scripts/import_csv_file.pl (an operator) does.
+			"allow_any_source_fields" => 1,
 			# images_download_dir must be under one of the base directories in ProductOpener::Paths,
 			# otherwise ensure_dir_created() (called by Import.pm) refuses to create it
 			"images_download_dir" => $images_download_dir,

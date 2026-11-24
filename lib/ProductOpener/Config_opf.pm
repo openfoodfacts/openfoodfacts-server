@@ -23,7 +23,7 @@
 package ProductOpener::Config;
 
 use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 BEGIN {
@@ -163,6 +163,12 @@ $flavor = "opf";
 		lowercase => 1,
 	},
 	pt => {
+		unaccent => 1,
+		lowercase => 1,
+	},
+	# Romanian: diacritics (ă â î ș ț, and the legacy cedilla forms ş ţ) are very often missing,
+	# and there are very few conflicts in ingredients, labels etc. (ă vs a mostly marks the definite article)
+	ro => {
 		unaccent => 1,
 		lowercase => 1,
 	},
@@ -369,7 +375,7 @@ HTML
 # improvements
 # ingredients_analysis
 # ingredients_processing:
-# ingredients (additives_classes, additives, minerals, vitamins, nucleotides, other_nutritional_substances): labels
+# ingredients (additives_classes, additives, minerals, vitamins, amino_acids, nucleotides, other_nutritional_substances): labels
 # labels: categories
 # languages:
 # minerals
@@ -575,7 +581,7 @@ $options{import_export_fields_groups} = [
 	["packaging"],
 	[
 		"other",
-		["customer_service", "link",]
+		["customer_service", "link", "teams",]
 	],
 	[
 		"images",

@@ -65,7 +65,7 @@ By default, the list is restricted to users registered to Open Food Facts newsle
 
 =cut
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);

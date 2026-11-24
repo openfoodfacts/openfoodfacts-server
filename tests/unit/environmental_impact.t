@@ -5,7 +5,7 @@ use JSON;
 
 use ProductOpener::PerlStandards;
 use ProductOpener::Test qw/init_expected_results compare_to_expected_results/;
-use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service/;
+use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service get_ecobalyse_ingredients_quantities/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -126,6 +126,8 @@ if (@$errors_ref) {
 	fail($json->pretty->encode($errors_ref));
 }
 else {
+	# The time of the results changes at each run
+	ok(delete $product_ref->{environmental_impact}{ecobalyse_results_t}, "time of Ecobalyse results is set");
 	compare_to_expected_results($product_ref, "$expected_result_dir/environmental_impact.json",
 		$update_expected_results);
 
@@ -140,6 +142,43 @@ else {
 	else {
 		is($mock_calls, 1, "Ecobalyse mock called");
 	}
+}
+
+# get_ecobalyse_ingredients_quantities: leaf ingredients, quantities and Ecobalyse ids
+
+{
+	my $product_ref = {
+		ingredients => [
+			{id => "en:sugar", percent_estimate => 50, ecobalyse_id => "sugar-id"},
+			{
+				id => "en:chocolate",
+				percent_estimate => 30,
+				ecobalyse_id => "chocolate-id",
+				ingredients => [
+					{id => "en:cocoa", percent_estimate => 20, ecobalyse_proxy_id => "cocoa-proxy-id"},
+					{id => "en:unknown", percent_estimate => 10},
+				],
+			},
+			{id => "en:salt", quantity_estimate => 5, percent_estimate => 15},
+			{id => "en:flavouring", percent => 5},
+		],
+	};
+
+	my $result_ref = get_ecobalyse_ingredients_quantities($product_ref);
+
+	is(
+		[map {[$_->{ingredient}{id}, $_->{quantity}, $_->{ecobalyse_id}]} @{$result_ref->{ingredients}}],
+		[
+			["en:sugar", 50, "sugar-id"],
+			["en:salt", 5, undef],
+			["en:flavouring", undef, undef],
+			["en:cocoa", 20, "cocoa-proxy-id"],
+			["en:unknown", 10, undef],
+		],
+		"leaf ingredients with quantity_estimate // percent_estimate and ecobalyse_id || ecobalyse_proxy_id"
+	);
+	is($result_ref->{total_quantity}, 85, "total quantity does not count ingredients without quantity");
+	is($result_ref->{total_quantity_with_ecobalyse_id}, 70, "total quantity with Ecobalyse id");
 }
 
 done_testing();

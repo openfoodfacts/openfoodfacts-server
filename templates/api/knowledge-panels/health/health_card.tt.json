@@ -1,11 +1,18 @@
 {
     "type": "card",
+    [% IF knowledge_panels_options.activate_knowledge_panels_ingredients_nutrition_first %]
+    "expanded": false,
+    [% ELSE %]
     "expanded": true,
+    [% END %]
     "topics": [
         "health"
     ],
     "title_element": {
         "title": "[% edq(lang('health')) %]",
+        [% IF panel.summary %]
+        "subtitle": "[% edq(panel.summary) %]",
+        [% END %]
     },    
     "elements": [
         [% IF panels.recommendation_health.defined %]
@@ -26,7 +33,29 @@
         },
         [% END %]        
 
-        [% IF knowledge_panels_options.knowledge_panels_client == 'disabled-web' %]
+        [% IF knowledge_panels_options.activate_knowledge_panels_ingredients_nutrition_first %]
+
+            [% IF feature_enabled("nutrition") AND (panels.nutriscore_2023.defined OR panels.nutriscore.defined) %]
+            {
+                "element_type": "panel_group",
+                "panel_group_element": {
+                    "title": "",
+                    "panel_ids": [
+                        [% IF panels.nutriscore_2023.defined %]
+                            "nutriscore_2023",
+                        [% END %]
+                        [% IF panels.nutriscore.defined %]
+                            "nutriscore",
+                        [% END %]
+                    ],
+                },
+            },
+            [% END %]
+            [% IF feature_enabled("ingredients") %]
+                [% INCLUDE "api/knowledge-panels/health/ingredients_panels.tt.json" %]
+            [% END %]
+
+        [% ELSIF knowledge_panels_options.knowledge_panels_client == 'disabled-web' %]
 
             [% IF feature_enabled("ingredients") %]
                 [% INCLUDE "api/knowledge-panels/health/ingredients_panels.tt.json" %]

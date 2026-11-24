@@ -1,4 +1,4 @@
-[% IF panels.ingredients.defined %]
+[% IF panels.ingredients.defined AND NOT panels.ingredients_card.defined %]
 {
     "element_type": "panel_group",
     "panel_group_element": {

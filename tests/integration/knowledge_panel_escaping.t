@@ -13,16 +13,21 @@ use ProductOpener::PerlStandards;
 
 use Test2::V0;
 use JSON::MaybeXS;
-use ProductOpener::APITest qw/edit_product login new_client construct_test_url wait_application_ready/;
-use ProductOpener::Test qw/remove_all_products/;
-use ProductOpener::TestDefaults qw/%default_product_form/;
+use ProductOpener::APITest qw/edit_product login new_client construct_test_url wait_application_ready create_user/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_product_form %default_user_form/;
 
 use Storable qw(dclone);
 
 wait_application_ready(__FILE__);
 remove_all_products();
+remove_all_users();
 
 my $ua = new_client();
+
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
+create_user($ua, \%create_user_args);
+
 login($ua, "tests", 'testtest');
 
 # The serving_size panel template interpolates product.serving_size inside a backtick block, so

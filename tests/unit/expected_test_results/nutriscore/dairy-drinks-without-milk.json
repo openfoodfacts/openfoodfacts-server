@@ -44,7 +44,10 @@
                "name" : "sugar"
             }
          ],
-         "ingredients_coverage_percent" : 100
+         "ingredients_coverage_percent" : 100,
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -78,8 +81,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "18066",
-         "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-         "ecobalyse_proxy_name" : "Eau du robinet UE -2025-",
+         "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_name" : "Eau du robinet UE -2025-",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 95,
@@ -153,6 +156,7 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-e-2023-e",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
@@ -204,7 +208,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 21,
+            "negative_points_max" : 0,
             "positive_points" : 2,
+            "positive_points_max" : 0,
             "proteins" : 5,
             "proteins_points" : 3,
             "proteins_value" : 5,

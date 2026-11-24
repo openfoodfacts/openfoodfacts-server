@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -181,7 +181,7 @@ my @tests = (
 		["en:e162", "en:e160c", "en:e100"],
 	],
 
-	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:fat", "en:colza-oil"]],
+	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:vegetable-fat", "en:colza-oil"]],
 
 	[{lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait cru de lapin"]],
 	[
@@ -300,10 +300,65 @@ my @tests = (
 			lc => "fr",
 			ingredients_text => "huiles végétales non hydrogénées (huile de palme certifiée durable, huile de colza)"
 		},
-		['en:oil', 'en:palm-oil', 'en:colza-oil']
+		['en:non-hydrogenated-vegetable-oils', 'en:palm-oil', 'en:colza-oil']
 	],
 	[{lc => "fr", ingredients_text => "huile de palme certifiée durable"}, ['en:palm-oil']],
 	[{lc => "fr", ingredients_text => "huile de palme RSPO"}, ['en:palm-oil']],
+	# label synonyms that are part of the name of an ingredient
+	[
+		{lc => "fr", ingredients_text => "colorants : charbon végétal, extraits végétaux à pouvoir colorant (curcuma)"},
+		['en:e153', 'fr:extraits-vegetaux-a-pouvoir-colorant', 'en:turmeric']
+	],
+	[
+		{lc => "fr", ingredients_text => "huile de palme biologique, farine de blé bio"},
+		['en:palm-oil', 'en:wheat-flour']
+	],
+	# processing or end of the name of the ingredient after the closing parenthesis
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"sucre, cacao maigre (11 % de beurre de cacao) en poudre (20%), cacahuètes (arachides) grillées*, oignons (France) émincés 5%, chocolat (sucre, cacao) noir. *issu de l'agriculture biologique"
+		},
+		[
+			'en:sugar', 'en:fat-reduced-cocoa-powder', 'en:roasted-peanut', 'en:onion',
+			'en:dark-chocolate', 'en:cocoa-butter', 'en:sugar', 'en:cocoa'
+		]
+	],
+	[{lc => "fr", ingredients_text => "Sulfate de cuivre (II) pentahydraté"}, ['en:e519']],
+	# footnotes and mentions that are not ingredients
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Farine de blé*, ŒUFS*/** entiers frais, sucre*, sel. *Ingrédients issus de l'agriculture biologique. **Œufs de poules élevées en plein air. Fabriqué dans un atelier utilisant également : céleri, soja."
+		},
+		['en:wheat-flour', 'en:whole-fresh-eggs', 'en:sugar', 'en:salt', 'en:free-range-chicken-eggs']
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Lait*, sel. *Issu d'animaux nés, élevés, abattus et transformés en France. Elaboré à partir de lait origine France. Traces de: fruits à coque, soja."
+		},
+		['en:milk', 'en:salt']
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, beurre de cacao¹, jus de citron concentré (si nécessaire pour réguler l'acidité). ¹Bilan massique certifié Rainforest Alliance. www.ra.org/fr"
+		},
+		['en:sugar', 'en:cocoa-butter', 'en:concentrated-lemon-juice']
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Ingrédients (pourcentages exprimés sur le poids total) : farine de blé\" 50%, sucre de canne\". \"ingrédients issus de l agriculture biologique"
+		},
+		['en:wheat-flour', 'en:cane-sugar']
+	],
 
 	# Russian and / or
 	[{lc => "ru", ingredients_text => "яблоко и малина"}, ["en:apple", "en:raspberry"]],
@@ -325,7 +380,61 @@ my @tests = (
 	[{lc => "en", ingredients_text => "Toasted mango and unknown fruit"}, ["en:mango", "en:unknown fruit"],],
 	[{lc => "en", ingredients_text => "colour (Natural Red 4, mg/kg 1b306(i))"}, ["en:e120", "en:mg/kg 1b306"],],
 
+	# en:sourdough must stay distinct from en:sourdough-starter
+	# (a "sourdough starter" synonym on en:sourdough used to silently merge both entries)
+	[{lc => "en", ingredients_text => "wheat flour, sourdough, salt"}, ["en:wheat-flour", "en:sourdough", "en:salt"],],
+	[{lc => "en", ingredients_text => "sourdough starter, water"}, ["en:sourdough-starter", "en:water"],],
+	[{lc => "fr", ingredients_text => "farine de blé, levain, sel"}, ["en:wheat-flour", "en:sourdough", "en:salt"],],
+	[{lc => "de", ingredients_text => "Roggenmehl, Sauerteig, Salz"}, ["en:rye-flour", "en:sourdough", "en:salt"],],
+	[{lc => "nl", ingredients_text => "tarwebloem, zuurdesem, zout"}, ["en:wheat-flour", "en:sourdough", "en:salt"],],
+
+	# distinct entries that used to be silently merged by a shared synonym
+	[{lc => "en", ingredients_text => "tangerine, mandarin orange"}, ["en:tangerine", "en:mandarin"],],
+	[{lc => "en", ingredients_text => "runner beans, flat beans"}, ["en:runner-bean", "en:flat-bean"],],
+	[
+		{lc => "en", ingredients_text => "atta, whole wheat flour, maida, refined wheat flour"},
+		["en:atta", "en:whole-wheat-flour", "en:maida", "en:refined-wheat-flour"],
+	],
+	[
+		{lc => "en", ingredients_text => "sustainable palm fruit oil, sustainable palm oil, palm oil"},
+		["en:sustainable-palm-oil", "en:sustainable-palm-oil", "en:palm-oil"],
+	],
+	[{lc => "en", ingredients_text => "apples, raw apples without skin"}, ["en:apple", "en:raw-apples-without-skin"],],
+	[
+		{lc => "fr", ingredients_text => "arôme naturel de fruit de la passion, arôme de fruit de la passion"},
+		["en:natural-passion-fruit-flavouring", "en:passion-fruit-flavouring"],
+	],
+	# same concept that was defined in two blocks: consolidated, the canonical id is unchanged
+	[{lc => "en", ingredients_text => "komatsuna, mustard spinach"}, ["en:mustard-spinach", "en:mustard-spinach"],],
+	[{lc => "en", ingredients_text => "lemon beebrush, lemon verbena"}, ["en:lemon-verbena", "en:lemon-verbena"],],
+	[{lc => "en", ingredients_text => "vine spinach, basella leaves"}, ["en:basella-leaves", "en:basella-leaves"],],
+	[{lc => "en", ingredients_text => "broccoli raab, rapini"}, ["en:rapini", "en:rapini"],],
+	[{lc => "en", ingredients_text => "napa cabbage, chinese cabbage"}, ["en:chinese-cabbage", "en:chinese-cabbage"],],
+	[{lc => "en", ingredients_text => "pepeiao, pepeao"}, ["en:pepeao", "en:pepeao"],],
+	[
+		{lc => "en", ingredients_text => "powdered glucose syrup, dehydrated glucose syrup"},
+		["en:dehydrated-glucose-syrup", "en:dehydrated-glucose-syrup"],
+	],
+	[{lc => "en", ingredients_text => "wild blueberries, broccoli"}, ["en:wild-blueberry", "en:broccoli"],],
+	[{lc => "fr", ingredients_text => "eau de source gazéifiée"}, ["en:carbonated-spring-water"],],
 );
+
+# restored entries keep the expected parents
+for my $test_ref (
+	['en:atta', 'en:whole-wheat-flour'],
+	['en:maida', 'en:refined-wheat-flour'],
+	['en:tangerine', 'en:mandarin'],
+	['en:runner-bean', 'en:legume'],
+	['en:sustainable-palm-oil', 'en:palm-oil'],
+	['en:natural-passion-fruit-flavouring', 'en:natural-flavouring'],
+	)
+{
+	my ($tag, $parent) = @$test_ref;
+	ok(exists_taxonomy_tag('ingredients', $tag), "$tag exists");
+	ok(is_a('ingredients', $tag, $parent), "$tag is a $parent");
+}
+ok(!is_a('ingredients', 'en:passion-fruit-flavouring', 'en:natural-flavouring'),
+	'en:passion-fruit-flavouring is not a natural flavouring');
 
 foreach my $test_ref (@tests) {
 

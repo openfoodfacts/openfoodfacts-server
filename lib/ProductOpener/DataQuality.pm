@@ -59,9 +59,10 @@ can affect different types of products:
 
 C<ProductOpener::DataQualityCommon> for all types of products.
 
-C<ProductOpener::DataQualityFood> for food products.
+C<ProductOpener::DataQualityFood> for food products on food servers, where food taxonomies are loaded.
 
-The type of product is specified through Config.pm
+The type of product is read from the product's C<product_type> field.
+For older products without that field, it defaults to the type specified through Config.pm:
 
     $options{product_type} = "food";
 
@@ -101,6 +102,10 @@ C<check_quality()> checks the quality of data for a given product.
 
 sub check_quality ($product_ref) {
 
+	# A product may have been reclassified before it is moved to another server.
+	# Food checks also require the food taxonomies loaded only on food servers.
+	my $product_type = $product_ref->{product_type} // $options{product_type};
+
 	# Remove old quality_tags
 	delete $product_ref->{quality_tags};
 
@@ -113,7 +118,7 @@ sub check_quality ($product_ref) {
 
 	check_quality_common($product_ref);
 
-	if ($options{product_type} eq "food") {
+	if (($options{product_type} eq "food") and ($product_type eq "food")) {
 		check_quality_food($product_ref);
 
 		# Compute the dimensions score
@@ -147,7 +152,7 @@ sub check_quality ($product_ref) {
 		}
 
 		# Detect possible improvements opportunities for food products
-		if ($options{product_type} eq "food") {
+		if (($options{product_type} eq "food") and ($product_type eq "food")) {
 			detect_possible_improvements($product_ref);
 		}
 	}

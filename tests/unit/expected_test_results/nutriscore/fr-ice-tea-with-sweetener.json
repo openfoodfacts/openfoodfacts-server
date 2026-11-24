@@ -53,14 +53,20 @@
             {
                "ecobalyse_name" : "Eau du robinet UE -2025-",
                "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "mass" : 87.1,
+               "mass" : 88.2,
                "name" : "Eau"
             },
             {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 2.85,
+               "mass" : 2.3,
                "name" : "sucre"
+            },
+            {
+               "ecobalyse_name" : "Thé, feuilles séchées HORS UE",
+               "id" : "b767e665-ad96-5200-ad67-11ac66e81559",
+               "mass" : 1.35,
+               "name" : "extrait de the noir"
             },
             {
                "ecobalyse_name" : "Pêche, pulpe et peau, crue Origine Inconnue",
@@ -69,7 +75,10 @@
                "name" : "pêche"
             }
          ],
-         "ingredients_coverage_percent" : 90
+         "ingredients_coverage_percent" : 91,
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
@@ -77,11 +86,15 @@
             "ingredients" : [
                {
                   "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 87.1
+                  "mass" : 88.2
                },
                {
                   "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 2.85
+                  "mass" : 2.3
+               },
+               {
+                  "id" : "b767e665-ad96-5200-ad67-11ac66e81559",
+                  "mass" : 1.35
                },
                {
                   "id" : "d7789ffc-b986-416f-bafa-b1e705d720c4",
@@ -107,13 +120,13 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "18066",
-         "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-         "ecobalyse_proxy_name" : "Eau du robinet UE -2025-",
+         "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_name" : "Eau du robinet UE -2025-",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 87.1,
-         "percent_max" : 93.9,
-         "percent_min" : 80.3,
+         "percent_estimate" : 88.2,
+         "percent_max" : 99.4,
+         "percent_min" : 77,
          "text" : "Eau",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -124,9 +137,9 @@
          "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 2.85,
+         "percent_estimate" : 2.3,
          "percent_max" : 4.5,
-         "percent_min" : 1.2,
+         "percent_min" : 0.1,
          "text" : "sucre",
          "vegan" : "maybe",
          "vegetarian" : "yes"
@@ -135,9 +148,9 @@
          "ciqual_food_code" : "31077",
          "id" : "en:fructose",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 2.85,
+         "percent_estimate" : 2.3,
          "percent_max" : 4.5,
-         "percent_min" : 1.2,
+         "percent_min" : 0.1,
          "text" : "fructose",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -146,9 +159,9 @@
          "additive_class" : "en:acid",
          "id" : "en:e330",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 2.85,
+         "percent_estimate" : 2.3,
          "percent_max" : 4.5,
-         "percent_min" : 1.2,
+         "percent_min" : 0.1,
          "text" : "acide citrique",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -157,34 +170,23 @@
          "additive_class" : "en:acid",
          "id" : "en:e296",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 2.77500000000001,
+         "percent_estimate" : 2.3,
          "percent_max" : 4.5,
-         "percent_min" : 1.2,
+         "percent_min" : 0.1,
          "text" : "acide malique",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "ciqual_food_code" : "18154",
+         "ecobalyse_proxy_id" : "b767e665-ad96-5200-ad67-11ac66e81559",
+         "ecobalyse_proxy_name" : "Thé, feuilles séchées HORS UE",
          "id" : "en:black-tea-extract",
-         "ingredients" : [
-            {
-               "ciqual_food_code" : "18154",
-               "id" : "en:black-tea-extract",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 1.2,
-               "percent_max" : 1.2,
-               "percent_min" : 1.2,
-               "text" : "l",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            }
-         ],
          "is_in_taxonomy" : 1,
-         "percent" : 1.2,
-         "percent_estimate" : 1.2,
-         "percent_max" : 1.2,
-         "percent_min" : 1.2,
+         "percent_estimate" : 1.35,
+         "percent_max" : 4.5,
+         "percent_min" : 0.1,
+         "quantity" : "1.2 g/l",
          "text" : "extrait de the noir",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -239,7 +241,7 @@
          "additive_class" : "en:sweetener",
          "id" : "en:e960",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.125000000000028,
+         "percent_estimate" : 1.00000000000001,
          "percent_max" : 0.1,
          "percent_min" : 0,
          "text" : "glycosides de steviol",
@@ -262,9 +264,9 @@
       "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "fr",
-   "ingredients_n" : 12,
+   "ingredients_n" : 11,
    "ingredients_n_tags" : [
-      "12",
+      "11",
       "11-20"
    ],
    "ingredients_non_nutritive_sweeteners_n" : 1,
@@ -279,8 +281,7 @@
       "en:sodium-citrate",
       "en:flavouring",
       "en:e300",
-      "en:e960",
-      "en:black-tea-extract"
+      "en:e960"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_sweeteners_n" : 1,
@@ -322,7 +323,6 @@
    ],
    "ingredients_without_ciqual_codes_n" : 6,
    "ingredients_without_ecobalyse_ids" : [
-      "en:black-tea-extract",
       "en:e296",
       "en:e300",
       "en:e330",
@@ -331,8 +331,8 @@
       "en:fructose",
       "en:sodium-citrate"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 8,
-   "known_ingredients_n" : 12,
+   "ingredients_without_ecobalyse_ids_n" : 7,
+   "known_ingredients_n" : 11,
    "lc" : "fr",
    "minerals_tags" : [],
    "misc_tags" : [
@@ -346,6 +346,7 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-d-2023-d",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-skipped",
       "en:forest-footprint-computed",
@@ -411,7 +412,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 6,
+            "negative_points_max" : 0,
             "positive_points" : 0,
+            "positive_points_max" : 0,
             "proteins" : 0,
             "proteins_points" : 0,
             "proteins_value" : 0,
@@ -636,7 +639,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 5.7
+               "value" : 4.6
             },
             "energy" : {
                "source" : "packaging",
@@ -748,7 +751,7 @@
                }
             },
             "per" : "100g",
-            "per_quantity" : "100",
+            "per_quantity" : 100,
             "per_unit" : "g",
             "preparation" : "as_sold",
             "source" : "packaging"
@@ -758,8 +761,8 @@
                "added-sugars" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 5.7,
-                  "value_string" : "5.7"
+                  "value" : 4.6,
+                  "value_string" : "4.6"
                },
                "fruits-vegetables-legumes" : {
                   "modifier" : "~",
@@ -775,7 +778,7 @@
                }
             },
             "per" : "100g",
-            "per_quantity" : "100",
+            "per_quantity" : 100,
             "per_unit" : "g",
             "preparation" : "as_sold",
             "source" : "estimate",

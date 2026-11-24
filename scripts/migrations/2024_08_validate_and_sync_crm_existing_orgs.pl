@@ -21,7 +21,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
-use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw( $data_root );

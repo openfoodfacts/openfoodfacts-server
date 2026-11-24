@@ -150,6 +150,8 @@ BEGIN {
 		&add_users_translations_to_taxonomy
 
 		&remove_stopwords_from_start_or_end_of_string
+		&remove_stopwords
+		&remove_plurals
 		&get_lc_tagid
 
 		&generate_tags_taxonomy_extract
@@ -168,6 +170,7 @@ BEGIN {
 
 		&get_taxonomy_tag_path
 		&get_tag_with_parents
+		&get_tag_direct_children
 
 		&get_minimal_tags_subset
 		&gen_tags_list_with_parents
@@ -1060,7 +1063,7 @@ sub get_file_from_cache ($source, $target) {
 # e.g. if the taxonomy building algorithm or configuration has changed
 # This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
 
-my $BUILD_TAGS_VERSION = "20261012 - stable identities and complete taxonomy stopwords";
+my $BUILD_TAGS_VERSION = "20261020 - faster computation of extended synonyms";
 
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
@@ -1284,14 +1287,14 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		@tagtypes = ("countries", "origins");
 	}
 
-	# For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, nucleotides and other nutritional substances taxonomies
+	# For the Open Food Facts ingredients taxonomy, concatenate additives, minerals, vitamins, amino acids, nucleotides and other nutritional substances taxonomies
 	elsif ( ($tagtype eq "ingredients")
 		and (defined $options{product_type})
 		and (($options{product_type} eq "food") or ($options{product_type} eq "petfood")))
 	{
 		@tagtypes = (
 			"additives_classes", "additives", "minerals", "vitamins",
-			"nucleotides", "other_nutritional_substances", "ingredients"
+			"amino_acids", "nucleotides", "other_nutritional_substances", "ingredients"
 		);
 	}
 
@@ -1327,9 +1330,14 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 	# Concatenate taxonomy files if needed
 	my $file_path;
+	# Source file of each line of $file_path, as a list of [first line number, source file] (sorted by line number)
+	# Used to tell apart intended merges of entries from different source files (e.g. additives and ingredients)
+	# from accidental merges of entries within the same source file
+	my @source_files_line_ranges = ();
 	if ((scalar @files) == 1) {
 		# Only 1 file
 		$file_path = get_path_for_taxonomy_file($files[0]);
+		push @source_files_line_ranges, [1, $files[0]];
 	}
 	else {
 		# Multiple files
@@ -1338,18 +1346,26 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		open(my $OUT, ">:encoding(UTF-8)", $file_path)
 			or die("Cannot write $file_path : $!\n");
 
+		my $output_lines = 0;
 		foreach my $taxonomy_file (@files) {
 			my $taxonomy_path = get_path_for_taxonomy_file($taxonomy_file);
 			open(my $IN, "<:encoding(UTF-8)", $taxonomy_path)
 				or die("Cannot open $taxonomy_path: $!\n");
 
 			print $OUT "# $taxonomy_file\n\n";
+			$output_lines += 2;
+			push @source_files_line_ranges, [$output_lines + 1, $taxonomy_file];
 
+			my $last_line = "\n";
 			while (<$IN>) {
 				print $OUT $_;
+				$output_lines++;
+				$last_line = $_;
 			}
 
 			print $OUT "\n\n";
+			# if the file does not end with a newline, the first \n terminates its last line
+			$output_lines += ($last_line =~ /\n$/) ? 2 : 1;
 			close($IN);
 		}
 
@@ -1460,6 +1476,18 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		my $line_number = 0;
 
+		# line number of the first line of the block that defined each canonical tagid
+		my %canon_tagid_line_number = ();
+		# source taxonomy file of a line of $file_path, and line number in this source file
+		my $get_source_file_and_line = sub ($n) {
+			my ($start, $source_file) = @{$source_files_line_ranges[0]};
+			foreach my $range_ref (@source_files_line_ranges) {
+				last if $range_ref->[0] > $n;
+				($start, $source_file) = @$range_ref;
+			}
+			return ($source_file, $n - $start + 1);
+		};
+
 		while (<$IN>) {
 
 			my $line = sanitize_taxonomy_line($_);
@@ -1514,6 +1542,33 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 						# Normalized search variants must not merge distinct declared concepts.
 						my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{get_string_id_for_lang($lc, $tag)};
 						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
+							# Merging entries is intended when they come from different source files
+							# (e.g. an additive that is also listed in ingredients.txt), but merging two
+							# entries of the same source file is almost always an accidental duplicate synonym
+							my $existing_canon_tagid = $translations_from{$tagtype}{"$lc:$possible_canon_tagid"}
+								// "$lc:$possible_canon_tagid";
+							my $existing_line_number = $canon_tagid_line_number{$existing_canon_tagid};
+							if (defined $existing_line_number) {
+								my ($source_file, $source_line_number) = $get_source_file_and_line->($line_number);
+								my ($existing_source_file, $existing_source_line_number)
+									= $get_source_file_and_line->($existing_line_number);
+								if ($source_file eq $existing_source_file) {
+									my $msg;
+									if ("$lc:$lc_tagid" eq $existing_canon_tagid) {
+										# same entry defined twice: the blocks are merged, it is less harmful
+										$msg
+											= "WARNING - duplicate_entry - $source_file - entry $lc:$lc_tagid (line $source_line_number)"
+											. " is defined again, it is merged with the entry at line $existing_source_line_number\n";
+									}
+									else {
+										$msg
+											= "WARNING - synonym_merge - $source_file - entry $lc:$lc_tagid (line $source_line_number)"
+											. " is merged into entry $existing_canon_tagid (line $existing_source_line_number)"
+											. " because they share the $lc synonym \"$tag\"\n";
+									}
+									print STDERR $msg;
+								}
+							}
 							$canon_tagid = "$lc:" . $possible_canon_tagid;
 							$lc_tagid = $possible_canon_tagid;
 							# we already have a canon_tagid $canon_tagid for the tag
@@ -1533,6 +1588,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				if (not defined $canon_tagid) {
 					# this is the first entry for the block, so it defines the canonical tagid
 					$canon_tagid = "$lc:$lc_tagid";
+					$canon_tagid_line_number{$canon_tagid} //= $line_number;
 					# print STDERR "new canon_tagid: $canon_tagid\n";
 					if ((defined $qualifier) and ($qualifier eq 'synonyms:')) {
 						# register that it's just a synonym
@@ -1705,9 +1761,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 			foreach my $lc (sort keys %{$synonyms{$tagtype}}) {
 
-				# this list will contain all tags that are possible synonyms
+				# this hash will contain all tags that are possible synonyms
 				# that are smaller than current tag and that we may substitute in it
-				my @smaller_synonyms = ();
+				# the value is the rank of the tag in the sort order below,
+				# so that candidates are tried in the same order as they were added
+				my %smaller_synonyms = ();
+				my $smaller_synonyms_rank = 0;
 
 				# synonyms don't support non roman languages at this point
 				next if ($lc eq 'ar');
@@ -1735,15 +1794,30 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					if (scalar @{$synonyms_for{$tagtype}{$lc}{$lc_tagid1}} > 1) {
 						# limit length of synonyms for performance
 						if (length($tagid) < (30 / $pass)) {
-							push @smaller_synonyms, $tagid;
+							$smaller_synonyms{$tagid} = $smaller_synonyms_rank++;
 							#print "$tagid (canon: $lc_tagid1) has other synonyms\n";
 						}
 					}
 
-					# try each candidate synonyms
-					foreach my $tagid2 (@smaller_synonyms) {
+					# A smaller synonym can only be substituted if it matches whole words of $tagid
+					# so instead of testing all smaller synonyms, we look up each sequence of consecutive words
+					# (tagids never start or end with a dash, and never contain 2 consecutive dashes)
+					my @words = split(/-/, $tagid);
+					next if @words < 2;
+					my %candidates = ();
+					for (my $i = 0; $i <= $#words; $i++) {
+						my $words_sequence = $words[$i];
+						for (my $j = $i; $j <= $#words; $j++) {
+							$words_sequence .= '-' . $words[$j] if $j > $i;
+							last if length($words_sequence) > $max_length;    # avoid generating long strings
+							if (exists $smaller_synonyms{$words_sequence}) {
+								$candidates{$words_sequence} = $smaller_synonyms{$words_sequence};
+							}
+						}
+					}
 
-						last if length($tagid2) > $max_length;    # avoid generating long strings
+					# try each candidate synonyms
+					foreach my $tagid2 (sort {$candidates{$a} <=> $candidates{$b}} keys %candidates) {
 
 						# try to avoid looping:
 						# e.g. bio, agriculture biologique, biologique -> agriculture bio -> agriculture agriculture biologique etc.
@@ -2863,6 +2937,9 @@ sub init_taxonomies($die_if_some_taxonomies_cannot_be_loaded = 0) {
 	}
 
 	foreach my $taxonomyid (@ProductOpener::Config::taxonomy_fields) {
+		# Taxonomies are loaded when Tags.pm is loaded, and then again by load_data():
+		# skip the ones that are already loaded (taxonomies that failed to load are retried)
+		next if $loaded_taxonomies{$taxonomyid};
 		$log->info("loading taxonomy $taxonomyid");
 		retrieve_tags_taxonomy($taxonomyid, $die_if_some_taxonomies_cannot_be_loaded);
 	}
@@ -3022,6 +3099,18 @@ sub get_tag_with_parents ($tagtype, $tagid) {
 	}
 
 	return @tag_with_parents;
+}
+
+=head2 get_tag_direct_children ($tagtype, $tagid)
+
+Given a canonical tagid, return the list of its direct children, in alphabetical order of their ids.
+
+=cut
+
+sub get_tag_direct_children ($tagtype, $tagid) {
+
+	my @children = sort keys %{$direct_children{$tagtype}{$tagid} // {}};
+	return @children;
 }
 
 sub gen_ingredients_tags_hierarchy_taxonomy ($tag_lc, $tags_list) {
@@ -5028,11 +5117,17 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 				}
 				$is_main_translation = 0;
 			}
+		}
+	}
 
-			# Add xx entries
-			if (($options_ref->{include_xx}) and ($language ne 'xx') and (defined $synonyms_regexps{"xx"})) {
-				push @{$synonyms_regexps{$language}}, @{$synonyms_regexps{"xx"}};
-			}
+	# Add xx entries to all other languages
+	# This needs to be done once all entries have been processed: entries are iterated in hash order,
+	# so adding xx synonyms while iterating would only add the xx synonyms of the entries processed so far.
+	# e.g. a language with only 1 translated unit would randomly miss the xx unit "g"
+	if (($options_ref->{include_xx}) and (defined $synonyms_regexps{"xx"})) {
+		foreach my $language (keys %synonyms_regexps) {
+			next if $language eq 'xx';
+			push @{$synonyms_regexps{$language}}, @{$synonyms_regexps{"xx"}};
 		}
 	}
 

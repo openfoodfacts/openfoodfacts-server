@@ -23,7 +23,7 @@ sub source ($name, $text) {
 	return;
 }
 
-for my $name (qw(additives_classes additives minerals vitamins nucleotides other_nutritional_substances)) {
+for my $name (qw(additives_classes additives minerals vitamins amino_acids nucleotides other_nutritional_substances)) {
 	source("$name.txt", '');
 }
 source('vitamins.txt', "stopwords:fr: de, d\nstopwords:en: a, and, from\n");

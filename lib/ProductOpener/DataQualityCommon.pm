@@ -211,6 +211,35 @@ sub check_packagings ($product_ref) {
 	return;
 }
 
+=head2 check_product_names( PRODUCT_REF )
+
+Checks related to the product names.
+
+Emoji are characters displayed as emoji by default, characters followed by the emoji variation selector,
+and pictographs outside the Basic Multilingual Plane. Symbols displayed as text, such as stars or the
+registered and trade mark signs, are not emoji, as they can be part of a brand name.
+
+=cut
+
+my $emoji_regexp = qr/\p{Emoji_Presentation}|\p{Emoji}\x{FE0F}|(?=\p{Extended_Pictographic})[^\x{0000}-\x{FFFF}]/;
+
+sub check_product_names ($product_ref) {
+
+	my @fields = ("product_name");
+	if (defined $product_ref->{languages_codes}) {
+		push @fields, map {"product_name_$_"} sort keys %{$product_ref->{languages_codes}};
+	}
+
+	foreach my $field (@fields) {
+		if ((defined $product_ref->{$field}) and ($product_ref->{$field} =~ $emoji_regexp)) {
+			push @{$product_ref->{data_quality_warnings_tags}}, "en:product-name-contains-emoji";
+			last;
+		}
+	}
+
+	return;
+}
+
 =head2 check_quality_common( PRODUCT_REF )
 
 Run all quality checks defined in the module.
@@ -222,6 +251,7 @@ sub check_quality_common ($product_ref) {
 	check_bugs($product_ref);
 	check_codes($product_ref);
 	check_packagings($product_ref);
+	check_product_names($product_ref);
 
 	return;
 }

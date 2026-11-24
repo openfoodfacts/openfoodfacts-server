@@ -604,7 +604,10 @@
                      "name" : "Baby biscuits and cereals, 340g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
                      "name_fr" : "Sachet en plastique (PE) pour dessert pour bébés - 340g - Proxy"
                   }
-               ]
+               ],
+               "reference_quantity" : 100,
+               "reference_quantity_source" : "product_quantity",
+               "reference_quantity_unit" : "g"
             },
             "ecobalyse_request" : {
                "data" : {
@@ -669,8 +672,8 @@
             },
             {
                "ciqual_food_code" : "18066",
-               "ecobalyse_proxy_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "ecobalyse_proxy_name" : "Eau du robinet UE -2025-",
+               "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "ecobalyse_name" : "Eau du robinet UE -2025-",
                "id" : "en:water",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 30,
@@ -780,6 +783,7 @@
          "misc_tags" : [
             "en:ecobalyse-api-skipped",
             "en:ecobalyse-ingredients-matched-between-90-and-100",
+            "en:ecobalyse-reference-quantity-from-product-quantity",
             "en:environmental-score-changed",
             "en:environmental-score-computed",
             "en:environmental-score-grade-changed",
@@ -932,7 +936,9 @@
                   "is_fat" : 0,
                   "is_water" : 0,
                   "negative_points" : 6,
+                  "negative_points_max" : 0,
                   "positive_points" : 1,
+                  "positive_points_max" : 0,
                   "proteins" : 0.135,
                   "proteins_points" : 0,
                   "proteins_value" : 0.14,
