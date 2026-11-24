@@ -1055,6 +1055,13 @@ sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $opti
 		ingredients_total_mass => sprintf("%.0f", $ingredients_total_mass // 0),
 		water_loss => ($water_loss >= 1 ? sprintf("%.0f", $water_loss) : 0),
 		reference_quantity => $reference_quantity,
+		# Share of the ingredients (by mass) that have an Ecobalyse id: the masses of the other ingredients
+		# are distributed to the matched ingredients (see estimate_environmental_impact_service())
+		ingredients_coverage_percent => (
+			looks_like_number($input_ref->{ingredients_coverage_percent})
+			? $input_ref->{ingredients_coverage_percent} + 0
+			: undef
+		),
 		complements_rows => \@complements,
 		# The results were computed before the latest changes to the product (we could not get new results)
 		stale => ($environmental_impact_ref->{ecobalyse_stale} ? 1 : 0),

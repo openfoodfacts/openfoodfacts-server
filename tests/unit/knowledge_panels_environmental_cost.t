@@ -61,6 +61,7 @@ sub product_with_ecs (%args) {
 				ingredients =>
 					[map {{name => $_->[0], ecobalyse_name => "Ecobalyse $_->[0]", mass => $_->[1]}} @ingredients],
 				ingredients_total_mass => $args{ingredients_total_mass} // $reference_quantity,
+				(defined $args{coverage} ? (ingredients_coverage_percent => $args{coverage}) : ()),
 			},
 			ecobalyse_response => {
 				score => {ecs => $ecs, complements => $complements},
@@ -272,6 +273,18 @@ is(
 	get_texts(get_panel(product_with_ecs(complements => 0, ingredients_total_mass => 550), {moderator => 1}))->[-1],
 	"550 g of ingredients before cooking, including 50 g of water that evaporates during cooking (estimate), for 500 g of product.",
 	"water evaporated during cooking"
+);
+
+# Ingredients that are not all in Ecobalyse: share of the ingredients used to estimate the environmental cost
+is(
+	get_texts(get_panel(product_with_ecs(complements => 0, coverage => 87), {moderator => 1}))->[-1],
+	"Estimated from the ingredients that represent 87% of the product: the quantities of the other ingredients, which are not yet in Ecobalyse, are distributed to these ingredients.",
+	"ingredients coverage below 100%"
+);
+is(
+	get_texts(get_panel(product_with_ecs(complements => 0, coverage => 100), {moderator => 1})),
+	["Total environmental impact score from Ecobalyse"],
+	"no coverage text for 100%"
 );
 
 $panel_ref = get_panel(product_with_ecs(), {moderator => 1});

@@ -437,6 +437,33 @@ sub estimate_environmental_impact_service (
 	my $total_ingredients_quantity = $ingredients_quantities_ref->{total_quantity};
 	my $total_ingredients_quantity_with_ecobalyse_id = $ingredients_quantities_ref->{total_quantity_with_ecobalyse_id};
 
+	# Ingredients coverage: share of the quantity of the ingredients that have an Ecobalyse id (or proxy id)
+	my $ingredients_coverage_percent = 0;
+	if ($total_ingredients_quantity > 0) {
+		$ingredients_coverage_percent
+			= int(($total_ingredients_quantity_with_ecobalyse_id / $total_ingredients_quantity) * 100);
+	}
+	$input_ref->{ingredients_coverage_percent} = $ingredients_coverage_percent;
+
+	# We call the Ecobalyse API only if enough ingredients have an Ecobalyse id
+	my $threshold = $options{ecobalyse_min_ingredients_coverage_percent} // 80;
+
+	# Ingredients without an Ecobalyse id are not sent to Ecobalyse:
+	# we scale the quantities of the ingredients that are sent, so that their total is the total quantity
+	# of all ingredients (e.g. 100 g of ingredients for 100 g of product, or more for cooked products
+	# where water evaporates during cooking), instead of underestimating the impacts of the product.
+	# The ingredients coverage percent indicates the share of the ingredients that are matched.
+	my $ingredients_scaling_factor = 1;
+	if (    ($ingredients_coverage_percent >= $threshold)
+		and ($total_ingredients_quantity_with_ecobalyse_id > 0)
+		and ($total_ingredients_quantity > $total_ingredients_quantity_with_ecobalyse_id))
+	{
+		$ingredients_scaling_factor = $total_ingredients_quantity / $total_ingredients_quantity_with_ecobalyse_id;
+		# Mass of the matched ingredients before scaling, for the reference quantity of product
+		$input_ref->{ingredients_matched_mass} = $total_ingredients_quantity_with_ecobalyse_id * $quantity_factor;
+		$input_ref->{ingredients_scaling_factor} = sprintf("%.4f", $ingredients_scaling_factor) + 0;
+	}
+
 	my %input_ingredients = ();
 	my %units = ();
 	foreach my $leaf_ref (@{$ingredients_quantities_ref->{ingredients}}) {
@@ -464,7 +491,7 @@ sub estimate_environmental_impact_service (
 			push @{$input_ref->{ingredients}}, $input_ingredient_ref;
 			$input_ingredient_ref->{key} = $key;
 		}
-		$input_ingredient_ref->{mass} += $quantity * $quantity_factor;
+		$input_ingredient_ref->{mass} += $quantity * $quantity_factor * $ingredients_scaling_factor;
 	}
 
 	my $ingredients_total_mass = 0;
@@ -498,16 +525,10 @@ sub estimate_environmental_impact_service (
 	}
 	$input_ref->{ingredients} = \@sent_ingredients;
 	# Total mass of the ingredients sent to Ecobalyse, for the reference quantity of product
+	# (after scaling, see ingredients_scaling_factor above)
 	$input_ref->{ingredients_total_mass} = $ingredients_total_mass;
 
-	# Compute ingredients coverage percentage and set misc_tags
-	my $ingredients_coverage_percent = 0;
-	if ($total_ingredients_quantity > 0) {
-		$ingredients_coverage_percent
-			= int(($total_ingredients_quantity_with_ecobalyse_id / $total_ingredients_quantity) * 100);
-	}
-	$input_ref->{ingredients_coverage_percent} = $ingredients_coverage_percent;
-
+	# Set misc_tags for the ingredients coverage (computed above)
 	set_ecobalyse_coverage_misc_tags($product_ref);
 
 	# Add packaging
@@ -559,9 +580,7 @@ sub estimate_environmental_impact_service (
 	my $request_ref = {url => $ecobalyse_api_url, data => $payload_ref};
 	$product_ref->{environmental_impact}{ecobalyse_request} = $request_ref;
 
-	# Check ingredients coverage threshold ($ingredients_coverage_percent was computed above)
-	my $threshold = $options{ecobalyse_min_ingredients_coverage_percent} // 80;
-
+	# Check ingredients coverage threshold ($ingredients_coverage_percent and $threshold were computed above)
 	if ($ingredients_coverage_percent < $threshold) {
 		$log->info(
 			"Skipping Ecobalyse API call: ingredients coverage ${ingredients_coverage_percent}% < ${threshold}%");

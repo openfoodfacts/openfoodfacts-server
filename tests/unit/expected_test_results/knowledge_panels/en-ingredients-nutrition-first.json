@@ -109,30 +109,32 @@
             {
                "ecobalyse_name" : "Farine UE agrégée -2025-",
                "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-               "mass" : 60,
+               "mass" : 63.1578947368421,
                "name" : "wheat flour"
             },
             {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 20,
+               "mass" : 21.0526315789474,
                "name" : "sugar"
             },
             {
                "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
                "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-               "mass" : 10,
+               "mass" : 10.5263157894737,
                "name" : "palm oil"
             },
             {
                "ecobalyse_name" : "Noisette, décortiquée Origine Inconnue",
                "id" : "79b53a3e-0cad-4a78-a779-a6e88e1549b7",
-               "mass" : 5,
+               "mass" : 5.26315789473684,
                "name" : "hazelnuts"
             }
          ],
          "ingredients_coverage_percent" : 95,
-         "ingredients_total_mass" : 95,
+         "ingredients_matched_mass" : 95,
+         "ingredients_scaling_factor" : 1.0526,
+         "ingredients_total_mass" : 100,
          "packaging_skip_reason" : "unknown_product_quantity",
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
@@ -144,7 +146,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.06,
+                        "amount" : 0.063158,
                         "material" : {
                            "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa"
                         },
@@ -157,7 +159,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.02,
+                        "amount" : 0.021053,
                         "material" : {
                            "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
                         },
@@ -170,7 +172,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.01,
+                        "amount" : 0.010526,
                         "material" : {
                            "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c"
                         },
@@ -183,7 +185,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.005,
+                        "amount" : 0.005263,
                         "material" : {
                            "id" : "79b53a3e-0cad-4a78-a779-a6e88e1549b7"
                         },

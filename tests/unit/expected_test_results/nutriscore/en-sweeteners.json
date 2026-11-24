@@ -50,24 +50,26 @@
             {
                "ecobalyse_name" : "Jus de pomme FR -2025-",
                "id" : "40a4432b-2b12-45f3-aed2-a8c4e165e15f",
-               "mass" : 70.5,
+               "mass" : 80.5714285714286,
                "name" : "apple juice"
             },
             {
                "ecobalyse_name" : "Eau du robinet UE -2025-",
                "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "mass" : 14.75,
+               "mass" : 16.8571428571429,
                "name" : "water"
             },
             {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 2.25,
+               "mass" : 2.57142857142857,
                "name" : "sugar"
             }
          ],
          "ingredients_coverage_percent" : 87,
-         "ingredients_total_mass" : 87.5,
+         "ingredients_matched_mass" : 87.5,
+         "ingredients_scaling_factor" : 1.1429,
+         "ingredients_total_mass" : 100,
          "packaging_skip_reason" : "unknown_product_quantity",
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
@@ -79,7 +81,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.0705,
+                        "amount" : 0.080571,
                         "material" : {
                            "id" : "40a4432b-2b12-45f3-aed2-a8c4e165e15f"
                         },
@@ -92,7 +94,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.01475,
+                        "amount" : 0.016857,
                         "material" : {
                            "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
                         },
@@ -105,7 +107,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.00225,
+                        "amount" : 0.002571,
                         "material" : {
                            "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
                         },

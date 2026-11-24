@@ -421,18 +421,20 @@
             {
                "ecobalyse_name" : "Tapioca Origine Inconnue",
                "id" : "dbb74330-9562-5252-8359-8bed45768d0c",
-               "mass" : 66.6666666666667,
+               "mass" : 80,
                "name" : "tapioca starch"
             },
             {
                "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
                "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-               "mass" : 16.6666666666667,
+               "mass" : 20,
                "name" : "palm oil"
             }
          ],
          "ingredients_coverage_percent" : 83,
-         "ingredients_total_mass" : 83.3333333333333,
+         "ingredients_matched_mass" : 83.3333333333333,
+         "ingredients_scaling_factor" : 1.2,
+         "ingredients_total_mass" : 100.0,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
@@ -443,7 +445,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.066667,
+                        "amount" : 0.08,
                         "material" : {
                            "id" : "dbb74330-9562-5252-8359-8bed45768d0c"
                         },
@@ -456,7 +458,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.016667,
+                        "amount" : 0.02,
                         "material" : {
                            "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c"
                         },
