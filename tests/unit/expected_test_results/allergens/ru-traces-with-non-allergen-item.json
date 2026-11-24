@@ -8,9 +8,9 @@
          "ecobalyse_name" : "Cerise, dénoyautée, crue Origine Inconnue",
          "id" : "en:cherry",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 60,
+         "percent_estimate" : 58.3333333333333,
          "percent_max" : 100,
-         "percent_min" : 20,
+         "percent_min" : 16.6666666666667,
          "text" : "вишня",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -21,7 +21,7 @@
          "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 20,
+         "percent_estimate" : 20.8333333333333,
          "percent_max" : 50,
          "percent_min" : 0,
          "text" : "сахар",
@@ -31,7 +31,7 @@
       {
          "id" : "ru:Продукт может содержать фрагменты косточек",
          "is_in_taxonomy" : 0,
-         "percent_estimate" : 10,
+         "percent_estimate" : 10.4166666666667,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "text" : "Продукт может содержать фрагменты косточек"
@@ -39,7 +39,7 @@
       {
          "id" : "ru:арахиса",
          "is_in_taxonomy" : 0,
-         "percent_estimate" : 5,
+         "percent_estimate" : 5.20833333333333,
          "percent_max" : 25,
          "percent_min" : 0,
          "text" : "арахиса"
@@ -47,27 +47,38 @@
       {
          "id" : "ru:кунжута",
          "is_in_taxonomy" : 0,
-         "percent_estimate" : 5,
+         "percent_estimate" : 2.60416666666666,
          "percent_max" : 20,
          "percent_min" : 0,
          "text" : "кунжута"
+      },
+      {
+         "id" : "ru:грецкого ореха",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "грецкого ореха"
       }
    ],
    "ingredients_analysis" : {
       "en:palm-oil-content-unknown" : [
          "ru:Продукт может содержать фрагменты косточек",
          "ru:арахиса",
-         "ru:кунжута"
+         "ru:кунжута",
+         "ru:грецкого ореха"
       ],
       "en:vegan-status-unknown" : [
          "ru:Продукт может содержать фрагменты косточек",
          "ru:арахиса",
-         "ru:кунжута"
+         "ru:кунжута",
+         "ru:грецкого ореха"
       ],
       "en:vegetarian-status-unknown" : [
          "ru:Продукт может содержать фрагменты косточек",
          "ru:арахиса",
-         "ru:кунжута"
+         "ru:кунжута",
+         "ru:грецкого ореха"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -76,9 +87,9 @@
       "en:vegetarian-status-unknown"
    ],
    "ingredients_lc" : "ru",
-   "ingredients_n" : 5,
+   "ingredients_n" : 6,
    "ingredients_n_tags" : [
-      "5",
+      "6",
       "1-10"
    ],
    "ingredients_original_tags" : [
@@ -86,7 +97,8 @@
       "en:sugar",
       "ru:Продукт может содержать фрагменты косточек",
       "ru:арахиса",
-      "ru:кунжута"
+      "ru:кунжута",
+      "ru:грецкого ореха"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
@@ -98,28 +110,31 @@
       "en:added-sugar",
       "ru:Продукт может содержать фрагменты косточек",
       "ru:арахиса",
-      "ru:кунжута"
+      "ru:кунжута",
+      "ru:грецкого ореха"
    ],
-   "ingredients_text" : "вишня, сахар. Продукт может содержать фрагменты косточек, арахиса, кунжута.",
-   "ingredients_text_ru" : "вишня, сахар. Продукт может содержать фрагменты косточек, арахиса, кунжута.",
-   "ingredients_text_with_allergens" : "вишня, сахар. Продукт может содержать фрагменты косточек, <span class=\"allergen\">арахиса</span>, <span class=\"allergen\">кунжута</span>.",
-   "ingredients_text_with_allergens_ru" : "вишня, сахар. Продукт может содержать фрагменты косточек, <span class=\"allergen\">арахиса</span>, <span class=\"allergen\">кунжута</span>.",
+   "ingredients_text" : "вишня, сахар. Продукт может содержать фрагменты косточек, арахиса, кунжута, грецкого ореха.",
+   "ingredients_text_ru" : "вишня, сахар. Продукт может содержать фрагменты косточек, арахиса, кунжута, грецкого ореха.",
+   "ingredients_text_with_allergens" : "вишня, сахар. Продукт может содержать фрагменты косточек, <span class=\"allergen\">арахиса</span>, <span class=\"allergen\">кунжута</span>, <span class=\"allergen\">грецкого ореха</span>.",
+   "ingredients_text_with_allergens_ru" : "вишня, сахар. Продукт может содержать фрагменты косточек, <span class=\"allergen\">арахиса</span>, <span class=\"allergen\">кунжута</span>, <span class=\"allergen\">грецкого ореха</span>.",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 5,
+   "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "ru:Продукт может содержать фрагменты косточек",
       "ru:арахиса",
+      "ru:грецкого ореха",
       "ru:кунжута"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 4,
    "ingredients_without_ecobalyse_ids" : [
       "ru:Продукт может содержать фрагменты косточек",
       "ru:арахиса",
+      "ru:грецкого ореха",
       "ru:кунжута"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 4,
    "known_ingredients_n" : 2,
    "lang" : "ru",
    "languages" : {
@@ -151,14 +166,16 @@
             "last_updated_t" : "--ignore--",
             "tags" : [
                "en:peanuts",
-               "en:sesame-seeds"
+               "en:sesame-seeds",
+               "en:nuts"
             ]
          }
       }
    },
    "traces_tags" : [
+      "en:nuts",
       "en:peanuts",
       "en:sesame-seeds"
    ],
-   "unknown_ingredients_n" : 3
+   "unknown_ingredients_n" : 4
 }

@@ -399,7 +399,7 @@ my @tests = (
 			lc => "ru",
 			lang => "ru",
 			ingredients_text_ru =>
-				"вишня, сахар. Продукт может содержать фрагменты косточек, арахиса, кунжута."
+				"вишня, сахар. Продукт может содержать фрагменты косточек, арахиса, кунжута, грецкого ореха."
 		}
 	],
 	# Russian "were not used in production, but their presence cannot be excluded"
@@ -410,6 +410,15 @@ my @tests = (
 			lang => "ru",
 			ingredients_text_ru =>
 				"сахар, какао тертое. При производстве не использовались орехи, арахис, кунжут, но их наличие в продукте полностью исключить невозможно."
+		}
+	],
+	# Russian nominative allergen forms in a traces sentence
+	[
+		'ru-traces-nominative-forms',
+		{
+			lc => "ru",
+			lang => "ru",
+			ingredients_text_ru => "сахар, какао тертое. Продукт может содержать сою и молочные продукты."
 		}
 	]
 );
