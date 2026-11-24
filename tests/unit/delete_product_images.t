@@ -76,7 +76,7 @@ subtest "delete_all_product_images - moves files and cleans up directories" => s
 	my $result = delete_all_product_images($product_ref);
 	is($result, 1, "delete_all_product_images returns 1 on success");
 
-	my $deleted_dir = "$BASE_DIRS{DELETED_IMAGES}/$code";
+	my $deleted_dir = "$BASE_DIRS{DELETED_IMAGES}/$path";
 	ok(-d $deleted_dir, "deleted images directory was created");
 
 	# Verify all files were moved to deleted.images and removed from product image dir
@@ -170,12 +170,52 @@ subtest "store_product - deletes images when product is flagged as deleted" => s
 	my $res = store_product("admin_user", $product_ref, "Deleting product");
 	is($res, 1, "store_product succeeded");
 
-	my $deleted_dir = "$BASE_DIRS{DELETED_IMAGES}/$code";
+	my $deleted_dir = "$BASE_DIRS{DELETED_IMAGES}/$path";
 	ok(-f "$deleted_dir/1.jpg", "image 1 was moved to deleted folder by store_product");
 	ok(-f "$deleted_dir/front_en.1.jpg", "front image was moved to deleted folder by store_product");
 	ok(!-f "$product_img_dir/1.jpg", "image 1 removed from product image directory");
 	ok(!-f "$product_img_dir/front_en.1.jpg", "front image removed from product image directory");
 	is($deleted_doc_id, $code, "MongoDB collection delete_one called for product _id");
+};
+
+# Test deleting product with invalid code does not sweep shared invalid directory
+subtest "delete_all_product_images - skips directory sweep when path is invalid" => sub {
+	my $tmp_dir = File::Temp->newdir();
+	local $BASE_DIRS{PRODUCTS_IMAGES} = "$tmp_dir/product_images";
+	local $BASE_DIRS{DELETED_IMAGES} = "$tmp_dir/deleted_images";
+
+	my $invalid_product = {
+		code => "invalid_barcode_test",
+		images => {
+			uploaded => {
+				"1" => {uploader => "user1"},
+			},
+		},
+	};
+
+	my $path = product_path($invalid_product);
+	is($path, "invalid", "product_path returns 'invalid' for invalid barcode");
+	my $invalid_dir = "$BASE_DIRS{PRODUCTS_IMAGES}/$path";
+	make_path($invalid_dir);
+
+	# Create the product's image and another product's file in the shared invalid directory
+	open my $fh1, ">:encoding(UTF-8)", "$invalid_dir/1.jpg" or die "Cannot create file: $!";
+	print $fh1 "product 1 image\n";
+	close $fh1;
+
+	open my $fh2, ">:encoding(UTF-8)", "$invalid_dir/other_product_file.jpg" or die "Cannot create file: $!";
+	print $fh2 "other product image\n";
+	close $fh2;
+
+	my $result = delete_all_product_images($invalid_product);
+	is($result, 1, "delete_all_product_images succeeded");
+
+	# Verified that uploaded image 1 was moved to deleted
+	my $deleted_dir = "$BASE_DIRS{DELETED_IMAGES}/$path";
+	ok(-f "$deleted_dir/1.jpg", "product's image 1 was moved to deleted");
+	# Crucial: other_product_file.jpg was NOT moved, and invalid directory was NOT deleted
+	ok(-f "$invalid_dir/other_product_file.jpg", "other product's file remained in shared invalid directory");
+	ok(-d $invalid_dir, "shared invalid directory was preserved");
 };
 
 done_testing();

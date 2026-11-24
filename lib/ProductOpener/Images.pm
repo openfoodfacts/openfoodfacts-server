@@ -1287,7 +1287,7 @@ sub remove_images_by_prefix($product_ref, $prefix) {
 
 	# We move deleted images to the deleted.images dir
 	my $images_glob = "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$prefix.*";
-	my $deleted_images_dir = "$BASE_DIRS{DELETED_IMAGES}/$code";
+	my $deleted_images_dir = "$BASE_DIRS{DELETED_IMAGES}/$path";
 	ensure_dir_created_or_die($deleted_images_dir);
 
 	$log->debug(
@@ -1395,7 +1395,7 @@ sub delete_all_product_images ($product_ref) {
 	my $code = $product_ref->{code};
 	my $path = product_path($product_ref);
 	my $product_images_dir = "$BASE_DIRS{PRODUCTS_IMAGES}/$path";
-	my $deleted_images_dir = "$BASE_DIRS{DELETED_IMAGES}/$code";
+	my $deleted_images_dir = "$BASE_DIRS{DELETED_IMAGES}/$path";
 
 	$log->debug("delete_all_product_images - start", {code => $code, path => $path})
 		if $log->is_debug();
@@ -1422,7 +1422,9 @@ sub delete_all_product_images ($product_ref) {
 	}
 
 	# 3. Move any remaining files in the product's image directory to the deleted folder
-	if (-d $product_images_dir) {
+	# Do not perform directory-level sweep when $path is 'invalid', because all invalid codes
+	# share the same 'invalid' directory and sweeping would affect images of other products.
+	if ($path !~ m{(?:^|/)invalid$} and -d $product_images_dir) {
 		ensure_dir_created_or_die($deleted_images_dir);
 
 		my @remaining_files = glob("$product_images_dir/*");
