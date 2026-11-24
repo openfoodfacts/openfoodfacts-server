@@ -734,10 +734,10 @@ subtest 'NOVA groups facet list coalescing and count summing' => sub {
 		groupby_tagtype => 'nova_groups',
 		structured_response => {},
 	};
-	display_list_of_tags($req, {});
+	ProductOpener::Display::display_list_of_tags($req, {});
 	my $tags = $req->{structured_response}{tags};
 	ok($tags, "structured_response tags populated");
-	my %counts_by_id = map { $_->{id} => $_->{products} } @$tags;
+	my %counts_by_id = map {$_->{id} => $_->{products}} @$tags;
 	is($counts_by_id{'en:unknown'}, 15, 'unknown counts are summed');
 	is($counts_by_id{'en:1-unprocessed-or-minimally-processed-foods'}, 27, 'group 1 counts are summed');
 	is($counts_by_id{'en:not-applicable'}, 5, 'not-applicable counts are summed');

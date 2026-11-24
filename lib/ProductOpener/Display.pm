@@ -1885,7 +1885,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 
 				if (not exists $merged_tags{$canon_id}) {
 					push @order, $canon_id;
-					$merged_tags{$canon_id} = { _id => $canon_id, count => 0 };
+					$merged_tags{$canon_id} = {_id => $canon_id, count => 0};
 				}
 				$merged_tags{$canon_id}{count} += ($tagcount_ref->{count} || 0);
 			}
