@@ -446,6 +446,7 @@ sub estimate_environmental_impact_service (
 		if (not defined $input_ingredient_ref) {
 			$input_ingredient_ref = $input_ingredients{$key} = {
 				id => $id,
+				# mass is computed below (sum of the quantities of the merged leaf ingredients)
 				mass => 0,
 				name => $ingredient_ref->{text} // '',
 				ecobalyse_name => $ingredient_ref->{ecobalyse_name} || $ingredient_ref->{ecobalyse_proxy_name} // '',
@@ -496,8 +497,11 @@ sub estimate_environmental_impact_service (
 	set_ecobalyse_coverage_misc_tags($product_ref);
 
 	# Add packaging
-	# The Ecobalyse packaging entries are for a whole package,
-	# so we send the packaging only if we know the product quantity
+	# The Ecobalyse packaging entries are for a whole package (e.g. a 500 g tray), and we send 1 package.
+	# The ingredients are sent for the reference quantity (see get_ecobalyse_reference_quantity()):
+	# - if it is the product quantity, the ingredients and the package are for the same whole product
+	# - otherwise (unknown product quantity), the ingredients are for 100 g or 100 ml of product:
+	#   adding a whole package to them would overestimate the impact of the packaging, so we skip it
 	my $packaging_entry_ref = get_ecobalyse_packaging_entry($product_ref);
 	if ((defined $packaging_entry_ref) and ($reference_quantity_source ne "product_quantity")) {
 		$input_ref->{packaging_skip_reason} = "unknown_product_quantity";
