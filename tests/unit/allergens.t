@@ -390,6 +390,27 @@ my @tests = (
 			ingredients_text_ru =>
 				"сахар, мука пшеничная. Возможно наличие следов: молочных продуктов, арахиса, кунжута."
 		}
+	],
+	# Russian traces sentence with a non-allergen item: it stays in the ingredients list,
+	# the traces must still not be tagged as contained allergens
+	[
+		'ru-traces-with-non-allergen-item',
+		{
+			lc => "ru",
+			lang => "ru",
+			ingredients_text_ru =>
+				"вишня, сахар. Продукт может содержать фрагменты косточек, арахиса, кунжута."
+		}
+	],
+	# Russian "were not used in production, but their presence cannot be excluded"
+	[
+		'ru-traces-not-used-in-production',
+		{
+			lc => "ru",
+			lang => "ru",
+			ingredients_text_ru =>
+				"сахар, какао тертое. При производстве не использовались орехи, арахис, кунжут, но их наличие в продукте полностью исключить невозможно."
+		}
 	]
 );
 
