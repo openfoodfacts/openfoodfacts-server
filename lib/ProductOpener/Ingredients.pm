@@ -5911,7 +5911,7 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 
 	my $a_of_b;
 
-	if (($ingredients_lc eq "en") or ($ingredients_lc eq "hr")) {
+	if (($ingredients_lc eq "en") or ($ingredients_lc eq "hr") or ($ingredients_lc eq "lv")) {
 		# start by "with" (example: "mlijeko (s 1.0% mliječne masti)"), in which case it $b should be added after $a
 		# start by "with etc." should be added at the end of the previous ingredient
 		my %with = (hr => '(s | sa )',);
@@ -7602,6 +7602,26 @@ my %ingredients_categories_and_types = (
 		},
 	],
 
+	lv => [
+		# fibres
+		{
+			categories => ["šķiedrvielas",],
+			types => ["kartupeļu", "ceļmalītes",],
+		},
+		# oils
+		{
+			categories => ["augu eļļa", "augu eļļas un tauki", "augu tauki un eļļas",],
+			types => ["kokosriekstu", "palmu kodolu", "palmu sēklu", "palmu", "rapšu sēklu", "rapšu", "saulespuķu",],
+			alternate_names => ["<type> eļļa", "<type> tauki"],
+		},
+		# fats
+		{
+			categories => ["augu tauki",],
+			types => ["kokosriekstu", "palmu kodolu", "palmu sēklu", "palmu", "rapšu sēklu", "rapšu", "saulespuķu",],
+			alternate_names => ["<type> tauki", "<type> eļļa"],
+		},
+	],
+
 	pl => [
 		# oils and fats
 		{
@@ -7850,6 +7870,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				or ($ingredients_lc eq "da")
 				or ($ingredients_lc eq "de")
 				or ($ingredients_lc eq "hr")
+				or ($ingredients_lc eq "lv")
 				or ($ingredients_lc eq "ru")
 				or ($ingredients_lc eq "sv")
 				or ($ingredients_lc eq "pl"))
@@ -8455,6 +8476,11 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# dash with 1 missing space
 	$text =~ s/(\w)- /$1 - /ig;
 	$text =~ s/ -(\w)/ - $1/ig;
+	# a dash before "and" stands for the shared end of two compound words, it is not a separator:
+	# "lõhna - ja maitseaine" -> "lõhna- ja maitseaine"
+	if ($ingredients_lc eq "et") {
+		$text =~ s/(\p{L}) - ((?:$and_without_spaces)\s)/$1- $2/ig;
+	}
 
 	# mono-, di-, tri-, tetra- and poly- prefixes followed by "and" and another prefix:
 	# "mono - et diglycérides", "mono-et diglycérides", "di - et triphosphates", "tri - and dicalcium phosphate"

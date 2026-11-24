@@ -59,7 +59,7 @@ ar: E100, كركومين
 bg: E100, куркумин
 bs: E100, kurkumin
 ca: E100, curcumina
-cs: E100, kurkumin
+cs: E100, kurkumin, extrakt z kurkumy
 da: E100, curcumin, gurkemejeekstrakt
 de: E100, Kurkumin, Kurkumaextrakt
 el: E100, κουρκουμινη
@@ -578,7 +578,7 @@ it: E120, Cocciniglia, acido carminico, vari tipi di carminio, C22H20O13
 ja: E120, コチニール色素, コチニール, カルミン酸色素
 ky: E120, Кармин
 lt: E120, Košenilis, karmino rūgštis, karminai
-lv: E120, Košenils, karmīnskābe, karmīni
+lv: E120, Košenils, karmīnskābe, karmīni, karmīns
 mk: E120, кармин
 mt: E120, Kuċċinilja, aċidu karminiku, karminji
 nb: E120, karmin, karminer
@@ -2003,7 +2003,7 @@ hu: E160a, Karotinok
 it: E160a, Carotene, Carotina, Caroteni
 ja: E160a, カロチン, カロテン, カロテン色素
 lt: E160a, Karotinas
-lv: E160a, E160a food additive
+lv: E160a, E160a food additive, karotīni
 mt: E160a, E160a food additive
 nb: E160a, Karotener
 nl: E160a, caroteen, Carotenen
@@ -6487,8 +6487,8 @@ de: E267, Gepufferter Essig
 fr: E267, Vinaigre tamponné
 hr: E267, Puferirani ocat
 it: E267, Aceto tamponato
-nl: Gebufferde azijn, gebufferd azijn
-ro: oțet tamponat
+nl: E267, Gebufferde azijn, gebufferd azijn
+ro: E267, oțet tamponat
 e_number:en: 267
 vegan:en: yes
 vegetarian:en: yes
@@ -8621,7 +8621,7 @@ hr: E331, natrijevi citrati, regulator kiselosti natrijevi citrati
 hu: E331, nátrium-citrátok
 it: E331, Citrati di sodio
 lt: E331, natrio citratas
-lv: E331, nātrija citrāts
+lv: E331, nātrija citrāts, nātrija citrāti
 mt: E331, ċitrat tas-sodju
 nb: E331, natriumsitrater
 nl: E331, Natriumcitraten
@@ -8718,6 +8718,7 @@ hr: E331(iii), trinatrijev citrat
 hu: E331(iii), Trinátrium-citrát
 it: E331(iii), Citrato trisodico
 ja: E331(iii), クエン酸三ナトリウム
+lv: trinātrija citrāts
 nb: E331(iii), Trinatriumsitrat
 nl: E331(iii), trinatriumcitraat
 pl: E331(iii), Cytrynian trisodowy
@@ -8861,6 +8862,7 @@ fr: E333, Citrates de calcium, Citrate de calcium
 hr: E333, kalcijevi citrati
 hu: E333, Kalcium-citrátok, Kalcium-citrát
 it: E333, Citrato di calcio, calcio citrato
+lv: kalcija citrāts
 nb: E333, kalsiumsitrat, kalsiumsitrater
 nl: E333, Calciumcitraten
 nn: E333, kalsiumsitrat
@@ -11101,7 +11103,7 @@ hr: E392, antioksidans ekstrakt ružmarina
 hu: E392, Rozmaringkivonatok
 it: E392, Estratti di rosmarino, estratto di rosmarino
 lt: E392, Rozmarinų ekstraktai
-lv: E392, Ekstrakti no rozmarīna
+lv: E392, Ekstrakti no rozmarīna, rozmarīna ekstrakts
 mt: E392, Estratti tar-rosmarin
 nl: E392, Extracten van rozemarijn, rozemarijnextract, rozemarijnextracten
 pl: E392, Ekstrakty z rozmarynu, wyciągi z rozmarynu, ekstrakty rozmarynu, ekstrakt rozmarynu, ekstrakt z rozmarynu, wyciąg z rozmarynu
@@ -11518,7 +11520,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Carrageenan
 en: E407a, Processed eucheuma seaweed
 xx: E407a
 bg: E407a, Обработени eucheuma водорасли
-cs: E407a, Guma eucheuma / afinát řasy eucheuma, Zpracovaná řasa eucheuma
+cs: E407a, Guma eucheuma / afinát řasy eucheuma, Zpracovaná řasa eucheuma, guma euchema
 da: E407a, Forarbejdet eucheuma-tang
 de: E407a, Verarbeitete Euchema-Algen
 el: E407a, Τροποποιημενα φυκη eucheuma
@@ -11800,7 +11802,7 @@ el: E415, Ξανθανικο κομμι, uc
 es: E415, Goma xantana, Xantano, Xantana, goma de xantano, goma xantica, E 415
 et: E415, Ksantaankummi, Ksantaan
 fa: E415, صمغ زانتان
-fi: E415, Ksantaanikumi, Ksantaanikumia
+fi: E415, Ksantaanikumi, Ksantaanikumia, ksantaani
 fr: E415, Gomme xanthane, gomme de xanthane, gomme de maïs, gommes xanthane, gommes de xanthane, Xanthane, CAS 11138-66-2, Xanthan gum, goma xantana, xantano, Gummi xanthanum, Xanthomonas gum, 11138-66-2, C35H49O29
 gl: E415, Xantano
 he: E415, קסנטן גאם
@@ -12889,7 +12891,7 @@ kk: E440, Пектин
 ko: E440, 펙틴
 ky: E440, Пектиндер
 lt: E440, Pektinas
-lv: E440, pektīnvielas
+lv: E440, pektīnvielas, pektīns
 nb: E440, Pektiner
 nl: E440, Pectine, pectines, pectinen
 nn: E440, pektin
@@ -15116,7 +15118,7 @@ de: E471, Mono- und Diglyceride von Speisefettsäuren, Glycerylmonostearat, Glyc
 el: E471, Μονο- και διγλυκεριδια λιπαρων οξεων, Μονοστεατικό γλυκερύλιο, μονοπαλμιτικό γλυκερύλιο, μονοελαϊκό γλυκερύλιο, μονοστεατίνη, μονοπαλμιτίνη
 es: E471, mono- y diglicéridos de ácidos grasos, Monoglicéridos y diglicéridos de ácidos grasos, Mono y diglicéridos de ácidos grasos, mono y diglicéridos de los ácidos grasos, Monodiglicéridos de ácidos grasos, Monoestearato de glicerilo, monopalmitato de glicerilo, monooleato de glicerilo, monoestearina, monopalmitina, monooleína
 et: E471, Rasvhapete mono- ja diglütseriidid, Glütserüülmonostearaat, glütserüülmonopalmitaat, glütserüülmonooleaat, monosteariin, monopalmitiin
-fi: E471, Rasvahappojen mono- ja diglyseridit, Glyseryylimonostearaatti, Glyseryylimonopalmitaatti, Glyseryylimono-oleaatti, Monosteariini, Monopalmitiini, Mono-oleiini
+fi: E471, Rasvahappojen mono- ja diglyseridit, Glyseryylimonostearaatti, Glyseryylimonopalmitaatti, Glyseryylimono-oleaatti, Monosteariini, Monopalmitiini, Mono-oleiini, rasvahappojen monoglyseridi, rasvahappojen monoglyseridit, rasvahappojen diglyseridi, rasvahappojen diglyseridit
 fr: E471, Mono- et diglycérides d'acides gras, Mono- et diglycérides, Mono- et diglycérides d'acides gras alimentaires, Monoglycérides et diglycérides d'acides gras, Mono et diglycérides d'acides gras, Monostéarate de glycérine, Monopalmitate de glycérine, Monooléate de glycérine, Monostéarine, monopalmitine, monooléine, Mono and diglycerides of fatty acids, glyceryl monostearate, glyceryl distearate , Monostéarine
 hr: E471, mono- i digliceridi masnih kiselina, mono - i digliceridi masnih kiselina, emuglator e471, monogliceridi i digliceridi masnih kiselina, monogliceridi i digliceridi masnih kiselina e471, mono- i diglicerida masnih kiselina, mono - i diglicerida masnih kiselina
 hu: E471, Zsírsavak mono- és digliceridjei, Gliceril-monosztearát, Gliceril-monopalmitát, Gliceril-monooleát, Monosztearin, monopalmitin, monoolein
@@ -15146,7 +15148,7 @@ wikidata:en: Q416711
 wikipedia:en: https://en.wikipedia.org/wiki/Mono-_and_diglycerides_of_fatty_acids
 
 < en: E471
-en: mono- and diglycerides of vegetable fatty acids
+en: mono- and diglycerides of vegetable fatty acids, vegetable origin E471
 sv: mono- och diglycerider av vegetabiliska fettsyror, E471 av vegetabiliskt fett, mono- och diglycerider av vegetabilisk fett, mono o diglycerider av fettsyror (vegetabilisk)
 vegan:en: maybe
 vegetarian:en: yes
@@ -16506,7 +16508,7 @@ kk: E500(ii), Ас содасы
 kn: E500(ii), ಸೋಡಿಯಂ ಬೈ ಕಾರ್ಬೋನೇಟ್
 ko: E500(ii), 탄산 수소 나트륨
 lt: E500(ii), Natrio hidrokarbonatas, Natrio hidrokarbonatas, natrio rūgštusis karbonatas, sodos bikarbonatas
-lv: E500(ii), Nātrija hidrogēnkarbonāts, Nātrija bikarbonāts, nātrija skābais karbonāts, nātrija bikarbonāts
+lv: E500(ii), Nātrija hidrogēnkarbonāts, Nātrija bikarbonāts, nātrija skābais karbonāts, nātrija bikarbonāts, dzeramā soda
 ml: E500(ii), സോഡിയം ബൈകാർബണേറ്റ്
 mt: E500(ii), Karbonat idroġenat tas-sodju, Bikarbonat tas-sodju, karbonat tal-aċidu tas-sodju, Bikarbonat tas-soda
 nb: E500(ii), Natriumbikarbonat, Natriumhydrogenkarbonat

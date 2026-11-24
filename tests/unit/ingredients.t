@@ -1960,6 +1960,14 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	[
+		'lv-oils-fibres-and-traces',
+		{
+			lc => "lv",
+			ingredients_text =>
+				"cukurs, augu eļļas (rapšu, rapšu sēklu, palmu, kokosriekstu), augu tauki (palmu, palmu kodolu, palmu sēklu), šķiedrvielas (kartupeļu, ceļmalītes), augu eļļas un tauki (saulespuķu, kokosriekstu), sāls. Var saturēt olas un sojas daļiņas.",
+		}
+	],
+	[
 		'hr-frequent-unknown-ingredients',
 		{
 			lc => "hr",
@@ -1984,11 +1992,43 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	[
+		'cs-frequent-unknown-ingredients-2',
+		{
+			lc => "cs",
+			ingredients_text =>
+				"chilli, sóju, sóji, surový třtinový cukr, celeru, ibišek, petrželová nať, citronový koncentrát, švestky, sul, jablečný protlak, strouhaný kokos, sladká paprika, vajec, vanilkové aroma, zeleninová směs, citrónová šťáva, jedlá želatina, citrón, sezamová semínka, ředkev, pšeničná mouka hladká, bezvodý mléčný tuk, hořčici, saturejka, sezamu, škrobový sirup, extrakt z kurkumy, guma euchema, mandlová pasta, regulator kyselosti (E330). Muže obsahovat stopy mléka, celeru, hořčici.",
+		}
+	],
+	[
 		'sv-recognise-origin-odlat-i',
 		{
 			# https://se.openfoodfacts.org/product/7318690501237/penne-rigate-ica-basic
 			lc => "sv",
 			ingredients_text => "Mjöl av _vete_* och _durumvete_**, vatten. *Odlat i: Lettland. **Odlat i: EU/icke EU.",
+		}
+	],
+	[
+		'et-dash-before-and-is-not-a-separator',
+		{
+			lc => "et",
+			ingredients_text =>
+				"vesi, happesuse regulaator - sidrunhape, looduslik lõhna - ja maitseaine, looduslikud lõhna- ja maitseained, lõhna- ja maitseaine - vanilliin.",
+		}
+	],
+	[
+		'lv-frequent-unknown-ingredients',
+		{
+			lc => "lv",
+			ingredients_text =>
+				"kakao masa, saldais krējums, vanilīns, šokolāde, lauru lapas, sinepju pulveris, maizes raugs, pārtikas ražošanas sāls, vārāmā sāls, dzērvenes, garšaugi, ābolu biezenis, želatīns, pārtikas želatīns, kefīrs, kokosriekstu ella, rafinēta rapšu eļļa, ķiploku pulveris, ķirbju sēklas, citronu sulas koncentrāts, olu pulveris, bietes, rabarberi, siera pulveris, tomāti, zemeņu biezenis, dabīgs minerālūdens, ierauga kultūra, palmu ella, sausie sīpoli, kaltēti sīpoli, grauzdēti zemesrieksti, kviešu iesala milti, olu dzeltenuma pulveris, tomātu biezenis, apelsīnu sula, augu ella, augu eļļa, baltie galviņkāposti, emulgators sojas lecitīni, ferments laktāze, fruktozes glikozes sīrups, glikuronolaktons, kakao pulveris ar samazinātu tauku saturu, krustnagliņas, margarīns, melno burkānu koncentrāts, mencu aknas, nātrija ciklamāts, pastinaks, pūdercukurs, rīsu ciete, smaržīgie pipari, teksturēts zirņu proteīns, zemenes, zirnīši, čili, auzu pārslas pilngraudu, kviešu ieraugs, kviešu olbaltumvielas, rudzu pārslas, sojas olbaltumviela, sviests saldkrējuma, acerolas milti, aromatizētājs vanilīns, cāļa ādas, vistu ādas, cūku tauki, iebiezināts piens ar cukuru, mehāniski atdalīta cāļa gaļa, melno burkānu sulas koncentrāts, pelēkie zirņi, rudzu ieraugs, rudzu iesala milti, skumbrijas scomber scombrus, ābolu sulas koncentrāts, dabīga ābolu sula, miežu putraimi, vaniļas cukurs, mandeļu skaidiņas, apelsīnu miziņa, rīsu proteīns, sarkanie asie pipari, citrons, avene, vistas krūtiņas fileja, selerijas sakne, cieto kviešu mannas putraimi, vistas gaļa, cūkgaļas olbaltumvielas, pākšu pupiņas, sēņu pulveris, sojas pupiņu milti, pektīns, nātrija citrāti, dzeramā soda, kalcija citrāts, karotīni, rozmarīna ekstrakts, trinātrija citrāts, karmīns, vitamīns b12, krāsvielas (E100), pārtikas krāsviela (E100), pārtikas krāsvielas (E100), biezinātāji (E415), stabilizators (E407), antioksidanti (E306), maizes uzlabotājs (E300), modificētā ciete (E1422), modificētās cietes (E1422), nesējviela (E1520), nesējvielas (E1520), skābes (E330), pretsalipes vielas (E551), putu dzēsēji (E900), apjoma palielinātāji (E1200), cietinātāji (E509), putu veidotāji (E999), recinātāji (E440), glazētājvielas (E903), mitrumuzturētāji (E422), aizsarggāze (E941), aizsarggāzes (E941), propelenti (E942), irdinātāji (E500), sekvestranti (E385), miltu apstrādes līdzekļi (E300). Var saturēt piena, riekstu, riekstus, citus riekstus, citu riekstu, citu riekstu daļiņas, mandeļu, zemesriekstu, zemesriekstus, olu, olu daļiņas, pienu, piena daļiņas, seleriju, sinepju, lupīnu, soju, sojas produktu, sojas daļiņas, sezama sēklu, sezama sēklu daļiņas, kviešu daļiņas.",
+		}
+	],
+	[
+		'fi-frequent-unknown-ingredients',
+		{
+			lc => "fi",
+			ingredients_text =>
+				"silava, salaattisekoitus, kuorittu soijapapu, vadelmahillo, e322 soijalesitiini, entsyymit, vihreä papu, kevätsipuli, oligofruktoosikuitu, suippokaali, e322 auringonkukkalesitiini, jääsalaatti, chilitahna, glukoosifruktoosisiirappi, savupaprika, sushiriisi, granola, kananmunan keltuainen, omenaviinietikka, hiilihappopitoinen vesi, poltettu sokeri, siipikarjanrasva, linssiproteiini, rasvaton maito jauheesta, puristettu kookospähkinä, ksantaani, rasvahappojen monoglyseridi, rasvahappojen monoglyseridit, rasvahappojen diglyseridi, rasvahappojen diglyseridit, pyridoksiini, happamuudensaatoaine (E331), sailontaaine (E200), kantaja-aineet (E1520), kantaja-aine (E1520), kiillotusaineet (E903), kiillotusaine (E903), jauhon käsittelyaineet (E300), jauhon käsittelyaine (E300), aromivahventeet (E621), antioksidantit (E306), elintarvikevärit (E100), sakeutusaine (E415), sakeutusaineet (E415). Saattaa sisältää maito, spelttivehnä, spelttivehnää, kamut-vehnä, kamut-vehnää, muuta gluteenia sisältävää viljaa, soijan.",
 		}
 	],
 );
@@ -2271,5 +2311,24 @@ extract_ingredients_from_text($origin_statement);
 my @origin_statement_texts = map {$_->{text}} flatten_ingredients($origin_statement->{ingredients});
 ok((grep {$_ eq 'Viande et gras de porc'} @origin_statement_texts), 'origin statement keeps "viande et gras de porc"');
 is([grep {/Union/i} @origin_statement_texts], [], 'origin statement does not create an ingredient from an origin');
+
+# Single-ingredient synonyms and entries, each one checked on its own
+foreach my $case (
+	['en', 'Chrysanthemum', 'en:chrysanthemum'],
+	['en', 'Lemon Myrtle', 'en:lemon-myrtle'],
+	['en', 'food vinegar', 'en:table-vinegar'],
+	['de', 'Leinsamenmehl', 'en:flax-flour'],
+	['de', 'Hopfenauszüge', 'en:hop-extract'],
+	['fr', 'jus de cerises à base de jus concentré', 'en:cherry-juice-from-concentrated-cherry-juice'],
+	['pl', 'syrop z buraków cukrowych', 'en:sugar-beet-syrup'],
+	['pt', 'proteína isolada de soja', 'en:soy-protein-isolate'],
+	['hu', 'tejsav baktérium kultúra', 'en:lactic-ferments'],
+	)
+{
+	my ($lc, $text, $id) = @$case;
+	my $product_ref = {lc => $lc, ingredients_text => $text};
+	extract_ingredients_from_text($product_ref);
+	is([map {[$_->{id}, $_->{is_in_taxonomy}]} @{$product_ref->{ingredients}}], [[$id, 1]], "$lc: $text");
+}
 
 done_testing();

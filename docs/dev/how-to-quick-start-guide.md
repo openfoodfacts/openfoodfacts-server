@@ -19,8 +19,14 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 
 **Installation steps:**
 - GIT version >= 2.25.0
-- [Install Docker CE](https://docs.docker.com/engine/install/)
-> If you run e.g. Debian, don't forget to add your user to the `docker` group!
+- [Install Docker CE](https://docs.docker.com/engine/install/) (Docker Engine)
+- [Docker Compose v2 or later](https://docs.docker.com/compose/install/) (Docker Compose CLI plugin)
+  - Ensure a supported version of Docker Compose V2 is installed and registered as a Docker CLI plugin. Note that Product Opener commands invoke Docker Compose through the Docker CLI plugin (`docker compose` with a space), rather than invoking a standalone `docker-compose` executable directly.
+  - Verify your installation by running:
+    ```bash
+    docker compose version
+    ```
+> If you run e.g. Debian or Ubuntu, don't forget to add your user to the `docker` group and ensure the `docker-compose-plugin` package is installed alongside Docker Engine.
 
 ### MacOS Prerequisites: Installing GNU grep for Full Regex Support
 
@@ -693,4 +699,63 @@ Add the user to docker group :
 ```bash
 sudo usermod -aG docker $USER
 ```
+
+### make dev error: unknown flag: --env-file
+
+When running `make dev`:
+
+```bash
+COMPOSE_FILE="docker-compose.yml;docker/dev.yml" docker compose --env-file=.env build
+unknown flag: --env-file
+
+Usage:  docker [OPTIONS] COMMAND [ARG...]
+
+Run 'docker --help' for more information
+```
+
+**Reason:**
+
+The banner `Usage: docker [OPTIONS] COMMAND [ARG...]` indicates that the root Docker CLI handled the flag rather than Docker Compose. This occurs when Docker CLI cannot dispatch `compose` to the Compose CLI plugin, such as when:
+1. The **Docker Compose CLI plugin** (`docker-compose-plugin`) is not installed.
+2. The Docker Compose CLI plugin is installed, but is not discoverable in standard Docker CLI plugin directories.
+3. A standalone `docker-compose` executable is present in PATH, but the Docker Compose CLI plugin (accessible through `docker compose`) is not installed or registered with the Docker CLI.
+
+> **Note for Linux distributions (e.g. Arch Linux, Debian, Ubuntu):** Docker Engine and Docker Compose are often packaged separately (such as `docker` and `docker-compose` on Arch Linux, or `docker-ce` and `docker-compose-plugin` on Debian/Ubuntu). Installing Docker Engine alone does not automatically install Docker Compose.
+
+> **Compatibility Note:** Once the Docker Compose CLI plugin is installed and discoverable, ensure your installed Compose version supports the global `--env-file` option by verifying `docker compose --help`.
+
+**Diagnostic steps & Solution:**
+
+1. Check your installed Docker Compose plugin:
+   ```bash
+   docker compose version
+   ```
+   If this command produces either of the following errors:
+   ```bash
+   docker: unknown command: docker compose
+   docker: 'compose' is not a docker command.
+   ```
+   the Docker Compose CLI plugin may either be missing or not registered in your Docker plugins directory.
+
+2. Verify that `--env-file` is supported by your Docker Compose installation:
+   ```bash
+   docker compose --help
+   ```
+   Look for `--env-file` under the listed options.
+
+3. On Arch Linux, verify that both packages are installed:
+   ```bash
+   pacman -Q docker docker-compose
+   ```
+   If `docker-compose` is missing, install it with:
+   ```bash
+   sudo pacman -S docker-compose
+   ```
+
+4. For other Linux distributions, macOS, or Windows, install or upgrade Docker Compose following the official documentation:
+   - [Official Docker Compose Installation Guide](https://docs.docker.com/compose/install/)
+   - [Docker Compose Linux Installation Guide](https://docs.docker.com/compose/install/linux/)
+   - For macOS and Windows, update [Docker Desktop](https://www.docker.com/products/docker-desktop/), which includes the Compose CLI plugin.
+
+5. Re-verify by running `docker compose version` to ensure the Docker Compose CLI plugin is recognized, then re-run `make dev`.
 
