@@ -2007,6 +2007,14 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "Mjöl av _vete_* och _durumvete_**, vatten. *Odlat i: Lettland. **Odlat i: EU/icke EU.",
 		}
 	],
+	[
+		'et-dash-before-and-is-not-a-separator',
+		{
+			lc => "et",
+			ingredients_text =>
+				"vesi, happesuse regulaator - sidrunhape, looduslik lõhna - ja maitseaine, looduslikud lõhna- ja maitseained, lõhna- ja maitseaine - vanilliin.",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
