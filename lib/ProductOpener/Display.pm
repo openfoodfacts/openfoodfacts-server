@@ -3262,12 +3262,7 @@ sub generate_description_from_display_tag_options ($tagtype, $tagid, $display_ta
 	# Fields shown in the additive facts knowledge panel are not repeated here
 	my %fields_in_panel = ();
 	if ($tagtype eq "additives") {
-		%fields_in_panel = (additives_classes => 1, efsa_evaluation => 1);
-		# the panel shows the Wikipedia abstract only when there is no curated description
-		$fields_in_panel{wikipedia} = 1
-			if (not get_knowledge_content($tagtype, $canon_tagid, $lc, $request_ref->{cc}))
-			and (get_property($tagtype, $canon_tagid, "wikipedia_abstract:$lc")
-			// get_property($tagtype, $canon_tagid, "wikipedia_abstract:en"));
+		%fields_in_panel = (additives_classes => 1, efsa_evaluation => 1, wikipedia => 1);
 	}
 
 	foreach my $field_orig (@{$options{"display_tag_" . $tagtype}}) {

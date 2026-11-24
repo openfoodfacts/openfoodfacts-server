@@ -27,6 +27,15 @@
             }
         },
         [% END %]
+        [% SET wikipedia_link = panel.wikipedia_url || panel.wikipedia %]
+        [% IF wikipedia_link %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `<p>&rarr; <a href="[% wikipedia_link %]">[% lang('wikipedia_learn_more') %]</a></p>`
+            }
+        },
+        [% END %]
         [% IF panel.classes %]
         {
             "element_type": "text",

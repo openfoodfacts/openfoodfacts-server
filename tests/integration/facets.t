@@ -576,7 +576,7 @@ my $tests_ref = [
 		response_content_must_not_match =>
 			'(?s)(Preservatives are substances which prolong.*){2}|(Sodium nitrite is the inorganic compound.*){2}|(Re-evaluation of potassium nitrite.*){2}',
 	},
-	# E100 has a Wikipedia link but no abstract: the panel cannot show it, the legacy description keeps it
+	# E100 has a Wikipedia link but no abstract: the panel shows the link, once on the page
 	{
 		test_case => 'additive-e100-page-additive-facts-panel-wikipedia-link-without-abstract',
 		method => 'GET',
@@ -589,7 +589,7 @@ my $tests_ref = [
 			'(?s)(Colours are substances which add.*){2}|(en\.wikipedia\.org/wiki/Curcumin.*){2}',
 	},
 	# E100 has a curated fr description and a Wikipedia link but no abstract:
-	# the panel shows the curated text, the legacy description keeps the link
+	# the panel shows the curated text and the link, each once on the page
 	{
 		test_case => 'additive-e100-page-additive-facts-panel-curated-description-fr',
 		method => 'GET',

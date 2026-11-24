@@ -386,7 +386,7 @@ sub create_additive_facts_panel ($tag_ref, $target_lc, $target_cc, $options_ref,
 	};
 
 	add_taxonomy_properties_in_target_languages_to_object($panel_data_ref, "additives", $additive_id,
-		["wikipedia_url", "wikipedia_title", "wikipedia_abstract"],
+		["wikipedia_url", "wikipedia_title", "wikipedia_abstract", "wikipedia"],
 		$target_lcs_ref);
 
 	my $classes = get_property("additives", $additive_id, "additives_classes:en");
