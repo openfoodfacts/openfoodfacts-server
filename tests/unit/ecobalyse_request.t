@@ -109,4 +109,20 @@ is($data_ref->{distribution}, "29118025-efa0-47bb-94e2-f5ccba31a903", "dry produ
 is($data_ref->{consumptions}, [], "no consumption");
 ok(!$data_ref->{transportOptions}{cooling}, "no cooled transport");
 
+# Ingredients of less than 0.5 mg would be sent with an amount of 0, which Ecobalyse rejects: they are skipped
+push @{$product_ref->{ingredients}},
+	{
+	id => "en:basmati-rice",
+	text => "riz basmati",
+	quantity_estimate => 0.0001,
+	percent_estimate => 0.0001,
+	ecobalyse_id => $rice_id
+	};
+estimate_environmental_impact_service($product_ref, {}, []);
+$data_ref = $product_ref->{environmental_impact}{ecobalyse_request}{data};
+$input_ref = $product_ref->{environmental_impact}{ecobalyse_input};
+is([map {$_->{name}} @{$data_ref->{components}}], ["riz", "eau", "vin rouge"], "tiny ingredient not sent");
+is([map {$_->{name}} @{$input_ref->{ingredients}}], ["riz", "eau", "vin rouge"], "tiny ingredient not in the input");
+is($input_ref->{ingredients_total_mass}, 330, "total mass of the ingredients sent");
+
 done_testing();

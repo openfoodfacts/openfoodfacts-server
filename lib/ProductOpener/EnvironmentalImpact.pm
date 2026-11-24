@@ -462,8 +462,15 @@ sub estimate_environmental_impact_service (
 	}
 
 	my $ingredients_total_mass = 0;
+	my @sent_ingredients = ();
 	foreach my $input_ingredient_ref (@{$input_ref->{ingredients}}) {
 		my $unit = $units{delete $input_ingredient_ref->{key}};
+		# Amounts are sent in kg (or L) with 6 decimals: ingredients of less than 0.5 mg would be sent
+		# with an amount of 0, which Ecobalyse rejects. We skip them, also in ecobalyse_input,
+		# as the knowledge panel matches the components of the response with the ingredients of ecobalyse_input
+		my $amount = sprintf("%.6f", $input_ingredient_ref->{mass} / 1000) + 0;
+		next if $amount == 0;
+		push @sent_ingredients, $input_ingredient_ref;
 		$ingredients_total_mass += $input_ingredient_ref->{mass};
 		# Amounts are in the unit of the Ecobalyse material: kg for most ingredients, L for some liquids
 		# (for which we consider that 1 g is 1 ml)
@@ -476,13 +483,14 @@ sub estimate_environmental_impact_service (
 				|| $input_ingredient_ref->{id},
 			elements => [
 				{
-					amount => sprintf("%.6f", $input_ingredient_ref->{mass} / 1000) + 0,
+					amount => $amount,
 					material => {id => $input_ingredient_ref->{id}},
 					transforms => [$unit eq "kg" ? (map {$_->{id}} @transformation_entries) : ()],
 				}
 			],
 			};
 	}
+	$input_ref->{ingredients} = \@sent_ingredients;
 	# Total mass of the ingredients sent to Ecobalyse, for the reference quantity of product
 	$input_ref->{ingredients_total_mass} = $ingredients_total_mass;
 
