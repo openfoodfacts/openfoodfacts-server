@@ -34,14 +34,10 @@ jobs:
           scripts/build_mkdocs.sh
 
       # generating perl documentation
-      - name: 🐪 Install Perl requirements
-        run: |
-          sudo apt-get update
-          sudo apt-get install perl perl-doc cpanminus libmodern-perl-perl
-
-      - name: "Setup local::lib"
-        run: |
-          cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
+      - name: 🐪 Set up Perl
+        uses: shogo82148/actions-setup-perl@ac3202722f5744e62a8fa3af3e1aaaebb08861f3 # v1.44.0
+        with:
+          perl-version: '5.40'
 
       - name: Run generate_perl_html_doc_from_pod.pl
         run: |

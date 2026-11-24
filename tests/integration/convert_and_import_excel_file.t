@@ -2,7 +2,7 @@
 
 # This test first convert an Excel files to CSV, then imports it.
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 
 use Log::Any::Adapter 'TAP';
 use Mock::Quick qw/qobj qmeth/;
@@ -26,8 +26,7 @@ my $inputs_dir = "$test_dir/inputs/$test_id/";
 my $outputs_dir = "$test_dir/outputs/$test_id/";
 
 # fake image download using input directory instead of distant server
-sub fake_download_image ($) {
-	my $image_url = shift;
+sub fake_download_image ($image_url) {
 
 	# [elbeho] I had a doubt that the warning:
 	# Prototype mismatch: sub ProductOpener::Import::download_image ($) vs none at /opt/perl/local/lib/perl5/Test2/Mock.pm line 452.

@@ -1,0 +1,109 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "it:Bicarbonati",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 62.5,
+         "percent_max" : 100,
+         "percent_min" : 25,
+         "quantity" : "80 mg/l",
+         "text" : "Bicarbonati"
+      },
+      {
+         "id" : "en:calcium",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 18.75,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "quantity" : "94.2 mg/l",
+         "text" : "Calcio",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "it:Cloruri",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 9.375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "quantity" : "17.9 mg/l",
+         "text" : "Cloruri"
+      },
+      {
+         "id" : "en:sodium",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 9.375,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "quantity" : "10 mg/L",
+         "text" : "Sodio",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "it:Bicarbonati",
+         "it:Cloruri"
+      ],
+      "en:vegan-status-unknown" : [
+         "it:Bicarbonati",
+         "it:Cloruri"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "it:Bicarbonati",
+         "it:Cloruri"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "it",
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "it:Bicarbonati",
+      "en:calcium",
+      "it:Cloruri",
+      "en:sodium"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "it:Bicarbonati",
+      "en:calcium",
+      "en:minerals",
+      "it:Cloruri",
+      "en:sodium"
+   ],
+   "ingredients_text" : "Bicarbonati 80 mg/l, Calcio 94.2 mg/l, Cloruri 17.9 mg/l, Sodio 10 mg/L",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 100.0,
+   "ingredients_without_ciqual_codes" : [
+      "en:calcium",
+      "en:sodium",
+      "it:Bicarbonati",
+      "it:Cloruri"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:calcium",
+      "en:sodium",
+      "it:Bicarbonati",
+      "it:Cloruri"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 2,
+   "lc" : "it",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 2
+}

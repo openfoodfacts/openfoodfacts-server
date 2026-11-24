@@ -20,7 +20,7 @@
 
 package ProductOpener::PerlStandards;
 
-use 5.24.0;
+use 5.40.0;
 use strict;
 use warnings;
 use feature ();
@@ -28,9 +28,8 @@ use utf8;
 
 sub import {
 	warnings->import;
-	warnings->unimport('experimental::signatures');
 	strict->import;
-	feature->import(qw/signatures :5.24/);
+	feature->import(':5.40');
 	utf8->import;
 	return;
 }
@@ -61,14 +60,38 @@ This module is a replacement for the following:
 
     use strict;
     use warnings;
-    use v5.24;
-    use feature 'signatures';
-    no warnings 'experimental::signatures';
+    use feature ':5.40';
     use utf8;
+
+Note that it is deliberately not a replacement for "use v5.40": since Perl 5.40,
+"use v5.40" also imports the builtin ':5.40' bundle, which makes the bare names
+true and false available. We enable the features with feature->import() so that
+we keep control over what is imported.
+
+The builtin:: functions are available without any pragma, as long as they are
+called with their full name, so builtin::true and builtin::false can be used
+instead of !!1 and !!0. We deliberately never import them: the bare names true
+and false would silently shadow the ones imported by the boolean module in the
+24 files that still use it, and boolean::true is stored as a real MongoDB
+boolean while builtin::true is stored as a double.
 
 Most of this module's code has been copied from the Veure::Module
 available on http://blogs.perl.org/users/ovid/2019/03/enforcing-simple-standards-with-one-module.html
 
 Notes:
-- the motivation for that module is to enable Perl's signatures that are experimental since Perl 5.24 and non-experimental in Perl 5.34
-- we cannot use "use Modern::Perl '2022'" to activate signatures as we run Perl 5.24 in production today (July 2022)
+- the motivation for that module is to enable Perl's signatures: they are experimental since Perl 5.20
+  and stable (ie. they no longer emit an experimental::signatures warning) since Perl 5.36. The :5.40
+  bundle enables them, so nothing has to be silenced: perl keeps experimental::signatures only as a
+  category that never fires
+- 5.40 is the oldest Perl version we run, and it is the Perl version of Debian trixie, the image our
+  Dockerfile is based on: we develop and run our tests with it
+- since Perl 5.36, using @_ (or shift / pop without argument) inside a signatured subroutine emits the
+  experimental::args_array_with_signatures warning category, which experimental::signatures does not
+  cover. We deliberately do not silence it: our subs use their named arguments
+- the builtin module exists since Perl 5.36 and is no longer experimental since Perl 5.40, so the
+  builtin::true and builtin::false that we use do not warn anymore. A few of its functions (inf, nan,
+  is_bool, created_as_string, created_as_number, stringify, export_lexically and load_module) are still
+  experimental in Perl 5.40: we deliberately do not silence experimental::builtin, so that we are
+  warned if we start using one of them
+- this module replaces Modern::Perl, which we used before: "use Modern::Perl '2025'" would enable the
+  same :5.40 feature bundle plus signatures, but it does not enable the utf8 pragma

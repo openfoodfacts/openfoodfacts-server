@@ -30,7 +30,7 @@
 #   ./analyze_missing_ecobalyse_ingredients.pl --query-codes-from-file codes.txt --output results.tsv
 #   ./analyze_missing_ecobalyse_ingredients.pl --query categories_tags=en:plant-milks --count
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use ProductOpener::Config qw/:all/;

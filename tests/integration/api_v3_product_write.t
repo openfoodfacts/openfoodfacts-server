@@ -798,6 +798,22 @@ my $tests_ref = [
 			}
 		}',
 	},
+	# "null" and "undefined" values sent by some apps must not become tags
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/11933
+	{
+		test_case => 'patch-tags-fields-null-undefined',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890401',
+		body => '{
+			"fields" : "updated",
+			"product": {
+				"categories_tags": ["null", "coffee", "undefined"],
+				"labels_tags": ["undefined"],
+				"brands_tags": ["null", "Aldi"],
+				"stores_tags": ["null"]
+			}
+		}',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

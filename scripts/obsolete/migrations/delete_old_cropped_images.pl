@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
@@ -27,9 +27,7 @@ my @products = ();
 GetOptions('products=s' => \@products);
 @products = split(/,/, join(',', @products));
 
-sub find_products($) {
-
-	my $dir = shift;
+sub find_products ($dir) {
 
 	my $next = product_iter($dir);
 	while (my $file = $next->()) {

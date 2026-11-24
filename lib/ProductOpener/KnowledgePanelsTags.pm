@@ -46,14 +46,20 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::KnowledgePanels qw(create_panel_from_json_template);
-use ProductOpener::Tags qw(canonicalize_taxonomy_tag display_taxonomy_tag_name);
+use ProductOpener::Tags
+	qw(canonicalize_taxonomy_tag cc_to_country display_taxonomy_tag_name get_tag_with_parents get_tag_direct_children cmp_taxonomy_tags_alphabetically);
 use ProductOpener::Packaging qw(load_categories_packagings_materials_stats);
+use ProductOpener::PackagerCodes qw(%packager_codes);
 use ProductOpener::Stats qw(%categories_stats_per_country);
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
-use ProductOpener::Display qw/data_to_display_nutrition_table/;
+use ProductOpener::Display qw/data_to_display_nutrition_table generate_query_cache_key get_packager_code_coordinates/;
+use ProductOpener::Data qw/can_use_off_query execute_aggregate_tags_query/;
+use ProductOpener::Cache qw/get_cache_results set_cache_results/;
+use ProductOpener::RequestStats qw/set_request_stats_time_start set_request_stats_time_end/;
 use ProductOpener::Lang qw/lang_in_other_lc/;
 
 use Encode;
+use Scalar::Util qw(looks_like_number);
 use Data::DeepAccess qw(deep_get deep_exists);
 
 =head2 create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref, $tagtype, $canon_tagid)
@@ -83,7 +89,7 @@ Needed for some country specific panels like the Environmental-Score.
 Defines how some panels should be created (or not created)
 
 - deactivate_[panel_id] : do not create a default panel -- currently unimplemented
-- activate_[panel_id] : create an on demand panel -- currently only for physical_activities panel
+- activate_[panel_id] : create an on demand panel -- currently only for physical_activities, related_categories and nova_unknown panels
 
 =head4 tag type $tagtype
 
@@ -118,6 +124,26 @@ sub create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref,
 		my $created
 			= create_category_packagings_materials_panel($tag_ref, $target_lc, $target_cc, $options_ref, $canon_tagid,
 			$request_ref);
+		push(@panels, $created) if $created;
+
+		if ($options_ref->{activate_knowledge_panel_related_categories}) {
+			$created
+				= create_category_related_categories_panel($tag_ref, $target_lc, $target_cc, $options_ref,
+				$canon_tagid, $request_ref);
+			push(@panels, $created) if $created;
+		}
+	}
+	elsif ( ($tagtype eq "nova_groups")
+		and ($canon_tagid eq "en:unknown")
+		and $options_ref->{activate_knowledge_panel_nova_unknown})
+	{
+		create_panel_from_json_template("nova_unknown", "api/knowledge-panels/tags/nova_groups/nova_unknown.tt.json",
+			{}, $tag_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		push(@panels, "nova_unknown");
+	}
+	elsif ($tagtype eq "emb_codes") {
+		my $created
+			= create_packager_code_panel($tag_ref, $target_lc, $target_cc, $options_ref, $canon_tagid, $request_ref);
 		push(@panels, $created) if $created;
 	}
 	if (@panels) {
@@ -222,6 +248,155 @@ sub create_category_packagings_materials_panel ($tag_ref, $target_lc, $target_cc
 		if $log->is_debug();
 
 	return $created;
+}
+
+=head2 create_category_related_categories_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $category_id, $request_ref)
+
+Creates a panel listing the parents of the category, and its direct children with their number of products.
+
+The panel is not created if the category has neither parents nor children with products,
+or if the product counts could not be retrieved.
+
+=cut
+
+sub create_category_related_categories_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $category_id,
+	$request_ref)
+{
+
+	my @parents = get_tag_with_parents("categories", $category_id);
+	shift @parents;
+
+	my %is_child = map {$_ => 1} get_tag_direct_children("categories", $category_id);
+
+	my @children = ();
+	if (%is_child) {
+		my $counts_ref = get_children_product_counts($category_id, \%is_child, $request_ref);
+		if (not defined $counts_ref) {
+			return;
+		}
+		@children = map {{id => $_, count => $counts_ref->{$_}}} sort {
+			($counts_ref->{$b} <=> $counts_ref->{$a})
+				|| cmp_taxonomy_tags_alphabetically("categories", $target_lc, $a, $b)
+		} keys %{$counts_ref};
+	}
+
+	if (not(@parents or @children)) {
+		return;
+	}
+
+	create_panel_from_json_template(
+		"related_categories",
+		"api/knowledge-panels/tags/categories/related_categories.tt.json",
+		{parents => \@parents, children => \@children},
+		$tag_ref, $target_lc, $target_cc, $options_ref, $request_ref
+	);
+
+	return "related_categories";
+}
+
+# Field with the packager's name, then the fields of each address part, in each country's packager codes data
+my %packager_code_fields = (
+	be => ["denomination", "street_address", "city"],
+	ch => ["firmenname", "company_street", "company_city"],
+	de => ["name_des_betriebs", "strasse", "ort"],
+	ee => ["tegevuskoha_nimi", "tegevuskoha_aadress"],
+	es => ["razon_social", "dom_indl", "localidad", "provincia"],
+	fi => ["laitoksen_nimi", "kayntiosoite", "postinumero postitoimipaikka"],
+	fr => ["raison_sociale_enseigne_commerciale", "adresse", "code_postal commune"],
+	hr => ["approved_establishment", "street_address", "town_and_postal_code"],
+	lt => ["name_of_establishment", "adress", "region"],
+	rs => ["name", "place", "region"],
+	se => ["namn", "postadress"],
+	sk => ["nazov", "mesto", "okres"],
+	uk => ["name", "district", "local_authority"],
+);
+
+=head2 create_packager_code_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $packager_code, $request_ref)
+
+Creates a panel with the name and address of the packager, and a link to its location on OpenStreetMap.
+
+The panel is not created if the packager code is unknown, or has no name or address.
+
+=cut
+
+sub create_packager_code_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $packager_code, $request_ref) {
+
+	my $data_ref = $packager_codes{$packager_code} or return;
+
+	my $join_fields = sub ($fields) {
+		my $value = join(" ", grep {defined $_ and /\S/} @$data_ref{split(/ /, $fields)});
+		# backticks delimit strings in panel templates, and the title must be a single line
+		$value =~ tr/`/'/;
+		$value =~ s/\s+/ /g;
+		$value =~ s/^ | $//g;
+		return $value;
+	};
+	my ($name_field, @address_parts) = @{$packager_code_fields{$data_ref->{cc}} // ["name", "address"]};
+	my $name = $join_fields->($name_field);
+	my $address = join(", ", grep {$_ ne ""} map {$join_fields->($_)} @address_parts);
+	return if ($name eq "") or ($address eq "");
+
+	my ($lat, $lng) = get_packager_code_coordinates($packager_code);
+	my $panel_data_ref = {
+		name => $name,
+		address => $address,
+		country => cc_to_country($data_ref->{cc}),
+		siret => $data_ref->{siret},
+	};
+	# some packager codes have empty coordinates
+	if (looks_like_number($lat) and looks_like_number($lng)) {
+		$panel_data_ref->{lat} = $lat + 0.0;
+		$panel_data_ref->{lng} = $lng + 0.0;
+	}
+
+	create_panel_from_json_template("packager_code", "api/knowledge-panels/tags/emb_codes/packager_code.tt.json",
+		$panel_data_ref, $tag_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	return "packager_code";
+}
+
+sub get_children_product_counts ($category_id, $is_child_ref, $request_ref) {
+
+	my %match = (categories_tags => $category_id);
+	if ((defined $request_ref->{country}) and ($request_ref->{cc} ne 'world')) {
+		$match{countries_tags} = $request_ref->{country};
+	}
+
+	my $aggregate_parameters = [
+		{"\$match" => \%match},
+		{"\$unwind" => "\$categories_tags"},
+		{"\$group" => {"_id" => "\$categories_tags", "count" => {"\$sum" => 1}}}
+	];
+
+	my $key = generate_query_cache_key("related_categories", $aggregate_parameters, $request_ref);
+	my $data_debug = '';
+	my $counts_ref = get_cache_results($key, \$data_debug);
+	if (defined $counts_ref) {
+		return $counts_ref;
+	}
+
+	my $results;
+	if (can_use_off_query(\$data_debug)) {
+		set_request_stats_time_start($request_ref->{stats}, "off_query_related_categories");
+		$results = eval {execute_aggregate_tags_query($aggregate_parameters)};
+		set_request_stats_time_end($request_ref->{stats}, "off_query_related_categories");
+	}
+
+	if (ref($results) ne 'ARRAY') {
+		$log->warn("related categories: no aggregate results", {category_id => $category_id, error => $@})
+			if $log->is_warn();
+		return;
+	}
+
+	$counts_ref = select_children_counts($results, $is_child_ref);
+	set_cache_results($key, $counts_ref, \$data_debug);
+
+	return $counts_ref;
+}
+
+sub select_children_counts ($results_ref, $is_child_ref) {
+
+	return {map {$_->{_id} => $_->{count}} grep {$is_child_ref->{$_->{_id}}} @{$results_ref}};
 }
 
 1;

@@ -21,7 +21,7 @@
 package ProductOpener::Config;
 
 use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 # Config.pm will dynamically load Config_off.pm or Config_obf.pm etc.
