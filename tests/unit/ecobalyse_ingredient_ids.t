@@ -121,6 +121,11 @@ foreach my $unit_test_ref (
 	get_missing_ecobalyse_ids([$ingredient_ref]);
 	is($ingredient_ref->{ecobalyse_unit}, $expected_unit, "$ingredient_ref->{id} - unit");
 }
+# Proxies of an ingredient in L are also in L (e.g. white wine uses the red wine data)
+foreach my $ingredient_ref ({id => "en:white-wine"}, {id => "en:dry-white-wine"}, {id => "en:wine"}) {
+	get_missing_ecobalyse_ids([$ingredient_ref]);
+	is($ingredient_ref->{ecobalyse_proxy_unit}, "L", "$ingredient_ref->{id} - proxy unit");
+}
 
 # OFF ingredients listed in off_ingredients_without_ecobalyse_data.tsv have "undef" base ids
 # that stop the inheritance of the Ecobalyse data of their parents (e.g. the en:poultry proxy for foie gras)
