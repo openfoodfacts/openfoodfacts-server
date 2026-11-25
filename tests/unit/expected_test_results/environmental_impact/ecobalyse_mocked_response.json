@@ -1,77 +1,71 @@
 {
-   "results" : {
-      "distribution" : {
-         "total" : {
-            "ecs" : 0.23674
-         },
-         "transports" : {
-            "air" : 0,
-            "impacts" : {
-               "ecs" : 0.867306
-            },
-            "road" : 600,
-            "roadCooled" : 0,
-            "sea" : 0,
-            "seaCooled" : 0
+   "complements" : {
+      "hedges" : -0.39,
+      "plotSize" : -1.2779
+   },
+   "composition" : [
+      {
+         "complements" : {},
+         "mass" : 0.05,
+         "name" : "Sucre",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 13.8538
          }
       },
-      "packaging" : {
-         "ecs" : 0
+      {
+         "complements" : {},
+         "mass" : 0.025,
+         "name" : "huile de palme",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 13.4869
+         }
       },
-      "perKg" : {
-         "ecs" : 527.024
-      },
-      "preparation" : {
-         "ecs" : 0
-      },
-      "preparedMass" : 0.0935,
-      "recipe" : {
-         "ingredientsTotal" : {
-            "ecs" : 35.7587
-         },
-         "total" : {
-            "ecs" : 48.1727
-         },
-         "totalBonusImpact" : {
-            "cropDiversity" : 0,
+      {
+         "complements" : {
             "hedges" : -0.39,
-            "permanentPasture" : 0,
             "plotSize" : -1.2779
          },
-         "transform" : {
-            "ecs" : 1.954
-         },
-         "transports" : {
-            "air" : 18000,
-            "impacts" : {
-               "ecs" : 10.46
-            },
-            "road" : 9300,
-            "roadCooled" : 0,
-            "sea" : 36000,
-            "seaCooled" : 0
+         "mass" : 0.013,
+         "name" : "NOISETTES",
+         "score" : {
+            "complements" : -1.6679,
+            "ecs" : 13.5288
          }
       },
-      "scoring" : {
-         "all" : 527.024,
-         "biodiversity" : 251.34,
-         "climate" : 156.84,
-         "health" : 57.9032,
-         "resources" : 78.8292
+      {
+         "complements" : {},
+         "mass" : 0.0087,
+         "name" : "LAIT écrémé en poudre",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 0.964908
+         }
       },
-      "total" : {
-         "ecs" : 49.2767
-      },
-      "totalMass" : 0.0935,
-      "transports" : {
-         "air" : 18000,
-         "impacts" : {
-            "ecs" : 11.3273
-         },
-         "road" : 9900,
-         "roadCooled" : 0,
-         "sea" : 36000,
-         "seaCooled" : 0
+      {
+         "complements" : {},
+         "mass" : 0.0033,
+         "name" : "cacao maigre",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 4.42192
+         }
       }
+   ],
+   "productMass" : 0.1,
+   "score" : {
+      "complements" : -1.6679,
+      "ecs" : 61.2566
+   },
+   "stages" : {
+      "assembly" : 0,
+      "distribution" : 0.238075,
+      "endOfLife" : 0,
+      "materials" : 37.4266,
+      "packaging" : 0,
+      "transform" : 1.954,
+      "transports" : 23.3058,
+      "usage" : 0
    }
 }

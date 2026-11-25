@@ -115,6 +115,35 @@ foreach my $test_ref (@tests) {
 	is($ingredient_ref->{$other_prefix . "_id"}, undef, "$test_name - no $other_prefix id");
 }
 
+# The unit of the Ecobalyse ingredient is set only for ingredients that are not in kg (e.g. L for wine)
+is(ingredient_property("en:red-wine", "ecobalyse_unit:en"), "L", "taxonomy precondition: en:red-wine is in L");
+foreach my $unit_test_ref (
+	[{id => "en:red-wine"}, "L"],
+	[{id => "en:spring-water", origins => "en:france"}, "L"],
+	[{id => "en:rice"}, undef],
+	)
+{
+	my ($ingredient_ref, $expected_unit) = @$unit_test_ref;
+	get_missing_ecobalyse_ids([$ingredient_ref]);
+	is($ingredient_ref->{ecobalyse_unit}, $expected_unit, "$ingredient_ref->{id} - unit");
+}
+# The unit of a previous match is removed when the ingredient is matched again
+# (e.g. spring water from France is in L, the default spring water entry is in kg)
+{
+	my $ingredient_ref = {id => "en:spring-water", origins => "en:france"};
+	get_missing_ecobalyse_ids([$ingredient_ref]);
+	is($ingredient_ref->{ecobalyse_unit}, "L", "spring water from France - unit");
+	delete $ingredient_ref->{origins};
+	get_missing_ecobalyse_ids([$ingredient_ref]);
+	is($ingredient_ref->{ecobalyse_unit}, undef, "spring water matched again without origin - no unit");
+}
+
+# Proxies of an ingredient in L are also in L (e.g. white wine uses the red wine data)
+foreach my $ingredient_ref ({id => "en:white-wine"}, {id => "en:dry-white-wine"}, {id => "en:wine"}) {
+	get_missing_ecobalyse_ids([$ingredient_ref]);
+	is($ingredient_ref->{ecobalyse_proxy_unit}, "L", "$ingredient_ref->{id} - proxy unit");
+}
+
 # OFF ingredients listed in off_ingredients_without_ecobalyse_data.tsv have "undef" base ids
 # that stop the inheritance of the Ecobalyse data of their parents (e.g. the en:poultry proxy for foie gras)
 
