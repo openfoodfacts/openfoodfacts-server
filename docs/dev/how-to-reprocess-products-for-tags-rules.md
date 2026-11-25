@@ -47,7 +47,9 @@ Example output for the first rules:
 ```
 
 Use `--rules-ids` to only print the categories of the rules that changed (when a rule is changed or deleted, its
-required category must be reprocessed too, so that the tags it no longer adds are removed).
+required category must be reprocessed too, so that the tags it no longer adds are removed). `--rules-ids` reads the
+current rules files: for a deleted rule, or a rule whose required category changed, take the old required category
+from the git diff of the rule and add a command for it.
 
 ## 3. Count, then run
 
@@ -71,11 +73,22 @@ On the production server, as the `off` user, in `/srv/off`:
      recomputed too: do not use a lighter option.
    - `--key` records the run in `update_key`, so an interrupted run can be resumed with the same command without
      reprocessing the products already done.
-   - Products are only saved (with a new revision) when something changed. The `rules` source keeps its
-     `last_updated_t` when the rules give the same result.
+   - Every matched product is written (to the .sto file and MongoDB) with the new `update_key`. Only the products
+     that changed get a new revision, a new `last_updated_t` and a push to the Redis stream. The `rules` source
+     keeps its `last_updated_t` when the rules give the same result.
 
-   For a very large category, `--query-codes-from-file` with the codes of `products.tsv` from the dry run limits the
-   run to the products that change. It does not remove tags that a deleted or weakened rule no longer adds.
+   **New rules: reprocess only the products the dry run changes.** No product has tags from a new rule yet, so
+   there is nothing to remove, and `products.tsv` from the dry run lists the products to update. For the first rules,
+   that is about 6,900 products instead of the 80,000 of their required categories (see [Volumes](#volumes)):
+
+   ```bash
+   ./scripts/update_all_products.pl --query-codes-from-file products.tsv \
+       --analyze-and-enrich-product-data --key tags_rules_20261201 2>&1 | tee tags_rules_20261201.log
+   ```
+
+   Products edited after the date of the dump are not in the list: they get the rules on their next save.
+   **Changed, weakened or deleted rules: reprocess the whole required categories** with the commands of step 2,
+   because the codes list does not contain the products from which a rule must now remove a tag.
 
 3. Do the same on the producers platform (`/srv/off-pro`): rules also run there. The `rules` source is not exported
    from the producers platform to the public platform; the public platform recomputes it.
@@ -93,3 +106,5 @@ On the production server, as the `off` user, in `/srv/off`:
 On the 2026-11-10 dump (4.9M products), the required categories of the first rules contain about 80,000 products in
 total (the dry run reads 79,708 candidates), most of them in `en:biscuits` (~59,000) and `en:dark-chocolates`
 (~12,000).
+The rules change only 6,905 of them (6,843 get a tag, 62 get a conflict warning): `biscuits-wholemeal-wheat` alone
+requires `en:biscuits` but adds 680 products. Hence the codes list for new rules in step 3.
