@@ -1,7 +1,7 @@
 {
    "complements" : {
-      "hedges" : -0.609885,
-      "plotSize" : -1.33646
+      "hedges" : -0.609804,
+      "plotSize" : -1.33551
    },
    "composition" : [
       {
@@ -92,15 +92,12 @@
          }
       },
       {
-         "complements" : {
-            "hedges" : -8.0976e-05,
-            "plotSize" : -0.00095436
-         },
+         "complements" : {},
          "mass" : 0.01205,
          "name" : "sel",
          "score" : {
-            "complements" : -0.00103534,
-            "ecs" : 1.68242
+            "complements" : 0,
+            "ecs" : 1.68346
          }
       },
       {
@@ -118,7 +115,7 @@
          "name" : "haricots",
          "score" : {
             "complements" : 0,
-            "ecs" : 11.8474
+            "ecs" : 12.0505
          }
       },
       {
@@ -151,17 +148,17 @@
    ],
    "productMass" : 0.2898,
    "score" : {
-      "complements" : -1.94635,
-      "ecs" : 371.622
+      "complements" : -1.94531,
+      "ecs" : 369.565
    },
    "stages" : {
       "assembly" : 0,
       "distribution" : 0.567936,
       "endOfLife" : 0,
-      "materials" : 283.987,
+      "materials" : 286.451,
       "packaging" : 0,
       "transform" : 5.0686,
-      "transports" : 83.9444,
+      "transports" : 79.4227,
       "usage" : 0
    }
 }
