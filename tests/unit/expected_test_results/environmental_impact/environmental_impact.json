@@ -41,9 +41,16 @@
          ],
          "ingredients_coverage_percent" : 100,
          "ingredients_total_mass" : 100,
-         "packaging_skip_reason" : "unknown_product_quantity",
+         "packaging" : [
+            {
+               "category" : "en:canned-foods",
+               "id" : "46d3c67f-19c4-46a2-9bcc-81dbcfb4ec33",
+               "name" : "Chestnut cream or canned, 370g | Packaging System, Proxy Pack, Glass {FR} U",
+               "name_fr" : "Pot en verre pour crème de marrons - 370g - Proxy"
+            }
+         ],
          "reference_quantity" : 100,
-         "reference_quantity_source" : "default",
+         "reference_quantity_source" : "product_quantity",
          "reference_quantity_unit" : "g",
          "transformations" : [
             {
@@ -134,6 +141,12 @@
             ],
             "consumptions" : [],
             "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "packagings" : [
+               {
+                  "amount" : 1,
+                  "processId" : "46d3c67f-19c4-46a2-9bcc-81dbcfb4ec33"
+               }
+            ],
             "transportOptions" : {
                "cooling" : false
             }
@@ -212,7 +225,8 @@
          }
       },
       "ecs_per" : "100g",
-      "ecs_per_100g_or_100ml" : 61.2566
+      "ecs_per_100g_or_100ml" : 61.2566,
+      "ecs_per_product" : 61.2566
    },
    "ingredients" : [
       {
@@ -271,11 +285,13 @@
       }
    ],
    "misc_tags" : [
-      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-reference-quantity-from-product-quantity",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-api-called",
       "en:ecobalyse-api-success"
    ],
    "product_name_en" : "My hazelnut spread",
-   "product_name_fr" : "Ma pâte aux noisettes"
+   "product_name_fr" : "Ma pâte aux noisettes",
+   "product_quantity" : 100,
+   "product_quantity_unit" : "g"
 }

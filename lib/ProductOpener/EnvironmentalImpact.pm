@@ -187,7 +187,7 @@ The impacts per 100 g or 100 ml are then computed from the impacts for the whole
 The reference quantity is:
 - the product quantity (in g or ml) if it is known,
 - otherwise 100 g or 100 ml (depending on the nutrition data of the product)
-and in that case we do not send the packaging, and we compute only the impacts per 100 g or 100 ml.
+and in that case we do not call the Ecobalyse API (the request is prepared, for analysis, without the packaging).
 
 =head3 Return values
 
@@ -294,14 +294,20 @@ sub _normalize_numbers ($value) {
 	return looks_like_number($value) ? $value + 0 : $value;
 }
 
+# The impacts returned by Ecobalyse are for the reference quantity of product (the product quantity)
+sub _set_ecs_values ($product_ref, $ecs_value, $reference_quantity, $reference_quantity_unit) {
+	return unless looks_like_number($ecs_value);
+	$product_ref->{environmental_impact}{ecs_per_product} = $ecs_value;
+	$product_ref->{environmental_impact}{ecs_per_100g_or_100ml} = $ecs_value * 100 / $reference_quantity;
+	$product_ref->{environmental_impact}{ecs_per} = "100" . $reference_quantity_unit;
+	return;
+}
+
 sub _same_ecobalyse_request ($request1_ref, $request2_ref) {
 	return 0 if not(defined $request1_ref and defined $request2_ref);
 	state $json = JSON->new->canonical;
 	return $json->encode(_normalize_numbers($request1_ref)) eq $json->encode(_normalize_numbers($request2_ref));
 }
-
-# Fields of the environmental_impact structure that contain the results of a successful Ecobalyse API call
-my @ecobalyse_results_fields = qw(ecobalyse_response ecs_per_product ecs_per_100g_or_100ml ecs_per ecobalyse_results_t);
 
 =head2 keep_previous_ecobalyse_results_as_stale ($product_ref, $previous_environmental_impact_ref)
 
@@ -565,16 +571,31 @@ sub estimate_environmental_impact_service (
 		return;
 	}
 
+	# We call the Ecobalyse API only if we know the product quantity: the impacts of the packaging
+	# are for a whole package, and an environmental cost for 100 g or 100 ml without the packaging
+	# would not be comparable with the one of products with a known quantity
+	if ($reference_quantity_source ne "product_quantity") {
+		$log->info("Skipping Ecobalyse API call: unknown product quantity");
+		$product_ref->{environmental_impact}{ecobalyse_skipped} = 1;
+		$product_ref->{environmental_impact}{ecobalyse_skip_reason} = "unknown_product_quantity";
+		add_tag($product_ref, "misc", "en:ecobalyse-api-not-called");
+		return;
+	}
+
 	# If the request is the same as the one for the previous results, reuse them
 	if (    (not $force_ecobalyse_call)
 		and (defined $previous_environmental_impact_ref)
 		and _same_ecobalyse_request($previous_environmental_impact_ref->{ecobalyse_request}, $request_ref))
 	{
 		$log->debug("Same Ecobalyse API request as for the previous results, reusing them") if $log->is_debug();
-		foreach my $field (@ecobalyse_results_fields) {
+		foreach my $field (qw(ecobalyse_response ecobalyse_results_t)) {
 			$product_ref->{environmental_impact}{$field} = $previous_environmental_impact_ref->{$field}
 				if defined $previous_environmental_impact_ref->{$field};
 		}
+		# The values per product and per 100 g or 100 ml are computed again from the response,
+		# as the reference quantity and its unit are not part of the request
+		_set_ecs_values($product_ref, deep_get($product_ref->{environmental_impact}, qw(ecobalyse_response score ecs)),
+			$reference_quantity, $reference_quantity_unit);
 		add_tag($product_ref, "misc", "en:ecobalyse-api-not-called-same-request");
 		return;
 	}
@@ -628,12 +649,7 @@ sub estimate_environmental_impact_service (
 
 			add_tag($product_ref, "misc", "en:ecobalyse-api-success");
 
-			# The impacts returned by Ecobalyse are for the reference quantity of product
-			if ($reference_quantity_source ne "default") {
-				$product_ref->{environmental_impact}{ecs_per_product} = $ecs_value;
-			}
-			$product_ref->{environmental_impact}{ecs_per_100g_or_100ml} = $ecs_value * 100 / $reference_quantity;
-			$product_ref->{environmental_impact}{ecs_per} = "100" . $reference_quantity_unit;
+			_set_ecs_values($product_ref, $ecs_value, $reference_quantity, $reference_quantity_unit);
 			$product_ref->{environmental_impact}{ecobalyse_results_t} = time();
 			$product_ref->{environmental_impact}{ecobalyse_response} = $response_data_ref;
 		}

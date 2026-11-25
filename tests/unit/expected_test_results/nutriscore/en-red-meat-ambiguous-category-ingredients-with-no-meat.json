@@ -116,7 +116,9 @@
             }
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
-      }
+      },
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:processed-meat",
@@ -236,7 +238,7 @@
       "en:nutriscore-2021-c-2023-b",
       "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
-      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-api-not-called",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"

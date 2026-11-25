@@ -36,7 +36,7 @@ if (($update_expected_results) and (!$ENV{ECOBALYSE_API_TOKEN})) {
 	$update_expected_results = 0;
 }
 
-# If the 3rd argument of a test case is set to 1, it indicates that the Ecobalyse API call is skipped (for example, when there are no ingredients to send to Ecobalyse).
+# If the 3rd argument of a test case is set to 1, it indicates that the Ecobalyse API call is skipped (for example, when there are no ingredients to send to Ecobalyse, or when the product quantity is unknown).
 
 my @tests = (
 	[
@@ -68,24 +68,26 @@ my @tests = (
 		}
 	],
 	# Canned vegetables: matches canning transformation
-	# No product quantity: impacts are computed for 100 g only, and the packaging is not sent
+	# No product quantity: the request is prepared (without the packaging), but the API is not called
 	[
 		'fr-canned-green-beans',
 		{
 			lc => "fr",
 			ingredients_text => "haricots verts, eau, sel",
 			categories => "légumes en conserve",
-		}
+		},
+		1
 	],
 	# Frozen green beans: matches freezing transformation
-	# No product quantity: impacts are computed for 100 g only, and the packaging is not sent
+	# No product quantity: the request is prepared (without the packaging), but the API is not called
 	[
 		'fr-frozen-green-beans',
 		{
 			lc => "fr",
 			ingredients_text => "haricots verts",
 			categories => "haricots verts surgelés",
-		}
+		},
+		1
 	],
 	# Same with a product quantity
 	[
@@ -97,13 +99,14 @@ my @tests = (
 			quantity => "1 kg",
 		}
 	],
-	# No product quantity and no packaging: impacts are computed for 100 g only
+	# No product quantity and no packaging: the API is not called
 	[
 		'fr-apricots-no-quantity-no-packaging',
 		{
 			lc => "fr",
 			ingredients_text => "abricots",
-		}
+		},
+		1
 	],
 	# Cooked meal with many ingredients: cooking is applied to each ingredient,
 	# except red wine (Ecobalyse ingredient in L, transformations are in kg),

@@ -167,7 +167,9 @@
             }
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
-      }
+      },
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
    },
    "environmental_score_data" : {
       "adjustments" : {
@@ -1669,7 +1671,7 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-api-not-called",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-not-computed",
