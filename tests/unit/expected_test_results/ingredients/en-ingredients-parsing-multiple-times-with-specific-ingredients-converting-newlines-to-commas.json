@@ -104,11 +104,6 @@
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 4,
-   "labels" : "French Eggs",
-   "labels_hierarchy" : [
-      "en:french-eggs"
-   ],
-   "labels_lc" : "en",
    "labels_tags" : [
       "en:french-eggs"
    ],
@@ -137,5 +132,15 @@
          "text" : "Origin of paprika: Hungary"
       }
    ],
+   "tags_sources" : {
+      "labels" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:french-eggs"
+            ]
+         }
+      }
+   },
    "unknown_ingredients_n" : 0
 }

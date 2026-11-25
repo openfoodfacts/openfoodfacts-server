@@ -64,6 +64,7 @@ use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service 
 use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
 use ProductOpener::ForestFootprint2026 qw/compute_forest_footprint_2026/;
 use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
+use ProductOpener::ProductsTags qw/set_computed_field_tags_for_source/;
 
 use Log::Any qw($log);
 
@@ -144,19 +145,16 @@ sub specific_processes_for_food_product ($product_ref) {
 
 sub add_labels_from_nutrition_data ($product_ref) {
 
-	if (deep_exists($product_ref, 'nutrition', 'aggregated_set', 'nutrients', 'carbon-footprint'))
+	my @labels = ();
 
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
-		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
+	foreach my $nutrient ("carbon-footprint", "glycemic-index") {
+		if (deep_exists($product_ref, 'nutrition', 'aggregated_set', 'nutrients', $nutrient)) {
+			push @labels, "en:$nutrient";
+		}
 	}
 
-	if (deep_exists($product_ref, 'nutrition', 'aggregated_set', 'nutrients', 'glycemic-index'))
-
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
-		push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
-	}
+	# Labels computed from the nutrition data are stored in tags_sources.labels.nutrition
+	set_computed_field_tags_for_source($product_ref, "en", "labels", "nutrition", \@labels);
 
 	return;
 }

@@ -410,11 +410,6 @@
    "environmental_score_tags" : [
       "a"
    ],
-   "labels" : "oeufs de France",
-   "labels_hierarchy" : [
-      "en:french-eggs"
-   ],
-   "labels_lc" : "fr",
    "labels_tags" : [
       "en:french-eggs"
    ],
@@ -443,5 +438,15 @@
          "label" : "en:french-eggs",
          "origins" : "en:france"
       }
-   ]
+   ],
+   "tags_sources" : {
+      "labels" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:french-eggs"
+            ]
+         }
+      }
+   }
 }

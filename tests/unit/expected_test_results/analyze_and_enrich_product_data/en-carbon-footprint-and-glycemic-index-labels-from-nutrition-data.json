@@ -333,10 +333,6 @@
    "images" : {
       "selected" : {}
    },
-   "labels_hierarchy" : [
-      "en:carbon-footprint",
-      "en:glycemic-index"
-   ],
    "labels_tags" : [
       "en:carbon-footprint",
       "en:glycemic-index"
@@ -508,6 +504,15 @@
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : []
+         }
+      },
+      "labels" : {
+         "nutrition" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:carbon-footprint",
+               "en:glycemic-index"
+            ]
          }
       },
       "traces" : {

@@ -90,12 +90,6 @@
    "ingredients_without_ecobalyse_ids" : [],
    "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 3,
-   "labels" : "en:sustainable-palm-oil",
-   "labels_hierarchy" : [
-      "en:sustainable",
-      "en:sustainable-palm-oil"
-   ],
-   "labels_lc" : "fr",
    "labels_tags" : [
       "en:sustainable",
       "en:sustainable-palm-oil"
@@ -104,5 +98,15 @@
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"
    ],
+   "tags_sources" : {
+      "labels" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:sustainable-palm-oil"
+            ]
+         }
+      }
+   },
    "unknown_ingredients_n" : 0
 }

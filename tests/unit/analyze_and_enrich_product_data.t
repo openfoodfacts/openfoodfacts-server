@@ -65,6 +65,39 @@ my @tests = (
 			},
 		}
 	],
+	# labels found in the ingredients list should be stored in tags_sources.labels.ingredients,
+	# and existing labels from other sources should be kept
+	[
+		'en-labels-from-ingredients',
+		{
+			lc => "en",
+			schema_version => 1004,
+			ingredients_text => "Water, sugar, caffeine free, contains a source of phenylalanine",
+			tags_sources => {
+				labels => {
+					packaging => {
+						tags => ["en:fair-trade"],
+						last_updated_t => 1700000000,
+					},
+				},
+			},
+			labels_tags => ["en:fair-trade"],
+		}
+	],
+	# products saved with the previous code had labels from the ingredients only in the old
+	# labels, labels_lc and labels_hierarchy fields, with no tags_sources.labels: they should be removed
+	[
+		'en-labels-without-tags-sources',
+		{
+			lc => "en",
+			schema_version => 1004,
+			ingredients_text => "Water, sugar",
+			labels => "Koffeinmentes, en:contains-a-source-of-phenylalanine",
+			labels_lc => "hu",
+			labels_hierarchy => ["en:no-caffeine", "en:contains-a-source-of-phenylalanine"],
+			labels_tags => ["en:no-caffeine", "en:contains-a-source-of-phenylalanine"],
+		}
+	],
 	# Ecobalyse environmental impact estimation should prepare the request payload
 	[
 		'ecobalyse-environmental-impact-estimation',
