@@ -7638,6 +7638,7 @@ foodex2_extended_name:en: Cola beverages, caffeinic
 foodex2_implicit_facets:en: F10.A0CQG$F33.A0C1T
 foodex2_old_code:en: A.01.001510
 foodex2_scope_note:en: The group includes any type of Cola beverage containing caffeine.
+incompatible_with:en: categories:en:cola-sodas-without-caffeine
 
 < en: Colas
 en: Cola with sugar
@@ -33450,7 +33451,7 @@ ru: Растворимые напитки
 
 < en: Dried products to be rehydrated
 < en: Mashed potatoes
-en: Instant mashed potatoes, dehydrated mashed potatoes
+en: Instant mashed potatoes, dehydrated mashed potatoes, instant mashed potato, instant mash potato
 da: Kartoffelmospulvere
 de: Kartoffelpulver
 fi: perunamuusijauheet
@@ -35959,6 +35960,7 @@ foodex2_extended_name:en: Crisp bread, rye wholemeal
 foodex2_implicit_facets:en: F04.A001K$F10.A06HR$F33.A0C3Q
 foodex2_old_code:en: A.01.000145
 foodex2_scope_note:en: The group includes any type of crisp bread based on rye flour containing high proportion of bran or wholemeal (brown or wholemeal rye flour).
+incompatible_with:en: categories:en:wholemeal-wheat-crispbreads
 
 < en: Crispbreads
 en: Crispbreads (wholemeal), Crispbreads(wholemeal)
@@ -35966,6 +35968,7 @@ da: Fuldkornsknækbrød, Knækbrød (fuldkorn)
 fr: Pains croustillants complets
 nl: Knäckebrot (volkoren)
 sv: Fullkornsknäckebröd, Knäckebröd (fullkorn)
+incompatible_with:en: categories:en:refined-wheat-crispbreads
 
 < en: Crispbreads
 en: Refined wheat crispbreads, Light wheat crispbreads, Crispbreads (non-wholemeal), Crispbreads(non-wholemeal)
@@ -82503,7 +82506,7 @@ fr: Moutardes au noix
 < en: Mustards
 en: Yellow mustards
 de: Gelbe Senfe
-fr: Moutardes jaunes
+fr: Moutardes jaunes, moutarde américaine
 hr: Žute gorušice
 ja: イエローマスタード
 lt: Geltonos garstyčios
@@ -82584,7 +82587,7 @@ nl: Kruidenmosterds
 en: Bavarian mustards
 de: Bayerische Senfe, Bayerischer Senf, Senfe aus Bayern, Senf aus Bayern
 es: Mostazas de Baviera
-fr: moutarde bavaroise, moutarde américaine
+fr: moutarde bavaroise, moutarde douce bavaroise
 hr: Bavarske gorušice
 lt: Bavariškos garstyčios
 nl: Beierse mosterds
@@ -82655,7 +82658,7 @@ foodex2_scope_note:en: The group includes any type of sweet mustard sauce (sweet
 < en: Mustards
 en: Mild mustards, Mild mustard
 de: Milde Senfe, Milder Senf
-fr: Moutardes douces, Moutarde douce
+fr: Moutardes douces, Moutarde douce, Moutarde fine et douce
 nl: Milde mosterd
 foodex2_code:en: A044J
 foodex2_extended_name:en: Mustard, mild
@@ -88715,6 +88718,7 @@ foodex2_extended_name:en: Stock cubes or granulate, chicken
 foodex2_implicit_facets:en: F33.A0C2H
 foodex2_old_code:en: A.01.001640
 foodex2_scope_note:en: The group includes any type of chicken stock cubes or granulate.
+incompatible_with:en: categories:en:beef-bouillon-cubes
 
 < en: Beef broth
 < en: Bouillon cubes
@@ -129494,6 +129498,7 @@ foodex2_extended_name:en: Potato puree from potatoes
 foodex2_implicit_facets:en: F03.A06JG$F04.A00ZT$F28.A0C6N$F28.A0BA1
 foodex2_old_code:en: A.01.000468
 foodex2_scope_note:en: The group includes any type of potato puree produced from boiled potatoes and often dairy ingredients, fat and salt, with possibly some flavouring ingredients. Here it is considered in the ready to eat form.
+incompatible_with:en: categories:en:instant-mashed-potatoes
 
 # without milk, cream, butter
 < en: Mashed potatoes
