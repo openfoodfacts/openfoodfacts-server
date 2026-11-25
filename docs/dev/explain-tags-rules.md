@@ -52,8 +52,8 @@ tags_sources:
       rules: {en:caffeinated-colas: [colas-caffeinated]}
 ```
 
-`categories_tags` is regenerated from all the sources. Rules run again on every product update, so the `rules`
-source always reflects the current rules and data: if a contributor adds a "caffeine-free" label, the rule no longer
+`categories_tags` is regenerated from all the sources. Rules run again on every product update (see
+[Where rules run](#where-rules-run)), so the `rules` source always reflects the current rules and data: if a contributor adds a "caffeine-free" label, the rule no longer
 matches and the tag is removed from the `rules` source.
 
 Products changed by a rule also get the misc tags `en:tags-added-by-rules` and `en:tags-rule-<rule id>`.
@@ -68,6 +68,20 @@ Data quality tags (`data_quality_warnings`, `data_quality_info`) are not stored:
 - `add_tag_fields`: the tag fields that rules can add tags to (data quality tags can always be added).
 
 Flavors without this setting do not run tags rules. Only Open Food Facts has it for now.
+
+## Where rules run
+
+The setting only selects the fields: it does not run the rules by itself. Rules run where a product type calls
+them, and only food does for now:
+
+- `apply_tags_rules_to_product()` in `specific_processes_for_food_product()` (`lib/ProductOpener/FoodProducts.pm`),
+  after the ingredients analysis (the `known` condition needs `unknown_ingredients_n`) and before the category
+  properties and food groups (so that they use the added categories);
+- `add_tags_rules_data_quality_tags()` in the food checks of `check_quality()` (`lib/ProductOpener/DataQuality.pm`).
+
+To enable rules for another product type (e.g. pet food), add the setting to its `Config_<flavor>.pm`, rules in
+`rules/<product type>/`, and the same two calls in its `specific_processes_for_<product type>_product()` and
+quality checks.
 
 ## Rules files
 
