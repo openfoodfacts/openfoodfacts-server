@@ -19,7 +19,7 @@ jobs:
 
       - name: Wait for frontend container build workflow
         # only if a new release was created
-        if: ${{ env.IS_RELEASE }}
+        if: ${{ env.IS_RELEASE == 'true' }}
         id: wait-build
         uses: lewagon/wait-on-check-action@369769072fe522a3a8a85c03c96af1e5242a1994 # v1.9.1
         timeout-minutes: 20
@@ -33,7 +33,7 @@ jobs:
 
       - name: Wait for backend container build workflow
         # only if a new release was created
-        if: ${{ env.IS_RELEASE }}
+        if: ${{ env.IS_RELEASE == 'true' }}
         id: wait-build2
         uses: lewagon/wait-on-check-action@369769072fe522a3a8a85c03c96af1e5242a1994 # v1.9.1
         timeout-minutes: 20
@@ -46,13 +46,13 @@ jobs:
           allowed-conclusions: success
 
       - name: Prepare folder for assets to upload to release
-        if: ${{ env.IS_RELEASE }}
+        if: ${{ env.IS_RELEASE == 'true' }}
         run: |
           rm -rf /tmp/release-assets
           mkdir -p /tmp/release-assets
       - name: Get JS dist files to add to the release
         # only if a new release was created
-        if: ${{ env.IS_RELEASE }}
+        if: ${{ env.IS_RELEASE == 'true' }}
         id: create-frontend-dist-tar
         run : |
           # directory to put files in
@@ -81,13 +81,13 @@ jobs:
           # make a tar
           tar czf /tmp/release-assets/frontend-dist.tgz -C /tmp/frontend-dist .
       - name: Checkout the project in case of release
-        if: ${{ env.IS_RELEASE }}
+        if: ${{ env.IS_RELEASE == 'true' }}
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 1
           ref: ${{ env.RELEASE_SHA }}
       - name: build taxonomies and lang for food in case of release, and pack them in archives
-        if: ${{ env.IS_RELEASE }}
+        if: ${{ env.IS_RELEASE == 'true' }}
         run: |
           # we don't need to be in dev mode, this avoid a complete rebuild
           sed -e "s/COMPOSE_FILE=.*$/COMPOSE_FILE=docker-compose.yml/" \
