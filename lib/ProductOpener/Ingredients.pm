@@ -4583,8 +4583,10 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		}
 
 		# Assign a ecobalyse_id or a ecoalyse_proxy_code to the ingredient
-		delete $ingredient_ref->{ecobalyse_id};
-		delete $ingredient_ref->{ecobalyse_proxy_id};
+		# (remove the previous match, including its name and unit, as the new match may not have them)
+		foreach my $prefix ("ecobalyse", "ecobalyse_proxy") {
+			delete $ingredient_ref->{$prefix . $_} for qw(_id _name _unit);
+		}
 
 		# We are now looking for the appropriate ecobalyse id :
 		# ecobalyse_origins_france_labels_organic (if the product comes from france, and is organic)

@@ -127,6 +127,17 @@ foreach my $unit_test_ref (
 	get_missing_ecobalyse_ids([$ingredient_ref]);
 	is($ingredient_ref->{ecobalyse_unit}, $expected_unit, "$ingredient_ref->{id} - unit");
 }
+# The unit of a previous match is removed when the ingredient is matched again
+# (e.g. spring water from France is in L, the default spring water entry is in kg)
+{
+	my $ingredient_ref = {id => "en:spring-water", origins => "en:france"};
+	get_missing_ecobalyse_ids([$ingredient_ref]);
+	is($ingredient_ref->{ecobalyse_unit}, "L", "spring water from France - unit");
+	delete $ingredient_ref->{origins};
+	get_missing_ecobalyse_ids([$ingredient_ref]);
+	is($ingredient_ref->{ecobalyse_unit}, undef, "spring water matched again without origin - no unit");
+}
+
 # Proxies of an ingredient in L are also in L (e.g. white wine uses the red wine data)
 foreach my $ingredient_ref ({id => "en:white-wine"}, {id => "en:dry-white-wine"}, {id => "en:wine"}) {
 	get_missing_ecobalyse_ids([$ingredient_ref]);
