@@ -2255,4 +2255,117 @@ compare_to_expected_results(
 	);
 }
 
+# Test add_misc_tags_for_energy_from_proteins: share of the energy provided by proteins (12 % and 20 % thresholds)
+{
+	my $product_with_nutrients = sub {
+		my ($nutrients_ref, $source, $preparation) = @_;
+		return {
+			nutrition => {
+				input_sets => [
+					{
+						source => $source // "packaging",
+						preparation => $preparation // "as_sold",
+						per => "100g",
+						per_quantity => 100,
+						per_unit => "g",
+						nutrients => $nutrients_ref,
+					}
+				]
+			}
+		};
+	};
+
+	my $at_least_20 = ["en:protein-is-at-least-12-percent-of-energy", "en:protein-is-at-least-20-percent-of-energy"];
+	my $at_least_12 = ["en:protein-is-at-least-12-percent-of-energy", "en:protein-is-less-than-20-percent-of-energy"];
+	my $less_than_12 = ["en:protein-is-less-than-12-percent-of-energy", "en:protein-is-less-than-20-percent-of-energy"];
+
+	my @tests = (
+		{
+			desc => "exactly 20 % of the energy (25 g * 4 kcal / 500 kcal)",
+			nutrients => {proteins => {value => 25, unit => "g"}, "energy-kcal" => {value => 500, unit => "kcal"}},
+			expected => $at_least_20,
+		},
+		{
+			desc => "between 12 % and 20 % of the energy",
+			nutrients => {proteins => {value => 20, unit => "g"}, "energy-kcal" => {value => 500, unit => "kcal"}},
+			expected => $at_least_12,
+		},
+		{
+			desc => "exactly 12 % of the energy (15 g * 4 kcal / 500 kcal)",
+			nutrients => {proteins => {value => 15, unit => "g"}, "energy-kcal" => {value => 500, unit => "kcal"}},
+			expected => $at_least_12,
+		},
+		{
+			desc => "less than 12 % of the energy",
+			nutrients => {proteins => {value => 10, unit => "g"}, "energy-kcal" => {value => 500, unit => "kcal"}},
+			expected => $less_than_12,
+		},
+		{
+			desc => "energy in kJ only (20 g * 17 kJ / 1000 kJ = 34 %)",
+			nutrients => {proteins => {value => 20, unit => "g"}, "energy-kj" => {value => 1000, unit => "kJ"}},
+			expected => $at_least_20,
+		},
+		{
+			desc => "energy in kJ only, between 12 % and 20 % (8 g * 17 kJ / 1000 kJ = 13.6 %)",
+			nutrients => {proteins => {value => 8, unit => "g"}, "energy-kj" => {value => 1000, unit => "kJ"}},
+			expected => $at_least_12,
+		},
+		{
+			desc => "kcal is used instead of kJ when we have both",
+			nutrients => {
+				proteins => {value => 10, unit => "g"},
+				"energy-kcal" => {value => 500, unit => "kcal"},
+				"energy-kj" => {value => 200, unit => "kJ"},
+			},
+			expected => $less_than_12,
+		},
+		{
+			desc => "no tags without energy",
+			nutrients => {proteins => {value => 25, unit => "g"}},
+			expected => undef,
+		},
+		{
+			desc => "no tags without proteins",
+			nutrients => {"energy-kcal" => {value => 500, unit => "kcal"}},
+			expected => undef,
+		},
+		{
+			desc => "no tags if the energy is 0",
+			nutrients => {proteins => {value => 0, unit => "g"}, "energy-kcal" => {value => 0, unit => "kcal"}},
+			expected => undef,
+		},
+		{
+			desc => "no tags for estimated nutrients",
+			nutrients => {proteins => {value => 25, unit => "g"}, "energy-kcal" => {value => 500, unit => "kcal"}},
+			source => "estimate",
+			expected => undef,
+		},
+		{
+			desc => "no tags for prepared nutrients",
+			nutrients => {proteins => {value => 25, unit => "g"}, "energy-kcal" => {value => 500, unit => "kcal"}},
+			preparation => "prepared",
+			expected => undef,
+		},
+	);
+
+	foreach my $test_ref (@tests) {
+		my $product_ref
+			= $product_with_nutrients->($test_ref->{nutrients}, $test_ref->{source}, $test_ref->{preparation});
+		add_misc_tags_for_energy_from_proteins($product_ref);
+		is($product_ref->{misc_tags},
+			$test_ref->{expected}, "add_misc_tags_for_energy_from_proteins: $test_ref->{desc}");
+	}
+
+	# Existing misc tags are kept
+	my $product_ref = $product_with_nutrients->(
+		{proteins => {value => 25, unit => "g"}, "energy-kcal" => {value => 500, unit => "kcal"}});
+	$product_ref->{misc_tags} = ["en:some-other-tag"];
+	add_misc_tags_for_energy_from_proteins($product_ref);
+	is(
+		$product_ref->{misc_tags},
+		["en:some-other-tag", @$at_least_20],
+		"add_misc_tags_for_energy_from_proteins: existing misc tags are kept"
+	);
+}
+
 done_testing();
