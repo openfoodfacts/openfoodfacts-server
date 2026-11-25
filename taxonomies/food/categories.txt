@@ -35922,6 +35922,14 @@ de: Roggenknäckebrote
 fi: Ruisnäkkileivät
 fr: Pains croustillants au seigle
 sv: Rågknäckebröd
+
+< en: Rye crispbreads
+en: Refined rye crispbreads, Light rye crispbreads
+da: Knækbrød af sigtet rugmel
+de: Helle Roggenknäckebrote
+fr: Pains croustillants au seigle non complets
+sv: Knäckebröd av siktat rågmjöl
+description:en: Rye crispbreads made with refined (light) rye flour, not wholemeal.
 foodex2_code:en: A006C
 foodex2_extended_name:en: Crisp bread, rye, refined flour
 foodex2_implicit_facets:en: F04.A001K$F10.A07XK$F33.A0C3Q
@@ -35959,11 +35967,13 @@ nl: Knäckebrot (volkoren)
 sv: Fullkornsknäckebröd, Knäckebröd (fullkorn)
 
 < en: Crispbreads
-en: Crispbreads (non-wholemeal), Crispbreads(non-wholemeal)
-da: Knækbrød (ikke-fuldkorn)
-fr: Pains croustillants non-complets
-nl: Knäckebrot (niet-volkoren)
-sv: Knäckebröd (icke-fullkorn)
+en: Refined wheat crispbreads, Light wheat crispbreads, Crispbreads (non-wholemeal), Crispbreads(non-wholemeal)
+da: Knækbrød af hvidt hvedemel, Knækbrød (ikke-fuldkorn)
+de: Helle Weizenknäckebrote
+fr: Pains croustillants au blé non complets, Pains croustillants non-complets
+nl: Tarweknäckebröd (niet-volkoren), Knäckebrot (niet-volkoren)
+sv: Veteknäckebröd (icke-fullkorn), Knäckebröd (icke-fullkorn)
+description:en: Crispbreads made with refined wheat flour, not wholemeal.
 foodex2_code:en: A006F
 foodex2_common_names:en: crackerbread light
 foodex2_extended_name:en: Crisp bread, wheat, refined flour
@@ -36990,6 +37000,15 @@ comment:en: Do not confuse these with the small snacks
 google_product_taxonomy_id:en: 3446
 sales_format:en: package, item
 wikidata:en: Q160525
+
+< en: Bread Pretzels
+en: Covrigi, Romanian pretzels
+ro: Covrigi, Covrig
+comment:en: Romanian bread rings or sticks, often topped with salt, sesame or poppy seeds. The small crunchy snacks are Covrigei.
+
+< en: Covrigi
+en: Covrigi de Buzău, Covrigi de Buzau
+ro: Covrigi de Buzău, Covrigi de Buzau
 
 < en: Special breads
 en: Bruschetta breads
@@ -41045,6 +41064,7 @@ fr: Meringues fantaisie, meringue fantaisie
 < en: Candies
 en: Gummi candies, Gelified candies, Jelly candy
 ca: Caramels gelificats
+da: Vingummi
 de: Gummibonbons, fruchtgummi
 es: Caramelos de goma
 fi: Hyytelömakeiset
@@ -41100,6 +41120,14 @@ pl: Żelki-truskawki
 < en: Gummi candies
 en: Wine gums
 nl: Wine gums
+description:en: Firm glazed gummies. Not coated in sugar (see Sugar-coated gummies).
+
+< en: Gummi candies
+en: Sugar-coated gummies, Sugared gummies, Gum drops, Gumdrops
+de: Gezuckerte Fruchtgummis, Fruchtgummi gezuckert
+fr: Bonbons gélifiés sucrés
+nl: Gesuikerde gummi-snoepjes
+description:en: Gummies coated in granulated sugar, including sour sugar-coated gummies.
 foodex2_code:en: A035K
 foodex2_common_names:en: Gumdrops
 foodex2_extended_name:en: Gum drops
@@ -58322,13 +58350,14 @@ nl: Gerookte amandelen, Amandelen (gerookt)
 #############################################
 
 < en: Nuts
-en: Cashew nuts
+en: Cashew nuts, Cashews
 bg: Кашу
+da: Cashewnødder
 de: Cashewnüsse, Kaschunüsse
 es: Anacardos
-fi: cashewpähkinät
+fi: Cashewpähkinät
 fr: Noix de cajou, Anacardes
-hr: indijski oraščić
+hr: Indijski oraščić
 it: Noci di acagiu
 ja: カシューナッツ
 la: Anacardium occidentale
@@ -58336,6 +58365,7 @@ lt: Anakardžiai
 nl: Cashewnoten
 pt: Castanha de caju
 ru: Орехи Кешью
+sv: Cashewnötter
 tr: Kaju
 agribalyse_proxy_food_code:en: 15019
 agribalyse_proxy_food_name:en: Cashew nut, grilled, salted
@@ -58346,51 +58376,79 @@ wikidata:en: Q34007
 
 < en: Cashew nuts
 < en: Salted nuts
-en: Salted cashews, Salted cashew nuts
+en: Salted cashew nuts, Salted cashews
+da: Saltede cashewnødder
 de: Gesalzene Cashewnüsse, Gesalzene Cashewkerne
 fr: Noix de cajou salées
 hr: Slani indijski oraščići
 lt: Anakardžiai su druska, Sūdyti anakardžiai
-tr: Tuzlu Kaju
+sv: Saltade cashewnötter
+tr: Tuzlu kaju
+agribalyse_proxy_food_code:en: 15019
+ciqual_proxy_food_code:en: 15019
+ciqual_proxy_food_name:en: Cashew nut, grilled, salted
 opposite:en: en:unsalted-cashew-nuts
 
 < en: Cashew nuts
 < en: Unsalted nuts
-en: Unsalted cashews, Unsalted cashew nuts
+en: Unsalted cashew nuts, Unsalted cashews
+da: Usaltede cashewnødder
 de: Ungesalzene Cashewnüsse, Ungesalzene Cashewkerne
 fr: Noix de cajou non-salées
 hr: Neslani indijski oraščići
 lt: Anakardžiai (nesūdyti)
 nl: Cashewnoten (ongezouten), Ongezouten cashewnoten
+sv: Osaltade cashewnötter
+agribalyse_proxy_food_code:en: 15019
+ciqual_proxy_food_code:en: 15019
+ciqual_proxy_food_name:en: Cashew nut, grilled, salted
 opposite:en: en:salted-cashew-nuts
 
 < en: Non-roasted cashew nuts
-< en: Unsalted cashews
+< en: Unsalted cashew nuts
 en: Raw cashew nuts
+da: Rå cashewnødder
 fr: Noix de cajou crues
+sv: Råa cashewnötter
 expected_ingredients:en: en:cashew-nuts
 sales_format:en: weight, package
 
 < en: Cashew nuts
 < en: Roasted nuts
 en: Roasted cashew nuts
+da: Ristede cashewnødder
 de: Geröstete Cashews, Geröstete Cashewnüsse
-fi: paahdetut cashew-pähkinät
-fr: Noix de Cajou grillées
+fi: Paahdetut cashew-pähkinät
+fr: Noix de cajou grillées
 hr: Pečeni indijski oraščići
 lt: Skrudinti anakardžiai
 nl: Geroosterde cashewnoten
+sv: Rostade cashewnötter
 tr: Kavrulmuş Kaju
-agribalyse_food_code:en: 15019
-ciqual_food_code:en: 15019
-ciqual_food_name:en: Cashew nut, grilled, salted
+agribalyse_proxy_food_code:en: 15019
+ciqual_proxy_food_code:en: 15019
+ciqual_proxy_food_name:en: Cashew nut, grilled, salted
 opposite:en: en:non-roasted-cashew-nuts
 sales_format:en: weight, package
 
 < en: Cashew nuts
 en: Non-roasted cashew nuts
+da: Uristede cashewnødder
 fr: Noix de cajou non-grillées
+sv: Orostade cashewnötter
 opposite:en: en:roasted-cashew-nuts
+
+< en: Roasted cashew nuts
+< en: Salted cashew nuts
+en: Roasted and salted cashew nuts, Salted and roasted cashew nuts
+da: Ristede og saltede cashewnødder, Saltede og ristede cashewnødder
+fr: Noix de cajou grillées et salées
+sv: Rostade och saltade cashewnötter, Saltade och rostade cashewnötter
+agribalyse_food_code:en: 15019
+ciqual_food_code:en: 15019
+ciqual_food_name:en: Cashew nut, grilled, salted
+ciqual_food_name:fr: Noix de cajou, grillée, salée
+sales_format:en: weight, package
 
 < en: Nuts
 en: Chestnuts
@@ -64715,10 +64773,6 @@ lt: Spelta sėlenos
 nl: Speltzemelen
 
 < en: Breakfasts
-en: Instant porridges with milk powder
-fr: Porridges instantanés avec du lait en poudre
-
-< en: Breakfasts
 < en: Cereals and their products
 en: Breakfast cereals
 bg: Зърнени закуски
@@ -65196,6 +65250,10 @@ foodex2_implicit_facets:en: F04.A000G$F28.A07KG$F33.A0C46
 foodex2_old_code:en: A.01.000247
 foodex2_scope_note:en: The group includes any type of Oat porridge in dry form to be diluted with milk or water. The term refers to e.g. ground oatmeal or rolled oat intended to be used for making oat porridge.
 intake24_category_code:en: UHTCL
+
+< en: Porridge
+en: Instant porridges with milk powder
+fr: Porridges instantanés avec du lait en poudre
 
 < en: Ready-to-eat porridges
 en: Ready-to-eat water porridges
@@ -83638,6 +83696,7 @@ origins:en: en:poland
 protected_name_file_number:en: TSG-PL-0053
 protected_name_type:en: tsg
 
+< en: Kielbasa
 < en: Polish meat products
 pl: Kiełbasa lisiecka
 origins:en: en:poland
@@ -98270,7 +98329,7 @@ it: Salsicce affumicate
 nl: Rookworsten, Gerookte worsten
 pl: Kiełbasy wędzone, Kiełbasa wędzona
 
-< en: Sausages
+< en: Cooked sausages
 en: Kielbasa, Polish sausages
 de: Polnische Würste
 fr: Saucisses polonaises
@@ -98379,9 +98438,10 @@ ciqual_food_code:en: 8705
 ciqual_food_name:en: Black or white pudding (blood sausage), sautéed (average)
 ciqual_food_name:fr: Boudin noir ou blanc, sauté/poêlé (aliment moyen)
 
+< en: Cooked sausages
 < en: Tripe dishes
 < fr: Boudins
-en: Black pudding
+en: Black pudding, Blood sausages
 de: Blutwürste, Schwarzwürste, Schwarze Wurst
 es: Morcilla
 fi: Veripalttu
@@ -104454,6 +104514,15 @@ de: Nussecken
 
 < en: Pastries
 de: Mandelhörnchen
+
+< en: Pastries
+en: Mazarins
+da: Mazariner
+de: Mazarin-Törtchen
+nb: Mazariner
+nn: Mazarinar
+sv: Mazariner
+wikidata:en: Q10578820
 
 < en: Pastries
 xx: Succès
@@ -113484,10 +113553,10 @@ pnns_group_2:en: Salty and fatty products
 en: Egg salads, Egg spreads
 de: Eisalaten, Eisalat, Eiaufstriche, Eiersalat
 fr: Salades d'œufs, salades d'oeufs, Tartinades d'œufs, tartinades d'oeufs, tartinades aux oeufs
-lt: Salotos su kiaušiniais
+lt: Olu smēriņi, olu smēriņš
 nl: Eisalades, Eiersalades
-pl: Sałatki jajeczne
-comment:en: This product is really popular in Belgium & Netherlands were it is called "Salade d'oeufs". Please don't put in the category "Prepared salads", because it is a spread not a meal
+pl: Pasty jajeczne, pasta jajeczna
+comment:en: This product is really popular in Belgium & Netherlands were it is called "Salade d'oeufs". Please don't put in the category "Prepared salads", because it is a spread not a meal. Be careful when translating the category as the translation is not literal in some languages.
 
 < en: Salted spreads
 en: Yeast extract spreads
@@ -128506,6 +128575,11 @@ wikidata:en: Q160525
 
 < en: Pretzel
 fr: mélange Sticks et Bretzels
+
+< en: Pretzel
+en: Covrigei
+ro: Covrigei, Covrigei cu sare
+comment:en: Small crunchy Romanian pretzel rings or sticks, eaten as a snack
 
 < en: Crackers(Appetizers)
 en: Salty flaky biscuits
