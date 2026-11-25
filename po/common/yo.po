@@ -6638,6 +6638,102 @@ msgctxt "environmental_cost_total"
 msgid "Total"
 msgstr ""
 
+msgctxt "environmental_cost_use"
+msgid "Use"
+msgstr ""
+
+msgctxt "environmental_cost_other_stages"
+msgid "Other stages"
+msgstr ""
+
+msgctxt "environmental_cost_calculation_title"
+msgid "How the environmental cost is calculated"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_calculation"
+msgid "Impacts: {impacts} points - Positive impact: {positive_impact} points = Environmental cost: {total} points"
+msgstr ""
+
+msgctxt "environmental_cost_impacts_by_stage"
+msgid "Where the impacts come from"
+msgstr ""
+
+msgctxt "environmental_cost_share"
+msgid "Share"
+msgstr "Pin"
+
+msgctxt "environmental_cost_total_impacts"
+msgid "Total impacts"
+msgstr ""
+
+msgctxt "environmental_cost_impacts_by_ingredient"
+msgid "Impact of each ingredient"
+msgstr ""
+
+msgctxt "environmental_cost_impacts_by_ingredient_note"
+msgid "Production, processing and transport of each ingredient. Packaging, distribution and use are counted for the whole product."
+msgstr ""
+
+msgctxt "environmental_cost_ingredient"
+msgid "Ingredient"
+msgstr ""
+
+msgctxt "environmental_cost_ecobalyse_ingredient"
+msgid "Ecobalyse ingredient"
+msgstr ""
+
+msgctxt "environmental_cost_quantity_g"
+msgid "Quantity (g)"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_other_ingredients"
+msgid "Other ingredients ({number})"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_ingredients_mass"
+msgid "{ingredients_mass} g of ingredients before cooking, including {water_loss} g of water that evaporates during cooking (estimate), for {product_mass} g of product."
+msgstr ""
+
+msgctxt "environmental_cost_ecosystem_services_title"
+msgid "Positive impact: ecosystem services"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_positive_impact_points"
+msgid "-{points} points"
+msgstr ""
+
+msgctxt "environmental_cost_ecosystem_services_description"
+msgid "Some agricultural practices are beneficial for the environment: hedges, permanent pastures, small plots, crop diversity. These benefits are deducted from the environmental cost."
+msgstr ""
+
+msgctxt "environmental_cost_ecosystem_service"
+msgid "Ecosystem service"
+msgstr ""
+
+msgctxt "environmental_cost_complement_permanent_pasture"
+msgid "Permanent pastures"
+msgstr ""
+
+msgctxt "environmental_cost_complement_hedges"
+msgid "Hedges"
+msgstr ""
+
+msgctxt "environmental_cost_complement_plot_size"
+msgid "Plot size"
+msgstr ""
+
+msgctxt "environmental_cost_complement_crop_diversity"
+msgid "Crop diversity"
+msgstr ""
+
+msgctxt "environmental_cost_ecosystem_services_ingredients"
+msgid "Ingredients concerned:"
+msgstr ""
+
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
