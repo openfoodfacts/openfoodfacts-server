@@ -3,6 +3,7 @@ name: Packager codes refresh
 permissions:
   contents: write
   pull-requests: write
+  packages: read
 
 on:
   # Allow to be run manually
@@ -38,7 +39,82 @@ jobs:
     - name: Upgrade assets
       run: |
         cd scripts/packager-codes
-        bash update_all_packager_codes.sh
+        bash update_all_packager_codes.sh --skip-db-update
+
+    # Get current user/group IDs for proper file permissions in Docker
+    - name: Get user IDs
+      id: user_ids
+      run: |
+        echo "uid=$(id -u)" >> $GITHUB_OUTPUT
+        echo "gid=$(id -g)" >> $GITHUB_OUTPUT
+
+    - name: Login to ghcr.io
+      uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Compute registry refs for backend-deps image and Buildkit cache
+      id: registry_ref
+      env:
+        DEPS_HASH: ${{ hashFiles('Dockerfile*', 'docker-compose.yml', 'docker/**', 'cpanfile*', 'conf/apache*') }}
+      run: |
+        echo "registry_ref=ghcr.io/${{ github.repository }}/backend-buildx-cache:${DEPS_HASH}" >> $GITHUB_OUTPUT
+        echo "deps_image=ghcr.io/${{ github.repository }}/backend-deps:${DEPS_HASH}-${{ steps.user_ids.outputs.uid }}-${{ steps.user_ids.outputs.gid }}" >> $GITHUB_OUTPUT
+
+    - name: Check if backend-deps image already exists
+      id: deps_image
+      env:
+        IMAGE: ${{ steps.registry_ref.outputs.deps_image }}
+      run: |
+        if docker manifest inspect "$IMAGE" > /dev/null 2>&1
+        then
+          echo "$IMAGE already exists, no need to build it"
+          echo "exists=true" >> $GITHUB_OUTPUT
+        else
+          echo "$IMAGE does not exist yet, building it"
+          echo "exists=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Set up Docker Buildx
+      if: steps.deps_image.outputs.exists != 'true'
+      uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      with:
+        driver: docker-container
+        use: true
+
+    - name: Build backend-deps image with cache
+      if: steps.deps_image.outputs.exists != 'true'
+      uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+      with:
+        context: .
+        file: ./Dockerfile
+        target: backend-deps
+        build-args: |
+          USER_UID=${{ steps.user_ids.outputs.uid }}
+          USER_GID=${{ steps.user_ids.outputs.gid }}
+          CPANMOPTS=--with-develop
+        cache-from: |
+          type=registry,ref=${{ steps.registry_ref.outputs.registry_ref }}
+        push: false
+        load: true
+        tags: ${{ steps.registry_ref.outputs.deps_image }}
+
+    - name: Tag backend-deps image as backend:dev
+      env:
+        IMAGE: ${{ steps.registry_ref.outputs.deps_image }}
+        EXISTS: ${{ steps.deps_image.outputs.exists }}
+      run: |
+        if [ "$EXISTS" = "true" ]
+        then
+          docker pull --quiet "$IMAGE"
+        fi
+        docker tag "$IMAGE" openfoodfacts-server/backend:dev
+
+    - name: Update packager codes database
+      run: |
+        make USER_UID=${{ steps.user_ids.outputs.uid }} USER_GID=${{ steps.user_ids.outputs.gid }} DOCKER_LOCAL_DATA="$(pwd)" build_packager_codes
 
     - name: Check for uncommitted changes
       id: check-changes
@@ -49,7 +125,7 @@ jobs:
       id: cpr
       uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
       with:
-        base: develop
+        base: main
         commit-message: Update packager codes assets
         committer: GitHub <noreply@github.com>
         author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
