@@ -218,13 +218,25 @@
 
         [% IF user_requested_org.defined %]
 
-            <!-- Pro account, but the requested org already exists -->
+            [% IF oidc_implementation_level < 2 %]
 
-            <div id="existing_org_warning">
-                <p>[% add_user_existing_org %]</p>
-                <p>[% lang("add_user_existing_org_pending") %]</p>
-                <p>[% lang("please_email_producers") %]</p>
-            </div>
+                <!-- Pro account, but the requested org already exists -->
+
+                <div id="existing_org_warning">
+                    <p>[% add_user_existing_org %]</p>
+                    <p>[% lang("add_user_existing_org_pending") %]</p>
+                    <p>[% lang("please_email_producers") %]</p>
+                </div>
+
+            [% ELSE %]
+
+                <!-- Pro account org request is processed asynchronously -->
+
+                <div id="existing_org_warning">
+                    <p>[% lang("add_user_requested_org_processing") %]</p>
+                </div>
+
+            [% END %]
 
         [% ELSIF user_org.defined %]
 

@@ -4,7 +4,9 @@
         "health"
     ],
     "expanded": false,
-    "expand_for": "large",
+    [% IF panel.expand_for.defined %]
+    "expand_for": "[% panel.expand_for %]",
+    [% END %]
     "evaluation": "unknown",
     "title_element": {
         "title": "[% IF panel.title.defined %][% edq(panel.title) %][% ELSE %][% edq(lang('nutrition_data_table')) %][% END %]",
@@ -69,6 +71,18 @@
                 ]
             }
         },
+        // Ask for the nutrition facts if none have been entered
+        [% IF panel.nutrition_facts_missing %]
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("actions_add_nutrition_facts") %]`,
+                "actions": [
+                    "add_nutrition_facts"
+                ]
+            }
+        },
+        [% END %]
         {
             "element_type": "panel",
              "panel_element": {

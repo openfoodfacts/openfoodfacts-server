@@ -32,6 +32,15 @@ Note: API v3 is under active development, and the API and corresponding product 
 
 ## Schema version and API version change log
 
+### 2026-05-27 — Product version 1004 — API version 3.6 — New tags schema with tags_sources
+
+Breaking changes for product read API responses:
+- The `*_hierarchy` and `*_lc` fields for writable taxonomy fields (categories, labels, brands, etc.) have been removed. Their content is now stored in the new `tags_sources` structure, keyed by source.
+- The `*_tags` fields now contain the canonical form of input tags (or unnormalized input tags for non taxonomized fields or entries that do not exist in the taxonomy) + their parents if they exist ().
+- A new `tags_sources` top-level field holds the minimal input tags per source and per tag type, enabling provenance tracking.
+
+See `convert_schema_1003_to_1004_refactor_tags` and the downgrade function `convert_schema_1004_to_1003_refactor_tags` in `ProductSchemaChanges.pm` for the full transformation logic.
+
 ### 2025-126-01 - Product version 1003 - API version 3.5 - New product nutrition facts structure
 
 Breaking changes:

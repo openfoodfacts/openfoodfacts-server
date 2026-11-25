@@ -5,22 +5,41 @@ use JSON;
 
 use ProductOpener::PerlStandards;
 use ProductOpener::Test qw/init_expected_results compare_to_expected_results/;
-use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service/;
+use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service get_ecobalyse_ingredients_quantities/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
+
+# Ecobalyse tests
+
+# Note: when updating the expected tests results, the real Ecobalyse API is used to update the expected results
+# and to store the mocked Ecobalyse responses in the expected results directory.
+# The env variable ECOBALYSE_API_TOKEN needs to be set to a valid Ecobalyse API token for the real API call to work.
+
+# If the env variable is not set, we override the usual --update-tests-results parameter
+# so that the /update_tests_results comment triggered GitHub action does not actually trigger an update of the expected results.
+# Test results should only be updated manually by running the tests with the appropriate environment variable and API token.
+# You can create an Ecobalyse token on the Ecobalyse website and set it as the ECOBALYSE_API_TOKEN environment variable.
+# Then to update tests results, run:
+#    ECOBALYSE_API_TOKEN=your_token_here prove -v tests/unit/ecobalyse.t --update-tests-results
+
+if (($update_expected_results) and (!$ENV{ECOBALYSE_API_TOKEN})) {
+	warn "ECOBALYSE_API_TOKEN is not set. Skipping update of expected results.\n";
+	$update_expected_results = 0;
+}
 
 # Sample product
 
 my $product_hazelnut_spread_json = '{
     "product_name_en": "My hazelnut spread",
     "product_name_fr": "Ma pâte aux noisettes",
+    "categories_tags": ["en:hazelnut-spreads", "en:plant-based-foods", "en:canned-foods"],
     "ingredients": [
         {
             "is_in_taxonomy" : 1,
             "id" : "en:sugar",
             "vegetarian" : "yes",
             "percent_estimate" : 50,
-            "ecobalyse_code" : "9b476f8e-08c2-4406-9198-1fb2e007f000",
+            "ecobalyse_id" : "9b476f8e-08c2-4406-9198-1fb2e007f000",
             "vegan" : "yes",
             "ciqual_proxy_food_code" : "31016",
             "text" : "Sucre"
@@ -33,7 +52,7 @@ my $product_hazelnut_spread_json = '{
             "is_in_taxonomy" : 1,
             "id" : "en:palm-oil",
             "text" : "huile de palme",
-            "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+            "ecobalyse_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
             "vegan" : "yes"
         },
         {
@@ -42,7 +61,7 @@ my $product_hazelnut_spread_json = '{
             "vegetarian" : "yes",
             "percent_estimate" : 13,
             "ciqual_food_code" : "15004",
-            "ecobalyse_code" : "60184de2-cc9e-4618-924a-b8fecf080c8b",
+            "ecobalyse_id" : "60184de2-cc9e-4618-924a-b8fecf080c8b",
             "vegan" : "yes",
             "percent" : 13,
             "text" : "NOISETTES"
@@ -54,7 +73,7 @@ my $product_hazelnut_spread_json = '{
             "ciqual_food_code" : "19054",
             "vegetarian" : "yes",
             "vegan" : "no",
-            "ecobalyse_code" : "33d2f3c2-ffa2-4b96-811e-50c1c8670e26",
+            "ecobalyse_id" : "33d2f3c2-ffa2-4b96-811e-50c1c8670e26",
             "text" : "LAIT écrémé en poudre",
             "percent" : 8.7
         },
@@ -67,7 +86,7 @@ my $product_hazelnut_spread_json = '{
             "is_in_taxonomy" : 1,
             "percent_estimate" : 3.3,
             "vegetarian" : "yes",
-            "ecobalyse_code" : "3d7f808b-77c5-4207-968d-feea6dfd9496"
+            "ecobalyse_id" : "3d7f808b-77c5-4207-968d-feea6dfd9496"
         }
     ]
 }';
@@ -107,6 +126,8 @@ if (@$errors_ref) {
 	fail($json->pretty->encode($errors_ref));
 }
 else {
+	# The time of the results changes at each run
+	ok(delete $product_ref->{environmental_impact}{ecobalyse_results_t}, "time of Ecobalyse results is set");
 	compare_to_expected_results($product_ref, "$expected_result_dir/environmental_impact.json",
 		$update_expected_results);
 
@@ -121,6 +142,43 @@ else {
 	else {
 		is($mock_calls, 1, "Ecobalyse mock called");
 	}
+}
+
+# get_ecobalyse_ingredients_quantities: leaf ingredients, quantities and Ecobalyse ids
+
+{
+	my $product_ref = {
+		ingredients => [
+			{id => "en:sugar", percent_estimate => 50, ecobalyse_id => "sugar-id"},
+			{
+				id => "en:chocolate",
+				percent_estimate => 30,
+				ecobalyse_id => "chocolate-id",
+				ingredients => [
+					{id => "en:cocoa", percent_estimate => 20, ecobalyse_proxy_id => "cocoa-proxy-id"},
+					{id => "en:unknown", percent_estimate => 10},
+				],
+			},
+			{id => "en:salt", quantity_estimate => 5, percent_estimate => 15},
+			{id => "en:flavouring", percent => 5},
+		],
+	};
+
+	my $result_ref = get_ecobalyse_ingredients_quantities($product_ref);
+
+	is(
+		[map {[$_->{ingredient}{id}, $_->{quantity}, $_->{ecobalyse_id}]} @{$result_ref->{ingredients}}],
+		[
+			["en:sugar", 50, "sugar-id"],
+			["en:salt", 5, undef],
+			["en:flavouring", undef, undef],
+			["en:cocoa", 20, "cocoa-proxy-id"],
+			["en:unknown", 10, undef],
+		],
+		"leaf ingredients with quantity_estimate // percent_estimate and ecobalyse_id || ecobalyse_proxy_id"
+	);
+	is($result_ref->{total_quantity}, 85, "total quantity does not count ingredients without quantity");
+	is($result_ref->{total_quantity_with_ecobalyse_id}, 70, "total quantity with Ecobalyse id");
 }
 
 done_testing();

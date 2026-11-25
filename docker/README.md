@@ -22,6 +22,10 @@ See also [targets to run tests](../docs/dev/how-to-write-and-run-tests.md#runnin
 | Command                   | Description                                                                            | Notes                                                         |
 | ------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
 | `make dev`                | Setup a fresh dev environment.                                                         | Run only once, then use the `up`, `down`, `restart` commands. |
+| `make agent`               | Isolate this git worktree from other worktrees on the same machine.                    | Run once per worktree, before `make dev`. No arguments needed: a free id and port are allocated automatically. |
+| `make list-agents`         | List the worktrees registered on this machine, with their ids and ports.                | Use it to find a free `ID=` when you want to choose one.      |
+| `make release-agent`       | Undo `make agent`: drop the generated block and free the id and port.                   | Add `ID=<id>` to also free an entry left by a deleted worktree. |
+| `make print-agent-config` | Print the resolved per-worktree configuration (project name, domain, ports).           | Debugging aid for the command above.                          |
 | `make build`              | build containers. Add `container=name` to build a specific container                   | args="--progress log" keeps all log in console (to debug failing build) |
 | `make up`                 | Start containers.                                                                      |                                                               |
 | `make down`               | Stop containers and keep the volumes.                                                  | Products and users data will be kept.                         |
@@ -35,7 +39,7 @@ See also [targets to run tests](../docs/dev/how-to-write-and-run-tests.md#runnin
 | `make prune_cache`        | Remove Docker build cache.                                                             | Next build will take time (no build cache) !                  |
 | `make clean`              | Clean up your dev environment: removes locally bound folders, run `hdown` and `prune`. | Run `make dev` to recreate a fresh dev env afterwards.        |
 | `make import_sample_data` | Load sample data (~100 products) into the MongoDB database.                            |                                                               |
-| `make import_prod_data`   | Load latest prod data (~2M products, 1.7GB) into the MongoDB database.                 | Takes up to 10m. Not recommended for dev setups !             |
+| `make import_prod_data`   | Load latest prod data (~4M products, ~14GB uncompressed) into the MongoDB database.    | Takes a long time. Not recommended for dev setups !             |
 | `make lint`      | Indent and reformat your code[^lint]                       |
 
 [^lint]: If you are having permission issues with `make lint` try writing the following commands :

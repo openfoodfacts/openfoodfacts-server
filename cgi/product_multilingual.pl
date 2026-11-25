@@ -33,7 +33,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Web qw/display_knowledge_panel get_languages_options_list/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User can_delete_product can_delete_image/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/send_email_to_admin/;
@@ -48,7 +48,7 @@ use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging
-	qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
+	qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data should_display_legacy_packaging/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Events qw/send_event/;
@@ -57,7 +57,7 @@ use ProductOpener::APIProductWrite qw/skip_protected_field/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use ProductOpener::Orgs qw/update_import_date update_last_import_type/;
 use ProductOpener::APIProductWrite
-	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one/;
+	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one update_product_field_api_v2_and_cgi/;
 use ProductOpener::Nutrition qw/:all/;
 
 use Apache2::RequestRec ();
@@ -137,7 +137,7 @@ sub create_packaging_components_from_request_parameters ($product_ref) {
 			"quantity_per_unit", "weight_measured", "weight_specified"
 			)
 		{
-			$input_packaging_ref->{$property} = remove_tags_and_quote(decode utf8 => single_param($prefix . $property));
+			$input_packaging_ref->{$property} = decode utf8 => single_param($prefix . $property);
 		}
 
 		my $response_ref = {};   # Currently unused, may be used to display warnings in future versions of the interface
@@ -207,7 +207,10 @@ local $log->context->{action} = $action;
 
 my $template_data_ref = {};
 
-# Nutrition source: packaging on public platform, manufacturer on producers platform
+# If we are on the producers platform, we set the data source to "manufacturer" for all organizations with ids that start with org-
+# except organizations with ids that start with org-database- or org-label- (e.g. "org-database-usda")
+# otherwise, we set the source to "packaging" (for organizations that start with user-
+# when the pro platform is used by individual users to load data in bulk, e.g. from scan parties)
 my $source = get_source_for_site_and_org($request_ref->{org_id});
 
 $log->debug("product_multilingual - start", {code => $code, type => $type, action => $action}) if $log->is_debug();
@@ -345,7 +348,7 @@ else {
 			display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
 		}
 		$product_id = product_id_for_owner($Owner_id, $code);
-		$product_ref = retrieve_product($product_id, $User{moderator});
+		$product_ref = retrieve_product($product_id, can_delete_product());
 		if (not defined $product_ref) {
 			display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
 		}
@@ -360,14 +363,16 @@ else {
 			{
 				redirect_to_url($request_ref, 302,
 						  format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
-						. '/cgi/product.pl?code='
+						. '/cgi/product.pl?type='
+						. $type
+						. '&code='
 						. $code);
 			}
 		}
 	}
 }
 
-if (($type eq 'delete') and (not $User{moderator})) {
+if (($type eq 'delete') and (not can_delete_product($product_ref))) {
 	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
 }
 
@@ -469,7 +474,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
 
 	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per',
-		'serving_size', 'allergens', 'traces', 'ingredients_text', 'origin', 'packaging_text', 'lang')
+		'serving_size', 'traces', 'allergens', 'ingredients_text', 'origin', 'packaging_text', 'lang')
+		# Note: allergens need to be after traces, as we detect traces inside allergens and add them to the traces
 	{
 
 		if (defined $language_fields{$field}) {
@@ -608,54 +614,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	foreach my $field (@param_fields) {
 
-		if (defined single_param($field)) {
-
-			# Only moderators can update values for fields sent by the producer
-			if (skip_protected_field($product_ref, $field, $User{moderator})) {
-				next;
-			}
-
-			if ($field eq "lang") {
-				my $value = remove_tags_and_quote(decode utf8 => single_param($field));
-
-				# strip variants fr-BE fr_BE
-				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
-				$value = lc($value);
-
-				# skip unrecognized languages (keep the existing lang & lc value)
-				if (defined $lang_lc{$value}) {
-					$product_ref->{lang} = $value;
-					$product_ref->{lc} = $value;
-				}
-
-			}
-			else {
-				# infocards set by admins can contain HTML
-				if (($request_ref->{admin}) and ($field =~ /infocard/)) {
-					$product_ref->{$field} = decode utf8 => single_param($field);
-				}
-				else {
-					# Preprocesses fields to remove email values as entries
-					$product_ref->{$field} = preprocess_product_field($field, decode utf8 => single_param($field));
-				}
-			}
-
-			$log->debug("before compute field_tags",
-				{code => $code, field_name => $field, field_value => $product_ref->{$field}})
-				if $log->is_debug();
-			if ($field =~ /ingredients_text/) {
-				# the ingredients_text_with_allergens[_$lc] will be recomputed after
-				my $ingredients_text_with_allergens = $field;
-				$ingredients_text_with_allergens =~ s/ingredients_text/ingredients_text_with_allergens/;
-				delete $product_ref->{$ingredients_text_with_allergens};
-			}
-
-			compute_field_tags($product_ref, $lc, $field);
-
-		}
-		else {
-			$log->debug("could not find field in params", {field => $field}) if $log->is_debug();
-		}
+		update_product_field_api_v2_and_cgi($product_ref, $lc, $field, single_param($field), $source);
 	}
 
 	# Obsolete products
@@ -737,19 +696,20 @@ sub display_input_field ($product_ref, $field, $language, $request_ref) {
 		}
 	}
 
-	my $value = $product_ref->{$field};
+	my $value;
 
-	if (
-			(defined $value)
-		and (defined $taxonomy_fields{$field})
-		# if the field was previously not taxonomized, the $field_hierarchy field does not exist
-		and (defined $product_ref->{$field . "_hierarchy"})
-		)
-	{
-		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
-		# Remove tags
-		$value =~ s/<(([^>]|\n)*)>//g;
+	# For fields other than taxonomized tags fields, we use the value of the field directly
+	if (not defined $writable_tags_fields{$field}) {
+		$value = $product_ref->{$field};
 	}
+	else {
+		# For taxonomized tags fields, we display only the input tags for the source
+		my $input_tags_ref = deep_get($product_ref, "tags_sources", $field, $source, "tags");
+		if (defined $input_tags_ref) {
+			$value = list_taxonomy_tags_in_language($lc, $field, $input_tags_ref);
+		}
+	}
+
 	if (not defined $value) {
 		$value = "";
 	}
@@ -818,27 +778,18 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	# Lang strings for product.js
 
-	my $moderator = 0;
-	if ($User{moderator}) {
-		$moderator = 1;
-	}
-
-	$request_ref->{header} .= <<HTML
-<link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
-HTML
-		;
+	# Moderators, and org members on the producers platform, can delete and move images
+	my $can_delete_image = can_delete_image($product_ref) ? 1 : 0;
 
 	$request_ref->{scripts} .= <<HTML
 <script type="text/javascript" src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/tagify.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.fileupload.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/load-image.all.min.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/canvas-to-blob.js"></script>
 <script type="text/javascript">
-var admin = $moderator;
+var admin = $can_delete_image;
 </script>
 <script type="text/javascript" src="$static_subdomain/js/dist/tagify-init.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/product-multilingual.js?v=$file_timestamps{'js/dist/product-multilingual.js'}"></script>
@@ -1074,6 +1025,19 @@ CSS
 	}
 
 	$template_data_ref_display->{nutrition_checked} = $checked;
+
+	# The nutrition feature is computed for the product and not for the site, as the producers
+	# platform can host products of different types
+	$template_data_ref_display->{nutrition_feature_enabled} = feature_enabled("nutrition", $product_ref) ? 1 : 0;
+
+	# For product types for which the nutrition feature is disabled (e.g. beauty products),
+	# the nutrition section is normally hidden in the edit form.
+	# We still display it if the product already has nutrition facts (or the "no nutrition data
+	# on packaging" checkbox is set), so that contributors can delete them.
+	$template_data_ref_display->{product_has_nutrition_data}
+		= ((has_no_nutrition_data_on_packaging($product_ref)) or (has_non_estimated_nutrition_data($product_ref)))
+		? 1
+		: 0;
 	$template_data_ref_display->{display_tab_ingredients_image}
 		= display_input_tabs($product_ref, "ingredients_image", $product_ref->{sorted_langs},
 		\%Langs, \@ingredients_fields, $request_ref);
@@ -1330,6 +1294,13 @@ HTML
 		= display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs},
 		\%Langs, \@packaging_fields, $request_ref);
 
+	# Display the legacy deprecated packaging text field if present or if user is a moderator,
+	# so that contributors/moderators can view, edit, or clear legacy insults/obsolete values.
+	if (should_display_legacy_packaging($product_ref, $User{moderator})) {
+		$template_data_ref_display->{display_field_packaging_legacy}
+			= display_input_field($product_ref, "packaging", undef, $request_ref);
+	}
+
 	# Add an empty packaging element to the form, that will be hidden and duplicated when the user adds new packaging items,
 	# and another empty packaging element at the end
 	if (not defined $product_ref->{packagings}) {
@@ -1363,6 +1334,8 @@ HTML
 	$template_data_ref_display->{code} = $code;
 	$template_data_ref_display->{display_product_history} = display_product_history($request_ref, $code, $product_ref);
 	$template_data_ref_display->{product} = $product_ref;
+	$template_data_ref_display->{can_delete} = can_delete_product($product_ref);
+	$template_data_ref_display->{can_delete_image} = $can_delete_image;
 
 	process_template('web/pages/product_edit/product_edit_form_display.tt.html',
 		$template_data_ref_display, \$html, $request_ref)
@@ -1372,7 +1345,7 @@ HTML
 	$request_ref->{page_format} = "banner";
 
 }
-elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
+elsif (($action eq 'display') and ($type eq 'delete') and (can_delete_product($product_ref))) {
 
 	my $template_data_ref_moderator = {};
 
@@ -1397,11 +1370,11 @@ elsif ($action eq 'process') {
 	$product_ref->{interface_version_modified} = $interface_version;
 
 	# removal is just putting "on" in delete
-	if (($User{moderator}) and ($type eq 'delete')) {
+	if ((can_delete_product($product_ref)) and ($type eq 'delete')) {
 		$product_ref->{deleted} = 'on';
 		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
 	}
-	elsif (($User{moderator}) and (exists $product_ref->{deleted})) {
+	elsif ((can_delete_product($product_ref)) and (exists $product_ref->{deleted})) {
 		delete $product_ref->{deleted};
 	}
 

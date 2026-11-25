@@ -2,7 +2,7 @@
 
 # HARNESS-TIMEOUT-EVENT 240
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -14,9 +14,16 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Producers qw/init_fields_columns_names_for_lang match_column_name_to_field normalize_column_name/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::Display qw/$nutrient_table/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 my $inputs_dir = "$test_dir/inputs/$test_id/";
+
+# Initializing the column names must not change the nutrient table selected for the request
+# (e.g. off_us), which is used to list the nutrients in the import menu
+$nutrient_table = "off_us";
+init_fields_columns_names_for_lang("it");
+is($nutrient_table, "off_us", "initializing column names keeps the selected nutrient table");
 
 # Generate the files that match potential column names from producers to OFF fields
 foreach my $l (qw(en fr es)) {

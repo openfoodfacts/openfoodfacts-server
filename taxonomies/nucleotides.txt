@@ -11,7 +11,6 @@
 # Commission Regulations (EC) No 41/2009 and (EC) No 953/2009
 # http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32013R0609&from=FR
 
-
 # description:en:NUCLEOTIDES are organic molecules that serve as the monomer units for forming the nucleic acid polymers deoxyribonucleic acid (DNA) and ribonucleic acid (RNA), both of which are essential biomolecules within all life-forms on Earth.
 # comment:en:The entry should be in plural.
 
@@ -99,7 +98,7 @@ vegetarian:en: yes
 wikidata:en: Q28745
 wikipedia:en: https://en.wikipedia.org/wiki/Nucleotide
 
-< en:nucleotides
+< en: nucleotides
 en: Adenosine monophosphate, adenosine 5'-monophosphate, adenosine-5'-monophosphate, adenosine 5'-phosphoric acid, AMP
 ar: أدينوسين أحادي الفوسفات
 # azb:آدنوزین مونوفوسفات
@@ -150,7 +149,6 @@ sv: Adenosinmonofosfat
 tr: Adenozin monofosfat
 uk: Аденозинмонофосфат
 vi: Adenosine monophosphate
-# adenosine 5'-monophosphate has 3 products @2019-06-23
 # yue:單磷酸腺苷
 # zh:單磷酸腺苷
 # zh-cn:单磷酸腺苷
@@ -159,11 +157,10 @@ vi: Adenosine monophosphate
 # zh-hk:單磷酸腺苷
 # zh-sg:单磷酸腺苷
 # zh-tw:單磷酸腺苷
-# adenosine 5'-monophosphate has 3 products @2019-06-23
 description:en: ADENOSINE MONOPHOSPHATE (AMP) is a nucleotide. AMP plays an important role in many cellular metabolic processes
 wikidata:en: Q318369
 
-< en:Adenosine monophosphate
+< en: Adenosine monophosphate
 en: sodium salts of AMP
 bg: Натриеви соли на АМФ
 cs: sodné soli AMP
@@ -187,7 +184,7 @@ sl: natrijeve soli AMP
 sv: natriumsalter av AMP
 # ingredient/sodium-salts-of-AMP has no products @2019-06-23
 
-< en:nucleotides
+< en: nucleotides
 en: Cytidine monophosphate, cytidine 5'-monophosphate, cytidine-5'-monophosphate, cytidine 5'-monophosphoric acid, cytidine-, CMP
 ar: سيتيدين أحادي الفوسفات
 # azb:سیتیدین مونوفوسفات
@@ -220,7 +217,7 @@ description:en: Cytidine monophosphate (CMP) is a nucleotide that is used as a m
 wikidata:en: Q412622
 wikipedia:en: https://en.wikipedia.org/wiki/Cytidine_monophosphate
 
-< en:Cytidine monophosphate
+< en: Cytidine monophosphate
 en: sodium salts of CMP
 bg: Натриеви соли на ЦМФ
 cs: sodné soli CMP
@@ -244,7 +241,7 @@ sl: natrijeve soli CMP
 sv: natriumsalter av CMP
 # ingredient/sodium-salts-of-CMP has no products @2019-06-23
 
-< en:nucleotides
+< en: nucleotides
 en: guanosine monophosphate, guanosine-5'-monophosphate, guanosine 5'-phosphoric acid, GMP
 ar: غوانوسين أحادي الفوسفات
 # azb:قوانوزین مونوفوسفات
@@ -281,7 +278,7 @@ zh: 單磷酸鳥苷
 # zh-tw:單磷酸鳥苷
 wikidata:en: Q422473
 
-< en:guanosine monophosphate
+< en: guanosine monophosphate
 en: disodium guanosine-5'-monophosphate, sodium salts of GMP
 bg: Натриеви соли на ГМФ
 cs: sodné soli GMP
@@ -305,7 +302,7 @@ sl: natrijeve soli GMP
 sv: natriumsalter av GMP
 
 # <en:E630 has also doubles in that taxonomy
-< en:nucleotides
+< en: nucleotides
 en: inosine monophosphate, inosine-5'-monophosphate, inosine 5'-phosphoric acid, IMP
 ar: حمض الإينوسينيك
 # azb:اینوسینیک اسید
@@ -328,7 +325,7 @@ vegetarian:en: no
 wikidata:en: Q255933
 wikipedia:en: https://en.wikipedia.org/wiki/Inosinic_acid
 
-< en:inosine monophosphate
+< en: inosine monophosphate
 en: disodium inosine-5'-monophosphate, sodium salts of IMP
 bg: Натриеви соли на ИМФ
 cs: sodné soli IMP
@@ -350,9 +347,8 @@ ro: săruri de sodiu ale IMP
 sk: sodné soli IMP
 sl: natrijeve soli IMP
 sv: natriumsalter av IMP
-# ingredient/disodium-inosine-5'-monophosphate has 2 products @2019-06-23
 
-< en:nucleotides
+< en: nucleotides
 en: uridine monophosphate, uridine-monophosphate, uridine-5'-monophosphate, uridine 5'-phosphoric acid, UMP
 ar: يوريدين أحادي الفوسفات
 # azb:اوریدین مونوفوسفات
@@ -386,7 +382,7 @@ description:en: URIDINE MONOPHOSPHATE (UMP) is a nucleotide that is used as a mo
 wikidata:en: Q414932
 wikipedia:en: https://en.wikipedia.org/wiki/Uridine_monophosphate
 
-< en:uridine-monophosphate
+< en: uridine-monophosphate
 en: disodium uridine-monophosphate, disodium uridine-5'-monophosphate, sodium salts of UMP
 bg: Натриеви соли на УМФ
 cs: sodné soli UMP
@@ -408,6 +404,4 @@ ro: săruri de sodiu ale UMP
 sk: sodné soli UMP
 sl: natrijeve soli UMP
 sv: natriumsalter av UMP
-# ingredient/disodium-uridine-5'-monophosphate has 1 product @2019-06-23
-
 

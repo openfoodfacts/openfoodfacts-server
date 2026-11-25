@@ -1,0 +1,52 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "packager_code" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>LIEU DIT TRECISSE, 42940 SAINT-BONNET-LE-COURREAU (France)</p>\n<p>SIRET: 78889230500020</p>"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "ENTREPRISE LAITIERE DE SAUVAIN -E.L.S."
+            },
+            "topics" : [
+               "emb_codes"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packager_code"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "fr-42-205-007-ec",
+      "tagtype" : "emb_codes"
+   },
+   "tagid" : "fr-42-205-007-ec",
+   "tagtype" : "emb_codes",
+   "warnings" : []
+}

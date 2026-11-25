@@ -62,9 +62,11 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Users qw/$User_id/;
 use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Nutrition qw/has_no_nutrition_data_on_packaging has_non_estimated_nutrition_data/;
 use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Images qw/data_to_display_image/;
@@ -73,12 +75,14 @@ use ProductOpener::PackagerCodes qw/%packager_codes/;
 use ProductOpener::KnowledgePanelsIngredients qw/:all/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::KnowledgePanelsReportProblem qw/create_report_problem_card_panel/;
-use ProductOpener::KnowledgePanelsProduct qw/create_product_card_panel/;
+use ProductOpener::KnowledgePanelsProduct qw/create_product_card_panel create_sources_manufacturer_panel/;
+use ProductOpener::EnvironmentalImpact qw/format_ecs_value get_environmental_cost_label_path/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
 use JSON::MaybeXS;
 use Encode;
 use Data::DeepAccess qw(deep_get);
+use Scalar::Util qw(looks_like_number);
 use boolean;
 
 =head1 FUNCTIONS
@@ -95,9 +99,29 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 	$knowledge_panels_options_ref->{activate_knowledge_panels_simplified}
 		= normalize_boolean(single_param("activate_knowledge_panels_simplified"));
 
+	# Activate the ingredients and nutrition first root panel only when specified
+	$knowledge_panels_options_ref->{activate_knowledge_panels_ingredients_nutrition_first}
+		= normalize_boolean(single_param("activate_knowledge_panels_ingredients_nutrition_first"));
+
 	# Activate physical activity knowledge panel only when specified
 	$knowledge_panels_options_ref->{activate_knowledge_panel_physical_activities}
 		= normalize_boolean(single_param("activate_knowledge_panel_physical_activities"));
+
+	# Activate related categories knowledge panel (category tag pages) only when specified
+	$knowledge_panels_options_ref->{activate_knowledge_panel_related_categories}
+		= normalize_boolean(single_param("activate_knowledge_panel_related_categories"));
+
+	# Activate the NOVA unknown knowledge panel (NOVA unknown tag page) only when specified
+	$knowledge_panels_options_ref->{activate_knowledge_panel_nova_unknown}
+		= normalize_boolean(single_param("activate_knowledge_panel_nova_unknown"));
+
+	# Activate product history knowledge panel only when specified (it is shown only to logged in users)
+	$knowledge_panels_options_ref->{activate_knowledge_panel_product_history}
+		= normalize_boolean(single_param("activate_knowledge_panel_product_history"));
+
+	# Activate storage conditions, customer service and manufacturer note panels only when specified
+	$knowledge_panels_options_ref->{activate_knowledge_panel_product_information}
+		= normalize_boolean(single_param("activate_knowledge_panel_product_information"));
 
 	# Specify if we knowledge panels are requested from the app or the website
 	# in order to allow different behaviours (e.g. showing ingredients before nutrition on the web)
@@ -129,6 +153,7 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 
 	# some info about users
 	$knowledge_panels_options_ref->{user_logged_in} = defined $User_id;
+	$knowledge_panels_options_ref->{moderator} = 1 if $request_ref->{moderator} || $request_ref->{admin};
 
 	return;
 }
@@ -242,6 +267,10 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 		$has_product_card = create_product_card_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
+	if ($panel_is_requested->('sources_manufacturer')) {
+		create_sources_manufacturer_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	my $has_environment_card;
 	if ($panel_is_requested->('environment_card')) {
 		$has_environment_card
@@ -315,11 +344,13 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 				"api/knowledge-panels/environment/environment_card_simplified.tt.json",
 				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 			# Simplified environmental panels
-			create_panel_from_json_template(
-				"origins_of_ingredients_simplified",
-				"api/knowledge-panels/environment/origins_of_ingredients_simplified.tt.json",
-				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
-			);
+			if (defined deep_get($product_ref, qw/environmental_score_data adjustments origins_of_ingredients/)) {
+				create_panel_from_json_template(
+					"origins_of_ingredients_simplified",
+					"api/knowledge-panels/environment/origins_of_ingredients_simplified.tt.json",
+					{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+				);
+			}
 			create_panel_from_json_template(
 				"threatened_species_simplified",
 				"api/knowledge-panels/environment/threatened_species_simplified.tt.json",
@@ -340,25 +371,50 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 	return;
 }
 
+=head2 escape_json_string_content($string)
+
+Escape the content of a JSON string literal, without the surrounding quotes.
+
+The backslash is escaped first, otherwise the backslash we add for a quote would be escaped again
+by the next pass, and the quote would not be escaped at all: the escaper used to skip a quote that
+was preceded by a backslash, which left the value able to escape the string it is interpolated
+into. The control characters (tab, and the other C0 characters) are escaped as well, because JSON
+does not allow them unescaped inside a string, and they are what a value reaching a template
+through a product field is most likely to contain.
+
+=cut
+
+sub escape_json_string_content ($string) {
+
+	return '' if not defined $string;
+
+	# The backslash first: it must not escape the backslashes we add for the other characters
+	$string =~ s/\\/\\\\/g;
+
+	$string =~ s/"/\\"/g;
+
+	# \R matches all Unicode newline sequences. The other C0 control characters are escaped as
+	# \uXXXX, including the tab (\x09), which \R does not match and which JSON does not allow
+	# unescaped inside a string.
+	$string =~ s/\R/\\n/g;
+	$string =~ s/([\x00-\x09\x0b-\x1f\x7f])/sprintf("\\u%04x", ord($1))/ge;
+
+	return $string;
+}
+
 =head2 convert_multiline_string_to_singleline($line)
 
 Helper function to allow to enter multiline strings in JSON templates.
 The function converts the multiline string into a single line string.
 
-New lines are converted to \n, and quotes " and \ are escaped if not escaped already.
+New lines are converted to \n, and quotes " and \ are escaped, together with the control
+characters that JSON does not allow unescaped inside a string.
 
 =cut
 
 sub convert_multiline_string_to_singleline ($line) {
 
-	# Escape " and \ unless they have been escaped already
-	# negative look behind to not convert \n to \\n or \" to \\" or \\ to \\\\
-	$line =~ s/(?<!\\)("|\\)/\\$1/g;
-
-	# \R will match all Unicode newline sequence
-	$line =~ s/\R/\\n/sg;
-
-	return '"' . $line . '"';
+	return '"' . escape_json_string_content($line) . '"';
 }
 
 =head2 convert_multiline_string_to_singleline_without_line_breaks_and_extra_spaces($line)
@@ -366,7 +422,9 @@ sub convert_multiline_string_to_singleline ($line) {
 Helper function to allow to enter multiline strings in JSON templates.
 The function converts the multiline string into a single line string.
 
-Line breaks are converted to spaces, and multiple spaces are converted to a single space.
+Line breaks are converted to spaces, and multiple spaces are converted to a single space. Quotes "
+and \ are escaped, together with the control characters that JSON does not allow unescaped inside a
+string (see escape_json_string_content()).
 
 This function is useful in templates where we use IF statements etc. to generate a single value like a title.
 
@@ -374,15 +432,11 @@ This function is useful in templates where we use IF statements etc. to generate
 
 sub convert_multiline_string_to_singleline_without_line_breaks_and_extra_spaces ($line) {
 
-	# Escape " and \ unless they have been escaped already
-	# negative look behind to not convert \n to \\n or \" to \\" or \\ to \\\\
-	$line =~ s/(?<!\\)("|\\)/\\$1/g;
-
 	$line =~ s/\s+/ /g;
 	$line =~ s/^\s+//;
 	$line =~ s/\s+$//;
 
-	return '"' . $line . '"';
+	return '"' . escape_json_string_content($line) . '"';
 }
 
 =head2 create_panel_from_json_template ( $panel_id, $panel_template, $panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
@@ -524,7 +578,7 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 
 			# Save the JSON file so that it can be more easily debugged, and that we can monitor issues
 			my $target_dir = "$BASE_DIRS{PUBLIC_FILES}/debug/knowledge_panels/";
-			my $filename = $panel_id . $product_ref->{code} . ".json";
+			my $filename = $panel_id . ($product_ref->{code} // '') . ".json";
 			my $target_file = "$target_dir/" . $filename;
 			my $url = "/files/debug/knowledge_panels/" . $filename;
 			ensure_dir_created_or_die($target_dir);
@@ -798,6 +852,84 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 	return;
 }
 
+=head2 create_environmental_cost_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Creates the Environmental Cost knowledge panel displaying Ecobalyse ECS breakdown,
+for the whole product (if we know or can estimate the product quantity) and for 100 g or 100 ml.
+
+The ingredients and packaging are sent to Ecobalyse for a reference quantity of product
+(see ProductOpener::EnvironmentalImpact::get_ecobalyse_reference_quantity()),
+so the impacts returned by Ecobalyse are for the reference quantity.
+
+Note: Ecobalyse applies its own ingredients to final product ratios (e.g. for 100 g of apricots,
+the impacts are reported for 80 g of product), so this is an approximation for now.
+
+=cut
+
+sub create_environmental_cost_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+	my $environmental_impact_ref = $product_ref->{environmental_impact} // {};
+	my $ecs_per_100 = $environmental_impact_ref->{ecs_per_100g_or_100ml};
+	return unless looks_like_number($ecs_per_100);
+
+	# Only show Environmental Cost panel to moderators and admins
+	return unless $options_ref->{moderator} || $options_ref->{admin};
+
+	my $input_ref = $environmental_impact_ref->{ecobalyse_input} // {};
+	my $reference_quantity = $input_ref->{reference_quantity};
+	return unless looks_like_number($reference_quantity) and $reference_quantity > 0;
+	my $unit = ($environmental_impact_ref->{ecs_per} // '') eq '100ml' ? 'ml' : 'g';
+
+	my $ecs_per_product = $environmental_impact_ref->{ecs_per_product};
+	my $has_per_product = looks_like_number($ecs_per_product);
+
+	# Quantity of the product: we display the quantity entered by users
+	my $quantity = $product_ref->{quantity} // "$reference_quantity $unit";
+
+	# The breakdown values returned by Ecobalyse are for the reference quantity, and they sum up to the total ECS
+	my $results_ref = deep_get($environmental_impact_ref, qw(ecobalyse_response results)) // {};
+	my @rows = (
+		["environmental_cost_ingredients", qw(recipe ingredientsTotal ecs)],
+		["environmental_cost_processing", qw(recipe transform ecs)],
+		["environmental_cost_packaging", qw(packaging ecs)],
+		# Transports of ingredients + distribution transports
+		["environmental_cost_transport", qw(transports impacts ecs)],
+		["environmental_cost_distribution", qw(distribution total ecs)],
+		["environmental_cost_preparation", qw(preparation ecs)],
+		["environmental_cost_total", qw(total ecs)],
+	);
+	my @rows_data = ();
+	foreach my $row_ref (@rows) {
+		my ($label, @path) = @$row_ref;
+		# missing values are 0, non numeric values are displayed as an empty string
+		my $value = deep_get($results_ref, @path) // 0;
+		push @rows_data,
+			{
+			label => $label,
+			per_product => format_ecs_value($value),
+			per_100 => (looks_like_number($value) ? format_ecs_value($value * 100 / $reference_quantity) : ""),
+			};
+	}
+
+	my $panel_data_ref = {
+		ecs_per_100 => format_ecs_value($ecs_per_100),
+		unit => $unit,
+		has_per_product => $has_per_product,
+		ecs_per_product => ($has_per_product ? format_ecs_value($ecs_per_product) : ""),
+		quantity => $quantity,
+		rows => \@rows_data,
+		# The results were computed before the latest changes to the product (we could not get new results)
+		stale => ($environmental_impact_ref->{ecobalyse_stale} ? 1 : 0),
+		# Image of the label, rendered by nginx, used as the icon of the panel
+		label_path =>
+			($has_per_product ? get_environmental_cost_label_path($ecs_per_product, $ecs_per_100, $unit) : undef),
+	};
+
+	create_panel_from_json_template("environmental_cost", "api/knowledge-panels/environment/environmental_cost.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	return;
+}
+
 =head2 create_environment_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel card that contains all knowledge panels related to the environment.
@@ -830,6 +962,9 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	# Create Environmental-Score related panels
 	if ($options{product_type} eq "food") {
 		create_environmental_score_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+		# Create Environmental Cost panel (Ecobalyse ECS) if we have ECS data
+		create_environmental_cost_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 		if (
 				(defined $product_ref->{environmental_score_data})
@@ -864,21 +999,28 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	# Create panel for manufacturing place
 	create_manufacturing_place_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
-	# Origins of ingredients for the environment card, for food, pet food and beauty products
-	if (feature_enabled("ingredients")) {
+	# Origins of ingredients for the environment card, only when the environmental score has computed them
+	if (defined deep_get($product_ref, qw/environmental_score_data adjustments origins_of_ingredients/)) {
 		create_panel_from_json_template("origins_of_ingredients",
 			"api/knowledge-panels/environment/origins_of_ingredients.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
 	# Forest footprint
-	if (defined $product_ref->{forest_footprint_data}) {
-		create_panel_from_json_template("forest_footprint", "api/knowledge-panels/environment/forest_footprint.tt.json",
+	if (defined $product_ref->{forest_footprint_2026}) {
+		create_panel_from_json_template("forest_footprint",
+			"api/knowledge-panels/environment/forest_footprint_2026.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
 	# Create the environment_card panel
 	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc);
+	if ($options_ref->{activate_knowledge_panels_ingredients_nutrition_first}) {
+		$panel_data_ref->{summary} = panel_titles_summary(
+			$product_ref->{"knowledge_panels_" . $target_lc},
+			qw(environmental_score carbon_footprint forest_footprint)
+		);
+	}
 	create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	return 1;
@@ -991,8 +1133,8 @@ sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options
 		return 0;
 	}
 
-	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
-	my $category_id = $product_ref->{categories_hierarchy}[-1];
+	# Add the name of the most specific category (last in categories_tags) to the panel data
+	my $category_id = $product_ref->{categories_tags}[-1];
 	$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
 
 	# Create panels for repairing and maintaining products, as they are relevant for secondhand products
@@ -1058,11 +1200,11 @@ sub create_epargnonsnosressources_panel ($product_ref, $target_lc, $target_cc, $
 		return 0;
 	}
 
-	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
+	# Add the name of the most specific category (last in categories_tags) to the panel data
 	my $category_id;
 	if (
-		not(ref($product_ref->{categories_hierarchy}) eq 'ARRAY'
-			and @{$product_ref->{categories_hierarchy}})
+		not(ref($product_ref->{categories_tags}) eq 'ARRAY'
+			and @{$product_ref->{categories_tags}})
 		)
 	{
 		return 0;
@@ -1073,7 +1215,7 @@ sub create_epargnonsnosressources_panel ($product_ref, $target_lc, $target_cc, $
 		= get_inherited_property_from_categories_tags($product_ref, "epargnonsnosressources_fr_link:en");
 
 	if (defined $maintenance_url) {
-		$category_id = $product_ref->{categories_hierarchy}[-1];
+		$category_id = $product_ref->{categories_tags}[-1];
 		$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
 		$panel_data_ref->{maintenance_url} = $maintenance_url;
 		$panel_data_ref->{category_with_maintenance_url} = $category_with_url;
@@ -1173,11 +1315,22 @@ sub create_manufacturing_place_panel ($product_ref, $target_lc, $target_cc, $opt
 	return;
 }
 
+=head2 panel_titles_summary ($panels_ref, @panel_ids)
+
+Join the titles of the existing panels among @panel_ids, to summarize a collapsed card in its subtitle.
+
+=cut
+
+sub panel_titles_summary ($panels_ref, @panel_ids) {
+	return join(' - ', grep {$_} map {deep_get($panels_ref, $_, qw(title_element title))} @panel_ids);
+}
+
 =head2 create_health_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
 
 Creates a knowledge panel card that contains all knowledge panels related to health.
 
-This panel card is created for food, pet food, and beauty products.
+This panel card is created for food, pet food, and beauty products,
+and for other products only when we have a health recommendation for them (e.g. the tobacco health warning).
 
 =head3 Arguments
 
@@ -1195,6 +1348,10 @@ This parameter sets the desired language for the user facing strings.
 We may display country specific recommendations from health authorities, or country specific scores.
 
 =head4 options reference $options_ref
+
+=head3 Return value
+
+1 if the health card was created, 0 otherwise.
 
 =cut
 
@@ -1250,6 +1407,17 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 		create_nutrition_facts_table_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
+	# Without ingredients, nutrition facts or a health recommendation (e.g. the tobacco health warning),
+	# the health card would be empty (e.g. for toilet paper or batteries on Open Products Facts)
+	my $panels_ref = $product_ref->{"knowledge_panels_" . $target_lc};
+	if (    (not feature_enabled("ingredients"))
+		and (not feature_enabled("nutrition"))
+		and (not defined $panels_ref->{recommendation_health})
+		and (not defined $panels_ref->{recommendation_health2}))
+	{
+		return 0;
+	}
+
 	my $panel_data_ref = {
 		ingredients_image => data_to_display_image($product_ref, "ingredients", $target_lc),
 		nutrition_image => data_to_display_image($product_ref, "nutrition", $target_lc),
@@ -1257,6 +1425,25 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 
 	$log->debug("create health card panel - data", {code => $product_ref->{code}, panel_data => $panel_data_ref})
 		if $log->is_debug();
+
+	if ($options_ref->{activate_knowledge_panels_ingredients_nutrition_first}) {
+		if (defined $panels_ref->{ingredients}) {
+			create_panel_from_json_template("ingredients_card", "api/knowledge-panels/health/ingredients_card.tt.json",
+				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		}
+		if (grep {defined $panels_ref->{$_}}
+			qw(nutrition_facts_table serving_size physical_activities nutrient_level_fat nutrient_level_saturated-fat nutrient_level_sugars nutrient_level_salt)
+			)
+		{
+			create_panel_from_json_template("nutrition_card", "api/knowledge-panels/health/nutrition_card.tt.json",
+				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+		}
+		# Ingredients and nutrition have their own cards
+		return 0
+			if not grep {defined $panels_ref->{$_}}
+			qw(recommendation_health recommendation_health2 nutriscore nutriscore_2023 nova additives ingredients_analysis);
+		$panel_data_ref->{summary} = panel_titles_summary($panels_ref, qw(nutriscore_2023 nova));
+	}
 
 	create_panel_from_json_template("health_card", "api/knowledge-panels/health/health_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
@@ -1499,6 +1686,17 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 
 		# Create a first panel with the aggregated set and comparison to category (if any)
 		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
+
+		# Offer an action to add the nutrition facts if none have been entered
+		if (    not has_no_nutrition_data_on_packaging($product_ref)
+			and not has_non_estimated_nutrition_data($product_ref))
+		{
+			$panel_data_ref->{nutrition_facts_missing} = 1;
+		}
+
+		# Mark this panel to be expanded for large screens by default
+		$panel_data_ref->{expand_for} = "large";
+
 		create_panel_from_json_template("nutrition_facts_table",
 			"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);

@@ -1,0 +1,248 @@
+type: object
+title: ForestFootprint2026
+description: |
+  Forest footprint (2026 algorithm) of a product — the risk of deforestation
+  associated with its ingredients.
+
+  This is a computed field; it is not settable by API users. It is present on
+  the product only when the forest footprint computation has been run.
+
+  The `primary_ingredients` object uses ingredient tags (e.g. `en:cocoa`,
+  `en:coffee`, `en:palm-oil`, `en:chicken-and-eggs`, `en:other-risky-ingredients`)
+  as keys. Only keys relevant to the product are present.
+properties:
+  grade:
+    type: string
+    enum: ["a", "b", "c", "d", "unknown", "not_computed"]
+    description: |
+      Overall forest footprint grade of the product.
+
+      - `a`: No deforestation risk (absence of risky ingredients or zero impact)
+      - `b`: Low risk of deforestation
+      - `c`: Medium risk of deforestation
+      - `d`: High risk of deforestation
+      - `unknown`: The product has ingredients that are not yet assessed
+        (e.g. corn, rice, cassava, soya, meat, dairy) without any computed
+        primary ingredients
+      - `not_computed`: The product contains risky ingredients but the overall
+        grade could not be computed
+  summary:
+    type: string
+    enum:
+      - "missing_ingredients"
+      - "with_other_risky_ingredients"
+      - "without_primary_ingredients_or_other_risky_ingredients"
+      - "with_primary_ingredients"
+    description: |
+      Summary of the forest footprint computation status:
+
+      - `missing_ingredients`: The product has no ingredients list, so the
+        forest footprint could not be computed
+      - `with_other_risky_ingredients`: The product contains risky ingredients
+        (not yet assessed) but no computed primary ingredients
+      - `without_primary_ingredients_or_other_risky_ingredients`: The product
+        has ingredients but none are risky or assessed; grade is A
+      - `with_primary_ingredients`: The product has computed primary ingredients
+        (cocoa, coffee, palm oil, chicken/eggs)
+  total_footprint_per_kg:
+    type:
+      - number
+      - "null"
+    description: |
+      Total forest footprint per kilogram of food, in square meters per kg.
+
+      This field is present (as a number) when the summary is
+      `with_primary_ingredients` or `without_primary_ingredients_or_other_risky_ingredients`.
+      It is `null` when the summary is `missing_ingredients` or
+      `with_other_risky_ingredients`. It may be absent if the field was not
+      populated.
+  primary_ingredients:
+    type: object
+    description: |
+      Map of primary ingredients and their computed forest footprint details.
+      Keys are primary ingredient tags (`en:cocoa`, `en:coffee`,
+      `en:palm-oil`, `en:chicken-and-eggs`, `en:other-risky-ingredients`).
+      Only primary ingredients present in the product are included.
+    additionalProperties:
+      oneOf:
+        - $ref: "#/components/schemas/ForestFootprintPrimaryIngredient"
+        - $ref: "#/components/schemas/ForestFootprintChickenAndEggs"
+        - $ref: "#/components/schemas/ForestFootprintOtherRiskyIngredients"
+components:
+  schemas:
+    ForestFootprintPrimaryIngredient:
+      type: object
+      description: |
+        Forest footprint details for cocoa, coffee, or palm oil primary ingredients.
+      properties:
+        footprint_per_kg:
+          type: number
+          description: Total footprint per kilogram for this primary ingredient.
+        grade:
+          type: string
+          enum: ["a", "b", "c", "d"]
+          description: Grade for this primary ingredient (A is best, D is worst).
+        ingredients:
+          type: array
+          items:
+            type: object
+            properties:
+              equivalence_ingredient:
+                type: number
+                description: Ingredient equivalence factor.
+              equivalence_ingredient_category:
+                type: number
+                description: Ingredient category equivalence factor.
+              footprint_per_kg:
+                type: number
+                description: Footprint per kg for this ingredient.
+              ingredient_category_id:
+                type: string
+                description: The ingredient category tag (e.g. en:cocoa, en:coffee, en:palm-oil).
+              ingredient_id:
+                type: string
+                description: The ingredient tag (canonical ID from the ingredients taxonomy).
+              label_id:
+                type: string
+                description: Label that reduces deforestation risk (if applicable).
+              origin_footprint:
+                type: number
+                description: Footprint per kg for the origin of this ingredient.
+              origin_id:
+                type: string
+                description: Origin tag (e.g. en:brazil, en:unknown).
+              percent:
+                type: number
+                description: Percentage of this ingredient in the product.
+              primary_ingredient_id:
+                type: string
+                description: The primary ingredient this ingredient maps to.
+              risk_factor:
+                type: number
+                description: Risk reduction factor applied by labels (1 = no reduction).
+              transformation_factor:
+                type: number
+                description: Combined equivalence/ingredient and category equivalence factors.
+            required:
+              - equivalence_ingredient
+              - equivalence_ingredient_category
+              - footprint_per_kg
+              - ingredient_category_id
+              - ingredient_id
+              - origin_footprint
+              - origin_id
+              - percent
+              - primary_ingredient_id
+              - risk_factor
+              - transformation_factor
+      required:
+        - footprint_per_kg
+        - grade
+        - ingredients
+    ForestFootprintChickenAndEggs:
+      type: object
+      description: |
+        Forest footprint details for chicken and eggs, computed using the
+        legacy ForestFootprint algorithm (soy-based feed import risk).
+        This has a different data structure than the other primary ingredients.
+      properties:
+        footprint_per_kg:
+          type: number
+          description: Total footprint per kg for chicken and eggs.
+        grade:
+          type: string
+          enum: ["a", "b", "c", "d", "e"]
+          description: Grade for chicken and eggs (A is best, E is worst). Uses legacy thresholds.
+        ingredients:
+          type:
+            - array
+            - "null"
+          items:
+            type: object
+            properties:
+              conditions_tags:
+                type: array
+                items:
+                  type: string
+                description: Conditions tags (e.g. processing conditions).
+              footprint_per_kg:
+                type: number
+                description: Footprint per kg for this ingredient entry.
+              percent:
+                type: number
+                description: Percentage of this ingredient in the product.
+              processing_factor:
+                type: number
+                description: Processing factor applied.
+              tag_id:
+                type: string
+                description: The tag id (ingredient or category tag).
+              tag_type:
+                type: string
+                description: The type of tag (e.g. "ingredients", "categories").
+              type:
+                type: object
+                properties:
+                  deforestation_risk:
+                    type: number
+                    description: Deforestation risk factor for this chicken/egg type.
+                  name:
+                    type: string
+                    description: Human-readable name of the chicken/egg type.
+                  soy_feed_factor:
+                    type: number
+                    description: Soy feed factor.
+                  soy_yield:
+                    type: number
+                    description: Soy yield factor.
+                required:
+                  - deforestation_risk
+                  - name
+                  - soy_feed_factor
+                  - soy_yield
+            required:
+              - conditions_tags
+              - footprint_per_kg
+              - percent
+              - processing_factor
+              - tag_id
+              - tag_type
+              - type
+      required:
+        - footprint_per_kg
+        - grade
+        - ingredients
+    ForestFootprintOtherRiskyIngredients:
+      type: object
+      description: |
+        Risky ingredients (corn, rice, cassava, soya, meat, dairy) that are
+        not yet assessed for deforestation risk. The footprint and grade are
+        unknown; only the ingredient list is provided.
+      properties:
+        footprint_per_kg:
+          type: "null"
+          description: Always null, as risky ingredients are not yet assessed.
+        grade:
+          type: string
+          enum: ["unknown"]
+          description: Always "unknown".
+        ingredients:
+          type:
+            - array
+            - "null"
+          items:
+            type: object
+            properties:
+              ingredient_category_id:
+                type: string
+                description: The risky ingredient category tag (e.g. en:rice, en:cassava).
+              ingredient_id:
+                type: string
+                description: The ingredient tag (canonical ID from the ingredients taxonomy).
+            required:
+              - ingredient_category_id
+              - ingredient_id
+      required:
+        - footprint_per_kg
+        - grade
+        - ingredients

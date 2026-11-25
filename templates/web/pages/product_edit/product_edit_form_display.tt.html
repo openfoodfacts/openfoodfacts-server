@@ -41,7 +41,7 @@
                         <ul class="inline-list">
                             <li><a class="nav-link scrollto button small round white-button" href="#product_characteristics"><span>[% lang('product_characteristics') %]</span></a></li>
                             <li><a class="nav-link scrollto button small round white-button" href="#ingredients"><span>[% lang("ingredients") %]</span></a></li>
-                            <li><a class="nav-link scrollto button small round white-button" href="#nutrition"><span>[% lang("nutrition") %]</span></a></li>
+                            [% IF nutrition_feature_enabled || product_has_nutrition_data %]<li><a class="nav-link scrollto button small round white-button" href="#nutrition"><span>[% lang("nutrition") %]</span></a></li>[% END %]
                             <li><a class="nav-link scrollto button small round white-button" href="#packaging_section"><span>[% lang("packaging") %]</span></a></li>
                         </ul>
                     </nav><!-- .navbar -->
@@ -106,10 +106,10 @@
         </div>
         [% END %]
 
-        [% IF moderator %]
+        [% IF can_delete_image %]
             <ul id="manage_images_accordion" class="accordion" data-accordion>
                 <li class="accordion-navigation">
-                    <a href="#manage_images_drop" class="moderator-only">[% display_icon('collections') %] [% lang("manage_images") %]</a>
+                    <a href="#manage_images_drop"[% IF moderator %] class="moderator-only"[% END %]>[% display_icon('collections') %] [% lang("manage_images") %]</a>
                     <div id="manage_images_drop" class="content" style="background:#eeeeee">
                         [% display_select_manage %]
                         <p>[% manage_images_info %]</p>
@@ -173,7 +173,10 @@
             </div>
         </section>
 
-        <!--nutrient fieldset-->
+[%# The nutrition section is displayed when the nutrition feature is enabled for the product,
+    or when the product already has nutrition data (e.g. beauty products with nutrition facts
+    added before the feature was disabled), so that contributors can delete it -%]
+        [% IF nutrition_feature_enabled || product_has_nutrition_data %]<!--nutrient fieldset-->
         <section class="card fieldset" id="nutrition">
             <div class="card-section">
                 <legend>[% lang('nutrition_data') %]</legend>
@@ -334,13 +337,19 @@
                 </div>
 
             </div>
-    </section><!--nutrient field set-->
+    </section><!--nutrient field set-->[% END %]
 
         <!--packaging field-->
         <section id="packaging_section" class="card fieldset">
             <div class="card-section">
                 <legend>[% lang('packaging') %]</legend>
                 [% display_tab_packaging %]
+[%- IF display_field_packaging_legacy %]
+
+                <div class="panel callout">
+                    [% display_field_packaging_legacy %]
+                </div>
+[%- END %]
 
                 [% INCLUDE web/pages/product_edit/product_edit_form_packagings.tt.html product = product %]
             </div>
@@ -374,7 +383,7 @@
             [% IF type == 'edit' %]
 
                 <div class="row">
-                    [% IF moderator %]
+                    [% IF can_delete %]
                         [% comment_grid_classes = "small-12 medium-12 large-6 xlarge-6 columns" %]
                         [% button_grid_classes = "small-4 medium-4 large-2 xlarge-2 columns" %]
                     [% ELSE %]
@@ -394,7 +403,7 @@
                             [% display_icon('cancel') %] [% lang('cancel') %]
                         </button>
                     </div>
-                    [% IF moderator %]
+                    [% IF can_delete %]
                         <div class="small-4 medium-4 large-2 xlarge-2 columns">
                             <a href="/cgi/product.pl?type=delete&code=[% code %]" class="button postfix small secondary alert" title="[% edq(lang('delete_product_page')) %]">
                                 [% display_icon('delete') %] [% lang('delete') %]
@@ -465,5 +474,7 @@
     opacity: 0.7;
 }
 </style>
+
+[% INCLUDE web/pages/product_edit/image_editor_template.tt.html %]
 
 <!-- end templates/[% template.name %] -->

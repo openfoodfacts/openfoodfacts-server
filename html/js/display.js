@@ -40,7 +40,7 @@ function doWebShare(e) {
             console.info('Successfully sent share');
 
             if (typeof _paq !== 'undefined') {
-                _paq.push(['trackEvent', 'Product', 'Share', 'Product Page']);
+                _paq.push(['trackEvent', 'product', 'share', 'product page']);
             }
         },
         (error) => console.error('Error sharing: ' + error)
@@ -150,6 +150,16 @@ $(function () {
                     results: results
                 };
             }
+        }
+    }).on("select2:open", function () {
+        const countrySelect = $(this);
+        const select2 = countrySelect.data('select2');
+        if (select2 && select2.dropdown && select2.dropdown.$search) {
+            const searchLabel = countrySelect.attr('data-search-placeholder');
+            select2.dropdown.$search.attr({
+                placeholder: searchLabel,
+                'aria-label': searchLabel
+            });
         }
     }).on("select2:select", function (e) {
         let subdomain = e.params.data.id;

@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -11,7 +11,7 @@ $Data::Dumper::Sortkeys = 1;
 
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::DataQualityFood qw/:all/;
-use ProductOpener::Tags qw/has_tag/;
+use ProductOpener::ProductsTags qw/has_tag/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
@@ -21,12 +21,9 @@ use boolean;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
-sub check_quality_and_test_product_has_quality_tag($$$$;$) {
-	my $product_ref = shift;
-	my $tag_name = shift;
-	my $reason = shift;
-	my $yesno = shift;
-	my $tag_level = shift // 'data_quality';
+sub check_quality_and_test_product_has_quality_tag ($product_ref, $tag_name, $reason, $yesno,
+	$tag_level = 'data_quality')
+{
 	# If the product has nutrition.input_sets, generate aggregated_set
 	if (defined $product_ref->{nutrition}{input_sets}) {
 		generate_nutrient_aggregated_set($product_ref);
@@ -44,10 +41,7 @@ sub check_quality_and_test_product_has_quality_tag($$$$;$) {
 	return;
 }
 
-sub product_with_energy_has_quality_tag($$$) {
-	my $energy = shift;
-	my $reason = shift;
-	my $yesno = shift;
+sub product_with_energy_has_quality_tag ($energy, $reason, $yesno) {
 
 	my $product_ref = {
 		lc => "de",
@@ -621,6 +615,63 @@ check_quality_and_test_product_has_quality_tag(
 	'energy not matching nutrient', 0
 );
 
+# Isomalt is a polyol which contributes energy at the general polyols rate (10 kj / 2.4 kcal per g)
+# If we do not have a value for polyols but we have a value for isomalt, we should assume that
+# polyols are equal to isomalt when we check the nutrients to energy computation.
+# (100 g carbohydrates, all of it isomalt -> 100 g * 10 kj/g = 1000 kj)
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 1000, unit => "kj"},
+					"carbohydrates" => {value => 100, unit => "g"},
+					"isomalt" => {value => 100, unit => "g"},
+					"fat" => {value => 0, unit => "g"},
+					"proteins" => {value => 0, unit => "g"},
+					"fiber" => {value => 0, unit => "g"},
+				}
+			}
+		]
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy matching nutrient - isomalt without polyols', 0
+);
+
+# Individual polyols values (isomalt and maltitol) should be summed when there is no value for polyols
+# (100 g carbohydrates, 60 g isomalt + 40 g maltitol -> 100 g * 10 kj/g = 1000 kj)
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 1000, unit => "kj"},
+					"carbohydrates" => {value => 100, unit => "g"},
+					"isomalt" => {value => 60, unit => "g"},
+					"maltitol" => {value => 40, unit => "g"},
+					"fat" => {value => 0, unit => "g"},
+					"proteins" => {value => 0, unit => "g"},
+					"fiber" => {value => 0, unit => "g"},
+				}
+			}
+		]
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy matching nutrient - isomalt and maltitol without polyols', 0
+);
+
 # en:nutrition-value-negative-$nid should be raised - for nutrients below 0
 $product_ref = {
 	nutrition => {
@@ -1028,6 +1079,71 @@ check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-producer-as-sold-100g-values-are-all-identical',
 	'all identical values and above 1 in the nutrition table BUT not enough nutrients given', 0
+);
+# salt and sodium values should be aligned
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"salt" => {value => 2.5, unit => "g"},
+					"sodium" => {value => 2, unit => "g"},
+				}
+			}
+		]
+	}
+};
+
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-salt-does-not-match-sodium',
+	'salt and sodium values do not match', 1
+);
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"salt" => {value => 2.5, unit => "g"},
+					"sodium" => {value => 1, unit => "g"},
+				}
+			}
+		]
+	}
+};
+
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-salt-does-not-match-sodium',
+	'salt and sodium values are consistent', 0
+);
+
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"salt" => {value => 2.5, unit => "g"},
+					"sodium" => {value => 0.97, unit => "g"},
+				}
+			}
+		]
+	}
+};
+
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-salt-does-not-match-sodium',
+	'salt and sodium values within 0.1g tolerance', 0
 );
 
 # sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars
@@ -2567,9 +2683,9 @@ ok(
 	),
 	'en:fruit content too small citrus jams'
 ) or diag Dumper $product_ref;
-## blackcurrants jellies
+## blackcurrant jellies
 $product_ref = {
-	categories_tags => ["en:blackcurrants-jellies"],
+	categories_tags => ["en:blackcurrant-jellies"],
 	countries_tags => ["en:slovenia",],
 	specific_ingredients => [
 		{
@@ -2585,9 +2701,9 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-blackcurrants-jellies'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-blackcurrant-jellies'
 	),
-	'en:fruit content too small blackcurrants jellies'
+	'en:fruit content too small blackcurrant jellies'
 ) or diag Dumper $product_ref;
 ## passion fruit jellies
 $product_ref = {

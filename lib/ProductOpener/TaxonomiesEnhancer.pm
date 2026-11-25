@@ -58,7 +58,8 @@ use Log::Log4perl qw(get_logger);
 use Text::Levenshtein qw(distance);
 
 use ProductOpener::Ingredients qw/parse_ingredients_text_service/;
-use ProductOpener::Tags qw/add_tag get_taxonomy_tag_synonyms is_a/;
+use ProductOpener::Tags qw/get_taxonomy_tag_synonyms is_a/;
+use ProductOpener::ProductsTags qw/add_tag/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 
 # Configure Log4perl
@@ -141,6 +142,8 @@ sub parse_ingredients_for_language {
 	my $lang = ($key =~ s/^ingredients_text_//r);
 
 	# Apply parse on given lang
+	$ingredients_hash->{"lc"} = $lang;
+	$ingredients_hash->{"lang"} = $lang;
 	$ingredients_hash->{"ingredients_lc"} = $lang;
 	$ingredients_hash->{"ingredients_text"} = lc($ingredients_hash->{"ingredients_text_" . $lang});
 
@@ -152,6 +155,8 @@ sub parse_ingredients_for_language {
 	$ingredients_hash->{$lang} = \@flat_ingredients;
 
 	# Deleting unnecessary keys created by the parse_ingredients_text_service, ensure they exist before deletion
+	delete $ingredients_hash->{"lc"} if exists $ingredients_hash->{"lc"};
+	delete $ingredients_hash->{"lang"} if exists $ingredients_hash->{"lang"};
 	delete $ingredients_hash->{"ingredients"} if exists $ingredients_hash->{"ingredients"};
 	delete $ingredients_hash->{"ingredients_lc"} if exists $ingredients_hash->{"ingredients_lc"};
 	delete $ingredients_hash->{"ingredients_text"} if exists $ingredients_hash->{"ingredients_text"};
@@ -698,10 +703,16 @@ sub check_ingredients_between_languages {
 	foreach my $key (keys %{$product_ref}) {
 		# ingredients_text_fi yes, ingredients_text_with_allergens_fi no
 		if ($key =~ /^ingredients_text_[a-z]{2}$/) {
+			# empty lists are always skipped by not_enough_known_ingredients(), no need to parse them
+			next if ((not defined $product_ref->{$key}) or ($product_ref->{$key} eq ''));
 			$ingredients_hash{$key} = $product_ref->{$key};
 			$log->debug("Added key: $key with value: $product_ref->{$key}") if $log->is_debug();
 		}
 	}
+
+	# We need at least 2 ingredients lists to compare,
+	# return now to avoid parsing the ingredients again (they are already parsed in the main language)
+	return if ((scalar keys %ingredients_hash) < 2);
 
 	# Process each key in the product reference to parse ingredients for each language
 	foreach my $key (keys %ingredients_hash) {

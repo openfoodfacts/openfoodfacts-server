@@ -17,22 +17,12 @@
       "text" : "suiker"
    },
    {
-      "id" : "en:gelling-agent",
-      "ingredients" : [
-         {
-            "id" : "en:citrus-pectin",
-            "is_in_taxonomy" : 1,
-            "percent_estimate" : 10.4166666666667,
-            "percent_max" : 33.3333333333333,
-            "percent_min" : 0,
-            "text" : "citruspectine"
-         }
-      ],
+      "id" : "en:citrus-pectin",
       "is_in_taxonomy" : 1,
       "percent_estimate" : 10.4166666666667,
       "percent_max" : 33.3333333333333,
       "percent_min" : 0,
-      "text" : "geleermiddel"
+      "text" : "citruspectine"
    },
    {
       "id" : "en:lemon-juice-from-concentrate",
@@ -43,57 +33,30 @@
       "text" : "citroensap uit concentraat"
    },
    {
-      "id" : "en:preservative",
-      "ingredients" : [
-         {
-            "id" : "en:e202",
-            "is_in_taxonomy" : 1,
-            "percent_estimate" : 2.60416666666666,
-            "percent_max" : 13.8888888888889,
-            "percent_min" : 0,
-            "text" : "kaliumsorbaat"
-         }
-      ],
+      "additive_class" : "en:preservative",
+      "id" : "en:e202",
       "is_in_taxonomy" : 1,
       "percent_estimate" : 2.60416666666666,
       "percent_max" : 13.8888888888889,
       "percent_min" : 0,
-      "text" : "conserveermiddel"
+      "text" : "kaliumsorbaat"
    },
    {
-      "id" : "en:antioxidant",
-      "ingredients" : [
-         {
-            "id" : "en:e300",
-            "is_in_taxonomy" : 1,
-            "percent_estimate" : 1.30208333333333,
-            "percent_max" : 10.4166666666667,
-            "percent_min" : 0,
-            "text" : "ascorbinezuur"
-         }
-      ],
+      "additive_class" : "en:antioxidant",
+      "id" : "en:e300",
       "is_in_taxonomy" : 1,
       "percent_estimate" : 1.30208333333333,
       "percent_max" : 10.4166666666667,
       "percent_min" : 0,
-      "text" : "antioxidant"
+      "text" : "ascorbinezuur"
    },
    {
-      "id" : "en:sweetener",
-      "ingredients" : [
-         {
-            "id" : "en:e960",
-            "is_in_taxonomy" : 1,
-            "percent_estimate" : 1.30208333333333,
-            "percent_max" : 8.33333333333333,
-            "percent_min" : 0,
-            "text" : "steviolglycosiden"
-         }
-      ],
+      "additive_class" : "en:sweetener",
+      "id" : "en:e960",
       "is_in_taxonomy" : 1,
       "percent_estimate" : 1.30208333333333,
       "percent_max" : 8.33333333333333,
       "percent_min" : 0,
-      "text" : "zoetstof"
+      "text" : "steviolglycosiden"
    }
 ]

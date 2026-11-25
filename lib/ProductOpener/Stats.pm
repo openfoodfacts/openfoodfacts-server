@@ -167,11 +167,11 @@ sub compute_stats_for_products ($stats_ref, $values_ref, $count, $n, $min_produc
 			mean => $values_ref->{$key}{mean},
 			"100g" => sprintf("%.2e", $values_ref->{$key}{mean}) + 0.0,
 			std => sprintf("%.2e", $values_ref->{$key}{std}) + 0.0,
-			min => sprintf("%.2e", $values_ref->{$key}{array}[0]) + 0.0,
-			max => sprintf("%.2e", $values_ref->{$key}{array}[$#{$values_ref->{$key}{array}}]) + 0.0,
-			"10" => sprintf("%.2e", $values_ref->{$key}{array}[int(($values_ref->{$key}{n} - 1) * 0.10)]) + 0.0,
-			"90" => sprintf("%.2e", $values_ref->{$key}{array}[int(($values_ref->{$key}{n}) * 0.90)]) + 0.0,
-			"50" => sprintf("%.2e", $values_ref->{$key}{array}[int(($values_ref->{$key}{n}) * 0.50)]) + 0.0,
+			min => sprintf("%.2e", $values[0]) + 0.0,
+			max => sprintf("%.2e", $values[$#values]) + 0.0,
+			"10" => sprintf("%.2e", $values[int(($values_ref->{$key}{n} - 1) * 0.10)]) + 0.0,
+			"90" => sprintf("%.2e", $values[int(($values_ref->{$key}{n}) * 0.90)]) + 0.0,
+			"50" => sprintf("%.2e", $values[int(($values_ref->{$key}{n}) * 0.50)]) + 0.0,
 		};
 
 		if ($key =~ /^energy/) {

@@ -1,0 +1,35 @@
+name: 📋 Pull request pre-check
+
+on:
+  # pull_request_target, so that pull requests from forks can be commented on.
+  # Safe because only the default branch is checked out: the pull request's code never runs.
+  pull_request_target:
+    types: [opened, edited, reopened, synchronize, ready_for_review]
+  # so that a screenshot posted in a comment is seen
+  issue_comment:
+    types: [created, edited, deleted]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  precheck:
+    name: Pre-check
+    if: github.event_name == 'pull_request_target' || (github.event.issue.pull_request && github.event.comment.user.type != 'Bot')
+    # at job level, so that a skipped run does not cancel a real one
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.event.issue.number }}
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const {run} = await import(`${process.env.GITHUB_WORKSPACE}/.github/scripts/pr_precheck.mjs`);
+            await run({github, context});

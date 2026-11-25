@@ -31,7 +31,7 @@ properties:
           See property `1` to get the real type of those objects
           (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
         type: string
-      '(?<image_type>front|nutrition|ingredients|packaging|other)_(?<language_code>\w\w)':
+      '(?<image_type>front|nutrition|ingredients|packaging)_(?<language_code>\w\w)':
         description: |
           See property `front` to get the real type of those objects
           (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
@@ -57,7 +57,7 @@ properties:
         $ref: "./image_urls.yaml#/components/schemas/SelectedImage"
 
     patternProperties:
-      "(?<image_type>front|packaging|ingredients|nutrition|other)":
+      "(?<image_type>front|packaging|ingredients|nutrition)":
         description: |
           See property `front` to get the real type of those objects
           (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
@@ -71,7 +71,7 @@ properties:
     type: string
 
 patternProperties:
-  "image(_(?<image_type>front|packaging|ingredients|nutrition|other))?(_(?<image_size>small|thumb))?_url":
+  "image(_(?<image_type>front|packaging|ingredients|nutrition))?(_(?<image_size>small|thumb))?_url":
     description: |
       the URL of image of type `image_type` in size `image_size` (or full size if not given).
 

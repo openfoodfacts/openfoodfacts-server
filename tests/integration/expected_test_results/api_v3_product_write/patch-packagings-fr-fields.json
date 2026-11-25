@@ -4,6 +4,7 @@
    "product" : {
       "misc_tags" : [
          "en:environmental-score-not-computed",
+         "en:forest-footprint-unknown",
          "en:nutrients-not-estimated-from-ingredients-no-ingredients",
          "en:nutriscore-missing-category",
          "en:nutriscore-missing-fiber",
@@ -22,6 +23,7 @@
          "en:packagings-not-empty",
          "en:packagings-not-empty-but-not-complete",
          "en:packagings-number-of-components-4",
+         "en:storage-conditions-not-set",
          "en:main-countries-new-product"
       ],
       "packagings" : [
@@ -50,7 +52,7 @@
             "number_of_units" : 1,
             "recycling" : {
                "id" : "en:recycle",
-               "lc_name" : "Recycler"
+               "lc_name" : "recycler"
             },
             "shape" : {
                "id" : "en:box",
@@ -78,7 +80,7 @@
             "number_of_units" : 4,
             "recycling" : {
                "id" : "en:recycle",
-               "lc_name" : "Recycler"
+               "lc_name" : "recycler"
             },
             "shape" : {
                "id" : "en:pot",

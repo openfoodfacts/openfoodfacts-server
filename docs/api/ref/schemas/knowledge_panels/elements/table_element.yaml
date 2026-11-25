@@ -55,6 +55,9 @@ properties:
               text:
                 type: string
                 description: Cell text content
+              url:
+                type: string
+                description: Optional URL that the cell text links to (e.g. a revision of the product, or a contributor page)
               icon_url:
                 type: string
                 description: URL of an icon to display in the cell

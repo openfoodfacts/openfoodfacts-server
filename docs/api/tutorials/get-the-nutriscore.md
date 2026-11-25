@@ -5,7 +5,7 @@
 - If you can't get the information on a specific product, you can get your user to send photos and data, that will then be processed by Open Food Facts AI and contributors to get the computed result you want to show them.
 - You can implement the complete flow below so that they get immediately the result with some effort on their side.
 - That will ensure user satisfaction
-- Please refer to the [product addition tutorial](https://openfoodfacts.github.io/openfoodfacts-server/reference/api-tutorials/adding-missing-products/) for the technical way to do the required operations (such as nutrition input), and to the high level workflow below for all the cases you have to handle.
+- Please refer to the [product addition tutorial](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/tutorials/adding-missing-products/) for the technical way to do the required operations (such as nutrition input), and to the high level workflow below for all the cases you have to handle.
 
 ### Display Nutri-Score knowledge panels - All the logic below in 5 lines of code!
 
@@ -64,7 +64,7 @@ if "en:categories-completed" in states_tags AND nutrition_grade=Null
 ```
 
 - List of exceptions: https://www.santepubliquefrance.fr/content/download/150262/file/QR_scientifique_technique_150421.pdf
-- You can get states with [https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade,states_tags](https://world.openfoodfacts.org/api/v2/product/3414280980209.json?fields=environmental_score_grade,states_tags)
+- You can get states with [https://world.openfoodfacts.org/api/v3/product/3414280980209.json?fields=environmental_score_grade,states_tags](https://world.openfoodfacts.org/api/v3/product/3414280980209.json?fields=environmental_score_grade,states_tags)
 
 #### Add a message if we have a category but no nutrition
 

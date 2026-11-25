@@ -12,17 +12,8 @@
       "additives_n" : 0,
       "additives_original_tags" : [],
       "additives_tags" : [],
-      "allergens" : "",
-      "allergens_from_ingredients" : "",
-      "allergens_from_user" : "(en) ",
-      "allergens_hierarchy" : [],
       "allergens_tags" : [],
       "amino_acids_tags" : [],
-      "categories" : "snacks",
-      "categories_hierarchy" : [
-         "en:snacks"
-      ],
-      "categories_lc" : "en",
       "categories_properties" : {},
       "categories_properties_tags" : [
          "all-products",
@@ -143,6 +134,51 @@
          "tests"
       ],
       "entry_dates_tags" : "--ignore--",
+      "environmental_impact" : {
+         "ecobalyse_input" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "ecobalyse_name" : "Eau du robinet UE -2025-",
+                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                  "mass" : 75,
+                  "name" : "water"
+               }
+            ],
+            "ingredients_coverage_percent" : 75,
+            "packaging" : [
+               {
+                  "category" : "",
+                  "id" : "3fe0e81a-1f6d-40af-9ee2-b31302d7ca9b",
+                  "name" : "Soft cheeses - cat E, 120g | Packaging System, N0, All, Plastic box with label (double) {FR} U",
+                  "name_fr" : "Boîte en plastique (PET) pour fromage à pâte molle - 120g"
+               }
+            ],
+            "reference_quantity" : 100,
+            "reference_quantity_source" : "product_quantity",
+            "reference_quantity_unit" : "g"
+         },
+         "ecobalyse_request" : {
+            "data" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                     "mass" : 75
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "amount" : 1,
+                     "id" : "3fe0e81a-1f6d-40af-9ee2-b31302d7ca9b"
+                  }
+               ]
+            },
+            "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         },
+         "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
+         "ecobalyse_skipped" : 1
+      },
       "environmental_score_data" : {
          "adjustments" : {
             "origins_of_ingredients" : {
@@ -423,7 +459,14 @@
       "environmental_score_tags" : [
          "unknown"
       ],
+      "estimate_ingredients_percent_service" : "product_opener",
       "food_groups_tags" : [],
+      "forest_footprint_2026" : {
+         "grade" : "a",
+         "primary_ingredients" : {},
+         "summary" : "without_primary_ingredients_or_other_risky_ingredients",
+         "total_footprint_per_kg" : 0
+      },
       "generic_name" : "default_name",
       "generic_name_en" : "default_name",
       "id" : "4260392550101",
@@ -438,7 +481,8 @@
       "ingredients" : [
          {
             "ciqual_food_code" : "18066",
-            "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+            "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+            "ecobalyse_name" : "Eau du robinet UE -2025-",
             "id" : "en:water",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 75,
@@ -449,7 +493,7 @@
             "vegetarian" : "yes"
          },
          {
-            "id" : "en:test-ingredient",
+            "id" : "en:test_ingredient",
             "is_in_taxonomy" : 0,
             "percent_estimate" : 25,
             "percent_max" : 50,
@@ -459,13 +503,13 @@
       ],
       "ingredients_analysis" : {
          "en:palm-oil-content-unknown" : [
-            "en:test-ingredient"
+            "en:test_ingredient"
          ],
          "en:vegan-status-unknown" : [
-            "en:test-ingredient"
+            "en:test_ingredient"
          ],
          "en:vegetarian-status-unknown" : [
-            "en:test-ingredient"
+            "en:test_ingredient"
          ]
       },
       "ingredients_analysis_tags" : [
@@ -482,13 +526,13 @@
       "ingredients_non_nutritive_sweeteners_n" : 0,
       "ingredients_original_tags" : [
          "en:water",
-         "en:test-ingredient"
+         "en:test_ingredient"
       ],
       "ingredients_percent_analysis" : 1,
       "ingredients_sweeteners_n" : 0,
       "ingredients_tags" : [
          "en:water",
-         "en:test-ingredient"
+         "en:test_ingredient"
       ],
       "ingredients_text" : "water, test_ingredient",
       "ingredients_text_en" : "water, test_ingredient",
@@ -499,11 +543,11 @@
       "ingredients_with_unspecified_percent_n" : 2,
       "ingredients_with_unspecified_percent_sum" : 100,
       "ingredients_without_ciqual_codes" : [
-         "en:test-ingredient"
+         "en:test_ingredient"
       ],
       "ingredients_without_ciqual_codes_n" : 1,
       "ingredients_without_ecobalyse_ids" : [
-         "en:test-ingredient"
+         "en:test_ingredient"
       ],
       "ingredients_without_ecobalyse_ids_n" : 1,
       "interface_version_created" : "20150316.jqm2",
@@ -533,7 +577,13 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
+         "en:ecobalyse-api-not-called",
+         "en:ecobalyse-ingredients-matched-between-70-and-79",
+         "en:ecobalyse-reference-quantity-from-product-quantity",
          "en:environmental-score-not-computed",
+         "en:estimated-ingredients-with-product-opener",
+         "en:forest-footprint-computed",
+         "en:forest-footprint-grade-a",
          "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
          "en:nutriscore-2021-c-2023-c",
          "en:nutriscore-2021-same-as-2023",
@@ -546,6 +596,7 @@
          "en:packagings-not-empty",
          "en:packagings-not-empty-but-not-complete",
          "en:packagings-number-of-components-4",
+         "en:storage-conditions-not-set",
          "en:main-countries-new-product"
       ],
       "nova_group" : 1,
@@ -586,7 +637,9 @@
                "is_fat" : 0,
                "is_water" : 0,
                "negative_points" : 8,
+               "negative_points_max" : 0,
                "positive_points" : 4,
+               "positive_points_max" : 0,
                "proteins" : 4.5,
                "proteins_points" : 2,
                "proteins_value" : 4.5,
@@ -1075,26 +1128,11 @@
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,
-      "schema_version" : 1003,
+      "schema_version" : 1004,
       "serving_quantity" : 10,
       "serving_quantity_unit" : "g",
       "serving_size" : "10 g",
       "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
-      "states_hierarchy" : [
-         "en:to-be-completed",
-         "en:nutrition-facts-completed",
-         "en:ingredients-completed",
-         "en:expiration-date-to-be-completed",
-         "en:packaging-code-to-be-completed",
-         "en:characteristics-to-be-completed",
-         "en:origins-to-be-completed",
-         "en:categories-completed",
-         "en:brands-to-be-completed",
-         "en:packaging-to-be-completed",
-         "en:quantity-completed",
-         "en:product-name-completed",
-         "en:photos-to-be-uploaded"
-      ],
       "states_tags" : [
          "en:to-be-completed",
          "en:nutrition-facts-completed",
@@ -1110,10 +1148,28 @@
          "en:product-name-completed",
          "en:photos-to-be-uploaded"
       ],
-      "traces" : "",
-      "traces_from_ingredients" : "",
-      "traces_from_user" : "(en) ",
-      "traces_hierarchy" : [],
+      "tags_sources" : {
+         "allergens" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            }
+         },
+         "categories" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:snacks"
+               ]
+            }
+         },
+         "traces" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            }
+         }
+      },
       "traces_tags" : [],
       "unknown_ingredients_n" : 1,
       "vitamins_tags" : [],

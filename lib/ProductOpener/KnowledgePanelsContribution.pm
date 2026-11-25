@@ -40,6 +40,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&create_contribution_card_panel
 		&create_data_quality_panel
+		&create_product_history_panel
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -47,7 +48,9 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::KnowledgePanels qw(create_panel_from_json_template);
-use ProductOpener::Tags qw(display_taxonomy_tag get_tags_grouped_by_property);
+use ProductOpener::Tags qw(display_taxonomy_tag get_tags_grouped_by_property canonicalize_tag canonicalize_tag_link);
+use ProductOpener::Display qw(get_product_history_revisions display_date);
+use ProductOpener::Products qw(product_url product_action_url);
 
 use Encode;
 use Data::DeepAccess qw(deep_get);
@@ -88,8 +91,11 @@ sub create_contribution_card_panel ($product_ref, $target_lc, $target_cc, $optio
 			= create_data_quality_panel($tag_type, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 		push(@panels, $created) if $created;
 	}
+	if (create_product_history_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref)) {
+		push(@panels, "product_history");
+	}
 	if (@panels) {
-		my $panel_data_ref = {quality_panels => \@panels,};
+		my $panel_data_ref = {contribution_panels => \@panels,};
 		create_panel_from_json_template("contribution_card",
 			"api/knowledge-panels/contribution/contribution_card.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
@@ -156,6 +162,119 @@ sub create_data_quality_panel ($tags_type, $product_ref, $target_lc, $target_cc,
 	}
 	return $tags_type if $created;
 	return;
+}
+
+# private sub to make text safe to include in a knowledge panel JSON template:
+# backticks are used in templates to delimit multiline strings, so we replace them
+sub _remove_backticks ($text) {
+	return '' if not defined $text;
+	$text =~ s/`/'/g;
+	return $text;
+}
+
+=head2 create_product_history_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref )
+
+Creates a knowledge panel with a table of the changes history of the product (most recent first).
+
+The panel is created only on demand (activate_knowledge_panel_product_history option),
+and only for logged in users.
+
+Popular products can have more than a thousand revisions, so only the most recent ones are included,
+with a link to the full history on the website.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+=head4 language code $target_lc
+
+=head4 country code $target_cc
+
+=head4 options reference $options_ref
+
+=head4 request reference $request_ref
+
+=head3 Return value
+
+1 if the panel was created, undef otherwise.
+
+=cut
+
+# Maximum number of revisions included in the product history panel
+my $product_history_panel_max_revisions = 100;
+
+sub create_product_history_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+
+	if (not($options_ref->{activate_knowledge_panel_product_history} and $options_ref->{user_logged_in})) {
+		return;
+	}
+
+	$log->debug("create product history panel", {code => $product_ref->{code}}) if $log->is_debug();
+
+	# Get one more revision than the maximum, to know if there are more revisions than the ones we display
+	my $revisions_ref = get_product_history_revisions($product_ref, $product_history_panel_max_revisions + 1);
+
+	if (not @{$revisions_ref}) {
+		return;
+	}
+
+	# Links are absolute so that they can be used by apps
+	my $url_prefix = $request_ref->{formatted_subdomain} // '';
+	my $product_url = $url_prefix . product_url($product_ref);
+
+	# Keep only the most recent revisions (revisions are sorted from the most recent)
+	my $truncated = 0;
+	if (scalar @{$revisions_ref} > $product_history_panel_max_revisions) {
+		$revisions_ref = [@{$revisions_ref}[0 .. $product_history_panel_max_revisions - 1]];
+		$truncated = 1;
+	}
+
+	my @rows = ();
+	foreach my $revision_ref (@{$revisions_ref}) {
+
+		my $contributor = $revision_ref->{userid};
+		my $contributor_url;
+		if (defined $contributor) {
+			$contributor_url
+				= $url_prefix . canonicalize_tag_link("editors", canonicalize_tag("editors", $contributor));
+		}
+
+		my @details = ();
+		push @details, "UUID: " . $revision_ref->{uuid} if $revision_ref->{uuid};
+		push @details, "App Version: " . $revision_ref->{app_version} if $revision_ref->{app_version};
+		push @details, $revision_ref->{clientid} if $revision_ref->{clientid};
+		my $contributor_text = $contributor // '';
+		$contributor_text .= " (" . join(", ", @details) . ")" if @details;
+
+		push @rows,
+			{
+			number => $revision_ref->{number},
+			date => display_date($revision_ref->{t}) // '',
+			revision_url => $product_url . "?rev=" . $revision_ref->{number},
+			contributor => _remove_backticks($contributor_text),
+			contributor_url => $contributor_url,
+			changes => _remove_backticks($revision_ref->{diffs}),
+			comment => _remove_backticks($revision_ref->{comment}),
+			};
+	}
+
+	create_panel_from_json_template(
+		"product_history",
+		"api/knowledge-panels/contribution/product_history.tt.json",
+		{
+			rows => \@rows,
+			truncated => $truncated,
+			# the full history is displayed at the bottom of the product edit form
+			full_history_url => $url_prefix . product_action_url($product_ref->{code}) . "#history",
+		},
+		$product_ref,
+		$target_lc,
+		$target_cc,
+		$options_ref,
+		$request_ref
+	);
+
+	return 1;
 }
 
 1;

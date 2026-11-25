@@ -4,7 +4,7 @@
 # 1. import some products from a CSV file
 # 2. exports the products with various options, and checks that we get the expected exports
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -47,6 +47,11 @@ my $import_args_ref = {
 	user_id => "test",
 	csv_file => dirname(__FILE__) . "/inputs/export/products.csv",
 	no_source => 1,
+	# The CSV is the file our own exporter produces (include_images_paths): it carries the
+	# local paths of the image files to import. Those paths live outside the images roots,
+	# so allow local paths for this import, restricted to the directory that holds them.
+	allow_local_image_paths => 1,
+	images_download_dir => dirname(__FILE__) . "/inputs/sample-products-images",
 };
 
 my $stats_ref = import_csv_file($import_args_ref);
@@ -114,17 +119,30 @@ my $query_ref = {};
 my $separator = "\t";
 
 # Export database script to generate CSV exports of the whole database
-# Note: the test update seems to fail if the expected results files already exist.
-# remove tests/integration/expected_test_results/export_database/ before updating expected results.
+# remove tests/integration/expected_test_results/export_database/ before updating expected results as we get a file for each row.
 if ($update_expected_results) {
 	remove_tree($expected_result_dir . "/export_database");
 }
 
 # unlink CSV export if it exists, and launch script
 my $csv_filename = "$BASE_DIRS{PUBLIC_DATA}/en.$server_domain.products.csv";
-unlink($csv_filename) if -e $csv_filename;
+if (-e $csv_filename) {
+	print STDERR "unlinking $csv_filename\n";
+	unlink($csv_filename) or die("Could not unlink $csv_filename: $!\n");
+}
+$csv_filename = "$BASE_DIRS{PUBLIC_DATA}/fr.$server_domain.products.csv";
+if (-e $csv_filename) {
+	print STDERR "unlinking $csv_filename\n";
+	unlink($csv_filename) or die("Could not unlink $csv_filename: $!\n");
+}
+
+$csv_filename = "$BASE_DIRS{PUBLIC_DATA}/en.$server_domain.products.csv";
 
 my $script_out = `perl scripts/export_database.pl`;
+
+# For debugging, copy the CSV file
+# print STDERR "cp $csv_filename $expected_result_dir/export_database.csv.test \n";
+# system("cp $csv_filename $expected_result_dir/export_database.csv.test");
 
 ProductOpener::Test::compare_csv_file_to_expected_results($csv_filename, $expected_result_dir . "/export_database",
 	$update_expected_results, "export_database");

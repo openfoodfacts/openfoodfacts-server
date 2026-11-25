@@ -1,8 +1,10 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "13014",
-         "ecobalyse_code" : "3c20126c-e2ab-403b-8bbc-0fc0d2fd3a1b",
+         "ecobalyse_id" : "8ad09e31-6b20-56d1-b059-f871361a16d7",
+         "ecobalyse_name" : "Fraise FR",
          "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
          "origins" : "en:france",
@@ -15,6 +17,8 @@
       },
       {
          "ciqual_food_code" : "13007",
+         "ecobalyse_id" : "6cc1c2fd-1d30-5ec1-89b5-734d1947b7dd",
+         "ecobalyse_name" : "Cassis HORS UE",
          "id" : "en:blackcurrant",
          "is_in_taxonomy" : 1,
          "origins" : "en:south-africa",
@@ -27,7 +31,8 @@
       },
       {
          "ciqual_food_code" : "13015",
-         "ecobalyse_code" : "50939126-d4a5-4b94-b110-63e8b9e66173",
+         "ecobalyse_id" : "0bc3b0d6-cb4b-556b-bed4-6bcc6c89387b",
+         "ecobalyse_name" : "Framboise UE",
          "id" : "en:raspberry",
          "is_in_taxonomy" : 1,
          "origins" : "en:belgium",
@@ -40,6 +45,8 @@
       },
       {
          "ciqual_proxy_food_code" : "13040",
+         "ecobalyse_id" : "a03ee09d-313a-512c-9570-6d5d6660b662",
+         "ecobalyse_name" : "Pamplemousse Origine Inconnue",
          "id" : "en:grapefruit",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -52,7 +59,8 @@
       },
       {
          "ciqual_proxy_food_code" : "13034",
-         "ecobalyse_code" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
+         "ecobalyse_id" : "cb58f1d0-634f-5582-9c13-a12e80474e77",
+         "ecobalyse_name" : "Oranges Origine Inconnue",
          "id" : "en:orange",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -65,7 +73,8 @@
       },
       {
          "ciqual_proxy_food_code" : "13009",
-         "ecobalyse_code" : "ed5c98fd-6fe5-43ca-b938-1dde919794b7",
+         "ecobalyse_id" : "4fba3fff-ce86-4827-8c1f-aab86f16e469",
+         "ecobalyse_name" : "Citron, pulpe, cru Origine Inconnue",
          "id" : "en:lemon",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -78,6 +87,8 @@
       },
       {
          "ciqual_proxy_food_code" : "18100",
+         "ecobalyse_proxy_id" : "3d7f808b-77c5-4207-968d-feea6dfd9496",
+         "ecobalyse_proxy_name" : "Poudre de cacao par défaut -2025-",
          "id" : "en:cocoa",
          "is_in_taxonomy" : 1,
          "labels" : "en:fair-trade",
@@ -90,6 +101,9 @@
       },
       {
          "ciqual_food_code" : "16030",
+         "ecobalyse_id" : "0ea5f5a0-51d9-41da-9ac4-cb60f3ddb86c",
+         "ecobalyse_name" : "Beurre de cacao par défaut -2025-",
+         "from_palm_oil" : "no",
          "id" : "en:cocoa-butter",
          "is_in_taxonomy" : 1,
          "labels" : "en:fair-trade",
@@ -102,7 +116,8 @@
       },
       {
          "ciqual_food_code" : "13008",
-         "ecobalyse_code" : "b4e8febc-6588-4599-8c58-c019144597c6",
+         "ecobalyse_id" : "417a0eff-a10d-4231-839b-d953f644d69c",
+         "ecobalyse_name" : "Cerise, dénoyautée, crue Origine Inconnue",
          "id" : "en:cherry",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -140,8 +155,8 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:strawberry",
-      "en:fruit",
       "en:berries",
+      "en:fruit",
       "en:blackcurrant",
       "en:raspberry",
       "en:grapefruit",
@@ -151,6 +166,9 @@
       "en:cocoa",
       "en:plant",
       "en:cocoa-butter",
+      "en:vegetable-fat",
+      "en:vegetable-oil-and-fat",
+      "en:oil-and-fat",
       "en:cherry",
       "en:prunus-species-fruit"
    ],
@@ -161,14 +179,12 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:blackcurrant",
-      "en:cocoa",
-      "en:cocoa-butter",
-      "en:grapefruit"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 9,
    "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

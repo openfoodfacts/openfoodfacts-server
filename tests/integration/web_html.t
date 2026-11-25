@@ -437,7 +437,7 @@ my $tests_ref = [
 	},
 	{
 		test_case => 'world-categories',
-		path => 'facets/categories/desserts',
+		path => 'facets/categories/Desserts',
 		expected_type => 'html',
 	},
 	{
@@ -448,7 +448,7 @@ my $tests_ref = [
 	{
 		test_case => 'fr-categories',
 		subdomain => 'fr',
-		path => 'facets/categories/desserts',
+		path => 'facets/categories/Desserts',
 		expected_type => 'html',
 	},
 	{
@@ -486,7 +486,36 @@ my $tests_ref = [
 	},
 	{
 		test_case => 'world-label-organic',
-		path => 'facets/labels/organic',
+		path => 'facets/labels/Organic',
+		expected_type => 'html',
+	},
+	# Score facets with logos and histograms.
+	# nutri-score and environmental-score resolve to the nutriscore and ecoscore tag types.
+	{
+		test_case => 'world-nutrition-grades',
+		path => 'facets/nutrition-grades',
+		expected_type => 'html',
+	},
+	{
+		test_case => 'world-nutri-score',
+		path => 'facets/nutri-score',
+		expected_type => 'html',
+	},
+	{
+		test_case => 'fr-nutri-score',
+		subdomain => 'fr',
+		path => 'facets/nutri-score',
+		expected_type => 'html',
+	},
+	{
+		test_case => 'world-environmental-score',
+		path => 'facets/environmental-score',
+		expected_type => 'html',
+	},
+	# unknown is a tag value for score tag types, not a missing field
+	{
+		test_case => 'world-environmental-score-unknown',
+		path => 'facets/environmental-score/unknown',
 		expected_type => 'html',
 	},
 	{
@@ -604,6 +633,11 @@ my $tests_ref = [
 		test_case => 'world-search-histogram-nutrition-sugars',
 		path => '/cgi/search.pl?action=process&search_terms=apple&axis_x=sugars&graph_type=histogram&graph=1',
 		expected_type => 'html',
+	},
+	# manifest file
+	{
+		test_case => 'manifest',
+		path => '/cgi/manifest.pl',
 	},
 ];
 

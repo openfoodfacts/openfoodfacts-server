@@ -43,8 +43,20 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
+my $type = single_param('type') || 'send_email';
+my $action = single_param('action') || 'display';
+my $id = single_param('userid_or_email');
+
 if (get_oidc_implementation_level() >= 3) {
 	# Use Keycloak to reset password if we are using Keycloak login
+	# If a user id is supplied then call the API
+	if ($id and $action eq 'process' and $type eq 'send_email') {
+		ProductOpener::Keycloak->new()->reset_user_password($id);
+
+		# Note we return 200 rather than 202 here as 200 is what the existing Dart SDK expects
+		display_page($request_ref);
+		return;
+	}
 	my $oidc_configuration = get_oidc_configuration();
 	unless (defined $oidc_configuration) {
 		die 'oidc_discovery_url not configured or Keycloak is no available';
@@ -53,17 +65,15 @@ if (get_oidc_implementation_level() >= 3) {
 	my $redirect
 		= $oidc_configuration->{issuer}
 		. '/login-actions/reset-credentials?client_id='
-		. uri_escape($oidc_options{client_id});
+		. uri_escape($oidc_options{client_id})
+		. '&kc_locale='
+		. $lc;
 
 	redirect_to_url($request_ref, 302, $redirect);
 }
 else {
 	my $template_data_ref = {lang => \&lang,};
 
-	my $type = single_param('type') || 'send_email';
-	my $action = single_param('action') || 'display';
-
-	my $id = single_param('userid_or_email');
 	my $resetid = single_param('resetid');
 
 	$log->info("start", {type => $type, action => $action, userid_or_email => $id, resetid => $resetid})
@@ -186,6 +196,9 @@ else {
 					delete $user_ref->{token};
 
 					store_user($user_ref);
+
+					# A session obtained with the old password must not authenticate any more
+					remove_all_user_sessions($userid);
 
 				}
 				else {

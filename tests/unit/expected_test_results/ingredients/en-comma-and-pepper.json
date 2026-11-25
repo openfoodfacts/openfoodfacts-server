@@ -1,8 +1,10 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 66.6666666666667,
@@ -14,6 +16,8 @@
       },
       {
          "ciqual_food_code" : "11058",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -25,6 +29,8 @@
       },
       {
          "ciqual_proxy_food_code" : "11015",
+         "ecobalyse_proxy_id" : "217df27a-7ab5-5d1d-97a4-8b20db8f4952",
+         "ecobalyse_proxy_name" : "Poivre noir Origine Inconnue",
          "id" : "en:pepper",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -59,8 +65,8 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:sugar",
-      "en:added-sugar",
       "en:disaccharide",
+      "en:added-sugar",
       "en:salt",
       "en:pepper",
       "en:seed"
@@ -72,12 +78,12 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:pepper",
-      "en:salt"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 3,
    "lc" : "en",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

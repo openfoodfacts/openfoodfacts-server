@@ -1,4 +1,4 @@
-﻿x-backend-conf: &backend-conf
+x-backend-conf: &backend-conf
   image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
   environment:
     - PRODUCERS_PLATFORM
@@ -8,6 +8,7 @@
     - PRODUCT_OPENER_FLAVOR_SHORT
     - OFF_LOG_EMAILS
     - MONGODB_HOST
+    - MONGODB_DATABASE
     - POSTGRES_HOST
     - POSTGRES_USER
     - POSTGRES_PASSWORD
@@ -21,10 +22,13 @@
     - FOLKSONOMY_URL
     - GOOGLE_CLOUD_VISION_API_KEY
     - GOOGLE_CLOUD_VISION_API_URL
+    - GOOGLE_DRIVE_API_KEY
     - CROWDIN_PROJECT_IDENTIFIER
     - CROWDIN_PROJECT_KEY
     - BREVO_API_KEY
     - BREVO_LIST_ID
+    - ECOBALYSE_API_TOKEN
+    - ECOBALYSE_CALL_API_ON_PRODUCT_UPDATE
     - GEOLITE2_PATH
     - LOG_LEVEL_ROOT
     - LOG_LEVEL_MONGODB
@@ -42,7 +46,7 @@
     - OIDC_CLIENT_ID
     - OIDC_CLIENT_SECRET
     - RECIPE_ESTIMATOR_URL
-    - RECIPE_ESTIMATOR_SCIPY_URL
+    - RECIPE_ESTIMATOR_SERVICE
     - SLACK_HOOK_URLS
     #11901: Remove once production is migrated
     - SERIALIZE_TO_JSON
@@ -136,6 +140,19 @@ services:
       - backend
     environment:
       - PRODUCT_OPENER_DOMAIN
+    networks:
+      default:
+        aliases:
+          # Derive these from PRODUCT_OPENER_DOMAIN instead of hardcoding them:
+          # with a non-default domain (flavours, deployments, per-worktree
+          # isolation) the literals used to point at a name this container does
+          # not serve, because nginx only declares ${PRODUCT_OPENER_DOMAIN} and
+          # *.${PRODUCT_OPENER_DOMAIN} (see conf/nginx-docker/nginx.conf).
+          # Note: docker/dev.yml adds the other subdomains on top of these.
+          - ${PRODUCT_OPENER_DOMAIN}
+          - world.${PRODUCT_OPENER_DOMAIN}
+    ports:
+      - ${PRODUCT_OPENER_EXPOSE}${PRODUCT_OPENER_PORT}:80
     volumes:
       - product_images:/opt/product-opener/html/images/products:ro
       - html_data:/opt/product-opener/html/data:ro
@@ -158,15 +175,29 @@ services:
 
       # Nginx, we use templates dir to be able to use environment vars
       - ./conf/nginx-docker/nginx.conf:/etc/nginx/templates/default.conf.template
+      # needed for monitoring
+      - ./conf/nginx/sites-available/default:/etc/nginx/conf.d/stub_status.conf
+      # common directives
       # cors headers definition as an include
-      - ./conf/nginx/snippets/off.cors-headers.include:/etc/nginx/snippets/off.cors-headers.include
-      - ./conf/nginx/snippets/expiry-headers.include:/etc/nginx/snippets/expiry-headers.include
+      - ./conf/nginx/snippets/cors-headers.include:/etc/nginx/snippets/cors-headers.include
+      # configurations for product-opener
+      - ./conf/nginx/snippets/productopener-mappings.include:/etc/nginx/snippets/productopener-mappings.include
+      - ./conf/nginx/snippets/productopener-server.include:/etc/nginx/snippets/productopener-server.include
+      - ./conf/nginx/snippets/productopener-uploads-defaults.include:/etc/nginx/snippets/productopener-uploads-defaults.include
+      - ./conf/nginx/snippets/productopener-uploads-large.include:/etc/nginx/snippets/productopener-uploads-large.include
       # some expires rules
-      - ./conf/nginx/snippets/expires-no-json-xml.conf:/etc/nginx/snippets/expires-no-json-xml.conf
+      - ./conf/nginx/snippets/expiry-headers.include:/etc/nginx/snippets/expiry-headers.include
+      - ./conf/nginx/snippets/expires-no-json-xml.conf:/etc/nginx/conf.d/aa_expires-no-json-xml.conf
+      # log format
+      - ./conf/nginx/conf.d/log_format_realip.conf:/etc/nginx/conf.d/aa_log_format_realip.conf
+      # njs module rendering the environmental cost (Ecobalyse) label, see conf/nginx/njs/README.md
+      - ./conf/nginx/conf.d/environmental_cost_label.conf:/etc/nginx/conf.d/environmental_cost_label.conf
+      - ./conf/nginx/snippets/environmental-cost-label.include:/etc/nginx/snippets/environmental-cost-label.include
+      - ./conf/nginx/njs:/etc/nginx/njs:ro
+      # cache for tagline proxy
+      - ./conf/nginx/conf.d/tagline_cache.conf:/etc/nginx/conf.d/tagline_cache.conf
       # some redirects
       - ./conf/nginx/snippets/off.locations-redirects.include:/etc/nginx/snippets/off.locations-redirects.include
-    ports:
-      - ${PRODUCT_OPENER_EXPOSE}${PRODUCT_OPENER_PORT}:80
 
 volumes:
   pgdata:
@@ -185,5 +216,16 @@ volumes:
   orgs:
   export_files:
   podata:
+
+networks:
+  default:
+    # Several instances of Product Opener on one machine must not share this
+    # network: Docker DNS answers `backend`, `frontend`, `postgres` and
+    # `world.$PRODUCT_OPENER_DOMAIN` for every container attached to it, so they
+    # would round-robin between instances. `make agent` sets
+    # PRODUCT_OPENER_NETWORK per git worktree; deployments can set it too. The
+    # default keeps the historical name.
+    # See docs/dev/how-to-run-several-worktrees.md
+    name: ${PRODUCT_OPENER_NETWORK:-product-opener}
 
 

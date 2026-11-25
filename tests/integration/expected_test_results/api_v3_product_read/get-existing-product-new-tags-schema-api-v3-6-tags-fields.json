@@ -1,0 +1,53 @@
+{
+   "code" : "0200000000036",
+   "errors" : [],
+   "product" : {
+      "categories_tags" : [
+         "en:plant-based-foods-and-beverages",
+         "en:plant-based-foods",
+         "en:snacks",
+         "en:sweet-snacks",
+         "en:biscuits-and-cakes",
+         "en:biscuits-and-crackers",
+         "en:biscuits",
+         "en:coffees"
+      ],
+      "emb_codes_tags" : [
+         "fr-56-081-ec",
+         "fr-56-082-ec"
+      ],
+      "labels_tags" : [
+         "en:fair-trade",
+         "en:organic",
+         "en:eu-organic"
+      ],
+      "stores_tags" : [
+         "Carrefour",
+         "Méga-Marché"
+      ]
+   },
+   "result" : {
+      "id" : "product_found",
+      "lc_name" : "Product found",
+      "name" : "Product found"
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "code",
+            "value" : "0200000000036"
+         },
+         "impact" : {
+            "id" : "none",
+            "lc_name" : "None",
+            "name" : "None"
+         },
+         "message" : {
+            "id" : "different_normalized_product_code",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ]
+}

@@ -223,42 +223,42 @@ my $tests_ref = [
 	{
 		test_case => 'category_apples',
 		method => 'GET',
-		path => 'facets/categories/apples.json?fields=product_name',
+		path => 'facets/categories/Apples.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_-apples',
 		method => 'GET',
-		path => 'facets/categories/-apples.json?fields=product_name',
+		path => 'facets/categories/-Apples.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_apples_label_organic',
 		method => 'GET',
-		path => 'facets/categories/apples/labels/organic.json?fields=product_name',
+		path => 'facets/categories/Apples/labels/Organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_-apples_label_organic',
 		method => 'GET',
-		path => 'facets/categories/-apples/labels/organic.json?fields=product_name',
+		path => 'facets/categories/-Apples/labels/Organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_-apples_label_-organic',
 		method => 'GET',
-		path => 'facets/categories/-apples/labels/-organic.json?fields=product_name',
+		path => 'facets/categories/-Apples/labels/-Organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'label_fair-trade_label_-organic',
 		method => 'GET',
-		path => 'facets/labels/fair-trade/labels/-organic.json?fields=product_name',
+		path => 'facets/labels/Fair%20trade/labels/-Organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
@@ -266,14 +266,14 @@ my $tests_ref = [
 	{
 		test_case => 'category_bananas_label_organic_brand_brand1',
 		method => 'GET',
-		path => 'facets/categories/bananas/labels/organic/brands/brand1.json?fields=product_name',
+		path => 'facets/categories/Bananas/labels/Organic/brands/Brand1.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_bananas_label_organic_brand_-brand1',
 		method => 'GET',
-		path => 'facets/categories/bananas/labels/organic/brands/-brand1.json?fields=product_name',
+		path => 'facets/categories/Bananas/labels/Organic/brands/-Brand1.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
@@ -292,18 +292,34 @@ my $tests_ref = [
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
+	# For score tag types, unknown is a tag value, not a missing field.
+	# nutri-score resolves to the nutriscore tag type.
+	{
+		test_case => 'nutrition-grades_unknown',
+		method => 'GET',
+		path => 'facets/nutrition-grades/unknown.json?fields=product_name,nutrition_grades_tags',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
+	{
+		test_case => 'nutri-score_unknown',
+		method => 'GET',
+		path => 'facets/nutri-score/unknown.json?fields=product_name,nutriscore_tags',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
 	# EU packager code
 	{
 		test_case => 'packager-code_fr-85-222-003-ce',
 		method => 'GET',
-		path => 'facets/packager-codes/fr-85-222-003-ce.json?fields=product_name,emb_codes_tags',
+		path => 'facets/packager-codes/fr-85-222-003-ec.json?fields=product_name,emb_codes_tags',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'packager-code_fr-85-222-003-ec',    # not normalized code (ec instead of ce)
 		method => 'GET',
-		path => 'facets/packager-codes/fr-85-222-003-ce.json?fields=product_name,emb_codes_tags',
+		path => 'facets/packager-codes/fr-85-222-003-ec.json?fields=product_name,emb_codes_tags',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
@@ -316,6 +332,14 @@ my $tests_ref = [
 		sort_products_by => 'product_name',
 	},
 	{
+		test_case => 'contributor-alice-case-normalization',
+		method => 'GET',
+		path => 'facets/contributors/ALICE.json?fields=product_name',
+		expected_status_code => 200,
+		expected_type => 'none',
+		response_content_must_match => '"count"\s*:\s*13',
+	},
+	{
 		test_case => 'contributor-bob',
 		method => 'GET',
 		path => 'facets/contributors/bob.json?fields=product_name',
@@ -326,7 +350,7 @@ my $tests_ref = [
 	{
 		test_case => 'contributor-alice-label_organic',
 		method => 'GET',
-		path => 'facets/contributors/alice/labels/organic.json?fields=product_name',
+		path => 'facets/contributors/alice/labels/Organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
@@ -335,18 +359,95 @@ my $tests_ref = [
 		test_case => 'de-accented-cafe-label',
 		method => 'GET',
 		subdomain => 'world-de',
-		path => 'facets/labels/café-label.json?fields=product_name,labels_tags',
+		path => 'facets/labels/Caf%C3%A9%20Label.json?fields=product_name,labels_tags',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
-	# facet name that is the same as a facet type
+	# facet alias that is the same as a facet type
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/9708
 	{
 		test_case => 'category-vitamins',
 		method => 'GET',
-		path => 'facets/categories/vitamins.json?fields=product_name,labels_tags',
+		path => 'facets/categories/Vitamins.json?fields=product_name,labels_tags',
 		expected_status_code => 200,
-		sort_products_by => 'product_name',
+	},
+	# NOVA unknown knowledge panel, on request only
+	{
+		test_case => 'api-v3-tag-nova-groups-unknown-panel',
+		method => 'GET',
+		path => '/api/v3/tag/nova_groups/unknown?activate_knowledge_panel_nova_unknown=1',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-nova-groups-unknown-no-panel-by-default',
+		method => 'GET',
+		path => '/api/v3/tag/nova_groups/unknown',
+		expected_status_code => 200,
+	},
+	# related categories knowledge panel, on request only (leaf category: no Query call)
+	{
+		test_case => 'api-v3-tag-category-canned-carrots-related-categories',
+		method => 'GET',
+		path => '/api/v3/tag/categories/en:canned-carrots?activate_knowledge_panel_related_categories=1',
+		expected_status_code => 200,
+	},
+	# packager code knowledge panel: name, address and link to the location
+	{
+		test_case => 'api-v3-tag-packager-code-fr',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/fr-85-222-003-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-fi',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/fi-006-2-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-uk',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/uk-1000-ec',
+		expected_status_code => 200,
+	},
+	# names with a backtick, a line break or a backslash, and a code with empty coordinates
+	{
+		test_case => 'api-v3-tag-packager-code-backtick',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/de-by-10357-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-line-break',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/ie-1888-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-backslash',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/se-6668-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-empty-coordinates',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/fr-42-205-007-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-unknown',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/fr-00-000-000-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'packager-code-page-shows-panel',
+		method => 'GET',
+		path => '/facets/packager-codes/fr-85-222-003-ec',
+		expected_status_code => 200,
+		expected_type => 'html',
+		response_content_must_match => '84 RTE DES SABLES, 85800 SAINT-GILLES-CROIX-DE-VIE',
 	},
 	# test some redirects
 	{
@@ -398,6 +499,16 @@ my $tests_ref = [
 			Location => '/facets/ingredients?filter=bon&status=unknown',
 		},
 		expected_type => 'html',    # the redirect itself is html
+	},
+	{
+		test_case => 'filtered-facets-world-link-keeps-filter',
+		method => 'GET',
+		subdomain => 'uk',
+		path => '/facets/ingredients?filter=bon&status=unknown',
+		expected_status_code => 200,
+		expected_type => 'none',
+		response_content_must_match =>
+			'http:\/\/world\.openfoodfacts\.localhost\/facets\/ingredients\?filter=bon&amp;status=unknown',
 	},
 	{
 		test_case => 'redirect-facets-agg-with-json',

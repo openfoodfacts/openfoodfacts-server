@@ -63,17 +63,23 @@ use Storable qw(dclone);
 use Text::Fuzzy;
 use Data::DeepAccess qw(deep_get deep_exists);
 use Encode qw(encode_utf8);
+use Cwd qw/realpath/;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
 		$IMPORT_MAX_PACKAGING_COMPONENTS
+		$IMPORT_MAX_IMAGE_REDIRECTS
 
 		&import_csv_file
 		&import_products_categories_from_public_database
 		&list_product_images_files_in_dir
+		&get_local_image_path
 		&upload_images_for_product
+		&get_image_urls_to_try
+		&get_google_drive_confirm_download_url
+		&download_image
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -87,6 +93,7 @@ use ProductOpener::Store qw/get_string_id_for_lang retrieve retrieve_object stor
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Images qw/get_imagefield_from_string process_image_crop process_image_upload/;
 use ProductOpener::Lang qw/$lc  lang/;
 use ProductOpener::Mail qw/:all/;
@@ -107,25 +114,27 @@ use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
-use ProductOpener::HTTP qw/create_user_agent/;
+use ProductOpener::HTTP qw/create_user_agent url_is_fetchable/;
 use ProductOpener::Nutrition
-	qw/assign_nutrition_values_from_imported_csv_product_old_fields assign_nutrition_values_from_imported_csv_product get_source_for_site_and_org/;
+	qw/assign_nutrition_values_from_imported_csv_product_old_fields assign_nutrition_values_from_imported_csv_product/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
+use HTTP::Response;
 use Storable qw/dclone/;
 use Encode;
 use JSON::MaybeXS;
 use Time::Local;
 use Data::Dumper;
 use Text::CSV;
-use DateTime::Format::ISO8601;
+use DateTime::Format::Lite;
 use URI;
 use Digest::MD5 qw(md5_hex);
 use Data::Difference qw(data_diff);
 
 $IMPORT_MAX_PACKAGING_COMPONENTS = 10;
+$IMPORT_MAX_IMAGE_REDIRECTS = 5;
 
 # private function to import images from dir
 # args:
@@ -263,6 +272,96 @@ sub list_product_images_files_in_dir ($image_dir, $stats) {
 	}
 
 	return $images_ref;
+}
+
+=head2 get_local_image_path ( $args_ref, $path )
+
+Resolve a path to an image file that an import refers to, and check that it is a
+file we are allowed to read.
+
+Local paths are only accepted for imports that explicitly allow them (imports
+started by an operator script, or by our own exporters platform exporter), and
+the path must resolve inside the product images directory, inside the images
+directory of the platform that produced the export (local_images_root, set by the
+producers platform exporter: the import runs on the public platform, where the
+product images directory is a different one), or inside one of the image
+directories of the import: an import must not be able to read an arbitrary
+file of the server, e.g. to copy it into a product image.
+
+=head3 Arguments
+
+=head4 $args_ref Import arguments reference, must have the allow_local_image_paths flag set
+
+=head4 $path Path to check (string)
+
+=head3 Return value
+
+The path to read, or undef if it must not be read.
+
+=cut
+
+# Remove "." and ".." from an absolute path, without touching the file system,
+# so that we can also check paths that do not exist (yet).
+
+sub _clean_absolute_path ($path) {
+
+	my @cleaned = ();
+
+	foreach my $part (split(m|/|, $path)) {
+		next if $part eq '';
+		next if $part eq '.';
+		if ($part eq '..') {
+			pop @cleaned;
+			next;
+		}
+		push @cleaned, $part;
+	}
+
+	return '/' . join('/', @cleaned);
+}
+
+sub get_local_image_path ($args_ref, $path) {
+
+	my $accepted_path;
+
+	# Local paths are only accepted when the caller explicitly allows them
+	if (    (defined $args_ref)
+		and ($args_ref->{allow_local_image_paths})
+		and (defined $path)
+		and ($path =~ /\S/))
+	{
+
+		# Canonical path of the file if it exists, otherwise check the path itself
+		my $candidate = realpath($path);
+		$candidate = _clean_absolute_path($path) if ((not defined $candidate) and ($path =~ m|^/|));
+
+		if (defined $candidate) {
+
+			my @roots = grep {defined $_ and $_ ne ''} (
+				$BASE_DIRS{PRODUCTS_IMAGES}, $args_ref->{local_images_root},
+				$args_ref->{images_download_dir}, $args_ref->{images_dir}
+			);
+
+			foreach my $root (@roots) {
+				my $realroot = realpath($root);
+				$realroot = _clean_absolute_path($root) if ((not defined $realroot) and ($root =~ m|^/|));
+				next if not defined $realroot;
+
+				if (($candidate eq $realroot) or (index($candidate, $realroot . '/') == 0)) {
+					$accepted_path = $candidate;
+					last;
+				}
+			}
+
+			if (not defined $accepted_path) {
+				$log->warn("get_local_image_path - rejected an image path outside of the allowed directories",
+					{path => $path, candidate => $candidate, roots => \@roots})
+					if $log->is_warn();
+			}
+		}
+	}
+
+	return $accepted_path;
 }
 
 =head2 upload_images_for_product ($args_ref, $images_ref, $product_ref, $imported_product_ref, $product_id, $code, $user_id, $comment, $stats_ref)
@@ -509,19 +608,175 @@ sub upload_images_for_product($args_ref, $images_ref, $product_ref, $imported_pr
 	return;
 }
 
+=head2 get_image_urls_to_try ($image_url)
+
+Given an image URL found in a CSV import file, return an ordered list of URLs to try
+downloading the image from, most likely to return the full-size image first.
+
+Some URLs point to a viewer/thumbnail page instead of the actual image file: they are
+rewritten to a direct-download / full-size URL, which is tried first, while the original
+URL is kept as a fallback.
+
+=head3 Arguments
+
+=head4 $image_url - the image URL found in the CSV file
+
+=head3 Return value
+
+A list of URLs to try downloading the image from, in order.
+
+=cut
+
+sub get_image_urls_to_try ($image_url) {
+
+	my @image_urls = ($image_url);
+
+	my $rewritten_url = $image_url;
+
+	# Google Drive "view" / "open" share links point to an HTML viewer page, not the image file
+	# https://drive.google.com/file/d/1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0/view?usp=drive_link
+	# https://drive.google.com/open?id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0
+	# -> https://drive.google.com/uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0
+	if ($rewritten_url =~ m{^https?://drive\.google\.com/(?:file/d/|open\?id=)([\w-]+)}i) {
+		$rewritten_url = "https://drive.google.com/uc?export=download&id=$1";
+	}
+
+	# https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG
+	# -> remove thumb=true to get the full image
+	$rewritten_url =~ s/thumb=true&//;
+
+	# https://www.elle-et-vire.com/uploads/cache/400x400/uploads/recip/product_media/108/3451790013737-ev-bio-creme-epaisse-entiere-poche-33cl.png
+	$rewritten_url =~ s/\/uploads\/cache\/(\d+)x(\d+)\/uploads\//\/uploads\//;
+
+	if ($rewritten_url ne $image_urls[0]) {
+		unshift @image_urls, $rewritten_url;
+	}
+
+	return @image_urls;
+}
+
+=head2 get_google_drive_confirm_download_url ($html)
+
+Google Drive returns an HTML "Google Drive can't scan this file for viruses" interstitial page
+instead of the file content, for files it considers too large to scan. Build the URL to retry
+the download with from that page.
+
+As of 2026, the interstitial is a GET form (id="download-form") whose action and hidden inputs
+(id, export, confirm, uuid) must all be resubmitted - the download must be retried against that
+form's action URL (a different host, drive.usercontent.google.com, not drive.google.com) with
+all of its hidden fields, not just by appending a confirm token to the original URL. Google has
+changed this page's format before (it used to be a plain link with an embedded confirm= token,
+which we fall back to if the form isn't found) and may do so again.
+
+=head3 Arguments
+
+=head4 $html - the HTML content returned by Google Drive
+
+=head3 Return value
+
+The absolute URL to retry the download with, or undef if $html does not look like a Google
+Drive virus-scan confirmation interstitial.
+
+=cut
+
+sub get_google_drive_confirm_download_url ($html) {
+
+	# Current interstitial: a GET form with hidden inputs, e.g.
+	# <form id="download-form" action="https://drive.usercontent.google.com/download" method="get">
+	# <input type="hidden" name="id" value="...">
+	# <input type="hidden" name="export" value="download">
+	# <input type="hidden" name="confirm" value="t">
+	# <input type="hidden" name="uuid" value="...">
+	if ($html =~ m{<form\b[^>]*\bid=["']download-form["'][^>]*\baction=["']([^"']+)["'][^>]*>(.*?)</form>}is) {
+		my ($action, $form_body) = ($1, $2);
+
+		my %params;
+		while ($form_body =~ m{<input\b([^>]*)>}gi) {
+			my $attributes = $1;
+			if (    ($attributes =~ /\btype=["']hidden["']/i)
+				and ($attributes =~ /\bname=["']([^"']+)["']/i))
+			{
+				my $name = $1;
+				my ($value) = $attributes =~ /\bvalue=["']([^"']*)["']/i;
+				$params{$name} = $value // '';
+			}
+		}
+
+		if (%params) {
+			return $action . '?'
+				. join('&', map {encodeURIComponent($_) . '=' . encodeURIComponent($params{$_})} sort keys %params);
+		}
+	}
+
+	# Older interstitial format: a plain link with an embedded confirm= token, e.g.
+	# <a id="uc-download-link" href="/uc?export=download&amp;id=...&amp;confirm=t7cO" ...
+	if ($html =~ /href=["']([^"']*confirm=[0-9A-Za-z_-]+[^"']*)["']/) {
+		my $href = $1;
+		$href =~ s/&amp;/&/g;
+		$href = "https://drive.google.com" . $href if $href =~ m{^/};
+		return $href;
+	}
+
+	return;
+}
+
 # download image at given url parameter
 sub download_image ($image_url) {
 
-	my $ua = create_user_agent(timeout => 10);
+	my $ua = create_user_agent(timeout => 10, max_size => 20_000_000);
+	$ua->protocols_allowed(['http', 'https']);
+	# We follow the redirects ourselves (below), so that we check the address they point at:
+	# by default LWP follows up to 7 of them without any check
+	$ua->max_redirect(0);
 
-	$log->debug("downloading image", {image_url => $image_url}) if $log->is_debug();
-	my $response = $ua->get($image_url, 'Accept' => '*/*');
+	my $url = $image_url;
+	my $response;
+
+	# The url comes from an uploaded import file: it must resolve to a globally routable address,
+	# otherwise the import could be used to reach the services we can reach but the importer
+	# cannot (databases, caches, internal web servers, cloud metadata service)
+	foreach my $hop (0 .. $IMPORT_MAX_IMAGE_REDIRECTS) {
+
+		if (not url_is_fetchable($url)) {
+			$log->warn("not downloading an image from an url that cannot be fetched",
+				{image_url => $image_url, url => $url})
+				if $log->is_warn();
+			return HTTP::Response->new(403, "Blocked url");
+		}
+
+		$log->debug("downloading image", {image_url => $url}) if $log->is_debug();
+		$response = $ua->get($url, 'Accept' => '*/*');
+
+		last if not $response->is_redirect;
+
+		my $location = $response->header('Location');
+		last if not defined $location;
+
+		# The redirect can point at an address we did not check: it is checked at the next iteration
+		$url = URI->new_abs($location, $url)->as_string();
+	}
 
 	# CloudFlare seems to be blocking our default agent at Carrefour, so we try with a different one if we get a 403
 	if ($response->code == 403) {
 		$log->debug("got a 403, trying a different User-Agent", {image_url => $image_url}) if $log->is_debug();
 		$ua->agent("curl/8.5.0");
 		$response = $ua->get($image_url, 'Accept' => '*/*');
+	}
+
+	# Google Drive returns an HTML "can't scan this file for viruses" interstitial page instead of
+	# the file content, for files it considers too large to scan: retry with the confirm URL it gives us
+	if (    ($response->is_success)
+		and ($image_url =~ m{^https?://drive\.google\.com/uc\?})
+		and (($response->header('Content-Type') // '') =~ m{^text/html}))
+	{
+		my $confirm_url = get_google_drive_confirm_download_url($response->decoded_content);
+		# The confirm url is built from the response we got, so it is checked as well
+		if ((defined $confirm_url) and (url_is_fetchable($confirm_url))) {
+			$log->debug("got a Google Drive virus scan warning page, retrying with confirm url",
+				{image_url => $image_url, confirm_url => $confirm_url})
+				if $log->is_debug();
+			$response = $ua->get($confirm_url, 'Accept' => '*/*');
+		}
 	}
 
 	$log->debug("downloading image - result",
@@ -698,10 +953,12 @@ sub set_field_value (
 	$modified_fields_ref, $differing_ref, $differing_fields_ref, $time
 	)
 {
+	my $source = get_source_for_site_and_org($Org_id);
 
 	my $code = $imported_product_ref->{code};
 
-	$log->debug("defined and non empty value for field", {field => $field, value => $imported_product_ref->{$field}})
+	$log->debug("set_field_value - defined value for field",
+		{field => $field, value => $imported_product_ref->{$field}})
 		if $log->is_debug();
 
 	if (($field =~ /product_name/) or ($field eq "brands")) {
@@ -785,107 +1042,35 @@ sub set_field_value (
 		}
 	}
 
-	# for tag fields, only add entries to it, do not remove other entries
-
 	if (defined $tags_fields{$field}) {
 
-		my $current_field = $product_ref->{$field};
+		# for tag fields, if we have an empty value, we skip it as it's a sign the value was not defined in the provided data
+		next if ($imported_product_ref->{$field} eq "");
 
-		# we may want to replace brands completely at some point
-		# disabling for now
-
-		#if ($field eq 'brands') {
-		#	$product_ref->{$field} = "";
-		#	delete $product_ref->{$field . "_tags"};
-		#}
-
-		# If we are on the producers platform, remove existing values for brands
-		if (($server_options{producers_platform}) and ($field eq "brands")) {
-			$product_ref->{$field} = "";
-			delete $product_ref->{$field . "_tags"};
+		# if we have a '-' value, we will remove existing values
+		if ($imported_product_ref->{$field} eq '-') {
+			$imported_product_ref->{$field} = '';
+			$log->debug("field has value '-', will remove existing values for field", {field => $field, code => $code})
+				if $log->is_debug();
 		}
 
-		# If we are on the producers platform, replace existing values by producer supplied values for allergens and traces
-		if (deep_exists(\%options, "replace_existing_values_when_importing_those_tags_fields", $field)) {
-			if ($imported_product_ref->{$field} ne "") {
-				$product_ref->{$field} = "";
-				delete $product_ref->{$field . "_tags"};
-			}
-		}
-
-		# existing is the list of already existing tags
-		# that will be completed with more values
-		my %existing = ();
-		if (defined $product_ref->{$field . "_tags"}) {
-			foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
-				$existing{$tagid} = 1;
-			}
-		}
-		# process each provided value
-		foreach my $tag (split(/,/, $imported_product_ref->{$field})) {
-
-			my $tagid;
-
-			next
-				if $tag =~ /^\s*($empty_regexp|$unknown_regexp|$not_applicable_regexp)\s*$/i;
-
-			$tag =~ s/^\s+//;
-			$tag =~ s/\s+$//;
-			# normalize field in different ways depending on its type
-			if ($field eq 'emb_codes') {
-				$tag = normalize_packager_codes($tag);
-			}
-
-			if (defined $taxonomy_fields{$field}) {
-				$tagid = get_taxonomyid($imported_product_ref->{lc},
-					canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $tag));
-			}
-			else {
-				$tagid = get_string_id_for_lang("no_language", $tag);
-			}
-			# if the tag was not already in the existing tags, add it
-			if (not exists $existing{$tagid}) {
-				$log->debug("adding tagid to field", {field => $field, tagid => $tagid})
-					if $log->is_debug();
-				$product_ref->{$field} .= ", $tag";
-				$existing{$tagid} = 1;
-			}
-			else {
-				#print "- $tagid already in $field\n";
-				# replace eventual tagid by it's plain value
-				# update the case (e.g. for brands)
-				if ($field eq "brands") {
-					my $regexp = $tag;
-					$regexp =~ s/( |-)/\( \|-\)/g;
-					$product_ref->{$field} =~ s/\b$tagid\b/$tag/i;
-					$product_ref->{$field} =~ s/\b$regexp\b/$tag/i;
-				}
-			}
-		}
-		# remove leading comma
-		if ((defined $product_ref->{$field}) and ($product_ref->{$field} =~ /^, /)) {
-			$product_ref->{$field} = $';
-		}
-
-		my $tag_lc = $product_ref->{lc};
+		# Keep track of the current tags (if any) so that we know if they changed
+		my $current_tags_ref = deep_get($product_ref, "tags_sources", $field, $source, "tags") || [];
+		my $current_tags = join(",", @$current_tags_ref);
 
 		# If an import_lc was passed as a parameter, assume the imported values are in the import_lc language
-		if (defined $args_ref->{import_lc}) {
-			$tag_lc = $args_ref->{import_lc};
-		}
-		# emb_codes noramlization
-		if ($field eq 'emb_codes') {
-			# French emb codes
-			$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
-			$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});
-		}
+		my $tag_lc = $imported_product_ref->{lc} // $args_ref->{import_lc} // "en";
+
+		set_field_input_tags_for_source($product_ref, $tag_lc, $field, $source, $imported_product_ref->{$field});
+
+		my $new_tags_ref = deep_get($product_ref, "tags_sources", $field, $source, "tags") || [];
+		my $new_tags = join(",", @$new_tags_ref);
+
 		# post processing according to the type of action
 		# $current_field is the value before update
-		if (not defined $current_field) {
-			$log->debug("added value to field", {field => $field, value => $product_ref->{$field}})
+		if (($current_tags eq "") and ($new_tags ne "")) {
+			$log->debug("added value to field", {field => $field, new_value => $new_tags})
 				if $log->is_debug();
-			# recompute tags
-			compute_field_tags($product_ref, $tag_lc, $field);
 			# rembember it was added
 			push @$modified_fields_ref, $field;
 			# upddate stats
@@ -894,23 +1079,18 @@ sub set_field_value (
 			defined $stats_ref->{"products_info_added_" . $field} or $stats_ref->{"products_info_added_" . $field} = {};
 			$stats_ref->{"products_info_added_field_" . $field}{$code} = 1;
 		}
-		elsif ($current_field ne $product_ref->{$field}) {
-			$log->debug("changed value for field",
-				{field => $field, value => $product_ref->{$field}, old_value => $current_field})
+		elsif ($current_tags ne $new_tags) {
+			$log->debug("changed value for tags field",
+				{field => $field, old_value => $current_tags, new_value => $new_tags})
 				if $log->is_debug();
-			# recompute tags
-			compute_field_tags($product_ref, $tag_lc, $field);
 			# rembember it was added
 			push @$modified_fields_ref, $field;
 			# upddate stats
 			$$modified_ref++;
 			$stats_ref->{products_info_changed}{$code} = 1;
-			defined $stats_ref->{"products_info_changed_" . $current_field}
-				or $stats_ref->{"products_info_changed_" . $current_field} = {};
-			$stats_ref->{"products_info_changed_field_" . $current_field}{$code} = 1;
-		}
-		elsif ($field eq "brands") {    # we removed it earlier
-			compute_field_tags($product_ref, $tag_lc, $field);
+			defined $stats_ref->{"products_info_changed_" . $field}
+				or $stats_ref->{"products_info_changed_" . $field} = {};
+			$stats_ref->{"products_info_changed_field_" . $field}{$code} = 1;
 		}
 	}
 	# Processing non tag field
@@ -1096,6 +1276,120 @@ sub compare_old_and_new_objects (
 		$stats_ref->{products_info_updated}{$code} = 1;
 		$stats_ref->{"products_${field}_updated"}{$code} = 1;
 	}
+	return;
+}
+
+=head2 import_tags_sources_fields ($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref, $time)
+
+Import input tags values in tags_sources, from new fields like tags_sources.[tags field].[source].tags/last_update_t
+
+=cut
+
+sub import_tags_sources_fields (
+	$args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref,
+	$modified_fields_ref, $differing_ref, $differing_fields_ref, $time,
+	)
+{
+	$log->debug("importing tags_sources fields") if $log->is_debug();
+
+	# Make a deep copy
+	my $old_tags_sources = dclone($product_ref->{tags_sources} || {});
+
+	# If an import_lc was passed as a parameter, assume the imported values are in the import_lc language
+	my $tag_lc = $imported_product_ref->{lc} // $args_ref->{import_lc} // "en";
+
+	# Go through each field to find fields of the form tags_sources.[tag field].[source].tags|last_updated_t
+	foreach my $field (sort keys %$imported_product_ref) {
+		if ($field =~ /^tags_sources\.([^\.]+)\.([^\.]+).tags$/) {
+			my ($tags_field, $source) = ($1, $2);
+
+			# Check it's a writable tags field
+			if (not defined $writable_tags_fields{$tags_field}) {
+				$log->error(
+					"skipping non writable tags field",
+					{
+						field => $field,
+						source => $source,
+						tags_field => $tags_field,
+						value => $imported_product_ref->{$field}
+					}
+				) if $log->is_error();
+				next;
+			}
+
+			# Check the source is "packaging", "manufacturer" or starts with "label" or "database"
+			if ($source !~ /^packaging|manufacturer|label.*|database.*$/) {
+				$log->error(
+					"skipping unknown source",
+					{
+						field => $field,
+						source => $source,
+						tags_field => $tags_field,
+						value => $imported_product_ref->{$field}
+					}
+				) if $log->is_error();
+				next;
+			}
+
+			# If the value is an empty string, we skip it, as it means does not exist in the product
+			# (in the CSV undefined values are not distinguishable from empty strings)
+			# Real empty tags values (existing tags_sources but with empty tags array) are indicated with the value '-'
+			if ($imported_product_ref->{$field} eq '') {
+				$log->debug(
+					"skipping empty value",
+					{
+						field => $field,
+						source => $source,
+						tags_field => $tags_field,
+						value => $imported_product_ref->{$field}
+					}
+				) if $log->is_debug();
+				next;
+			}
+			elsif ($imported_product_ref->{$field} eq '-') {
+				# Empty tags list
+				$log->debug(
+					"dash value",
+					{
+						field => $field,
+						source => $source,
+						tags_field => $tags_field,
+						value => $imported_product_ref->{$field}
+					}
+				) if $log->is_debug();
+				$imported_product_ref->{$field} = '';
+			}
+
+			# We should also have a last_updated_t field
+			my $last_updated_t = $imported_product_ref->{"tags_sources.${tags_field}.${source}.last_updated_t"};
+			# Convert it to a number
+			if (defined $last_updated_t) {
+				$last_updated_t += 0;
+			}
+
+			$log->debug(
+				"importing tags_sources field",
+				{
+					field => $field,
+					tags_field => $tags_field,
+					source => $source,
+					last_updated_t => $last_updated_t,
+					value => $imported_product_ref->{$field}
+				}
+			) if $log->is_debug();
+
+			set_field_input_tags_for_source($product_ref, $tag_lc, $tags_field, $source,
+				$imported_product_ref->{$field},
+				0, $last_updated_t);
+		}
+	}
+
+	compare_old_and_new_objects(
+		$imported_product_ref->{code}, "tags_sources", $old_tags_sources,
+		$product_ref->{tags_sources}, $stats_ref, $modified_ref,
+		$modified_fields_ref, $differing_ref, $differing_fields_ref
+	);
+
 	return;
 }
 
@@ -1412,6 +1706,28 @@ If the CSV contains a non-empty value for a field, the value from the CSV file i
 
 Path to a directory that contains images for the products.
 
+=head4 local_images_root - optional
+
+Additional directory that local image paths are allowed to point to (only used with allow_local_image_paths).
+Set by the producers platform exporter to its own product images directory, as the CSV it produces
+contains paths to images of the producers platform, and is imported on the public platform.
+Unlike images_dir, the directory is not scanned for images.
+
+=head4 allow_local_image_paths - optional
+
+Accept image paths that refer to local files (image_*_file columns, and the bare
+image_front / image_ingredients / image_nutrition / image_other columns).
+
+Only meant to be set for imports started by an operator, or for CSV files that
+were produced by our own exporter. The paths must resolve inside the product
+images directory or inside images_dir / images_download_dir.
+
+=head4 allow_any_source_fields - optional
+
+Accept sources_fields:<source id>:<field> columns that do not belong to the
+owner the import runs with. Only meant to be set for imports started by an
+operator, or for CSV files that were produced by our own exporter.
+
 =head4 comment - optional
 
 Comment that will be saved in the product history.
@@ -1607,6 +1923,9 @@ sub import_csv_file ($args_ref) {
 	my %packagings_edited = ();
 	my $skip_not_existing = 0;
 	my $skip_no_images = 0;
+
+	# Set up the date formatter for parsing and formatting dates
+	my $dtformatter = DateTime::Format::Lite->new(pattern => '%Y-%m-%dT%H:%M:%S%z', time_zone => $reference_timezone);
 
 	# go through file
 	while (my $imported_product_ref = $csv->getline_hr($io)) {
@@ -1952,6 +2271,12 @@ sub import_csv_file ($args_ref) {
 
 					$log->debug("images", {file => $file}) if $log->is_debug();
 
+					# Local image paths are only accepted for operator imports, and must
+					# stay inside the directories we are allowed to read images from
+					my $image_path = get_local_image_path($args_ref, $file);
+					next if not defined $image_path;
+					$file = $image_path;
+
 					defined $images_ref->{$code} or $images_ref->{$code} = {};
 					if ($imagefield ne "other") {
 						$images_ref->{$code}{$imagefield} = $file;
@@ -2079,11 +2404,13 @@ sub import_csv_file ($args_ref) {
 				my $imported_date_t;
 				my $existing_date_t;
 				eval {
-					$imported_date_t = DateTime::Format::ISO8601->parse_datetime($imported_date)->epoch;
-					$existing_date_t = DateTime::Format::ISO8601->parse_datetime($existing_date)->epoch;
+					my $imported_date_dt = $dtformatter->parse_datetime($imported_date);
+					my $existing_date_dt = $dtformatter->parse_datetime($existing_date);
+					$imported_date_t = $imported_date_dt->epoch if defined $imported_date_dt;
+					$existing_date_t = $existing_date_dt->epoch if defined $existing_date_dt;
 				};
 
-				if ($@) {
+				if ($@ or (not defined $imported_date_t) or (not defined $existing_date_t)) {
 					$log->warn("Could not parse imported or existing dates",
 						{imported_date => $imported_date, existing_date => $existing_date, error => $@})
 						if $log->is_warn();
@@ -2127,6 +2454,22 @@ sub import_csv_file ($args_ref) {
 
 		my @param_fields = ();
 
+		# The owner of the products is bound server side to the owner the import runs
+		# with: only apply an owner column when the import was started by an operator
+		# (import_owner), or when the value matches that owner.
+		my $apply_owner_field = 1;
+		if (    (not $args_ref->{import_owner})
+			and (defined $Owner_id)
+			and (defined $imported_product_ref->{owner})
+			and ($imported_product_ref->{owner} ne $Owner_id))
+		{
+			$log->warn(
+				"import - ignoring an owner value that does not match the owner of the import",
+				{code => $code, owner => $imported_product_ref->{owner}, owner_id => $Owner_id}
+			) if $log->is_warn();
+			$apply_owner_field = 0;
+		}
+
 		foreach my $field (
 			'owner', 'lc',
 			'lang', 'product_name',
@@ -2140,6 +2483,9 @@ sub import_csv_file ($args_ref) {
 			'data_sources', 'imports'
 			)
 		{
+
+			# The owner column is only applied when the import runs with the owner it names
+			next if (($field eq 'owner') and (not $apply_owner_field));
 
 			if (defined $language_fields{$field}) {
 				foreach my $display_lc (@param_sorted_langs) {
@@ -2195,6 +2541,25 @@ sub import_csv_file ($args_ref) {
 			if ($field =~ /^sources_fields:([a-z0-9-]+):/) {
 				my $source_id = $1;
 				my $source_field = $';
+
+				# Only write the source fields of the owner the import runs with, unless
+				# the import was started by an operator or by our own exporter
+				my $allowed_source_id
+					= (not defined $Owner_id)
+					|| ($source_id eq $Owner_id)
+					|| (
+					(defined $args_ref->{source_id})
+					&& (   ($source_id eq $args_ref->{source_id})
+						|| ($source_id eq "org-" . $args_ref->{source_id}))
+					);
+
+				if ((not $args_ref->{allow_any_source_fields}) and (not $allowed_source_id)) {
+					$log->warn(
+						"import - ignoring source fields of another source than the importer",
+						{code => $code, field => $field, owner_id => $Owner_id}
+					) if $log->is_warn();
+					next;
+				}
 				defined $product_ref->{sources_fields} or $product_ref->{sources_fields} = {};
 				defined $product_ref->{sources_fields}{$source_id} or $product_ref->{sources_fields}{$source_id} = {};
 				if (   (not defined $product_ref->{sources_fields}{$source_id}{$source_field})
@@ -2238,6 +2603,25 @@ sub import_csv_file ($args_ref) {
 				);
 			}
 		}
+
+		# Teams (e.g. exported from the producers platform): they are added to the existing teams,
+		# as the product may also have been edited on the public platform by users who belong to other teams
+		if ((defined $imported_product_ref->{teams}) and ($imported_product_ref->{teams} !~ /^\s*$/)) {
+			if (add_teams_to_product($product_ref, split(/,/, $imported_product_ref->{teams}))) {
+				$log->debug("added teams", {code => $code, teams => $imported_product_ref->{teams}})
+					if $log->is_debug();
+				push @modified_fields, "teams";
+				$modified++;
+				$stats_ref->{products_info_added}{$code} = 1;
+				$stats_ref->{"products_info_added_field_teams"}{$code} = 1;
+			}
+		}
+
+		# Tags sources input fields of the form tags_sources.[tags field].[source].tags/last_update_t
+		import_tags_sources_fields(
+			$args_ref, $imported_product_ref, $product_ref, $stats_ref, \$modified,
+			\@modified_fields, \$differing, \%differing_fields, $time,
+		);
 
 		# Nutrients
 
@@ -2422,8 +2806,13 @@ sub import_csv_file ($args_ref) {
 
 			my $imagefield = $1;
 
+			# Local image paths are only accepted for operator imports, and must stay
+			# inside the directories we are allowed to read images from
+			my $image_path = get_local_image_path($args_ref, $imported_product_ref->{$field});
+			next if not defined $image_path;
+
 			(defined $images_ref->{$code}) or $images_ref->{$code} = {};
-			$images_ref->{$code}{$imagefield} = $imported_product_ref->{$field};
+			$images_ref->{$code}{$imagefield} = $image_path;
 		}
 
 		# Images can be specified as urls that we need to download
@@ -2474,7 +2863,8 @@ sub import_csv_file ($args_ref) {
 			# We may have several URLs separated by commas
 			foreach my $image_url (split(/\s*,\s*/, $imported_product_ref->{$field})) {
 
-				if ($image_url =~ /^http/) {
+				# download_image() checks the url again, against the addresses it resolves to
+				if ($image_url =~ /^https?:\/\//i) {
 
 					# Create a local filename from the url
 
@@ -2559,20 +2949,7 @@ sub import_csv_file ($args_ref) {
 							# Download the image
 
 							# We can try to transform some URLs to get the full size image instead of preview thumbs
-
-							my @image_urls = ($image_url);
-
-							# https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG
-							# -> remove thumb=true to get the full image
-
-							$image_url =~ s/thumb=true&//;
-
-							# https://www.elle-et-vire.com/uploads/cache/400x400/uploads/recip/product_media/108/3451790013737-ev-bio-creme-epaisse-entiere-poche-33cl.png
-							$image_url =~ s/\/uploads\/cache\/(\d+)x(\d+)\/uploads\//\/uploads\//;
-
-							if ($image_url ne $image_urls[0]) {
-								unshift @image_urls, $image_url;
-							}
+							my @image_urls = get_image_urls_to_try($image_url);
 
 							my $downloaded_image = 0;
 

@@ -1,0 +1,157 @@
+{
+   "code" : "3234567890100",
+   "errors" : [],
+   "product" : {
+      "brands" : "Aldi, Another brand, Some brand",
+      "brands_tags" : [
+         "xx:aldi",
+         "xx:Another brand",
+         "xx:Some brand"
+      ],
+      "brands_tags_en" : [
+         "Aldi",
+         "Another brand",
+         "Some brand"
+      ],
+      "categories_tags" : [
+         "en:beverages-and-beverages-preparations",
+         "en:plant-based-foods-and-beverages",
+         "en:beverages",
+         "en:plant-based-foods",
+         "en:hot-beverages",
+         "en:plant-based-beverages",
+         "en:teas",
+         "en:coffees"
+      ],
+      "categories_tags_en" : [
+         "Beverages and beverages preparations",
+         "Plant-based foods and beverages",
+         "Beverages",
+         "Plant-based foods",
+         "Hot beverages",
+         "Plant-based beverages",
+         "Teas",
+         "Coffees"
+      ],
+      "countries_tags" : [
+         "en:italy",
+         "en:spain"
+      ],
+      "countries_tags_fr" : [
+         "Italie",
+         "Espagne"
+      ],
+      "labels_tags" : [
+         "en:vegetarian",
+         "fr:Something unrecognized in French"
+      ],
+      "labels_tags_fr" : [
+         "Végétarien",
+         "Something unrecognized in French"
+      ],
+      "stores_tags" : [
+         "Carrefour",
+         "Mon Ptit magasin"
+      ],
+      "stores_tags_en" : [
+         "Carrefour",
+         "Mon Ptit magasin"
+      ],
+      "tags_sources" : {
+         "allergens" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            },
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:milk",
+                  "en:eggs",
+                  "en:peanuts",
+                  "en:nuts",
+                  "en:fish",
+                  "en:shellfish",
+                  "en:gluten",
+                  "en:soybeans",
+                  "en:mango",
+                  "en:kiwi",
+                  "en:Unrecognized Allergen"
+               ]
+            }
+         },
+         "brands" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "xx:Some brand",
+                  "xx:aldi",
+                  "xx:Another brand"
+               ]
+            }
+         },
+         "categories" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:coffees",
+                  "en:teas"
+               ]
+            }
+         },
+         "countries" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:italy",
+                  "en:spain"
+               ]
+            }
+         },
+         "labels" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:vegetarian",
+                  "fr:Something unrecognized in French"
+               ]
+            }
+         },
+         "stores" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "Carrefour",
+                  "Mon Ptit magasin"
+               ]
+            }
+         },
+         "traces" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            },
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:gluten",
+                  "en:molluscs",
+                  "en:sesame-seeds"
+               ]
+            }
+         }
+      },
+      "traces_tags" : [
+         "en:gluten",
+         "en:molluscs",
+         "en:sesame-seeds"
+      ],
+      "traces_tags_en" : [
+         "gluten",
+         "molluscs",
+         "sesame seeds"
+      ]
+   },
+   "status" : "success",
+   "warnings" : []
+}

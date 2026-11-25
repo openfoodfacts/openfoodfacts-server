@@ -1,0 +1,88 @@
+{
+    "$schema": "https://fundingjson.org/schema/v1.1.0.json",
+    "version": "v1.1.0",
+    "entity": {
+        "type": "organisation",
+        "role": "steward",
+        "name": "Open Food Facts",
+        "email": "fundraising@openfoodfacts.org",
+        "phone": "",
+        "description": "Open Food Facts is a collaborative, free and open database of food products from around the world. We empower citizens to make better food choices and encourage industry to improve product formulations.",
+        "webpageUrl": {
+            "url": "https://world.openfoodfacts.org/partners",
+            "wellKnown": ""
+        }
+    },
+    "projects": [
+        {
+            "guid": "openfoodfacts-server",
+            "name": "Open Food Facts Server",
+            "description": "The core server, API, and web interface powering the Open Food Facts collaborative database.",
+            "webpageUrl": {
+                "url": "https://world.openfoodfacts.org"
+            },
+            "repositoryUrl": {
+                "url": "https://github.com/openfoodfacts/openfoodfacts-server"
+            },
+            "licenses": ["AGPL-3.0"],
+            "tags": ["perl", "python", "open-data", "food", "database", "api"]
+        },
+        {
+            "guid": "smooth-app",
+            "name": "Smooth App",
+            "description": "The official Open Food Facts mobile application for scanning and exploring food products.",
+            "webpageUrl": {
+                "url": "https://world.openfoodfacts.org/open-food-facts-mobile-app"
+            },
+            "repositoryUrl": {
+                "url": "https://github.com/openfoodfacts/smooth-app"
+            },
+            "licenses": ["Apache-2.0"],
+            "tags": ["flutter", "dart", "mobile", "ios", "android", "barcode-scanner"]
+        }
+    ],
+    "funding": {
+        "channels": [
+            {
+                "guid": "github-sponsors",
+                "type": "payment-provider",
+                "address": "https://github.com/sponsors/openfoodfacts",
+                "description": "GitHub Sponsors"
+            },
+            {
+                "guid": "open-collective",
+                "type": "payment-provider",
+                "address": "https://opencollective.com/openfoodfacts-server",
+                "description": "Open Collective"
+            },
+            {
+                "guid": "custom-donate",
+                "type": "payment-provider",
+                "address": "https://donate.openfoodfacts.org/?utm_source=github&utm_medium=web&utm_campaign=funding_links",
+                "description": "Direct Donation to Open Food Facts"
+            }
+        ],
+        "plans": [
+            {
+                "guid": "one-time-support",
+                "status": "active",
+                "name": "One-Time Donation",
+                "description": "Support the ongoing maintenance, server infrastructure, and scaling of the Open Food Facts database with a one-time contribution.",
+                "amount": 0,
+                "currency": "EUR",
+                "frequency": "one-time",
+                "channels": ["custom-donate", "github-sponsors"]
+            },
+            {
+                "guid": "monthly-sponsorship",
+                "status": "active",
+                "name": "Monthly Sponsorship",
+                "description": "Become a recurring sponsor to help sustain core development, bug fixes, community support, and new feature integrations.",
+                "amount": 0,
+                "currency": "EUR",
+                "frequency": "monthly",
+                "channels": ["github-sponsors", "open-collective", "custom-donate"]
+            }
+        ]
+    }
+}

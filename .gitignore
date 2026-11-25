@@ -47,6 +47,7 @@ tests/integration/outputs/
 ehthumbs.db
 Thumbs.db
 .vstags
+.Rhistory
 # editors
 .~*
 .*.swo
@@ -55,6 +56,9 @@ Thumbs.db
 .vscode/perl-lang/
 .vscode/settings.json
 .idea/
+
+# Backup files
+*.bak
 
 # Logs
 logs/
@@ -71,6 +75,7 @@ users_emails.sto
 html/data/*
 html/products_countries.js
 products_stats_*.html
+products_stats_*.json
 
 # Libraries
 node_modules
@@ -124,3 +129,8 @@ __pycache__/
 *.pyo
 *.pyd
 test_matomo_events.html
+
+# Runtime CI timing snapshots and canonical plans
+/.test_timing_history/
+/.test_groups_cache/plan.json
+/.test_groups_cache/*_timings.json
