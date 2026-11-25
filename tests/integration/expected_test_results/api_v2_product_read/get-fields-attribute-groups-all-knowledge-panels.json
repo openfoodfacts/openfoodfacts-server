@@ -1289,8 +1289,8 @@
                   "name" : "apple"
                },
                {
-                  "ecobalyse_name" : "Lait par défaut -2025-",
-                  "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+                  "ecobalyse_name" : "Lait de vache HORS UE",
+                  "id" : "413dbd30-f224-580c-bf02-51664910430e",
                   "mass" : 20.8333333333333,
                   "name" : "milk"
                },
@@ -1342,7 +1342,7 @@
                         {
                            "amount" : 0.020833,
                            "material" : {
-                              "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0"
+                              "id" : "413dbd30-f224-580c-bf02-51664910430e"
                            },
                            "transforms" : []
                         }
@@ -1514,8 +1514,8 @@
          },
          {
             "ciqual_proxy_food_code" : "19051",
-            "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
-            "ecobalyse_name" : "Lait par défaut -2025-",
+            "ecobalyse_proxy_id" : "413dbd30-f224-580c-bf02-51664910430e",
+            "ecobalyse_proxy_name" : "Lait de vache HORS UE",
             "id" : "en:milk",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 20.8333333333333,
@@ -1659,7 +1659,17 @@
       "interface_version_modified" : "20150316.jqm2",
       "knowledge_panels" : {
          "additive_en:e100" : {
-            "elements" : [],
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "The French food safety agency (ANSES) lists this additive among the additives that should be monitored. Additives on this list meet at least one of these criteria: some people may consume more than the acceptable daily intake; there is no legal maximum amount in foods; the acceptable daily intake was lowered after a recent re-evaluation; or the additive can be present as nanoparticles. Being on this list does not mean the additive is unsafe at usual levels of consumption.",
+                     "source_language" : "fr",
+                     "source_text" : "ANSES - Oqali (2019)",
+                     "source_url" : "https://www.anses.fr/fr/content/rapport-oqali-bilan-et-%C3%A9volution-de-lutilisation-des-additifs-dans-les-produits-transform%C3%A9s"
+                  }
+               }
+            ],
             "level" : "info",
             "size" : "small",
             "title_element" : {

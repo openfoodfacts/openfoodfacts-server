@@ -35922,6 +35922,14 @@ de: Roggenknäckebrote
 fi: Ruisnäkkileivät
 fr: Pains croustillants au seigle
 sv: Rågknäckebröd
+
+< en: Rye crispbreads
+en: Refined rye crispbreads, Light rye crispbreads
+da: Knækbrød af sigtet rugmel
+de: Helle Roggenknäckebrote
+fr: Pains croustillants au seigle non complets
+sv: Knäckebröd av siktat rågmjöl
+description:en: Rye crispbreads made with refined (light) rye flour, not wholemeal.
 foodex2_code:en: A006C
 foodex2_extended_name:en: Crisp bread, rye, refined flour
 foodex2_implicit_facets:en: F04.A001K$F10.A07XK$F33.A0C3Q
@@ -35959,11 +35967,13 @@ nl: Knäckebrot (volkoren)
 sv: Fullkornsknäckebröd, Knäckebröd (fullkorn)
 
 < en: Crispbreads
-en: Crispbreads (non-wholemeal), Crispbreads(non-wholemeal)
-da: Knækbrød (ikke-fuldkorn)
-fr: Pains croustillants non-complets
-nl: Knäckebrot (niet-volkoren)
-sv: Knäckebröd (icke-fullkorn)
+en: Refined wheat crispbreads, Light wheat crispbreads, Crispbreads (non-wholemeal), Crispbreads(non-wholemeal)
+da: Knækbrød af hvidt hvedemel, Knækbrød (ikke-fuldkorn)
+de: Helle Weizenknäckebrote
+fr: Pains croustillants au blé non complets, Pains croustillants non-complets
+nl: Tarweknäckebröd (niet-volkoren), Knäckebrot (niet-volkoren)
+sv: Veteknäckebröd (icke-fullkorn), Knäckebröd (icke-fullkorn)
+description:en: Crispbreads made with refined wheat flour, not wholemeal.
 foodex2_code:en: A006F
 foodex2_common_names:en: crackerbread light
 foodex2_extended_name:en: Crisp bread, wheat, refined flour
@@ -36990,6 +37000,15 @@ comment:en: Do not confuse these with the small snacks
 google_product_taxonomy_id:en: 3446
 sales_format:en: package, item
 wikidata:en: Q160525
+
+< en: Bread Pretzels
+en: Covrigi, Romanian pretzels
+ro: Covrigi, Covrig
+comment:en: Romanian bread rings or sticks, often topped with salt, sesame or poppy seeds. The small crunchy snacks are Covrigei.
+
+< en: Covrigi
+en: Covrigi de Buzău, Covrigi de Buzau
+ro: Covrigi de Buzău, Covrigi de Buzau
 
 < en: Special breads
 en: Bruschetta breads
@@ -41045,6 +41064,7 @@ fr: Meringues fantaisie, meringue fantaisie
 < en: Candies
 en: Gummi candies, Gelified candies, Jelly candy
 ca: Caramels gelificats
+da: Vingummi
 de: Gummibonbons, fruchtgummi
 es: Caramelos de goma
 fi: Hyytelömakeiset
@@ -41100,6 +41120,14 @@ pl: Żelki-truskawki
 < en: Gummi candies
 en: Wine gums
 nl: Wine gums
+description:en: Firm glazed gummies. Not coated in sugar (see Sugar-coated gummies).
+
+< en: Gummi candies
+en: Sugar-coated gummies, Sugared gummies, Gum drops, Gumdrops
+de: Gezuckerte Fruchtgummis, Fruchtgummi gezuckert
+fr: Bonbons gélifiés sucrés
+nl: Gesuikerde gummi-snoepjes
+description:en: Gummies coated in granulated sugar, including sour sugar-coated gummies.
 foodex2_code:en: A035K
 foodex2_common_names:en: Gumdrops
 foodex2_extended_name:en: Gum drops
@@ -57600,6 +57628,7 @@ lt: Jogurtai be pieno, vaganiški jogurtai
 nl: Plantaardige yoghurts, plantaardige yoghurt, Zuivelvrije yoghurts
 pl: Jogurty bezmleczne
 pt: Iogurtes não lácteos
+sv: Yoghurtar utan mjölk
 
 < en: Non-dairy yogurts
 en: Refrigerated non-dairy yogurts
@@ -57611,6 +57640,17 @@ gpc_category_name:en: Yogurt Substitutes (Perishable)
 en: Greek-style non-dairy yogurts, Greek-style vegan yogurts, Dairy-free greek-style yogurt
 opposite:en: en:greek-style-yogurts
 
+< en: Non-dairy yogurts
+en: Plain plant-based yogurts, Plain vegan yogurts
+sv: Naturelle växtbaserade yoghurtar, Naturelle veganska yoghurtar
+incompatible_with:en: categories:en:flavoured-plant-based-yogurts
+
+< en: Non-dairy yogurts
+en: Flavoured plant-based yogurts, Flavoured vegan yogurts
+da: Smagsatte plantebaserede yoghurter, Veganske yoghurter med smag
+sv: Smaksatte växtbaserade yoghurtar, Veganska yoghurtar med smak
+incompatible_with:en: categories:en:plain-plant-based-yogurts
+
 < en: Coconuts and their products
 < en: Non-dairy yogurts
 en: Coconutmilk yogurts, Dairy-free coconut-based yoghurts
@@ -57621,15 +57661,41 @@ nl: Zuivelvrije kokosnootyoghurts
 
 < en: Non-dairy yogurts
 < en: Oats and their products
-en: Oat milk yogurts
+en: Oat milk yogurts, Oat yogurts
 fr: Desserts de jus d'avoine fermenté
 hr: Jogurti od zobenog mlijeka
 lt: Avižų pieno jogurtai
 nl: Haver yoghurt, Havergurt
+sv: Havrebaserade yoghurtar, Havregurtar
 
 < en: Greek-style non-dairy yogurts
 < en: Oat milk yogurts
 en: Greek-style oat milk yogurts
+
+< en: Oat milk yogurts
+< en: Plain plant-based yogurts
+en: Plain oat milk yogurts, Natural oat milk yogurts
+fr: Yaourts avoine natures, Yaourts au avoine natures
+hr: Obični zobenog jogurti
+lt: Paprasti avižų jogurtai, Natūralūs avižų jogurtai
+nl: Naturel haveryoghurts
+sv: Naturelle havrebaserade yoghurtar
+
+< en: Flavoured plant-based yogurts
+< en: Oat milk yogurts
+en: Flavoured oat milk yogurts
+da: Smagsatte havrebaserede yoghurter, Havreyoghurter med smag
+sv: Smaksatte havrebaserade yoghurtar, Havreyoghurtar med smak
+
+< en: Flavoured oat milk yogurts
+en: Vanilla-flavoured oat milk yogurts, Vanilla oat yogurts
+da: Havrebaserede yoghurter med vaniljesmag, Vanilje-havreyoghurter
+sv: Havrebaserade yoghurter med vaniljsmak, Vanilj-havreyoghurter
+
+< en: Flavoured oat milk yogurts
+en: Strawberry-flavoured oat milk yogurts, Strawberry oat yogurts
+da: Havrebaserede yoghurter med jordbærsmag, Jordbær-havreyoghurter
+sv: Havrebaserade yoghurter med jordgubbssmak, Jordgubbshavreyoghurter
 
 < en: Non-dairy yogurts
 en: Almond milk yogurts
@@ -57663,6 +57729,7 @@ foodex2_old_code:en: A.01.001249
 foodex2_scope_note:en: The group includes any type of soya yoghurt, i.e. a yogurt made from soy drink.
 wikidata:en: Q1757352
 
+< en: Plain plant-based yogurts
 < en: Soy milk yogurts
 en: Plain soy yogurts, Natural soy yogurts
 de: Einfacher Soja-Joghurt, Natürlicher Soja-Joghurt
@@ -57676,6 +57743,7 @@ nl: Naturel sojayoghurts
 agribalyse_food_code:en: 19693
 ciqual_food_code:en: 19693
 
+< en: Flavoured plant-based yogurts
 < en: Soy milk yogurts
 en: Fruit soy yogurts
 de: Frucht-Soja-Joghurts
@@ -58282,13 +58350,14 @@ nl: Gerookte amandelen, Amandelen (gerookt)
 #############################################
 
 < en: Nuts
-en: Cashew nuts
+en: Cashew nuts, Cashews
 bg: Кашу
+da: Cashewnødder
 de: Cashewnüsse, Kaschunüsse
 es: Anacardos
-fi: cashewpähkinät
+fi: Cashewpähkinät
 fr: Noix de cajou, Anacardes
-hr: indijski oraščić
+hr: Indijski oraščić
 it: Noci di acagiu
 ja: カシューナッツ
 la: Anacardium occidentale
@@ -58296,6 +58365,7 @@ lt: Anakardžiai
 nl: Cashewnoten
 pt: Castanha de caju
 ru: Орехи Кешью
+sv: Cashewnötter
 tr: Kaju
 agribalyse_proxy_food_code:en: 15019
 agribalyse_proxy_food_name:en: Cashew nut, grilled, salted
@@ -58306,51 +58376,79 @@ wikidata:en: Q34007
 
 < en: Cashew nuts
 < en: Salted nuts
-en: Salted cashews, Salted cashew nuts
+en: Salted cashew nuts, Salted cashews
+da: Saltede cashewnødder
 de: Gesalzene Cashewnüsse, Gesalzene Cashewkerne
 fr: Noix de cajou salées
 hr: Slani indijski oraščići
 lt: Anakardžiai su druska, Sūdyti anakardžiai
-tr: Tuzlu Kaju
+sv: Saltade cashewnötter
+tr: Tuzlu kaju
+agribalyse_proxy_food_code:en: 15019
+ciqual_proxy_food_code:en: 15019
+ciqual_proxy_food_name:en: Cashew nut, grilled, salted
 opposite:en: en:unsalted-cashew-nuts
 
 < en: Cashew nuts
 < en: Unsalted nuts
-en: Unsalted cashews, Unsalted cashew nuts
+en: Unsalted cashew nuts, Unsalted cashews
+da: Usaltede cashewnødder
 de: Ungesalzene Cashewnüsse, Ungesalzene Cashewkerne
 fr: Noix de cajou non-salées
 hr: Neslani indijski oraščići
 lt: Anakardžiai (nesūdyti)
 nl: Cashewnoten (ongezouten), Ongezouten cashewnoten
+sv: Osaltade cashewnötter
+agribalyse_proxy_food_code:en: 15019
+ciqual_proxy_food_code:en: 15019
+ciqual_proxy_food_name:en: Cashew nut, grilled, salted
 opposite:en: en:salted-cashew-nuts
 
 < en: Non-roasted cashew nuts
-< en: Unsalted cashews
+< en: Unsalted cashew nuts
 en: Raw cashew nuts
+da: Rå cashewnødder
 fr: Noix de cajou crues
+sv: Råa cashewnötter
 expected_ingredients:en: en:cashew-nuts
 sales_format:en: weight, package
 
 < en: Cashew nuts
 < en: Roasted nuts
 en: Roasted cashew nuts
+da: Ristede cashewnødder
 de: Geröstete Cashews, Geröstete Cashewnüsse
-fi: paahdetut cashew-pähkinät
-fr: Noix de Cajou grillées
+fi: Paahdetut cashew-pähkinät
+fr: Noix de cajou grillées
 hr: Pečeni indijski oraščići
 lt: Skrudinti anakardžiai
 nl: Geroosterde cashewnoten
+sv: Rostade cashewnötter
 tr: Kavrulmuş Kaju
-agribalyse_food_code:en: 15019
-ciqual_food_code:en: 15019
-ciqual_food_name:en: Cashew nut, grilled, salted
+agribalyse_proxy_food_code:en: 15019
+ciqual_proxy_food_code:en: 15019
+ciqual_proxy_food_name:en: Cashew nut, grilled, salted
 opposite:en: en:non-roasted-cashew-nuts
 sales_format:en: weight, package
 
 < en: Cashew nuts
 en: Non-roasted cashew nuts
+da: Uristede cashewnødder
 fr: Noix de cajou non-grillées
+sv: Orostade cashewnötter
 opposite:en: en:roasted-cashew-nuts
+
+< en: Roasted cashew nuts
+< en: Salted cashew nuts
+en: Roasted and salted cashew nuts, Salted and roasted cashew nuts
+da: Ristede og saltede cashewnødder, Saltede og ristede cashewnødder
+fr: Noix de cajou grillées et salées
+sv: Rostade och saltade cashewnötter, Saltade och rostade cashewnötter
+agribalyse_food_code:en: 15019
+ciqual_food_code:en: 15019
+ciqual_food_name:en: Cashew nut, grilled, salted
+ciqual_food_name:fr: Noix de cajou, grillée, salée
+sales_format:en: weight, package
 
 < en: Nuts
 en: Chestnuts
@@ -64675,10 +64773,6 @@ lt: Spelta sėlenos
 nl: Speltzemelen
 
 < en: Breakfasts
-en: Instant porridges with milk powder
-fr: Porridges instantanés avec du lait en poudre
-
-< en: Breakfasts
 < en: Cereals and their products
 en: Breakfast cereals
 bg: Зърнени закуски
@@ -65156,6 +65250,10 @@ foodex2_implicit_facets:en: F04.A000G$F28.A07KG$F33.A0C46
 foodex2_old_code:en: A.01.000247
 foodex2_scope_note:en: The group includes any type of Oat porridge in dry form to be diluted with milk or water. The term refers to e.g. ground oatmeal or rolled oat intended to be used for making oat porridge.
 intake24_category_code:en: UHTCL
+
+< en: Porridge
+en: Instant porridges with milk powder
+fr: Porridges instantanés avec du lait en poudre
 
 < en: Ready-to-eat porridges
 en: Ready-to-eat water porridges
@@ -83598,6 +83696,7 @@ origins:en: en:poland
 protected_name_file_number:en: TSG-PL-0053
 protected_name_type:en: tsg
 
+< en: Kielbasa
 < en: Polish meat products
 pl: Kiełbasa lisiecka
 origins:en: en:poland
@@ -98230,7 +98329,7 @@ it: Salsicce affumicate
 nl: Rookworsten, Gerookte worsten
 pl: Kiełbasy wędzone, Kiełbasa wędzona
 
-< en: Sausages
+< en: Cooked sausages
 en: Kielbasa, Polish sausages
 de: Polnische Würste
 fr: Saucisses polonaises
@@ -98339,9 +98438,10 @@ ciqual_food_code:en: 8705
 ciqual_food_name:en: Black or white pudding (blood sausage), sautéed (average)
 ciqual_food_name:fr: Boudin noir ou blanc, sauté/poêlé (aliment moyen)
 
+< en: Cooked sausages
 < en: Tripe dishes
 < fr: Boudins
-en: Black pudding
+en: Black pudding, Blood sausages
 de: Blutwürste, Schwarzwürste, Schwarze Wurst
 es: Morcilla
 fi: Veripalttu
@@ -102021,6 +102121,59 @@ xx: Conchiglie
 wikidata:en: Q19962
 
 < en: Pastas
+en: Macaronis
+xx: Macaroni
+ar: ماكاروني
+az: Makaroni
+bg: Макарони
+ca: Fideus gruixuts
+cs: Makaróny
+da: Makaronier
+de: Makkaroni
+el: Μακαρόνια
+eo: Makaronioj
+es: Fideos, Macarrones, Macarrón
+et: Makaron
+eu: Makarroi
+fa: ماکارونی
+fi: Makaroni
+fr: Coquillettes, coquillette
+ga: Macarón
+gl: Macarrón
+hi: मैकरोनी
+hy: Մակարոն
+id: Makaroni
+io: Makaronio
+it: Maccheroni, Coquillette
+ja: マカロニ
+jv: Markuni
+kk: Макарондар
+kn: ಮ್ಯಾಕರೋನಿ
+ko: 마카로니
+la: Maccarones
+li: Makronie
+lv: Makaroni
+mk: Макарони
+ml: മക്കെറോണി
+ms: Makaroni
+nb: Makaronier
+nl: Macaronis
+nn: Makaroniar
+pt: Macarrão
+ro: Macaroane
+se: Makaruvnnat
+sk: Makarón
+sl: Makaroni
+so: Makaroone
+sr: Макароне
+sv: Makaroner
+th: ตำราอาหาร:มักกะโรนี
+tl: Makaroni
+uk: Макарони
+zh: 通心粉
+wikidata:en: Q20019
+
+< en: Pastas
 en: Penne
 xx: Penne
 bg: Пене
@@ -102635,8 +102788,10 @@ it: Tagliatelle senza glutine
 nl: Glutenvrije tagliatelle
 
 < en: Gluten-free pasta
-fr: Coquillettes sans gluten
+< en: Macaronis
+en: Gluten-free macaronis
 es: Fideos sin gluten
+fr: Coquillettes sans gluten
 it: Coquillette senza glutine
 nl: Glutenvrije macaroni
 
@@ -102651,7 +102806,7 @@ hr: Zobena tjestenina
 it: Pasta di avena
 nl: Havermoutpastas
 
-< en: Pastas
+< en: Cereal pastas
 en: Common wheat pasta
 fr: Pâtes de blé tendre, pâtes de froment
 
@@ -102783,10 +102938,11 @@ fr: Lettres de blé dur
 hr: Slova durum pšenice
 
 < en: Durum wheat pasta
-en: Durum wheat macaroni
+< en: Macaronis
+en: Durum wheat macaronis, Durum wheat macaroni
 es: Macarrones de trigo duro
 fi: Durumvehnämakaroni
-fr: Macaroni de blé dur
+fr: Coquillettes de blé dur, Macaroni de blé dur
 hr: Makaroni od durum pšenice
 it: Maccheroni di grano duro
 nl: Durum tarwemacaronis
@@ -102859,7 +103015,9 @@ es: Letras de trigo duro integrales o semi-integrales
 fr: Lettres de blé dur entières ou semi-entières
 hr: Cjelovita ili polucjelovita durum pšenica slova
 
+< en: Durum wheat macaronis
 < en: Whole or semi-whole durum wheat pasta
+en: Whole or semi-whole durum wheat macaronis
 es: Macarrones de trigo duro integrales o semi-integrales
 nl: Volkorenmacaronis
 
@@ -102997,24 +103155,18 @@ ciqual_food_name:fr: Lasagnes ou canelloni aux légumes et au fromage de chèvre
 en: Cannelloni with ricotta and spinach
 fr: Cannelloni à la ricotta et aux épinards
 
-< en: Pastas
-fr: Coquillettes, coquillette
-wikidata:en: Q2996948
-
+< en: Durum wheat macaronis
 < en: Whole durum wheat pasta
-< fr: Coquillettes
+en: Whole durum wheat macaronis
 fr: Coquillettes complètes
 
+< en: Durum wheat macaronis
 < en: Semi-whole durum wheat pasta
-< fr: Coquillettes
+en: Semi-whole durum wheat macaronis
 fr: Coquillettes semi-complètes
 
-< fr: Coquillettes
+< en: Macaronis
 fr: Coquillettes blanches
-
-< en: Durum wheat pasta
-< fr: Coquillettes
-fr: Coquillettes de blé dur
 
 < en: Pastas
 en: Lasagna sheets, Lasagne sheets
@@ -104362,6 +104514,15 @@ de: Nussecken
 
 < en: Pastries
 de: Mandelhörnchen
+
+< en: Pastries
+en: Mazarins
+da: Mazariner
+de: Mazarin-Törtchen
+nb: Mazariner
+nn: Mazarinar
+sv: Mazariner
+wikidata:en: Q10578820
 
 < en: Pastries
 xx: Succès
@@ -113392,10 +113553,10 @@ pnns_group_2:en: Salty and fatty products
 en: Egg salads, Egg spreads
 de: Eisalaten, Eisalat, Eiaufstriche, Eiersalat
 fr: Salades d'œufs, salades d'oeufs, Tartinades d'œufs, tartinades d'oeufs, tartinades aux oeufs
-lt: Salotos su kiaušiniais
+lt: Olu smēriņi, olu smēriņš
 nl: Eisalades, Eiersalades
-pl: Sałatki jajeczne
-comment:en: This product is really popular in Belgium & Netherlands were it is called "Salade d'oeufs". Please don't put in the category "Prepared salads", because it is a spread not a meal
+pl: Pasty jajeczne, pasta jajeczna
+comment:en: This product is really popular in Belgium & Netherlands were it is called "Salade d'oeufs". Please don't put in the category "Prepared salads", because it is a spread not a meal. Be careful when translating the category as the translation is not literal in some languages.
 
 < en: Salted spreads
 en: Yeast extract spreads
@@ -128415,6 +128576,11 @@ wikidata:en: Q160525
 < en: Pretzel
 fr: mélange Sticks et Bretzels
 
+< en: Pretzel
+en: Covrigei
+ro: Covrigei, Covrigei cu sare
+comment:en: Small crunchy Romanian pretzel rings or sticks, eaten as a snack
+
 < en: Crackers(Appetizers)
 en: Salty flaky biscuits
 fr: Biscuits apéritifs feuilletés, Biscuit apéritif feuilleté
@@ -130527,6 +130693,13 @@ xx: Dumplings
 lt: Koldūnai
 sv: Dumplingar
 wikidata:en: Q1854639
+
+< en: Dumplings
+en: Štruklji
+xx: Štruklji
+sl: Štruklji
+description:en: Štruklji is a traditional Slovene dish, composed of dough and various types of filling. It comes in the form of rolled dumplings, which can be steamed, boiled, or baked.
+wikidata:en: Q141861768
 
 < en: Dumplings
 en: Dumplings with vegetables

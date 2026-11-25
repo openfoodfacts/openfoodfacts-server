@@ -40,8 +40,8 @@
                "name" : "eau"
             },
             {
-               "ecobalyse_name" : "Sel -2025-",
-               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
+               "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
                "mass" : 16.6666666666667,
                "name" : "sel"
             }
@@ -98,7 +98,7 @@
                      {
                         "amount" : 0.016667,
                         "material" : {
-                           "id" : "77defb24-cec3-4de9-8388-63229d1052fb"
+                           "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3"
                         },
                         "transforms" : [
                            "b797d2cc-1ecb-4fa0-b049-48b44a88e283"
@@ -118,10 +118,7 @@
          "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       },
       "ecobalyse_response" : {
-         "complements" : {
-            "hedges" : -0.000112002,
-            "plotSize" : -0.00132003
-         },
+         "complements" : {},
          "composition" : [
             {
                "complements" : {},
@@ -142,22 +139,19 @@
                }
             },
             {
-               "complements" : {
-                  "hedges" : -0.000112002,
-                  "plotSize" : -0.00132003
-               },
+               "complements" : {},
                "mass" : 0.016667,
                "name" : "sel",
                "score" : {
-                  "complements" : -0.00143203,
-                  "ecs" : 2.36122
+                  "complements" : 0,
+                  "ecs" : 2.36265
                }
             }
          ],
          "productMass" : 0.100001,
          "score" : {
-            "complements" : -0.00143203,
-            "ecs" : 39.1766
+            "complements" : 0,
+            "ecs" : 39.178
          },
          "stages" : {
             "assembly" : 0,
@@ -171,7 +165,7 @@
          }
       },
       "ecs_per" : "100g",
-      "ecs_per_100g_or_100ml" : 39.1766
+      "ecs_per_100g_or_100ml" : 39.178
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
@@ -203,8 +197,8 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-         "ecobalyse_name" : "Sel -2025-",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,

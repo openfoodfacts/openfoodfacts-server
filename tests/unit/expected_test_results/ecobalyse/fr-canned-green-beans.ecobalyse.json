@@ -1,8 +1,5 @@
 {
-   "complements" : {
-      "hedges" : -0.000112002,
-      "plotSize" : -0.00132003
-   },
+   "complements" : {},
    "composition" : [
       {
          "complements" : {},
@@ -23,22 +20,19 @@
          }
       },
       {
-         "complements" : {
-            "hedges" : -0.000112002,
-            "plotSize" : -0.00132003
-         },
+         "complements" : {},
          "mass" : 0.016667,
          "name" : "sel",
          "score" : {
-            "complements" : -0.00143203,
-            "ecs" : 2.36122
+            "complements" : 0,
+            "ecs" : 2.36265
          }
       }
    ],
    "productMass" : 0.100001,
    "score" : {
-      "complements" : -0.00143203,
-      "ecs" : 39.1766
+      "complements" : 0,
+      "ecs" : 39.178
    },
    "stages" : {
       "assembly" : 0,
