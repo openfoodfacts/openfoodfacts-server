@@ -682,32 +682,32 @@ sub _compile_nutrients_condition ($condition, $path, $errors_ref) {
 	}
 
 	my @ranges_to_check = ();
-	foreach my $nutrient_id (sort keys %$condition) {
-		my $range_ref = $condition->{$nutrient_id};
+	foreach my $nid (sort keys %$condition) {
+		my $range_ref = $condition->{$nid};
 		if (ref($range_ref) ne 'HASH') {
-			push @$errors_ref, "$path.$nutrient_id: must be a mapping with min and/or max";
+			push @$errors_ref, "$path.$nid: must be a mapping with min and/or max";
 			next;
 		}
 		my ($min, $max) = ($range_ref->{min}, $range_ref->{max});
 		if ((not defined $min) and (not defined $max)) {
-			push @$errors_ref, "$path.$nutrient_id: min or max is required";
+			push @$errors_ref, "$path.$nid: min or max is required";
 		}
 		foreach my $limit ($min, $max) {
 			if ((defined $limit) and ($limit !~ /^-?\d+(\.\d+)?$/)) {
-				push @$errors_ref, "$path.$nutrient_id: min and max must be numbers";
+				push @$errors_ref, "$path.$nid: min and max must be numbers";
 			}
 		}
-		push @ranges_to_check, {nutrient_id => $nutrient_id, min => $min, max => $max};
+		push @ranges_to_check, {nid => $nid, min => $min, max => $max};
 	}
 
 	return sub ($context) {
-		my $nutrition_set_ref = deep_get($context->{product}, "nutrition", "aggregated_set");
-		return 0 if not defined $nutrition_set_ref;
-		return 0 if ($nutrition_set_ref->{preparation} // "as_sold") ne "as_sold";
-		return 0 if ($nutrition_set_ref->{per} // "100g") !~ /^100(g|ml)$/;
+		my $aggregated_set_ref = deep_get($context->{product}, "nutrition", "aggregated_set");
+		return 0 if not defined $aggregated_set_ref;
+		return 0 if ($aggregated_set_ref->{preparation} // "as_sold") ne "as_sold";
+		return 0 if ($aggregated_set_ref->{per} // "100g") !~ /^100(g|ml)$/;
 
 		foreach my $range_to_check_ref (@ranges_to_check) {
-			my $nutrient_ref = deep_get($nutrition_set_ref, "nutrients", $range_to_check_ref->{nutrient_id});
+			my $nutrient_ref = deep_get($aggregated_set_ref, "nutrients", $range_to_check_ref->{nid});
 			return 0 if not defined $nutrient_ref;
 			my $value = $nutrient_ref->{value};
 			return 0 if (not defined $value) or ($value !~ /^-?\d+(\.\d+)?(e-?\d+)?$/i);
@@ -1224,8 +1224,8 @@ sub build_product_from_tags_rules_fixture ($fixture_ref) {
 		}
 		elsif ($key eq 'nutrients') {
 			my %nutrients = ();
-			foreach my $nutrient_id (keys %$value) {
-				$nutrients{$nutrient_id} = {value => $value->{$nutrient_id}, unit => "g"};
+			foreach my $nid (keys %$value) {
+				$nutrients{$nid} = {value => $value->{$nid}, unit => "g"};
 			}
 			$product_ref->{nutrition}{aggregated_set}
 				= {per => "100g", preparation => "as_sold", nutrients => \%nutrients};
