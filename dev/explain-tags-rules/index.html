@@ -2213,6 +2213,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#where-rules-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where rules run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rules-files" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2632,6 +2643,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#where-rules-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where rules run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rules-files" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2813,8 +2835,8 @@ that added each tag:</p>
 <span class="w">      </span><span class="nt">last_updated_t</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1762800000</span>
 <span class="w">      </span><span class="nt">rules</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nv">en</span><span class="p p-Indicator">:</span><span class="nt">caffeinated-colas</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">colas-caffeinated</span><span class="p p-Indicator">]}</span>
 </code></pre></div>
-<p><code>categories_tags</code> is regenerated from all the sources. Rules run again on every product update, so the <code>rules</code>
-source always reflects the current rules and data: if a contributor adds a "caffeine-free" label, the rule no longer
+<p><code>categories_tags</code> is regenerated from all the sources. Rules run again on every product update (see
+<a href="#where-rules-run">Where rules run</a>), so the <code>rules</code> source always reflects the current rules and data: if a contributor adds a "caffeine-free" label, the rule no longer
 matches and the tag is removed from the <code>rules</code> source.</p>
 <p>Products changed by a rule also get the misc tags <code>en:tags-added-by-rules</code> and <code>en:tags-rule-&lt;rule id&gt;</code>.</p>
 <p>Data quality tags (<code>data_quality_warnings</code>, <code>data_quality_info</code>) are not stored: they are added by <code>check_quality()</code>.</p>
@@ -2825,6 +2847,18 @@ matches and the tag is removed from the <code>rules</code> source.</p>
 <li><code>add_tag_fields</code>: the tag fields that rules can add tags to (data quality tags can always be added).</li>
 </ul>
 <p>Flavors without this setting do not run tags rules. Only Open Food Facts has it for now.</p>
+<h2 id="where-rules-run">Where rules run<a class="headerlink" href="#where-rules-run" title="Permanent link">#</a></h2>
+<p>The setting only selects the fields: it does not run the rules by itself. Rules run where a product type calls
+them, and only food does for now:</p>
+<ul>
+<li><code>apply_tags_rules_to_product()</code> in <code>specific_processes_for_food_product()</code> (<code>lib/ProductOpener/FoodProducts.pm</code>),
+  after the ingredients analysis (the <code>known</code> condition needs <code>unknown_ingredients_n</code>) and before the category
+  properties and food groups (so that they use the added categories);</li>
+<li><code>add_tags_rules_data_quality_tags()</code> in the food checks of <code>check_quality()</code> (<code>lib/ProductOpener/DataQuality.pm</code>).</li>
+</ul>
+<p>To enable rules for another product type (e.g. pet food), add the setting to its <code>Config_&lt;flavor&gt;.pm</code>, rules in
+<code>rules/&lt;product type&gt;/</code>, and the same two calls in its <code>specific_processes_for_&lt;product type&gt;_product()</code> and
+quality checks.</p>
 <h2 id="rules-files">Rules files<a class="headerlink" href="#rules-files" title="Permanent link">#</a></h2>
 <p>A file is a list of rules:</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">colas-caffeinated</span>

@@ -677,6 +677,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-11-product-version-1004-no-change-api-version-36-no-change-new-rules-source-in-tags_sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-11 — Product version 1004 (no change) — API version 3.6 (no change) — New rules source in tags_sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-05-27-product-version-1004-api-version-36-new-tags-schema-with-tags_sources" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2660,6 +2671,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-11-product-version-1004-no-change-api-version-36-no-change-new-rules-source-in-tags_sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-11 — Product version 1004 (no change) — API version 3.6 (no change) — New rules source in tags_sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2026-05-27-product-version-1004-api-version-36-new-tags-schema-with-tags_sources" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2843,6 +2865,17 @@ For each of those API version, we have a corresponding product schema version.</
 <p>When a client makes a request with a specific API version, we do our best to convert the response to the corresponding product schema version.</p>
 <p>Note: API v3 is under active development, and the API and corresponding product schema may change frequently.</p>
 <h2 id="schema-version-and-api-version-change-log">Schema version and API version change log<a class="headerlink" href="#schema-version-and-api-version-change-log" title="Permanent link">#</a></h2>
+<h3 id="2026-11-product-version-1004-no-change-api-version-36-no-change-new-rules-source-in-tags_sources">2026-11 — Product version 1004 (no change) — API version 3.6 (no change) — New <code>rules</code> source in tags_sources<a class="headerlink" href="#2026-11-product-version-1004-no-change-api-version-36-no-change-new-rules-source-in-tags_sources" title="Permanent link">#</a></h3>
+<p>Non-breaking change: tags inferred by rules (defined in the <code>rules/</code> directory, see <code>ProductOpener::TagsRules</code>) from other
+data of the product are stored in a new <code>rules</code> source, e.g. <code>tags_sources.categories.rules</code>. The <code>[field]_tags</code> fields
+include them, as for all other sources. The <code>rules</code> source has an extra <code>rules</code> property that lists, for each tag, the ids
+of the rules that added it:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">"tags_sources"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"packaging"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"en:colas"</span><span class="p">],</span><span class="w"> </span><span class="nt">"last_updated_t"</span><span class="p">:</span><span class="w"> </span><span class="mi">1762790000</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"rules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"en:caffeinated-colas"</span><span class="p">],</span><span class="w"> </span><span class="nt">"last_updated_t"</span><span class="p">:</span><span class="w"> </span><span class="mi">1762800000</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">"rules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"en:caffeinated-colas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"colas-caffeinated"</span><span class="p">]}}}}</span>
+</code></pre></div>
+<p>The <code>rules</code> source is recomputed on every product update, and it cannot be written by clients.</p>
 <h3 id="2026-05-27-product-version-1004-api-version-36-new-tags-schema-with-tags_sources">2026-05-27 — Product version 1004 — API version 3.6 — New tags schema with tags_sources<a class="headerlink" href="#2026-05-27-product-version-1004-api-version-36-new-tags-schema-with-tags_sources" title="Permanent link">#</a></h3>
 <p>Breaking changes for product read API responses:</p>
 <ul>
