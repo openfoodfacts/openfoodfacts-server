@@ -1195,6 +1195,7 @@ The original hash is not modified; a new hash reference is returned.
 =cut
 
 my @ecobalyse_stages = qw(materials transform assembly packaging transports distribution usage endOfLife);
+my @ecobalyse_complements = qw(permanentPasture hedges plotSize cropDiversity);
 
 sub filter_ecobalyse_response_for_open_data ($response_ref) {
 	return unless ref($response_ref) eq 'HASH';
@@ -1210,7 +1211,8 @@ sub filter_ecobalyse_response_for_open_data ($response_ref) {
 		$filtered_response_ref->{stages} = _keep_ecobalyse_points($response_ref->{stages}, @ecobalyse_stages);
 	}
 	if (ref($response_ref->{complements}) eq 'HASH') {
-		$filtered_response_ref->{complements} = _keep_ecobalyse_points($response_ref->{complements});
+		$filtered_response_ref->{complements}
+			= _keep_ecobalyse_points($response_ref->{complements}, @ecobalyse_complements);
 	}
 	if (looks_like_number($response_ref->{productMass})) {
 		$filtered_response_ref->{productMass} = $response_ref->{productMass};
@@ -1223,7 +1225,7 @@ sub filter_ecobalyse_response_for_open_data ($response_ref) {
 					name => $item_ref->{name},
 					mass => $item_ref->{mass},
 					score => _keep_ecobalyse_points($item_ref->{score} // {}, qw(ecs complements)),
-					complements => _keep_ecobalyse_points($item_ref->{complements} // {}),
+					complements => _keep_ecobalyse_points($item_ref->{complements} // {}, @ecobalyse_complements),
 				}
 			} @{$response_ref->{composition}}
 		];
@@ -1232,10 +1234,10 @@ sub filter_ecobalyse_response_for_open_data ($response_ref) {
 	return $filtered_response_ref;
 }
 
-# Copy of a hash with only the given keys (or all keys) that have numeric values (points)
+# Copy of a hash with only the given keys that have numeric values (points)
+# (new fields added by Ecobalyse are not kept until they are explicitly added to the list of keys)
 sub _keep_ecobalyse_points ($hash_ref, @keys) {
 	return {} unless ref($hash_ref) eq 'HASH';
-	@keys = sort keys %$hash_ref if not @keys;
 	return {map {$_ => $hash_ref->{$_}} grep {looks_like_number($hash_ref->{$_})} @keys};
 }
 

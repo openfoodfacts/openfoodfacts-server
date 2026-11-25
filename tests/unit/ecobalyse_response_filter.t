@@ -108,6 +108,21 @@ is(
 	"non numeric values removed"
 );
 
+# Only the known complements are kept (new fields must be explicitly allowed)
+is(
+	filter_ecobalyse_response_for_open_data(
+		{
+			complements => {hedges => -1, someNewComplement => -2},
+			composition => [{name => "a", mass => 1, complements => {plotSize => -1, someNewComplement => -2}}]
+		}
+	),
+	{
+		complements => {hedges => -1},
+		composition => [{name => "a", mass => 1, score => {}, complements => {plotSize => -1}}]
+	},
+	"unknown complements removed"
+);
+
 # Error responses
 is(
 	filter_ecobalyse_response_for_open_data(
