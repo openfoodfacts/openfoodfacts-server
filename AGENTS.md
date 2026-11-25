@@ -302,4 +302,7 @@ For language-specific values used to analyze product content (e.g. ingredients s
 
 - No nested `map`/`grep`/ternaries, `@{[ ]}` or `+{map ...}` tricks. A `foreach` loop with a comment is preferred, even if longer.
 - Every sub gets a short POD or comment: what it takes, what it returns, and why it exists if that is not obvious. A new subsystem gets a `docs/dev/explain-*.md` doc.
-- Names say what a sub returns (`_get_input_tag_set`, not `_tag_set`). Error messages name the file / field / path that caused them.
+- Names say what a sub does and returns (`_get_input_tag_set`, not `_tag_set`; a sub that canonicalizes is not `_check_*`). Error messages name the file / field / path that caused them.
+- Variables use the name existing code already uses for the same thing (`$nid`, `$lc`, `$tagtype`/`$tagid`, `$product_ref`, `$aggregated_set_ref`): check with `git grep -w '\$name' lib/`.
+  Otherwise they say what they hold, in the reader's words (`@ingredients_in_rule`, not `@of`, `$spec` or `$item`), with no new abbreviations (`$ctx`, `$cond`).
+  Don't reuse a config or YAML key as a variable name outside the place where it means something.
