@@ -627,9 +627,9 @@ sub _compile_ingredients_condition ($condition, $path, $errors_ref) {
 			# One of the ingredients, at any depth, has one of the listed processings (or a child),
 			# e.g. "Kartoffeln getrocknet", "Sahnepulver" (en:cream with en:powder)
 			my @processings_in_rule = ();
-			foreach my $processing_tag (_as_list($value)) {
+			foreach my $processing (_as_list($value)) {
 				push @processings_in_rule,
-					_canonicalize_rule_tag("ingredients_processing", $processing_tag, $key_path, $errors_ref);
+					_canonicalize_rule_tag("ingredients_processing", $processing, $key_path, $errors_ref);
 			}
 			push @condition_subs, sub ($context) {
 				my $found = 0;
@@ -763,11 +763,11 @@ sub _compile_specific_ingredients_condition ($condition, $path, $errors_ref) {
 	}
 
 	my @ranges_to_check = ();
-	foreach my $ingredient_in_rule (sort keys %$condition) {
-		my $ingredient_id = _canonicalize_rule_tag("ingredients", $ingredient_in_rule, $path, $errors_ref);
-		my $range_ref = $condition->{$ingredient_in_rule};
+	foreach my $ingredient (sort keys %$condition) {
+		my $ingredient_id = _canonicalize_rule_tag("ingredients", $ingredient, $path, $errors_ref);
+		my $range_ref = $condition->{$ingredient};
 		if ((ref($range_ref) ne 'HASH') or ((not defined $range_ref->{min}) and (not defined $range_ref->{max}))) {
-			push @$errors_ref, "$path.$ingredient_in_rule: must be a mapping with min and/or max";
+			push @$errors_ref, "$path.$ingredient: must be a mapping with min and/or max";
 			next;
 		}
 		push @ranges_to_check, {id => $ingredient_id, min => $range_ref->{min}, max => $range_ref->{max}};
@@ -827,13 +827,13 @@ sub _compile_text_condition ($condition, $fields_ref, $path, $errors_ref) {
 			next;
 		}
 		if ($text_taxonomies{$language_or_taxonomy}) {
-			my @entries_in_rule = ();
-			foreach my $entry (_as_list($condition->{$language_or_taxonomy})) {
-				push @entries_in_rule,
-					_canonicalize_rule_tag($language_or_taxonomy, $entry, "$path.$language_or_taxonomy", $errors_ref);
+			my @tagids = ();
+			foreach my $tag (_as_list($condition->{$language_or_taxonomy})) {
+				push @tagids,
+					_canonicalize_rule_tag($language_or_taxonomy, $tag, "$path.$language_or_taxonomy", $errors_ref);
 			}
-			push @$errors_ref, "$path.$language_or_taxonomy: no entries" if not @entries_in_rule;
-			$taxonomy_entries{$language_or_taxonomy} = \@entries_in_rule;
+			push @$errors_ref, "$path.$language_or_taxonomy: no entries" if not @tagids;
+			$taxonomy_entries{$language_or_taxonomy} = \@tagids;
 			next;
 		}
 		if ($language_or_taxonomy !~ /^([a-z]{2}|any)$/) {
@@ -888,21 +888,21 @@ sub _compile_text_condition ($condition, $fields_ref, $path, $errors_ref) {
 # Children of the taxonomy entries (cached)
 my %children_cache = ();
 
-sub _taxonomy_entries_and_children ($taxonomy, $entries_ref) {
-	my $cache_key = $taxonomy . ":" . join(",", @$entries_ref);
+sub _taxonomy_entries_and_children ($taxonomy, $tagids_ref) {
+	my $cache_key = $taxonomy . ":" . join(",", @$tagids_ref);
 	if (not defined $children_cache{$cache_key}) {
 		# walk down from the requested entries
 		my %seen = ();
-		my @entries = ();
-		my @to_visit = @$entries_ref;
+		my @tagids = ();
+		my @to_visit = @$tagids_ref;
 		while (@to_visit) {
-			my $entry = shift @to_visit;
-			next if $seen{$entry};
-			$seen{$entry} = 1;
-			push @entries, $entry;
-			push @to_visit, get_tag_direct_children($taxonomy, $entry);
+			my $tagid = shift @to_visit;
+			next if $seen{$tagid};
+			$seen{$tagid} = 1;
+			push @tagids, $tagid;
+			push @to_visit, get_tag_direct_children($taxonomy, $tagid);
 		}
-		$children_cache{$cache_key} = \@entries;
+		$children_cache{$cache_key} = \@tagids;
 	}
 	return @{$children_cache{$cache_key}};
 }
@@ -912,22 +912,22 @@ sub _taxonomy_entries_and_children ($taxonomy, $entries_ref) {
 sub _taxonomy_entries_regexp ($taxonomy_entries_ref, $lc) {
 	my %synonyms_regexps = ();
 	foreach my $taxonomy (keys %$taxonomy_entries_ref) {
-		foreach my $entry (_taxonomy_entries_and_children($taxonomy, $taxonomy_entries_ref->{$taxonomy})) {
+		foreach my $tagid (_taxonomy_entries_and_children($taxonomy, $taxonomy_entries_ref->{$taxonomy})) {
 			my @languages = ($lc, "xx");
 			if ($lc eq 'any') {
-				@languages = sort keys %{$translations_to{$taxonomy}{$entry} // {}};
+				@languages = sort keys %{$translations_to{$taxonomy}{$tagid} // {}};
 			}
 			foreach my $language (@languages) {
 				# spaces, dashes and apostrophes are interchangeable
-				my @synonyms_regexps
-					= get_taxonomy_entry_synonyms_regexps($taxonomy, $entry, $language, {loose_separators => 1});
-				foreach my $synonym_regexp (@synonyms_regexps) {
+				my @regexps
+					= get_taxonomy_entry_synonyms_regexps($taxonomy, $tagid, $language, {loose_separators => 1});
+				foreach my $regexp (@regexps) {
 					# whole words, except for languages written without spaces between words
 					my $match_type = "words";
-					if ($synonym_regexp =~ /[\p{Han}\p{Hiragana}\p{Katakana}\p{Thai}]/) {
+					if ($regexp =~ /[\p{Han}\p{Hiragana}\p{Katakana}\p{Thai}]/) {
 						$match_type = "anywhere";
 					}
-					$synonyms_regexps{$match_type}{$synonym_regexp} = 1;
+					$synonyms_regexps{$match_type}{$regexp} = 1;
 				}
 			}
 		}
