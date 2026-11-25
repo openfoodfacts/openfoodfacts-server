@@ -126547,6 +126547,18 @@ sales_format:en: package, weight
 #comment:en:issue here on wheteher it based on puff pastry or normal bread
 
 < en: Viennoiseries
+en: Laminated dough pastries, Laminated pastries
+de: Plundergebäck
+fr: Viennoiseries feuilletées
+nl: Bladerdeeggebak
+foodex2_code:en: A00CC
+foodex2_common_names:en: Puff pastry; Danish pastry
+foodex2_extended_name:en: Pastry based on laminated dough
+foodex2_implicit_facets:en: F02.A06DS$F12.A009L$F28.A07GX$F33.A0C3Q
+foodex2_old_code:en: A.01.000253
+foodex2_scope_note:en: The group includes any type of pastry based on a baked laminated dough such as Puff pastry and Danish pastry. The layering process and the fat present between the layers provides a structure made of multiple thin sheets.
+
+< en: Laminated dough pastries
 en: Pains suisses
 xx: Pains suisses
 fr: Pains suisses
@@ -126565,13 +126577,17 @@ agribalyse_food_code:en: 7602
 ciqual_food_code:en: 7602
 ciqual_food_name:en: Croissant
 ciqual_food_name:fr: Croissant, sans précision
+sales_format:en: weight, package
+wikidata:en: Q207832
+
+< en: Croissants
+en: Puff pastry croissants
+fr: Croissants croustillants
 foodex2_code:en: A00CD
 foodex2_extended_name:en: Croissant from puff pastry
 foodex2_implicit_facets:en: F12.A009L$F28.A07GX$F33.A0C3Q
 foodex2_old_code:en: A.01.000294
 foodex2_scope_note:en: The group includes any type of Croissant from puff pastry with unspecified filling (eventually also without).
-sales_format:en: weight, package
-wikidata:en: Q207832
 
 < en: Croissants
 en: Soft croissants
@@ -126584,19 +126600,7 @@ foodex2_implicit_facets:en: F12.A008L$F28.A07GX$F33.A0C3Q
 foodex2_old_code:en: A.01.000265
 foodex2_scope_note:en: The group includes any type of Croissant, made of a layered yeast-leavened dough with unspecified filling (eventually also without).
 
-< en: Viennoiseries
-en: Laminated dough pastries, Laminated pastries
-de: Plundergebäck
-fr: Viennoiseries feuilletées
-nl: Bladerdeeggebak
-foodex2_code:en: A00CC
-foodex2_common_names:en: Puff pastry; Danish pastry
-foodex2_extended_name:en: Pastry based on laminated dough
-foodex2_implicit_facets:en: F02.A06DS$F12.A009L$F28.A07GX$F33.A0C3Q
-foodex2_old_code:en: A.01.000253
-foodex2_scope_note:en: The group includes any type of pastry based on a baked laminated dough such as Puff pastry and Danish pastry. The layering process and the fat present between the layers provides a structure made of multiple thin sheets.
-
-< en: Croissants
+< en: Puff pastry croissants
 en: Bakery Croissants, Croissant from bakery
 fr: Croissants artisanal
 nl: Bakkercroissants
@@ -126605,7 +126609,7 @@ ciqual_food_code:en: 7615
 ciqual_food_name:en: Croissant, ordinary, from bakery
 ciqual_food_name:fr: Croissant ordinaire, artisanal
 
-< en: Croissants
+< en: Puff pastry croissants
 en: Butter croissants, Butter croissant from bakery
 de: Buttercroissants
 es: Croissants de mantequilla
@@ -126619,11 +126623,25 @@ ciqual_food_code:en: 7620
 ciqual_food_name:en: Croissant, butter, from bakery
 ciqual_food_name:fr: Croissant au beurre, artisanal
 
-< en: Croissants
+< en: Puff pastry croissants
 fr: Croissants ordinaires
 nl: Croissants (ongevuld)
 
-< en: Viennoiseries
+< en: Croissants
+en: Croissant with almonds, Almond croissant, Croissant with almonds from bakery
+fr: Croissants aux amandes, Croissant aux amandes artisanal
+nl: Croissants met amandelen van de bakker
+agribalyse_food_code:en: 7650
+ciqual_food_code:en: 7650
+ciqual_food_name:en: Croissant w almonds, from bakery
+ciqual_food_name:fr: Croissant aux amandes, artisanal
+sales_format:en: package, item
+
+< en: Soft croissants
+en: Plain soft croissants, Unfilled soft croissants
+fr: Croissants moelleux nature, croissants moelleux non fourrés
+
+< en: Soft croissants
 en: Filled croissants
 bg: Кроасани с пълнеж
 de: Gefüllte Croissants
@@ -126672,20 +126690,6 @@ foodex2_extended_name:en: Croissant, filled with jam
 foodex2_implicit_facets:en: F04.A04MN$F12.A008L$F28.A07MA$F28.A07GX$F33.A0C3Q
 foodex2_old_code:en: A.01.000268
 foodex2_scope_note:en: The group includes any type of Croissant, filled with jam or similar.
-
-< en: Croissants
-en: Croissant with almonds from bakery
-fr: Croissant aux amandes artisanal
-nl: Croissants met amandelen van de bakker
-agribalyse_food_code:en: 7650
-ciqual_food_code:en: 7650
-ciqual_food_name:en: Croissant w almonds, from bakery
-ciqual_food_name:fr: Croissant aux amandes, artisanal
-sales_format:en: package, item
-
-< en: Croissants
-en: Croissant with almonds, Almond croissant
-fr: Croissants aux amandes
 
 < en: Viennoiseries
 en: Chouquettes, Sugar coated chou pastry
