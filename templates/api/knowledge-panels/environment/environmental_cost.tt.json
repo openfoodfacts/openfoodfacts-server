@@ -120,7 +120,7 @@
                         "type": "text"
                     },
                     {
-                        "text": "[% edq(lang('environmental_cost_quantity_' _ panel.unit)) %]",
+                        "text": "[% edq(lang('environmental_cost_quantity_g')) %]",
                         "type": "text"
                     },
                     [% IF panel.has_per_product %]
