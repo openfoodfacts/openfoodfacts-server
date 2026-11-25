@@ -451,16 +451,16 @@ YAML
 	my $parents_dir = write_rules_dir(
 		{
 			"food/categories/parents.yml" => <<'YAML'
-# en:crispbreads-wholemeal has incompatible_with:en: categories:en:crispbreads-non-wholemeal
+# en:crispbreads-wholemeal has incompatible_with:en: categories:en:refined-wheat-crispbreads
 - id: wholemeal-wheat
   description: child of crispbreads-wholemeal
   if: {categories: en:crispbreads, ingredients: {contains: en:whole-wheat-flour}}
   add: {categories: en:wholemeal-wheat-crispbreads}
   tests: {match: [{categories: en:crispbreads, ingredients: [en:whole-wheat-flour]}]}
 - id: non-wholemeal
-  description: crispbreads-non-wholemeal
+  description: refined-wheat-crispbreads
   if: {categories: en:crispbreads, labels: en:organic}
-  add: {categories: en:crispbreads-non-wholemeal}
+  add: {categories: en:refined-wheat-crispbreads}
   tests: {match: [{categories: en:crispbreads, labels: en:organic}]}
 YAML
 		}
@@ -476,7 +476,7 @@ YAML
 		or diag(Dumper($result_ref));
 	is(
 		[sort map {$_->{rule} . ":" . join(",", @{$_->{with}})} @{$result_ref->{conflicts}}],
-		["non-wholemeal:en:crispbreads-wholemeal", "wholemeal-wheat:en:crispbreads-non-wholemeal"],
+		["non-wholemeal:en:crispbreads-wholemeal", "wholemeal-wheat:en:refined-wheat-crispbreads"],
 		"2 rules adding children of incompatible categories: conflicts reported"
 	);
 }
