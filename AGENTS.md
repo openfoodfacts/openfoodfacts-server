@@ -188,6 +188,8 @@ Generated frontend output lands in `html/css/dist/`, `html/js/dist/`, `html/imag
 
 To change configuration, edit `.env` (or a `.envrc` override), `conf/`, or `lib/ProductOpener/Config2_docker.pm` as appropriate. Edits to `Config2.pm` itself are silently discarded on container start.
 
+Flavor-specific configuration goes in `Config_off.pm` (Open Food Facts), `Config_obf.pm` (Open Beauty Facts), `Config_opf.pm` (Open Products Facts) and `Config_opff.pm` (Open Pet Food Facts).
+
 ## Frontend workflow
 
 1. Edit `scss/` or `html/js/`.
@@ -236,7 +238,7 @@ Do **not** run a bare `docker system prune` — it is unscoped and will remove a
 
 **Diagnosing a running environment** — `make log`, or `docker compose logs <service>`. Full reset: `make down && make dev`.
 
-### Disclosure
+## Disclosure
 
 * Always disclose yourself when creating a PR with or on behalf of your user (prompt used, model used, effort)
 
@@ -254,6 +256,8 @@ You SHOULD insert an `Assisted-by: AI` tag when the commit contains
 substantial assistance, and `Generated-by: AI` when the commit is
 effectively entirely generated.
 
+## Pull requests and plans
+
 ### Large changes
 
 If the generated code is more than ~500 lines of substantial (non-whitespace) code,
@@ -267,6 +271,35 @@ that are independently reviewable from the main PR, and submit those separately.
 * Always add a before / after screenshot if your change is visual
 
 ### Proposing plans and helping with issues
+
 * For UI issues, Improving openfoodfacts-webcomponents or Open Food Facts Explorer is more helpful than investing in the soon-to-be deprecated Product Opener Web UI
 * It's hard for a human to read a generic AI plan. Crisp, short writing with specific reference to existing issues, caveats (why it's not been done before), possible options… is easier to understand.
 * Avoid plans that are too large. If it is large, break it down into subtasks that are easy to code, comprehend and review.
+
+## Coding guidelines
+
+### Reuse and extend existing code when possible, do not duplicate code
+
+Before adding new mechanisms, helpers and functions, check if there is an existing one that can be reused or extended. This helps keep the codebase consistent and reduces duplication.
+e.g. to read and write tags or use the associated taxonomies, prefer using the existing functions in modules like Tags.pm and ProductsTags.pm rather than implementing your own logic.
+If an existing function does not fit, explain why in the PR.
+
+Before adding a list or a setting that says something about tags (e.g. categories that cannot be on the same product), check if a taxonomy property already says it (e.g. `incompatible_with:en`), and add the property to the taxonomy instead.
+
+Before computing something (e.g. whether a product contains ingredients that are not in the taxonomy), check if it is already available in the existing product fields (e.g. `unknown_ingredients_n`).
+
+Avoid duplicating code, always check if code can be refactored to avoid repetition. Try to make functions generic.
+
+### Do not hardcode values and translations
+
+For configuration values, use the Config_* modules and their `%options` hashes. Do not hardcode values directly in the code.
+
+For UI strings, use `lang()` / `f_lang()` with strings defined in `po/common/`, see [`how-to-add-a-translation.md`](docs/dev/how-to-add-a-translation.md).
+
+For language-specific values used to analyze product content (e.g. ingredients strings), use the taxonomies in the `taxonomies/` directory, and their synonyms defined there. Do not hardcode language-specific values in the code.
+
+### Write code that is easy to read, including for non-Perl experts
+
+- No nested `map`/`grep`/ternaries, `@{[ ]}` or `+{map ...}` tricks. A `foreach` loop with a comment is preferred, even if longer.
+- Every sub gets a short POD or comment: what it takes, what it returns, and why it exists if that is not obvious. A new subsystem gets a `docs/dev/explain-*.md` doc.
+- Names say what a sub returns (`_get_input_tag_set`, not `_tag_set`). Error messages name the file / field / path that caused them.

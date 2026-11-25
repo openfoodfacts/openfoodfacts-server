@@ -52,8 +52,8 @@
                "name" : "water"
             },
             {
-               "ecobalyse_name" : "Sel -2025-",
-               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
+               "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
                "mass" : 1,
                "name" : "salt"
             }
@@ -79,7 +79,7 @@
                   "mass" : 9
                },
                {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+                  "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
                   "mass" : 1
                }
             ],
@@ -143,8 +143,8 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-         "ecobalyse_name" : "Sel -2025-",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent" : 1,

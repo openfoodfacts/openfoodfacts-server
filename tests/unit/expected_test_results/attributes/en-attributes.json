@@ -462,8 +462,8 @@
                "name" : "eggs"
             },
             {
-               "ecobalyse_name" : "Fraise par défaut -2025-",
-               "id" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
+               "ecobalyse_name" : "Fraise FR",
+               "id" : "8ad09e31-6b20-56d1-b059-f871361a16d7",
                "mass" : 10.2272727272727,
                "name" : "strawberries"
             },
@@ -486,14 +486,14 @@
                "name" : "macadamia nuts"
             },
             {
-               "ecobalyse_name" : "Lait par défaut -2025-",
-               "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+               "ecobalyse_name" : "Lait de vache HORS UE",
+               "id" : "413dbd30-f224-580c-bf02-51664910430e",
                "mass" : 0.639204545454547,
                "name" : "milk proteins"
             },
             {
-               "ecobalyse_name" : "Sel -2025-",
-               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
+               "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
                "mass" : 0.125,
                "name" : "salt"
             }
@@ -521,7 +521,7 @@
                   "mass" : 12.5
                },
                {
-                  "id" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
+                  "id" : "8ad09e31-6b20-56d1-b059-f871361a16d7",
                   "mass" : 10.2272727272727
                },
                {
@@ -537,11 +537,11 @@
                   "mass" : 1.27840909090909
                },
                {
-                  "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+                  "id" : "413dbd30-f224-580c-bf02-51664910430e",
                   "mass" : 0.639204545454547
                },
                {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+                  "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
                   "mass" : 0.125
                }
             ]
@@ -1078,8 +1078,8 @@
       },
       {
          "ciqual_food_code" : "13014",
-         "ecobalyse_id" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
-         "ecobalyse_name" : "Fraise par défaut -2025-",
+         "ecobalyse_id" : "8ad09e31-6b20-56d1-b059-f871361a16d7",
+         "ecobalyse_name" : "Fraise FR",
          "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 10.2272727272727,
@@ -1130,8 +1130,8 @@
          "vegetarian" : "yes"
       },
       {
-         "ecobalyse_proxy_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
-         "ecobalyse_proxy_name" : "Lait par défaut -2025-",
+         "ecobalyse_proxy_id" : "413dbd30-f224-580c-bf02-51664910430e",
+         "ecobalyse_proxy_name" : "Lait de vache HORS UE",
          "id" : "en:milk-proteins",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.639204545454547,
@@ -1143,8 +1143,8 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-         "ecobalyse_name" : "Sel -2025-",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.125,
