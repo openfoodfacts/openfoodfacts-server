@@ -71,3 +71,6 @@ en:table-potatoes	potato
 en:barley	barley-whole
 en:garden-peas	pea-shelled-raw
 en:spaghetti-squash	squash-with-skin-raw
+# the old "bean" baseIngredient (which held pea data) was removed; the "Haricots blancs séchés" entries are built on
+# the fresh green bean (haricot vert) dataset, so use the canned drained white bean, the only real white bean dataset
+en:beans	white-bean-canned-drained
