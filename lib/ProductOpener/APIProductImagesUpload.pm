@@ -37,6 +37,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&delete_product_image_api
+		&is_valid_selected_images_param
 		&upload_product_image_api
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -144,6 +145,98 @@ sub delete_product_image_api ($request_ref) {
 	return;
 }
 
+=head2 is_valid_selected_images_param($selected_ref, $response_ref)
+
+Validate the structure of the C<selected> parameter passed to the API v3 image upload API.
+
+The expected structure is C<< { <image_type> => { <image_lc> => { generation => { ... } } } } >>,
+where C<generation> is optional. Any value that is not an object at these levels adds an API error
+to C<$response_ref> with HTTP status 400 and returns 0.
+
+=head3 Parameters
+
+=head4 $selected_ref (input)
+
+Reference to the C<selected> parameter from the decoded JSON request body, or C<undef> if omitted.
+
+=head4 $response_ref (output)
+
+Reference to the API response object where validation errors are added.
+
+=head3 Return value
+
+1 if the C<selected> parameter is omitted or structurally valid, 0 otherwise.
+
+=cut
+
+sub is_valid_selected_images_param ($selected_ref, $response_ref) {
+
+	return 1 if not defined $selected_ref;
+
+	if (ref($selected_ref) ne 'HASH') {
+		add_error(
+			$response_ref,
+			{
+				message => {id => "invalid_type_must_be_object"},
+				field => {id => "selected"},
+				impact => {id => "failure"},
+			}
+		);
+		return 0;
+	}
+
+	my $is_valid = 1;
+
+	foreach my $image_type (sort keys %$selected_ref) {
+		my $image_type_ref = $selected_ref->{$image_type};
+
+		if (ref($image_type_ref) ne 'HASH') {
+			add_error(
+				$response_ref,
+				{
+					message => {id => "invalid_type_must_be_object"},
+					field => {id => "selected.$image_type"},
+					impact => {id => "failure"},
+				}
+			);
+			$is_valid = 0;
+			next;
+		}
+
+		foreach my $image_lc (sort keys %$image_type_ref) {
+			my $image_selected_ref = $image_type_ref->{$image_lc};
+
+			if (ref($image_selected_ref) ne 'HASH') {
+				add_error(
+					$response_ref,
+					{
+						message => {id => "invalid_type_must_be_object"},
+						field => {id => "selected.$image_type.$image_lc"},
+						impact => {id => "failure"},
+					}
+				);
+				$is_valid = 0;
+				next;
+			}
+
+			my $generation_ref = $image_selected_ref->{generation};
+			if (defined $generation_ref and ref($generation_ref) ne 'HASH') {
+				add_error(
+					$response_ref,
+					{
+						message => {id => "invalid_type_must_be_object"},
+						field => {id => "selected.$image_type.$image_lc.generation"},
+						impact => {id => "failure"},
+					}
+				);
+				$is_valid = 0;
+			}
+		}
+	}
+
+	return $is_valid;
+}
+
 =head2 upload_product_image_api($request_ref)
 
 Process API v3 product image upload requests.
@@ -179,6 +272,11 @@ sub upload_product_image_api ($request_ref) {
 				impact => {id => "failure"},
 			}
 		);
+		$error = 1;
+	}
+	elsif (not is_valid_selected_images_param($request_body_ref->{selected}, $response_ref)) {
+		$log->error("image_product_upload_api - invalid selected param", {selected => $request_body_ref->{selected}})
+			if $log->is_error();
 		$error = 1;
 	}
 	else {
