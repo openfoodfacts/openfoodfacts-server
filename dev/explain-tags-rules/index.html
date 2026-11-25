@@ -1661,6 +1661,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../how-to-reprocess-products-for-tags-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to reprocess products after a tags rules change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../how-to-run-several-worktrees/" class="md-nav__link">
         
   
@@ -2798,6 +2826,7 @@ labels, countries, nutrients, names and ingredients lists.</p>
 <li>Engine: <code>lib/ProductOpener/TagsRules.pm</code>.</li>
 <li>Tests: <code>tests/unit/tags_rules.t</code>.</li>
 <li>Dry run on a dump: <code>scripts/tags_rules_report.pl</code>, run with <code>make tags_rules_report</code> (see <a href="#testing-a-rule">Testing a rule</a>).</li>
+<li>Reprocessing products after a rules change is deployed: <a href="../how-to-reprocess-products-for-tags-rules/">how-to-reprocess-products-for-tags-rules.md</a>.</li>
 <li>Design issue: <a href="https://github.com/openfoodfacts/openfoodfacts-server/issues/15342">#15342</a>.</li>
 </ul>
 <h2 id="why-rules">Why rules?<a class="headerlink" href="#why-rules" title="Permanent link">#</a></h2>
@@ -3064,6 +3093,8 @@ to review (<code>report_samples.csv</code>), and the changed products (<code>pro
 <ul>
 <li>In the pull request, paste the report lines of the changed rules (matches, would add, conflicts), and say how many
   samples were reviewed and what was changed after the review.</li>
+<li>After the deploy, reprocess the products the rules change: see
+  <a href="../how-to-reprocess-products-for-tags-rules/">how-to-reprocess-products-for-tags-rules.md</a>.</li>
 </ul>
 
 
