@@ -24148,7 +24148,7 @@ sv: vanillinarom
 en: caffeine flavour, caffeine flavor, caffeine aroma
 bg: ароматизант кофеин
 da: koffein aroma
-de: Koffeinaroma, Aroma Koffein
+de: Koffeinaroma, Aroma Koffein, koffeinhaltiges Aroma
 es: aroma de cafeína
 fi: kofeiiniaromi
 fr: arôme caféine
@@ -70213,13 +70213,22 @@ zh: 板栗
 #
 ###################################################################################################
 < en: tree nut
-en: cola nut
-de: Kolanuss
-es: nuez de cola
-fr: Noix de cola
+en: cola nut, kola nut
+de: Kolanuss, Colanuss
+es: nuez de cola, nuez de kola
+fr: Noix de cola, noix de kola
 hr: kola orah
 it: noce di cola
+pt: noz de cola
 wikipedia:en: https://en.wikipedia.org/wiki/Kola_nut
+
+< en: cola nut
+en: cola nut extract, kola nut extract, cola extract, kola extract
+de: Kolanussextrakt, Kolaextrakt
+es: extracto de nuez de cola, extracto de cola
+fr: extrait de noix de cola, extrait de noix de kola, extrait de cola, extrait de kola
+it: estratto di noce di cola, estratto di cola
+pt: extrato de noz de cola, extrato de cola
 
 ###################################################################################################
 #
@@ -93700,7 +93709,7 @@ bg: Кофеин
 bn: ক্যাফেইন
 bs: Kofein
 ca: cafeïna
-cs: kofein
+cs: kofein, kofeinu
 cy: Caffein
 da: Koffein
 de: Coffein, Koffein
@@ -93717,7 +93726,7 @@ gl: Cafeína
 he: קפאין
 hi: कैफ़ीन
 hr: kofein
-hu: koffein
+hu: koffein, koffeint
 hy: կոֆեին
 ia: Caffeina
 id: kafeina
@@ -93730,8 +93739,8 @@ ka: კოფეინი
 km: កាហ្វេអ៊ីន
 kn: ಕೆಫೀನ್
 ko: 카페인
-lt: Kofeinas
-lv: kofeīns
+lt: Kofeinas, kofeiną, kofeino
+lv: kofeīns, kofeins
 mk: Кофеин
 ms: Kafeina
 my: ကေဖိန်း
@@ -93741,7 +93750,7 @@ nn: koffein
 oc: Cafeïna
 pl: kofeina, kofeiny, kofeinowy, kofeinowa, kofeinowe
 pt: cafeína
-ro: Cafeină, aromă cafeină, aromă de cafeină
+ro: Cafeină, cofeină, aromă cafeină, aromă de cafeină
 ru: кофеин
 sh: Kofein
 sk: Kofeín
