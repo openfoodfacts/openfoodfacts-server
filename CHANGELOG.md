@@ -1,5 +1,40 @@
 # Changelog
 
+## [2.126.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.125.0...v2.126.0) (2026-11-23)
+
+
+### Features
+
+* packager code knowledge panel for the packager code tag page ([#15348](https://github.com/openfoodfacts/openfoodfacts-server/issues/15348)) ([193c189](https://github.com/openfoodfacts/openfoodfacts-server/commit/193c18953d7516fcba99efce8f7871dada292cca))
+
+
+### Bug Fixes
+
+* **ingredients:** Latvian oil and fibre lists and "may contain" sentences ([#15526](https://github.com/openfoodfacts/openfoodfacts-server/issues/15526)) ([35162f1](https://github.com/openfoodfacts/openfoodfacts-server/commit/35162f1cabcafec775a7d8e2bb3182486065e319))
+* **ingredients:** unit denominators, subscript digits and HTML-entity debris in ingredient lists ([#15410](https://github.com/openfoodfacts/openfoodfacts-server/issues/15410)) ([7b5cfea](https://github.com/openfoodfacts/openfoodfacts-server/commit/7b5cfea5ca960d5b766dc1575c5660403cbcefb1))
+* **knowledge-panels:** localize WHO salt fact sheet source URL ([#7204](https://github.com/openfoodfacts/openfoodfacts-server/issues/7204)) ([#15468](https://github.com/openfoodfacts/openfoodfacts-server/issues/15468)) ([181b1ea](https://github.com/openfoodfacts/openfoodfacts-server/commit/181b1ea1eab4b69d7e42fe8e272b6a2259fbc444))
+
+## [2.125.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.124.1...v2.125.0) (2026-11-20)
+
+
+### Features
+
+* show ANSES "additive of interest" line in the additive knowledge panel ([#15437](https://github.com/openfoodfacts/openfoodfacts-server/issues/15437)) ([60fe14e](https://github.com/openfoodfacts/openfoodfacts-server/commit/60fe14e20c2c7b3ffdf528cd2fd93993c3a10f1c))
+
+
+### Bug Fixes
+
+* **ingredients:** Portuguese vitamin lists and 'origem' origin statements ([#15413](https://github.com/openfoodfacts/openfoodfacts-server/issues/15413)) ([20f8231](https://github.com/openfoodfacts/openfoodfacts-server/commit/20f8231ab399c2982f5443c1ffd5766d7434849c))
+* **ingredients:** recognise superscript footnote markers like ⁽¹⁾ ([#15428](https://github.com/openfoodfacts/openfoodfacts-server/issues/15428)) ([d88dc10](https://github.com/openfoodfacts/openfoodfacts-server/commit/d88dc10a098e04781f6ea6bf145d56366049df15))
+* **mail:** set reply-to header to user email for pro user signup notifications ([#15447](https://github.com/openfoodfacts/openfoodfacts-server/issues/15447)) ([#15467](https://github.com/openfoodfacts/openfoodfacts-server/issues/15467)) ([c1c5836](https://github.com/openfoodfacts/openfoodfacts-server/commit/c1c5836e9725f829be3dbfae6593be0829db707d))
+
+## [2.124.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.124.0...v2.124.1) (2026-11-19)
+
+
+### Bug Fixes
+
+* **producers:** export photos from the producers platform to the public platform again ([#15445](https://github.com/openfoodfacts/openfoodfacts-server/issues/15445)) ([941451f](https://github.com/openfoodfacts/openfoodfacts-server/commit/941451f78a52de369eaee6b05c941ffaf9a8c057))
+
 ## [2.124.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.123.0...v2.124.0) (2026-11-18)
 
 

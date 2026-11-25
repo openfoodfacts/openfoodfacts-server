@@ -368,6 +368,9 @@ sub create_additives_panel ($product_ref, $target_lc, $target_cc, $options_ref, 
 				$additive_panel_data_ref->{additive_description} = $additive_description;
 			}
 
+			$additive_panel_data_ref->{anses_additive_of_interest} = 1
+				if (get_property("additives", $additive, "anses_additives_of_interest:en") // "") eq "yes";
+
 			create_panel_from_json_template($additive_panel_id,
 				"api/knowledge-panels/health/ingredients/additive.tt.json",
 				$additive_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
