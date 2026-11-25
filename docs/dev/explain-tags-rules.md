@@ -9,6 +9,7 @@ Example: a product in `en:colas` that is not labelled, tagged or named caffeine-
 - Engine: `lib/ProductOpener/TagsRules.pm`.
 - Tests: `tests/unit/tags_rules.t`.
 - Dry run on a dump: `scripts/tags_rules_report.pl`, run with `make tags_rules_report` (see [Testing a rule](#testing-a-rule)).
+- Reprocessing products after a rules change is deployed: [how-to-reprocess-products-for-tags-rules.md](how-to-reprocess-products-for-tags-rules.md).
 - Design issue: [#15342](https://github.com/openfoodfacts/openfoodfacts-server/issues/15342).
 
 ## Why rules?
@@ -231,3 +232,5 @@ add:
   to review (`report_samples.csv`), and the changed products (`products.csv`).
 - In the pull request, paste the report lines of the changed rules (matches, would add, conflicts), and say how many
   samples were reviewed and what was changed after the review.
+- After the deploy, reprocess the products the rules change: see
+  [how-to-reprocess-products-for-tags-rules.md](how-to-reprocess-products-for-tags-rules.md).
