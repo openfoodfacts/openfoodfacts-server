@@ -2255,4 +2255,147 @@ compare_to_expected_results(
 	);
 }
 
+# Tests for has_non_estimated_nutrition_data (issues #7061, #15560)
+# Products without actual nutrition facts should not be considered having non-estimated nutrition data
+# when the only non-estimated entries are classification or estimation nutrients (e.g. nova-group, fruits-vegetables)
+{
+	# Empty product
+	is(has_non_estimated_nutrition_data({}), 0, 'has_non_estimated_nutrition_data: empty product returns 0');
+
+	# Empty input_sets
+	is(has_non_estimated_nutrition_data({nutrition => {input_sets => []}}),
+		0, 'has_non_estimated_nutrition_data: empty input_sets returns 0');
+
+	# input_sets with only nova-group (source: packaging)
+	my $product_nova_only = {
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+					nutrients => {
+						"nova-group" => {value_string => "4", value => 4, unit => ""},
+					},
+				},
+			],
+		},
+	};
+	is(has_non_estimated_nutrition_data($product_nova_only),
+		0, 'has_non_estimated_nutrition_data: packaging set with only nova-group returns 0');
+
+	# input_sets with only fruits-vegetables* (source: packaging)
+	my $product_fruits_veg_only = {
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+					nutrients => {
+						"fruits-vegetables-nuts-estimate-from-ingredients_100g" => {value => 50, unit => "%"},
+					},
+				},
+			],
+		},
+	};
+	is(has_non_estimated_nutrition_data($product_fruits_veg_only),
+		0, 'has_non_estimated_nutrition_data: packaging set with only fruits-vegetables* returns 0');
+
+	# input_sets with both nova-group and fruits-vegetables*
+	my $product_nova_and_fruits_veg = {
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+					nutrients => {
+						"nova-group" => {value => 4, unit => ""},
+						"fruits-vegetables-nuts-estimate-from-ingredients_100g" => {value => 50, unit => "%"},
+					},
+				},
+			],
+		},
+	};
+	is(has_non_estimated_nutrition_data($product_nova_and_fruits_veg),
+		0, 'has_non_estimated_nutrition_data: packaging set with only nova-group and fruits-vegetables* returns 0');
+
+	# input_sets with only estimate source
+	my $product_estimate_only = {
+		nutrition => {
+			input_sets => [
+				{
+					source => "estimate",
+					preparation => "as_sold",
+					per => "100g",
+					nutrients => {
+						"fat" => {value => 10, unit => "g"},
+					},
+				},
+			],
+		},
+	};
+	is(has_non_estimated_nutrition_data($product_estimate_only),
+		0, 'has_non_estimated_nutrition_data: set with estimate source returns 0');
+
+	# input_sets with packaging nova-group AND estimate fat
+	my $product_packaging_nova_and_estimate_fat = {
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+					nutrients => {
+						"nova-group" => {value => 4, unit => ""},
+					},
+				},
+				{
+					source => "estimate",
+					preparation => "as_sold",
+					per => "100g",
+					nutrients => {
+						"fat" => {value => 10, unit => "g"},
+					},
+				},
+			],
+		},
+	};
+	is(has_non_estimated_nutrition_data($product_packaging_nova_and_estimate_fat),
+		0, 'has_non_estimated_nutrition_data: packaging nova-group and estimate fat returns 0');
+
+	# input_sets with packaging nova-group AND packaging real nutrient (fat)
+	my $product_packaging_nova_and_fat = {
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+					nutrients => {
+						"nova-group" => {value => 4, unit => ""},
+						"fat" => {value => 10, unit => "g"},
+					},
+				},
+			],
+		},
+	};
+	is(has_non_estimated_nutrition_data($product_packaging_nova_and_fat),
+		1, 'has_non_estimated_nutrition_data: packaging nova-group and packaging fat returns 1');
+
+	# Legacy schema with nutriments hash
+	is(has_non_estimated_nutrition_data({nutriments => {"nova-group" => 4, "nova-group_serving" => 4}}),
+		0, 'has_non_estimated_nutrition_data: legacy nutriments with only nova-group returns 0');
+	is(
+		has_non_estimated_nutrition_data(
+			{nutriments => {"fruits-vegetables-nuts-estimate-from-ingredients_100g" => 50}}
+		),
+		0,
+		'has_non_estimated_nutrition_data: legacy nutriments with only fruits-vegetables* returns 0'
+	);
+	is(has_non_estimated_nutrition_data({nutriments => {"nova-group" => 4, "fat_100g" => 10}}),
+		1, 'has_non_estimated_nutrition_data: legacy nutriments with nova-group and fat returns 1');
+}
+
 done_testing();
