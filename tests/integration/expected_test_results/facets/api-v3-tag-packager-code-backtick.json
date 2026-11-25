@@ -1,0 +1,52 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "packager_code" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>Altenberg 3, 85095 Denkendorf (Germany)</p>\n<p><a href=\"https://www.openstreetmap.org/?mlat=48.9207724&amp;mlon=11.4300756#map=16/48.9207724/11.4300756\">OpenStreetMap</a></p>"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Rehm's Hofladen GbR"
+            },
+            "topics" : [
+               "emb_codes"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packager_code"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "de-by-10357-ec",
+      "tagtype" : "emb_codes"
+   },
+   "tagid" : "de-by-10357-ec",
+   "tagtype" : "emb_codes",
+   "warnings" : []
+}

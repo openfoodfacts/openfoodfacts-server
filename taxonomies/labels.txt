@@ -5271,21 +5271,29 @@ sv: fri från bisfenol A
 label_categories:en: en:Health
 
 #instruction:en:Do NOT change the english key.
-en: No caffeine, caffeine free, without caffeine
+en: No caffeine, caffeine free, without caffeine, zero caffeine, 0% caffeine, decaf, decaffeinated
 bg: Без кофеин
 ca: Sense cafeïna, lliure de cafeïna
-de: Koffeinfrei
-es: Sin cafeína
+cs: bez kofeinu
+da: koffeinfri
+de: Koffeinfrei, koffeinfreie, koffeinfreier, koffeinfreies, ohne Koffein, entkoffeiniert
+es: Sin cafeína, cero cafeína, zero cafeína, descafeinado
 fi: kofeiiniton, ilman kofeiinia
-fr: Sans caféine, sans théine
+fr: Sans caféine, sans théine, zéro caféine, décaféiné, décaféinée
 hr: bez kofeina
 hu: Koffeinmentes
-it: Senza caffeina
+it: Senza caffeina, zero caffeina, decaffeinato
+nb: koffeinfri
 nl: Cafeinevrij, Vrij van cafeine, Zonder cafeine
-pl: Bez kofeiny
-pt: Sem cafeína, livre de cafeína, 0% cafeína
+pl: Bez kofeiny, zero kofeiny
+pt: Sem cafeína, livre de cafeína, 0% cafeína, zero cafeína
+ro: fără cofeină, cofeină zero, zero cofeină
+ru: без кофеина
 si: brez kofeina
+sk: bez kofeínu
+sv: koffeinfri
 th: ไม่มีคาเฟอีน
+uk: без кофеїну
 label_categories:en: en:Health
 
 #instruction:en:Do NOT change the english key.
@@ -19167,7 +19175,7 @@ it: Classe &quot;Extra&quot;
 
 # Should not be associate with "extra class", "superior quality" etc.
 < en: Organic
-sv: KRAV, KRAV-certifierad ekologisk ingrediens, KRAV-godkänd ekologisk råvara, KRAV-ekologisk råvara
+sv: KRAV, KRAV-certifierad ekologisk ingrediens, KRAV-godkänd ekologisk råvara, KRAV-ekologisk råvara, KRAV-certifierad råvara
 xx: KRAV
 country:en: en:Sweden
 image:en: krav.136x90.svg
@@ -20375,7 +20383,7 @@ hr: Održiv
 it: Sostenibile, sostenible certificada
 nl: Duurzaam
 pt: Sustentável
-sv: Hållbar, Hållbart, Hållbart producerat och certifierad
+sv: Hållbar, Hållbart, hållbara, Hållbart producerat och certifierad
 
 < en: Sustainable
 en: Sustainable fishery, Sustainable fishing, Sustainable Seafood
@@ -20439,7 +20447,8 @@ wikidata:en: Q2028860
 en: Tesco Nurture, Nurture
 fi: Tesco Nurture
 
-en: Sustainable farming, sustainable agriculture
+< en: Sustainable
+en: Sustainable farming, sustainable agriculture, Sustainably produced from certified farmers
 bg: Устойчиво земеделие
 ca: Agricultura Sostenible
 cs: Udržitelné zemědělství
@@ -20456,7 +20465,7 @@ nb: Bærekraftigt jordbrug, fra bærekraftigt jordbrug, bærekraftig dyrkede ing
 nl: Duurzame landbouw
 pl: Zrównoważone rolnictwo
 pt: Agricultura sustentável
-sv: Hållbart jordbruk, från hållbart jordbruk, hållbart odlade ingredienser
+sv: Hållbart jordbruk, från hållbart jordbruk, hållbart odlade ingredienser, hållbart producerad från certifierade odlare
 wikidata:en: Q2751054
 
 < en: Sustainable farming
