@@ -25326,13 +25326,6 @@ ro: fulgi de cereale
 ru: хлопья из зерна
 sv: spannmålsflingor
 
-< en: cereal flakes
-en: crispy flakes
-it: fiocchi croccanti
-sv: krispiga flingor
-vegan:en: maybe
-vegetarian:en: maybe
-
 < de: Getreideflocken
 < en: wholemeal cereal
 en: wholemeal cereal flakes
@@ -25370,6 +25363,14 @@ hr: hrskavice od žitarica
 hu: gabonapehely, gabonapelyhek
 it: crispies di cereal
 
+#< en: compound
+en: rice crispies
+de: Reis-Crispies, Reiscrispies
+
+#< en: compound
+en: protein crispies
+nl: eiwit crispies
+
 #probably more for mixed cereals
 #< en: compound
 en: crunchy cereals
@@ -25378,6 +25379,13 @@ el: Τραγανοί κόκκοι δημητριακών
 es: cereales crujientes
 hr: hrskave žitarice
 it: Cereali croccante
+
+#< en: compound
+en: crispy flakes, crunchy flakes
+it: fiocchi croccanti
+sv: krispiga flingor
+vegan:en: maybe
+vegetarian:en: maybe
 
 #< en: compound
 fr: billes de céréales
@@ -32792,7 +32800,7 @@ sr: pirinač ekstrudat, ekstrudirani pirinač
 en: puffed rice, crisped rice, rice crisps
 ca: arròs inflat, arròs inflats
 da: puffat ris, puffede ris
-de: Puffreis, Reis-Crispies, Reis gepufft, Crisp-Rice, Reiscrispies
+de: Puffreis, Reis gepufft, Crisp-Rice
 es: arroz inflado, arroz inflados
 et: riisikrõpsud
 fi: riisimuro, riisimurot, puffattu riisi
@@ -61664,7 +61672,7 @@ kk: тапиока, tapïoka, تاپىيوكا
 ko: 타피오카
 mt: tapjoka
 nb: tapioka, tapiokastivelse
-nl: tapiocazetmeel, tapioca zetmeel, tapioca
+nl: tapiocazetmeel, tapioca zetmeel, tapioca, cassavezetmeel, cassave zetmeel
 nn: tapioka
 pl: tapioka, skrobia z tapioki, skrobia tapiokowa, skrobia z manioku
 pt: tapioca, amido de tapioca, fécula de tapioca, fécula de mandioca, amido de mandioca
@@ -99284,6 +99292,11 @@ vegetarian:en: maybe
 # yue:釀
 wikidata:en: Q745361
 wikipedia:en: https://en.wikipedia.org/wiki/Stuffing
+
+< en: filling
+en: fruit filling
+fr: fourrage aux fruits
+nl: fruitvulling
 
 < en: filling
 en: apricot filling
