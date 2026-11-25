@@ -154,10 +154,11 @@
                }
             ],
             "ingredients_coverage_percent" : 75,
+            "ingredients_total_mass" : 75,
             "packaging" : [
                {
                   "category" : "",
-                  "id" : "3fe0e81a-1f6d-40af-9ee2-b31302d7ca9b",
+                  "id" : "b134e9ef-7784-4f94-b7b7-e8c9de4eb4c0",
                   "name" : "Soft cheeses - cat E, 120g | Packaging System, N0, All, Plastic box with label (double) {FR} U",
                   "name_fr" : "Boîte en plastique (PET) pour fromage à pâte molle - 120g"
                }
@@ -168,21 +169,34 @@
          },
          "ecobalyse_request" : {
             "data" : {
-               "distribution" : "ambient",
-               "ingredients" : [
+               "components" : [
                   {
-                     "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                     "mass" : 75
+                     "elements" : [
+                        {
+                           "amount" : 0.075,
+                           "material" : {
+                              "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "water",
+                     "quantity" : 1
                   }
                ],
-               "packaging" : [
+               "consumptions" : [],
+               "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+               "packagings" : [
                   {
                      "amount" : 1,
-                     "id" : "3fe0e81a-1f6d-40af-9ee2-b31302d7ca9b"
+                     "processId" : "b134e9ef-7784-4f94-b7b7-e8c9de4eb4c0"
                   }
-               ]
+               ],
+               "transportOptions" : {
+                  "cooling" : false
+               }
             },
-            "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+            "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
          },
          "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
          "ecobalyse_skipped" : 1

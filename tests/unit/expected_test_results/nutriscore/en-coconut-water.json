@@ -61,22 +61,38 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "927231a5-c0c4-560f-8e89-ca4b01795fe6",
-                  "mass" : 100
+                  "elements" : [
+                     {
+                        "amount" : 0.1,
+                        "material" : {
+                           "id" : "927231a5-c0c4-560f-8e89-ca4b01795fe6"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "coconut water",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:unsweetened-beverages",
@@ -153,7 +169,7 @@
       "en:nutriscore-2021-d-2023-c",
       "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
-      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-api-not-called",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"
