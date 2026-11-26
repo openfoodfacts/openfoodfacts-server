@@ -61,7 +61,7 @@ function addSearchCriterion(target, criteria_number) {
 (function ($) {
 	//On criterion value change for the last criterion
 	$(document).on("change", ".criterion-row:last .tag-search-criterion > input", function (e) {
-		const criterionNumber = parseInt(e.target.name.substr(e.target.name.length - 1), 10);
+		const criterionNumber = parseInt(e.target.name.replace(/^.*_/, ""), 10);
 		addSearchCriterion(e.target, criterionNumber + 1);
 		e.preventDefault();
 
