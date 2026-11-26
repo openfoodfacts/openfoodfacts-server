@@ -31,12 +31,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$User_id %User/;
 use ProductOpener::Lang qw/lang/;
-use ProductOpener::Auth qw/
-	access_to_protected_resource
-	get_oidc_implementation_level
-	is_allowed_return_url
-	write_auth_deprecated_headers
-	/;
+use ProductOpener::Auth qw/is_allowed_return_url write_auth_deprecated_headers/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -52,17 +47,23 @@ my $template_data_ref = {};
 
 $template_data_ref->{user_id} = $User_id;
 
-my $r = shift || eval {Apache2::RequestUtil->request()};
-my $subdomain = $request_ref->{subdomain};
-my $referer = $request_ref->{referer} // ($r ? eval {$r->headers_in->{Referer}} : undef);
-
+# Pattern that blocks redirecting back to auth-related scripts to prevent redirect loops.
 my $auth_scripts_pattern = qr/(?:login|session|user|reset_password|oidc_sign(?:in|out)(?:_callback)?)\.pl/;
 
+# Determine a validated redirect destination.
+# We prefer an explicit return_url/redirect param, then fall back to the HTTP Referer.
+# Either way, only an allowed (same-site) URL that is not an auth script is accepted.
 my $return_url = single_param('return_url') // single_param('redirect');
+
+# Expand a path-only return_url to an absolute URL using the current subdomain.
 if (defined $return_url && $return_url =~ m{^/(?!/|\\)}) {
 	$return_url = $request_ref->{formatted_subdomain} . $return_url;
 }
 
+my $r = shift || eval {Apache2::RequestUtil->request()};
+my $referer = $request_ref->{referer} // ($r ? eval {$r->headers_in->{Referer}} : undef);
+
+# $target_return_url is the validated redirect destination (undef if none is acceptable).
 my $target_return_url;
 if (    defined $return_url
 	and is_allowed_return_url($return_url)
@@ -127,7 +128,7 @@ if (single_param('jqm')) {
 
 	write_auth_deprecated_headers();
 	print header(-type => 'application/json', -charset => 'utf-8') . $data;
-	return;
+
 }
 else {
 	my $template;
@@ -142,23 +143,12 @@ else {
 		$template = "signed_in";
 		$request_ref->{title} = '';
 	}
-	elsif (get_oidc_implementation_level() >= 3) {
-		# The user is signing in: redirect to Keycloak OIDC authentication flow
-		if (defined $target_return_url) {
-			$request_ref->{return_url} = $target_return_url;
-		}
-		else {
-			delete $request_ref->{return_url};
-		}
-
-		write_auth_deprecated_headers();
-		access_to_protected_resource($request_ref);
-		return 302;
-	}
 	else {
-		# The user is signing in: display the legacy login form
+		# The user is signing in: display the legacy login form.
+		# Only pass a validated redirect destination to the template so that
+		# a malicious return_url cannot inject HTML into the form field.
 		$template = "sign_in_form";
-		$template_data_ref->{redirect} = $target_return_url // $return_url;
+		$template_data_ref->{redirect} = $target_return_url;
 		$request_ref->{title} = lang('sign_in');
 	}
 

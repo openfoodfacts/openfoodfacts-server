@@ -45,7 +45,7 @@
         <div class="large-12 columns">
             <label for="submit">
                 <input type="submit" name="submit" class="button" id="submit" value="[% edq(lang('sign_in')) %]" />
-                <input type="hidden" name="redirect" value="[% redirect %]"/>
+                <input type="hidden" name="redirect" value="[% redirect | html %]"/>
             </label>
         </div>
     </div>

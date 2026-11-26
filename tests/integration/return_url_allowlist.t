@@ -106,4 +106,19 @@ foreach my $target ("https://world.$server_domain.evil.example/steal", "https://
 	isnt($location, $target . '/', "session.pl does not redirect to '$target/'");
 }
 
+# XSS regression: when an unauthenticated user visits session.pl with a malicious return_url,
+# the payload must not appear unescaped in the response body (the sign-in form).
+# The fix is: (a) only pass the validated $target_return_url to the template, and
+# (b) use [% redirect | html %] in sign_in_form.tt.html.
+
+my $anon_ua = new_client();    # fresh client – not logged in
+$anon_ua->max_redirect(0);
+
+foreach my $xss_payload ('"><svg onload=alert(1)>', 'javascript:alert(1)', '"><script>evil()</script>') {
+	$response = $anon_ua->get(construct_test_url('/cgi/session.pl?return_url=' . uri_escape($xss_payload)));
+	my $body = $response->decoded_content // '';
+	ok(index($body, $xss_payload) == -1,
+		"session.pl sign-in form does not reflect unescaped XSS payload: $xss_payload");
+}
+
 done_testing();
