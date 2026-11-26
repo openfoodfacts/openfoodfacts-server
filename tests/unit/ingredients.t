@@ -1796,6 +1796,25 @@ puffed orange and caramelized unknown_fruit4.",
 				"pšenična bela moka, glukozni sirup, kakavova masa, palmino olje, repično olje, jagode 12 %, maline, korenje, paradižnikov koncentrat, krompirjev škrob, modificiran škrob, maltodekstrin, jogurt, posneto mleko v prahu, piščančje meso, jedilna želatina, alkoholni kis, vinski kis, ekstrakt kvasa, kvas, karoteni, sirilo, kumarice, emulgatorja (sojini lecitini, E471), stabilizatorji (E407, E412), gostilo (E415), antioksidanta (E300, E306), konzervansa (E202, E211), sredstvi za vzhajanje (E500, E450), sredstvo za ohranjanje vlage (E422), barvila (E160a), sladili (E950, E955), vanilin sladkor.",
 		}
 	],
+	# Greek (el) - FOODTURE representative products for Greece
+	[
+		'el-mortadella',
+		# https://gr.openfoodfacts.org/product/20212780
+		{
+			lc => "el",
+			ingredients_text =>
+				"Κρέας χοιρινό 62%, νερό, άμυλο από πατάτα, αλάτι, πρωτεΐνες γάλακτος, σιρόπι γλυκόζης, ζάχαρη, μπαχαρικά, αρωματικές ύλες, σταθεροποιητές: διφωσφορικό νάτριο, τριφωσφορικό νάτριο, ρυθμιστής οξύτητας: κιτρικό οξύ, συντηρητικό: νιτρώδες νάτριο.",
+		}
+	],
+	[
+		'el-breadsticks',
+		# https://gr.openfoodfacts.org/product/5201004058379
+		{
+			lc => "el",
+			ingredients_text =>
+				"Αλεύρι σίτου, σουσάμι 21%, αλεύρι σίτου ολικής άλεσης 20%, φυτικό έλαιο (φοινικέλαιο), ζάχαρη, σιρόπι γλυκόζης, μαλτοδεξτρίνη, αλάτι, γλουτένη σίτου, αλεύρι βύνης κριθαριού, μαγιά, αρωματική ύλη.",
+		}
+	],
 	# concentrations per volume (g/l, mg/l, mg/100 ml) must not leave an orphan "l" ingredient
 	[
 		'de-extract-content-g-per-l',
@@ -2005,6 +2024,30 @@ puffed orange and caramelized unknown_fruit4.",
 			# https://se.openfoodfacts.org/product/7318690501237/penne-rigate-ica-basic
 			lc => "sv",
 			ingredients_text => "Mjöl av _vete_* och _durumvete_**, vatten. *Odlat i: Lettland. **Odlat i: EU/icke EU.",
+		}
+	],
+	[
+		'et-dash-before-and-is-not-a-separator',
+		{
+			lc => "et",
+			ingredients_text =>
+				"vesi, happesuse regulaator - sidrunhape, looduslik lõhna - ja maitseaine, looduslikud lõhna- ja maitseained, lõhna- ja maitseaine - vanilliin.",
+		}
+	],
+	[
+		'lv-frequent-unknown-ingredients',
+		{
+			lc => "lv",
+			ingredients_text =>
+				"kakao masa, saldais krējums, vanilīns, šokolāde, lauru lapas, sinepju pulveris, maizes raugs, pārtikas ražošanas sāls, vārāmā sāls, dzērvenes, garšaugi, ābolu biezenis, želatīns, pārtikas želatīns, kefīrs, kokosriekstu ella, rafinēta rapšu eļļa, ķiploku pulveris, ķirbju sēklas, citronu sulas koncentrāts, olu pulveris, bietes, rabarberi, siera pulveris, tomāti, zemeņu biezenis, dabīgs minerālūdens, ierauga kultūra, palmu ella, sausie sīpoli, kaltēti sīpoli, grauzdēti zemesrieksti, kviešu iesala milti, olu dzeltenuma pulveris, tomātu biezenis, apelsīnu sula, augu ella, augu eļļa, baltie galviņkāposti, emulgators sojas lecitīni, ferments laktāze, fruktozes glikozes sīrups, glikuronolaktons, kakao pulveris ar samazinātu tauku saturu, krustnagliņas, margarīns, melno burkānu koncentrāts, mencu aknas, nātrija ciklamāts, pastinaks, pūdercukurs, rīsu ciete, smaržīgie pipari, teksturēts zirņu proteīns, zemenes, zirnīši, čili, auzu pārslas pilngraudu, kviešu ieraugs, kviešu olbaltumvielas, rudzu pārslas, sojas olbaltumviela, sviests saldkrējuma, acerolas milti, aromatizētājs vanilīns, cāļa ādas, vistu ādas, cūku tauki, iebiezināts piens ar cukuru, mehāniski atdalīta cāļa gaļa, melno burkānu sulas koncentrāts, pelēkie zirņi, rudzu ieraugs, rudzu iesala milti, skumbrijas scomber scombrus, ābolu sulas koncentrāts, dabīga ābolu sula, miežu putraimi, vaniļas cukurs, mandeļu skaidiņas, apelsīnu miziņa, rīsu proteīns, sarkanie asie pipari, citrons, avene, vistas krūtiņas fileja, selerijas sakne, cieto kviešu mannas putraimi, vistas gaļa, cūkgaļas olbaltumvielas, pākšu pupiņas, sēņu pulveris, sojas pupiņu milti, pektīns, nātrija citrāti, dzeramā soda, kalcija citrāts, karotīni, rozmarīna ekstrakts, trinātrija citrāts, karmīns, vitamīns b12, krāsvielas (E100), pārtikas krāsviela (E100), pārtikas krāsvielas (E100), biezinātāji (E415), stabilizators (E407), antioksidanti (E306), maizes uzlabotājs (E300), modificētā ciete (E1422), modificētās cietes (E1422), nesējviela (E1520), nesējvielas (E1520), skābes (E330), pretsalipes vielas (E551), putu dzēsēji (E900), apjoma palielinātāji (E1200), cietinātāji (E509), putu veidotāji (E999), recinātāji (E440), glazētājvielas (E903), mitrumuzturētāji (E422), aizsarggāze (E941), aizsarggāzes (E941), propelenti (E942), irdinātāji (E500), sekvestranti (E385), miltu apstrādes līdzekļi (E300). Var saturēt piena, riekstu, riekstus, citus riekstus, citu riekstu, citu riekstu daļiņas, mandeļu, zemesriekstu, zemesriekstus, olu, olu daļiņas, pienu, piena daļiņas, seleriju, sinepju, lupīnu, soju, sojas produktu, sojas daļiņas, sezama sēklu, sezama sēklu daļiņas, kviešu daļiņas.",
+		}
+	],
+	[
+		'fi-frequent-unknown-ingredients',
+		{
+			lc => "fi",
+			ingredients_text =>
+				"silava, salaattisekoitus, kuorittu soijapapu, vadelmahillo, e322 soijalesitiini, entsyymit, vihreä papu, kevätsipuli, oligofruktoosikuitu, suippokaali, e322 auringonkukkalesitiini, jääsalaatti, chilitahna, glukoosifruktoosisiirappi, savupaprika, sushiriisi, granola, kananmunan keltuainen, omenaviinietikka, hiilihappopitoinen vesi, poltettu sokeri, siipikarjanrasva, linssiproteiini, rasvaton maito jauheesta, puristettu kookospähkinä, ksantaani, rasvahappojen monoglyseridi, rasvahappojen monoglyseridit, rasvahappojen diglyseridi, rasvahappojen diglyseridit, pyridoksiini, happamuudensaatoaine (E331), sailontaaine (E200), kantaja-aineet (E1520), kantaja-aine (E1520), kiillotusaineet (E903), kiillotusaine (E903), jauhon käsittelyaineet (E300), jauhon käsittelyaine (E300), aromivahventeet (E621), antioksidantit (E306), elintarvikevärit (E100), sakeutusaine (E415), sakeutusaineet (E415). Saattaa sisältää maito, spelttivehnä, spelttivehnää, kamut-vehnä, kamut-vehnää, muuta gluteenia sisältävää viljaa, soijan.",
 		}
 	],
 );

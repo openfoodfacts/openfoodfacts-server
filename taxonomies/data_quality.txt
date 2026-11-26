@@ -9050,6 +9050,24 @@ description:pl: Dane dotyczące opakowania tego produktu są kompletne.
 description:pt: Os dados de embalagem deste produto estão completos.
 description:ru: Данные об упаковке этого продукта полные.
 
+#### Tags rules (rules/ directory, see lib/ProductOpener/TagsRules.pm)
+
+< en: Data quality warnings
+en: Tags rules warnings
+description:en: Rules that infer more precise tags (e.g. categories) from the data of the product detected a possible issue
+
+< en: Tags rules warnings
+en: Category rules conflict
+description:en: A rule could have added a more precise category, but the product already has a category that is incompatible with it. Either the category or the ingredients (or other data used by the rule) may be wrong.
+description:fr: Une règle aurait pu ajouter une catégorie plus précise, mais le produit a déjà une catégorie incompatible avec celle-ci. La catégorie ou les ingrédients (ou les autres données utilisées par la règle) sont peut-être erronés.
+fix_action:en: add_categories
+
+< en: Tags rules warnings
+en: Sweet mustards named mild mustard
+description:en: The product is in the sweet mustards category, but its name says "moutarde douce" (mild mustard). The category should probably be mild mustards.
+description:fr: Le produit est dans la catégorie moutardes sucrées, mais son nom indique « moutarde douce ». La catégorie devrait probablement être moutardes douces.
+fix_action:en: add_categories
+
 #### Food groups
 
 < en: Data quality warnings

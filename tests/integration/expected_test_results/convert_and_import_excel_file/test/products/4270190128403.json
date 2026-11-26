@@ -143,16 +143,21 @@
          "distribution" : "ambient",
          "ingredients" : [],
          "ingredients_coverage_percent" : 0,
+         "ingredients_total_mass" : 0,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : []
+            "components" : [],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       },
       "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
       "ecobalyse_skipped" : 1

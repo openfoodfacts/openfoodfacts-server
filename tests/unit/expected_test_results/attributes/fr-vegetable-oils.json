@@ -429,37 +429,71 @@
                "name" : "huiles végétales"
             },
             {
-               "ecobalyse_name" : "Sel -2025-",
-               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
+               "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
                "mass" : 16.6666666666667,
                "name" : "sel"
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100.0,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "7d5afd1c-43b6-4540-8451-714369091add",
-                  "mass" : 66.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.066667,
+                        "material" : {
+                           "id" : "7d5afd1c-43b6-4540-8451-714369091add"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "farine de maïs",
+                  "quantity" : 1
                },
                {
-                  "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
-                  "mass" : 16.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.016667,
+                        "material" : {
+                           "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "huiles végétales",
+                  "quantity" : 1
                },
                {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 16.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.016667,
+                        "material" : {
+                           "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "sel",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
    },
    "environmental_score_data" : {
       "adjustments" : {
@@ -756,8 +790,8 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-         "ecobalyse_name" : "Sel -2025-",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -821,7 +855,7 @@
    "lc" : "fr",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-api-not-called",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-not-computed",

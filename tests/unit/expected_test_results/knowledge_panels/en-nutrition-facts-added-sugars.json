@@ -103,37 +103,71 @@
                "name" : "wheat flour"
             },
             {
-               "ecobalyse_name" : "Beurre à 39-41% MG, léger, doux Origine Inconnue",
-               "id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
+               "ecobalyse_name" : "Beurre à 82% MG ou huile de beurre Origine Inconnue",
+               "id" : "9f7ca704-e3b6-4ad9-b376-6c0662ebeeec",
                "mass" : 16.6666666666667,
                "name" : "butter"
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100.0,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 66.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.066667,
+                        "material" : {
+                           "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "Sugar",
+                  "quantity" : 1
                },
                {
-                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-                  "mass" : 16.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.016667,
+                        "material" : {
+                           "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "wheat flour",
+                  "quantity" : 1
                },
                {
-                  "id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
-                  "mass" : 16.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.016667,
+                        "material" : {
+                           "id" : "9f7ca704-e3b6-4ad9-b376-6c0662ebeeec"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "butter",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
    },
    "environmental_score_data" : {
       "adjustments" : {
@@ -428,8 +462,8 @@
       },
       {
          "ciqual_proxy_food_code" : "16400",
-         "ecobalyse_id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
-         "ecobalyse_name" : "Beurre à 39-41% MG, léger, doux Origine Inconnue",
+         "ecobalyse_id" : "9f7ca704-e3b6-4ad9-b376-6c0662ebeeec",
+         "ecobalyse_name" : "Beurre à 82% MG ou huile de beurre Origine Inconnue",
          "id" : "en:butter",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -1688,7 +1722,7 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-api-not-called",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-not-computed",

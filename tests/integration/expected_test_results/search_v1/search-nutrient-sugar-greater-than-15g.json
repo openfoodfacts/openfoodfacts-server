@@ -597,10 +597,11 @@
                   }
                ],
                "ingredients_coverage_percent" : 100,
+               "ingredients_total_mass" : 100,
                "packaging" : [
                   {
                      "category" : "en:cereals-and-their-products",
-                     "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08",
+                     "id" : "5a4135e0-ac80-45b9-8319-d71596704c87",
                      "name" : "Baby biscuits and cereals, 340g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
                      "name_fr" : "Sachet en plastique (PE) pour dessert pour bébés - 340g - Proxy"
                   }
@@ -611,29 +612,60 @@
             },
             "ecobalyse_request" : {
                "data" : {
-                  "distribution" : "ambient",
-                  "ingredients" : [
+                  "components" : [
                      {
-                        "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
-                        "mass" : 50
+                        "elements" : [
+                           {
+                              "amount" : 0.05,
+                              "material" : {
+                                 "id" : "f489c1d2-d770-4614-9878-f6445a8a937f"
+                              },
+                              "transforms" : []
+                           }
+                        ],
+                        "name" : "apple",
+                        "quantity" : 1
                      },
                      {
-                        "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                        "mass" : 30
+                        "elements" : [
+                           {
+                              "amount" : 0.03,
+                              "material" : {
+                                 "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
+                              },
+                              "transforms" : []
+                           }
+                        ],
+                        "name" : "water",
+                        "quantity" : 1
                      },
                      {
-                        "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                        "mass" : 20
+                        "elements" : [
+                           {
+                              "amount" : 0.02,
+                              "material" : {
+                                 "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
+                              },
+                              "transforms" : []
+                           }
+                        ],
+                        "name" : "sugar",
+                        "quantity" : 1
                      }
                   ],
-                  "packaging" : [
+                  "consumptions" : [],
+                  "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+                  "packagings" : [
                      {
                         "amount" : 1,
-                        "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08"
+                        "processId" : "5a4135e0-ac80-45b9-8319-d71596704c87"
                      }
-                  ]
+                  ],
+                  "transportOptions" : {
+                     "cooling" : false
+                  }
                },
-               "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+               "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
             }
          },
          "estimate_ingredients_percent_service" : "product_opener",

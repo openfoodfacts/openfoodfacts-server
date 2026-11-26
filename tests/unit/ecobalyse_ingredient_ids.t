@@ -21,10 +21,12 @@ sub ingredient_property ($tagid, $property) {
 }
 
 my @preconditions = (
-	# en:rice has an organic variant, en:rice-flour (child of en:rice) has a base match but no organic variant
-	["en:rice", "ecobalyse_labels_en_organic_id:en", 1],
+	# en:rice has an organic French variant, en:rice-flour (child of en:rice) has a base match and a French variant,
+	# but no organic French variant
+	["en:rice", "ecobalyse_labels_en_organic_origins_en_france_id:en", 1],
 	["en:rice-flour", "ecobalyse_id:en", 1],
-	["en:rice-flour", "ecobalyse_labels_en_organic_id:en", 0],
+	["en:rice-flour", "ecobalyse_origins_en_france_id:en", 1],
+	["en:rice-flour", "ecobalyse_labels_en_organic_origins_en_france_id:en", 0],
 	# en:orange has an organic French variant, en:orange-juice (child of en:orange) has a base match
 	# but no organic, French or EU variant
 	["en:orange", "ecobalyse_labels_en_organic_origins_en_france_id:en", 1],
@@ -41,10 +43,12 @@ my @preconditions = (
 	["en:sardine", "ecobalyse_id:en", 0],
 	["en:sardine", "ecobalyse_proxy_id:en", 0],
 	["en:fish", "ecobalyse_proxy_origins_en_france_id:en", 1],
-	# en:duck and en:rabbit have no Ecobalyse data, en:poultry and en:rabbit have a proxy with a French variant
+	# en:duck has no Ecobalyse data, en:poultry and en:rabbit have a proxy without a French variant
+	# (Ecobalyse removed the French chicken breast in 2026-11)
 	["en:duck", "ecobalyse_proxy_id:en", 0],
-	["en:poultry", "ecobalyse_proxy_origins_en_france_id:en", 1],
-	["en:rabbit", "ecobalyse_proxy_origins_en_france_id:en", 1],
+	["en:poultry", "ecobalyse_proxy_id:en", 1],
+	["en:poultry", "ecobalyse_proxy_origins_en_france_id:en", 0],
+	["en:rabbit", "ecobalyse_proxy_id:en", 1],
 );
 
 foreach my $precondition (@preconditions) {
@@ -63,9 +67,11 @@ my @tests = (
 	],
 	# Ingredient without the variant, but with a base match: the variant of the parent is not used
 	[
-		"organic rice flour: rice flour base match, not the organic variant of rice",
-		{id => "en:rice-flour", labels => "en:organic"},
-		"ecobalyse", "en:rice-flour", "ecobalyse",
+		"French organic rice flour: French variant of rice flour, not the organic French variant of rice",
+		{id => "en:rice-flour", labels => "en:organic", origins => "en:france"},
+		"ecobalyse",
+		"en:rice-flour",
+		"ecobalyse_origins_en_france",
 	],
 	[
 		"French organic orange juice: orange juice base match, not the organic French variant of orange",
@@ -84,9 +90,9 @@ my @tests = (
 		"ecobalyse_proxy_origins_en_france",
 	],
 	[
-		"French duck: French variant of the poultry proxy", {id => "en:duck", origins => "en:france"},
-		"ecobalyse_proxy", "en:poultry",
-		"ecobalyse_proxy_origins_en_france",
+		"French duck: poultry proxy, which has no French variant",
+		{id => "en:duck", origins => "en:france"},
+		"ecobalyse_proxy", "en:poultry", "ecobalyse_proxy",
 	],
 	["rabbit: rabbit proxy", {id => "en:rabbit"}, "ecobalyse_proxy", "en:rabbit", "ecobalyse_proxy",],
 );
@@ -107,6 +113,35 @@ foreach my $test_ref (@tests) {
 		"$test_name - name"
 	);
 	is($ingredient_ref->{$other_prefix . "_id"}, undef, "$test_name - no $other_prefix id");
+}
+
+# The unit of the Ecobalyse ingredient is set only for ingredients that are not in kg (e.g. L for wine)
+is(ingredient_property("en:red-wine", "ecobalyse_unit:en"), "L", "taxonomy precondition: en:red-wine is in L");
+foreach my $unit_test_ref (
+	[{id => "en:red-wine"}, "L"],
+	[{id => "en:spring-water", origins => "en:france"}, "L"],
+	[{id => "en:rice"}, undef],
+	)
+{
+	my ($ingredient_ref, $expected_unit) = @$unit_test_ref;
+	get_missing_ecobalyse_ids([$ingredient_ref]);
+	is($ingredient_ref->{ecobalyse_unit}, $expected_unit, "$ingredient_ref->{id} - unit");
+}
+# The unit of a previous match is removed when the ingredient is matched again
+# (e.g. spring water from France is in L, the default spring water entry is in kg)
+{
+	my $ingredient_ref = {id => "en:spring-water", origins => "en:france"};
+	get_missing_ecobalyse_ids([$ingredient_ref]);
+	is($ingredient_ref->{ecobalyse_unit}, "L", "spring water from France - unit");
+	delete $ingredient_ref->{origins};
+	get_missing_ecobalyse_ids([$ingredient_ref]);
+	is($ingredient_ref->{ecobalyse_unit}, undef, "spring water matched again without origin - no unit");
+}
+
+# Proxies of an ingredient in L are also in L (e.g. white wine uses the red wine data)
+foreach my $ingredient_ref ({id => "en:white-wine"}, {id => "en:dry-white-wine"}, {id => "en:wine"}) {
+	get_missing_ecobalyse_ids([$ingredient_ref]);
+	is($ingredient_ref->{ecobalyse_proxy_unit}, "L", "$ingredient_ref->{id} - proxy unit");
 }
 
 # OFF ingredients listed in off_ingredients_without_ecobalyse_data.tsv have "undef" base ids

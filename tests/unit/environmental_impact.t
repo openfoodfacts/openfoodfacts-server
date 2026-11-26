@@ -32,6 +32,8 @@ if (($update_expected_results) and (!$ENV{ECOBALYSE_API_TOKEN})) {
 my $product_hazelnut_spread_json = '{
     "product_name_en": "My hazelnut spread",
     "product_name_fr": "Ma pâte aux noisettes",
+    "product_quantity": 100,
+    "product_quantity_unit": "g",
     "categories_tags": ["en:hazelnut-spreads", "en:plant-based-foods", "en:canned-foods"],
     "ingredients": [
         {
@@ -98,7 +100,7 @@ my $mock_calls = 0;
 my $ecobalyse_mock;
 
 if (!$update_expected_results) {
-	if (open(my $mock_response, "<:encoding(UTF-8)", $mock_response_file)) {
+	if (open(my $mock_response, "<:raw", $mock_response_file)) {
 		local $/;    #Enable 'slurp' mode
 		my $response_data = <$mock_response>;
 		$ecobalyse_mock = mock 'ProductOpener::EnvironmentalImpact' => (
