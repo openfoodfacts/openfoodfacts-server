@@ -64615,12 +64615,14 @@ pt: Flocos
 ru: Хлопья
 
 < en: Flakes
-en: Rolled flakes, Rolled grains
-de: Gerollte Flocken, gerollte Körner
+en: Rolled flakes
+da: Valsede flager
+de: Gerollte Flocken
 fr: Flocons laminés
 hr: Uvaljane pahuljice
 it: Fiocchi pressati
 nl: Geplette granen
+sv: Valsade flingor
 
 < en: Flakes
 en: Extruded flakes
@@ -64632,6 +64634,7 @@ it: fiocchi estrusi
 lt: Ekstruduoti dribsniai
 pl: Płatki ekstrudowane
 ru: Экструдированные хлопья
+sv: Extruderade flingor
 
 < en: Plant-based foods
 en: Starches, Starch
@@ -65618,11 +65621,12 @@ ciqual_food_name:fr: Muesli croustillant au chocolat (non enrichi en vitamines e
 
 < en: Breakfast cereals
 < en: Flakes
-en: Cereal flakes, Rolled cereals
-ca: Flocs de cereals, cereals laminats
+en: Cereal flakes
+ca: Flocs de cereals, Cereals laminats
+da: Kornflager
 de: Frühstücksflocken
 es: Copos de cereales
-fi: viljahiutaleet
+fi: Viljahiutaleet
 fr: Flocons de céréales
 hr: Žitne pahuljice
 hu: Gabonapelyhek
@@ -65630,6 +65634,7 @@ it: Fiocchi di cereali
 lt: Javų dribsniai
 nl: Ontbijtvlokken
 pt: Flocos de cereais
+sv: Spannmålsflingor
 foodex2_code:en: A04QY
 foodex2_common_names:en: Corn flakes - like
 foodex2_extended_name:en: Cereal flakes and similar
@@ -65638,7 +65643,28 @@ foodex2_old_code:en: A.01.000185
 foodex2_scope_note:en: The group includes any type of processed cereal flakes similar to corn flakes, i.e. breakfast cereals usually obtained by soaking-cooking/steaming, pressing, drying and flaking cereal grains/flours mixed with admixture of additional ingredients (e.g. sweeteners).
 
 < en: Cereal flakes
+< en: Extruded cereals
+< en: Extruded flakes
+en: Extruded cereal flakes
+da: Ekstruderede kornflager
+de: Extrudierte Frühstücksflocken
+fr: Flocons de céréales extrudés
+hr: Ekstrudirane žitne pahuljice
+it: Fiocchi di cereali estrusi
+lt: Ekstruduoti javų dribsniai
+sv: Extruderade spannmålsflingor
+
+< en: Cereal flakes
 < en: Rolled flakes
+en: Rolled cereal flakes, Rolled cereals, Rolled grains
+da: Valsede kornflager
+de: Gerollte Frühstücksflocken, gerollte Körner
+fr: Flocons de céréales laminés
+hr: Uvaljane žitne pahuljice
+it: Fiocchi di cereali pressati
+sv: Valsade spannmålsflingor
+
+< en: Rolled cereal flakes
 en: Amaranth flakes
 de: Amaranthflocken
 es: Copos de amaranto
@@ -65647,8 +65673,7 @@ hr: Pahuljice amaranta
 lt: Amarantų dribsniai
 nl: Amarantvlokken
 
-< en: Cereal flakes
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Barley flakes
 de: Gerstenflocken
 es: Copos de cebada
@@ -65670,10 +65695,8 @@ sales_format:en: weight, package
 
 # Corn Flakes
 
-< en: Cereal flakes
 < en: Corns and their products
-< en: Extruded cereals
-< en: Extruded flakes
+< en: Extruded cereal flakes
 en: Corn flakes, Corn-Flakes
 cs: Kukuřičné lupínky
 de: Cornflakes
@@ -65743,9 +65766,8 @@ agribalyse_food_code:en: 32121
 ciqual_food_code:en: 32121
 ciqual_food_name:en: Breakfast cereals, corn flakes, sugar iced, fortified with vitamins and chemical elements
 
-< en: Cereal flakes
 < en: Oats and their products
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Rolled oats, Oat flakes, Oatmeal, Oatmeal flakes
 bg: Овесени ядки
 de: Haferflocken
@@ -65805,9 +65827,8 @@ ciqual_food_code:en: 9313
 ciqual_food_name:en: Oat flakes, boiled/cooked in water
 ciqual_food_name:fr: Flocons d'avoine, bouillis/cuits à l'eau
 
-< en: Cereal flakes
 < en: Millet
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Millet flakes
 de: Hirseflocken
 es: Copos de mijo
@@ -65816,16 +65837,13 @@ hr: Pahuljice prosa
 lt: Sorų dribsniai
 nl: Gierstvlokken
 
-< en: Cereal flakes
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Blend of rolled cereal flakes
 fr: Mélanges de flocons de céréales, flocons 5 céréales
 comment:en: If there are nuts, grains or dried fruits, it becomes a muesli
 sales_format:en: weight, package
 
-< en: Cereal flakes
-< en: Extruded cereals
-< en: Extruded flakes
+< en: Extruded cereal flakes
 en: Mixed cereal flakes
 ca: Barreja de flocs de cereals
 de: gemischte Getreideflocken
@@ -65845,8 +65863,7 @@ foodex2_implicit_facets:en: F27.A000L$F28.A07LG$F33.A0C46
 foodex2_old_code:en: A.01.000233
 foodex2_scope_note:en: The group includes any type of Processed flakes made with mixed cereals. Cereal flakes are breakfast cereals usually obtained by soaking-cooking/steaming, pressing, drying and flaking cereal grains/flours mixed with admixture of additional ingredients (e.g. sweeteners).
 
-< en: Cereal flakes
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Quinoa flakes
 de: Quinoaflocken
 es: Copos de quinoa
@@ -65855,8 +65872,7 @@ hr: Pahuljice kvinoje
 lt: Quinoa dribsniai
 nl: Quinoavlokken
 
-< en: Cereal flakes
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Rice flakes
 de: Reisflocken
 es: Copos de arroz
@@ -65866,8 +65882,7 @@ hr: Rižine pahuljice
 lt: Ryžių dribsniai
 nl: Rijstvlokken
 
-< en: Cereal flakes
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Rye flakes
 de: Roggenflocken
 es: Copos de centeno
@@ -65878,8 +65893,7 @@ it: Fiocchi di segale
 lt: Rugių dribsniai
 nl: Roggevlokken
 
-< en: Cereal flakes
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Teff flakes
 de: Teff-Flocken, Zwerghirseflocken
 es: Copos de teff
@@ -65889,8 +65903,11 @@ lt: Teff dribsniai
 nl: Teffvlokken
 
 < en: Cereal flakes
-< en: Rolled flakes
-en: Rolled spelt flakes, Spelt flakes
+en: Spelt flakes
+
+< en: Rolled cereal flakes
+< en: Spelt flakes
+en: Rolled spelt flakes
 de: Dinkelflocken
 es: Copos de espelta
 fi: Spelttihiutaleet
@@ -65899,13 +65916,12 @@ hr: Uvaljane pahuljice od pira
 lt: Speltos dribsniai
 nl: Speltvlokken
 
-< en: Cereal flakes
-< en: Extruded cereals
-< en: Extruded flakes
+< en: Extruded cereal flakes
+< en: Spelt flakes
 en: Extruded spelt flakes
 fr: Pétales d'épeautre
 
-< en: Rolled flakes
+< en: Rolled cereal flakes
 < en: Wheat flakes
 en: Rolled wheat flakes
 de: Weizenflocken
@@ -65932,14 +65948,12 @@ fr: Flocons de blé khorasan, Flocons de blé de khorasan, Flocons de Kamut
 hr: Khorasan pšenične pahuljice
 nl: Kamutvlokken
 
-< en: Extruded cereals
-< en: Extruded flakes
+< en: Extruded cereal flakes
 < en: Wheat flakes
 en: Extruded wheat flakes
 fr: Pétales de blé
 
-< en: Cereal flakes
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Wild rice flakes
 es: Copos de arroz salvaje
 fr: Flocons de riz sauvage, flocons de zizanie

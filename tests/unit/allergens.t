@@ -380,6 +380,46 @@ my @tests = (
 			lang => "lv",
 			ingredients_text_lv => "Cūkgaļa, sāls. Varsaturēt olas un sojas daļiņas."
 		}
+	],
+	# Russian "possible presence of traces"
+	[
+		'ru-traces-possible-presence',
+		{
+			lc => "ru",
+			lang => "ru",
+			ingredients_text_ru =>
+				"сахар, мука пшеничная. Возможно наличие следов: молочных продуктов, арахиса, кунжута."
+		}
+	],
+	# Russian traces sentence with a non-allergen item: it stays in the ingredients list,
+	# the traces must still not be tagged as contained allergens
+	[
+		'ru-traces-with-non-allergen-item',
+		{
+			lc => "ru",
+			lang => "ru",
+			ingredients_text_ru =>
+				"вишня, сахар. Продукт может содержать фрагменты косточек, арахиса, кунжута, грецкого ореха."
+		}
+	],
+	# Russian "were not used in production, but their presence cannot be excluded"
+	[
+		'ru-traces-not-used-in-production',
+		{
+			lc => "ru",
+			lang => "ru",
+			ingredients_text_ru =>
+				"сахар, какао тертое. При производстве не использовались орехи, арахис, кунжут, но их наличие в продукте полностью исключить невозможно."
+		}
+	],
+	# Russian nominative allergen forms in a traces sentence
+	[
+		'ru-traces-nominative-forms',
+		{
+			lc => "ru",
+			lang => "ru",
+			ingredients_text_ru => "сахар, какао тертое. Продукт может содержать сою и молочные продукты."
+		}
 	]
 );
 
