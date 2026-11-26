@@ -103,15 +103,16 @@
             {
                "ecobalyse_name" : "Huile d'olive UE -2025-",
                "id" : "f1b219e6-7a77-429b-b372-461e3ad0d3bd",
-               "mass" : 750.0,
+               "mass" : 750,
                "name" : "Olive oil"
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 750,
          "packaging" : [
             {
                "category" : "en:olive-oils",
-               "id" : "8d66bdcf-ee30-43ab-af80-f5565bab0e58",
+               "id" : "a10668c6-4d0a-4484-b8e2-4577fe0a2173",
                "name" : "Olive oil, 0,75L | Packaging System, N0, All, Glass bottle {FR} U",
                "name_fr" : "Bouteille en verre et bouchon plastique pour huile d'olive - 0,5L à 1L"
             }
@@ -122,21 +123,34 @@
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "f1b219e6-7a77-429b-b372-461e3ad0d3bd",
-                  "mass" : 750.0
+                  "elements" : [
+                     {
+                        "amount" : 0.75,
+                        "material" : {
+                           "id" : "f1b219e6-7a77-429b-b372-461e3ad0d3bd"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "Olive oil",
+                  "quantity" : 1
                }
             ],
-            "packaging" : [
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "packagings" : [
                {
                   "amount" : 1,
-                  "id" : "8d66bdcf-ee30-43ab-af80-f5565bab0e58"
+                  "processId" : "a10668c6-4d0a-4484-b8e2-4577fe0a2173"
                }
-            ]
+            ],
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       }
    },
    "environmental_score_data" : {

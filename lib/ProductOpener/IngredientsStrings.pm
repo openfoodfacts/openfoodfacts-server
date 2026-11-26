@@ -160,7 +160,7 @@ $symbols_regexp = join('|', @symbols);
 	bg => "продуктът може да съдържа следи от|mоже да съдържа следи от|може да съдържа|може да съдържа следи от",
 	bs => "može da sadrži",
 	ca => "pot contenir",
-	cs => "může obsahovat|může obsahovat stopy",
+	cs => "může obsahovat|může obsahovat stopy|muže obsahovat|muže obsahovat stopy",
 	da =>
 		"produktet kan indeholde|kan også indeholde bestanddele fra|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann enthalten|Kann Spuren|Spuren|Kann Anteile|Anteile|Kann auch|Kann|Enthält möglicherweise",
@@ -178,7 +178,8 @@ $symbols_regexp = join('|', @symbols);
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	lt => "sudėtyje gali būti|Taip pat, gali būti|gali būti|dalių",
-	lv => "alergēni|kupātdesiņa var|pārpalikumi|produkts var|dalinas|sastāva var but|var saturé|var satur[ēé]t",
+	lv =>
+		"alergēni|iespējama šādu alergēnu klātbūtne|kupātdesiņa var|pārpalikumi|produkts var|dalinas|sastāva var but|var saturé|var ?satur[eēéë]t",
 	mk => "Производот може да содржи|може да содржи",
 	nl =>
 		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar|Kan ook",
@@ -188,7 +189,8 @@ $symbols_regexp = join('|', @symbols);
 		"może zawierać śladowe ilości|produkt może zawierać|może zawierać alergeny|może zawierać ślady|może zawierać|możliwa obecność|w produkcie możliwa obecność|wyprodukowano w zakładzie przetwarzającym|w zakładzie przetwarzane są również|w związku z używaniem w zakładzie",
 	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţt]ine urme de|poate con[țţt]ine|poate con[țţt]in|produsul poate conţine urme de",
-	ru => "Могут содержаться следы",
+	ru =>
+		"может содержать незначительное количество|может содержать остаточные следы|может содержать следовые количества|может содержать следы|может содержать|возможно наличие незначительного количества|возможно наличие незначительных количеств|возможно наличие следовых количеств|возможно наличие следов|возможно наличие|возможно незначительное содержание|возможно незначительное количество|возможно незначительное наличие|возможно незначительное присутствие|возможно присутствие незначительного количества|возможно присутствие следов|возможно содержание|могут содержаться незначительные следы|могут содержаться следы|возможность содержания в наших продуктах следов следующих аллергенов|на предприятии|при производстве не использовались",
 	sk => "výrobok môže obsahovat|môže obsahovať",
 	sl => "lahko vsebuje sledi|lahko vsebuje sledove",
 	sr =>
@@ -694,8 +696,14 @@ my @UNIT_MASS_NUMERATORS = ('mg', 'mcg', 'µg', 'ug', 'g');
 # ingredient-list and sentence parsing.
 # Colony-forming units: UFC / CFU
 my @UNIT_ACTIVITY_NUMERATORS = ('i\.?u', 'u\.?i', 'i\.?e', 'ufc', 'cfu');
-# Denominators after solidus (100 g before bare g)
-my @UNIT_DENOMINATORS = ('100\s*g', 'kg', 'g');
+# Denominators after solidus (100 g before bare g, 100 ml before ml):
+# per mass (mg/kg, UFC/g) and per volume (mineral water "Calcium 80 mg/l",
+# "Extraktgehalt: 1,2 g/l", "UFC/ml"). Without the volume denominators the
+# solidus splits the list and leaves an orphan "l" ingredient.
+my @UNIT_DENOMINATORS = ('100\s*g', '100\s*ml', 'kg', 'g', 'ml', 'cl', 'dl', 'l');
+# A denominator must not be the start of a longer word ("g/lait", "mg/litre")
+# or of an elided article ("hareng/l'huile")
+my $UNIT_DENOMINATOR_END_REGEXP = '(?![\p{L}\'\N{U+2019}])';
 
 =head2 _compound_unit_regexp_alternatives ()
 
@@ -710,7 +718,8 @@ sub _compound_unit_regexp_alternatives() {
 	my @alternatives;
 	foreach my $numerator (@numerators) {
 		foreach my $denominator (@UNIT_DENOMINATORS) {
-			push @alternatives, $numerator . '\s*' . $UNIT_SOLIDUS_REGEXP . '\s*' . $denominator;
+			push @alternatives,
+				$numerator . '\s*' . $UNIT_SOLIDUS_REGEXP . '\s*' . $denominator . $UNIT_DENOMINATOR_END_REGEXP;
 		}
 	}
 	return @alternatives;
@@ -735,7 +744,9 @@ sub protect_compound_unit_slashes ($text) {
 	my $denominators = join('|', @UNIT_DENOMINATORS);
 
 	# Only real solidus characters here (not U+2044): we replace them with U+2044.
+	# The numerator must start a token: "Sellerie/L-Cystein" is not "ie/l"
 	$text =~ s{
+		(?<!\p{L})
 		(
 			(?:$numerators)
 			\s*
@@ -744,6 +755,7 @@ sub protect_compound_unit_slashes ($text) {
 			(?:$denominators)
 		)
 		\b
+		$UNIT_DENOMINATOR_END_REGEXP
 	}{
 		my $unit = $1;
 		$unit =~ s{(?:/|\N{U+FF0F})}{\N{U+2044}}g;

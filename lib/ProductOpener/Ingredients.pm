@@ -4583,8 +4583,10 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		}
 
 		# Assign a ecobalyse_id or a ecoalyse_proxy_code to the ingredient
-		delete $ingredient_ref->{ecobalyse_id};
-		delete $ingredient_ref->{ecobalyse_proxy_id};
+		# (remove the previous match, including its name and unit, as the new match may not have them)
+		foreach my $prefix ("ecobalyse", "ecobalyse_proxy") {
+			delete $ingredient_ref->{$prefix . $_} for qw(_id _name _unit);
+		}
 
 		# We are now looking for the appropriate ecobalyse id :
 		# ecobalyse_origins_france_labels_organic (if the product comes from france, and is organic)
@@ -4690,6 +4692,9 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 				# Also retrieve the corresponding French display name, from the same taxonomy level
 				my $ecobalyse_name = get_property("ingredients", $matching_tagid, $prefix . $suffix . "_name:fr");
 				$ingredient_ref->{$prefix . "_name"} = $ecobalyse_name if defined $ecobalyse_name;
+				# and the unit, only for ingredients that are not in kg (e.g. L for spring water and wine)
+				my $ecobalyse_unit = get_property("ingredients", $matching_tagid, $prefix . $suffix . "_unit:en");
+				$ingredient_ref->{$prefix . "_unit"} = $ecobalyse_unit if defined $ecobalyse_unit;
 				last;
 			}
 			# Exit the loop if a valid ecobalyse code was found
@@ -5911,7 +5916,7 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 
 	my $a_of_b;
 
-	if (($ingredients_lc eq "en") or ($ingredients_lc eq "hr")) {
+	if (($ingredients_lc eq "en") or ($ingredients_lc eq "hr") or ($ingredients_lc eq "lv")) {
 		# start by "with" (example: "mlijeko (s 1.0% mliječne masti)"), in which case it $b should be added after $a
 		# start by "with etc." should be added at the end of the previous ingredient
 		my %with = (hr => '(s | sa )',);
@@ -6114,6 +6119,7 @@ sub normalize_vitamin ($lc, $a) {
 		($lc eq 'is') and return "$a-vítamín";
 		($lc eq 'pl') and return "witamina $a";
 		($lc eq 'pt') and return "vitamina $a";
+		($lc eq 'ru') and return "витамин $a";
 		return "vitamin $a";
 	}
 	else {
@@ -6148,6 +6154,7 @@ sub normalize_vitamins_enumeration ($lc, $vitamins_list) {
 	elsif ($lc eq 'nl') {$split_vitamins_list = "vitaminen"}
 	elsif ($lc eq 'is') {$split_vitamins_list = "vítamín"}
 	elsif ($lc eq 'pl') {$split_vitamins_list = "witaminy"}
+	elsif ($lc eq 'ru') {$split_vitamins_list = "витамины"}
 	else {$split_vitamins_list = "vitamins"}
 
 	$split_vitamins_list .= ", " . join(", ", map {normalize_vitamin($lc, $_)} @vitamins);
@@ -7312,7 +7319,7 @@ my %ingredients_categories_and_types = (
 			# trailing word (e.g. "stearin") as an unexpanded ingredient.
 			types => [
 				"avocado", "coconut", "colza", "cottonseed", "olive", "palm kernel",
-				"palm stearin", "palm", "rapeseed", "safflower", "sunflower",
+				"palm stearin", "palm", "rapeseed", "safflower", "shea", "sunflower",
 			],
 		},
 	],
@@ -7602,6 +7609,26 @@ my %ingredients_categories_and_types = (
 		},
 	],
 
+	lv => [
+		# fibres
+		{
+			categories => ["šķiedrvielas",],
+			types => ["kartupeļu", "ceļmalītes",],
+		},
+		# oils
+		{
+			categories => ["augu eļļa", "augu eļļas un tauki", "augu tauki un eļļas",],
+			types => ["kokosriekstu", "palmu kodolu", "palmu sēklu", "palmu", "rapšu sēklu", "rapšu", "saulespuķu",],
+			alternate_names => ["<type> eļļa", "<type> tauki"],
+		},
+		# fats
+		{
+			categories => ["augu tauki",],
+			types => ["kokosriekstu", "palmu kodolu", "palmu sēklu", "palmu", "rapšu sēklu", "rapšu", "saulespuķu",],
+			alternate_names => ["<type> tauki", "<type> eļļa"],
+		},
+	],
+
 	pl => [
 		# oils and fats
 		{
@@ -7850,6 +7877,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				or ($ingredients_lc eq "da")
 				or ($ingredients_lc eq "de")
 				or ($ingredients_lc eq "hr")
+				or ($ingredients_lc eq "lv")
 				or ($ingredients_lc eq "ru")
 				or ($ingredients_lc eq "sv")
 				or ($ingredients_lc eq "pl"))
@@ -8112,6 +8140,23 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/\&lt;/</g;
 	$text =~ s/\&gt;/>/g;
 	$text =~ s/\&apos;/'/g;
+	$text =~ s/\&nbsp;/ /g;
+	$text =~ s/\&#(?:39|x27);/'/gi;
+	$text =~ s/\&#(?:34|x22);/"/gi;
+	# HTML entities mangled by an import where & and ; became commas:
+	# "farina di grano tenero tipo ,quot,0,quot," -> "farina di grano tenero tipo "0""
+	# "zucchero ,lt,1%" -> "zucchero <1%"
+	# Only the exact tokens, and < > only before a number.
+	$text =~ s/,quot,/"/g;
+	$text =~ s/,apos,/'/g;
+	$text =~ s/,amp,/&/g;
+	$text =~ s/,lt,(?=\s*\d)/</g;
+	$text =~ s/,gt,(?=\s*\d)/>/g;
+
+	# Subscript digits to ASCII digits: "Vitamine (B₁, B₂, B₁₂, D₃)" -> "Vitamine (B1, B2, B12, D3)"
+	# (superscript digits are not converted: they are often footnote markers, as in "sucre¹")
+	$text =~ tr/\x{2080}-\x{2089}/0-9/;
+
 	# last, so that "&amp;lt;" is decoded once to "&lt;" and not to "<"
 	$text =~ s/\&amp;/&/g;
 	$text =~ s/’/'/g;
@@ -8184,7 +8229,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/(\d| )g(\*)/$1g/ig;
 
 	# transform 0,2% into 0.2%
-	$text =~ s/(\d),(\d+)( )?(\%|g\b)/$1.$2\%/ig;
+	# but not a concentration: "Extraktgehalt: 1,2 g/l" must not become "1.2%/l"
+	# (per 100 g / 100 ml is a percentage: "Fruchtgehalt: 45,5 g/100 g" -> 45.5%)
+	$text =~ s/(\d),(\d+)( )?(\%|g\b(?!\s*[\/\N{U+2044}\N{U+FF0F}](?!\s*100\s*(?:g|ml)\b)))/$1.$2\%/ig;
 	$text =~ s/—/-/g;
 	# transform 0,1-0.2% into 0.1-0.2%
 	$text =~ s/(\d),(\d+( )?-( )?\d)/$1.$2/ig;
@@ -8436,6 +8483,11 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# dash with 1 missing space
 	$text =~ s/(\w)- /$1 - /ig;
 	$text =~ s/ -(\w)/ - $1/ig;
+	# a dash before "and" stands for the shared end of two compound words, it is not a separator:
+	# "lõhna - ja maitseaine" -> "lõhna- ja maitseaine"
+	if ($ingredients_lc eq "et") {
+		$text =~ s/(\p{L}) - ((?:$and_without_spaces)\s)/$1- $2/ig;
+	}
 
 	# mono-, di-, tri-, tetra- and poly- prefixes followed by "and" and another prefix:
 	# "mono - et diglycérides", "mono-et diglycérides", "di - et triphosphates", "tri - and dicalcium phosphate"

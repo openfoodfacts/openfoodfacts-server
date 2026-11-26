@@ -4744,6 +4744,7 @@ hr: Raženi viski
 nl: Rye whisky
 wikidata:en: Q2535077
 
+< en: Corns and their products
 < en: Whisky
 en: Corn whiskey
 de: Mais whiskey
@@ -7637,6 +7638,7 @@ foodex2_extended_name:en: Cola beverages, caffeinic
 foodex2_implicit_facets:en: F10.A0CQG$F33.A0C1T
 foodex2_old_code:en: A.01.001510
 foodex2_scope_note:en: The group includes any type of Cola beverage containing caffeine.
+incompatible_with:en: categories:en:cola-sodas-without-caffeine
 
 < en: Colas
 en: Cola with sugar
@@ -33449,7 +33451,7 @@ ru: Растворимые напитки
 
 < en: Dried products to be rehydrated
 < en: Mashed potatoes
-en: Instant mashed potatoes, dehydrated mashed potatoes
+en: Instant mashed potatoes, dehydrated mashed potatoes, instant mashed potato, instant mash potato
 da: Kartoffelmospulvere
 de: Kartoffelpulver
 fi: perunamuusijauheet
@@ -35922,6 +35924,14 @@ de: Roggenknäckebrote
 fi: Ruisnäkkileivät
 fr: Pains croustillants au seigle
 sv: Rågknäckebröd
+
+< en: Rye crispbreads
+en: Refined rye crispbreads, Light rye crispbreads
+da: Knækbrød af sigtet rugmel
+de: Helle Roggenknäckebrote
+fr: Pains croustillants au seigle non complets
+sv: Knäckebröd av siktat rågmjöl
+description:en: Rye crispbreads made with refined (light) rye flour, not wholemeal.
 foodex2_code:en: A006C
 foodex2_extended_name:en: Crisp bread, rye, refined flour
 foodex2_implicit_facets:en: F04.A001K$F10.A07XK$F33.A0C3Q
@@ -35950,6 +35960,7 @@ foodex2_extended_name:en: Crisp bread, rye wholemeal
 foodex2_implicit_facets:en: F04.A001K$F10.A06HR$F33.A0C3Q
 foodex2_old_code:en: A.01.000145
 foodex2_scope_note:en: The group includes any type of crisp bread based on rye flour containing high proportion of bran or wholemeal (brown or wholemeal rye flour).
+incompatible_with:en: categories:en:wholemeal-wheat-crispbreads
 
 < en: Crispbreads
 en: Crispbreads (wholemeal), Crispbreads(wholemeal)
@@ -35957,13 +35968,16 @@ da: Fuldkornsknækbrød, Knækbrød (fuldkorn)
 fr: Pains croustillants complets
 nl: Knäckebrot (volkoren)
 sv: Fullkornsknäckebröd, Knäckebröd (fullkorn)
+incompatible_with:en: categories:en:refined-wheat-crispbreads
 
 < en: Crispbreads
-en: Crispbreads (non-wholemeal), Crispbreads(non-wholemeal)
-da: Knækbrød (ikke-fuldkorn)
-fr: Pains croustillants non-complets
-nl: Knäckebrot (niet-volkoren)
-sv: Knäckebröd (icke-fullkorn)
+en: Refined wheat crispbreads, Light wheat crispbreads, Crispbreads (non-wholemeal), Crispbreads(non-wholemeal)
+da: Knækbrød af hvidt hvedemel, Knækbrød (ikke-fuldkorn)
+de: Helle Weizenknäckebrote
+fr: Pains croustillants au blé non complets, Pains croustillants non-complets
+nl: Tarweknäckebröd (niet-volkoren), Knäckebrot (niet-volkoren)
+sv: Veteknäckebröd (icke-fullkorn), Knäckebröd (icke-fullkorn)
+description:en: Crispbreads made with refined wheat flour, not wholemeal.
 foodex2_code:en: A006F
 foodex2_common_names:en: crackerbread light
 foodex2_extended_name:en: Crisp bread, wheat, refined flour
@@ -36412,6 +36426,7 @@ ciqual_food_name:en: Wheat tortilla wrap, to be filled
 ciqual_food_name:fr: Tortilla souple (à garnir), à base de blé
 wikidata:en: Q10516678
 
+< en: Corns and their products
 < en: Tortillas
 en: Corn flatbreads, Corn tortilla wraps to be filled
 fr: Tortillas de maïs, Tortillas souples à base de maïs à garnir
@@ -36987,9 +37002,23 @@ fr: Pains Bretzels, Pain bretzel, Pains bretzel
 hr: Pereci za kruh
 nl: Brood Pretzels
 comment:en: Do not confuse these with the small snacks
+foodex2_code:en: A005V
+foodex2_extended_name:en: Pretzels
+foodex2_implicit_facets:en: F33.A0C3T
+foodex2_old_code:en: A.01.001884
+foodex2_scope_note:en: The group includes any type of soft Pretzels. This group includes only the "bread-like" pretzel made from wheat flour, water and yeast, usually sprinkled with coarse salt and baked in form of knot. The hard salted snacks in form of small pretzel are not included in this term and should be coded as A00FG 'Sticks, salty'.
 google_product_taxonomy_id:en: 3446
 sales_format:en: package, item
 wikidata:en: Q160525
+
+< en: Bread Pretzels
+en: Covrigi, Romanian pretzels
+ro: Covrigi, Covrig
+comment:en: Romanian bread rings or sticks, often topped with salt, sesame or poppy seeds. The small crunchy snacks are Covrigei.
+
+< en: Covrigi
+en: Covrigi de Buzău, Covrigi de Buzau
+ro: Covrigi de Buzău, Covrigi de Buzau
 
 < en: Special breads
 en: Bruschetta breads
@@ -41045,6 +41074,7 @@ fr: Meringues fantaisie, meringue fantaisie
 < en: Candies
 en: Gummi candies, Gelified candies, Jelly candy
 ca: Caramels gelificats
+da: Vingummi
 de: Gummibonbons, fruchtgummi
 es: Caramelos de goma
 fi: Hyytelömakeiset
@@ -41100,6 +41130,14 @@ pl: Żelki-truskawki
 < en: Gummi candies
 en: Wine gums
 nl: Wine gums
+description:en: Firm glazed gummies. Not coated in sugar (see Sugar-coated gummies).
+
+< en: Gummi candies
+en: Sugar-coated gummies, Sugared gummies, Gum drops, Gumdrops
+de: Gezuckerte Fruchtgummis, Fruchtgummi gezuckert
+fr: Bonbons gélifiés sucrés
+nl: Gesuikerde gummi-snoepjes
+description:en: Gummies coated in granulated sugar, including sour sugar-coated gummies.
 foodex2_code:en: A035K
 foodex2_common_names:en: Gumdrops
 foodex2_extended_name:en: Gum drops
@@ -43404,9 +43442,16 @@ la: Coix lacryma-jobi
 nl: Jobstranen
 wikidata:en: Q827098
 
+< en: Cereals and their products
+en: Corns and their products, Corn products
+da: Majs og majsprodukter
+sv: Majs och majsprodukter
+
 < en: Cereal grains
+< en: Corns and their products
 en: Corn, Maize
 bg: Царевица
+da: Majs
 de: Mais
 es: Maíz
 fi: maissi
@@ -43418,6 +43463,7 @@ lt: Kukurūzai
 nl: Mais, Maïs
 pl: Kukurydza
 pt: Milho
+sv: Majs
 tr: Mısır
 zh: 玉米
 google_product_taxonomy_id:en: 6609
@@ -44418,9 +44464,10 @@ ciqual_food_code:en: 9390
 ciqual_food_name:en: Rye, whole, raw
 ciqual_food_name:fr: Seigle entier, cru
 
-< en: Seeds
+< en: Cereal grains
 en: Sesame, raw sesame, sesame seeds
 bg: Сусам, сусамово семе
+da: Sesamfrø
 de: Sesam
 es: Sésamo, Ajonjolí, Semillas de sésamo
 fi: seesami
@@ -44432,6 +44479,7 @@ ja: ゴマ, ごま, 胡麻
 la: Sesamum indicum
 lt: Sezamai, Sezamas
 nl: Sesamzaden, Sesamzaad
+sv: Sesamfrön
 zh: 芝麻
 agribalyse_food_code:en: 15010
 ciqual_food_code:en: 15010
@@ -44443,7 +44491,14 @@ wikidata:en: Q2763698
 
 < en: Sesame
 en: Black Sesame, black sesame seeds
+da: Sorte sesamfrø, Sort sesam-frø
 fr: Sésame noir, Graines de sésame noir
+sv: Svarta sesamfrön, Svart sesam-frön
+
+< en: Sesame
+en: White sesame, White sesame seeds
+da: Hvide sesamfrø, Hvid sesam-frø
+sv: Vita sesamfrön, Vit sesam-frön
 
 < en: Sesame
 en: Husked sesame seed, Sesame seed husked
@@ -44457,17 +44512,28 @@ sales_format:en: package, weight
 
 < en: Sesame
 en: Toasted sesame, grilled sesame, husked sesame, Sesame seeds (roasted)
+da: Ristede sesamfrø
 de: Gerösteter Sesam
 es: Semillas de sésamo tostadas
 fr: Sésame toasté, Graines de sésame toastées
 hr: Prženi sezam
 lt: Skrudinti sezamai, Kepinti sezamai
 nl: Geroosterde sesamzaden, Geroosterde sesamzaad
+sv: Rostade sesamfrön
 zh: 烤芝麻
 agribalyse_food_code:en: 15038
 ciqual_food_code:en: 15038
 ciqual_food_name:en: Sesame seed, grilled, husked
 sales_format:en: package, weight
+
+< en: Toasted sesame
+< en: White sesame
+en: Toasted white sesame seeds, Roasted white sesame seeds
+da: Ristede hvide sesamfrø
+sv: Rostade vita sesamfrön
+agribalyse_proxy_food_code:en: 15038
+ciqual_proxy_food_code:en: 15038
+ciqual_proxy_food_name:en: Sesame seed, grilled, husked
 
 < en: Cereal grains
 en: Sorghum, Whole sorghum
@@ -45378,6 +45444,7 @@ ciqual_food_code:en: 38405
 ciqual_food_name:en: Salty snacks, made from potato
 ciqual_food_name:fr: Biscuit apéritif à base de pomme de terre, type tuile salée
 
+< en: Corns and their products
 < en: Crisps
 en: Corn chips, corn crisps, Tortilla chips
 bg: Царевичен чипс
@@ -57615,6 +57682,13 @@ opposite:en: en:greek-style-yogurts
 < en: Non-dairy yogurts
 en: Plain plant-based yogurts, Plain vegan yogurts
 sv: Naturelle växtbaserade yoghurtar, Naturelle veganska yoghurtar
+incompatible_with:en: categories:en:flavoured-plant-based-yogurts
+
+< en: Non-dairy yogurts
+en: Flavoured plant-based yogurts, Flavoured vegan yogurts
+da: Smagsatte plantebaserede yoghurter, Veganske yoghurter med smag
+sv: Smaksatte växtbaserade yoghurtar, Veganska yoghurtar med smak
+incompatible_with:en: categories:en:plain-plant-based-yogurts
 
 < en: Coconuts and their products
 < en: Non-dairy yogurts
@@ -57645,6 +57719,22 @@ hr: Obični zobenog jogurti
 lt: Paprasti avižų jogurtai, Natūralūs avižų jogurtai
 nl: Naturel haveryoghurts
 sv: Naturelle havrebaserade yoghurtar
+
+< en: Flavoured plant-based yogurts
+< en: Oat milk yogurts
+en: Flavoured oat milk yogurts
+da: Smagsatte havrebaserede yoghurter, Havreyoghurter med smag
+sv: Smaksatte havrebaserade yoghurtar, Havreyoghurtar med smak
+
+< en: Flavoured oat milk yogurts
+en: Vanilla-flavoured oat milk yogurts, Vanilla oat yogurts
+da: Havrebaserede yoghurter med vaniljesmag, Vanilje-havreyoghurter
+sv: Havrebaserade yoghurter med vaniljsmak, Vanilj-havreyoghurter
+
+< en: Flavoured oat milk yogurts
+en: Strawberry-flavoured oat milk yogurts, Strawberry oat yogurts
+da: Havrebaserede yoghurter med jordbærsmag, Jordbær-havreyoghurter
+sv: Havrebaserade yoghurter med jordgubbssmak, Jordgubbshavreyoghurter
 
 < en: Non-dairy yogurts
 en: Almond milk yogurts
@@ -57692,6 +57782,7 @@ nl: Naturel sojayoghurts
 agribalyse_food_code:en: 19693
 ciqual_food_code:en: 19693
 
+< en: Flavoured plant-based yogurts
 < en: Soy milk yogurts
 en: Fruit soy yogurts
 de: Frucht-Soja-Joghurts
@@ -58298,13 +58389,14 @@ nl: Gerookte amandelen, Amandelen (gerookt)
 #############################################
 
 < en: Nuts
-en: Cashew nuts
+en: Cashew nuts, Cashews
 bg: Кашу
+da: Cashewnødder
 de: Cashewnüsse, Kaschunüsse
 es: Anacardos
-fi: cashewpähkinät
+fi: Cashewpähkinät
 fr: Noix de cajou, Anacardes
-hr: indijski oraščić
+hr: Indijski oraščić
 it: Noci di acagiu
 ja: カシューナッツ
 la: Anacardium occidentale
@@ -58312,6 +58404,7 @@ lt: Anakardžiai
 nl: Cashewnoten
 pt: Castanha de caju
 ru: Орехи Кешью
+sv: Cashewnötter
 tr: Kaju
 agribalyse_proxy_food_code:en: 15019
 agribalyse_proxy_food_name:en: Cashew nut, grilled, salted
@@ -58322,51 +58415,79 @@ wikidata:en: Q34007
 
 < en: Cashew nuts
 < en: Salted nuts
-en: Salted cashews, Salted cashew nuts
+en: Salted cashew nuts, Salted cashews
+da: Saltede cashewnødder
 de: Gesalzene Cashewnüsse, Gesalzene Cashewkerne
 fr: Noix de cajou salées
 hr: Slani indijski oraščići
 lt: Anakardžiai su druska, Sūdyti anakardžiai
-tr: Tuzlu Kaju
+sv: Saltade cashewnötter
+tr: Tuzlu kaju
+agribalyse_proxy_food_code:en: 15019
+ciqual_proxy_food_code:en: 15019
+ciqual_proxy_food_name:en: Cashew nut, grilled, salted
 opposite:en: en:unsalted-cashew-nuts
 
 < en: Cashew nuts
 < en: Unsalted nuts
-en: Unsalted cashews, Unsalted cashew nuts
+en: Unsalted cashew nuts, Unsalted cashews
+da: Usaltede cashewnødder
 de: Ungesalzene Cashewnüsse, Ungesalzene Cashewkerne
 fr: Noix de cajou non-salées
 hr: Neslani indijski oraščići
 lt: Anakardžiai (nesūdyti)
 nl: Cashewnoten (ongezouten), Ongezouten cashewnoten
+sv: Osaltade cashewnötter
+agribalyse_proxy_food_code:en: 15019
+ciqual_proxy_food_code:en: 15019
+ciqual_proxy_food_name:en: Cashew nut, grilled, salted
 opposite:en: en:salted-cashew-nuts
 
 < en: Non-roasted cashew nuts
-< en: Unsalted cashews
+< en: Unsalted cashew nuts
 en: Raw cashew nuts
+da: Rå cashewnødder
 fr: Noix de cajou crues
+sv: Råa cashewnötter
 expected_ingredients:en: en:cashew-nuts
 sales_format:en: weight, package
 
 < en: Cashew nuts
 < en: Roasted nuts
 en: Roasted cashew nuts
+da: Ristede cashewnødder
 de: Geröstete Cashews, Geröstete Cashewnüsse
-fi: paahdetut cashew-pähkinät
-fr: Noix de Cajou grillées
+fi: Paahdetut cashew-pähkinät
+fr: Noix de cajou grillées
 hr: Pečeni indijski oraščići
 lt: Skrudinti anakardžiai
 nl: Geroosterde cashewnoten
+sv: Rostade cashewnötter
 tr: Kavrulmuş Kaju
-agribalyse_food_code:en: 15019
-ciqual_food_code:en: 15019
-ciqual_food_name:en: Cashew nut, grilled, salted
+agribalyse_proxy_food_code:en: 15019
+ciqual_proxy_food_code:en: 15019
+ciqual_proxy_food_name:en: Cashew nut, grilled, salted
 opposite:en: en:non-roasted-cashew-nuts
 sales_format:en: weight, package
 
 < en: Cashew nuts
 en: Non-roasted cashew nuts
+da: Uristede cashewnødder
 fr: Noix de cajou non-grillées
+sv: Orostade cashewnötter
 opposite:en: en:roasted-cashew-nuts
+
+< en: Roasted cashew nuts
+< en: Salted cashew nuts
+en: Roasted and salted cashew nuts, Salted and roasted cashew nuts
+da: Ristede og saltede cashewnødder, Saltede og ristede cashewnødder
+fr: Noix de cajou grillées et salées
+sv: Rostade och saltade cashewnötter, Saltade och rostade cashewnötter
+agribalyse_food_code:en: 15019
+ciqual_food_code:en: 15019
+ciqual_food_name:en: Cashew nut, grilled, salted
+ciqual_food_name:fr: Noix de cajou, grillée, salée
+sales_format:en: weight, package
 
 < en: Nuts
 en: Chestnuts
@@ -61854,6 +61975,7 @@ zh: 苋菜油
 wikidata:en: Q4740149
 
 < en: Cereal oils
+< en: Corns and their products
 en: Corn oils, Maize oil, Corn oil
 bg: Царевично олио
 de: Maiskeimöle
@@ -64488,12 +64610,14 @@ pt: Flocos
 ru: Хлопья
 
 < en: Flakes
-en: Rolled flakes, Rolled grains
-de: Gerollte Flocken, gerollte Körner
+en: Rolled flakes
+da: Valsede flager
+de: Gerollte Flocken
 fr: Flocons laminés
 hr: Uvaljane pahuljice
 it: Fiocchi pressati
 nl: Geplette granen
+sv: Valsade flingor
 
 < en: Flakes
 en: Extruded flakes
@@ -64505,6 +64629,7 @@ it: fiocchi estrusi
 lt: Ekstruduoti dribsniai
 pl: Płatki ekstrudowane
 ru: Экструдированные хлопья
+sv: Extruderade flingor
 
 < en: Plant-based foods
 en: Starches, Starch
@@ -64671,6 +64796,11 @@ agribalyse_food_code:en: 9621
 ciqual_food_code:en: 9621
 ciqual_food_name:en: Wheat bran
 ciqual_food_name:fr: Son de blé
+foodex2_code:en: A004P
+foodex2_extended_name:en: Wheat bran
+foodex2_implicit_facets:en: F27.A001M$F28.A0C09$F33.A0C48
+foodex2_old_code:en: A.01.000052
+foodex2_scope_note:en: The group includes bran from any type of wheat (Triticum spp.).
 
 < en: Wheat brans
 en: Khorasan wheat brans, Kamut brans
@@ -64689,10 +64819,6 @@ hr: Mekinje od pira
 it: Crusche di farro spelta
 lt: Spelta sėlenos
 nl: Speltzemelen
-
-< en: Breakfasts
-en: Instant porridges with milk powder
-fr: Porridges instantanés avec du lait en poudre
 
 < en: Breakfasts
 < en: Cereals and their products
@@ -65173,6 +65299,10 @@ foodex2_old_code:en: A.01.000247
 foodex2_scope_note:en: The group includes any type of Oat porridge in dry form to be diluted with milk or water. The term refers to e.g. ground oatmeal or rolled oat intended to be used for making oat porridge.
 intake24_category_code:en: UHTCL
 
+< en: Porridge
+en: Instant porridges with milk powder
+fr: Porridges instantanés avec du lait en poudre
+
 < en: Ready-to-eat porridges
 en: Ready-to-eat water porridges
 de: Verzehrfertige Wasserbreie
@@ -65483,11 +65613,12 @@ ciqual_food_name:fr: Muesli croustillant au chocolat (non enrichi en vitamines e
 
 < en: Breakfast cereals
 < en: Flakes
-en: Cereal flakes, Rolled cereals
-ca: Flocs de cereals, cereals laminats
+en: Cereal flakes
+ca: Flocs de cereals, Cereals laminats
+da: Kornflager
 de: Frühstücksflocken
 es: Copos de cereales
-fi: viljahiutaleet
+fi: Viljahiutaleet
 fr: Flocons de céréales
 hr: Žitne pahuljice
 hu: Gabonapelyhek
@@ -65495,6 +65626,7 @@ it: Fiocchi di cereali
 lt: Javų dribsniai
 nl: Ontbijtvlokken
 pt: Flocos de cereais
+sv: Spannmålsflingor
 foodex2_code:en: A04QY
 foodex2_common_names:en: Corn flakes - like
 foodex2_extended_name:en: Cereal flakes and similar
@@ -65503,7 +65635,28 @@ foodex2_old_code:en: A.01.000185
 foodex2_scope_note:en: The group includes any type of processed cereal flakes similar to corn flakes, i.e. breakfast cereals usually obtained by soaking-cooking/steaming, pressing, drying and flaking cereal grains/flours mixed with admixture of additional ingredients (e.g. sweeteners).
 
 < en: Cereal flakes
+< en: Extruded cereals
+< en: Extruded flakes
+en: Extruded cereal flakes
+da: Ekstruderede kornflager
+de: Extrudierte Frühstücksflocken
+fr: Flocons de céréales extrudés
+hr: Ekstrudirane žitne pahuljice
+it: Fiocchi di cereali estrusi
+lt: Ekstruduoti javų dribsniai
+sv: Extruderade spannmålsflingor
+
+< en: Cereal flakes
 < en: Rolled flakes
+en: Rolled cereal flakes, Rolled cereals, Rolled grains
+da: Valsede kornflager
+de: Gerollte Frühstücksflocken, gerollte Körner
+fr: Flocons de céréales laminés
+hr: Uvaljane žitne pahuljice
+it: Fiocchi di cereali pressati
+sv: Valsade spannmålsflingor
+
+< en: Rolled cereal flakes
 en: Amaranth flakes
 de: Amaranthflocken
 es: Copos de amaranto
@@ -65512,8 +65665,7 @@ hr: Pahuljice amaranta
 lt: Amarantų dribsniai
 nl: Amarantvlokken
 
-< en: Cereal flakes
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Barley flakes
 de: Gerstenflocken
 es: Copos de cebada
@@ -65535,9 +65687,8 @@ sales_format:en: weight, package
 
 # Corn Flakes
 
-< en: Cereal flakes
-< en: Extruded cereals
-< en: Extruded flakes
+< en: Corns and their products
+< en: Extruded cereal flakes
 en: Corn flakes, Corn-Flakes
 cs: Kukuřičné lupínky
 de: Cornflakes
@@ -65607,9 +65758,8 @@ agribalyse_food_code:en: 32121
 ciqual_food_code:en: 32121
 ciqual_food_name:en: Breakfast cereals, corn flakes, sugar iced, fortified with vitamins and chemical elements
 
-< en: Cereal flakes
 < en: Oats and their products
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Rolled oats, Oat flakes, Oatmeal, Oatmeal flakes
 bg: Овесени ядки
 de: Haferflocken
@@ -65669,9 +65819,8 @@ ciqual_food_code:en: 9313
 ciqual_food_name:en: Oat flakes, boiled/cooked in water
 ciqual_food_name:fr: Flocons d'avoine, bouillis/cuits à l'eau
 
-< en: Cereal flakes
 < en: Millet
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Millet flakes
 de: Hirseflocken
 es: Copos de mijo
@@ -65680,16 +65829,13 @@ hr: Pahuljice prosa
 lt: Sorų dribsniai
 nl: Gierstvlokken
 
-< en: Cereal flakes
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Blend of rolled cereal flakes
 fr: Mélanges de flocons de céréales, flocons 5 céréales
 comment:en: If there are nuts, grains or dried fruits, it becomes a muesli
 sales_format:en: weight, package
 
-< en: Cereal flakes
-< en: Extruded cereals
-< en: Extruded flakes
+< en: Extruded cereal flakes
 en: Mixed cereal flakes
 ca: Barreja de flocs de cereals
 de: gemischte Getreideflocken
@@ -65709,8 +65855,7 @@ foodex2_implicit_facets:en: F27.A000L$F28.A07LG$F33.A0C46
 foodex2_old_code:en: A.01.000233
 foodex2_scope_note:en: The group includes any type of Processed flakes made with mixed cereals. Cereal flakes are breakfast cereals usually obtained by soaking-cooking/steaming, pressing, drying and flaking cereal grains/flours mixed with admixture of additional ingredients (e.g. sweeteners).
 
-< en: Cereal flakes
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Quinoa flakes
 de: Quinoaflocken
 es: Copos de quinoa
@@ -65719,8 +65864,7 @@ hr: Pahuljice kvinoje
 lt: Quinoa dribsniai
 nl: Quinoavlokken
 
-< en: Cereal flakes
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Rice flakes
 de: Reisflocken
 es: Copos de arroz
@@ -65730,8 +65874,7 @@ hr: Rižine pahuljice
 lt: Ryžių dribsniai
 nl: Rijstvlokken
 
-< en: Cereal flakes
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Rye flakes
 de: Roggenflocken
 es: Copos de centeno
@@ -65742,8 +65885,7 @@ it: Fiocchi di segale
 lt: Rugių dribsniai
 nl: Roggevlokken
 
-< en: Cereal flakes
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Teff flakes
 de: Teff-Flocken, Zwerghirseflocken
 es: Copos de teff
@@ -65753,8 +65895,11 @@ lt: Teff dribsniai
 nl: Teffvlokken
 
 < en: Cereal flakes
-< en: Rolled flakes
-en: Rolled spelt flakes, Spelt flakes
+en: Spelt flakes
+
+< en: Rolled cereal flakes
+< en: Spelt flakes
+en: Rolled spelt flakes
 de: Dinkelflocken
 es: Copos de espelta
 fi: Spelttihiutaleet
@@ -65763,13 +65908,12 @@ hr: Uvaljane pahuljice od pira
 lt: Speltos dribsniai
 nl: Speltvlokken
 
-< en: Cereal flakes
-< en: Extruded cereals
-< en: Extruded flakes
+< en: Extruded cereal flakes
+< en: Spelt flakes
 en: Extruded spelt flakes
 fr: Pétales d'épeautre
 
-< en: Rolled flakes
+< en: Rolled cereal flakes
 < en: Wheat flakes
 en: Rolled wheat flakes
 de: Weizenflocken
@@ -65796,14 +65940,12 @@ fr: Flocons de blé khorasan, Flocons de blé de khorasan, Flocons de Kamut
 hr: Khorasan pšenične pahuljice
 nl: Kamutvlokken
 
-< en: Extruded cereals
-< en: Extruded flakes
+< en: Extruded cereal flakes
 < en: Wheat flakes
 en: Extruded wheat flakes
 fr: Pétales de blé
 
-< en: Cereal flakes
-< en: Rolled flakes
+< en: Rolled cereal flakes
 en: Wild rice flakes
 es: Copos de arroz salvaje
 fr: Flocons de riz sauvage, flocons de zizanie
@@ -66274,6 +66416,7 @@ lt: Grikių miltai 150D
 nl: Boekweitmelen T150
 
 < en: Cereal flours
+< en: Corns and their products
 en: Cornmeal, Corn flours, Maize flours
 bg: Царевично брашно
 de: Maismehl
@@ -66960,6 +67103,7 @@ nl: Kiemen van granen
 wikidata:en: Q1641345
 
 < en: Cereal germs
+< en: Corns and their products
 en: Corn germ, Maize germ
 es: Germen de maíz
 fr: Germe de maïs
@@ -66995,6 +67139,7 @@ nl: Griesmelen
 wikidata:en: Q381350
 
 < en: Cereal semolinas
+< en: Corns and their products
 en: Corn semolinas, Maize semolinas
 bg: Царевичен грис
 de: Maisgrieße, Maisgrieß
@@ -67208,6 +67353,7 @@ lt: Grūdų krakmolas
 nl: Graanzetmelen
 
 < en: Cereal starches
+< en: Corns and their products
 en: Corn starch, Cornstarch, Cornflour, Maize starch
 bg: Царевично нишесте
 de: Maisstärke, Speisestärke
@@ -76590,6 +76736,11 @@ zh: 香草
 ciqual_food_code:en: 11080
 ciqual_food_name:en: Herbs, fresh (average)
 ciqual_food_name:fr: Herbes aromatiques fraîches (aliment moyen)
+foodex2_code:en: A04MA
+foodex2_extended_name:en: Aromatic herbs
+foodex2_implicit_facets:en: F02.A0F0C$F27.A04MA$F33.A0C51
+foodex2_old_code:en: A.01.001581
+foodex2_scope_note:en: The group includes any type of Aromatic herbs (fresh, not dried).
 intake24_category_code:en: HRBS
 wikidata:en: Q207123
 
@@ -82369,7 +82520,7 @@ fr: Moutardes au noix
 < en: Mustards
 en: Yellow mustards
 de: Gelbe Senfe
-fr: Moutardes jaunes
+fr: Moutardes jaunes, moutarde américaine
 hr: Žute gorušice
 ja: イエローマスタード
 lt: Geltonos garstyčios
@@ -82450,7 +82601,7 @@ nl: Kruidenmosterds
 en: Bavarian mustards
 de: Bayerische Senfe, Bayerischer Senf, Senfe aus Bayern, Senf aus Bayern
 es: Mostazas de Baviera
-fr: moutarde bavaroise, moutarde américaine
+fr: moutarde bavaroise, moutarde douce bavaroise
 hr: Bavarske gorušice
 lt: Bavariškos garstyčios
 nl: Beierse mosterds
@@ -82521,7 +82672,7 @@ foodex2_scope_note:en: The group includes any type of sweet mustard sauce (sweet
 < en: Mustards
 en: Mild mustards, Mild mustard
 de: Milde Senfe, Milder Senf
-fr: Moutardes douces, Moutarde douce
+fr: Moutardes douces, Moutarde douce, Moutarde fine et douce
 nl: Milde mosterd
 foodex2_code:en: A044J
 foodex2_extended_name:en: Mustard, mild
@@ -83614,6 +83765,7 @@ origins:en: en:poland
 protected_name_file_number:en: TSG-PL-0053
 protected_name_type:en: tsg
 
+< en: Kielbasa
 < en: Polish meat products
 pl: Kiełbasa lisiecka
 origins:en: en:poland
@@ -88580,6 +88732,7 @@ foodex2_extended_name:en: Stock cubes or granulate, chicken
 foodex2_implicit_facets:en: F33.A0C2H
 foodex2_old_code:en: A.01.001640
 foodex2_scope_note:en: The group includes any type of chicken stock cubes or granulate.
+incompatible_with:en: categories:en:beef-bouillon-cubes
 
 < en: Beef broth
 < en: Bouillon cubes
@@ -98246,7 +98399,7 @@ it: Salsicce affumicate
 nl: Rookworsten, Gerookte worsten
 pl: Kiełbasy wędzone, Kiełbasa wędzona
 
-< en: Sausages
+< en: Cooked sausages
 en: Kielbasa, Polish sausages
 de: Polnische Würste
 fr: Saucisses polonaises
@@ -98355,9 +98508,10 @@ ciqual_food_code:en: 8705
 ciqual_food_name:en: Black or white pudding (blood sausage), sautéed (average)
 ciqual_food_name:fr: Boudin noir ou blanc, sauté/poêlé (aliment moyen)
 
+< en: Cooked sausages
 < en: Tripe dishes
 < fr: Boudins
-en: Black pudding
+en: Black pudding, Blood sausages
 de: Blutwürste, Schwarzwürste, Schwarze Wurst
 es: Morcilla
 fi: Veripalttu
@@ -102531,24 +102685,51 @@ origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0870
 protected_name_type:en: pgi
 
-< en: Pastas
-en: Udon
+< en: Noodles
+en: Udon noodles
 xx: Udon
+da: Udon-nudler
 ja: 饂飩, うどん
+sv: Udon-nudlar
 wikidata:en: Q471861
 
-< en: Pastas
-en: Soba
+< en: Noodles
+en: Soba noodles
 xx: Soba
+da: Soba-nudler
 ja: 蕎麦, そば
+sv: Soba-nudlar
 wikidata:en: Q753910
 
-< en: Pastas
-xx: lamian
-en: ramen noodles
-fr: Nouilles pour ramen
-zh: 拉面; lāmiàn
+< en: Noodles
+en: Sōmen noodles, Somen noodles
+xx: Sōmen, Somen
+cs: Sómen
+da: Soumen-nudler, Somen-nudler
+fa: سومن
+ja: 素麺
+ko: 소면
+ru: Сомэн
+sv: Somen-nudlar
+th: โซเม็ง
+uk: Сомен
+zh: 素麵
+wikidata:en: Q701057
+
+< en: Noodles
+en: Lamian noodles
+xx: Lamian
+da: Lamian-nudler
+ja: 拉麺
+ko: 라몐
+sv: Lamian-nudlar
+th: ลาเมี่ยน
+zh: 中式拉面, 拉面, 中式拉麵, 拉麵
 wikidata:en: Q1561248
+
+< en: Noodles
+en: Ramen noodles, Noodles for ramen
+fr: Nouilles pour ramen
 
 < en: Pastas
 en: Spätzle
@@ -102767,6 +102948,7 @@ fr: Pâtes de blé khorasan, Pâtes de kamut
 hr: Khorasan tjestenina
 nl: Khorasantarwepastas, Kamutpastas
 
+< en: Corns and their products
 < en: Pastas
 en: Corn pasta
 bg: Кукурузна паста
@@ -102879,6 +103061,7 @@ it: Penne di grano duro
 nl: Durum tarwe penne, Penne van durum tarwe
 
 < en: Durum wheat pasta
+< en: Wheat noodles
 en: Durum wheat noodles
 es: Tallarines de trigo duro
 fr: Nouilles de blé dur
@@ -104206,15 +104389,25 @@ ciqual_food_code:en: 25923
 ciqual_food_name:en: Soup, Asian-style with noodles, dehydrated and reconstituted
 ciqual_food_name:fr: Soupe asiatique, avec pâtes, déshydratée reconstituée
 
+< en: Cereal pastas
 < en: Noodles
-en: Whole Wheat Noodles
+en: Wheat noodles
+da: Hvedenudler
+fr: Nouilles de blé, Nouilles au blé
+sv: Vetenudlar, Nudlar av vete
+
+< en: Wheat noodles
+en: Whole wheat noodles
+da: Fuldkornshvedenudler
 de: Vollkornnudeln
 fi: Täysjyvävehnänuudelit
 fr: Nouilles de blé complet, nouilles au blé complet
 hr: Rezanci od cjelovitog zrna pšenice
 it: Noodle di Grano
 nl: Volkorennoedels
+sv: Fullkornsvetenudlar
 
+< en: Legumes and their products
 < en: Noodles
 en: Soy vermicelli, soy noodles
 de: Soja-Vermicelli
@@ -104430,6 +104623,15 @@ de: Nussecken
 
 < en: Pastries
 de: Mandelhörnchen
+
+< en: Pastries
+en: Mazarins
+da: Mazariner
+de: Mazarin-Törtchen
+nb: Mazariner
+nn: Mazarinar
+sv: Mazariner
+wikidata:en: Q10578820
 
 < en: Pastries
 xx: Succès
@@ -113460,10 +113662,10 @@ pnns_group_2:en: Salty and fatty products
 en: Egg salads, Egg spreads
 de: Eisalaten, Eisalat, Eiaufstriche, Eiersalat
 fr: Salades d'œufs, salades d'oeufs, Tartinades d'œufs, tartinades d'oeufs, tartinades aux oeufs
-lt: Salotos su kiaušiniais
+lt: Olu smēriņi, olu smēriņš
 nl: Eisalades, Eiersalades
-pl: Sałatki jajeczne
-comment:en: This product is really popular in Belgium & Netherlands were it is called "Salade d'oeufs". Please don't put in the category "Prepared salads", because it is a spread not a meal
+pl: Pasty jajeczne, pasta jajeczna
+comment:en: This product is really popular in Belgium & Netherlands were it is called "Salade d'oeufs". Please don't put in the category "Prepared salads", because it is a spread not a meal. Be careful when translating the category as the translation is not literal in some languages.
 
 < en: Salted spreads
 en: Yeast extract spreads
@@ -114839,6 +115041,7 @@ nl: Bruine rijststropen
 wikidata:en: Q3485298
 
 < en: Cereal syrups
+< en: Corns and their products
 en: Corn syrups
 de: Maissirups
 es: Siropes de maíz, Jarabes de maíz
@@ -114851,6 +115054,7 @@ google_product_taxonomy_id:en: 5770
 wikidata:en: Q618739
 
 < en: Cereal syrups
+< en: Corns and their products
 en: High fructose corn syrups
 es: Siropes de maíz de alta fructosa, Jarabes de maíz de alta fructosa, Almíbar de maíz de alta fructosa
 fr: Sirops de maïs à haute teneur en fructose
@@ -126454,6 +126658,18 @@ sales_format:en: package, weight
 #comment:en:issue here on wheteher it based on puff pastry or normal bread
 
 < en: Viennoiseries
+en: Laminated dough pastries, Laminated pastries
+de: Plundergebäck
+fr: Viennoiseries feuilletées
+nl: Bladerdeeggebak
+foodex2_code:en: A00CC
+foodex2_common_names:en: Puff pastry; Danish pastry
+foodex2_extended_name:en: Pastry based on laminated dough
+foodex2_implicit_facets:en: F02.A06DS$F12.A009L$F28.A07GX$F33.A0C3Q
+foodex2_old_code:en: A.01.000253
+foodex2_scope_note:en: The group includes any type of pastry based on a baked laminated dough such as Puff pastry and Danish pastry. The layering process and the fat present between the layers provides a structure made of multiple thin sheets.
+
+< en: Laminated dough pastries
 en: Pains suisses
 xx: Pains suisses
 fr: Pains suisses
@@ -126472,13 +126688,17 @@ agribalyse_food_code:en: 7602
 ciqual_food_code:en: 7602
 ciqual_food_name:en: Croissant
 ciqual_food_name:fr: Croissant, sans précision
+sales_format:en: weight, package
+wikidata:en: Q207832
+
+< en: Croissants
+en: Puff pastry croissants
+fr: Croissants croustillants
 foodex2_code:en: A00CD
 foodex2_extended_name:en: Croissant from puff pastry
 foodex2_implicit_facets:en: F12.A009L$F28.A07GX$F33.A0C3Q
 foodex2_old_code:en: A.01.000294
 foodex2_scope_note:en: The group includes any type of Croissant from puff pastry with unspecified filling (eventually also without).
-sales_format:en: weight, package
-wikidata:en: Q207832
 
 < en: Croissants
 en: Soft croissants
@@ -126491,19 +126711,7 @@ foodex2_implicit_facets:en: F12.A008L$F28.A07GX$F33.A0C3Q
 foodex2_old_code:en: A.01.000265
 foodex2_scope_note:en: The group includes any type of Croissant, made of a layered yeast-leavened dough with unspecified filling (eventually also without).
 
-< en: Viennoiseries
-en: Laminated dough pastries, Laminated pastries
-de: Plundergebäck
-fr: Viennoiseries feuilletées
-nl: Bladerdeeggebak
-foodex2_code:en: A00CC
-foodex2_common_names:en: Puff pastry; Danish pastry
-foodex2_extended_name:en: Pastry based on laminated dough
-foodex2_implicit_facets:en: F02.A06DS$F12.A009L$F28.A07GX$F33.A0C3Q
-foodex2_old_code:en: A.01.000253
-foodex2_scope_note:en: The group includes any type of pastry based on a baked laminated dough such as Puff pastry and Danish pastry. The layering process and the fat present between the layers provides a structure made of multiple thin sheets.
-
-< en: Croissants
+< en: Puff pastry croissants
 en: Bakery Croissants, Croissant from bakery
 fr: Croissants artisanal
 nl: Bakkercroissants
@@ -126512,7 +126720,7 @@ ciqual_food_code:en: 7615
 ciqual_food_name:en: Croissant, ordinary, from bakery
 ciqual_food_name:fr: Croissant ordinaire, artisanal
 
-< en: Croissants
+< en: Puff pastry croissants
 en: Butter croissants, Butter croissant from bakery
 de: Buttercroissants
 es: Croissants de mantequilla
@@ -126526,11 +126734,25 @@ ciqual_food_code:en: 7620
 ciqual_food_name:en: Croissant, butter, from bakery
 ciqual_food_name:fr: Croissant au beurre, artisanal
 
-< en: Croissants
+< en: Puff pastry croissants
 fr: Croissants ordinaires
 nl: Croissants (ongevuld)
 
-< en: Viennoiseries
+< en: Croissants
+en: Croissant with almonds, Almond croissant, Croissant with almonds from bakery
+fr: Croissants aux amandes, Croissant aux amandes artisanal
+nl: Croissants met amandelen van de bakker
+agribalyse_food_code:en: 7650
+ciqual_food_code:en: 7650
+ciqual_food_name:en: Croissant w almonds, from bakery
+ciqual_food_name:fr: Croissant aux amandes, artisanal
+sales_format:en: package, item
+
+< en: Soft croissants
+en: Plain soft croissants, Unfilled soft croissants
+fr: Croissants moelleux nature, croissants moelleux non fourrés
+
+< en: Soft croissants
 en: Filled croissants
 bg: Кроасани с пълнеж
 de: Gefüllte Croissants
@@ -126579,20 +126801,6 @@ foodex2_extended_name:en: Croissant, filled with jam
 foodex2_implicit_facets:en: F04.A04MN$F12.A008L$F28.A07MA$F28.A07GX$F33.A0C3Q
 foodex2_old_code:en: A.01.000268
 foodex2_scope_note:en: The group includes any type of Croissant, filled with jam or similar.
-
-< en: Croissants
-en: Croissant with almonds from bakery
-fr: Croissant aux amandes artisanal
-nl: Croissants met amandelen van de bakker
-agribalyse_food_code:en: 7650
-ciqual_food_code:en: 7650
-ciqual_food_name:en: Croissant w almonds, from bakery
-ciqual_food_name:fr: Croissant aux amandes, artisanal
-sales_format:en: package, item
-
-< en: Croissants
-en: Croissant with almonds, Almond croissant
-fr: Croissants aux amandes
 
 < en: Viennoiseries
 en: Chouquettes, Sugar coated chou pastry
@@ -128483,6 +128691,11 @@ wikidata:en: Q160525
 < en: Pretzel
 fr: mélange Sticks et Bretzels
 
+< en: Pretzel
+en: Covrigei
+ro: Covrigei, Covrigei cu sare
+comment:en: Small crunchy Romanian pretzel rings or sticks, eaten as a snack
+
 < en: Crackers(Appetizers)
 en: Salty flaky biscuits
 fr: Biscuits apéritifs feuilletés, Biscuit apéritif feuilleté
@@ -129299,6 +129512,7 @@ foodex2_extended_name:en: Potato puree from potatoes
 foodex2_implicit_facets:en: F03.A06JG$F04.A00ZT$F28.A0C6N$F28.A0BA1
 foodex2_old_code:en: A.01.000468
 foodex2_scope_note:en: The group includes any type of potato puree produced from boiled potatoes and often dairy ingredients, fat and salt, with possibly some flavouring ingredients. Here it is considered in the ready to eat form.
+incompatible_with:en: categories:en:instant-mashed-potatoes
 
 # without milk, cream, butter
 < en: Mashed potatoes
@@ -131267,6 +131481,7 @@ it: Frittelle dolci
 nl: Zoete gefrituurde producten
 
 < en: Cereal grains
+< en: Corns and their products
 en: Corn on the cob
 fr: Maïs en épi
 hr: Klip kukuruza

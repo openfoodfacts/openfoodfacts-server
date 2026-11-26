@@ -48,9 +48,9 @@ my $template_data_ref = {};
 $template_data_ref->{user_id} = $User_id;
 
 # Pattern that blocks redirecting back to auth-related scripts to prevent redirect loops.
-my $auth_scripts_pattern = qr/(?:login|session|user|reset_password|oidc_sign(?:in|out)(?:_callback)?)\.pl/;
+my $auth_scripts_pattern = qr/(?:login|session|user|reset_password)\.pl/;
 
-# Determine a validated redirect destination.
+# Determine a validated redirect destination for the legacy sign-in form.
 # We prefer an explicit return_url/redirect param, then fall back to the HTTP Referer.
 # Either way, only an allowed (same-site) URL that is not an auth script is accepted.
 my $return_url = single_param('return_url') // single_param('redirect');
@@ -63,7 +63,7 @@ if (defined $return_url && $return_url =~ m{^/(?!/|\\)}) {
 my $r = shift || eval {Apache2::RequestUtil->request()};
 my $referer = $request_ref->{referer} // ($r ? eval {$r->headers_in->{Referer}} : undef);
 
-# $target_return_url is the validated redirect destination (undef if none is acceptable).
+# $target_return_url is the validated value passed to the sign-in form (undef if none is acceptable).
 my $target_return_url;
 if (    defined $return_url
 	and is_allowed_return_url($return_url)
@@ -78,7 +78,7 @@ elsif ( defined $referer
 	$target_return_url = $referer;
 }
 
-if (defined $User_id && !single_param('jqm')) {
+if (defined $User_id) {
 
 	$template_data_ref->{user_name} = $User{name};
 
@@ -94,8 +94,10 @@ if (defined $User_id && !single_param('jqm')) {
 			$url = "/cgi/product.pl?type=edit&code=$code";
 		}
 	}
-	elsif (defined $target_return_url) {
-		$url = $target_return_url;
+	elsif (is_allowed_return_url($referer)
+		and (not($referer =~ $auth_scripts_pattern)))
+	{
+		$url = $referer;
 	}
 
 	if (defined $url) {
@@ -103,13 +105,11 @@ if (defined $User_id && !single_param('jqm')) {
 		$log->info("redirecting after login", {url => $url}) if $log->is_info();
 
 		write_auth_deprecated_headers();
-		if (defined $request_ref->{cookie} && $r) {
+		if (defined $request_ref->{cookie}) {
 			$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
 		}
-		if ($r) {
-			$r->headers_out->set(Location => "$url");
-			$r->status(302);
-		}
+		$r->headers_out->set(Location => "$url");
+		$r->status(302);
 		return 302;
 	}
 }

@@ -33,31 +33,44 @@
             }
          ],
          "ingredients_coverage_percent" : 69,
+         "ingredients_total_mass" : 69,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g",
-         "transform" : {
-            "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
-            "mass" : 100,
-            "name" : "Cooking, industrial, 1kg of cooked product {FR} U",
-            "name_fr" : "Cuisson"
-         }
+         "transformations" : [
+            {
+               "id" : "e297d2a0-1945-4f48-838f-fbbb4a6cde72",
+               "name" : "Cooking",
+               "name_fr" : "Cuisson"
+            }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "5a29aa60-9bb9-5a93-acf3-bbba3afb2edd",
-                  "mass" : 69
+                  "elements" : [
+                     {
+                        "amount" : 0.069,
+                        "material" : {
+                           "id" : "5a29aa60-9bb9-5a93-acf3-bbba3afb2edd"
+                        },
+                        "transforms" : [
+                           "e297d2a0-1945-4f48-838f-fbbb4a6cde72"
+                        ]
+                     }
+                  ],
+                  "name" : "Pleurotes",
+                  "quantity" : 1
                }
             ],
-            "transform" : {
-               "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
-               "mass" : 100
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
             }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       },
       "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
       "ecobalyse_skipped" : 1
