@@ -1333,7 +1333,7 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	# we save the product on the corresponding server but we don't need to move an existing product
 	if (defined $product_ref->{server}) {
 		my $new_server = $product_ref->{server};
-		# Update the product_type from the server
+		# Update the product_type from the server
 		if (defined $options{flavors_product_types}{$new_server}) {
 			my $error = change_product_type($product_ref, $options{flavors_product_types}{$new_server});
 			# Log if we have an error
@@ -2400,6 +2400,68 @@ sub record_user_edit_type ($users_ref, $user_type, $user_id) {
 	return;
 }
 
+=head2 compute_product_history_and_completeness ( $current_product_ref, $changes_ref, $blame_ref )
+
+Replay the full edit history of a product,
+revision by revision, in order to derive aggregated metadata.
+
+It is called when a product is saved (save_product_data / Store.pm)
+
+and, on demand, when the API or the web page is asked for C<blame> information.
+
+=head3 Parameters
+
+=head4 $current_product_ref
+
+Reference to the current (latest) product. B<This object is modified in place.>
+
+=head4 $changes_ref
+
+Array reference of change records (the product's C<changes> file).
+Each record (C<userid>, C<t>, C<rev>, ...)
+is also B<modified in place>:
+C<diffs> is added,
+and occasionally C<userid> is rewritten (image attribution).
+
+=head4 $blame_ref
+
+Hash reference, B<fully populated by this function> (reset at the start):
+for each group of data
+(C<uploaded_images>, C<selected_images>, C<fields>, C<nutrition>, C<packagings>),
+maps an item id to the last change that touched it
+(C<userid>, C<t>, C<rev>, C<value>, and the C<previous_*> counterpart).
+
+=head3 What is computed
+
+=over
+
+=item * C<*_dates_tags>: date tags (YYYY-MM-DD, YYYY-MM, YYYY).
+
+=item * Per-change C<diffs>:
+groups (images, fields, nutrition, packagings) x ids flagged as
+C<add>, C<delete> or C<change> compared to the previous revision.
+
+=item * C<images.uploaded.{id}.uploaded_t> / C<uploader>: backfilled from history when missing,
+made consistent through image moves,
+C<unknown> uploader replaced by C<openfoodfacts-contributors>.
+
+=item * C<last_image_t>, C<last_editor>,
+fixups of late/invalid C<created_t> and C<last_modified_t>.
+
+=item * User contribution lists: C<editors_tags>, C<photographers_tags>, C<informers_tags>,
+C<correctors_tags>, C<checkers_tags>, C<weighers_tags>.
+
+=item * Completeness, via compute_completeness_and_missing_tags()
+=back
+
+=head3 Notes
+
+If C<$changes_ref> is undef,
+the function resets C<$blame_ref>
+and returns immediately.
+
+=cut
+
 sub compute_product_history_and_completeness ($current_product_ref, $changes_ref, $blame_ref) {
 
 	my $code = $current_product_ref->{code};
@@ -2409,12 +2471,18 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 	$log->debug("compute_product_history_and_completeness", {code => $code, product_id => $product_id})
 		if $log->is_debug();
 
-	# Keep track of the last user who modified each field
+	# Keep track of the last user who modified each field.
+	# We reset the caller-provided structure: it is an output parameter filled below.
+	# The rest of the product is modified in place in $current_product_ref.
 	%{$blame_ref} = ();
 
+	# Without a change history there is nothing to replay: only the date tags just below
+	# are computed, and the user lists, diffs, blame and final completeness are skipped.
 	return if not defined $changes_ref;
 
 	# Populate the entry_dates_tags field
+	# A product is never "created" without at least one change, but created_t may be 0
+	# (very old products); it gets fixed from the change history inside the loop below.
 
 	$current_product_ref->{entry_dates_tags} = [];
 	my $created_t = $current_product_ref->{created_t} + 0;
@@ -2430,11 +2498,13 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 
 	my $last_modified_t = $current_product_ref->{last_modified_t} + 0;
 	($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime($last_modified_t + 0);
+	# One date tag per granularity (day, month, year) so that products can be faceted by period.
 	$current_product_ref->{last_edit_dates_tags} = [];
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d-%02d", $year + 1900, $mon + 1, $mday);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d-%02d", $year + 1900, $mon + 1);
 	push @{$current_product_ref->{last_edit_dates_tags}}, sprintf("%04d", $year + 1900);
 
+	# Check dates are only set for products that have been checked at least once.
 	if (defined $current_product_ref->{last_checked_t}) {
 		my $last_checked_t = $current_product_ref->{last_checked_t} + 0;
 		($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime($last_checked_t + 0);
@@ -2448,6 +2518,8 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 	}
 
 	# Read all previous versions to see which fields have been added or edited
+	# $fields: top-level fields compared revision by revision.
+	# Language-specific versions (e.g. product_name_fr) are added dynamically inside the loop.
 
 	my @fields = (
 		'product_type', 'code', 'lang', 'product_name', 'generic_name',
@@ -2456,13 +2528,21 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 		'serving_size', 'allergens', 'traces', 'ingredients_text'
 	);
 
+	# %previous: comparable snapshot of the previous revision
+	# %current:  comparable snapshot of the revision being processed
+	# %last:     snapshot of the penultimate revision (used to keep completed_t stable)
+	# Each snapshot has the same shape: the four groups diffed below, so that a generic
+	# comparison loop can walk them. Values are strings, so "eq" is a valid comparison.
 	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, packagings => {});
 	my %last = %previous;
 	my %current;
 
 	# Create a structure that will contain lists of users that have modified the product
 	# in different ways (editors, photographers etc.)
-	my $users_ref;
+	# Keys are taken from %users_tags_fields (editors, photographers, informers, checkers,
+	# correctors, weighers);
+	# each entry keeps an ordered, de-duplicated list.
+	my $users_ref = {};
 
 	foreach my $user_type (keys %users_tags_fields) {
 		$users_ref->{$user_type} = {
@@ -2473,8 +2553,10 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 
 	my $revs = 0;
 
+	# All users (any role) that contributed to the product, used to build editors_tags.
 	my %changed_by = ();
 
+	# Replay the history: one iteration per change record, in chronological order.
 	foreach my $change_ref (@{$changes_ref}) {
 		$revs++;
 		my $rev = $change_ref->{rev};
@@ -2485,6 +2567,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 		my $product_ref = retrieve_product($product_id, 1, $rev);
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
+		# In that case the in-memory current product stands in for the stored revision.
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
 			$product_ref = $current_product_ref;
 			$log->debug("specified product revision was not found, using current product ref", {revision => $rev})
@@ -2494,6 +2577,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 		if (defined $product_ref) {
 
 			# fix last_modified_t using the one from change_ref if it greater than the current_product_ref
+			# (patches products whose stored timestamp is inconsistent with their history)
 
 			if ($change_ref->{t} > $current_product_ref->{last_modified_t}) {
 				$current_product_ref->{last_modified_t} = $change_ref->{t};
@@ -2505,6 +2589,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				$current_product_ref->{created_t} = $change_ref->{t};
 			}
 
+			# Snapshot of the state of this revision, in the same shape as %previous/%last.
 			%current = (
 				rev => $rev,
 				lc => $product_ref->{lc},
@@ -2524,14 +2609,17 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 
 			if (defined $product_ref->{images}) {
 
-				# Uploaded images
+				# Uploaded images: only the set of uploaded image ids is compared (add/delete),
+				# so we store presence flags.
 				if (defined $product_ref->{images}{uploaded}) {
 					foreach my $imgid (sort keys %{$product_ref->{images}{uploaded}}) {
 						$current{uploaded_images}{$imgid} = 1;
 					}
 				}
 
-				# Selected images
+				# Selected images: for each image type (front, ingredients...) and language,
+				# we store a signature of the selected image (imgid, rev, geometry) so that
+				# re-selecting the same image or regenerating it at another size is detected.
 				if (defined $product_ref->{images}{selected}) {
 					foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
 						foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
@@ -2545,7 +2633,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				}
 			}
 
-			# Regular text fields
+			# Regular text fields: trimmed so that whitespace-only edits are not reported as changes.
 
 			foreach my $field (@fields) {
 				$current{fields}{$field} = $product_ref->{$field};
@@ -2555,7 +2643,9 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				}
 			}
 
-			# Language specific fields
+			# Language specific fields: only the languages present in this revision are recorded.
+			# Variants are compared separately from the base field (e.g. product_name vs product_name_fr).
+			# Image fields are skipped because they are already covered by selected_images.
 			if (defined $product_ref->{languages_codes}) {
 				$current{languages_codes} = [keys %{$product_ref->{languages_codes}}];
 				foreach my $language_code (@{$current{languages_codes}}) {
@@ -2570,13 +2660,15 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 			}
 
 			# Nutrition data
-			# Record changes for all nutrition input sets
+			# Record changes for all nutrition input sets, flattened into "key => scalar" pairs
+			# so that each nutrient/preparation/per combination is diffed independently.
 			$current{nutrition} = get_nutrition_data_as_key_values_pairs($product_ref);
 
 			# Packagings components
 			if (defined $product_ref->{packagings}) {
 				# To check if packaging data (shape, materials etc.) and packaging weights have changed
 				# we compute a scalar serialization for them so that it's easy to see if they have changed
+				# They are diffed under the ids "data" and "weights_measured".
 				my $packagings_data_signature = "";
 				my $packagings_weights_signature = "";
 				foreach my $packagings_ref (@{$product_ref->{packagings}}) {
@@ -2600,6 +2692,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				}
 			}
 
+			# Check state, compared separately (not part of the four groups) to detect checkers.
 			$current{checked} = $product_ref->{checked};
 			$current{last_checked_t} = $product_ref->{last_checked_t};
 		}
@@ -2608,22 +2701,28 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 
 		my %diffs = ();
 
+		# The change user may be an app UUID rather than an OFF user id (see get_change_userid_or_uuid).
 		my $userid = get_change_userid_or_uuid($change_ref);
 
 		$changed_by{$userid} = 1;
 
+		# A change of last_checked_t means the product was checked: attribute it to the last checker.
 		if (    (defined $current{last_checked_t})
 			and ((not defined $previous{last_checked_t}) or ($previous{last_checked_t} != $current{last_checked_t})))
 		{
 			record_user_edit_type($users_ref, "checkers", $product_ref->{last_checker});
 		}
 
+		# Generic diff: for each group, compare the current snapshot to the previous one.
+		# The same loop fills $diffs (what changed) and $blame_ref (who/when/which value).
 		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutrition', 'packagings') {
 
 			defined $blame_ref->{$group} or $blame_ref->{$group} = {};
 
 			my @ids;
 
+			# For "fields", always compare both the base field names and the language variants
+			# of languages seen in either revision (needed to detect additions/deletions of a language).
 			if ($group eq 'fields') {
 				@ids = @fields;
 
@@ -2656,6 +2755,8 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				@ids = ("data", "weights_measured");
 			}
 			else {
+				# Union of ids present in the current or previous snapshot (each id once),
+				# so that both additions and deletions are detected.
 				my $uniq = sub {
 					my %seen;
 					grep {!$seen{$_}++} @_;
@@ -2665,6 +2766,8 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 
 			foreach my $id (@ids) {
 
+				# Classify the difference between previous and current revision:
+				# empty/undefined is treated as "absent".
 				my $diff = undef;
 
 				if (    ((not defined $previous{$group}{$id}) or ($previous{$group}{$id} eq ''))
@@ -2696,8 +2799,8 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 
 				if (defined $diff) {
 
-					# Assign blame
-
+					# Assign blame: remember the current change as the latest one for this item,
+					# keeping the previous attribution in previous_* (only one level of history).
 					if (defined $blame_ref->{$group}{$id}) {
 						$blame_ref->{$group}{$id} = {
 							previous_userid => $blame_ref->{$group}{$id}{userid},
@@ -2777,17 +2880,25 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 			}
 		}
 
+		# Store the computed differences on the change record itself (persisted in the changes file).
 		$change_ref->{diffs} = dclone(\%diffs);
 
+		# last_editor is updated for each revision, so we end with the editor of the latest change
+		# (note: may have been rewritten to the image uploader just above for image moves).
 		$current_product_ref->{last_editor} = $change_ref->{userid};
 
+		# Compute completeness at this revision for the in-memory (possibly not yet saved) product,
+		# using this revision as "current".
 		compute_completeness_and_missing_tags($product_ref, \%current, \%previous);
 
+		# Advance the comparison window: %last tracks completed_t continuity, %previous is
+		# what the next revision is diffed against.
 		%last = %{dclone(\%previous)};
 		%previous = %{dclone(\%current)};
 	}
 
 	# Populate the last_image_date_tags field
+	# (set by the loop above whenever a new uploaded image is seen; removed if there is none).
 
 	if ((exists $current_product_ref->{last_image_t}) and ($current_product_ref->{last_image_t} > 0)) {
 		$current_product_ref->{last_image_dates_tags} = [];
@@ -2801,6 +2912,9 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 		delete $current_product_ref->{last_image_dates_tags};
 	}
 
+	# Aggregate the user lists computed during the replay on the product.
+	# editors_tags: everyone who made any change (sorted);
+	# the other lists keep chronological order of first contribution.
 	$current_product_ref->{editors_tags} = [sort keys %changed_by];
 
 	$current_product_ref->{photographers_tags} = $users_ref->{photographers}{list};
@@ -2809,6 +2923,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 	$current_product_ref->{checkers_tags} = $users_ref->{checkers}{list};
 	$current_product_ref->{weighers_tags} = $users_ref->{weighers}{list};
 
+	# Final completeness for the saved product itself (not just the last revision snapshot).
 	compute_completeness_and_missing_tags($current_product_ref, \%current, \%last);
 
 	$log->debug("compute_product_history_and_completeness - done", {code => $code, product_id => $product_id})
