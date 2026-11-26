@@ -301,6 +301,7 @@ my @tests = (
 		['en:e330', 'en:e160aii', 'en:e471']
 	],
 	[{lc => 'ru', ingredients_text => 'е 330'}, ['en:e330']],
+	[{lc => 'ru', ingredients_text => 'подсластитель (Е-968, эритритол)'}, ['en:e968']],
 	# 3b405 was moved to the minerals taxonomy: no additive tag for it
 	[{lc => 'fr', ingredients_text => '3B 405, 3B 202, 1b 306(i)'}, ['en:e916', 'en:e306']],
 	[{lc => 'fr', ingredients_text => 'E 330 105 mg, 3b 405 7,2 mg'}, ['en:e330']],

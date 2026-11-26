@@ -261,6 +261,15 @@ my @tests = (
 		['en:eggs', 'en:fish', 'en:gluten', 'en:milk'],
 		['en:crustaceans', "en:lupin", 'en:strange ingredient',],
 	],
+	[
+		{
+			lc => "ru",
+			ingredients_text => "сахар",
+			traces => "ржи, ячменя, овса, фисташек, сезама, диоксида серы, сульфитов, люпина",
+		},
+		[],
+		['en:gluten', 'en:lupin', 'en:nuts', 'en:sesame-seeds', 'en:sulphur-dioxide-and-sulphites'],
+	],
 
 );
 
