@@ -2073,6 +2073,14 @@ puffed orange and caramelized unknown_fruit4.",
 				"durum pšenica, olivno olje, kumin, grahov škrob, sušena čebula, sušeni česen, luščine svetlega trpotca, sirilo mikrobnega izvora, aromi, alkohol, žafranika, kokosov oreh, redkev, pšenični slad, robide, popečeni kruhki, ječmenov zdrob, zgoščeni sok rdeče pese, višnjev sok, zgoščeni sok črnega korena, breskve, sladka smetana, čebula, pasterizirano mleko, fermentirana smetana, sušeno korenje, dehidrirana čebula, popolnoma hidrogenirana kokosova maščoba, hidrogenirano palmino olje, rehidrirano posneto mleko, olupljeni mandlji, pražena kava, mleta kava, kuhana čičerika, sterilizirana smetana, liofilizirane maline, nariban kokos, homogenizirano mleko. lahko vsebuje sledi mleka, lupinasto sadje, lupinastega sadja, pistacije.",
 		}
 	],
+	[
+		'sr-frequent-unknown-ingredients-round-2',
+		{
+			lc => "sr",
+			ingredients_text =>
+				"suncokretovo, suncokretovo biljno ulje, kokosovo, palmina, palmino, lešnici, kukuruzni maltodekstrin, začin, repičino, uljane repice, ekstrakt paprike, kukuruzno brašno, kakao buter, čokolada u prahu, kaša jagode, slatka pavlaka, heljdino brašno, pirinač, koncentrisani sok limuna, proteini mleka, acerola u prahu, jabuka, kokosova, kvaščev ekstrakt, lan, čili u prahu, starter kultura, modifikovani krompirov skrob, vlakna graška, pileće kožice, jagode, hidrolizovani biljni protein, palmin olein, belance u prahu, koncentrovani sok od jabuke, suncokretova, maltozni sirup, sojini proteini, smeđi šećer, cvekla, prirodna aroma limuna, potpuno hidrogenizovana palmina mast, kafa, seme lana, sok od breskve, krastavac, pileće meso, kukuruz šećerac, alkoholno sirće, alkohol, kanola ulje, crni biber, jestivi želatin, crveni pasulj, potpuno hidrogenizovano palmino ulje koštice, spanać, kajsija, estri mono- i diacetilvinske kiseline i mono- i diglicerida masnih kiselina, mono- i diacetil estri vinske kiseline mono i diglicerida masnih kiselina, mono i diacetil estri vinske kiseline, l-askorbinska kiselina, silicijum dioksid, lecitini, karamel amonijačni, jabučna kiselina, natrijum-acetati, pektini, poliglicerolpoliricinoleat, amonijum-karbonati, natrijum-fosfati, natrijum-eritorbat, kalcijum hlorid, dl-α-tokoferilacetat, dl-alfa-tokoferil-acetat, kiselina (E330), kiseline (E330).",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
