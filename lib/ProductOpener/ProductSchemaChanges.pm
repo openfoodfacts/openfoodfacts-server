@@ -42,6 +42,11 @@ Products without a schema_version field will be considered to be at a schema ver
 
 We will keep a list of functions that can convert product data between different schema versions.
 
+=head2 Quirks
+
+While ideally schema conversion should not depends on globals,
+there might be sub functions relying on them, especially C<$Org_id>
+
 =cut
 
 package ProductOpener::ProductSchemaChanges;
@@ -73,13 +78,6 @@ use ProductOpener::Nutrition
 	qw/default_unit_for_nid generate_nutrient_aggregated_set_from_sets filter_out_nutrients_not_in_taxonomy remove_empty_nutrition_data/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 use ProductOpener::Products qw/get_source_for_site_and_org/;
-
-# on the pro platform, we need to know the org to set the correct source for schema upgrades
-# (e.g. manufacturer or a label organization or database)
-# ideally we would not use the global $Org_id variable in the ProductSchemaChanges module,
-# but we would need to change many functions like retrieve_product() to pass the org_id as a parameter,
-# so for now we will just set the global variable
-use ProductOpener::Users qw/$Org_id/;
 
 use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
