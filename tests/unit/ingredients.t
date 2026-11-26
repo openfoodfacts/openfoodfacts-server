@@ -1934,6 +1934,16 @@ puffed orange and caramelized unknown_fruit4.",
 				"Yogurt di latte intero, yogurt colato, fermenti lattici specifici vivi (Lactococcus cremoris, Leuconostoc mesenteroides), fermenti vivi, uova da galline allevate a terra, preparazione alla vaniglia, galattosio",
 		}
 	],
+	# IT - label annotations and OCR noise that must not be parsed as ingredients
+	[
+		'it-label-annotations',
+		# based on real ingredient lists of Italian products
+		{
+			lc => "it",
+			ingredients_text =>
+				"Latte intero, zucchero, cacao magro (cacao: 25% min), Conservare in luogo fresco e asciutto, Da consumarsi preferibilmente entro il: vedi retro, Lotto L1234, Paese di molitura: Italia, Confezionato in atmosfera protettiva, 4°C, A, vedi capsula",
+		}
+	],
 	# European Portuguese (pt-PT) ingredient names: polme, alperce, sêmea, couratos, fiambre, colza...
 	[
 		'pt-european-portuguese-fruit-and-dairy',

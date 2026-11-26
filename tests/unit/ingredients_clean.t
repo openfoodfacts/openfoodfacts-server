@@ -244,6 +244,18 @@ Edit ingredients (en)",
 		"67% Pizzateig: Weizenmehl, Trinkwasser. ZUTATEN: 33% zubereitete Tomatensosse: 92,7 % Tomatenpüree mit kleinen Tomatenstückchen."
 	],
 
+	[
+		"it",
+		"Farina di mais 7% sul prodotto finito, zucchero, olio di semi di girasole 7% sul prodotto finito, Energia 627 kJ",
+		"Farina di mais 7%, zucchero, olio di semi di girasole 7%, Energia 627 kJ"
+	],
+
+	[
+		"it",
+		"farina di grano (77% percentuali espresse sul prodotto finito), zucchero",
+		"farina di grano (77%), zucchero"
+	],
+
 );
 
 foreach my $test_ref (@tests) {

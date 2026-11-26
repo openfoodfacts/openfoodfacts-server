@@ -3603,7 +3603,33 @@ Text to analyze
 
 							],
 
-							'it' => ['^in proporzion[ei] variabil[ei]$',],
+							'it' => [
+								'^in proporzion[ei] variabil[ei]$',
+								'^conservare\b',    # storage instructions: "Conservare in luogo fresco e asciutto", "Conservare in frigorifero"
+								"^dopo l['’](apertura|acquisto)\b",    # after opening / after purchase: "Dopo l'apertura conservare in frigorifero"
+								'^d(a )?consumarsi\b',    # best before: "Da consumarsi preferibilmente entro il: ...", "consumarsi previa cottura"
+								'^da consumare entro\b',    # use by: "Da consumare entro: vedi capsula"
+								'^al riparo\b',    # away from light / heat sources: "al riparo dalla luce"
+								'^paese di\b',    # country of origin info: "Paese di coltivazione del grano: Italia", "Paese di molitura", "Paese di trasformazione"
+								'^lotto\b',    # batch number: "Lotto e da consumarsi preferibilmente entro il: ..."
+								'^non adatto a bambini\b',    # choking warning
+								'^energia\b',    # OCR noise from nutrition declarations: "Energia 627 kJ / 149 kcal"
+								'^frutta utilizzata\b',    # fruit content: "Frutta utilizzata: 50g per 100g"
+								'^stabilimento\b',    # facility info: "Stabilimento di Lavis (TN)"
+								'^prodotto nello stabilimento\b',
+								'^il prodotto contiene\b',    # lactose-free statement: "Il prodotto contiene glucosio e galattosio in conseguenza della scissione del lattosio"
+								'in conseguenza della scissione del lattosio$',
+								'^confezionato (in|il)\b',    # packaged in a protective atmosphere / packaged on (date)
+								'^certificato\b',    # certification mention: "Certificato Rainforest Alliance"
+								"^l['’]eventuale separazione\b",    # "L'eventuale separazione dell'olio è un processo naturale"
+								'^agitare bene\b',    # shake well before use
+								'^(vedere|vedi)\b',    # leftovers of split annotations: "vedi capsula", "vedi sopra"
+								'^\d+\s*°\s*c\b',    # temperature: "0 °C"
+								'^min(im|imo)?\.?$',    # "(cacao: 25% min)" leftovers
+								'^min\.? ?\d+$',    # "min 56%" leftovers
+								'^[alps013]$',    # OCR junk: stray letters and digits
+								'^vr$',    # OCR junk: Italian province codes from addresses (VR, AR...)
+							],
 
 							'ja' => [
 								'その他',    # etc.
@@ -6899,6 +6925,9 @@ my %ignore_phrases = (
 	hu => [
 		'a késztermékben',    # in the finished product
 		'valamennyi százalékos adat a késztermékre vonatkozik',    # All percentages refer to the finished product.
+	],
+	it => [
+		'(percentuali espresse )?sul prodotto finito',    # 7% sul prodotto finito
 	],
 	sk => [
 		'obsah laktózy',    # lactose content <0,1g/100 g

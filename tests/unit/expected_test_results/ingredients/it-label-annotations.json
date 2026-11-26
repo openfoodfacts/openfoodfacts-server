@@ -1,0 +1,110 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "19023",
+         "ecobalyse_proxy_id" : "413dbd30-f224-580c-bf02-51664910430e",
+         "ecobalyse_proxy_name" : "Lait de vache HORS UE",
+         "id" : "en:whole-milk",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 43.75,
+         "percent_max" : 50,
+         "percent_min" : 37.5,
+         "text" : "Latte intero",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 31.25,
+         "percent_max" : 37.5,
+         "percent_min" : 25,
+         "text" : "zucchero",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "18100",
+         "ecobalyse_proxy_id" : "3d7f808b-77c5-4207-968d-feea6dfd9496",
+         "ecobalyse_proxy_name" : "Poudre de cacao par défaut -2025-",
+         "id" : "en:fat-reduced-cocoa",
+         "ingredients" : [
+            {
+               "ciqual_proxy_food_code" : "18100",
+               "ecobalyse_proxy_id" : "3d7f808b-77c5-4207-968d-feea6dfd9496",
+               "ecobalyse_proxy_name" : "Poudre de cacao par défaut -2025-",
+               "id" : "en:cocoa",
+               "is_in_taxonomy" : 1,
+               "percent" : 25,
+               "percent_estimate" : 25,
+               "percent_max" : 25,
+               "percent_min" : 25,
+               "text" : "cacao",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 25,
+         "percent_max" : 25,
+         "percent_min" : 25,
+         "text" : "cacao magro",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:whole-milk"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "it",
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:whole-milk",
+      "en:sugar",
+      "en:fat-reduced-cocoa",
+      "en:cocoa"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:whole-milk",
+      "en:milk",
+      "en:dairy",
+      "en:sugar",
+      "en:disaccharide",
+      "en:added-sugar",
+      "en:fat-reduced-cocoa",
+      "en:cocoa",
+      "en:plant"
+   ],
+   "ingredients_text" : "Latte intero, zucchero, cacao magro (cacao: 25% min), Conservare in luogo fresco e asciutto, Da consumarsi preferibilmente entro il: vedi retro, Lotto L1234, Paese di molitura: Italia, Confezionato in atmosfera protettiva, 4°C, A, vedi capsula",
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 25,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 75,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "known_ingredients_n" : 4,
+   "lc" : "it",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}
