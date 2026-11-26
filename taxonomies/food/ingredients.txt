@@ -25243,7 +25243,7 @@ fr: céréale complète, céréales complètes
 hr: žitarice cijelog zrna, proizvodi od cjelovitih žitarica od cijelog zrna
 hu: teljes kiőrlésű gabona
 it: cereali integrali, cereale integrale
-nl: Volkorengraan
+nl: volkoren graan, volkorengraan, volkorengranen, volkoren granen
 pl: zboża pełnoziarniste
 
 < en: cereal
@@ -25326,13 +25326,6 @@ ro: fulgi de cereale
 ru: хлопья из зерна
 sv: spannmålsflingor
 
-< en: cereal flakes
-en: crispy flakes
-it: fiocchi croccanti
-sv: krispiga flingor
-vegan:en: maybe
-vegetarian:en: maybe
-
 < de: Getreideflocken
 < en: wholemeal cereal
 en: wholemeal cereal flakes
@@ -25341,6 +25334,7 @@ fi: täysjyvähiutaleet, täysjyvähiutale
 fr: flocons de céréales complètes
 hr: pahuljice od integralnih žitarica
 it: fiocchi di cereali integrali
+nl: volkoren graanvlokken
 ro: fulgi de cereale integrale
 sv: fullkornsflingor
 
@@ -25369,6 +25363,14 @@ hr: hrskavice od žitarica
 hu: gabonapehely, gabonapelyhek
 it: crispies di cereal
 
+#< en: compound
+en: rice crispies
+de: Reis-Crispies, Reiscrispies
+
+#< en: compound
+en: protein crispies
+nl: eiwit crispies
+
 #probably more for mixed cereals
 #< en: compound
 en: crunchy cereals
@@ -25377,6 +25379,13 @@ el: Τραγανοί κόκκοι δημητριακών
 es: cereales crujientes
 hr: hrskave žitarice
 it: Cereali croccante
+
+#< en: compound
+en: crispy flakes, crunchy flakes
+it: fiocchi croccanti
+sv: krispiga flingor
+vegan:en: maybe
+vegetarian:en: maybe
 
 #< en: compound
 fr: billes de céréales
@@ -29291,7 +29300,7 @@ fr: farine complète d’épeautre, farine d'épeautre complète, farine d'épea
 hr: brašno od cjelovitog zrna pira, brašno iz cijelog zrna pira, pirovo brašno od cjelovitog zrna, pirovo pšenično brašno od cjelovitog zrna, pirovo brašno integralno
 hu: teljes kiőrlésű tönkölyliszt
 it: farina integrale di spelta
-nl: volkoren speltmeel
+nl: volkoren speltmeel, volkorenspeltmeel
 pl: mąka pełnoziarnista z pszenicy orkisz, mąka z pszenicy orkisz pełnoziarnista
 pt: farinha integral de espelta
 sv: fullkornsspeltvetemjöl
@@ -30254,7 +30263,7 @@ fr: farine complète d’orge, farine d'orge complète
 hr: integralno ječmeno brašno, ječmeno brašno iz cijelog zrna, brašno cijelog zrna ječma, brašno od cjelovitog zrna ječma, brašno iz cijelog zrna ječma, ječmeno brašno od cjelovitog zrna
 hu: teljes kiőrlésű árpaliszt
 it: farina integrale d'orzo, farina integrale di orzo
-nl: volkoren gerstemeel
+nl: volkoren gerstemeel, volkorengerstemeel
 pl: mąka jęczmienna pełnoziarnista, pełnoziarnista mąka jęczmienna
 sv: fullkornskornmjöl
 
@@ -32791,7 +32800,7 @@ sr: pirinač ekstrudat, ekstrudirani pirinač
 en: puffed rice, crisped rice, rice crisps
 ca: arròs inflat, arròs inflats
 da: puffat ris, puffede ris
-de: Puffreis, Reis-Crispies, Reis gepufft, Crisp-Rice, Reiscrispies
+de: Puffreis, Reis gepufft, Crisp-Rice
 es: arroz inflado, arroz inflados
 et: riisikrõpsud
 fi: riisimuro, riisimurot, puffattu riisi
@@ -40294,7 +40303,7 @@ fr: levain de seigle
 hr: raženo kiselo tijesto
 it: pasta madre di segale
 lv: rudzu ieraugs
-nl: roggezuurdesem, roggedesem
+nl: roggedesem, roggezuurdesem
 pl: zakwas żytni
 sv: rågsurdeg, surdeg av råg
 allergens:en: en:gluten
@@ -40359,7 +40368,8 @@ sv: surdeg på fullkornsråg och vete
 < en: spelt
 en: spelt sourdough
 da: speltsurdej
-nl: speltzuurdesem
+fr: levain d'épeautre
+nl: speltdesem, speltzuurdesem
 sv: surdeg av spelt
 
 < en: sourdough powder
@@ -61662,7 +61672,7 @@ kk: тапиока, tapïoka, تاپىيوكا
 ko: 타피오카
 mt: tapjoka
 nb: tapioka, tapiokastivelse
-nl: tapiocazetmeel, tapioca zetmeel, tapioca
+nl: tapiocazetmeel, tapioca zetmeel, tapioca, cassavezetmeel, cassave zetmeel
 nn: tapioka
 pl: tapioka, skrobia z tapioki, skrobia tapiokowa, skrobia z manioku
 pt: tapioca, amido de tapioca, fécula de tapioca, fécula de mandioca, amido de mandioca
@@ -98970,6 +98980,7 @@ da: sukkerrørsfiber
 fr: fibre de canne à sucre, fibres de canne à sucre
 hr: vlakna šećerne trske
 it: fibra di canna da zucchero
+nl: suikerrietvezel, suikerriet vezel
 pl: błonnik z trzciny cukrowej
 pt: fibra de cana-de-açúcar
 sv: sockerrörsfiber, sockerrörfiber
@@ -99281,6 +99292,11 @@ vegetarian:en: maybe
 # yue:釀
 wikidata:en: Q745361
 wikipedia:en: https://en.wikipedia.org/wiki/Stuffing
+
+< en: filling
+en: fruit filling
+fr: fourrage aux fruits
+nl: fruitvulling
 
 < en: filling
 en: apricot filling
