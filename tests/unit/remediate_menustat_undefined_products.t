@@ -305,11 +305,63 @@ sub make_menustat_product (%overrides) {
 	is($stats->{matched}, 4, 'all 4 candidates matched despite intermediate errors');
 	is($stats->{remediated}, 2, '2 candidates succeeded');
 	is($stats->{errors}, 2, '2 failures (exception + false return) recorded safely');
-	is(\@slept, [3], 'batch sleep triggered once after 2nd successful remediation');
+	is(\@slept, [3, 3], 'sleep triggered once after each successful remediation (not on failures)');
+
+	# Default non-zero batch_sleep, dry-run exclusion, and explicit 0 override
+	my @default_slept = ();
+	my $default_exec_cursor = FakeCursor->new({code => '900000000000000021'}, {code => '900000000000000024'});
+	ProductOpener::Scripts::RemediateMenuStat::run_remediation(
+		{execute => 1},
+		{
+			cursor => $default_exec_cursor,
+			retrieve_fn => sub ($c) {return make_menustat_product(code => $c);},
+			store_fn => sub {return 1;},
+			sleep_fn => sub ($sec) {push @default_slept, $sec;},
+		},
+	);
+	is(\@default_slept, [1, 1], 'default batch_sleep is 1s per successful write during execute');
+
+	my @dry_slept = ();
+	my $dry_cursor = FakeCursor->new({code => '900000000000000021'});
+	ProductOpener::Scripts::RemediateMenuStat::run_remediation(
+		{execute => 0},
+		{
+			cursor => $dry_cursor,
+			retrieve_fn => sub ($c) {return make_menustat_product(code => $c);},
+			store_fn => sub {return 1;},
+			sleep_fn => sub ($sec) {push @dry_slept, $sec;},
+		},
+	);
+	is(\@dry_slept, [], 'dry-run does not sleep even with non-zero default batch_sleep');
+
+	my @override_slept = ();
+	my $override_cursor = FakeCursor->new({code => '900000000000000021'});
+	ProductOpener::Scripts::RemediateMenuStat::run_remediation(
+		{execute => 1, batch_sleep => 0},
+		{
+			cursor => $override_cursor,
+			retrieve_fn => sub ($c) {return make_menustat_product(code => $c);},
+			store_fn => sub {return 1;},
+			sleep_fn => sub ($sec) {push @override_slept, $sec;},
+		},
+	);
+	is(\@override_slept, [0], 'explicit batch_sleep => 0 overrides default delay');
 }
 
 # 15. CLI validation safeguards in main()
 {
+	my $help_out = '';
+	open my $help_fh, '>', \$help_out or die($!);
+	my $help_rc;
+	{
+		local *STDOUT = $help_fh;
+		$help_rc = ProductOpener::Scripts::RemediateMenuStat::main('--help');
+	}
+	close $help_fh;
+	is($help_rc, 0, '--help exits with 0');
+	like($help_out, qr/--batch-sleep SEC.*\(default: 1\)/, '--help advertises default batch_sleep of 1s');
+	like($help_out, qr/--batch-size N.*\(default: 100\)/, '--help preserves default batch_size of 100');
+
 	eval {ProductOpener::Scripts::RemediateMenuStat::main('--dry-run', '--execute');};
 	like($@, qr/Conflicting options/, 'conflicting --dry-run and --execute flags are rejected');
 

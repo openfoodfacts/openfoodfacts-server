@@ -32,8 +32,8 @@ Options:
     --dry-run             Report matching candidates without modifying data (default)
     --execute             Apply soft deletion via store_product()
     --limit N             Stop after processing N matching candidates
-    --batch-size N        Sleep after every N writes during --execute (default: 100)
-    --batch-sleep SEC     Seconds to sleep per batch during --execute (default: 0)
+    --batch-size N        Accepted batch size option, must be >= 1 (default: 100)
+    --batch-sleep SEC     Seconds to sleep after each successful write during --execute (default: 1)
     --min-created-t EPOCH Minimum creation timestamp (default: 1740009600 / 2025-02-20T00:00:00Z)
     --max-created-t EPOCH Maximum creation timestamp (default: 1740182399 / 2025-02-21T23:59:59Z)
     --creator USER        Expected creator username (default: openfoodfacts-contributors)
@@ -276,8 +276,7 @@ sub run_remediation ($opts = {}, $deps = {}) {
 		$cursor->immortal(1);
 	}
 
-	my $batch_size = $opts->{batch_size} // 100;
-	my $batch_sleep = $opts->{batch_sleep} // 0;
+	my $batch_sleep = $opts->{batch_sleep} // 1;
 	my $out_fh = $opts->{out_fh} // \*STDOUT;
 
 	while ((!defined $limit || $stats->{matched} < $limit) && (my $doc_ref = $cursor->next)) {
@@ -304,7 +303,7 @@ sub run_remediation ($opts = {}, $deps = {}) {
 			print {$out_fh} sprintf("[%s] code=%s brand=%s name=%s\n", $status, $code, $brand, $name);
 		}
 
-		if ($opts->{execute} && $did_match && $batch_size > 0 && ($stats->{remediated} % $batch_size == 0)) {
+		if ($opts->{execute} && $did_match) {
 			$sleep_fn->($batch_sleep);
 		}
 	}
@@ -320,7 +319,7 @@ sub main (@argv) {
 		execute => 0,
 		limit => undef,
 		batch_size => 100,
-		batch_sleep => 0,
+		batch_sleep => 1,
 		min_created_t => $DEFAULT_MIN_CREATED_T,
 		max_created_t => $DEFAULT_MAX_CREATED_T,
 		creator => $DEFAULT_CREATOR,
@@ -347,8 +346,8 @@ Usage: remediate_menustat_undefined_products.pl [OPTIONS]
   --dry-run             Preview matching candidates without writing (default)
   --execute             Execute soft-deletion via store_product()
   --limit N             Maximum number of matched candidates to process
-  --batch-size N        Batch size before throttling sleep (default: 100)
-  --batch-sleep SEC     Seconds to sleep per batch during --execute (default: 0)
+  --batch-size N        Accepted batch size option, must be >= 1 (default: 100)
+  --batch-sleep SEC     Seconds to sleep after each successful write during --execute (default: 1)
   --min-created-t EPOCH Minimum creation timestamp (default: 1740009600)
   --max-created-t EPOCH Maximum creation timestamp (default: 1740182399)
   --creator USER        Expected creator (default: openfoodfacts-contributors)
