@@ -177,7 +177,7 @@ $symbols_regexp = join('|', @symbols);
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
-	lt => "sudėtyje gali būti|Taip pat, gali būti|gali būti|dalių",
+	lt => "sudėtyje gali būti|Taip pat, gali būti|gali turėti|gali būti",
 	lv =>
 		"alergēni|iespējama šādu alergēnu klātbūtne|kupātdesiņa var|pārpalikumi|produkts var|dalinas|sastāva var but|var saturé|var ?satur[eēéë]t",
 	mk => "Производот може да содржи|може да содржи",
