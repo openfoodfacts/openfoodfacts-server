@@ -70,8 +70,10 @@ foreach my $file (@thanks_files) {
 	ok($content =~ /<span class="thanks-upgrade-tpl"[^>]*>.*?\{amount\}.*?<\/span>/s,
 		"$file: upgrade template contains {amount}");
 
-	# Correct lang attribute
-	ok($content =~ /<html[^>]+lang="\Q$lang\E"/i, "$file: html tag has correct lang='$lang'");
+	# Correct lang attribute (BCP 47 uses hyphens, e.g. zh-TW for zh_TW.html)
+	my $html_lang = $lang;
+	$html_lang =~ s/_/-/g;
+	ok($content =~ /<html[^>]+lang="\Q$html_lang\E"/i, "$file: html tag has correct lang='$html_lang'");
 
 	# No mistranslations / unlocalized English fallback in non-English files
 	unless ($lang =~ /^en(_[A-Z]{2})?$/) {

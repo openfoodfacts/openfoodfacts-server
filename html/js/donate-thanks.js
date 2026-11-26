@@ -79,10 +79,23 @@ function setupShareButtons(page, shareText, shareLink) {
 
     button.addEventListener("click", () => {
       paq.push(["trackEvent", "donation", "share_clicked", target]);
-      if (target === "copy" && navigator.clipboard) {
-        navigator.clipboard.writeText(shareLink).then(() => {
-          button.textContent = copiedLabel;
-        });
+      if (target === "copy") {
+        const copyLabel = button.textContent;
+        if (!navigator.clipboard) {
+          // eslint-disable-next-line no-alert
+          window.prompt(copyLabel, shareLink);
+
+          return;
+        }
+        navigator.clipboard.writeText(shareLink).then(
+          () => {
+            button.textContent = copiedLabel;
+          },
+          () => {
+            // eslint-disable-next-line no-alert
+            window.prompt(copyLabel, shareLink);
+          }
+        );
       }
     });
   }
