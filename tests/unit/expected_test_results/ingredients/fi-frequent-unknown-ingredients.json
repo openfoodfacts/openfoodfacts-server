@@ -2,9 +2,9 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "ciqual_food_code" : "16530",
+         "ciqual_food_code" : "16520",
          "from_palm_oil" : "maybe",
-         "id" : "en:pork-fat",
+         "id" : "en:lard",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 51.1363636363636,
          "percent_max" : 100,
@@ -278,7 +278,8 @@
          "percent_estimate" : 5.82499937706871e-06,
          "percent_max" : 4.16666666666667,
          "percent_min" : 0,
-         "text" : "rasvaton maito jauheesta",
+         "processing" : "en:powder",
+         "text" : "rasvaton maito",
          "vegan" : "no",
          "vegetarian" : "yes"
       },
@@ -291,7 +292,8 @@
          "percent_estimate" : 2.91249968853435e-06,
          "percent_max" : 4,
          "percent_min" : 0,
-         "text" : "puristettu kookospähkinä",
+         "processing" : "en:pressed",
+         "text" : "kookospähkinä",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
@@ -360,26 +362,44 @@
          "vegetarian" : "yes"
       },
       {
-         "additive_class" : "en:acidity-regulator",
-         "id" : "en:e331",
-         "is_in_taxonomy" : 1,
+         "id" : "fi:happamuudensaatoaine",
+         "ingredients" : [
+            {
+               "id" : "en:e331",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 2.27539018737843e-08,
+               "percent_max" : 3.125,
+               "percent_min" : 0,
+               "text" : "e331",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 2.27539018737843e-08,
          "percent_max" : 3.125,
          "percent_min" : 0,
-         "text" : "e331",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
+         "text" : "happamuudensaatoaine"
       },
       {
-         "additive_class" : "en:preservative",
-         "id" : "en:e200",
-         "is_in_taxonomy" : 1,
+         "id" : "fi:sailontaaine",
+         "ingredients" : [
+            {
+               "id" : "en:e200",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 1.13769544896059e-08,
+               "percent_max" : 3.03030303030303,
+               "percent_min" : 0,
+               "text" : "e200",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 1.13769544896059e-08,
          "percent_max" : 3.03030303030303,
          "percent_min" : 0,
-         "text" : "e200",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
+         "text" : "sailontaaine"
       },
       {
          "additive_class" : "en:carrier",
@@ -505,7 +525,7 @@
    ],
    "ingredients_analysis" : {
       "en:may-contain-palm-oil" : [
-         "en:pork-fat",
+         "en:lard",
          "en:poultry-fat",
          "en:e471",
          "en:e471",
@@ -513,13 +533,13 @@
          "en:e471"
       ],
       "en:non-vegan" : [
-         "en:pork-fat",
+         "en:lard",
          "en:chicken-egg-yolk",
          "en:poultry-fat",
          "en:skimmed-milk"
       ],
       "en:non-vegetarian" : [
-         "en:pork-fat",
+         "en:lard",
          "en:poultry-fat"
       ],
       "en:vegan-status-unknown" : [
@@ -535,13 +555,13 @@
       "en:non-vegetarian"
    ],
    "ingredients_lc" : "fi",
-   "ingredients_n" : 44,
+   "ingredients_n" : 46,
    "ingredients_n_tags" : [
-      "44",
+      "46",
       "41-50"
    ],
    "ingredients_original_tags" : [
-      "en:pork-fat",
+      "en:lard",
       "en:salad-mix",
       "en:hulled-soya-bean",
       "en:raspberry-jam",
@@ -572,8 +592,8 @@
       "en:e471",
       "en:e471",
       "en:pyridoxine",
-      "en:e331",
-      "en:e200",
+      "fi:happamuudensaatoaine",
+      "fi:sailontaaine",
       "en:e1520",
       "en:e1520",
       "en:e903",
@@ -584,10 +604,13 @@
       "en:e306",
       "en:e100",
       "en:e415",
-      "en:e415"
+      "en:e415",
+      "en:e331",
+      "en:e200"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
+      "en:lard",
       "en:pork-fat",
       "en:animal-fat",
       "en:fat",
@@ -659,14 +682,16 @@
       "en:pyridoxine",
       "en:vitamin-b6",
       "en:vitamins",
-      "en:e331",
-      "en:e200",
+      "fi:happamuudensaatoaine",
+      "fi:sailontaaine",
       "en:e1520",
       "en:e903",
       "en:e300",
       "en:e621",
       "en:e306",
-      "en:e100"
+      "en:e100",
+      "en:e331",
+      "en:e200"
    ],
    "ingredients_text" : "silava, salaattisekoitus, kuorittu soijapapu, vadelmahillo, e322 soijalesitiini, entsyymit, vihreä papu, kevätsipuli, oligofruktoosikuitu, suippokaali, e322 auringonkukkalesitiini, jääsalaatti, chilitahna, glukoosifruktoosisiirappi, savupaprika, sushiriisi, granola, kananmunan keltuainen, omenaviinietikka, hiilihappopitoinen vesi, poltettu sokeri, siipikarjanrasva, linssiproteiini, rasvaton maito jauheesta, puristettu kookospähkinä, ksantaani, rasvahappojen monoglyseridi, rasvahappojen monoglyseridit, rasvahappojen diglyseridi, rasvahappojen diglyseridit, pyridoksiini, happamuudensaatoaine (E331), sailontaaine (E200), kantaja-aineet (E1520), kantaja-aine (E1520), kiillotusaineet (E903), kiillotusaine (E903), jauhon käsittelyaineet (E300), jauhon käsittelyaine (E300), aromivahventeet (E621), antioksidantit (E306), elintarvikevärit (E100), sakeutusaine (E415), sakeutusaineet (E415). Saattaa sisältää maito, spelttivehnä, spelttivehnää, kamut-vehnä, kamut-vehnää, muuta gluteenia sisältävää viljaa, soijan.",
    "ingredients_with_specified_percent_n" : 0,
@@ -691,9 +716,11 @@
       "en:poultry-fat",
       "en:pyridoxine",
       "en:salad-mix",
-      "en:sunflower-lecithin"
+      "en:sunflower-lecithin",
+      "fi:happamuudensaatoaine",
+      "fi:sailontaaine"
    ],
-   "ingredients_without_ciqual_codes_n" : 18,
+   "ingredients_without_ciqual_codes_n" : 20,
    "ingredients_without_ecobalyse_ids" : [
       "en:e100",
       "en:e1520",
@@ -706,24 +733,26 @@
       "en:e621",
       "en:e903",
       "en:enzyme",
+      "en:lard",
       "en:lentil-protein",
       "en:muesli",
       "en:oligofructose-fibre",
       "en:pointed-cabbage",
-      "en:pork-fat",
       "en:poultry-fat",
       "en:pyridoxine",
       "en:raspberry-jam",
       "en:salad-mix",
       "en:smoked-paprika",
       "en:soya-lecithin",
-      "en:sunflower-lecithin"
+      "en:sunflower-lecithin",
+      "fi:happamuudensaatoaine",
+      "fi:sailontaaine"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 23,
+   "ingredients_without_ecobalyse_ids_n" : 25,
    "known_ingredients_n" : 44,
    "lc" : "fi",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"
    ],
-   "unknown_ingredients_n" : 0
+   "unknown_ingredients_n" : 2
 }
