@@ -381,6 +381,28 @@ my @tests = (
 			ingredients_text_lv => "Cūkgaļa, sāls. Varsaturēt olas un sojas daļiņas."
 		}
 	],
+
+	# Lithuanian traces: "Gali turėti", trailing "pėdsakų", "kitų", "produktų"
+	[
+		'lt-traces',
+		{
+			lc => "lt",
+			lang => "lt",
+			ingredients_text_lt =>
+				"Kvietiniai miltai, cukrus, rapsų aliejus. Gali turėti sojų, pieno produktų, žemės riešutų ir kitų riešutų pėdsakų."
+		}
+	],
+
+	# Lithuanian whole grain "visų grūdo dalių" is not a "may contain" phrase
+	[
+		'lt-whole-grain',
+		{
+			lc => "lt",
+			lang => "lt",
+			ingredients_text_lt =>
+				"Visų grūdo dalių kvietiniai miltai 40%, visų grūdo dalių _AVIŽŲ_ dribsniai, cukrus. Gali būti pieno pėdsakų."
+		}
+	],
 	# Russian "possible presence of traces"
 	[
 		'ru-traces-possible-presence',

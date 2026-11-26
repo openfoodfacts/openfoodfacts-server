@@ -1,0 +1,360 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "ecobalyse_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_name" : "Farine UE agrégée -2025-",
+         "id" : "en:whole-wheat-flour",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 56.25,
+         "percent_max" : 100,
+         "percent_min" : 12.5,
+         "text" : "visų grūdo dalių kvietiniai miltai",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 21.875,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "cukrus",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "17001",
+         "ecobalyse_proxy_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "ecobalyse_proxy_name" : "Huile de colza par défaut -2025-",
+         "from_palm_oil" : "maybe",
+         "id" : "en:vegetable-oil",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "16129",
+               "ecobalyse_proxy_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+               "ecobalyse_proxy_name" : "Huile de palme -raffinée- par défaut -2025-",
+               "from_palm_oil" : "yes",
+               "id" : "en:palm-oil",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 5.46875,
+               "percent_max" : 33.3333333333333,
+               "percent_min" : 0,
+               "text" : "palmių aliejus",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "17130",
+               "ecobalyse_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+               "ecobalyse_name" : "Huile de colza par défaut -2025-",
+               "from_palm_oil" : "no",
+               "id" : "en:rapeseed-oil",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 2.734375,
+               "percent_max" : 16.6666666666667,
+               "percent_min" : 0,
+               "text" : "rapsų aliejus",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "17440",
+               "ecobalyse_id" : "583d00ab-0340-444b-9581-71175f0a937b",
+               "ecobalyse_name" : "Huile de tournesol -raffinée- FR -2025-",
+               "from_palm_oil" : "no",
+               "id" : "en:sunflower-oil",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 2.734375,
+               "percent_max" : 11.1111111111111,
+               "percent_min" : 0,
+               "text" : "saulėgrąžų aliejus",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10.9375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "augaliniai aliejai",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "from_palm_oil" : "maybe",
+         "id" : "en:vegetable-fat",
+         "ingredients" : [
+            {
+               "from_palm_oil" : "yes",
+               "id" : "en:palm-kernel-fat",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 2.734375,
+               "percent_max" : 25,
+               "percent_min" : 0,
+               "text" : "palmių branduolių riebalai",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_proxy_food_code" : "16129",
+               "ecobalyse_proxy_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+               "ecobalyse_proxy_name" : "Huile de palme -raffinée- par défaut -2025-",
+               "from_palm_oil" : "yes",
+               "id" : "en:palm-fat",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 1.3671875,
+               "percent_max" : 12.5,
+               "percent_min" : 0,
+               "text" : "palmių riebalai",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "16110",
+               "from_palm_oil" : "no",
+               "id" : "en:shea-butter",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 1.3671875,
+               "percent_max" : 8.33333333333333,
+               "percent_min" : 0,
+               "text" : "sviestmedžio riebalai",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.46875,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "augaliniai riebalai",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "lt:riebalai",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "16040",
+               "ecobalyse_id" : "927231a5-c0c4-560f-8e89-ca4b01795fe6",
+               "ecobalyse_name" : "Noix de coco décortiquée HORS UE",
+               "from_palm_oil" : "no",
+               "id" : "en:coconut-fat",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 2.734375,
+               "percent_max" : 20,
+               "percent_min" : 0,
+               "text" : "kokosų riebalai",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 2.734375,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "riebalai"
+      },
+      {
+         "id" : "lt:aliejai",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "17130",
+               "ecobalyse_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+               "ecobalyse_name" : "Huile de colza par défaut -2025-",
+               "from_palm_oil" : "no",
+               "id" : "en:rapeseed-oil",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.68359375,
+               "percent_max" : 16.6666666666667,
+               "percent_min" : 0,
+               "text" : "rapsų aliejus",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "17190",
+               "ecobalyse_proxy_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+               "ecobalyse_proxy_name" : "Huile de colza par défaut -2025-",
+               "from_palm_oil" : "no",
+               "id" : "en:corn-oil",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.68359375,
+               "percent_max" : 8.33333333333333,
+               "percent_min" : 0,
+               "text" : "kukurūzų aliejus",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 1.3671875,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "aliejai"
+      },
+      {
+         "ciqual_proxy_food_code" : "17001",
+         "ecobalyse_proxy_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "ecobalyse_proxy_name" : "Huile de colza par défaut -2025-",
+         "from_palm_oil" : "maybe",
+         "id" : "en:oil",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "16129",
+               "ecobalyse_proxy_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+               "ecobalyse_proxy_name" : "Huile de palme -raffinée- par défaut -2025-",
+               "from_palm_oil" : "yes",
+               "id" : "en:palm-oil",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.341796875,
+               "percent_max" : 14.2857142857143,
+               "percent_min" : 0,
+               "text" : "palmių aliejus",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "17130",
+               "ecobalyse_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+               "ecobalyse_name" : "Huile de colza par défaut -2025-",
+               "from_palm_oil" : "no",
+               "id" : "en:rapeseed-oil",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.341796875,
+               "percent_max" : 7.14285714285714,
+               "percent_min" : 0,
+               "text" : "rapsų aliejus",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.68359375,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "aliejus",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.68359375,
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "text" : "druska",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:sugar"
+      ],
+      "en:palm-oil" : [
+         "en:palm-oil",
+         "en:palm-kernel-fat",
+         "en:palm-fat",
+         "en:palm-oil"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil",
+      "en:maybe-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "lt",
+   "ingredients_n" : 19,
+   "ingredients_n_tags" : [
+      "19",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:whole-wheat-flour",
+      "en:sugar",
+      "en:vegetable-oil",
+      "en:vegetable-fat",
+      "lt:riebalai",
+      "lt:aliejai",
+      "en:oil",
+      "en:salt",
+      "en:palm-oil",
+      "en:rapeseed-oil",
+      "en:sunflower-oil",
+      "en:palm-kernel-fat",
+      "en:palm-fat",
+      "en:shea-butter",
+      "en:coconut-fat",
+      "en:rapeseed-oil",
+      "en:corn-oil",
+      "en:palm-oil",
+      "en:rapeseed-oil"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:whole-wheat-flour",
+      "en:wheat-flour",
+      "en:wholemeal-flour",
+      "en:cereal-flour",
+      "en:wheat",
+      "en:flour",
+      "en:cereal",
+      "en:sugar",
+      "en:disaccharide",
+      "en:added-sugar",
+      "en:vegetable-oil",
+      "en:vegetable-oil-and-fat",
+      "en:oil-and-fat",
+      "en:vegetable-fat",
+      "lt:riebalai",
+      "lt:aliejai",
+      "en:oil",
+      "en:salt",
+      "en:palm-oil",
+      "en:palm-oil-and-fat",
+      "en:rapeseed-oil",
+      "en:sunflower-oil",
+      "en:palm-kernel-fat",
+      "en:palm-kernel-oil-and-fat",
+      "en:palm-fat",
+      "en:shea-butter",
+      "en:coconut-fat",
+      "en:coconut",
+      "en:fruit",
+      "en:corn-oil"
+   ],
+   "ingredients_text" : "visų grūdo dalių kvietiniai miltai, cukrus, augaliniai aliejai (palmių, rapsų, saulėgrąžų), augaliniai riebalai (palmių branduolių, palmių, sviestmedžio), riebalai (kokosų), aliejai (rapsų, kukurūzų), palmių ir rapsų aliejus, druska. Gali turėti sojų pupelių ir kitų riešutų pėdsakų.",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 14,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:palm-kernel-fat",
+      "en:vegetable-fat",
+      "lt:aliejai",
+      "lt:riebalai"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:palm-kernel-fat",
+      "en:shea-butter",
+      "en:vegetable-fat",
+      "lt:aliejai",
+      "lt:riebalai"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 17,
+   "lc" : "lt",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 2
+}
