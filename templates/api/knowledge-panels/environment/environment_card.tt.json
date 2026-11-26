@@ -1,11 +1,18 @@
 {
     "type": "card",
+    [% IF knowledge_panels_options.activate_knowledge_panels_ingredients_nutrition_first %]
+    "expanded": false,
+    [% ELSE %]
     "expanded": true,
+    [% END %]
     "topics": [
         "environment"
     ],
     "title_element": {
         "title": "[% edq(lang('environment_card_title')) %]",
+        [% IF panel.summary %]
+        "subtitle": "[% edq(panel.summary) %]",
+        [% END %]
     },    
     "elements": [
         {

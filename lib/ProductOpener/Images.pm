@@ -1707,7 +1707,7 @@ sub process_image_crop ($user_id, $product_ref, $image_type, $image_lc, $imgid, 
 	# There was an issue saving coordinates_image_size for some products
 	# if any coordinate is above the $crop_size, then assume it was on the full size
 
-	if (($coordinates_image_size eq 'full') and (($x2 > $crop_size) or ($y2 > $crop_size))) {
+	if (($coordinates_image_size ne 'full') and (($x2 > $crop_size) or ($y2 > $crop_size))) {
 		$coordinates_image_size = "full";
 		$log->debug(
 			"process_image_crop - coordinates_image_size not set or set to crop_size and x2 or y2 greater than crop_size, setting to full",

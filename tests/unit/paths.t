@@ -39,6 +39,7 @@ my $EXPECTED_BASE_PATHS = {
 	PUBLIC_FILES => "$www_root/files",
 	PUBLIC_RESOURCES => "$www_root/resources",
 	REVERTED_PRODUCTS => "$data_root/reverted_products",
+	RULES => "$src_root/rules",
 	SCRIPTS => "$src_root/scripts",
 	TAXONOMIES_SRC => "$src_root/taxonomies",
 	USERS => "$data_root/users",

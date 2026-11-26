@@ -462,8 +462,8 @@
                "name" : "eggs"
             },
             {
-               "ecobalyse_name" : "Fraise par défaut -2025-",
-               "id" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
+               "ecobalyse_name" : "Fraise FR",
+               "id" : "8ad09e31-6b20-56d1-b059-f871361a16d7",
                "mass" : 10.2272727272727,
                "name" : "strawberries"
             },
@@ -486,19 +486,20 @@
                "name" : "macadamia nuts"
             },
             {
-               "ecobalyse_name" : "Lait par défaut -2025-",
-               "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
+               "ecobalyse_name" : "Lait de vache HORS UE",
+               "id" : "413dbd30-f224-580c-bf02-51664910430e",
                "mass" : 0.639204545454547,
                "name" : "milk proteins"
             },
             {
-               "ecobalyse_name" : "Sel -2025-",
-               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
+               "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
                "mass" : 0.125,
                "name" : "salt"
             }
          ],
          "ingredients_coverage_percent" : 99,
+         "ingredients_total_mass" : 99.4857954545455,
          "packaging_skip_reason" : "unknown_product_quantity",
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
@@ -506,48 +507,135 @@
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
-                  "mass" : 54.5454545454545
+                  "elements" : [
+                     {
+                        "amount" : 0.054545,
+                        "material" : {
+                           "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "wheat flour",
+                  "quantity" : 1
                },
                {
-                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 12.5
+                  "elements" : [
+                     {
+                        "amount" : 0.0125,
+                        "material" : {
+                           "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "sugar",
+                  "quantity" : 1
                },
                {
-                  "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
-                  "mass" : 12.5
+                  "elements" : [
+                     {
+                        "amount" : 0.0125,
+                        "material" : {
+                           "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "eggs",
+                  "quantity" : 1
                },
                {
-                  "id" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
-                  "mass" : 10.2272727272727
+                  "elements" : [
+                     {
+                        "amount" : 0.010227,
+                        "material" : {
+                           "id" : "8ad09e31-6b20-56d1-b059-f871361a16d7"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "strawberries",
+                  "quantity" : 1
                },
                {
-                  "id" : "06dffb5c-07ad-48de-9630-632f4c84e02d",
-                  "mass" : 5.11363636363636
+                  "elements" : [
+                     {
+                        "amount" : 0.005114,
+                        "material" : {
+                           "id" : "06dffb5c-07ad-48de-9630-632f4c84e02d"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "high fructose corn syrup",
+                  "quantity" : 1
                },
                {
-                  "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
-                  "mass" : 2.55681818181818
+                  "elements" : [
+                     {
+                        "amount" : 0.002557,
+                        "material" : {
+                           "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "rapeseed oil",
+                  "quantity" : 1
                },
                {
-                  "id" : "02a9df90-91c4-5bf0-900a-9efa6ffcfaf6",
-                  "mass" : 1.27840909090909
+                  "elements" : [
+                     {
+                        "amount" : 0.001278,
+                        "material" : {
+                           "id" : "02a9df90-91c4-5bf0-900a-9efa6ffcfaf6"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "macadamia nuts",
+                  "quantity" : 1
                },
                {
-                  "id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
-                  "mass" : 0.639204545454547
+                  "elements" : [
+                     {
+                        "amount" : 0.000639,
+                        "material" : {
+                           "id" : "413dbd30-f224-580c-bf02-51664910430e"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "milk proteins",
+                  "quantity" : 1
                },
                {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 0.125
+                  "elements" : [
+                     {
+                        "amount" : 0.000125,
+                        "material" : {
+                           "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "salt",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
    },
    "environmental_score_data" : {
       "adjustments" : {
@@ -1078,8 +1166,8 @@
       },
       {
          "ciqual_food_code" : "13014",
-         "ecobalyse_id" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
-         "ecobalyse_name" : "Fraise par défaut -2025-",
+         "ecobalyse_id" : "8ad09e31-6b20-56d1-b059-f871361a16d7",
+         "ecobalyse_name" : "Fraise FR",
          "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 10.2272727272727,
@@ -1130,8 +1218,8 @@
          "vegetarian" : "yes"
       },
       {
-         "ecobalyse_proxy_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
-         "ecobalyse_proxy_name" : "Lait par défaut -2025-",
+         "ecobalyse_proxy_id" : "413dbd30-f224-580c-bf02-51664910430e",
+         "ecobalyse_proxy_name" : "Lait de vache HORS UE",
          "id" : "en:milk-proteins",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.639204545454547,
@@ -1143,8 +1231,8 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-         "ecobalyse_name" : "Sel -2025-",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.125,
@@ -1273,7 +1361,7 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-api-not-called",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-changed",

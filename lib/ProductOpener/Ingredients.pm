@@ -128,6 +128,7 @@ use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
 use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
 use ProductOpener::Nutrition qw/get_non_estimated_nutrient_per_100g_or_100ml_for_preparation/;
 use ProductOpener::IngredientsStrings qw/:all/;
+use ProductOpener::Numbers qw/$fraction_regexp convert_fraction_to_number round_to_max_decimal_places/;
 use ProductOpener::Misspellings qw/apply_misspelling_replacements/;
 use ProductOpener::Text qw/normalize_unicode_letter_variants/;
 
@@ -240,6 +241,7 @@ my @labels = (
 	"en:fed-without-gmos", "fr:crc",
 	"en:without-gluten", "en:sustainable-farming",
 	"en:krav", "en:whole-grain",
+	"en:rainforest-alliance",
 );
 my %labels_regexps = ();
 
@@ -301,6 +303,9 @@ sub init_labels_regexps() {
 				# simple singulars and plurals
 				my $singular = $synonym;
 				$singular =~ s/s$//;
+				# a final dot is optional, as it is often removed with the ingredient separators:
+				# "Grana Padano D.O.P." -> "Grana Padano D.O.P"
+				$singular =~ s/\.$/\\.?/;
 				$label_regexp .= '|' . $singular . '|' . $singular . 's';
 
 				my $unaccented_synonym = unac_string_perl($singular);
@@ -641,6 +646,54 @@ sub add_properties_from_specific_ingredients ($product_ref) {
 	return;
 }
 
+=head2 scale_specific_ingredients_percent_in_intermediate_products ( product_ref )
+
+Specific ingredients like "strawberries in the filling: 49.8%" have a percent relative to an
+intermediate product (the filling), stored in percent_in_intermediate_product.
+
+If the ingredients list contains exactly one ingredient for that intermediate product with a percent
+(e.g. "filling 40%"), set the percent of the specific ingredient in the product (49.8 * 40 / 100).
+Otherwise the specific ingredient has no percent, so that it is not used as a percent of the product.
+
+=cut
+
+sub scale_specific_ingredients_percent_in_intermediate_products ($product_ref) {
+
+	return if not defined $product_ref->{specific_ingredients};
+
+	foreach my $specific_ingredient_ref (@{$product_ref->{specific_ingredients}}) {
+
+		my $intermediate_product_id = $specific_ingredient_ref->{intermediate_product};
+		my $percent_in_intermediate_product = $specific_ingredient_ref->{percent_in_intermediate_product};
+		next if ((not defined $intermediate_product_id) or (not defined $percent_in_intermediate_product));
+
+		# percents of the intermediate product in the product: the percents of nested ingredients
+		# are relative to their parent, so we multiply them, and we need all of them
+		my @intermediate_products_percents = ();
+		my @ingredients = map {[$_, 100]} @{$product_ref->{ingredients} || []};
+		while (@ingredients) {
+			my ($ingredient_ref, $parent_percent) = @{shift @ingredients};
+			# undef if the percent of the ingredient in the product is unknown
+			my $percent
+				= ((defined $parent_percent) and (defined $ingredient_ref->{percent}))
+				? $parent_percent * $ingredient_ref->{percent} / 100
+				: undef;
+			if (defined $ingredient_ref->{ingredients}) {
+				unshift @ingredients, map {[$_, $percent]} @{$ingredient_ref->{ingredients}};
+			}
+			if (is_a("ingredients", $ingredient_ref->{id}, $intermediate_product_id)) {
+				push @intermediate_products_percents, $percent;
+			}
+		}
+
+		if (((scalar @intermediate_products_percents) == 1) and (defined $intermediate_products_percents[0])) {
+			$specific_ingredient_ref->{percent}
+				= $percent_in_intermediate_product * $intermediate_products_percents[0] / 100;
+		}
+	}
+	return;
+}
+
 =head2 add_percent_max_for_ingredients_from_nutrition_facts ( $product_ref )
 
 Add a percent_max value for salt and sugar ingredients, based on the nutrition facts.
@@ -818,6 +871,62 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 	);
 	my $ingredient_content = $ingredient_content{$ingredients_lc};
 
+	# content statements of chocolate products, with a minimum, e.g. "Cacao : 46% minimum."
+	# "milk chocolate contains cocoa solids 30% minimum", "cacao 52% minimum dans le chocolat"
+	# The ingredients are restricted, as "Pomme 60% minimum" can be part of the ingredients list
+	my %content_statement_prefix = (
+		en => '(?:(?:(?:organic|milk|dark|white|plain)\s+)*chocolate\s+)?(?:contains:?\s+)?',
+		fr => '(?:(?:le\s+)?chocolat(?:\s+(?:au lait|noir|blanc))?\s+contient\s+(?:au\s+)?(?:minimum\s+)?)?',
+	);
+	my %content_statement_cocoa = (
+		en => 'cocoa solids?|cocoa|cacao',
+		fr => 'cacao|solides de cacao|extrait sec de cacao',
+	);
+	my %content_statement_milk = (
+		en => 'milk solids',
+		fr => 'mati[èe]re s[èe]che (?:de |issue du |du )lait',
+	);
+	my %content_statement_suffix = (fr => '(?:\s+dans le chocolat(?:\s+(?:au lait|noir|blanc))?)?',);
+	# the minimum is required: "cacao 30%" can be part of the ingredients list
+	my $minimum = $min_regexp{$ingredients_lc} || 'do not match';
+	my $number = '\d+(?:[,.\N{U+201A}]\d+)?';
+	my $minimum_lookahead = "(?=(?:(?:$minimum)(?::|\\s)*$number\\s*%|$number\\s*%\\s*(?:$minimum)(?![[:alpha:]])))";
+
+	my $content_statement;
+	if ((defined $percent_or_quantity_regexp) and (defined $content_statement_prefix{$ingredients_lc})) {
+		my $content_statement_regexp = sub ($names) {
+			return
+				  '((?:^|;|,|\.| - )\s*)'
+				. $content_statement_prefix{$ingredients_lc} . '('
+				. $names . ')'
+				. ($content_statement_suffix{$ingredients_lc} // '')
+				. '(?::|\s)*'
+				. $minimum_lookahead
+				. $percent_or_quantity_regexp
+				. '(?:;|,|\.| - |$)';
+		};
+		# a statement is about an ingredient of the list: if the list has no other cocoa,
+		# "Sucre, lait en poudre, cacao 30% minimum, sel" is the cocoa ingredient of the list
+		my $text_without_statements = $text;
+		my $all_statements_regexp = compiled_regexp(
+			$content_statement_regexp->(
+				$content_statement_cocoa{$ingredients_lc} . '|' . $content_statement_milk{$ingredients_lc}
+			)
+		);
+		$text_without_statements =~ s/$all_statements_regexp/ /g;
+		my @names = ();
+		($text_without_statements =~ /cacao|cocoa|chocola/i) and push @names, $content_statement_cocoa{$ingredients_lc};
+		($text_without_statements =~ /lait|milk/i) and push @names, $content_statement_milk{$ingredients_lc};
+		(scalar @names) and $content_statement = $content_statement_regexp->(join('|', @names));
+	}
+
+	# ingredient of an intermediate product, e.g. "strawberries in the filling: 49.8%"
+	# the percent is relative to the intermediate product, not to the product
+	my %intermediate_products = (en => 'filling|cream|topping|chocolate|sauce');
+	my $intermediate_products = $intermediate_products{$ingredients_lc};
+	my $ingredient_in_intermediate_product
+		= (defined $intermediate_products) ? '([^,.;:()]+?)\s+in the (?:' . $intermediate_products . ')' : undef;
+
 	my $prepared_with = $prepared_with{$ingredients_lc} || '';
 
 	while ($ingredient) {
@@ -828,6 +937,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		my $matched_text;
 		my ($percent_or_quantity_value, $percent_or_quantity_unit);
 		my $origins;
+		my $intermediate_product;
 
 		# Note: in regular expressions below, use non-capturing groups (starting with (?: )
 		# for all groups, except groups that capture actual data: ingredient name, percent, origins
@@ -884,6 +994,23 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 						)
 					)
 				)
+				or (
+					# Cacao : 46% minimum. / cocoa solids 34% min.
+					(defined $content_statement) and ($text =~ compiled_regexp($content_statement))
+				)
+				or (
+					# strawberries in the filling: 49.8%
+					(defined $ingredient_in_intermediate_product)
+					and (
+						$text =~ compiled_regexp(
+								  '((?:^|;|,|\.| - )\s*)'
+								. $ingredient_in_intermediate_product
+								. '\s*:\s*'
+								. $percent_or_quantity_regexp
+								. '(?:;|,|\.| - |$)'
+						)
+					)
+				)
 
 			)
 			)
@@ -902,6 +1029,13 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			$text = $` . $1 . ' ' . $';
 
 			$percent_or_quantity_value = convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
+
+			# strawberries in the filling: 49.8%
+			if (    (defined $intermediate_products)
+				and ($matched_text =~ /^\W*\Q$ingredient\E\s+in the ($intermediate_products)\b/i))
+			{
+				$intermediate_product = $1;
+			}
 
 			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
 			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
@@ -991,7 +1125,12 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			# Origine du Cacao: Pérou
 			# Oprindelse jalapeño chili: Peru
 			# Ursprung fullkornsrågmjöl: Sverige och Danmark
-			if (match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref)) {
+			# Only if nothing matched above: otherwise the origin would replace the ingredient
+			# but keep its percent (e.g. "Cacao: 30% minimum. Lait: origine UE" -> milk 30%).
+			# The origin is matched in the next pass of the loop.
+			if ((not defined $ingredient)
+				and match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref))
+			{
 				$origins = $matched_ingredient_ref->{origins};
 				$ingredient = $matched_ingredient_ref->{ingredient};
 				$matched_text = $matched_ingredient_ref->{matched_text};
@@ -1031,6 +1170,16 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				defined $quantity and $specific_ingredients_ref->{quantity} = $quantity;
 				defined $quantity_g and $specific_ingredients_ref->{quantity_g} = $quantity_g + 0;
 				defined $quantity_ml and $specific_ingredients_ref->{quantity_ml} = $quantity_ml + 0;
+
+				# the percent is relative to the intermediate product (e.g. the filling), it is turned to a percent
+				# of the product by scale_specific_ingredients_percent_in_intermediate_products() if we know the
+				# percent of the intermediate product
+				if ((defined $intermediate_product) and (defined $specific_ingredients_ref->{percent})) {
+					$specific_ingredients_ref->{intermediate_product}
+						= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $intermediate_product);
+					$specific_ingredients_ref->{percent_in_intermediate_product}
+						= delete $specific_ingredients_ref->{percent};
+				}
 			}
 
 			# Add origin field
@@ -1198,6 +1347,65 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 
 		return 1;
 	}
+
+	# Ingredient first, after the end of the ingredients list: "... arômes. *Lait : origine UE et/ou non UE (Royaume-Uni)"
+	# Only after a . or ; or a starting *: after a comma or in parenthesis, it can be an ingredient of the list
+	# e.g. "Cheddar 36% : origine Belgique (lait pasteurisé, sel)"
+	my %ingredient_origin_regexp_in_lc = (
+		en => "(?:origins?|country of origin)",
+		fr => "(?:origines?|provenance)",
+	);
+	my $ingredient_origin_regexp = $ingredient_origin_regexp_in_lc{$ingredients_lc};
+	my $origins_list_regexp = '(?:' . $origins_regexp . ')(?:(?:,|' . $and_or . ')(?:\s?)(?:' . $origins_regexp . '))*';
+
+	return 0 if not($origins_regexp and (defined $ingredient_origin_regexp));
+
+	my $statement_regexp
+		= compiled_regexp('((?:\.|;)\s*\**|^\s*\*+)\s*([^,.;:()*]+?)\s*\**\s*:\s*'
+			. $ingredient_origin_regexp
+			. '\s*:?\s*('
+			. $origins_list_regexp
+			. ')(?:\s*\(\s*('
+			. $origins_list_regexp
+			. ')\s*\))?\s*(?=,|;|\.| - |$)');
+
+	# Try each candidate: a rejected one must not prevent the following statements from being matched
+	# e.g. "... sel. Machin : origine France. Lait : origine UE"
+	while ($$text_ref =~ /$statement_regexp/g) {
+
+		# save the match variables before other regexps are run by exists_taxonomy_tag()
+		my ($before, $ingredient, $origins, $origins_in_parenthesis) = ($1, $2, $3, $4);
+		my ($start, $end, $pos) = ($-[0], $+[0], pos($$text_ref));
+		my $prematch = substr($$text_ref, 0, $start);
+		my $matched_text = substr($$text_ref, $start, $end - $start);
+		my $postmatch = substr($$text_ref, $end);
+
+		my $is_origin_statement = exists_taxonomy_tag("ingredients",
+			canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient));
+
+		# After a ;, it can be an ingredient of a list separated by ; : "Sucre; beurre : origine France; farine"
+		# It is an origin statement only if the ingredient is also in the text before it
+		if ($is_origin_statement and ($before =~ /^;/)) {
+			$is_origin_statement = ($prematch =~ /(?<!\p{L})\Q$ingredient\E(?!\p{L})/i);
+		}
+
+		if (not $is_origin_statement) {
+			pos($$text_ref) = $pos;
+			next;
+		}
+
+		$matched_ingredient_ref->{ingredient} = $ingredient;
+		# "UE et/ou non UE (Royaume-Uni)": the origins in parenthesis are added
+		$matched_ingredient_ref->{origins}
+			= $origins . ((defined $origins_in_parenthesis) ? ",$origins_in_parenthesis" : '');
+		$matched_ingredient_ref->{matched_text} = $matched_text;
+
+		# Remove the matched text, but keep the separator before it
+		my $separator = ($before =~ /^([.;])/) ? $1 : '';
+		$$text_ref = $prematch . $separator . ' ' . $postmatch;
+
+		return 1;
+	}
 	return 0;
 }
 
@@ -1305,7 +1513,8 @@ sub _extract_ingredient_labels ($lc, $ingredient) {
 		my $regexp = $label_regexps_ref->{$labelid};
 		next unless defined $regexp;
 		my $is_dietary = $labelid =~ /^en:(?:vegan|vegetarian)$/;
-		while ($ingredient =~ compiled_regexp('\b(' . $regexp . ')\b')) {
+		# Use lookarounds instead of \b, as labels can end with a dot ("g.U.", "D.O.P.")
+		while ($ingredient =~ compiled_regexp('(?<!\w)(' . $regexp . ')(?!\w)')) {
 			my $label = $1;
 			my $before_the_label = $`;
 			my $after_the_label = $';
@@ -1704,7 +1913,8 @@ Select, set and return the `ingredients_lc` field in $product_ref.
 
 This is the language that will be used to parse ingredients. We first check that ingredients_text_{lang}
 exists and is non-empty for the product main language (`lc`), and return it if it does.
-Otherwise we look at all languages defined in `languages_codes` for a non-empty `ingredients_text_lang`.
+Otherwise we look for non-empty ingredients_text_{lang} fields, preferring the language whose selected
+ingredients image was uploaded most recently. Equal or missing upload timestamps use alphabetical order.
 
 If we find a language with non empty ingredients in ingredients_text_{lang}:
 - we copy the value to the `ingredients_text` field in the product
@@ -1727,7 +1937,19 @@ sub select_ingredients_lc ($product_ref) {
 	# Get all languages that have ingredients_text_{lang} defined, capture the language code
 	# Note: we don't use language_codes here, as it might not have been computed if we are called from a service
 	# with minimal product data
-	my @ingredients_text_fields = sort grep {/^ingredients_text_(\w\w)$/} (keys %$product_ref);
+	my @ingredients_text_fields = grep {/^ingredients_text_(\w\w)$/} (keys %$product_ref);
+
+	# Use the source image upload time, not the selection revision: selecting an old photo again
+	# should not make its ingredients take priority over a more recently uploaded photo.
+	my %ingredients_image_uploaded_t;
+	foreach my $field (@ingredients_text_fields) {
+		my $imgid = deep_get($product_ref, 'images', 'selected', 'ingredients', substr($field, -2), 'imgid');
+		my $uploaded_t = defined $imgid ? deep_get($product_ref, 'images', 'uploaded', $imgid, 'uploaded_t') : undef;
+		$ingredients_image_uploaded_t{$field} = $uploaded_t // 0;
+	}
+	@ingredients_text_fields
+		= sort {$ingredients_image_uploaded_t{$b} <=> $ingredients_image_uploaded_t{$a} || $a cmp $b}
+		@ingredients_text_fields;
 
 	# Put the main language first
 	if (defined $product_ref->{lc}) {    # Should always be defined, except in old unit tests
@@ -2453,10 +2675,14 @@ Text to analyze
 						$between = '';
 					}
 
-					if (    ($between =~ $separators)
-						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
+					if (
+						($between =~ $separators)
+						and ($`
+							!~ /\s*(origin|origins|origine|origem(?!\s+(?:protegida|controlada))|alkuperä|ursprung)\s*/i
+						)
 						and ($` !~ /\s*(allergens)\s*/i)
-						and ($between !~ compiled_regexp('^' . $percent_or_quantity_regexp . '$')))
+						and ($between !~ compiled_regexp('^' . $percent_or_quantity_regexp . '$'))
+						)
 					{
 						$between_level = $level + 1;
 						$log->debug(
@@ -2503,7 +2729,7 @@ Text to analyze
 
 							# try to remove the origin and store it as property
 							if ($between
-								=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i
+								=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong|pa[ií]s de origem|origem(?!\s+(?:protegida|controlada)))\s?:?\s?\b(.*)$/i
 								)
 							{
 								$log->debug("parse_ingredients_text - sub-ingredients: contains origin in $between")
@@ -3253,6 +3479,7 @@ Text to analyze
 								'^y compris les cereales contenant du gluten$',
 								'^voir (les )?ingr[ée]dients (indiqu[ée]s )?en gras$',
 								'^(les allerg[èe]nes )?sont indiques en gras$',
+								'^allerg[èe]nes? signal[ée]s? en majuscules? et en gras$',
 								'^Conditionné[es]* sous atmosph[èe]re',    # ... protectrice/contrôlée/modifiée/etc
 									# remaining words of footnotes: "* Ingrédients d'origine végétale"
 								'^ingr[ée]dients?$',
@@ -3930,6 +4157,8 @@ Text to analyze
 		}
 	}
 
+	scale_specific_ingredients_percent_in_intermediate_products($product_ref);
+
 	return;
 }
 
@@ -4354,8 +4583,10 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		}
 
 		# Assign a ecobalyse_id or a ecoalyse_proxy_code to the ingredient
-		delete $ingredient_ref->{ecobalyse_id};
-		delete $ingredient_ref->{ecobalyse_proxy_id};
+		# (remove the previous match, including its name and unit, as the new match may not have them)
+		foreach my $prefix ("ecobalyse", "ecobalyse_proxy") {
+			delete $ingredient_ref->{$prefix . $_} for qw(_id _name _unit);
+		}
 
 		# We are now looking for the appropriate ecobalyse id :
 		# ecobalyse_origins_france_labels_organic (if the product comes from france, and is organic)
@@ -4461,6 +4692,9 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 				# Also retrieve the corresponding French display name, from the same taxonomy level
 				my $ecobalyse_name = get_property("ingredients", $matching_tagid, $prefix . $suffix . "_name:fr");
 				$ingredient_ref->{$prefix . "_name"} = $ecobalyse_name if defined $ecobalyse_name;
+				# and the unit, only for ingredients that are not in kg (e.g. L for spring water and wine)
+				my $ecobalyse_unit = get_property("ingredients", $matching_tagid, $prefix . $suffix . "_unit:en");
+				$ingredient_ref->{$prefix . "_unit"} = $ecobalyse_unit if defined $ecobalyse_unit;
 				last;
 			}
 			# Exit the loop if a valid ecobalyse code was found
@@ -5682,7 +5916,7 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 
 	my $a_of_b;
 
-	if (($ingredients_lc eq "en") or ($ingredients_lc eq "hr")) {
+	if (($ingredients_lc eq "en") or ($ingredients_lc eq "hr") or ($ingredients_lc eq "lv")) {
 		# start by "with" (example: "mlijeko (s 1.0% mliječne masti)"), in which case it $b should be added after $a
 		# start by "with etc." should be added at the end of the previous ingredient
 		my %with = (hr => '(s | sa )',);
@@ -5884,6 +6118,8 @@ sub normalize_vitamin ($lc, $a) {
 		($lc eq 'nl') and return "vitamine $a";
 		($lc eq 'is') and return "$a-vítamín";
 		($lc eq 'pl') and return "witamina $a";
+		($lc eq 'pt') and return "vitamina $a";
+		($lc eq 'ru') and return "витамин $a";
 		return "vitamin $a";
 	}
 	else {
@@ -5918,6 +6154,7 @@ sub normalize_vitamins_enumeration ($lc, $vitamins_list) {
 	elsif ($lc eq 'nl') {$split_vitamins_list = "vitaminen"}
 	elsif ($lc eq 'is') {$split_vitamins_list = "vítamín"}
 	elsif ($lc eq 'pl') {$split_vitamins_list = "witaminy"}
+	elsif ($lc eq 'ru') {$split_vitamins_list = "витамины"}
 	else {$split_vitamins_list = "vitamins"}
 
 	$split_vitamins_list .= ", " . join(", ", map {normalize_vitamin($lc, $_)} @vitamins);
@@ -7082,7 +7319,7 @@ my %ingredients_categories_and_types = (
 			# trailing word (e.g. "stearin") as an unexpanded ingredient.
 			types => [
 				"avocado", "coconut", "colza", "cottonseed", "olive", "palm kernel",
-				"palm stearin", "palm", "rapeseed", "safflower", "sunflower",
+				"palm stearin", "palm", "rapeseed", "safflower", "shea", "sunflower",
 			],
 		},
 	],
@@ -7102,6 +7339,31 @@ my %ingredients_categories_and_types = (
 			categories => ["rostlinné oleje, rostlinné tuky"],
 			types => ["bambucký", "kokosový", "olivový", "palmový", "palmojadrový", "řepkový", "slunečnicový",],
 			alternate_names => ["<type> olej"],
+		},
+	],
+
+	da => [
+		# oil
+		# (separate from fat, so that "vegetabilsk olie (palme)" gives "palmeolie" and not "palmefedt")
+		{
+			categories => ["olie", "olier", "vegetabilsk olie", "vegetabilske olier"],
+			types => ["avocado", "kokos", "majs", "oliven", "palme", "raps", "sal", "shea", "soja", "solsikke"],
+			alternate_names => ["<type>olie"],
+		},
+		# fat
+		{
+			categories => ["fedt", "fedtstoffer", "vegetabilsk fedt", "vegetabilske fedtstoffer"],
+			types => ["avocado", "kokos", "majs", "oliven", "palme", "raps", "sal", "shea", "soja", "solsikke"],
+			alternate_names => ["<type>fedt"],
+		},
+		# protein
+		{
+			categories => ["protein", "proteiner", "vegetabilsk protein", "vegetabilske proteiner"],
+			types => [
+				"ærte", "havre", "kartoffel", "kikærte", "mælke", "majs",
+				"raps", "ris", "soja", "svampe", "solsikke", "hvede"
+			],
+			alternate_names => ["<type>protein"],
 		},
 	],
 
@@ -7344,6 +7606,26 @@ my %ingredients_categories_and_types = (
 		{
 			categories => ["aliejai", "augaliniai aliejai",],
 			types => ["palmių", "rapsų", "saulėgrąžų",],
+		},
+	],
+
+	lv => [
+		# fibres
+		{
+			categories => ["šķiedrvielas",],
+			types => ["kartupeļu", "ceļmalītes",],
+		},
+		# oils
+		{
+			categories => ["augu eļļa", "augu eļļas un tauki", "augu tauki un eļļas",],
+			types => ["kokosriekstu", "palmu kodolu", "palmu sēklu", "palmu", "rapšu sēklu", "rapšu", "saulespuķu",],
+			alternate_names => ["<type> eļļa", "<type> tauki"],
+		},
+		# fats
+		{
+			categories => ["augu tauki",],
+			types => ["kokosriekstu", "palmu kodolu", "palmu sēklu", "palmu", "rapšu sēklu", "rapšu", "saulespuķu",],
+			alternate_names => ["<type> tauki", "<type> eļļa"],
 		},
 	],
 
@@ -7592,8 +7874,10 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 			$text =~ s/$regexps_ref->{dash_separated_types}/$1, $2/ig;
 
 			if (   ($ingredients_lc eq "en")
+				or ($ingredients_lc eq "da")
 				or ($ingredients_lc eq "de")
 				or ($ingredients_lc eq "hr")
+				or ($ingredients_lc eq "lv")
 				or ($ingredients_lc eq "ru")
 				or ($ingredients_lc eq "sv")
 				or ($ingredients_lc eq "pl"))
@@ -7715,6 +7999,53 @@ sub remove_underscores_around_allergens ($ingredients_lc, $text_ref) {
 	return;
 }
 
+=head2 is_missing_separator_between_percents ($ingredients_lc, $before, $words)
+
+In "carotte 23,4% oignon 9,9%", check if the words between the 2 percents ("oignon") are a new ingredient,
+and not a content of the ingredient before the first percent.
+
+=head3 Arguments
+
+=head4 $before
+
+Text before the first percent: "carotte"
+
+=head4 $words
+
+Words between the 2 percents: "oignon"
+
+=head3 Return value
+
+1 if a separator is missing after the first percent, 0 otherwise.
+
+=cut
+
+# words that start or end a description of the percent, not an ingredient:
+# "lait 3,5% de matière grasse", "fraise 50% ou abricot 50%", "lait écrémé à 1,4% de matière grasse"
+my $missing_separator_connectors
+	= "de|du|des|d|dont|ou|et|and|or|of|with|avec|soit|min|minimum|max|maximum|à|a|au|aux|en|in|at";
+
+# contents of the ingredient before the percent: "lait entier 3,5% matière grasse 90%"
+my $missing_separator_contents = 'mati[èe]res?\s+grasses?|m\.?\s?g\.?|fat|mati[èe]res?\s+s[èe]ches?|extrait sec'
+	. '|dry matter|(?:milk |cocoa |non-fat )?solids|prot[ée]ines?|proteins?';
+
+# cocoa content of chocolate: "chocolat noir 70% cacao 20%" (but "lait anhydre 21,8% cacao 10,9%" are 2 ingredients)
+my $missing_separator_cocoa = 'cacao|cocoa|cocoa solids';
+
+sub is_missing_separator_between_percents ($ingredients_lc, $before, $words) {
+
+	return 0 if $words =~ /^(?:$missing_separator_connectors)(?:\s|'|$)|\s(?:$missing_separator_connectors)$/i;
+	return 0 if $words =~ /^(?:$missing_separator_contents)$/i;
+
+	# last ingredient before the first percent
+	my ($ingredient_before) = ($before =~ /([^,;()\[\]]*)$/);
+	return 0 if (($words =~ /^(?:$missing_separator_cocoa)$/i) and ($ingredient_before =~ /chocola|cocoa|cacao/i));
+
+	return exists_taxonomy_tag("ingredients", canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $words))
+		? 1
+		: 0;
+}
+
 =head2 preparse_ingredients_text ($ingredients_lc, $text) - normalize the ingredient list to make parsing easier
 
 This function transform the ingredients list in a more normalized list that is easier to parse.
@@ -7801,11 +8132,45 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 		$text =~ s/($and_or)(?!($and_without_spaces |\d|$separators))/$and/ig;
 	}
 
+	# superscript parentheses used as footnote markers: "extrait de thé vert⁽¹⁾" -> "extrait de thé vert(1)"
+	$text =~ s/\N{U+207D}\s*([\N{U+00B9}\N{U+00B2}\N{U+00B3}\N{U+2070}\N{U+2074}-\N{U+2079}]+|[0-9]+|\*+)\s*\N{U+207E}/
+		my $s = $1; $s =~ tr{\N{U+2070}\N{U+00B9}\N{U+00B2}\N{U+00B3}\N{U+2074}-\N{U+2079}}{0-9}; "($s)"/eg;
+
 	$text =~ s/\&quot;/"/g;
 	$text =~ s/\&lt;/</g;
 	$text =~ s/\&gt;/>/g;
 	$text =~ s/\&apos;/'/g;
+	$text =~ s/\&nbsp;/ /g;
+	$text =~ s/\&#(?:39|x27);/'/gi;
+	$text =~ s/\&#(?:34|x22);/"/gi;
+	# HTML entities mangled by an import where & and ; became commas:
+	# "farina di grano tenero tipo ,quot,0,quot," -> "farina di grano tenero tipo "0""
+	# "zucchero ,lt,1%" -> "zucchero <1%"
+	# Only the exact tokens, and < > only before a number.
+	$text =~ s/,quot,/"/g;
+	$text =~ s/,apos,/'/g;
+	$text =~ s/,amp,/&/g;
+	$text =~ s/,lt,(?=\s*\d)/</g;
+	$text =~ s/,gt,(?=\s*\d)/>/g;
+
+	# Subscript digits to ASCII digits: "Vitamine (B₁, B₂, B₁₂, D₃)" -> "Vitamine (B1, B2, B12, D3)"
+	# (superscript digits are not converted: they are often footnote markers, as in "sucre¹")
+	$text =~ tr/\x{2080}-\x{2089}/0-9/;
+
+	# last, so that "&amp;lt;" is decoded once to "&lt;" and not to "<"
+	$text =~ s/\&amp;/&/g;
 	$text =~ s/’/'/g;
+
+	# GMO threshold, not a percent of the ingredient:
+	# "Jambon de porc issu d'animaux nourris sans OGM (< 0,9%)" -> "... nourris sans OGM"
+	$text =~ s/\b(OGM|GMOs?|OGG|GVO)\s*(?:\(\s*<\s*\d+(?:[,.]\d+)?\s*%\s*\)|<\s*\d+(?:[,.]\d+)?\s*%)/$1/ig;
+
+	# missing separator between ingredients with percents:
+	# "carotte 23,4% oignon 9,9%, chou-fleur 9,9%" -> "carotte 23,4%, oignon 9,9%, chou-fleur 9,9%"
+	$text
+		=~ s/(?:(?<=[[:alpha:]*)\]]\s)|(?<=[[:alpha:]*)\]]))(\d+(?:[,.]\d+)?\s*%)\s+([[:alpha:]][^,;.()\[\]{}:%\d*\/-]*?)(?=\s*\d+(?:[,.]\d+)?\s*%)/
+		my ($matched, $before, $percent, $words) = ($&, $`, $1, $2);
+		is_missing_separator_between_percents($ingredients_lc, $before, $words) ? "$percent, $words" : $matched/ge;
 
 	# remove urls: "Bilan massique certifié Rainforest Alliance www.ra.org/fr"
 	$text =~ s/\b(?:https?:\/\/|www\.)[^\s,;()]*[^\s,;().]//ig;
@@ -7833,6 +8198,19 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# Misspelling corrections (applied early so they don't interfere with other normalizations)
 	apply_misspelling_replacements("ingredients", $ingredients_lc, \$text);
 
+	# Fractions at the start of an ingredient, as in cooking recipes:
+	# "½ litre de lait", "1/2 cuillère à café de sel", "1 1/2 tasse de farine" -> "0.5 litre de lait"
+	# Only at the start of an ingredient, so that "lait 1/2 écrémé" is kept.
+	$text
+		=~ s{(^|[,;\n]\s*)($fraction_regexp)(?=\s|\p{L})}{$1 . (round_to_max_decimal_places(scalar convert_fraction_to_number($2), 2) // $2)}eg;
+
+	# Ranges in cooking recipes in French
+	if ($ingredients_lc eq 'fr') {
+		# Ranges: "2 à 3 gousses d'ail", "2 ou 3 œufs" -> "2-3 gousses d'ail" (ranges with an hyphen are already parsed)
+		# Not after a letter, to keep "E330 ou 331"
+		$text =~ s/(?<![\w,.])(\d+(?:[,.]\d+)?)\s+(?:à|ou)\s+(\d+(?:[,.]\d+)?)(?=\s)/$1-$2/g;
+	}
+
 	# Remove _ underscores around allergens, e.g. "_milk_" -> "milk"
 	remove_underscores_around_allergens($ingredients_lc, \$text);
 
@@ -7851,7 +8229,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/(\d| )g(\*)/$1g/ig;
 
 	# transform 0,2% into 0.2%
-	$text =~ s/(\d),(\d+)( )?(\%|g\b)/$1.$2\%/ig;
+	# but not a concentration: "Extraktgehalt: 1,2 g/l" must not become "1.2%/l"
+	# (per 100 g / 100 ml is a percentage: "Fruchtgehalt: 45,5 g/100 g" -> 45.5%)
+	$text =~ s/(\d),(\d+)( )?(\%|g\b(?!\s*[\/\N{U+2044}\N{U+FF0F}](?!\s*100\s*(?:g|ml)\b)))/$1.$2\%/ig;
 	$text =~ s/—/-/g;
 	# transform 0,1-0.2% into 0.1-0.2%
 	$text =~ s/(\d),(\d+( )?-( )?\d)/$1.$2/ig;
@@ -7862,9 +8242,18 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 			foreach my $abbreviation_ref (@{$abbreviations{$abbreviations_lc}}) {
 				my $source = $abbreviation_ref->[0];
 				my $target = $abbreviation_ref->[1];
-				$source =~ s/\. /(\\.| |\\. )/g;
-				if ($source =~ /\.$/) {
-					$source =~ s/\.$/(\\. | |\\.)/;
+				# A dot followed by a space matches ". ", "." or " ", other dots match "." or ". "
+				# "c. à s." matches "c. à s.", "c.à s." and "c à s", "c.s." matches "c.s." and "c. s."
+				my $trailing_dot = ($source =~ s/\.$//);
+				$source = join(
+					'(?:\\.| |\\. )',
+					map {
+						join('\\. ?', map {quotemeta} split(/\./, $_, -1))
+					} split(/\. /, $source, -1)
+				);
+				# A trailing dot matches ". ", " " or "."
+				if ($trailing_dot) {
+					$source .= '(?:\\. | |\\.)';
 					$target .= " ";
 				}
 				# also allow a separator after the abbreviation, e.g. "Parmigiano Reggiano g.U., Salz"
@@ -8091,23 +8480,14 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text
 		=~ s/\b(e|[1-9][ab])(\d{3,4})([a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/normalize_additive_code($1,$2,$3,$4,$&)/ieg;
 
-	# stabilisant e420 (sans : ) -> stabilisant : e420
-	# but not acidifier (pectin) : acidifier : (pectin)
-
-	# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
-	# warning: the additive class may also be the start of the name of an additive.
-	# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
-	if (defined $additives_classes_regexps{$ingredients_lc}) {
-		my $regexp = $additives_classes_regexps{$ingredients_lc};
-		# negative look ahead so that the additive class is not preceded by other words
-		# e.g. "de l'acide" should not match "acide"
-		my $separate_additive_class_regexp = compiled_regexp('(?<!\w( |\'))\b(' . $regexp . ')(\s+)(:?)(?!\(| \()');
-		$text =~ s/$separate_additive_class_regexp/separate_additive_class($ingredients_lc,$2,$3,$4,$')/eg;
-	}
-
 	# dash with 1 missing space
 	$text =~ s/(\w)- /$1 - /ig;
 	$text =~ s/ -(\w)/ - $1/ig;
+	# a dash before "and" stands for the shared end of two compound words, it is not a separator:
+	# "lõhna - ja maitseaine" -> "lõhna- ja maitseaine"
+	if ($ingredients_lc eq "et") {
+		$text =~ s/(\p{L}) - ((?:$and_without_spaces)\s)/$1- $2/ig;
+	}
 
 	# mono-, di-, tri-, tetra- and poly- prefixes followed by "and" and another prefix:
 	# "mono - et diglycérides", "mono-et diglycérides", "di - et triphosphates", "tri - and dicalcium phosphate"
@@ -8127,6 +8507,22 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# only before words of 4+ letters, so that we do not join "and" words of other languages ("mono - und")
 	# or "di-t-butyl"
 	$text =~ s/\b(mono|di)\s?-\s?(\p{L}{4})/$1$2/ig;
+
+	# stabilisant e420 (sans : ) -> stabilisant : e420
+	# but not acidifier (pectin) : acidifier : (pectin)
+	# This is done after the normalization of mono-, di- prefixes above, so that the additive that follows
+	# the class is recognized: "Emulgator Mono - und Diglyceride" -> "Emulgator : Mono- und Diglyceride"
+
+	# additive class + additive (e.g. "colour caramel" -> "colour : caramel"
+	# warning: the additive class may also be the start of the name of an additive.
+	# e.g. "regulatory kwasowości: kwas cytrynowy i cytryniany sodu." -> "kwas" means acid / acidifier.
+	if (defined $additives_classes_regexps{$ingredients_lc}) {
+		my $regexp = $additives_classes_regexps{$ingredients_lc};
+		# negative look ahead so that the additive class is not preceded by other words
+		# e.g. "de l'acide" should not match "acide"
+		my $separate_additive_class_regexp = compiled_regexp('(?<!\w( |\'))\b(' . $regexp . ')(\s+)(:?)(?!\(| \()');
+		$text =~ s/$separate_additive_class_regexp/separate_additive_class($ingredients_lc,$2,$3,$4,$')/eg;
+	}
 
 	# acide gras -> acides gras
 	$text =~ s/acide gras/acides gras/ig;
@@ -8316,7 +8712,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 			# we need a negative look ahead (?!\)) to make sure we match (*) completely (otherwise we would match *)
 			# we use (\b|\s) before and after the symbol, to make sure we don't match a symbol that is part of another symbol
 			# e.g. * in **
-			if ($text =~ /^(.*)(\b|\s)(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*(\b|\s)/i) {
+			if ($text =~ /^(.*)(\b|\s|(?<=[,;.]))(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*(\b|\s)/i) {
 				my $after = $';
 				#print STDERR "symbol: $symbol - after: $after\n";
 				foreach my $labelid (@labels) {
@@ -8328,7 +8724,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 						if ($after =~ /^($regexp)\b\s*(\([^\)]+\))?\s*\.?\s*/i) {
 							my $label = $1;
 							$text
-								=~ s/^(.*)(\b|\s)(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*(\b|\s)$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
+								=~ s/^(.*)(\b|\s|(?<=[,;.]))(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*(\b|\s)$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
 							my $ingredients_lc_label = display_taxonomy_tag($ingredients_lc, "labels", $labelid);
 							# We don't want to match * in ** or ° in °° but we want to match them in *°
 							my $not_char_from_matched_symbol = '.';
