@@ -2,8 +2,8 @@
 
 [% banner_main = BLOCK %]
 
+[% IF "off_days_2026" == "off_days_2026_deactivated" %]
 <!-- Open Food Facts Days 2026 start -->
-[% IF "off_days_2026" == "off_days_2026" %]
 <section id="off-days-2026-banner" class="off-days-2026">
   [% IF lc == "fr" %]
     [% off_days_link = "https://connect.openfoodfacts.org/fr/event/journees-open-food-facts-2026-36/register" %]

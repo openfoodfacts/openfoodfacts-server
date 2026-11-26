@@ -104,6 +104,7 @@
          "distribution" : "ambient",
          "ingredients" : [],
          "ingredients_coverage_percent" : 0,
+         "ingredients_total_mass" : 0,
          "packaging_skip_reason" : "unknown_product_quantity",
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
@@ -111,10 +112,14 @@
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : []
+            "components" : [],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       },
       "ecobalyse_skip_reason" : "insufficient_ingredients_coverage",
       "ecobalyse_skipped" : 1
@@ -1096,7 +1101,7 @@
             {
                "element_type" : "text",
                "text_element" : {
-                  "html" : "\nVous avez rencontré un problème avec ce produit : <b>étiquetage non conforme, produit périmé encore en vente,\nprésence d'un corps étranger, etc.</b> ?<br>\nFaites un signalement à l'entreprise et à la répression des fraudes sur <a href=\"https://signal.conso.gouv.fr/fr/alimentaire-codebarres/faire-un-signalement?gtin=&utm_source=openfoodfacts&utm_campaign=product_page_panel\">SignalConso</a>,\nun outil de la Direction générale de la concurrence, de la consommation et de la répression des fraudes (DGCCRF).\n                "
+                  "html" : "\nVous avez rencontré un problème avec ce produit : <b>étiquetage non conforme, produit périmé encore en vente,\nprésence d'un corps étranger, etc.</b> ?<br>\nFaites un signalement à l'entreprise et à la répression des fraudes sur <a href=\"https://signal.conso.gouv.fr/fr/alimentaire-codebarres/faire-un-signalement?gtin=&utm_source=openfoodfacts&utm_campaign=product_page_panel\" onclick=\"if (window._paq) { window._paq.push(['trackEvent', 'SignalConso', 'click']); }\">SignalConso</a>,\nun outil de la Direction générale de la concurrence, de la consommation et de la répression des fraudes (DGCCRF).\n                "
                }
             },
             {

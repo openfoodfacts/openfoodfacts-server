@@ -274,30 +274,34 @@ sub send_email_to_admin ($subject, $text) {
 
 =head1 FUNCTIONS
 
-=head2 send_email_to_producers_admin( SUBJECT, TEXT )
+=head2 send_email_to_producers_admin( SUBJECT, TEXT, [ REPLY_TO ] )
 
 C<send_email_to_producers_admin()> sends email from the contact email of Open Food Facts to producers admin.
 
 =head3 Arguments
 
 Two scalar variables that contain the email subject and body are passed as an argument.
+An optional third argument contains the reply-to email address.
 
 =head3 Return Values
 
 The function returns a 1 or 0 depending on the evaluation of email sent or not.
 
 If the function catches any error during evaluation it returns 1 indicating an error.
-On the other hand, if there was no error, it returns 1 indicating that email has sent successfully.
+On the other hand, if there was no error, it returns 0 indicating that the email has been sent successfully.
 
 =cut
 
-sub send_email_to_producers_admin ($subject, $text) {
+sub send_email_to_producers_admin ($subject, $text, $reply_to = undef) {
 	my $mail
 		= Email::Stuffer->from($options{site_name} . " <$contact_email>")
-		->to($options{site_name} . " <$producers_email>")
-		->subject($subject)
-		->text_body($text)
-		->html_body($text);
+		->to($options{site_name} . " <$producers_email>");
+
+	if ($reply_to) {
+		$mail->reply_to($reply_to);
+	}
+
+	$mail->subject($subject)->text_body($text)->html_body($text);
 
 	return _send_email($mail);
 }

@@ -226,7 +226,8 @@ sub upload_product_image_api ($request_ref) {
 				redirect_to_url($request_ref, 307,
 						  format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
 						. '/api/v3/product/'
-						. $code);
+						. $code
+						. '/images');
 			}
 		}
 

@@ -250,7 +250,7 @@
       {
          "attributes" : [
             {
-               "description" : "",
+               "description" : "La catégorie du produit doit être spécifiée pour déterminer le groupe NOVA.",
                "description_short" : "Degré de transformation des aliments inconnu",
                "grade" : "unknown",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-unknown.svg",
@@ -423,33 +423,77 @@
                "name" : "farine de maïs"
             },
             {
-               "ecobalyse_name" : "Sel -2025-",
-               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "ecobalyse_name" : "Huile de colza par défaut -2025-",
+               "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+               "mass" : 16.6666666666667,
+               "name" : "huiles végétales"
+            },
+            {
+               "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
+               "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
                "mass" : 16.6666666666667,
                "name" : "sel"
             }
          ],
-         "ingredients_coverage_percent" : 83,
+         "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100.0,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "7d5afd1c-43b6-4540-8451-714369091add",
-                  "mass" : 66.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.066667,
+                        "material" : {
+                           "id" : "7d5afd1c-43b6-4540-8451-714369091add"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "farine de maïs",
+                  "quantity" : 1
                },
                {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 16.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.016667,
+                        "material" : {
+                           "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "huiles végétales",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.016667,
+                        "material" : {
+                           "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "sel",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
    },
    "environmental_score_data" : {
       "adjustments" : {
@@ -731,6 +775,8 @@
       },
       {
          "ciqual_food_code" : "17001",
+         "ecobalyse_proxy_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "ecobalyse_proxy_name" : "Huile de colza par défaut -2025-",
          "from_palm_oil" : "maybe",
          "id" : "en:vegetable-oil",
          "is_in_taxonomy" : 1,
@@ -744,8 +790,8 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-         "ecobalyse_name" : "Sel -2025-",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -797,10 +843,8 @@
    "ingredients_with_unspecified_percent_sum" : 100.0,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:vegetable-oil"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 3,
    "languages" : {},
    "languages_codes" : {},
@@ -811,8 +855,8 @@
    "lc" : "fr",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:ecobalyse-api-skipped",
-      "en:ecobalyse-ingredients-matched-between-80-and-89",
+      "en:ecobalyse-api-not-called",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
       "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",

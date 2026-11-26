@@ -391,13 +391,16 @@ if ($action eq 'display') {
 		if ((not defined $tags_fields{$field}) and (lang($field) ne '')) {
 			$label = lc(lang($field));
 		}
+		elsif (lang($field) ne '') {
+			# Use the same wording as the product edit form
+			$label = lang($field);
+		}
+		elsif ($field eq 'creator') {
+			$label = ucfirst(lang("users_p"));
+		}
 		else {
-			if ($field eq 'creator') {
-				$label = lang("users_p");
-			}
-			else {
-				$label = lang($field . "_p");
-			}
+			# No edit form string for this criterion: use the plural form, capitalized
+			$label = ucfirst(lang($field . "_p"));
 		}
 		push(
 			@tags_fields_options,

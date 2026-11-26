@@ -47,6 +47,11 @@ my $import_args_ref = {
 	user_id => "test",
 	csv_file => dirname(__FILE__) . "/inputs/export/products.csv",
 	no_source => 1,
+	# The CSV is the file our own exporter produces (include_images_paths): it carries the
+	# local paths of the image files to import. Those paths live outside the images roots,
+	# so allow local paths for this import, restricted to the directory that holds them.
+	allow_local_image_paths => 1,
+	images_download_dir => dirname(__FILE__) . "/inputs/sample-products-images",
 };
 
 my $stats_ref = import_csv_file($import_args_ref);

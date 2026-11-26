@@ -8,7 +8,10 @@
     "../docker/devcontainer.yml"
   ],
   "containerEnv": {
-    "HOME": "/tmp"
+    "HOME": "/tmp",
+    "PO_AGENT_ID": "${localEnv:PO_AGENT_ID}",
+    "PO_AGENT_PREFIX": "${localEnv:PO_AGENT_PREFIX}",
+    "PO_AGENT_SUFFIX": "${localEnv:PO_AGENT_SUFFIX}"
   },
   "capAdd": [
     "SYS_PTRACE"

@@ -48,8 +48,12 @@
       & li.back h5 a:hover {
         text-decoration: none;
       }
+      & li.back h5 > a {
+        display: flex;
+        align-items: center;
+      }
       & li.back h5 > a::before {
-        display: block;
+        display: inline-block;
         // there's no generic/fallback font which exist for icon font, so I used 'fantasy'
         font-family: "Material Icons", fantasy;
         content: "\e5c4";
