@@ -457,7 +457,9 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 
 		# Generates the nutrition sets
 		# Nutrition data did not have a source before, we use the default source corresponding to the site (off or off-pro) and organization
-		my $source = get_source_for_site_and_org();
+		my $org_id;
+		$org_id = $product_ref->{'owner_id'} if $server_options{producers_platform};
+		my $source = get_source_for_site_and_org($org_id);
 		foreach my $set_type (keys %$new_nutrition_sets_ref) {
 			$new_nutrition_sets_ref->{$set_type}{preparation} = $nutrition_preparations_ref->{$set_type}{state};
 			$new_nutrition_sets_ref->{$set_type}{source} = $source;
@@ -928,7 +930,9 @@ sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
 	$product_ref->{tags_sources} = {};
 
 	# Tags did not have a source before, we use the default source corresponding to the site (off or off-pro) and organization
-	my $source = get_source_for_site_and_org();
+	my $org_id;
+	$org_id = $product_ref->{'owner_id'} if $server_options{producers_platform};
+	my $source = get_source_for_site_and_org($org_id);
 
 	# We go through the input tags fields (e.g. categories, labels) that can be written directly
 	# and that are not derived from other fields (e.g. states_tags, ingredients_tags)
