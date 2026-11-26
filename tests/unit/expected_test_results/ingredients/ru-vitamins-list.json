@@ -1,0 +1,127 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "en:vitamins",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 58.3333333333333,
+         "percent_max" : 100,
+         "percent_min" : 16.6666666666667,
+         "text" : "витамины",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:vitamin-b6",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 20.8333333333333,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "витамин B6",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:vitamin-b12",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10.4166666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "витамин B12",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:vitamins",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.20833333333333,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "витамины",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cholecalciferol",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "витамин d3",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:cholecalciferol",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "витамин d3",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:cholecalciferol",
+         "en:cholecalciferol"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:cholecalciferol",
+         "en:cholecalciferol"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_lc" : "ru",
+   "ingredients_n" : 6,
+   "ingredients_n_tags" : [
+      "6",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:vitamins",
+      "en:vitamin-b6",
+      "en:vitamin-b12",
+      "en:vitamins",
+      "en:cholecalciferol",
+      "en:cholecalciferol"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:vitamins",
+      "en:vitamin-b6",
+      "en:vitamin-b12",
+      "en:cholecalciferol",
+      "en:vitamin-d"
+   ],
+   "ingredients_text" : "витамины (B6, B12), витамин d3, d3",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 6,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:cholecalciferol",
+      "en:vitamin-b12",
+      "en:vitamin-b6",
+      "en:vitamins"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:cholecalciferol",
+      "en:vitamin-b12",
+      "en:vitamin-b6",
+      "en:vitamins"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 6,
+   "lc" : "ru",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}
