@@ -1,0 +1,56 @@
+# Tags rules for meals and dishes. See docs/dev/explain-tags-rules.md for the format.
+#
+# Incompatible categories (e.g. fresh / instant mashed potatoes) are set with incompatible_with:en in
+# taxonomies/food/categories.txt: rules never add a category that is incompatible with another one.
+
+- id: mashed-potatoes-fresh
+  description: Mashed potatoes made from potatoes, not from flakes or dehydrated potatoes (FoodEx2 A0C6K)
+  # Instant mashed potatoes often list only "potatoes" (dehydrated), emulsifiers, antioxidants and sulphites:
+  # require milk, cream or butter, and exclude milk powder and sulphites.
+  if:
+    categories: en:mashed-potatoes
+    ingredients:
+      first: en:potato
+      contains: [en:milk, en:cream, en:butter]
+  unless:
+    - ingredients:
+        contains: [en:potato-flakes, en:milk-powder, en:e220, en:e221, en:e222, en:e223, en:e224, en:e450]
+    - categories: en:dried-products-to-be-rehydrated
+    # Dehydrated potatoes are parsed as en:potato with a processing (e.g. "Kartoffeln getrocknet",
+    # also in compound words: "Sahnepulver" is en:cream with en:powder)
+    - ingredients:
+        processing: [en:dehydrated, en:flakes, en:powder, en:dried]
+    - name:
+        ingredients_processing: [en:dehydrated, en:flakes, en:powder]
+        categories: en:instant-mashed-potatoes
+        languages: any
+  add:
+    categories: en:fresh-mashed-potatoes
+  tests:
+    match:
+      - categories: [en:mashed-potatoes]
+        ingredients: [{id: en:potato, percent: 80}, en:milk, en:butter, en:salt]
+        ingredients_text_fr: Pommes de terre 80%, lait, beurre, sel
+      - categories: [en:frozen-mashed-potatoes]
+        ingredients: [en:potato, en:cream, en:salt]
+    no_match:
+      # Instant mashed potatoes with only "potatoes" in the ingredients
+      - categories: [en:mashed-potatoes]
+        ingredients: [en:potato, en:emulsifier, en:antioxidant, en:e223, en:turmeric]
+      - categories: [en:mashed-potatoes]
+        ingredients: [en:potato, en:fat, en:skimmed-milk-powder]
+      - categories: [en:mashed-potatoes]
+        ingredients: [en:potato-flakes, en:milk]
+      # Pommes de terre déshydratées
+      - categories: [en:mashed-potatoes]
+        ingredients: [{id: en:potato, processing: en:dehydrated}, en:milk]
+      # Sahnepulver
+      - categories: [en:mashed-potatoes]
+        ingredients: [en:potato, en:milk, {id: en:cream, processing: en:powder}]
+      - categories: [en:mashed-potatoes]
+        ingredients: [en:potato, en:milk]
+        product_name_fr: Purée en flocons
+      - categories: [en:mashed-potatoes, en:instant-mashed-potatoes]
+        ingredients: [en:potato, en:milk]
+      - categories: [en:mashed-potatoes]
+        ingredients: [en:water, en:potato, en:milk]

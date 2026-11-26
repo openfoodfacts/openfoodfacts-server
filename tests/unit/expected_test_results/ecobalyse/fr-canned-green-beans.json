@@ -40,127 +40,85 @@
                "name" : "eau"
             },
             {
-               "ecobalyse_name" : "Sel -2025-",
-               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
+               "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
                "mass" : 16.6666666666667,
                "name" : "sel"
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
          "packaging_skip_reason" : "unknown_product_quantity",
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g",
-         "transform" : {
-            "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
-            "mass" : 100,
-            "name" : "Canning fruits or vegetables, industrial, 1kg of canned product {FR} U",
-            "name_fr" : "Mise en conserve"
-         }
+         "transformations" : [
+            {
+               "id" : "b797d2cc-1ecb-4fa0-b049-48b44a88e283",
+               "name" : "Canning",
+               "name_fr" : "Mise en conserve"
+            }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788",
-                  "mass" : 66.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.066667,
+                        "material" : {
+                           "id" : "a0d6909b-13ad-5ef5-bdbe-ecfbdc2c4788"
+                        },
+                        "transforms" : [
+                           "b797d2cc-1ecb-4fa0-b049-48b44a88e283"
+                        ]
+                     }
+                  ],
+                  "name" : "haricots verts",
+                  "quantity" : 1
                },
                {
-                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 16.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.016667,
+                        "material" : {
+                           "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
+                        },
+                        "transforms" : [
+                           "b797d2cc-1ecb-4fa0-b049-48b44a88e283"
+                        ]
+                     }
+                  ],
+                  "name" : "eau",
+                  "quantity" : 1
                },
                {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-                  "mass" : 16.6666666666667
+                  "elements" : [
+                     {
+                        "amount" : 0.016667,
+                        "material" : {
+                           "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3"
+                        },
+                        "transforms" : [
+                           "b797d2cc-1ecb-4fa0-b049-48b44a88e283"
+                        ]
+                     }
+                  ],
+                  "name" : "sel",
+                  "quantity" : 1
                }
             ],
-            "transform" : {
-               "id" : "a83c94af-6e31-5599-8022-7ae795862a99",
-               "mass" : 100
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
             }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
       },
-      "ecobalyse_response" : {
-         "results" : {
-            "distribution" : {
-               "total" : {
-                  "ecs" : 0.197146
-               },
-               "transports" : {
-                  "air" : 0,
-                  "impacts" : {
-                     "ecs" : 1.33616
-                  },
-                  "road" : 0,
-                  "roadCooled" : 600,
-                  "sea" : 0,
-                  "seaCooled" : 0
-               }
-            },
-            "packaging" : {
-               "ecs" : 0
-            },
-            "perKg" : {
-               "ecs" : 177.329
-            },
-            "preparation" : {
-               "ecs" : 0
-            },
-            "preparedMass" : 0.0933333,
-            "recipe" : {
-               "ingredientsTotal" : {
-                  "ecs" : 4.99427
-               },
-               "total" : {
-                  "ecs" : 15.0174
-               },
-               "totalBonusImpact" : {
-                  "cropDiversity" : 0,
-                  "hedges" : -0.000112,
-                  "permanentPasture" : 0,
-                  "plotSize" : -0.00132
-               },
-               "transform" : {
-                  "ecs" : 1.954
-               },
-               "transports" : {
-                  "air" : 0,
-                  "impacts" : {
-                     "ecs" : 8.06911
-                  },
-                  "road" : 3320,
-                  "roadCooled" : 2660,
-                  "sea" : 0,
-                  "seaCooled" : 18000
-               }
-            },
-            "scoring" : {
-               "all" : 177.329,
-               "biodiversity" : 76.8885,
-               "climate" : 39.9838,
-               "health" : 21.5421,
-               "resources" : 38.9194
-            },
-            "total" : {
-               "ecs" : 16.5507
-            },
-            "totalMass" : 0.0933333,
-            "transports" : {
-               "air" : 0,
-               "impacts" : {
-                  "ecs" : 9.40527
-               },
-               "road" : 3320,
-               "roadCooled" : 3260,
-               "sea" : 0,
-               "seaCooled" : 18000
-            }
-         }
-      },
-      "ecs_per" : "100g",
-      "ecs_per_100g_or_100ml" : 16.5507
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
@@ -192,8 +150,8 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-         "ecobalyse_name" : "Sel -2025-",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,
@@ -245,8 +203,7 @@
       "en:estimated-ingredients-with-product-opener",
       "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
-      "en:ecobalyse-api-called",
-      "en:ecobalyse-api-success"
+      "en:ecobalyse-api-not-called"
    ],
    "testid" : "fr-canned-green-beans",
    "unknown_ingredients_n" : 0

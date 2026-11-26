@@ -4583,8 +4583,10 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		}
 
 		# Assign a ecobalyse_id or a ecoalyse_proxy_code to the ingredient
-		delete $ingredient_ref->{ecobalyse_id};
-		delete $ingredient_ref->{ecobalyse_proxy_id};
+		# (remove the previous match, including its name and unit, as the new match may not have them)
+		foreach my $prefix ("ecobalyse", "ecobalyse_proxy") {
+			delete $ingredient_ref->{$prefix . $_} for qw(_id _name _unit);
+		}
 
 		# We are now looking for the appropriate ecobalyse id :
 		# ecobalyse_origins_france_labels_organic (if the product comes from france, and is organic)
@@ -4690,6 +4692,9 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 				# Also retrieve the corresponding French display name, from the same taxonomy level
 				my $ecobalyse_name = get_property("ingredients", $matching_tagid, $prefix . $suffix . "_name:fr");
 				$ingredient_ref->{$prefix . "_name"} = $ecobalyse_name if defined $ecobalyse_name;
+				# and the unit, only for ingredients that are not in kg (e.g. L for spring water and wine)
+				my $ecobalyse_unit = get_property("ingredients", $matching_tagid, $prefix . $suffix . "_unit:en");
+				$ingredient_ref->{$prefix . "_unit"} = $ecobalyse_unit if defined $ecobalyse_unit;
 				last;
 			}
 			# Exit the loop if a valid ecobalyse code was found
@@ -8476,6 +8481,11 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# dash with 1 missing space
 	$text =~ s/(\w)- /$1 - /ig;
 	$text =~ s/ -(\w)/ - $1/ig;
+	# a dash before "and" stands for the shared end of two compound words, it is not a separator:
+	# "lõhna - ja maitseaine" -> "lõhna- ja maitseaine"
+	if ($ingredients_lc eq "et") {
+		$text =~ s/(\p{L}) - ((?:$and_without_spaces)\s)/$1- $2/ig;
+	}
 
 	# mono-, di-, tri-, tetra- and poly- prefixes followed by "and" and another prefix:
 	# "mono - et diglycérides", "mono-et diglycérides", "di - et triphosphates", "tri - and dicalcium phosphate"
