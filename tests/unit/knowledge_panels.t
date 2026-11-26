@@ -272,9 +272,9 @@ foreach my $test_ref (@tests) {
 	my $anses_source_url
 		= "https://www.anses.fr/fr/content/rapport-oqali-bilan-et-%C3%A9volution-de-lutilisation-des-additifs-dans-les-produits-transform%C3%A9s";
 	my $e100_elements_ref = $product_ref->{knowledge_panels_en}{"additive_en:e100"}{elements};
-	is(scalar @$e100_elements_ref, 1, "flagged additive has only the ANSES element");
+	is(scalar @$e100_elements_ref, 2, "flagged additive has the functions and ANSES elements");
 	is(
-		$e100_elements_ref->[0]{text_element},
+		$e100_elements_ref->[1]{text_element},
 		{
 			html =>
 				"The French food safety agency (ANSES) lists this additive among the additives that should be monitored. Additives on this list meet at least one of these criteria: some people may consume more than the acceptable daily intake; there is no legal maximum amount in foods; the acceptable daily intake was lowered after a recent re-evaluation; or the additive can be present as nanoparticles. Being on this list does not mean the additive is unsafe at usual levels of consumption.",
@@ -303,6 +303,34 @@ foreach my $test_ref (@tests) {
 	is(get_property("additives", "en:e450", "anses_additives_of_interest:en"), "yes", "flag on the parent");
 	is(get_property("additives", "en:e450iv", "anses_additives_of_interest:en"),
 		undef, "flag not inherited by the child");
+
+	like(
+		$e100_elements_ref->[0]{text_element}{html},
+		qr{<strong>Functions</strong>:</p>\n<ul>\n<li><strong>Colour</strong>: \S.*</li>\n</ul>},
+		"additive lists its function with its purpose"
+	);
+}
+
+# Additive functions come from the additive's own entry, else from its parent
+{
+	my $product_ref = {lc => "en", ingredients_text => "sugar, colour: e100i, stabiliser: e450iv"};
+	analyze_and_enrich_product_data($product_ref, get_initialized_response());
+	my $options_ref = {};
+	initialize_knowledge_panels_options($options_ref, {});
+	create_knowledge_panels($product_ref, "en", "world", $options_ref, {});
+	my %functions = map {
+		my $id = $_;
+		$id => [map {$_->{text_element}{html} =~ m{<li><strong>([^<]+)</strong>}g}
+				@{$product_ref->{knowledge_panels_en}{"additive_$id"}{elements} // []}]
+	} ("en:e100i", "en:e450iv");
+	is(
+		\%functions,
+		{
+			"en:e100i" => ["Colour"],
+			"en:e450iv" => ["Emulsifier", "Humectant", "Sequestrant", "Stabiliser", "Thickener"],
+		},
+		"own functions, or the parent's when the additive has none"
+	);
 }
 
 # The root panel lists ingredients and nutrition first only when the option is set
