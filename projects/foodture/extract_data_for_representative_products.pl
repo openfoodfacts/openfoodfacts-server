@@ -34,10 +34,12 @@ use LWP::UserAgent;
 use JSON::MaybeXS;
 use Text::CSV;
 use Text::CSV_XS;
+use Getopt::Long;
 
 # This script:
 # - reads a list of categories (and other columns) from projects/foodture/foodture_foodex2_categories_mapping_to_off.csv
 # - reads a list of most scanned products by country and category from projects/foodture/ranked_products_202602231414.csv
+# (from off-query) or from the file given with --ranked-file (made by select_representative_products.pl)
 # - for each product matching a category from the first list and 1 country from the EU27
 # + Norway, Switzerland, UK, Serbia and Montenegro),
 # we fetch its data directly from the products folder
@@ -84,6 +86,23 @@ my %countries_names = map {
 } @countries;
 my @countries_tags = sort keys %countries_names;
 
+my $ranked_file = "projects/foodture/ranked_products_202602231414.csv";
+my $out_file = "projects/foodture/representative_products.csv";
+my $ingredients_file = "projects/foodture/ingredients_sum.csv";
+my $only_output_codes = 0;
+
+GetOptions(
+	"ranked-file=s" => \$ranked_file,
+	"output=s" => \$out_file,
+	"ingredients-output=s" => \$ingredients_file,
+	"only-output-codes" => \$only_output_codes,
+	)
+	or die
+	"Usage: $0 [--ranked-file <file.csv>] [--output <file.csv>] [--ingredients-output <file.csv>] [--only-output-codes]\n";
+
+# Years of scans to output
+my @scan_years = (2021 .. 2026);
+
 # Languages to output ingredients in
 my @ingredient_languages = qw/en fr/;
 
@@ -127,6 +146,35 @@ sub decide_if_we_should_refetch_product {
 	return 0;
 }
 
+# Canonicalize a taxonomy tag that is supposed to be already canonical (e.g. coming from
+# an export file or from stored product data), as the taxonomy may have changed since:
+# entries can be renamed (e.g. en:chewing-gum -> en:chewing-gums), or get an English name
+# (e.g. fr:boudins -> en:boudins). Old tags are kept as synonyms, so they still resolve.
+# Returns the canonical tag, and whether it exists in the taxonomy.
+sub recanonicalize_tag ($tagtype, $tag) {
+	return ($tag, 0) if (not defined $tag) or ($tag eq '');
+	my $exists_in_taxonomy = 0;
+	my $canonical_tag = canonicalize_taxonomy_tag('en', $tagtype, $tag, \$exists_in_taxonomy);
+	return ($canonical_tag, $exists_in_taxonomy ? 1 : 0);
+}
+
+# Languages to try when matching category names from the mapping file:
+# the "Segmentation OFF" column contains display names of OFF categories, which are
+# in English when the category has an English name, and in another language otherwise
+# (e.g. "Boudins", "Merguez", "Mortadella Bologna", "Данбо")
+my @category_name_languages = qw/en fr de es it nl pt pl sv da fi el hu ro bg hr cs sk sl et lv lt ga mt nb sr ru xx/;
+
+# return the canonical category tag for a category name, and whether it exists in the taxonomy
+sub canonicalize_category_name ($name) {
+	foreach my $l (@category_name_languages) {
+		my $exists_in_taxonomy = 0;
+		my $category_tag = canonicalize_taxonomy_tag($l, 'categories', $name, \$exists_in_taxonomy);
+		return ($category_tag, 1) if $exists_in_taxonomy;
+	}
+	# not found: keep the English tag, as before
+	return (canonicalize_taxonomy_tag('en', 'categories', $name), 0);
+}
+
 # helper to flatten ingredients
 sub collect_ingredients {
 	my ($ingredient_ref, $ingredients_percent_ref, $ingredients_quantity_ref) = @_;
@@ -136,10 +184,10 @@ sub collect_ingredients {
 			for @{$ingredient_ref->{ingredients}};
 	}    # Don't include parents in total quantities
 	elsif (defined $ingredient_ref->{id}) {
-		my $id = $ingredient_ref->{id};
+		my ($id, $exists_in_taxonomy) = recanonicalize_tag('ingredients', $ingredient_ref->{id});
 		my $pct = $ingredient_ref->{percent} // $ingredient_ref->{percent_estimate} // 0;
 		my $quantity = $ingredient_ref->{quantity_estimate} // 0;
-		$ingredients_in_taxonomy{$id} = $ingredient_ref->{is_in_taxonomy};
+		$ingredients_in_taxonomy{$id} = $exists_in_taxonomy;
 		$ingredients_percent_ref->{$id} += $pct;
 		$ingredients_quantity_ref->{$id} += $quantity;
 	}
@@ -148,7 +196,6 @@ sub collect_ingredients {
 
 # first pass: read ranked products and group by country/category tags
 print STDERR "Reading ranked products...\n";
-my $ranked_file = "projects/foodture/ranked_products_202602231414.csv";
 open my $RANK, '<:encoding(UTF-8)', $ranked_file or die "Cannot open $ranked_file: $!\n";
 my $parser = Text::CSV_XS->new(
 	{
@@ -167,9 +214,15 @@ while (my $row = $parser->getline($RANK)) {
 	my @cols = @$row;
 	my ($code, $name, $country, $category, $recent_scans) = @cols[0 .. 4];
 	next unless defined $code && $code ne '';
-	my $country_tag = canonicalize_taxonomy_tag('en', 'countries', $country);
-	my $category_tag = canonicalize_taxonomy_tag('en', 'categories', $category);
-	$ranked{$country_tag}{$category_tag} = [$code, $recent_scans];
+	next unless defined $category && $category ne '';
+	my ($country_tag) = recanonicalize_tag('countries', $country);
+	my ($category_tag) = recanonicalize_tag('categories', $category);
+	# several categories of the file may now be the same category (e.g. after a merge in the taxonomy):
+	# keep the most scanned product (and the last one in case of a tie, as before)
+	my $existing_ref = $ranked{$country_tag}{$category_tag};
+	if ((not defined $existing_ref) or (($recent_scans || 0) >= ($existing_ref->[1] || 0))) {
+		$ranked{$country_tag}{$category_tag} = [$code, $recent_scans];
+	}
 
 	if (not exists $categories_agb{$category_tag}) {
 		$categories_agb{$category_tag} = get_inherited_property("categories", $category_tag, "agribalyse_food_code:en");
@@ -188,7 +241,6 @@ open my $LIST, '<:encoding(UTF-8)', $list_file or die "Cannot open $list_file: $
 <$LIST>;    # skip header
 
 # prepare output file
-my $out_file = "projects/foodture/representative_products.csv";
 open my $OUT, '>:encoding(UTF-8)', $out_file or die "Cannot write $out_file: $!\n";
 my $csv_out = Text::CSV->new({binary => 1, eol => "\n"})
 	or die "Cannot create CSV writer: " . Text::CSV->error_diag();
@@ -239,12 +291,15 @@ for my $j (1 .. 5) {
 	}
 }
 
-# scans for last 5 years
-for my $y (2021 .. 2025) {
+# scans for each year
+for my $y (@scan_years) {
 	push @hdr, "country_scans_${y}", "global_scans_${y}";
 }
 
 push @hdr, "ingredients_json", "packaging_json";    # sum of top 10 ingredients percentages
+
+# 1 if the product still has complete data (photos, ingredients, nutrition), as when it was selected
+push @hdr, "complete";
 
 $csv_out->print($OUT, \@hdr);
 
@@ -262,8 +317,8 @@ while (<$LIST>) {
 
 	my $last_category = $segmentation;
 	$last_category =~ s/.*>//;
-	my $exists_in_taxonomy;
-	my $category_tag = canonicalize_taxonomy_tag('en', 'categories', $last_category, \$exists_in_taxonomy);
+	$last_category =~ s/^\s+|\s+$//g;
+	my ($category_tag, $exists_in_taxonomy) = canonicalize_category_name($last_category);
 
 	# Loop on countries
 	foreach my $country_tag (@countries_tags) {
@@ -282,7 +337,7 @@ while (<$LIST>) {
 			my $scans_ref = {};
 
 			# If we have the --only-output-codes option, don't fetch product data
-			unless ((defined $ARGV[0]) and ($ARGV[0] eq '--only-output-codes')) {
+			unless ($only_output_codes) {
 
 				# ensure product data fetched
 				unless (exists $product_data{$code}) {
@@ -342,7 +397,12 @@ while (<$LIST>) {
 			if (ref $ingredients_ref eq 'ARRAY') {
 				collect_ingredients($_, \%ingredients_percent, \%ingredients_quantity) for @{$ingredients_ref};
 			}
-			my @sorted = sort {$ingredients_quantity{$b} <=> $ingredients_quantity{$a}} keys %ingredients_quantity;
+			# sort by quantity, then by percent (products without a quantity), then by id, so that the order is stable
+			my @sorted = sort {
+					   $ingredients_quantity{$b} <=> $ingredients_quantity{$a}
+					or $ingredients_percent{$b} <=> $ingredients_percent{$a}
+					or $a cmp $b
+			} keys %ingredients_quantity;
 
 			# accumulate into global ingredients sum
 			my $quantity_of_all_ingredients = 0;
@@ -389,10 +449,9 @@ while (<$LIST>) {
 				my $idx = $i - 1;
 				my $ingredient_ref = @{$ingredients_ref}[$idx];
 				if (defined $ingredient_ref) {
-					my $id = $ingredient_ref->{id};
+					my ($id, $ingredient_in_taxonomy) = recanonicalize_tag('ingredients', $ingredient_ref->{id});
 					my $pct = $ingredient_ref->{percent} // $ingredient_ref->{percent_estimate} // 0;
 					my $quantity = $ingredient_ref->{quantity_estimate} // 0;
-					my $ingredient_in_taxonomy = $ingredient_ref->{is_in_taxonomy} // '';
 					push @row, $id, $ingredient_in_taxonomy;
 					foreach my $target_lc (@ingredient_languages) {
 						push @row, display_taxonomy_tag($target_lc, "ingredients", $id);
@@ -414,18 +473,34 @@ while (<$LIST>) {
 						if (ref($val) eq 'HASH') {
 							$val = $val->{id} // '';
 						}
+						# shapes and materials are taxonomy tags
+						if ($f eq 'shape') {
+							($val) = recanonicalize_tag('packaging_shapes', $val);
+						}
+						elsif ($f eq 'material') {
+							($val) = recanonicalize_tag('packaging_materials', $val);
+						}
 					}
 					push @row, $val;
 				}
 			}
 
-			# Scan numbers for last 5 years
-			for my $y (2021 .. 2025) {
+			# Scan numbers for each year
+			for my $y (@scan_years) {
 				my $year_scans = $scans_ref->{$y}{unique_scans_n_by_country};
-				push @row, $year_scans->{$cc} // 0, $year_scans->{world} // 0;
+				my $country_scans = $year_scans->{$cc} // 0;
+				# scanbot uses GeoIP country codes: gb for the United Kingdom
+				$country_scans += $year_scans->{gb} // 0 if $cc eq 'uk';
+				push @row, $country_scans, $year_scans->{world} // 0;
 			}
 
 			push @row, encode_json($ingredients_ref // []), encode_json($product_ref->{packagings} // []);
+
+			my %states = map {$_ => 1} @{$product_ref->{states_tags} // []};
+			push @row,
+				(grep {not $states{$_}} qw/en:nutrition-facts-completed en:ingredients-completed en:photos-uploaded/)
+				? 0
+				: 1;
 
 			$csv_out->print($OUT, \@row);
 
@@ -452,7 +527,6 @@ close $LIST;
 close $OUT;
 
 # Create a second CSV table that lists all ingredients with the sum of their percentages across all products
-my $ingredients_file = "projects/foodture/ingredients_sum.csv";
 open my $ING_OUT, '>:encoding(UTF-8)', $ingredients_file or die "Cannot write $ingredients_file: $!\n";
 my @ingredients_header = (
 	"ingredient_id", "ingredient_exists_in_taxonomy",
@@ -480,7 +554,7 @@ for my $id (@sorted_ingredients) {
 	if (not $ciqual_food_code) {
 		$ciqual_food_code = get_inherited_property("ingredients", $id, "ciqual_proxy_food_code:en") // '';
 		$ciqual_food_name_en = get_inherited_property("ingredients", $id, "ciqual_proxy_food_name:en") // '';
-		$ciqual_food_name_fr = get_inherited_property("ingredients", $id, "ciqual_proxy	_food_name:fr") // '';
+		$ciqual_food_name_fr = get_inherited_property("ingredients", $id, "ciqual_proxy_food_name:fr") // '';
 		$is_proxy = ($ciqual_food_code) ? 1 : 0;
 	}
 	my $count = $all_ingredients_count{$id} || 1;

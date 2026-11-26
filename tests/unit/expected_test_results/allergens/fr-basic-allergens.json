@@ -14,7 +14,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "18066",
-         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_name" : "Eau du robinet UE -2025-",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 54.1666666666667,
@@ -26,7 +27,8 @@
       },
       {
          "ciqual_proxy_food_code" : "19051",
-         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+         "ecobalyse_proxy_id" : "413dbd30-f224-580c-bf02-51664910430e",
+         "ecobalyse_proxy_name" : "Lait de vache HORS UE",
          "id" : "en:milk",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 22.9166666666667,
@@ -38,7 +40,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_name" : "Farine UE agrégée -2025-",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 11.4583333333333,
@@ -50,7 +53,8 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 5.72916666666667,
@@ -62,6 +66,8 @@
       },
       {
          "ciqual_food_code" : "11058",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.86458333333334,
@@ -73,18 +79,21 @@
       },
       {
          "ciqual_food_code" : "22000",
-         "ecobalyse_code" : "egg-indoor-code3",
+         "ecobalyse_id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+         "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
          "id" : "en:egg",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 1.43229166666667,
          "percent_max" : 16.6666666666667,
          "percent_min" : 0,
-         "text" : "_oeufs_",
+         "text" : "oeufs",
          "vegan" : "no",
          "vegetarian" : "yes"
       },
       {
          "ciqual_food_code" : "11013",
+         "ecobalyse_id" : "d87bdd32-d698-4044-ae20-15b96c65f680",
+         "ecobalyse_name" : "Moutarde FR -2025-",
          "id" : "en:mustard",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.716145833333336,
@@ -101,7 +110,7 @@
          "percent_estimate" : 0.358072916666671,
          "percent_max" : 12.5,
          "percent_min" : 0,
-         "text" : "_crustacés_",
+         "text" : "crustacés",
          "vegan" : "no",
          "vegetarian" : "no"
       },
@@ -116,18 +125,21 @@
          "vegetarian" : "yes"
       },
       {
-         "ecobalyse_code" : "celery-eu",
+         "ecobalyse_id" : "30ceca68-7047-5ac6-8abe-786e5bc98005",
+         "ecobalyse_name" : "Céleri Origine Inconnue",
          "id" : "en:celery",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0895182291666714,
          "percent_max" : 10,
          "percent_min" : 0,
-         "text" : "_céleri_",
+         "text" : "céleri",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "ciqual_proxy_food_code" : "26140",
+         "ecobalyse_proxy_id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+         "ecobalyse_proxy_name" : "Poissons ingrédients secondaires Origine Inconnue",
          "id" : "en:fish",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0447591145833357,
@@ -138,12 +150,15 @@
          "vegetarian" : "no"
       },
       {
-         "id" : "fr:crème de cassis",
-         "is_in_taxonomy" : 0,
+         "ciqual_food_code" : "1003",
+         "id" : "en:creme-de-cassis",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0447591145833428,
          "percent_max" : 8.33333333333333,
          "percent_min" : 0,
-         "text" : "crème de cassis"
+         "text" : "crème de cassis",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
@@ -156,15 +171,6 @@
       "en:non-vegetarian" : [
          "en:crustacean",
          "en:fish"
-      ],
-      "en:palm-oil-content-unknown" : [
-         "fr:crème de cassis"
-      ],
-      "en:vegan-status-unknown" : [
-         "fr:crème de cassis"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "fr:crème de cassis"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -190,7 +196,7 @@
       "en:nut",
       "en:celery",
       "en:fish",
-      "fr:crème de cassis"
+      "en:creme-de-cassis"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
@@ -215,7 +221,9 @@
       "en:stalk-vegetable",
       "en:vegetable",
       "en:fish",
-      "fr:crème de cassis"
+      "en:creme-de-cassis",
+      "en:liqueur",
+      "en:alcohol"
    ],
    "ingredients_text" : "Eau, LAIT, farine de BLE, sucre, sel, _oeufs_, moutarde, _crustacés_, fruits à coque, _céleri_, POISSON, crème de cassis. Contient mollusques. Peut contenir des traces d'arachide, de _soja_, de LUPIN, et de sésame ",
    "ingredients_text_fr" : "Eau, LAIT, farine de BLE, sucre, sel, _oeufs_, moutarde, _crustacés_, fruits à coque, _céleri_, POISSON, crème de cassis. Contient mollusques. Peut contenir des traces d'arachide, de _soja_, de LUPIN, et de sésame ",
@@ -227,20 +235,16 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:celery",
-      "en:nut",
-      "fr:crème de cassis"
+      "en:nut"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
+      "en:creme-de-cassis",
       "en:crustacean",
-      "en:fish",
-      "en:mustard",
-      "en:nut",
-      "en:salt",
-      "fr:crème de cassis"
+      "en:nut"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 6,
-   "known_ingredients_n" : 11,
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 12,
    "lang" : "fr",
    "languages" : {
       "en:french" : 1
@@ -294,5 +298,5 @@
       "en:sesame-seeds",
       "en:soybeans"
    ],
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }

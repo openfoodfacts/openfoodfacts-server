@@ -300,6 +300,12 @@ my $tests_ref = [
 			nutriment_alcohol_unit => 'g',
 			nutriment_water => '10.0',
 			nutriment_water_unit => 'g',
+			# Test passing "g" for unit less nutrients like glycemic-index and ph
+			# Those values will be ignored.
+			"nutriment_glycemic-index" => '6',
+			"nutriment_glycemic-index_unit" => 'g',
+			"nutriment_ph" => '7',
+			"nutriment_ph_unit" => 'g',
 		}
 	},
 	# API v2 will get the nutrition data in the old nutriments structure
@@ -329,6 +335,7 @@ my $tests_ref = [
 			nutriment_energy => '',
 			nutriment_fat => '',
 			nutriment_salt => '',
+			"nutriment_glycemic-index" => '',
 		}
 	},
 	{
@@ -354,6 +361,10 @@ my $tests_ref = [
 			# it should be used in the aggregated set
 			nutriment_fat => '2',
 			nutriment_fat_unit => 'g',
+			# empty unit or not passed unit for unit less nutrients like glycemic-index and ph
+			"nutriment_glycemic-index" => '4',
+			"nutriment_glycemic-index_unit" => '',
+			"nutriment_ph" => '7.2',
 		}
 	},
 	{
@@ -619,6 +630,32 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v3.6/product/1234567890342',
 	},
+	# "null" and "undefined" values sent by some apps must not become tags
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/11933
+	{
+		test_case => 'post-product-null-undefined-tags',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => "testtest",
+			cc => "be",
+			lc => "fr",
+			code => "1234567890400",
+			product_name => "Product name",
+			categories => "null, Cookies, undefined",
+			labels => "undefined",
+			brands => "null",
+			stores => "null, Carrefour",
+		}
+	},
+	{
+		test_case => 'get-product-null-undefined-tags',
+		method => 'GET',
+		path => '/api/v2/product/1234567890400',
+		query_string => '?fields=categories_tags,labels_tags,brands_tags,stores_tags',
+	},
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref, undef, 0);

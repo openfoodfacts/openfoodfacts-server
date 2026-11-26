@@ -57,6 +57,9 @@ if (($page < 1) or ($page > 1000)) {
 	$page = 1;
 }
 
+# display_recent_changes() bounds page * page_size, and counts only as far as the pages it can
+# serve: both values are read from the request, so they are only defaults here
+
 my $request_ref = {current_link_query => ''};
 
 foreach my $parameter ('json') {

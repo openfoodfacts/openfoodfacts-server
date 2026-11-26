@@ -245,7 +245,7 @@
          {
             "attributes" : [
                {
-                  "description" : "",
+                  "description" : "The ingredients of the product must be specified in order to determine the NOVA group.",
                   "description_short" : "Food processing level unknown",
                   "grade" : "unknown",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-unknown.svg",
@@ -289,7 +289,7 @@
                {
                   "description" : "The Forest Footprint cannot be computed because the ingredient list is missing.",
                   "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-unknown.svg",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-unknown.svg",
                   "id" : "forest_footprint",
                   "match" : 0,
                   "missing" : "Missing ingredients list",
@@ -409,7 +409,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint not available</strong></p>\n                <p>The Forest Footprint cannot be computed because the ingredient list is missing.</p>\n                \n                ",
+                     "html" : "\n                <p><strong>Forest Footprint</strong></p>\n                <p>The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption.\n                &rarr; <a href=\"https://envol-vert.org/actu/2026/09/lempreinte-foret-sinvite-dans-les-telephones-des-francais/\">More information on the methodology</a></p>\n\n                \n                <p><strong>Forest Footprint not available</strong></p>\n                <p>The Forest Footprint cannot be computed because the ingredient list is missing.</p>\n                \n                ",
                      "type" : "summary"
                   }
                }
@@ -418,10 +418,10 @@
             "level" : "info",
             "title_element" : {
                "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-unknown.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-2026-white-bg-unknown.svg",
                "name" : "Forest Footprint",
                "subtitle" : "The Forest Footprint cannot be computed because the ingredient list is missing.",
-               "title" : "Forest Footprint not available ",
+               "title" : "Forest Footprint not available",
                "type" : "grade"
             },
             "topics" : [
@@ -802,13 +802,22 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ legumes"
+                                 "text" : "Fruits, vegetables, legumes"
                               }
                            ]
                         }
                      ],
                      "title" : "Nutrition facts"
                   }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_nutrition_facts"
+                     ],
+                     "html" : "Could you add the nutrition facts?"
+                  },
+                  "element_type" : "action"
                },
                {
                   "element_type" : "panel",
@@ -921,7 +930,7 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ vegetables‚ legumes"
+                                 "text" : "Fruits, vegetables, legumes"
                               }
                            ]
                         }
@@ -1007,9 +1016,9 @@
                   "text_element" : {
                      "evaluation" : "neutral",
                      "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    bag\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                        \n                                            - In contact with food\n                                        \n                                    \n                                    <br>\n                            \n                        \n                        ",
-                     "icon_alt" : "Unknown",
+                     "icon_alt" : "Packaging",
                      "icon_color_from_evaluation" : true,
-                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
                      "type" : "summary"
                   }
                }

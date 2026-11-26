@@ -1,8 +1,12 @@
 {
    "_id" : "5270190128403",
    "_keywords" : [
+      "amerique",
       "banane",
+      "centrale",
+      "en-france",
       "martinique",
+      "oversea",
       "super",
       "test",
       "world"
@@ -133,6 +137,51 @@
       "test-user"
    ],
    "entry_dates_tags" : "--ignore--",
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Banane antillaise",
+               "id" : "127b7cfe-0686-4455-8f8d-3c8bc034cbf9",
+               "mass" : 100.0,
+               "name" : "Banane"
+            }
+         ],
+         "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "components" : [
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.1,
+                        "material" : {
+                           "id" : "127b7cfe-0686-4455-8f8d-3c8bc034cbf9"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "Banane",
+                  "quantity" : 1
+               }
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
+   },
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -397,7 +446,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "13005",
-         "ecobalyse_code" : "f79d155e-3f9e-4882-8dd0-b03f28c1ff76",
+         "ecobalyse_id" : "127b7cfe-0686-4455-8f8d-3c8bc034cbf9",
+         "ecobalyse_name" : "Banane antillaise",
          "id" : "en:banana",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100.0,
@@ -470,8 +520,13 @@
    "main_countries_tags" : [],
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-not-called",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-not-computed",
       "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-a",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-energy",
       "en:nutriscore-estimated-fat",
@@ -1523,6 +1578,8 @@
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 100,
    "origins_imported" : "Martinique",
    "origins_tags" : [
+      "en:central-america",
+      "en:france-overseas",
       "en:martinique"
    ],
    "other_nutritional_substances_tags" : [],

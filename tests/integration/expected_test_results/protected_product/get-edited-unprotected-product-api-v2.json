@@ -451,6 +451,120 @@
          "tests"
       ],
       "entry_dates_tags" : "--ignore--",
+      "environmental_impact" : {
+         "ecobalyse_input" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
+                  "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+                  "mass" : 156.25,
+                  "name" : "apple"
+               },
+               {
+                  "ecobalyse_name" : "Lait de vache HORS UE",
+                  "id" : "413dbd30-f224-580c-bf02-51664910430e",
+                  "mass" : 46.875,
+                  "name" : "milk"
+               },
+               {
+                  "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
+                  "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+                  "mass" : 23.4375,
+                  "name" : "eggs"
+               },
+               {
+                  "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
+                  "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+                  "mass" : 23.4375,
+                  "name" : "palm oil"
+               }
+            ],
+            "ingredients_coverage_percent" : 100,
+            "ingredients_total_mass" : 250.0,
+            "packaging" : [
+               {
+                  "category" : "",
+                  "id" : "8f9a21ba-7bc0-4b41-8714-778ff6a05ef1",
+                  "name" : "Soft cheeses - cat A, 250g | Packaging System, N0, All, Wooden box {FR} U",
+                  "name_fr" : "Boîte en bois pour fromage à pâte molle - 250g"
+               }
+            ],
+            "reference_quantity" : 250,
+            "reference_quantity_source" : "product_quantity",
+            "reference_quantity_unit" : "g"
+         },
+         "ecobalyse_request" : {
+            "data" : {
+               "components" : [
+                  {
+                     "elements" : [
+                        {
+                           "amount" : 0.15625,
+                           "material" : {
+                              "id" : "f489c1d2-d770-4614-9878-f6445a8a937f"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "apple",
+                     "quantity" : 1
+                  },
+                  {
+                     "elements" : [
+                        {
+                           "amount" : 0.046875,
+                           "material" : {
+                              "id" : "413dbd30-f224-580c-bf02-51664910430e"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "milk",
+                     "quantity" : 1
+                  },
+                  {
+                     "elements" : [
+                        {
+                           "amount" : 0.023438,
+                           "material" : {
+                              "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "eggs",
+                     "quantity" : 1
+                  },
+                  {
+                     "elements" : [
+                        {
+                           "amount" : 0.023438,
+                           "material" : {
+                              "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "palm oil",
+                     "quantity" : 1
+                  }
+               ],
+               "consumptions" : [],
+               "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+               "packagings" : [
+                  {
+                     "amount" : 1,
+                     "processId" : "8f9a21ba-7bc0-4b41-8714-778ff6a05ef1"
+                  }
+               ],
+               "transportOptions" : {
+                  "cooling" : false
+               }
+            },
+            "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+         }
+      },
       "estimate_ingredients_percent_service" : "product_opener",
       "food_groups_tags" : [],
       "forest_footprint_2026" : {
@@ -556,7 +670,8 @@
       "ingredients" : [
          {
             "ciqual_food_code" : "13050",
-            "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+            "ecobalyse_id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
+            "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
             "id" : "en:apple",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 62.5,
@@ -568,7 +683,8 @@
          },
          {
             "ciqual_proxy_food_code" : "19051",
-            "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+            "ecobalyse_proxy_id" : "413dbd30-f224-580c-bf02-51664910430e",
+            "ecobalyse_proxy_name" : "Lait de vache HORS UE",
             "id" : "en:milk",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 18.75,
@@ -580,7 +696,8 @@
          },
          {
             "ciqual_food_code" : "22000",
-            "ecobalyse_code" : "egg-indoor-code3",
+            "ecobalyse_id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+            "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
             "id" : "en:egg",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 9.375,
@@ -592,7 +709,8 @@
          },
          {
             "ciqual_food_code" : "16129",
-            "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+            "ecobalyse_proxy_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+            "ecobalyse_proxy_name" : "Huile de palme -raffinée- par défaut -2025-",
             "from_palm_oil" : "yes",
             "id" : "en:palm-oil",
             "is_in_taxonomy" : 1,
@@ -717,10 +835,14 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
+         "en:ecobalyse-api-skipped",
+         "en:ecobalyse-ingredients-matched-between-90-and-100",
+         "en:ecobalyse-reference-quantity-from-product-quantity",
          "en:environmental-score-not-computed",
          "en:estimated-ingredients-with-product-opener",
          "en:forest-footprint-b",
          "en:forest-footprint-computed",
+         "en:forest-footprint-grade-b",
          "en:nutrients-estimated-from-ingredients",
          "en:nutriscore-estimated-fiber",
          "en:nutriscore-estimated-saturated-fat",

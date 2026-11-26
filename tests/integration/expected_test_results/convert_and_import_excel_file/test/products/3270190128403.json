@@ -41,11 +41,11 @@
    "amino_acids_tags" : [],
    "brand_owner" : "Carrefour",
    "brand_owner_imported" : "Carrefour",
-   "brands" : "Carrefour BIO, Carrefour",
+   "brands" : "Carrefour, Carrefour BIO",
    "brands_imported" : "Carrefour Bio, Carrefour",
    "brands_tags" : [
-      "xx:carrefour-bio",
-      "xx:Carrefour"
+      "xx:carrefour",
+      "xx:carrefour-bio"
    ],
    "categories_imported" : "Plant-based foods and beverages, Plant-based foods, Legumes and their products, Cereals and potatoes, Fruits and vegetables based foods, Legumes, Seeds, Legume seeds, Vegetables based foods, Pulses, Lentils, Green lentils",
    "categories_properties" : {
@@ -65,11 +65,11 @@
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
       "en:legumes-and-their-products",
+      "en:cereals-and-potatoes",
       "en:fruits-and-vegetables-based-foods",
       "en:legumes",
       "en:seeds",
       "en:vegetable-based-foods-and-beverages",
-      "en:cereals-and-potatoes",
       "en:legume-seeds",
       "en:vegetables-based-foods",
       "en:pulses",
@@ -181,6 +181,52 @@
       "emb-43062a"
    ],
    "entry_dates_tags" : "--ignore--",
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Lentille Origine Inconnue",
+               "id" : "6d6db0b8-2e1d-5074-9a22-4e81d5fb52cd",
+               "mass" : 100.0,
+               "name" : "Lentilles vertes"
+            }
+         ],
+         "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "components" : [
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.1,
+                        "material" : {
+                           "id" : "6d6db0b8-2e1d-5074-9a22-4e81d5fb52cd"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "Lentilles vertes",
+                  "quantity" : 1
+               }
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
+   },
    "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -652,7 +698,8 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "20504",
-         "ecobalyse_code" : "lentils-uncooked-eu",
+         "ecobalyse_id" : "6d6db0b8-2e1d-5074-9a22-4e81d5fb52cd",
+         "ecobalyse_name" : "Lentille Origine Inconnue",
          "id" : "en:green-lentils",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -750,11 +797,16 @@
    "max_imgid" : 1,
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:ecobalyse-api-not-called",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-reference-quantity-from-default",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",
       "en:environmental-score-score-above-100",
       "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-a",
       "en:ingredients-contain-rare-crops",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-fat",
@@ -1788,7 +1840,7 @@
             "last_updated_t" : "--ignore--",
             "tags" : [
                "xx:carrefour-bio",
-               "xx:Carrefour"
+               "xx:carrefour"
             ]
          }
       },

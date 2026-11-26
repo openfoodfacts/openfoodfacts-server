@@ -1,0 +1,175 @@
+{
+   "categories" : "huile d'olive",
+   "categories_hierarchy" : [
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:fats",
+      "en:olive-tree-products",
+      "en:vegetable-fats",
+      "en:vegetable-oils",
+      "en:olive-oils"
+   ],
+   "categories_lc" : "fr",
+   "categories_tags" : [
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:fats",
+      "en:olive-tree-products",
+      "en:vegetable-fats",
+      "en:vegetable-oils",
+      "en:olive-oils"
+   ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Huile d'olive -extra vierge- UE -2025-",
+               "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
+               "mass" : 750,
+               "name" : "Huile d'olive vierge extra"
+            }
+         ],
+         "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 750,
+         "packaging" : [
+            {
+               "category" : "en:olive-oils",
+               "id" : "a10668c6-4d0a-4484-b8e2-4577fe0a2173",
+               "name" : "Olive oil, 0,75L | Packaging System, N0, All, Glass bottle {FR} U",
+               "name_fr" : "Bouteille en verre et bouchon plastique pour huile d'olive - 0,5L à 1L"
+            }
+         ],
+         "reference_quantity" : 750,
+         "reference_quantity_source" : "product_quantity",
+         "reference_quantity_unit" : "ml"
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "components" : [
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.75,
+                        "material" : {
+                           "id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "Huile d'olive vierge extra",
+                  "quantity" : 1
+               }
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "packagings" : [
+               {
+                  "amount" : 1,
+                  "processId" : "a10668c6-4d0a-4484-b8e2-4577fe0a2173"
+               }
+            ],
+            "transportOptions" : {
+               "cooling" : false
+            }
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_response" : {
+         "complements" : {},
+         "composition" : [
+            {
+               "complements" : {},
+               "mass" : 0.75,
+               "name" : "Huile d'olive vierge extra",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 370.35
+               }
+            }
+         ],
+         "productMass" : 0.75,
+         "score" : {
+            "complements" : 0,
+            "ecs" : 531.406
+         },
+         "stages" : {
+            "assembly" : 0,
+            "distribution" : 1.46981,
+            "endOfLife" : 0,
+            "materials" : 370.35,
+            "packaging" : 38.67,
+            "transform" : 0,
+            "transports" : 120.917,
+            "usage" : 0
+         }
+      },
+      "ecs_per" : "100ml",
+      "ecs_per_100g_or_100ml" : 70.8541333333333,
+      "ecs_per_product" : 531.406
+   },
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "17270",
+         "ecobalyse_id" : "fbe48b5b-62f2-4ccb-8aa6-66d08a4c7fac",
+         "ecobalyse_name" : "Huile d'olive -extra vierge- UE -2025-",
+         "from_palm_oil" : "no",
+         "id" : "en:extra-virgin-olive-oil",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "Huile d'olive vierge extra",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:extra-virgin-olive-oil"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:extra-virgin-olive-oil",
+      "en:virgin-olive-oil",
+      "en:olive-oil",
+      "en:vegetable-oil",
+      "en:vegetable-oil-and-fat",
+      "en:oil-and-fat"
+   ],
+   "ingredients_text" : "Huile d'olive vierge extra",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "known_ingredients_n" : 1,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener",
+      "en:ecobalyse-reference-quantity-from-product-quantity",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-called",
+      "en:ecobalyse-api-success"
+   ],
+   "product_quantity" : 750,
+   "product_quantity_unit" : "ml",
+   "quantity" : "0.75l",
+   "testid" : "fr-olive-oil-category-with-ingredients-no-packaging",
+   "unknown_ingredients_n" : 0
+}

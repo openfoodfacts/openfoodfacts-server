@@ -1,0 +1,76 @@
+# Proxy mappings: target OFF tagid -> source_baseIngredient
+# When a baseIngredient has no direct tagid, but a related baseIngredient's ecobalyse
+# data can be used as a proxy. All properties for proxy targets start with
+# ecobalyse_proxy_ prefix (global properties also use proxy prefix).
+#
+# Format: target_tagid<TAB>source_baseIngredient
+en:chicken	chicken-breast
+# no visible generic poultry or rabbit entries in Ecobalyse: use chicken breast
+# (foie gras is excluded in off_ingredients_without_ecobalyse_data.tsv)
+en:poultry	chicken-breast
+en:rabbit	chicken-breast
+en:corn-syrup	glucose-syrup
+en:cocoa-paste	cocoa-bean
+en:cream	fresh-cream-cheese
+en:palm-oil	refined-palm-oil
+en:palm-fat	refined-palm-oil
+en:wheat	soft-wheat
+en:fish	fish-secondary-ingredient
+en:fresh-cream	fresh-cream-cheese
+en:glucose-fructose-syrup	glucose-syrup
+en:fructose-syrup	glucose-syrup
+en:oil	rapeseed-oil
+en:soy-base	soy-milk
+en:starch	potato-starch
+# herbs without fresh / dried precision: consider it is dried
+# (herb-dried is also auto-proxied by the matching script, kept here for reference)
+en:herb	herb-dried
+# Generic/parent ingredients proxied from more specific matched baseIngredients
+en:butterfat	butter
+en:milk-proteins	cow-milk
+en:wheat-gluten	soft-wheat
+en:instant-coffee	coffee-ground
+en:vinegar  vinegar-alcohol
+en:soya	soybean
+# coconut oil is not in Ecobalyse: palm oil (also a refined tropical oil) is used as a proxy.
+# Not unknown-oil: "Autres huiles (non encore répertoriées) (2025)" costs about 7460 points per kg (2026-11), 17 times more than palm oil
+en:coconut-oil	refined-palm-oil
+en:coffee	coffee-ground
+en:cocoa	cocoa-powder
+en:dextrose	glucose-syrup
+en:chicory-powder	chicory-root
+en:sugar-syrup  glucose-syrup
+en:maple-syrup  glucose-syrup
+en:agave-syrup  glucose-syrup
+# flour is a proxy for en:flour, as it is in fact wheat flour in Ecobalyse
+en:flour    flour
+# Generic ingredients found in cooking recipes (scripts/recipes_coverage)
+# white wine entries are not visible in Ecobalyse: use red wine
+en:white-wine	red-wine
+en:dry-white-wine	red-wine
+en:wine	red-wine
+en:pepper	black-pepper
+en:chocolate	dark-chocolate
+en:mascarpone	fresh-cream-cheese
+en:pecorino	parmesan-cheese
+en:breadcrumbs	flour
+# bread is mostly flour
+en:bread	flour
+en:mutton	lamb
+en:sheep	lamb
+en:giant-squash	squash-with-skin-raw
+en:lime	lemon
+en:vegetable-oil	rapeseed-oil
+# margarine is not in Ecobalyse: rapeseed oil (the main oil of margarines sold in France) is used as a proxy (not unknown-oil, see coconut oil)
+en:margarine	rapeseed-oil
+# 2026-11-24: Ecobalyse removed the "(2025)" entries that have a newer twin (MTES-MCT/ecobalyse#2922),
+# but the twins have a different baseIngredient: map the OFF ingredients that lost their data to the twins
+en:salt	sea-salt
+en:milk	cow-milk
+en:table-potatoes	potato
+en:barley	barley-whole
+en:garden-peas	pea-shelled-raw
+en:spaghetti-squash	squash-with-skin-raw
+# the old "bean" baseIngredient (which held pea data) was removed; the "Haricots blancs séchés" entries are built on
+# the fresh green bean (haricot vert) dataset, so use the canned drained white bean, the only real white bean dataset
+en:beans	white-bean-canned-drained

@@ -40,7 +40,7 @@ jobs:
     - name: Test update script
       run: |
         echo "🥫 Testing update script..."
-        ./.github/scripts/update_test_groups.sh --stats
+        ./.github/scripts/update_test_groups.sh
         
         echo ""
         echo "🥫 Checking generated files..."

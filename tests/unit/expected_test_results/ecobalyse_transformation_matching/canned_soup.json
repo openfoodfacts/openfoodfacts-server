@@ -1,0 +1,21 @@
+{
+   "categories_tags" : [
+      "en:canned-foods",
+      "en:meals",
+      "en:soups",
+      "en:canned-soups"
+   ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "transformations" : [
+            {
+               "ecs" : 19.54,
+               "id" : "b797d2cc-1ecb-4fa0-b049-48b44a88e283",
+               "name" : "Canning",
+               "name_fr" : "Mise en conserve",
+               "unit" : "kg"
+            }
+         ]
+      }
+   }
+}

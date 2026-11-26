@@ -31,6 +31,152 @@
       "en:prepared-meats",
       "en:sausages"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "fresh",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
+               "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+               "mass" : 53.8333333333333,
+               "name" : "eggs"
+            },
+            {
+               "ecobalyse_name" : "Farine UE agrégée -2025-",
+               "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "mass" : 24.0833333333333,
+               "name" : "wheat flour"
+            },
+            {
+               "ecobalyse_name" : "Eau du robinet UE -2025-",
+               "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "mass" : 12.0416666666667,
+               "name" : "water"
+            },
+            {
+               "ecobalyse_name" : "Farine de riz Origine Inconnue",
+               "id" : "9db59fb1-143d-420d-a0b8-a5887c6def60",
+               "mass" : 6.02083333333333,
+               "name" : "rice flour"
+            },
+            {
+               "ecobalyse_name" : "Viande d'agneau -désossée- FR",
+               "id" : "d79e0fce-8633-4189-a937-7b8010abafed",
+               "mass" : 2,
+               "name" : "lamb"
+            },
+            {
+               "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
+               "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+               "mass" : 2.02083333333333,
+               "name" : "salt"
+            }
+         ],
+         "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "preparation" : [
+            "refrigeration"
+         ],
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "components" : [
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.053833,
+                        "material" : {
+                           "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "eggs",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.024083,
+                        "material" : {
+                           "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "wheat flour",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.012042,
+                        "material" : {
+                           "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "water",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.006021,
+                        "material" : {
+                           "id" : "9db59fb1-143d-420d-a0b8-a5887c6def60"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "rice flour",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.002,
+                        "material" : {
+                           "id" : "d79e0fce-8633-4189-a937-7b8010abafed"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "lamb",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.002021,
+                        "material" : {
+                           "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "salt",
+                  "quantity" : 1
+               }
+            ],
+            "consumptions" : [
+               "b4642cec-b72e-4116-81c5-5dbfccb46055"
+            ],
+            "distribution" : "be66b80b-1500-4e3b-bfd2-87a89ff54031",
+            "transportOptions" : {
+               "cooling" : true
+            }
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:processed-meat",
    "food_groups_tags" : [
@@ -56,7 +202,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "22000",
-         "ecobalyse_code" : "egg-indoor-code3",
+         "ecobalyse_id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+         "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
          "id" : "en:egg",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 53.8333333333333,
@@ -68,7 +215,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_name" : "Farine UE agrégée -2025-",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 24.0833333333333,
@@ -80,7 +228,8 @@
       },
       {
          "ciqual_food_code" : "18066",
-         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_name" : "Eau du robinet UE -2025-",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 12.0416666666667,
@@ -92,7 +241,8 @@
       },
       {
          "ciqual_food_code" : "9520",
-         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_id" : "9db59fb1-143d-420d-a0b8-a5887c6def60",
+         "ecobalyse_name" : "Farine de riz Origine Inconnue",
          "id" : "en:rice-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 6.02083333333333,
@@ -103,16 +253,22 @@
          "vegetarian" : "yes"
       },
       {
+         "ecobalyse_id" : "d79e0fce-8633-4189-a937-7b8010abafed",
+         "ecobalyse_name" : "Viande d'agneau -désossée- FR",
          "id" : "en:lamb",
          "is_in_taxonomy" : 1,
          "percent" : 2,
          "percent_estimate" : 2,
          "percent_max" : 2,
          "percent_min" : 2,
-         "text" : "lamb"
+         "text" : "lamb",
+         "vegan" : "no",
+         "vegetarian" : "no"
       },
       {
          "ciqual_food_code" : "11058",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent" : 1,
@@ -126,19 +282,17 @@
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
-         "en:egg"
-      ],
-      "en:vegan-status-unknown" : [
+         "en:egg",
          "en:lamb"
       ],
-      "en:vegetarian-status-unknown" : [
+      "en:non-vegetarian" : [
          "en:lamb"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",
-      "en:vegetarian-status-unknown"
+      "en:non-vegetarian"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 6,
@@ -181,11 +335,8 @@
       "en:lamb"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:lamb",
-      "en:salt"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 6,
    "lc" : "en",
    "minerals_tags" : [],
@@ -201,6 +352,10 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b",
+      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-not-called",
+      "en:forest-footprint-not-computed",
       "en:nutrition-data-per-100g"
    ],
    "nova_group" : 3,
@@ -256,7 +411,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 9,
+            "negative_points_max" : 0,
             "positive_points" : 6,
+            "positive_points_max" : 0,
             "proteins" : 50,
             "proteins_points" : 5,
             "proteins_value" : 50,

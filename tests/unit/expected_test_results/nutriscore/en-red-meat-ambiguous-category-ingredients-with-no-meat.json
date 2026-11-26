@@ -31,6 +31,95 @@
       "en:prepared-meats",
       "en:sausages"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "fresh",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Poissons ingrédients secondaires Origine Inconnue",
+               "id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+               "mass" : 73.75,
+               "name" : "salmon"
+            },
+            {
+               "ecobalyse_name" : "Farine UE agrégée -2025-",
+               "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "mass" : 13.625,
+               "name" : "wheat flour"
+            },
+            {
+               "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
+               "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+               "mass" : 12.625,
+               "name" : "salt"
+            }
+         ],
+         "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
+         "packaging_skip_reason" : "unknown_product_quantity",
+         "preparation" : [
+            "refrigeration"
+         ],
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "components" : [
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.07375,
+                        "material" : {
+                           "id" : "cacf491b-5529-4e0c-af3f-75ab1d007659"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "salmon",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.013625,
+                        "material" : {
+                           "id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "wheat flour",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.012625,
+                        "material" : {
+                           "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "salt",
+                  "quantity" : 1
+               }
+            ],
+            "consumptions" : [
+               "b4642cec-b72e-4116-81c5-5dbfccb46055"
+            ],
+            "distribution" : "be66b80b-1500-4e3b-bfd2-87a89ff54031",
+            "transportOptions" : {
+               "cooling" : true
+            }
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:processed-meat",
    "food_groups_tags" : [
@@ -46,6 +135,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "26036",
+         "ecobalyse_proxy_id" : "cacf491b-5529-4e0c-af3f-75ab1d007659",
+         "ecobalyse_proxy_name" : "Poissons ingrédients secondaires Origine Inconnue",
          "id" : "en:salmon",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 73.75,
@@ -57,7 +148,8 @@
       },
       {
          "ciqual_proxy_food_code" : "9410",
-         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_id" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "ecobalyse_name" : "Farine UE agrégée -2025-",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 13.625,
@@ -69,6 +161,8 @@
       },
       {
          "ciqual_food_code" : "11058",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent" : 1,
@@ -125,11 +219,8 @@
    "ingredients_with_unspecified_percent_sum" : 87.375,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:salmon",
-      "en:salt"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 3,
    "lc" : "en",
    "minerals_tags" : [],
@@ -145,6 +236,11 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b",
+      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-not-called",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"
    ],
    "nova_group" : 3,
@@ -200,7 +296,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 9,
+            "negative_points_max" : 0,
             "positive_points" : 6,
+            "positive_points_max" : 0,
             "proteins" : 50,
             "proteins_points" : 5,
             "proteins_value" : 50,

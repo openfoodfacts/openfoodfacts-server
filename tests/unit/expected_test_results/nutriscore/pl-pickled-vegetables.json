@@ -10,9 +10,12 @@
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruits-and-vegetables-based-foods",
+      "en:vegetable-based-foods-and-beverages",
       "en:pickles",
+      "en:vegetables-based-foods",
       "en:plant-based-pickles",
-      "en:prepared-vegetables",
+      "en:processed-vegetables",
       "en:pickled-vegetables"
    ],
    "categories_lc" : "pl",
@@ -28,16 +31,159 @@
    "categories_tags" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruits-and-vegetables-based-foods",
+      "en:vegetable-based-foods-and-beverages",
       "en:pickles",
+      "en:vegetables-based-foods",
       "en:plant-based-pickles",
-      "en:prepared-vegetables",
+      "en:processed-vegetables",
       "en:pickled-vegetables"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Radis Origine Inconnue",
+               "id" : "f1769f71-8a52-5e10-b3a0-efdc2a1918f8",
+               "mass" : 52,
+               "name" : "rzodkiew biała"
+            },
+            {
+               "ecobalyse_name" : "Eau du robinet UE -2025-",
+               "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "mass" : 29.9333333333333,
+               "name" : "woda"
+            },
+            {
+               "ecobalyse_name" : "Aneth, frais HORS UE",
+               "id" : "e849f2db-b8d3-5456-a771-bd23d88b1e66",
+               "mass" : 9.33333333333333,
+               "name" : "koper"
+            },
+            {
+               "ecobalyse_name" : "Ail Origine Inconnue",
+               "id" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
+               "mass" : 0.6,
+               "name" : "czosnek"
+            },
+            {
+               "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
+               "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+               "mass" : 0.3,
+               "name" : "sól"
+            },
+            {
+               "ecobalyse_name" : "Raifort frais Origine Inconnue",
+               "id" : "a4b546fa-a89a-5373-82aa-e94112e3fd48",
+               "mass" : 7.83333333333334,
+               "name" : "chrzan"
+            }
+         ],
+         "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
+         "reference_quantity" : 100,
+         "reference_quantity_source" : "default",
+         "reference_quantity_unit" : "g"
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "components" : [
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.052,
+                        "material" : {
+                           "id" : "f1769f71-8a52-5e10-b3a0-efdc2a1918f8"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "rzodkiew biała",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.029933,
+                        "material" : {
+                           "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "woda",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.009333,
+                        "material" : {
+                           "id" : "e849f2db-b8d3-5456-a771-bd23d88b1e66"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "koper",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.0006,
+                        "material" : {
+                           "id" : "d8c8a918-a11a-502f-a5cf-90052d96c133"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "czosnek",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.0003,
+                        "material" : {
+                           "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "sól",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.007833,
+                        "material" : {
+                           "id" : "a4b546fa-a89a-5373-82aa-e94112e3fd48"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "chrzan",
+                  "quantity" : 1
+               }
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
+   },
    "estimate_ingredients_percent_service" : "product_opener",
-   "food_groups" : "en:salty-and-fatty-products",
+   "food_groups" : "en:vegetables",
    "food_groups_tags" : [
-      "en:salty-snacks",
-      "en:salty-and-fatty-products"
+      "en:fruits-and-vegetables",
+      "en:vegetables"
    ],
    "forest_footprint_2026" : {
       "grade" : "a",
@@ -48,7 +194,8 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "20045",
-         "ecobalyse_code" : "radish-organic",
+         "ecobalyse_id" : "f1769f71-8a52-5e10-b3a0-efdc2a1918f8",
+         "ecobalyse_name" : "Radis Origine Inconnue",
          "id" : "en:daikon",
          "is_in_taxonomy" : 1,
          "percent" : 52,
@@ -61,7 +208,8 @@
       },
       {
          "ciqual_food_code" : "18066",
-         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "ecobalyse_name" : "Eau du robinet UE -2025-",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 29.9333333333333,
@@ -73,6 +221,8 @@
       },
       {
          "ciqual_food_code" : "11093",
+         "ecobalyse_id" : "e849f2db-b8d3-5456-a771-bd23d88b1e66",
+         "ecobalyse_name" : "Aneth, frais HORS UE",
          "id" : "en:dill",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 9.33333333333333,
@@ -84,7 +234,8 @@
       },
       {
          "ciqual_proxy_food_code" : "11000",
-         "ecobalyse_code" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
+         "ecobalyse_id" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
+         "ecobalyse_name" : "Ail Origine Inconnue",
          "id" : "en:garlic",
          "is_in_taxonomy" : 1,
          "percent" : 0.6,
@@ -97,6 +248,8 @@
       },
       {
          "ciqual_food_code" : "11058",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.3,
@@ -108,6 +261,8 @@
       },
       {
          "ciqual_food_code" : "11016",
+         "ecobalyse_id" : "a4b546fa-a89a-5373-82aa-e94112e3fd48",
+         "ecobalyse_name" : "Raifort frais Origine Inconnue",
          "id" : "en:horseradish",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 7.83333333333334,
@@ -162,12 +317,8 @@
    "ingredients_with_unspecified_percent_sum" : 47.4,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:dill",
-      "en:horseradish",
-      "en:salt"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 6,
    "lc" : "pl",
    "minerals_tags" : [],
@@ -183,6 +334,11 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-c-2023-d",
+      "en:ecobalyse-reference-quantity-from-default",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-not-called",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"
    ],
    "nova_group" : 3,
@@ -230,7 +386,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 10,
+            "negative_points_max" : 0,
             "positive_points" : 3,
+            "positive_points_max" : 0,
             "proteins" : 0.7,
             "proteins_points" : 0,
             "proteins_value" : 0.7,
@@ -1399,14 +1557,14 @@
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 69.7666666666667,
    "other_nutritional_substances_tags" : [],
-   "pnns_groups_1" : "Salty snacks",
+   "pnns_groups_1" : "Fruits and vegetables",
    "pnns_groups_1_tags" : [
-      "salty-snacks",
+      "fruits-and-vegetables",
       "known"
    ],
-   "pnns_groups_2" : "Salty and fatty products",
+   "pnns_groups_2" : "Vegetables",
    "pnns_groups_2_tags" : [
-      "salty-and-fatty-products",
+      "vegetables",
       "known"
    ],
    "tags_sources" : {

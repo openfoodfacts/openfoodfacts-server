@@ -1,0 +1,45 @@
+{
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "glycemic-index" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "serving",
+               "unit" : "",
+               "value" : 45
+            },
+            "ph" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "serving",
+               "unit" : "",
+               "value" : 6.5
+            }
+         },
+         "per" : "100g",
+         "preparation" : "as_sold"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "glycemic-index" : {
+                  "unit" : "",
+                  "value" : 45,
+                  "value_string" : "45"
+               },
+               "ph" : {
+                  "unit" : "",
+                  "value" : 6.5,
+                  "value_string" : "6.5"
+               }
+            },
+            "per" : "serving",
+            "per_quantity" : "250",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         }
+      ]
+   }
+}

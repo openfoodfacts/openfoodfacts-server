@@ -387,6 +387,14 @@ Returned values:
 
 sub compute_forest_footprint_2026 ($product_ref) {
 
+	remove_tag($product_ref, "misc", "en:forest-footprint-computed");
+	remove_tag($product_ref, "misc", "en:forest-footprint-not-computed");
+	remove_tag($product_ref, "misc", "en:forest-footprint-unknown");
+	remove_tag($product_ref, "misc", "en:forest-footprint-grade-a");
+	remove_tag($product_ref, "misc", "en:forest-footprint-grade-b");
+	remove_tag($product_ref, "misc", "en:forest-footprint-grade-c");
+	remove_tag($product_ref, "misc", "en:forest-footprint-grade-d");
+
 	# Initialize primary_ingredients structure directly
 	$product_ref->{forest_footprint_2026} = {primary_ingredients => {}};
 
@@ -419,6 +427,7 @@ sub compute_forest_footprint_2026 ($product_ref) {
 			grade => 'unknown',
 			summary => 'missing_ingredients',
 		};
+		add_tag($product_ref, "misc", "en:forest-footprint-unknown");
 		return;
 	}
 
@@ -508,17 +517,22 @@ sub compute_forest_footprint_2026 ($product_ref) {
 		my $grade = calculate_forest_footprint_2026_grade($product_ref);
 		$product_ref->{forest_footprint_2026}{grade} = $grade;
 		$product_ref->{forest_footprint_2026}{summary} = 'with_primary_ingredients';
+		add_tag($product_ref, "misc", "en:forest-footprint-computed");
+		add_tag($product_ref, "misc", "en:forest-footprint-grade-$grade");
 	}
 	elsif (scalar(@found_risky_ingredient_refs) > 0) {
 		# Only risky ingredients found, no computed primary ingredients → grade is unknown
 		$product_ref->{forest_footprint_2026}{grade} = 'not_computed';
 		$product_ref->{forest_footprint_2026}{summary} = 'with_other_risky_ingredients';
+		add_tag($product_ref, "misc", "en:forest-footprint-not-computed");
 	}
 	else {
 		# Ingredients exist but none are risky or assessed → grade A
 		$product_ref->{forest_footprint_2026}{grade} = 'a';
 		$product_ref->{forest_footprint_2026}{total_footprint_per_kg} = 0;
 		$product_ref->{forest_footprint_2026}{summary} = 'without_primary_ingredients_or_other_risky_ingredients';
+		add_tag($product_ref, "misc", "en:forest-footprint-computed");
+		add_tag($product_ref, "misc", "en:forest-footprint-grade-a");
 	}
 
 	return;

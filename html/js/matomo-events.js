@@ -54,6 +54,9 @@ document.addEventListener('DOMContentLoaded', function () {
 // Donation banners: which one a click or a dismissal happened in, from the
 // composed event path so a link inside the <donation-banner> shadow root counts
 function donationBannerName(path) {
+    if (path.some((node) => node.tagName === 'DONATION-BANNER' && node.hasAttribute('variant'))) {
+        return null;
+    }
     if (path.some((node) => node.id === 'donation-banner-top')) {
         return 'top';
     }
@@ -64,11 +67,39 @@ function donationBannerName(path) {
     return null;
 }
 
+// Provenance line test on product pages: the line under the title is shown on
+// half the page views, and the arm rides on every banner event and donate link
+function provenanceArm() {
+    const line = document.getElementById('provenance');
+    if (!line) {
+        return null;
+    }
+
+    return line.hidden ? 'prov:off' : 'prov:on';
+}
+
+function withProvenanceArm(name) {
+    const arm = provenanceArm();
+
+    return arm === null ? name : name + ':' + arm;
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const topBanner = document.getElementById('donation-banner-top');
     if (topBanner && getComputedStyle(topBanner).display !== 'none') {
-        trackMatomoEvent('donation', 'banner_shown', 'top');
+        trackMatomoEvent('donation', 'banner_shown', withProvenanceArm('top'));
     }
+
+    const arm = provenanceArm();
+    if (arm === null) {
+        return;
+    }
+    const bannerLinks = document.querySelectorAll('.donation-banner__actions-section__donate-button a[href], .donation-banner-footer__actions-section__donate-button a[href]');
+    bannerLinks.forEach(function (link) {
+        if (!link.href.includes('utm_content=')) {
+            link.href += (link.href.includes('?') ? '&' : '?') + 'utm_content=' + arm;
+        }
+    });
 });
 
 document.addEventListener('click', function (event) {
@@ -78,8 +109,21 @@ document.addEventListener('click', function (event) {
         return;
     }
     if (path.some((node) => node.id === 'hide-donate-banner')) {
-        trackMatomoEvent('donation', 'banner_dismissed', banner);
+        trackMatomoEvent('donation', 'banner_dismissed', withProvenanceArm(banner));
     } else if (path.some((node) => node.tagName === 'A' && node.href)) {
-        trackMatomoEvent('donation', 'banner_clicked', banner);
+        trackMatomoEvent('donation', 'banner_clicked', withProvenanceArm(banner));
+    }
+});
+
+document.addEventListener('donation-banner-state', function (event) {
+    const events = {
+        dismiss: 'banner_dismissed',
+        minimize: 'banner_minimized',
+        'already-donated': 'banner_already_donated',
+        click: 'banner_clicked',
+    };
+    const name = event.target.getAttribute('utm-content');
+    if (events[event.detail.action] && name) {
+        trackMatomoEvent('donation', events[event.detail.action], name);
     }
 });

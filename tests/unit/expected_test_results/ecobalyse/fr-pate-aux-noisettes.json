@@ -1,0 +1,343 @@
+{
+   "categories" : "pâte aux noisettes",
+   "categories_hierarchy" : [
+      "fr:pâte aux noisettes"
+   ],
+   "categories_lc" : "fr",
+   "categories_tags" : [
+      "fr:pâte aux noisettes"
+   ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "mass" : 179.4,
+               "name" : "Sucre"
+            },
+            {
+               "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
+               "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+               "mass" : 98.2,
+               "name" : "huile de palme"
+            },
+            {
+               "ecobalyse_name" : "Noisette, décortiquée Origine Inconnue",
+               "id" : "79b53a3e-0cad-4a78-a779-a6e88e1549b7",
+               "mass" : 52,
+               "name" : "NOISETTES"
+            },
+            {
+               "ecobalyse_name" : "Poudre de lait écrémé FR -2025-",
+               "id" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
+               "mass" : 40.8,
+               "name" : "LAIT écrémé en poudre"
+            },
+            {
+               "ecobalyse_name" : "Poudre de cacao par défaut -2025-",
+               "id" : "3d7f808b-77c5-4207-968d-feea6dfd9496",
+               "mass" : 29.6,
+               "name" : "cacao maigre"
+            }
+         ],
+         "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 400,
+         "reference_quantity" : 400,
+         "reference_quantity_source" : "product_quantity",
+         "reference_quantity_unit" : "g"
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "components" : [
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.1794,
+                        "material" : {
+                           "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "Sucre",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.0982,
+                        "material" : {
+                           "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "huile de palme",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.052,
+                        "material" : {
+                           "id" : "79b53a3e-0cad-4a78-a779-a6e88e1549b7"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "NOISETTES",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.0408,
+                        "material" : {
+                           "id" : "b6776a28-ec84-4bf3-988c-07b3c29f6136"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "LAIT écrémé en poudre",
+                  "quantity" : 1
+               },
+               {
+                  "elements" : [
+                     {
+                        "amount" : 0.0296,
+                        "material" : {
+                           "id" : "3d7f808b-77c5-4207-968d-feea6dfd9496"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "cacao maigre",
+                  "quantity" : 1
+               }
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_response" : {
+         "complements" : {
+            "hedges" : -0.0478998,
+            "plotSize" : -0.144955
+         },
+         "composition" : [
+            {
+               "complements" : {
+                  "hedges" : -0.0478998,
+                  "plotSize" : -0.144955
+               },
+               "mass" : 0.1794,
+               "name" : "Sucre",
+               "score" : {
+                  "complements" : -0.192855,
+                  "ecs" : 26.5019
+               }
+            },
+            {
+               "complements" : {},
+               "mass" : 0.0982,
+               "name" : "huile de palme",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 42.6679
+               }
+            },
+            {
+               "complements" : {},
+               "mass" : 0.052,
+               "name" : "NOISETTES",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 175.76
+               }
+            },
+            {
+               "complements" : {},
+               "mass" : 0.0408,
+               "name" : "LAIT écrémé en poudre",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 44.3088
+               }
+            },
+            {
+               "complements" : {},
+               "mass" : 0.0296,
+               "name" : "cacao maigre",
+               "score" : {
+                  "complements" : 0,
+                  "ecs" : 36.556
+               }
+            }
+         ],
+         "productMass" : 0.4,
+         "score" : {
+            "complements" : -0.192855,
+            "ecs" : 391.067
+         },
+         "stages" : {
+            "assembly" : 0,
+            "distribution" : 0.783901,
+            "endOfLife" : 0,
+            "materials" : 325.987,
+            "packaging" : 0,
+            "transform" : 0,
+            "transports" : 64.4888,
+            "usage" : 0
+         }
+      },
+      "ecs_per" : "100g",
+      "ecs_per_100g_or_100ml" : 97.76675,
+      "ecs_per_product" : 391.067
+   },
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 44.85,
+         "percent_max" : 59.2,
+         "percent_min" : 30.5,
+         "text" : "Sucre",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "16129",
+         "ecobalyse_proxy_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+         "ecobalyse_proxy_name" : "Huile de palme -raffinée- par défaut -2025-",
+         "from_palm_oil" : "yes",
+         "id" : "en:palm-oil",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 24.55,
+         "percent_max" : 36.1,
+         "percent_min" : 13,
+         "text" : "huile de palme",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "15004",
+         "ecobalyse_id" : "79b53a3e-0cad-4a78-a779-a6e88e1549b7",
+         "ecobalyse_name" : "Noisette, décortiquée Origine Inconnue",
+         "id" : "en:hazelnut",
+         "is_in_taxonomy" : 1,
+         "percent" : 13,
+         "percent_estimate" : 13,
+         "percent_max" : 13,
+         "percent_min" : 13,
+         "text" : "NOISETTES",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "19054",
+         "ecobalyse_id" : "b6776a28-ec84-4bf3-988c-07b3c29f6136",
+         "ecobalyse_name" : "Poudre de lait écrémé FR -2025-",
+         "id" : "en:skimmed-milk-powder",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10.2,
+         "percent_max" : 13,
+         "percent_min" : 7.4,
+         "text" : "LAIT écrémé en poudre",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "18100",
+         "ecobalyse_proxy_id" : "3d7f808b-77c5-4207-968d-feea6dfd9496",
+         "ecobalyse_proxy_name" : "Poudre de cacao par défaut -2025-",
+         "id" : "en:fat-reduced-cocoa",
+         "is_in_taxonomy" : 1,
+         "percent" : 7.4,
+         "percent_estimate" : 7.39999999999999,
+         "percent_max" : 7.4,
+         "percent_min" : 7.4,
+         "text" : "cacao maigre",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:skimmed-milk-powder"
+      ],
+      "en:palm-oil" : [
+         "en:palm-oil"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil",
+      "en:non-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 5,
+   "ingredients_n_tags" : [
+      "5",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:sugar",
+      "en:palm-oil",
+      "en:hazelnut",
+      "en:skimmed-milk-powder",
+      "en:fat-reduced-cocoa"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:sugar",
+      "en:disaccharide",
+      "en:added-sugar",
+      "en:palm-oil",
+      "en:palm-oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:oil-and-fat",
+      "en:hazelnut",
+      "en:tree-nut",
+      "en:nut",
+      "en:skimmed-milk-powder",
+      "en:milk-powder",
+      "en:dairy",
+      "en:fat-reduced-cocoa",
+      "en:cocoa",
+      "en:plant"
+   ],
+   "ingredients_text" : "Sucre, huile de palme, NOISETTES 13%, LAIT écrémé en poudre, cacao maigre 7,4%",
+   "ingredients_with_specified_percent_n" : 2,
+   "ingredients_with_specified_percent_sum" : 20.4,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 79.6,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "known_ingredients_n" : 5,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener",
+      "en:ecobalyse-reference-quantity-from-product-quantity",
+      "en:ecobalyse-ingredients-matched-between-90-and-100",
+      "en:ecobalyse-api-called",
+      "en:ecobalyse-api-success"
+   ],
+   "product_quantity" : 400,
+   "product_quantity_unit" : "g",
+   "quantity" : "400g",
+   "testid" : "fr-pate-aux-noisettes",
+   "unknown_ingredients_n" : 0
+}

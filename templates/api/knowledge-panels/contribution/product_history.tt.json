@@ -1,0 +1,81 @@
+[%# A panel with a table of the changes history of the product, most recent changes first %]
+[%# User provided values (contributor, comment...) are encoded with encode_json to keep the JSON valid %]
+{
+    "level": "info",
+    "topics": [
+        "contribution"
+    ],
+    "expanded": false,
+    "title_element": {
+        "title": "[% edq(lang('history')) %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/edit.svg",
+    },
+    "elements": [
+        [%# For products with many revisions, only the most recent ones are included, link to the full history %]
+        [% IF panel.truncated %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": [% encode_json(lang('product_history_most_recent_changes') _ ' <a href="' _ panel.full_history_url _ '">' _ lang('product_history_see_full_history') _ '</a>') %],
+            },
+        },
+        [% END %]
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "product_history_table",
+                "title": "[% edq(lang('history')) %]",
+                "columns": [
+                    {
+                        "text": "[% edq(lang('product_history_revision')) %]",
+                        "type": "text",
+                    },
+                    {
+                        "text": "[% edq(lang('product_history_date')) %]",
+                        "type": "text",
+                    },
+                    {
+                        "text": "[% edq(lang('product_history_contributor')) %]",
+                        "type": "text",
+                    },
+                    {
+                        "text": "[% edq(lang('product_history_changes')) %]",
+                        "type": "text",
+                    },
+                    {
+                        "text": "[% edq(lang('product_history_comment')) %]",
+                        "type": "text",
+                    },
+                ],
+                "rows": [
+                    [% FOREACH row IN panel.rows %]
+                    {
+                        "id": "product_history_rev_[% row.number %]",
+                        "values": [
+                            {
+                                "text": "[% row.number %]",
+                                "url": [% encode_json(row.revision_url) %],
+                            },
+                            {
+                                "text": [% encode_json(row.date) %],
+                            },
+                            {
+                                "text": [% encode_json(row.contributor) %],
+                                [% IF row.contributor_url %]
+                                "url": [% encode_json(row.contributor_url) %],
+                                [% END %]
+                            },
+                            {
+                                "text": [% encode_json(row.changes) %],
+                            },
+                            {
+                                "text": [% encode_json(row.comment) %],
+                            },
+                        ],
+                    },
+                    [% END %]
+                ],
+            },
+        },
+    ],
+}

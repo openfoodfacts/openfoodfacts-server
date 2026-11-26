@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 no warnings qw(experimental::signatures);
 
 use utf8;
@@ -63,6 +63,16 @@ my @tests = (
 					}
 				]
 			},
+		}
+	],
+	# Ecobalyse environmental impact estimation should prepare the request payload
+	[
+		'ecobalyse-environmental-impact-estimation',
+		{
+			lc => "en",
+			ingredients_text => "Olive oil",
+			categories_tags => ["en:olive-oils"],
+			quantity => "0.75l",
 		}
 	],
 

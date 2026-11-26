@@ -569,6 +569,101 @@
          "tests"
       ],
       "entry_dates_tags" : "--ignore--",
+      "environmental_impact" : {
+         "ecobalyse_input" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "ecobalyse_name" : "Lait de vache HORS UE",
+                  "id" : "413dbd30-f224-580c-bf02-51664910430e",
+                  "mass" : 68.75,
+                  "name" : "milk"
+               },
+               {
+                  "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
+                  "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+                  "mass" : 15.625,
+                  "name" : "eggs"
+               },
+               {
+                  "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                  "mass" : 15.625,
+                  "name" : "sugar"
+               }
+            ],
+            "ingredients_coverage_percent" : 100,
+            "ingredients_total_mass" : 100.0,
+            "packaging" : [
+               {
+                  "category" : "en:biscuits",
+                  "id" : "4218f510-cee2-469f-af23-cd7f3c54d689",
+                  "name" : "Cookies, 200g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+                  "name_fr" : "Barquette en plastique (PP) pour cookies - 200g - Proxy"
+               }
+            ],
+            "reference_quantity" : 100,
+            "reference_quantity_source" : "product_quantity",
+            "reference_quantity_unit" : "g"
+         },
+         "ecobalyse_request" : {
+            "data" : {
+               "components" : [
+                  {
+                     "elements" : [
+                        {
+                           "amount" : 0.06875,
+                           "material" : {
+                              "id" : "413dbd30-f224-580c-bf02-51664910430e"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "milk",
+                     "quantity" : 1
+                  },
+                  {
+                     "elements" : [
+                        {
+                           "amount" : 0.015625,
+                           "material" : {
+                              "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "eggs",
+                     "quantity" : 1
+                  },
+                  {
+                     "elements" : [
+                        {
+                           "amount" : 0.015625,
+                           "material" : {
+                              "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
+                           },
+                           "transforms" : []
+                        }
+                     ],
+                     "name" : "sugar",
+                     "quantity" : 1
+                  }
+               ],
+               "consumptions" : [],
+               "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+               "packagings" : [
+                  {
+                     "amount" : 1,
+                     "processId" : "4218f510-cee2-469f-af23-cd7f3c54d689"
+                  }
+               ],
+               "transportOptions" : {
+                  "cooling" : false
+               }
+            },
+            "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+         }
+      },
       "estimate_ingredients_percent_service" : "product_opener",
       "food_groups" : "en:biscuits-and-cakes",
       "food_groups_tags" : [
@@ -649,7 +744,8 @@
       "ingredients" : [
          {
             "ciqual_proxy_food_code" : "19051",
-            "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+            "ecobalyse_proxy_id" : "413dbd30-f224-580c-bf02-51664910430e",
+            "ecobalyse_proxy_name" : "Lait de vache HORS UE",
             "id" : "en:milk",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 68.75,
@@ -661,7 +757,8 @@
          },
          {
             "ciqual_food_code" : "22000",
-            "ecobalyse_code" : "egg-indoor-code3",
+            "ecobalyse_id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
+            "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
             "id" : "en:egg",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 15.625,
@@ -673,7 +770,8 @@
          },
          {
             "ciqual_proxy_food_code" : "31016",
-            "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+            "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+            "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
             "id" : "en:sugar",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 15.625,
@@ -764,6 +862,9 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
+         "en:ecobalyse-api-skipped",
+         "en:ecobalyse-ingredients-matched-between-90-and-100",
+         "en:ecobalyse-reference-quantity-from-product-quantity",
          "en:environmental-score-changed",
          "en:environmental-score-computed",
          "en:environmental-score-grade-changed",
@@ -775,6 +876,7 @@
          "en:estimated-ingredients-with-product-opener",
          "en:forest-footprint-b",
          "en:forest-footprint-computed",
+         "en:forest-footprint-grade-b",
          "en:nutrients-estimated-from-ingredients",
          "en:nutriscore-2021-c-2023-c",
          "en:nutriscore-2021-same-as-2023",
@@ -959,7 +1061,9 @@
                "is_fat" : 0,
                "is_water" : 0,
                "negative_points" : 8,
+               "negative_points_max" : 0,
                "positive_points" : 4,
+               "positive_points_max" : 0,
                "proteins" : 4.5,
                "proteins_points" : 2,
                "proteins_value" : 4.5,

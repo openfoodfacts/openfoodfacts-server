@@ -1,0 +1,111 @@
+# Tags rules for beverages. See docs/dev/explain-tags-rules.md for the format.
+#
+# Incompatible categories (e.g. caffeinated colas / colas without caffeine) are set with incompatible_with:en in
+# taxonomies/food/categories.txt: rules never add a category that is incompatible with another one.
+
+- id: colas-caffeinated
+  description: >-
+    Colas are caffeinated unless they are tagged, labelled or named caffeine-free, or their ingredients list does
+    not name caffeine (or kola nut, guarana) (FoodEx2 A03FR)
+  if:
+    categories: en:colas
+  unless:
+    - labels: en:no-caffeine
+    # Caffeine-free in the name, in any language (names are often in another language than their field)
+    - name:
+        labels: en:no-caffeine
+        categories: en:cola-sodas-without-caffeine
+        languages: any
+    # Added caffeine must be named in the ingredients list (EU, US): an ingredients list that names no caffeine,
+    # kola nut or guarana is probably caffeine-free (or the product is not a cola).
+    # The ingredients text is matched too, as caffeine is often in an unparsed part (e.g. "flavourings (including caffeine)")
+    - all:
+        # the product has an ingredients list
+        - ingredients_text:
+            any: '\w'
+        - not:
+            ingredients_text:
+              ingredients: [en:caffeine, en:caffeine-flavour, en:cola-nut, en:guarana]
+              languages: any
+        - not:
+            ingredients:
+              contains: [en:caffeine, en:caffeine-flavour, en:cola-nut, en:guarana]
+  add:
+    categories: en:caffeinated-colas
+  tests:
+    match:
+      - categories: [en:colas]
+        product_name_fr: Coca-Cola
+      - categories: [en:cola-with-sugar]
+        labels: [en:organic]
+      - categories: [en:colas]
+        ingredients_text_fr: Eau gazéifiée, sucre, colorant E150d, acidifiant E338, arômes naturels (dont caféine)
+      - categories: [en:colas]
+        ingredients_text_en: Carbonated water, sugar, caramel color, phosphoric acid, natural flavors, caffeine
+      - categories: [en:colas]
+        ingredients_text_de: Wasser, Zucker, Kohlensäure, Farbstoff E150d, Säuerungsmittel Phosphorsäure, Aroma Koffein
+    no_match:
+      - categories: [en:colas, en:cola-sodas-without-caffeine]
+      - categories: [en:colas]
+        labels: [en:no-caffeine]
+      - categories: [en:colas]
+        product_name_fr: Coca-Cola sans caféine
+      - categories: [en:colas]
+        product_name_de: Cola koffeinfrei
+      - categories: [en:colas]
+        product_name_en: Caffeine Free Diet Coke
+      - categories: [en:colas]
+        product_name_pl: Cola zero kofeiny
+      - categories: [en:colas]
+        product_name_ru: Кола без кофеина
+      - categories: [en:colas]
+        product_name_ro: Coca Cola Zero Cofeină Zero Zahăr
+      # Ingredients list without caffeine
+      - categories: [en:colas]
+        ingredients_text_en: Carbonated water, caramel color, aspartame, phosphoric acid, potassium benzoate
+      - categories: [en:sodas]
+
+- id: orange-sodas-without-juice
+  description: >-
+    Orange soft drinks with a complete list of known ingredients that contains no fruit juice, no orange and no pulp
+    (FoodEx2 A03FJ)
+  if:
+    categories: en:orange-soft-drinks
+    ingredients:
+      # complete list: all ingredients are known, and the first one is water (partial lists often lack it)
+      known: true
+      first: en:water
+  unless:
+    - ingredients:
+        contains: [en:fruit-juice, en:orange, en:pulp, en:fruit]
+    - categories: [en:fruit-juices, en:fruit-nectars]
+    - states: en:ingredients-to-be-completed
+    # The name says there is juice or pulp, e.g. a partial ingredients list
+    - name:
+        ingredients: [en:juice, en:pulp]
+        languages: any
+  add:
+    categories: en:orange-flavoured-sodas-without-juice
+  tests:
+    match:
+      - categories: [en:orange-soft-drinks]
+        ingredients: [en:water, en:sugar, en:carbon-dioxide, en:citric-acid, en:natural-orange-flavouring]
+    no_match:
+      - categories: [en:orange-soft-drinks]
+        ingredients: [en:water, en:sugar, {id: en:orange-juice, percent: 12}, en:natural-flavouring]
+      - categories: [en:orange-soft-drinks]
+        ingredients: [en:water, en:sugar, en:orange-pulp]
+      - categories: [en:orange-soft-drinks]
+        ingredients: [en:water, en:sugar, en:concentrated-orange-juice]
+      # Partial ingredients list: unknown ingredient
+      - categories: [en:orange-soft-drinks]
+        ingredients: [en:water, en:sugar, "fr:jus de fruit inconnu"]
+      # No ingredients
+      - categories: [en:orange-soft-drinks]
+      # Partial ingredients list (water is not the first ingredient)
+      - categories: [en:orange-soft-drinks]
+        ingredients: [en:natural-flavouring]
+      # Juice in the name
+      - categories: [en:orange-soft-drinks]
+        product_name_zh: 北冰洋橙汁汽水
+        ingredients: [en:water, en:sugar]

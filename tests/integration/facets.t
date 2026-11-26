@@ -292,6 +292,22 @@ my $tests_ref = [
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
+	# For score tag types, unknown is a tag value, not a missing field.
+	# nutri-score resolves to the nutriscore tag type.
+	{
+		test_case => 'nutrition-grades_unknown',
+		method => 'GET',
+		path => 'facets/nutrition-grades/unknown.json?fields=product_name,nutrition_grades_tags',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
+	{
+		test_case => 'nutri-score_unknown',
+		method => 'GET',
+		path => 'facets/nutri-score/unknown.json?fields=product_name,nutriscore_tags',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
 	# EU packager code
 	{
 		test_case => 'packager-code_fr-85-222-003-ce',
@@ -314,6 +330,14 @@ my $tests_ref = [
 		path => 'facets/contributors/alice.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
+	},
+	{
+		test_case => 'contributor-alice-case-normalization',
+		method => 'GET',
+		path => 'facets/contributors/ALICE.json?fields=product_name',
+		expected_status_code => 200,
+		expected_type => 'none',
+		response_content_must_match => '"count"\s*:\s*13',
 	},
 	{
 		test_case => 'contributor-bob',
@@ -345,12 +369,85 @@ my $tests_ref = [
 		test_case => 'category-vitamins',
 		method => 'GET',
 		path => 'facets/categories/Vitamins.json?fields=product_name,labels_tags',
-		expected_status_code => 302,
-		headers => {
-			Location =>
-				'http://world.openfoodfacts.localhost/facets/categories/Vitamin%20supplements.json?fields=product_name,labels_tags',
-		},
+		expected_status_code => 200,
+	},
+	# NOVA unknown knowledge panel, on request only
+	{
+		test_case => 'api-v3-tag-nova-groups-unknown-panel',
+		method => 'GET',
+		path => '/api/v3/tag/nova_groups/unknown?activate_knowledge_panel_nova_unknown=1',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-nova-groups-unknown-no-panel-by-default',
+		method => 'GET',
+		path => '/api/v3/tag/nova_groups/unknown',
+		expected_status_code => 200,
+	},
+	# related categories knowledge panel, on request only (leaf category: no Query call)
+	{
+		test_case => 'api-v3-tag-category-canned-carrots-related-categories',
+		method => 'GET',
+		path => '/api/v3/tag/categories/en:canned-carrots?activate_knowledge_panel_related_categories=1',
+		expected_status_code => 200,
+	},
+	# packager code knowledge panel: name, address and link to the location
+	{
+		test_case => 'api-v3-tag-packager-code-fr',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/fr-85-222-003-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-fi',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/fi-006-2-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-uk',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/uk-1000-ec',
+		expected_status_code => 200,
+	},
+	# names with a backtick, a line break or a backslash, and a code with empty coordinates
+	{
+		test_case => 'api-v3-tag-packager-code-backtick',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/de-by-10357-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-line-break',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/ie-1888-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-backslash',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/se-6668-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-empty-coordinates',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/fr-42-205-007-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'api-v3-tag-packager-code-unknown',
+		method => 'GET',
+		path => '/api/v3/tag/emb_codes/fr-00-000-000-ec',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'packager-code-page-shows-panel',
+		method => 'GET',
+		path => '/facets/packager-codes/fr-85-222-003-ec',
+		expected_status_code => 200,
 		expected_type => 'html',
+		response_content_must_match => '84 RTE DES SABLES, 85800 SAINT-GILLES-CROIX-DE-VIE',
 	},
 	# test some redirects
 	{

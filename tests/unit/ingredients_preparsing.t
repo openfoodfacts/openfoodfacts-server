@@ -2,7 +2,7 @@
 
 # Tests of Ingredients::preparse_ingredients_text()
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -11,6 +11,7 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::IngredientsStrings qw/protect_compound_unit_slashes/;
 use ProductOpener::Ingredients
 	qw/normalize_a_of_b normalize_enumeration preparse_ingredients_text separate_additive_class/;
 
@@ -1262,6 +1263,136 @@ my @tests = (
 		lc => 'fr',
 		ingredients_text => 'Huiles végétales biologiques non hydrogénées (colza*)',
 	},
+	# Misspellings
+	{
+		id => 'misspelling-correction',
+		lc => 'fr',
+		ingredients_text => 'Sucre, tomates en dès, sel',
+	},
+	{
+		id => 'misspelling-case-preserve',
+		lc => 'fr',
+		ingredients_text => 'Dès de courgettes, TOMATES EN DÈS, dès d\'aubergine,sel',
+	},
+	{
+		id => '239',
+		lc => 'en',
+		ingredients_text => 'E160a (i)'    # additive normalization regression check
+	},
+	# orphan additive variants must be re-attached, not stripped: in languages whose "and"
+	# word is " i " (ca, hr, pl, uk), the additives normalization does not accept a space
+	# before the parenthetical variant
+	{
+		id => '240',
+		lc => 'pl',
+		ingredients_text => 'barwnik: e160a (ii)'
+	},
+	{
+		id => '241',
+		lc => 'ca',
+		ingredients_text => 'colorant e160a (ii) i conservant e451 (i)'
+	},
+	# variant re-attachment also applies when the upstream lookahead fails
+	# (e.g. "*" after the closing paren)
+	{
+		id => '242',
+		lc => 'en',
+		ingredients_text => 'Annatto e160b(ii)*'
+	},
+	# the re-attach accepts the same whitespace as the removed numerals would
+	{
+		id => '243',
+		lc => 'en',
+		ingredients_text => 'carotenes e160a  (ii)'
+	},
+	# the letter after the E-number is optional: "e451 (i)" re-attaches like "e451a (i)"
+	{
+		id => '244',
+		lc => 'pl',
+		ingredients_text => 'regulator kwasowosci: e451 (i)'
+	},
+	# oxidation states in roman numeral parens are kept: stripping the numeral would turn
+	# "Azotan(III) potasu" (an E249 nitrite synonym) into "Azotan potasu" (an E252 nitrate
+	# synonym)
+	{
+		id => '245',
+		lc => 'pl',
+		ingredients_text => 'konserwant: Azotan(III) potasu'
+	},
+	{
+		'id' => 'ingredients-starting-with-ingredients',
+		'lc' => 'en',
+		'ingredients_text' =>
+			'INGREDIENTS Greek Style Yogurt (Milk) (85%), Water, Sugar, Coconut Milk (2%), Desiccated Coconut, Maize Starch, Flavourings, Lactic Acid, Live Bacterial Cultures [Bifidobacterium, Lactobacillus bulgaricus, Streptococcus thermophilus].'
+	},
+	{
+		id => 'bold-single-character',
+		lc => 'en',
+		ingredients_text => "Whey Powder (\x{1D40C} Milk)",
+	},
+	{
+		id => 'bold-multichar',
+		lc => 'en',
+		ingredients_text => "Sugar, \x{1D412}\x{1D428}\x{1D432}\x{1D41A} Lecithin, Salt",
+	},
+	{
+		id => 'bold-fullwidth',
+		lc => 'en',
+		ingredients_text => "Whey Power (\x{FF2C}\x{FF21}\x{FF22})",
+	},
+	# Allergens between underscores
+	{
+		id => 'en-allergens-between-underscores',
+		lc => 'en',
+		ingredients_text => "Sugar, _Milk_, Salt, _Soy_, _Sour cream_, false_positive, _other_ _false positives_",
+	},
+	{
+		id => 'de-allergens-between-underscores',
+		lc => 'de',
+		ingredients_text => "Zucker, _Milch_, Salz, _Soja_, _Sesam_öl",
+	},
+	{
+		id => 'fr-allergens-between-underscores',
+		lc => 'fr',
+		ingredients_text => "Eau, BLE, _CELERI_, __GLUTEN__, _poisson_, FRAISE, _banane_, lupin, _mollusque_"
+	},
+	{
+		id => 'de-palm-and-coconut-oil',
+		'lc' => 'de',
+		'ingredients_text' => 'Palm- und Kokosnuss-Pflanzenfett'
+	},
+	# combined symbols: both labels are applied
+	{
+		id => 'fr-combined-symbols',
+		lc => 'fr',
+		ingredients_text =>
+			"Farine de BLÉ*/** 45%, OEUFS entiers*/** 12.5%, sucre*. *Ingrédients issus de l'agriculture biologique. **Ingrédients issus du commerce équitable."
+	},
+	# singular types in an oil enumeration: Olive -> Olivenöl, Sonnenblume -> Sonnenblumenöl
+	{
+		id => 'de-vegetable-oils-olive-sunflower',
+		lc => 'de',
+		ingredients_text => 'Zwiebeln, pflanzliche Öle (Olive, Sonnenblume), Öle (Raps und Sonnenblumen)'
+	},
+	# g. U. abbreviation must not be split at the dots
+	{
+		id => 'de-protected-designation-of-origin',
+		lc => 'de',
+		ingredients_text =>
+			'Grana padano g. U. Käse (Milch, Lysozym aus Ei), Pecorino Romano g. U. Käse (Schafsmilch), Parmigiano Reggiano g.U., Salz'
+	},
+	# types without a category must not be grouped under an empty parent
+	{
+		id => 'de-types-without-category',
+		lc => 'de',
+		ingredients_text => 'Zucker, Raps, Sonnenblumen, Salz'
+	},
+	# Portuguese vitamin enumerations
+	{
+		id => 'pt-vitamins-enumeration',
+		lc => 'pt',
+		ingredients_text => 'Leite, vitaminas (B1, B2, B6, C, D), vitaminas A e E'
+	}
 );
 
 foreach my $test_ref (@tests) {
@@ -1273,6 +1404,295 @@ foreach my $test_ref (@tests) {
 	$test_ref->{preparsed_ingredients_text} = $preparsed;
 
 	compare_to_expected_results($test_ref, "$expected_result_dir/$testid.json", $update_expected_results);
+}
+
+foreach my $test (
+	['fr', 'vitamine E 105 mg', 'vitamine E 105 mg'],
+	['fr', 'vitamine  E 105 mg', 'vitamine E 105 mg'],
+	['fr', "vitamine \tE 105 mg", 'vitamine E 105 mg'],
+	['fr', 'vitamine E 105,125 mg', 'vitamine E 105,125 mg'],
+	['el', 'βιταμίνη E 105 mg', 'βιταμίνη E 105 mg'],
+	['ru', 'витамин е 105 мг', 'витамин е 105 мг'],
+	['fr', 'vitamines A, C et E 105 mg', 'vitamines, vitamine A, vitamine C, vitamine E 105 mg'],
+	['fr', 'vitamines A, C  et  E 105 mg', 'vitamines, vitamine A, vitamine C, vitamine E 105 mg'],
+	['en', 'vitamins A, C and E 105 mg', 'vitamins, vitamin A, vitamin C, vitamin E 105 mg'],
+	['pl', 'witaminy A, C i E 105 mg', 'witaminy, witamina A, witamina C, witamina E 105 mg'],
+	['fr', 'vitamines (A, C et E) 105 mg', 'vitamines, vitamine A, vitamine C, vitamine E 105 mg'],
+	[
+		'fr',
+		'vitamines A, C et E 105 mg, colorant E 120',
+		'vitamines, vitamine A, vitamine C, vitamine E 105 mg, colorant : e120'
+	],
+	['fr', 'E 330, E-160a(ii), INS 471', 'e330, e160aii, e471'],
+	['ru', 'е 330', 'e330'],
+	)
+{
+	my ($lc, $text, $expected) = @$test;
+	is(preparse_ingredients_text($lc, $text), $expected, "vitamins and E-numbers: $lc / $text");
+}
+
+# Food and feed codes share whitespace handling, without consuming a dosage.
+foreach my $test (
+	['3B 103, 3B 202, 3B 405, 3B 502, 3B 603, 3B 801', '3b103, 3b202, 3b405, 3b502, 3b603, 3b801'],
+	["3b\t103, 3a\x{a0}672a, E  330", '3b103, 3a672a, e330'],
+	['1b 306(i), 1b306(ii), 3a 825ii', '1b306(i), 1b306(ii), 3a825ii'],
+	['3b 103 105 mg, E 330 105 mg', '3b103 105 mg, e330 105 mg'],
+	['3b 999, 3a 700i, lot 1B 064, 2B 1003131447', '3b 999, 3a700i, lot 1B 064, 2B 1003131447'],
+	['Omega 3b 150mg, Omega 3b 103 mg, Omega E 150 mg', 'Omega 3b 150mg, Omega 3b 103 mg, Omega E 150 mg'],
+	['Omega-E 150mg, Omega-3b 103 mg', 'Omega-E 150mg, Omega-3b 103 mg'],
+	['E 330 mg, INS 471 mg, 3b 103,5 mg', 'E 330 mg, INS 471 mg, 3b 103,5 mg'],
+	['E 105,125 mg, E 1050 UI, 3b 103 mg/kg', 'E 105,125 mg, E 1050 UI, 3b 103 mg/kg'],
+	['3b 103 fer 73,2 mg', '3b103 fer 73,2 mg'],
+	['3b 103 et 3b 104, 3a 672a 3a 671', '3b103, 3b104, 3a672a, 3a671'],
+	['3b607 et 3b605, E8 et 3b811', '3b607 et 3b605, E8 et 3b811'],
+	['E 150 d, E 100g, 3b 103g', 'e150d, E 100g, 3b 103g'],
+	)
+{
+	is(preparse_ingredients_text('fr', $test->[0]), $test->[1], "food and feed codes: $test->[0]");
+}
+
+foreach my $test (
+	['pt', 'INS 500ii, INS 450iii', 'e500ii, e450iii'],
+	['ro', 'apă și sare', 'apă și sare'],
+	['ro', 'lapte şi soia', 'lapte și soia'],    # ş (cedilla) is normalized to ș (comma below)
+	['ro', 'E 330 şi E 331', 'e330, e331'],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "code variants and conjunctions: $test->[1]");
+}
+
+# Abbreviations with dots: a dot followed by a space matches ". ", "." or " ",
+# other dots match "." or ". ", but no other character
+foreach my $test (
+	['en', 'salt, i.a. pepper', 'salt, inter alia pepper'],
+	['en', 'salt, i. a. pepper', 'salt, inter alia pepper'],
+	['es', 'm.g. 20%', 'materia grasa 20%'],
+	['es', 'm. g. 20%', 'materia grasa 20%'],
+	['es', '100 mxg', '100 mxg'],
+	['nb', 'kons.middel (E202)', 'konserveringsmiddel (e202)'],
+	['nb', 'kons. middel (E202)', 'konserveringsmiddel (e202)'],
+	['nb', 'kons-middel (E202)', 'kons-middel (e202)'],
+	['fr', '2 c.s. de sucre', '2 cuillère à soupe de sucre'],
+	['fr', '2 c. s. de sucre', '2 cuillère à soupe de sucre'],
+	['fr', '1 c. à s. de miel', '1 cuillère à soupe de miel'],
+	['fr', '1 c à s de miel', '1 cuillère à soupe de miel'],
+	['fr', '1 c.à.c de sel', '1 cuillère à café de sel'],
+	['fr', 'en cas de doute', 'en cas de doute'],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "abbreviations: $test->[0] / $test->[1]");
+}
+
+# Ranges in French recipes
+foreach my $test (
+	["2 à 3 gousses d'ail", "2-3 gousses d'ail"],
+	['2 ou 3 œufs', '2-3 œufs'],
+	['1,5 à 2 kg de pommes de terre', '1.5-2 kg de pommes de terre'],
+	['E330 ou 331', 'e330 ou 331'],
+	)
+{
+	is(preparse_ingredients_text('fr', $test->[0]), $test->[1], "ranges: $test->[0]");
+}
+
+# Footnote markers with superscript parentheses, and footnote right after a comma
+foreach my $test (
+	[
+		"Eau, extrait de thé vert⁽¹⁾ (0,12%), sucre, ⁽¹⁾ Certifié Rainforest Alliance.",
+		"Eau, extrait de thé vert Vérifié Rainforest Alliance (0.12%), sucre"
+	],
+	[
+		"Eau, extrait de thé vert(1), sucre,(1) Certifié Rainforest Alliance.",
+		"Eau, extrait de thé vert Vérifié Rainforest Alliance, sucre"
+	],
+	)
+{
+	is(preparse_ingredients_text('fr', $test->[0]), $test->[1], "footnotes: $test->[0]");
+}
+
+# Misspellings with a hyphen
+is(
+	preparse_ingredients_text('fr', 'farine, sel-poivre'),
+	'farine, sel, poivre',
+	'misspelling with a hyphen: sel-poivre'
+);
+
+# a dash before "and" stands for the shared end of two compound words
+foreach my $test (
+	['et', "maasika lõhna - ja maitseaine", "maasika lõhna- ja maitseaine"],
+	# a dash between two ingredients is still a separator
+	['et', "suhkur - sool", "suhkur - sool"],
+	['et', "suhkur - jahu", "suhkur - jahu"],
+	# other languages are unchanged
+	['fi', "aromi - ja makuaineet", "aromi - ja makuaineet"],
+	['fr', "sel - et poivre", "sel - poivre"],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "dash before and: $test->[0] / $test->[1]");
+}
+
+# mono-, di-, tri- prefixes (examples from products)
+foreach my $test (
+	# prefix followed by "and" in the language of the ingredients list, and another prefix
+	['fr', "di - et triphosphates", "di- et triphosphates"],
+	['fr', "di-et triphosphates", "di- et triphosphates"],
+	['fr', "di - et polyphosphates", "di- et polyphosphates"],
+	['fr', "tri - et diphosphates", "tri- et diphosphates"],
+	['de', "Di - und Triphosphate", "Di- und Triphosphate"],
+	['en', "di - and triphosphates", "di- and triphosphates"],
+	['it', "di - e trifosfati", "di- e trifosfati"],
+	['en', "tri - and dicalcium phosphate", "tri- and dicalcium phosphate"],
+	['en', "tri- and dicalcium phosphate", "tri- and dicalcium phosphate"],
+	['fr', "mono - et diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
+	['fr', "mono-et diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
+	['fr', "mono et diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
+	['en', "mono - and diglycerides", "mono- and diglycerides"],
+	['en', "mono-and diglycerides", "mono- and diglycerides"],
+	['en', "mono - & diglycerides", "mono- and diglycerides"],
+	['de', "Mono - und Diglyceride von Speisefettsäuren", "Mono- und Diglyceride von Speisefettsäuren"],
+	['nl', "mono - en diglyceriden van vetzuren", "mono- en diglyceriden van vetzuren"],
+	['pl', "mono - i diglicerydy kwasów tłuszczowych", "mono- i diglicerydy kwasów tłuszczowych"],
+	['ro', "mono-şi digliceride ale acizilor grași", "mono- și digliceride ale acizilor grași"],
+	# mono-diglycérides -> mono- et diglycérides
+	['fr', "mono-diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
+	['fr', "mono - diglycérides d'acides gras", "mono- et diglycérides d'acides gras"],
+	['en', "mono-diglycerides", "mono- and diglycerides"],
+	['en', "mono-di-glycerides", "mono- and diglycerides"],
+	['es', "mono-diglicéridos de ácidos grasos", "mono- y diglicéridos de ácidos grasos"],
+	# prefix joined to the next word
+	['fr', "di-glycérides d'acides gras", "diglycérides d'acides gras"],
+	[
+		'en',
+		"mono-sodium glutamate, mono - calcium phosphate, di-potassium phosphate",
+		"monosodium glutamate, monocalcium phosphate, dipotassium phosphate"
+	],
+	['fr', "di-acétate de sodium, di-phosphates", "diacétate de sodium, diphosphates"],
+	['de', "Mono - natriumglutamat", "Mononatriumglutamat"],
+	['en', "tri-calcium phosphate", "tri-calcium phosphate"],
+	# not joined to short words
+	['en', "di-t-butyl hydroxyhydrocinnamate", "di-t-butyl hydroxyhydrocinnamate"],
+	# short word that is not "and" in the language of the ingredients list (typo or other language):
+	# not joined, but the dash is not kept as a separator
+	['en', "mono - und Diglyceride", "mono- und Diglyceride"],
+	['fr', "mono - and diglycerides", "mono- and diglycerides"],
+	['ro', "mono - ti digliceride ale acizilor grași", "mono- ti digliceride ale acizilor grași"],
+	# additive class without a colon, followed by mono- and diglycerides
+	[
+		'de',
+		"Emulgator Mono - und Diglyceride von Speisefettsäuren",
+		"Emulgator : Mono- und Diglyceride von Speisefettsäuren"
+	],
+	['fr', "émulsifiant mono - et diglycérides d'acides gras", "émulsifiant : mono- et diglycérides d'acides gras"],
+	[
+		'it',
+		"emulsionante mono-e digliceridi degli acidi grassi",
+		"emulsionante : mono- e digliceridi degli acidi grassi"
+	],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2],
+		"mono, di, tri prefixes: $test->[0] / $test->[1]");
+}
+
+# HTML entities, GMO thresholds and missing separators between ingredients with percents
+foreach my $test (
+	['en', "salt &amp; pepper", "salt and pepper"],
+	# decoded once
+	['en', "salt &amp;lt; pepper", "salt &lt; pepper"],
+	['fr', "Jambon de porc nourri sans OGM (< 0,9%), sel", "Jambon de porc nourri sans OGM, sel"],
+	['fr', "Jambon de porc nourri sans OGM (&lt; 0.9 %), sel", "Jambon de porc nourri sans OGM, sel"],
+	['fr', "Lait de vaches nourries sans OGM <0,9 %, sucre", "Lait de vaches nourries sans OGM, sucre"],
+	['fr', "carotte 23,4% oignon 9,9%, chou-fleur 9,9%", "carotte 23.4%, oignon 9.9%, chou-fleur 9.9%"],
+	# not split: connectors ("ou" is turned to "et"), percent before the ingredient
+	['fr', "lait écrémé à 1,4% de matière grasse 90%", "lait écrémé à 1.4% de matière grasse 90%"],
+	['fr', "chocolat noir 70% cacao 20%, sucre", "chocolat noir 70% cacao 20%, sucre"],
+	['fr', "lait entier 3,5% matière grasse 90%, sucre", "lait entier 3.5% matière grasse 90%, sucre"],
+	['fr', "LAIT anhydre 21,8% cacao 10,9%", "LAIT anhydre 21.8%, cacao 10.9%"],
+	['fr', "huile de tournesol 5% d'ail 3%", "huile de tournesol 5% d'ail 3%"],
+	['fr', "Fraise 50% ou abricot 50%", "Fraise 50% et abricot 50%"],
+	['fr', "FARINE, 32,1% BEURRE 5,6% SÉSAME", "FARINE, 32.1% BEURRE 5.6% SÉSAME"],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]), $test->[2], "entities and percents: $test->[1]");
+}
+
+# Danish oil / fat and protein categories and types
+foreach my $test (
+	# category followed by an enumeration of types
+	['vegetabilsk olie (solsikke, raps)', 'vegetabilsk olie (solsikkeolie, rapsolie)'],
+	['vegetabilsk olie (solsikke og raps)', 'vegetabilsk olie (solsikkeolie, rapsolie)'],
+	['vegetabilske olier (palme, kokos og shea)', 'vegetabilske olier (palmeolie, kokosolie, sheaolie)'],
+	['vegetabilsk fedt (palme, shea)', 'vegetabilsk fedt (palmefedt, sheafedt)'],
+	# category followed by a single type
+	['vegetabilsk olie (raps)', 'vegetabilsk olie (rapsolie)'],
+	# oil must give oil even when the corresponding fat exists in the taxonomy (palmefedt, sheafedt)
+	['vegetabilsk olie (palme)', 'vegetabilsk olie (palmeolie)'],
+	['vegetabilsk fedt (palme)', 'vegetabilsk fedt (palmefedt)'],
+	['vegetabilsk olie: solsikke', 'vegetabilsk olie (solsikkeolie)'],
+	# Danish compound words with an elided first category: "solsikke- og rapsolie"
+	['solsikke- og rapsolie', 'olie (solsikkeolie, rapsolie)'],
+	['palme- og kokosfedt', 'fedt (palmefedt, kokosfedt)'],
+	['sukker, solsikke- og rapsolie, salt', 'sukker, olie (solsikkeolie, rapsolie), salt'],
+	# proteins
+	['vegetabilsk protein (ærte, soja)', 'vegetabilsk protein (ærteprotein, sojaprotein)'],
+	['protein (mælke, soja)', 'protein (mælkeprotein, sojaprotein)'],
+	['ærte- og risprotein', 'protein (ærteprotein, risprotein)'],
+	['vegetabilske proteiner (soja, majs)', 'vegetabilske proteiner (sojaprotein, majsprotein)'],
+	# kikærte must not be matched as ærte
+	['ærte- og kikærteprotein', 'protein (ærteprotein, kikærteprotein)'],
+	[
+		'vegetabilsk protein (havre, kartoffel, solsikke, hvede)',
+		'vegetabilsk protein (havreprotein, kartoffelprotein, solsikkeprotein, hvedeprotein)'
+	],
+	['solsikke- og palmefedt', 'fedt (solsikkefedt, palmefedt)'],
+	# not developed: one of the types is not listed
+	['vegetabilsk olie (solsikke, hasselnød)', 'vegetabilsk olie (solsikke, hasselnød)'],
+	# not developed: no category
+	['sukker, solsikke, raps', 'sukker, solsikke, raps'],
+	# "salt" starts with the "sal" type: must not be changed
+	['salt og sojaolie', 'salt og sojaolie'],
+	)
+{
+	is(preparse_ingredients_text('da', $test->[0]), $test->[1], "da categories and types: $test->[0]");
+}
+
+# HTML entities, mangled HTML entities (& and ; turned into commas), subscript digits
+foreach my $test (
+	['it', "farina di grano tenero tipo &quot;00&quot;, acqua", 'farina di grano tenero tipo "00", acqua'],
+	['en', "salt &amp; pepper, sugar &lt;1%", "salt and pepper, sugar <1%"],
+	['en', "rapeseed&nbsp;oil, baker&#39;s yeast", "rapeseed oil, baker's yeast"],
+	['it', "Farina di GRANO tenero tipo ,quot,0,quot, 32%, acqua", 'Farina di GRANO tenero tipo "0" 32%, acqua'],
+	['it', "semi di chia ,quot,Salvia hispanica,quot, (2,7%), sale", 'semi di chia "Salvia hispanica" (2.7%), sale'],
+	['en', "wheat flour type ,quot,0,quot,, water", 'wheat flour type "0", water'],
+	['it', "zucchero, sale ,lt,1%", "zucchero, sale <1%"],
+	# not a mangled entity: "quot" or "lt" as separate list items are kept
+	['it', "acqua, lt, sale", "acqua, lt, sale"],
+	[
+		'de',
+		"Zucker, Vitamine (B₁, B₂, B₆, B₁₂, D₃)",
+		"Zucker, vitamine, vitamin B1, vitamin B2, vitamin B6, vitamin B12, vitamin D3"
+	],
+	# a decimal concentration per volume is not turned into a percentage
+	['de', "Extraktgehalt: 1,2 g/l", "Extraktgehalt: 1,2 g/l"],
+	# per 100 g is still a percentage
+	['de', "Fruchtgehalt: 45,5 g/100 g", "Fruchtgehalt: 45.5%/100 g"],
+	['fr', "eau, CO₂", "eau, CO2"],
+	# superscript digits are footnote markers and are kept
+	['fr', "sucre¹, sel²", "sucre¹, sel²"],
+	)
+{
+	is(preparse_ingredients_text($test->[0], $test->[1]),
+		$test->[2], "entities and subscripts: $test->[0] / $test->[1]");
+}
+
+# slashes inside compound units are protected, but only when the numerator starts a token
+foreach my $test (
+	["Calcium 40 mg/l, Natrium", "Calcium 40 mg\N{U+2044}l, Natrium"],
+	["Bifidobacterium 10 UFC/ml", "Bifidobacterium 10 UFC\N{U+2044}ml"],
+	["Sellerie/L-Cystein", "Sellerie/L-Cystein"],
+	["Zwiebeln/Knoblauch", "Zwiebeln/Knoblauch"],
+	)
+{
+	is(protect_compound_unit_slashes($test->[0]), $test->[1], "compound unit slashes: $test->[0]");
 }
 
 done_testing();

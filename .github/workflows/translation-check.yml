@@ -8,6 +8,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   validate:
     name: Validate translation files
@@ -23,9 +27,6 @@ jobs:
         run: |
           scripts/check-translations.sh
 
-      - name: Checkout code
-        uses: actions/checkout@v7
-      
       - name: Set up Python
         uses: actions/setup-python@v7
         with:
@@ -47,6 +48,7 @@ jobs:
       
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v5
+        continue-on-error: true
         with:
           comment-id: ${{ steps.find-comment.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}

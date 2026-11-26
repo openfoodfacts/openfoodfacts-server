@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -321,6 +321,21 @@ my @tests = (
 			categories_tags => ["en:whole-chickens"],
 		}
 	],
+	[
+		'en-chocolate-ingredients',
+		{
+			lc => "en",
+			ingredients_text => "lean cocoa, cocoa butter, cocoa powder",
+		}
+	],
+	[
+		'fr-pepites-de-chocolat-ingredients',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"pépites de chocolat (sucre, pâte de cacao), pépites de chocolat noir, pépites de chocolat, chocolat au lait",
+		}
+	]
 );
 
 my $json = JSON->new->allow_nonref->canonical;

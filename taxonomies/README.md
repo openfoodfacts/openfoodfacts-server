@@ -28,7 +28,7 @@ When contributing new logos for labels, follow these guidelines to ensure consis
 * **Directory Placement**: Place the logo file in the language-specific directory that corresponds to its canonical name. The root directory for label logos is:
     * **[html/images/lang/ in openfoodfacts-server](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/html/images/lang)**
 
-For detailed instructions on adding new logos, refer to the **[Open Food Facts Support page on adding new logos for labels](https://support.openfoodfacts.org/help/en-gb/15-improving-open-food-facts-in-my-language-country/55-i-would-like-to-add-a-new-logo-for-labels)**.
+For detailed instructions on adding new logos, refer to the **[Open Food Facts FAQ on adding new logos for labels](https://world.openfoodfacts.org/faq#i-would-like-to-add-a-new-logo-for-labels)**.
 
 ---
 

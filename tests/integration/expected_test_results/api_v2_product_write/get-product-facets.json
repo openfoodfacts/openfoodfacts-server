@@ -455,6 +455,7 @@
       "main_countries_tags" : [],
       "misc_tags" : [
          "en:environmental-score-not-computed",
+         "en:forest-footprint-unknown",
          "en:nutrients-not-estimated-from-ingredients-no-ingredients",
          "en:nutriscore-missing-fiber",
          "en:nutriscore-missing-nutrition-data",
@@ -471,7 +472,7 @@
          "en:packagings-empty",
          "en:packagings-not-complete",
          "en:packagings-number-of-components-0",
-         "en:storage-conditions-not-set",
+         "en:storage-conditions-set",
          "en:main-countries-new-product"
       ],
       "nova_group_debug" : "no nova group when the product does not have ingredients",
@@ -599,6 +600,10 @@
          "en:quantity-to-be-completed",
          "en:product-name-to-be-completed",
          "en:photos-to-be-uploaded"
+      ],
+      "storage_conditions" : "en:refrigerated",
+      "storage_conditions_tags" : [
+         "en:refrigerated"
       ],
       "traces" : "es:Moutarde, lait, es:abcd",
       "traces_hierarchy" : [

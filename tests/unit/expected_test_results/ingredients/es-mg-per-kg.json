@@ -35,7 +35,7 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:e101",
+         "id" : "en:e101i",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 5,
          "percent_max" : 25,
@@ -59,7 +59,7 @@
    ],
    "ingredients_analysis" : {
       "en:maybe-vegan" : [
-         "en:e101",
+         "en:e101i",
          "en:e375"
       ],
       "en:maybe-vegetarian" : [
@@ -81,7 +81,7 @@
       "en:iron",
       "en:folic-acid",
       "en:thiamin",
-      "en:e101",
+      "en:e101i",
       "en:e375"
    ],
    "ingredients_percent_analysis" : 1,
@@ -92,6 +92,7 @@
       "en:folate",
       "en:vitamins",
       "en:thiamin",
+      "en:e101i",
       "en:e101",
       "en:e375"
    ],
@@ -101,7 +102,7 @@
    "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:e101",
+      "en:e101i",
       "en:e375",
       "en:folic-acid",
       "en:iron",
@@ -109,7 +110,7 @@
    ],
    "ingredients_without_ciqual_codes_n" : 5,
    "ingredients_without_ecobalyse_ids" : [
-      "en:e101",
+      "en:e101i",
       "en:e375",
       "en:folic-acid",
       "en:iron",

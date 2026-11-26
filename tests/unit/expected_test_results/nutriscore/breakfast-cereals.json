@@ -51,6 +51,7 @@
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-c-2023-d",
+      "en:forest-footprint-unknown",
       "en:nutrition-data-per-100g"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
@@ -88,7 +89,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 15,
+            "negative_points_max" : 0,
             "positive_points" : 5,
+            "positive_points_max" : 0,
             "proteins" : 10.3,
             "proteins_points" : 5,
             "proteins_value" : 10.3,

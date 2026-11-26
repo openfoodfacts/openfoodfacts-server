@@ -1,0 +1,226 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "fr:Additifs nutritionnels",
+         "ingredients" : [
+            {
+               "id" : "en:iron",
+               "ingredients" : [
+                  {
+                     "id" : "en:ferrous-sulfate",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 58.3333333333333,
+                     "percent_max" : 100,
+                     "percent_min" : 16.6666666666667,
+                     "text" : "3b103",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 58.3333333333333,
+               "percent_max" : 100,
+               "percent_min" : 16.6666666666667,
+               "text" : "Fer",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 58.3333333333333,
+         "percent_max" : 100,
+         "percent_min" : 16.6666666666667,
+         "text" : "Additifs nutritionnels"
+      },
+      {
+         "id" : "en:copper",
+         "ingredients" : [
+            {
+               "id" : "en:e519",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 20.8333333333333,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "3b405",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 20.8333333333333,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "Cuivre",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:vitamin-a",
+         "ingredients" : [
+            {
+               "id" : "en:retinyl-acetate",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 10.4166666666667,
+               "percent_max" : 33.3333333333333,
+               "percent_min" : 0,
+               "text" : "3a672a",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10.4166666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "vitamine A",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:vitamin-e",
+         "ingredients" : [
+            {
+               "id" : "en:dl-alpha-tocopheryl-acetate",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 5.20833333333333,
+               "percent_max" : 25,
+               "percent_min" : 0,
+               "text" : "3a700",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.20833333333333,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "vitamine E",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:taurine",
+         "ingredients" : [
+            {
+               "id" : "en:taurine",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 2.60416666666666,
+               "percent_max" : 20,
+               "percent_min" : 0,
+               "text" : "3a370",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "taurine",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "additive_class" : "en:antioxidant",
+         "id" : "en:e306",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "1b306(i)",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:retinyl-acetate",
+         "en:taurine"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:retinyl-acetate",
+         "en:taurine"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 12,
+   "ingredients_n_tags" : [
+      "12",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "fr:Additifs nutritionnels",
+      "en:copper",
+      "en:vitamin-a",
+      "en:vitamin-e",
+      "en:taurine",
+      "en:e306",
+      "en:iron",
+      "en:e519",
+      "en:retinyl-acetate",
+      "en:dl-alpha-tocopheryl-acetate",
+      "en:taurine",
+      "en:ferrous-sulfate"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "fr:Additifs nutritionnels",
+      "en:copper",
+      "en:minerals",
+      "en:vitamin-a",
+      "en:vitamins",
+      "en:vitamin-e",
+      "en:taurine",
+      "en:e306",
+      "en:iron",
+      "en:e519",
+      "en:retinyl-acetate",
+      "en:dl-alpha-tocopheryl-acetate",
+      "en:ferrous-sulfate"
+   ],
+   "ingredients_text" : "Additifs nutritionnels : Fer (3b103), Cuivre (3b405), vitamine A (3a672a), vitamine E (3a700), taurine (3a370). Antioxydant : 1b306(i)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 6,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:copper",
+      "en:dl-alpha-tocopheryl-acetate",
+      "en:e306",
+      "en:e519",
+      "en:ferrous-sulfate",
+      "en:iron",
+      "en:retinyl-acetate",
+      "en:taurine",
+      "en:vitamin-a",
+      "en:vitamin-e",
+      "fr:Additifs nutritionnels"
+   ],
+   "ingredients_without_ciqual_codes_n" : 11,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:copper",
+      "en:dl-alpha-tocopheryl-acetate",
+      "en:e306",
+      "en:e519",
+      "en:ferrous-sulfate",
+      "en:iron",
+      "en:retinyl-acetate",
+      "en:taurine",
+      "en:vitamin-a",
+      "en:vitamin-e",
+      "fr:Additifs nutritionnels"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 11,
+   "known_ingredients_n" : 11,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 1
+}

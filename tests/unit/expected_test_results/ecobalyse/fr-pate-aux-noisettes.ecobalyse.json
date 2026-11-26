@@ -1,0 +1,71 @@
+{
+   "complements" : {
+      "hedges" : -0.0478998,
+      "plotSize" : -0.144955
+   },
+   "composition" : [
+      {
+         "complements" : {
+            "hedges" : -0.0478998,
+            "plotSize" : -0.144955
+         },
+         "mass" : 0.1794,
+         "name" : "Sucre",
+         "score" : {
+            "complements" : -0.192855,
+            "ecs" : 26.5019
+         }
+      },
+      {
+         "complements" : {},
+         "mass" : 0.0982,
+         "name" : "huile de palme",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 42.6679
+         }
+      },
+      {
+         "complements" : {},
+         "mass" : 0.052,
+         "name" : "NOISETTES",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 175.76
+         }
+      },
+      {
+         "complements" : {},
+         "mass" : 0.0408,
+         "name" : "LAIT écrémé en poudre",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 44.3088
+         }
+      },
+      {
+         "complements" : {},
+         "mass" : 0.0296,
+         "name" : "cacao maigre",
+         "score" : {
+            "complements" : 0,
+            "ecs" : 36.556
+         }
+      }
+   ],
+   "productMass" : 0.4,
+   "score" : {
+      "complements" : -0.192855,
+      "ecs" : 391.067
+   },
+   "stages" : {
+      "assembly" : 0,
+      "distribution" : 0.783901,
+      "endOfLife" : 0,
+      "materials" : 325.987,
+      "packaging" : 0,
+      "transform" : 0,
+      "transports" : 64.4888,
+      "usage" : 0
+   }
+}

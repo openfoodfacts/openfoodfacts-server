@@ -185,11 +185,20 @@ function compute_expected_links {
   EXPECTED_LINKS["/etc/nginx/snippets/productopener-uploads-large.include"]="$REPO_PATH/conf/nginx/snippets/productopener-uploads-large.include"
   EXPECTED_LINKS["/etc/nginx/conf.d/expires-no-json-xml.conf"]="$REPO_PATH/conf/nginx/conf.d/expires-no-json-xml.conf"
   EXPECTED_LINKS["/etc/nginx/conf.d/log_format_realip.conf"]="$REPO_PATH/conf/nginx/conf.d/log_format_realip.conf"
+  EXPECTED_LINKS["/etc/nginx/conf.d/tagline_cache.conf"]="$REPO_PATH/conf/nginx/conf.d/tagline_cache.conf"
   EXPECTED_LINKS["/etc/nginx/mime.types"]="$REPO_PATH/conf/nginx/mime.types"
   if [[ $SERVICE = "off" ]]
   then
     EXPECTED_LINKS["/etc/nginx/snippets/off.domain-redirects.include"]="$REPO_PATH/conf/nginx/snippets/off.domain-redirects.include"
     EXPECTED_LINKS["/etc/nginx/snippets/off.locations-redirects.include"]="$REPO_PATH/conf/nginx/snippets/off.locations-redirects.include"
+  fi
+  # environmental cost label rendered with njs (needs the libnginx-mod-http-js package), see conf/nginx/njs/README.md
+  # only for food (the environmental cost panel is only created for food products)
+  if [[ $SERVICE = "off" ]] || [[ $SERVICE = "off-pro" ]]
+  then
+    EXPECTED_LINKS["/etc/nginx/snippets/environmental-cost-label.include"]="$REPO_PATH/conf/nginx/snippets/environmental-cost-label.include"
+    EXPECTED_LINKS["/etc/nginx/conf.d/environmental_cost_label.conf"]="$REPO_PATH/conf/nginx/conf.d/environmental_cost_label.conf"
+    EXPECTED_LINKS["/etc/nginx/njs"]="$REPO_PATH/conf/nginx/njs"
   fi
 
   # apache2 links

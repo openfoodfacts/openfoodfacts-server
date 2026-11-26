@@ -1,0 +1,20 @@
+{
+   "categories_tags" : [
+      "en:meals",
+      "en:prepared-salads",
+      "en:pasta-salads"
+   ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "transformations" : [
+            {
+               "ecs" : 17.49,
+               "id" : "e297d2a0-1945-4f48-838f-fbbb4a6cde72",
+               "name" : "Cooking",
+               "name_fr" : "Cuisson",
+               "unit" : "kg"
+            }
+         ]
+      }
+   }
+}

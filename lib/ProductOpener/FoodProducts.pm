@@ -57,9 +57,11 @@ use ProductOpener::Food
 	qw/assign_categories_properties_to_product compute_nova_group compute_nutriscore compute_nutrient_levels/;
 use ProductOpener::FoodGroups qw/compute_food_groups/;
 use ProductOpener::Nutrition
-	qw/generate_nutrient_aggregated_set compute_estimated_nutrients add_misc_tags_for_input_nutrition_data_pers/;
+	qw/generate_nutrient_aggregated_set compute_estimated_nutrients add_misc_tags_for_input_nutrition_data_pers get_default_per_for_product/;
+use ProductOpener::TagsRules qw/apply_tags_rules_to_product/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::EnvironmentalScore qw/compute_environmental_score/;
+use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service ecobalyse_api_call_enabled/;
 use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
 use ProductOpener::ForestFootprint2026 qw/compute_forest_footprint_2026/;
 use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
@@ -75,6 +77,8 @@ Runs specific processes for food products:
 - Ingredients analysis
 - Additives detection
 - Allergens detection
+- Estimated nutrients and aggregated nutrition set
+- Tags rules (more precise categories inferred from the product data, see ProductOpener::TagsRules)
 - Determination of food groups, and whether a product is to be considered a beverage for the Nutri-Score.
 - Computation of scores
 
@@ -96,18 +100,35 @@ sub specific_processes_for_food_product ($product_ref) {
 	# Rare crops / Neglected and Underutilized Crops (NUCs) (DIVINFOOD project)
 	detect_rare_crops($product_ref);
 
+	# Nutrition
+	# Computed before the tags rules, so that rules can use nutrients from the aggregated set
+
+	compute_estimated_nutrients($product_ref);
+
+	generate_nutrient_aggregated_set($product_ref);
+
+	# Tags rules: add more precise categories inferred from categories, ingredients, nutrients, names etc.
+	# (rules/food/categories/*.yml), stored in the "rules" source of tags_sources
+	my @default_pers = map {get_default_per_for_product($product_ref, $_)} ("as_sold", "prepared");
+
+	apply_tags_rules_to_product($product_ref);
+
+	# The only dependency of the nutrition steps on categories is the default per
+	# (default_nutrition_*_per:en category property): recompute them if a rule changed it
+	if (
+		join(",", @default_pers) ne
+		join(",", map {get_default_per_for_product($product_ref, $_)} ("as_sold", "prepared")))
+	{
+		compute_estimated_nutrients($product_ref);
+		generate_nutrient_aggregated_set($product_ref);
+	}
+
 	# Category analysis
 	# Food category rules for sweetened/sugared beverages
 	# French PNNS groups from categories
 
 	assign_categories_properties_to_product($product_ref);
 	compute_food_groups($product_ref);
-
-	# Nutrition
-
-	compute_estimated_nutrients($product_ref);
-
-	generate_nutrient_aggregated_set($product_ref);
 
 	# Scores
 
@@ -118,6 +139,15 @@ sub specific_processes_for_food_product ($product_ref) {
 	# Environmental analysis
 
 	compute_environmental_score($product_ref);
+
+	# Ecobalyse environmental cost
+	# last parameter is $skip_ecobalyse_call: unless the API call is enabled in the configuration
+	# (ecobalyse_call_api_on_product_update option + Ecobalyse API token),
+	# we only prepare and store the request payload without calling the Ecobalyse API.
+	# If the request did not change, previous results are reused,
+	# otherwise previous results are kept and marked as stale if we can't get new results.
+	estimate_environmental_impact_service($product_ref, {}, [], not ecobalyse_api_call_enabled());
+
 	compute_forest_footprint_2026($product_ref);    # Also includes compute_forest_footprint()
 
 	# Determine packaging components in contact with food

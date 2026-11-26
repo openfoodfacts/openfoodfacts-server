@@ -21,13 +21,13 @@
             "panel_group_element": {
                 "panel_ids": [
                     "environmental_labels_simplified",
-                    "origins_of_ingredients_simplified",
+                    [% IF product.environmental_score_data.adjustments.origins_of_ingredients.defined %]"origins_of_ingredients_simplified",[% END %]
                     "threatened_species_simplified",
                     "packaging_simplified",   
                 ],
             },
         },        
-        [% IF panels.carbon_footprint.defined %]
+        [% IF 0 && panels.carbon_footprint.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {

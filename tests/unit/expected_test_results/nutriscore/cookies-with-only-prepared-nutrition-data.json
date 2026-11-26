@@ -47,6 +47,7 @@
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-e-2023-e",
+      "en:forest-footprint-unknown",
       "en:nutrition-data-per-100g"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
@@ -84,7 +85,9 @@
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 20,
+            "negative_points_max" : 0,
             "positive_points" : 0,
+            "positive_points_max" : 0,
             "proteins" : 0,
             "proteins_points" : 0,
             "proteins_value" : 0,
