@@ -543,6 +543,29 @@ foreach my $test_ref (@uploaded_images_misc_tags_tests) {
 		!(grep {$_ eq 'en:nutrition-facts-to-be-completed'} @{$product_nova_and_fat->{states_tags}}),
 		'product with nova-group and fat does NOT have nutrition-facts-to-be-completed state'
 	);
+
+	# Product with non-estimated input_sets having no nutrients
+	my $product_packaging_empty = {
+		product_type => 'food',
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+				},
+			],
+		},
+	};
+	compute_completeness_and_missing_tags($product_packaging_empty, {}, {});
+	ok(
+		(grep {$_ eq 'en:nutrition-facts-to-be-completed'} @{$product_packaging_empty->{states_tags}}),
+		'product with empty packaging input set has nutrition-facts-to-be-completed state'
+	);
+	ok(
+		!(grep {$_ eq 'en:nutrition-facts-completed'} @{$product_packaging_empty->{states_tags}}),
+		'product with empty packaging input set does NOT have nutrition-facts-completed state'
+	);
 }
 
 done_testing();
