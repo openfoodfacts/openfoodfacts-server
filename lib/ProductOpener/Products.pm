@@ -2434,23 +2434,17 @@ maps an item id to the last change that touched it
 =head3 What is computed
 
 =over
-
 =item * C<*_dates_tags>: date tags (YYYY-MM-DD, YYYY-MM, YYYY).
-
 =item * Per-change C<diffs>:
 groups (images, fields, nutrition, packagings) x ids flagged as
 C<add>, C<delete> or C<change> compared to the previous revision.
-
 =item * C<images.uploaded.{id}.uploaded_t> / C<uploader>: backfilled from history when missing,
 made consistent through image moves,
 C<unknown> uploader replaced by C<openfoodfacts-contributors>.
-
 =item * C<last_image_t>, C<last_editor>,
 fixups of late/invalid C<created_t> and C<last_modified_t>.
-
 =item * User contribution lists: C<editors_tags>, C<photographers_tags>, C<informers_tags>,
 C<correctors_tags>, C<checkers_tags>, C<weighers_tags>.
-
 =item * Completeness, via compute_completeness_and_missing_tags()
 =back
 
