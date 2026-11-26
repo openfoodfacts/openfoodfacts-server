@@ -27,12 +27,14 @@ en:starch	potato-starch
 en:herb	herb-dried
 # Generic/parent ingredients proxied from more specific matched baseIngredients
 en:butterfat	butter
-en:milk-proteins	milk
+en:milk-proteins	cow-milk
 en:wheat-gluten	soft-wheat
 en:instant-coffee	coffee-ground
 en:vinegar  vinegar-alcohol
 en:soya	soybean
-en:coconut-oil	unknown-oil
+# coconut oil is not in Ecobalyse: palm oil (also a refined tropical oil) is used as a proxy.
+# Not unknown-oil: "Autres huiles (non encore répertoriées) (2025)" costs about 7460 points per kg (2026-11), 17 times more than palm oil
+en:coconut-oil	refined-palm-oil
 en:coffee	coffee-ground
 en:cocoa	cocoa-powder
 en:dextrose	glucose-syrup
@@ -42,3 +44,30 @@ en:maple-syrup  glucose-syrup
 en:agave-syrup  glucose-syrup
 # flour is a proxy for en:flour, as it is in fact wheat flour in Ecobalyse
 en:flour    flour
+# Generic ingredients found in cooking recipes (scripts/recipes_coverage)
+# white wine entries are not visible in Ecobalyse: use red wine
+en:white-wine	red-wine
+en:dry-white-wine	red-wine
+en:wine	red-wine
+en:pepper	black-pepper
+en:chocolate	dark-chocolate
+en:mascarpone	fresh-cream-cheese
+en:pecorino	parmesan-cheese
+en:breadcrumbs	flour
+# bread is mostly flour
+en:bread	flour
+en:mutton	lamb
+en:sheep	lamb
+en:giant-squash	squash-with-skin-raw
+en:lime	lemon
+en:vegetable-oil	rapeseed-oil
+# margarine is not in Ecobalyse: rapeseed oil (the main oil of margarines sold in France) is used as a proxy (not unknown-oil, see coconut oil)
+en:margarine	rapeseed-oil
+# 2026-11-24: Ecobalyse removed the "(2025)" entries that have a newer twin (MTES-MCT/ecobalyse#2922),
+# but the twins have a different baseIngredient: map the OFF ingredients that lost their data to the twins
+en:salt	sea-salt
+en:milk	cow-milk
+en:table-potatoes	potato
+en:barley	barley-whole
+en:garden-peas	pea-shelled-raw
+en:spaghetti-squash	squash-with-skin-raw

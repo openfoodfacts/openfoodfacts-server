@@ -36,7 +36,8 @@ use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Producers qw/convert_file get_minion load_csv_or_excel_file normalize_column_name/;
+use ProductOpener::Producers
+	qw/convert_file get_minion get_selectable_import_fields is_import_field_allowed load_csv_or_excel_file normalize_column_name/;
 use ProductOpener::Orgs qw/update_last_import_type/;
 
 use Apache2::RequestRec ();
@@ -57,6 +58,62 @@ my $title = lang("import_file_status_title");
 my $html = '';
 my $js = '';
 my $template_data_ref;
+
+# Decode and validate the column mapping before anything else: each field name becomes the
+# header row of the converted CSV, and import_csv_file reads that row to tell whether a cell
+# is product text, an organization attribution or a local file path. The server, not the
+# client, decides which fields an import may target, so only the fields the mapping
+# interface offers to this user are accepted.
+
+my $columns_fields_json = single_param("columns_fields_json");
+my $columns_fields_ref = eval {decode_json($columns_fields_json)};
+
+if ((not defined $columns_fields_ref) or (ref($columns_fields_ref) ne "HASH")) {
+	display_error_and_exit($request_ref, "Invalid columns_fields_json parameter.", 400);
+}
+
+my $selectable_fields_ref = get_selectable_import_fields();
+my @invalid_columns;
+my @non_selectable_fields;
+
+foreach my $column (keys %$columns_fields_ref) {
+
+	# A column must map to an object: the code below and convert_file() both expect that
+	if (ref($columns_fields_ref->{$column}) ne "HASH") {
+		$log->error("rejected a column whose mapping is not an object", {column => $column})
+			if $log->is_error();
+		push @invalid_columns, escapeHTML($column);
+		next;
+	}
+
+	my $field = $columns_fields_ref->{$column}{field};
+	next if not defined $field;
+
+	if ((ref $field) or (not is_import_field_allowed($field, $selectable_fields_ref))) {
+		$log->error(
+			"rejected a column mapped to a field that is not selectable",
+			{column => $column, field => ref($field) ? ref($field) : $field}
+		) if $log->is_error();
+		push @non_selectable_fields, escapeHTML(ref($field) ? $column : $field);
+	}
+}
+
+if (@invalid_columns) {
+	# Do not echo an unbounded list back to the caller
+	splice(@invalid_columns, 10) if scalar(@invalid_columns) > 10;
+	display_error_and_exit(
+		$request_ref,
+		"Invalid columns_fields_json parameter: these columns are not mapping objects: " . join(", ", @invalid_columns),
+		400
+	);
+}
+
+if (@non_selectable_fields) {
+	# Do not echo an unbounded list of field names back to the caller
+	splice(@non_selectable_fields, 10) if scalar(@non_selectable_fields) > 10;
+	display_error_and_exit($request_ref,
+		"Some columns are mapped to fields that cannot be imported: " . join(", ", @non_selectable_fields), 400);
+}
 
 if (not defined $Owner_id) {
 	display_error_and_exit($request_ref, lang("no_owner_defined"), 200);
@@ -102,9 +159,6 @@ if ($results_ref->{error}) {
 
 my $headers_ref = $results_ref->{headers};
 my $rows_ref = $results_ref->{rows};
-
-my $columns_fields_json = single_param("columns_fields_json");
-my $columns_fields_ref = decode_json($columns_fields_json);
 
 foreach my $field (keys %$columns_fields_ref) {
 	delete $columns_fields_ref->{$field}{numbers};

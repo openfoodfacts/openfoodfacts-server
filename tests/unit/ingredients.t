@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
@@ -1122,6 +1122,84 @@ puffed orange and caramelized unknown_fruit4.",
 				"3 kilos d'huile de palme, un kilo de farine, 5 tasses de farine, 30 g de sucre, une tasse de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel",
 		}
 	],
+	[
+		'fr-recipes-with-spoons-and-ranges',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"2 c. à s. d'huile d'olive, 2 cuillères à soupe de sucre, 1 cuillère à café de sel, 3 c.s de farine, 1 c.à.c de cannelle, 1 càs de miel, 1 cuillerée à dessert de vinaigre, 1 c. à thé de vanille, 2 c. à table de beurre, 2 à 3 gousses d'ail, 10 à 12 % de sucre",
+		}
+	],
+	[
+		'fr-recipes-with-processing-and-count-units',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"poivre du moulin, poivre fraîchement moulu, 10 cl d'eau tiède, 50 g de beurre ramolli, 1 gousse d'ail coupée en deux, 2 gousses d'ail écrasées, pain rassis, 1 œuf battu, 2 sachets de sucre vanillé, 1 bouquet garni, 1 bouquet de persil, 1 botte de radis, 1 poignée de noisettes, 1 verre de vin blanc sec",
+		}
+	],
+	[
+		'fr-recipes-with-fractions-and-herbs',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"½ litre de lait, 1/2 cuillère à café de sel, 1 1/2 tasse de farine, ¼ c. à s. de poivre, 1½ kg de pommes de terre, 1 bouquet de persil, 1 petit bouquet de coriandre, 3 brins de thym, 1 petit verre de kirsch, 1 grand verre de lait",
+		}
+	],
+	[
+		'fr-recipes-with-spoon-abbreviations',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"1 cuil. à soupe de farine, 2 c.c. de sel, 1 càc de poivre, 1 c. soupe d'huile, 1 c à s de miel, 20 cl de lait tiédi, ⅔ litre d'eau, 3/2 de beurre",
+		}
+	],
+	[
+		'fr-recipes-with-common-ingredients',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"1 kg de pommes de terre à chair ferme, 250 g de semoule fine, 100 g de mie de pain, 4 tranches de pain de campagne, 3 oignons nouveaux, 2 cuillères à soupe d'huile de cuisson, 2 ou 3 œufs",
+		}
+	],
+	[
+		'fr-recipes-with-numbers-in-words',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"deux carottes, trois œufs, deux gousses d'ail, douze huîtres, dix cl de lait, une pincée de sel, deux noix de beurre",
+		}
+	],
+	[
+		'en-recipes-with-numbers-in-words',
+		{
+			lc => 'en',
+			ingredients_text => "two eggs, three carrots, twelve oysters, a pinch of salt",
+		}
+	],
+	[
+		# "glacé" in candied fruits, frozen desserts, iced drinks, and ice water
+		'fr-recipes-with-glace',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"10 cl d'eau glacée, 50 g de marrons glacés, 50 g de cerises glacées, écorces d'orange glacées, 20 cl de thé glacé, café glacé, nougat glacé, corn flakes glacés au sucre",
+		}
+	],
+	[
+		'en-recipes-with-iced',
+		{
+			lc => 'en',
+			ingredients_text => "iced water, iced tea, iced coffee, sugar iced corn flakes, iced biscuits",
+		}
+	],
+	[
+		'en-recipes-with-spoons',
+		{
+			lc => 'en',
+			ingredients_text => "2 tbsp olive oil, 1 tablespoon of sugar, 1 tsp salt, 2 teaspoons of cinnamon",
+		}
+	],
 	# percent_or_quantity_regexp
 	[
 		'en-percent-or-quantity-regexp',
@@ -1139,6 +1217,32 @@ puffed orange and caramelized unknown_fruit4.",
 			lc => "es",
 			ingredients_text =>
 				"Hierro 30 mg/kg, ácido fólico 2,2 mg/kg, tiamina 6,3 mg/kg, riboflavina 1,3 mg/kg, niacina 13 mg/kg",
+		}
+	],
+
+	# Spanish ingredients that were frequently unknown in production
+	[
+		"es-melva-thunnus-alalunga",
+		{
+			lc => "es",
+			ingredients_text =>
+				"Melva (66%), aceite de oliva (33%) y sal. Bonito del norte (Thunnus alalunga), aceite de oliva 35%, sal.",
+		}
+	],
+	[
+		"es-morcilla-sangre-vacuno-pimentones",
+		{
+			lc => "es",
+			ingredients_text =>
+				"morcilla curada 5,5% (tocino, papada, sangre y magro de cerdo, cebolla, pimentones, sal), gelatina (vacuno), sal de potasio, recubrimiento: colágeno.",
+		}
+	],
+	[
+		"es-frequent-unknown-ingredients",
+		{
+			lc => "es",
+			ingredients_text =>
+				"Fideos orientales 93,7% (harina de trigo, aceite de girasol, sal), empanado (30%) (pan rallado, agua), masa madre de trigo inactiva, sólidos lácteos ricos en calcio, dextrinomaltosa, almidones, grosella, espirulina, goma base, cobertura de chocolate con leche, cobertura 25% (azúcar, cacao), mazada, ricotta, algarroba, picatostes, anís verde, aroma a queso, café soluble descafeinado, humo de madera de haya, vinagre de uva, aceite de girasol y oliva, aroma natural de limón con otros aromas naturales.",
 		}
 	],
 	[
@@ -1502,6 +1606,25 @@ puffed orange and caramelized unknown_fruit4.",
 				"_Sojabasis_ (Wasser, geschälte _Sojabohnen_ (10,4%)], Kokosmilch (4,3%) (Kokoscreme, Wasser), Zucker, Tricalciumcitrat, Säureregulatoren (Natriumcitrate, Citronensäure), Stabilisator (Pektine), natürliches Aroma, Meersalz, Antioxidationsmittel (stark tocopherol-tatige Extract, Fettsäureester der Ascorbinsäure), Vitamine (B12, D2), Joghurtkulturen (Str. Thermophilus, L. bulgaricus).",
 		}
 	],
+	# Frequent unknown German ingredients (2026-11 analysis of German products)
+	# traces with the plural forms of macadamia and pecan nuts
+	[
+		'de-traces-macadamia-pecan-nuts',
+		# staging 20408923
+		{
+			lc => "de",
+			ingredients_text =>
+				"Zucker, Weizenmehl. Kann Spuren von Haselnüssen, Macadamianüssen, Pecannüssen und Eiern enthalten.",
+		}
+	],
+	[
+		'de-frequent-unknown-ingredients',
+		{
+			lc => "de",
+			ingredients_text =>
+				"Brechbohnen, Pecannüssen, Macadamianüssen, Haselnüssen, stark entölter Kakao, Erdbeermark, Himbeerpüree, Himbeermark, löslicher Bohnenkaffee, Mu-Err-Pilze, Liebstockwurzel, grüne Paprika, grüne Peperoni, Weizenröstmalzmehl, natürliches Zitronenaroma mit anderen natürlichen Aromen, färbendes Konzentrat aus Karotte, färbendes Spirulinakonzentrat, färbendes Rote-Bete-Saftkonzentrat, färbender Paprikaextrakt, färbender Kurkuma-Auszug, Hähnchenfett mit Haut, Geflügelfett mit Haut, Salatmayonnaise, Süßkraut, süße Brombeerblätter, kakaohaltige Fettglasur, essbare Hülle aus Rinderkollagen, Mango-Chutney, Lollo Rosso, Lollo Bionda, Weißbrot, mildgesäuerte Butter, gekörnte Brühe, Eibisch, Bibernelle, Schlüsselblume, Frauenmantel, Schafgarbe, Aroma Chinin, Gewürzgurken, Kochschinken, Molkeneiweißkäse Ricotta, Frischkäse Doppelrahmstufe, Schnittkäse, Edelschimmelkulturen, Starterkultur, Enzyme, Tomatensoße.",
+		}
+	],
 	# Romanian: legacy cedilla forms (ş ţ) and missing diacritics
 	[
 		'ro-cedilla-and-missing-diacritics',
@@ -1520,7 +1643,141 @@ puffed orange and caramelized unknown_fruit4.",
 				"Lapte normalizat (98%), cultură starter, condimente în proporţii variabile. Conține o sursă de fenilalanină. A se consuma de preferinţă înainte de: vezi pe ambalaj. Lot: vezi capac. Ambalat în atmosferă protectoare. Valoare energetică: 250 kJ. Producător: SC Exemplu SRL, Str. Florilor nr. 1, Jud. Cluj, România.",
 		}
 	],
+	# origin statement after the ingredients list, with the ingredient first:
+	# origins of the ingredient in specific_ingredients, not a new ingredient
+	[
+		'fr-ingredient-origin-statement-after-the-list',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, LAIT* entier en poudre 25%, pâte de cacao, arômes de vanille. *Lait: origine UE et/ou non UE (Royaume-Uni)",
+		}
+	],
+	[
+		'fr-ingredients-origin-statements-after-the-list',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Viande de porc, viande de bœuf, sel, dextrose. Porc : origine France. Viande de bœuf : Origine Union Européenne; Sel : origine UE",
+		}
+	],
+	[
+		'en-ingredient-origin-statement-after-the-list',
+		{
+			lc => "en",
+			ingredients_text => "Sugar, whole milk, cocoa butter. Milk: origin France",
+		}
+	],
+	# not an origin statement: ingredients of the list with their origins (in parenthesis, after a comma)
+	[
+		'fr-ingredient-origin-in-the-list',
+		{
+			lc => "fr",
+			ingredients_text => "Fromage (lait : origine France), sucre, beurre : origine UE, farine",
+		}
+	],
+	# ingredients list separated by ; : the ingredient is not in the text before, it is an ingredient of the list
+	[
+		'fr-ingredient-origin-in-a-list-separated-by-semicolons',
+		{
+			lc => "fr",
+			ingredients_text => "Sucre; beurre : origine France; farine",
+		}
+	],
+	# a statement with an unknown ingredient does not prevent the next ones from being matched
+	[
+		'fr-ingredient-origin-statement-after-an-unknown-ingredient',
+		{
+			lc => "fr",
+			ingredients_text => "Sucre, lait. Machin : origine France. Lait : origine UE",
+		}
+	],
 	# “osteløbe (mikrobiel)”
+	# content statements at the end of the list go to specific_ingredients, not to the ingredients list
+	[
+		'fr-cocoa-content-statement-minimum',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, pâte de cacao, beurre de cacao, émulsifiant : lécithine de soja, arôme naturel de vanille. Cacao : 46% minimum.",
+		}
+	],
+	[
+		'fr-cocoa-milk-content-statement',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, beurre de cacao, lait entier en poudre, pâte de cacao. Le chocolat au lait contient cacao 35% minimum, matière sèche de lait 20% minimum.",
+		}
+	],
+	[
+		'en-cocoa-solids-content-statement',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Sugar, cocoa butter, whole milk powder, cocoa mass, emulsifier (soya lecithin), flavouring. Milk chocolate contains cocoa solids 30% minimum, milk solids 20% minimum.",
+		}
+	],
+	[
+		'en-ingredient-in-the-filling-content-statement',
+		{
+			lc => "en",
+			ingredients_text => "Sugar, wheat flour, strawberries, glucose syrup, strawberries in the filling: 49.8%",
+		}
+	],
+	# the percent is relative to the filling: it is scaled with the percent of the filling
+	[
+		'en-ingredient-in-the-filling-with-filling-percent',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Biscuit 60% (wheat flour, sugar, butter), filling 40% (sugar, strawberries, glucose syrup), strawberries in the filling: 49.8%",
+		}
+	],
+	# nested filling: the percent of the filling in the product is 50% x 40% = 20%
+	[
+		'en-ingredient-in-the-nested-filling-with-percents',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Cake 50% (wheat flour, filling 40% (sugar, strawberries), eggs), sugar, water, strawberries in the filling: 49.8%",
+		}
+	],
+	# nested filling in a cake without a percent: the percent of the filling in the product is unknown
+	[
+		'en-ingredient-in-the-nested-filling-without-parent-percent',
+		{
+			lc => "en",
+			ingredients_text =>
+				"Cake (wheat flour, filling 40% (sugar, strawberries), eggs), sugar, water, strawberries in the filling: 49.8%",
+		}
+	],
+	# no other cocoa in the list: "cacao 30% minimum" is the cocoa ingredient, not a content statement
+	[
+		'fr-cocoa-minimum-only-cocoa-in-the-list',
+		{
+			lc => "fr",
+			ingredients_text => "Sucre, lait en poudre, cacao 30% minimum, sel",
+		}
+	],
+	# minimum percents of ingredients in the list are kept
+	[
+		'fr-minimum-percents-in-the-list',
+		{
+			lc => "fr",
+			ingredients_text => "Pomme 60 % minimum, poire 30 %, sucre, cacao 30%",
+		}
+	],
+	# a content statement followed by an origin statement: two specific ingredients,
+	# the cocoa percent must not be attached to the milk origin
+	[
+		'fr-cocoa-content-statement-and-milk-origin',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"LAIT* entier en poudre 25%,  beurre de cacao1, pâte de cacao1, LAIT* écrémé en poudre 3%. Traces éventuelles de fruits à coque et de céréales contenant du gluten. Cacao: 30% minimum dans le chocolat au lait. *Lait: origine UE et/ou non UE (Royaume-Uni)",
+		}
+	],
 	[
 		'da-osteloebe-mikrobiel',
 		# https://dk.openfoodfacts.org/product/5705830614940/salatost-i-tern-rema-1000
@@ -1528,6 +1785,269 @@ puffed orange and caramelized unknown_fruit4.",
 			lc => "da",
 			ingredients_text =>
 				"96 % pasteuriseret _mælk_, 2,8 % salt, kultur (indeholder _mælk_), osteløbe (mikrobiel).",
+		}
+	],
+	# Frequent Slovenian ingredients and additive class names
+	[
+		'sl-frequent-unknown-ingredients',
+		{
+			lc => "sl",
+			ingredients_text =>
+				"pšenična bela moka, glukozni sirup, kakavova masa, palmino olje, repično olje, jagode 12 %, maline, korenje, paradižnikov koncentrat, krompirjev škrob, modificiran škrob, maltodekstrin, jogurt, posneto mleko v prahu, piščančje meso, jedilna želatina, alkoholni kis, vinski kis, ekstrakt kvasa, kvas, karoteni, sirilo, kumarice, emulgatorja (sojini lecitini, E471), stabilizatorji (E407, E412), gostilo (E415), antioksidanta (E300, E306), konzervansa (E202, E211), sredstvi za vzhajanje (E500, E450), sredstvo za ohranjanje vlage (E422), barvila (E160a), sladili (E950, E955), vanilin sladkor.",
+		}
+	],
+	# Greek (el) - FOODTURE representative products for Greece
+	[
+		'el-mortadella',
+		# https://gr.openfoodfacts.org/product/20212780
+		{
+			lc => "el",
+			ingredients_text =>
+				"Κρέας χοιρινό 62%, νερό, άμυλο από πατάτα, αλάτι, πρωτεΐνες γάλακτος, σιρόπι γλυκόζης, ζάχαρη, μπαχαρικά, αρωματικές ύλες, σταθεροποιητές: διφωσφορικό νάτριο, τριφωσφορικό νάτριο, ρυθμιστής οξύτητας: κιτρικό οξύ, συντηρητικό: νιτρώδες νάτριο.",
+		}
+	],
+	[
+		'el-breadsticks',
+		# https://gr.openfoodfacts.org/product/5201004058379
+		{
+			lc => "el",
+			ingredients_text =>
+				"Αλεύρι σίτου, σουσάμι 21%, αλεύρι σίτου ολικής άλεσης 20%, φυτικό έλαιο (φοινικέλαιο), ζάχαρη, σιρόπι γλυκόζης, μαλτοδεξτρίνη, αλάτι, γλουτένη σίτου, αλεύρι βύνης κριθαριού, μαγιά, αρωματική ύλη.",
+		}
+	],
+	# concentrations per volume (g/l, mg/l, mg/100 ml) must not leave an orphan "l" ingredient
+	[
+		'de-extract-content-g-per-l',
+		# 7616800204086
+		{
+			lc => "de",
+			ingredients_text =>
+				"Aufguss aus Schwarztee und Hagebutten/Karkadeblüten (Extraktgehalt: 1,2 g/l), Zucker, Zitronensaft aus Konzentrat 2%.",
+		}
+	],
+	[
+		'de-mineral-water-mg-per-l',
+		# 42376132
+		{
+			lc => "de",
+			ingredients_text =>
+				"Mineralwasser mit Natrium 19,7 mg/l, Magnesium 5,9 mg/l, Calcium 40,0 mg/l, Hydrogencarbonat 194 mg/l",
+		}
+	],
+	[
+		'it-mineral-water-mg-per-l',
+		# 80418207
+		{
+			lc => "it",
+			ingredients_text => "Bicarbonati 80 mg/l, Calcio 94.2 mg/l, Cloruri 17.9 mg/l, Sodio 10 mg/L",
+		}
+	],
+	[
+		'fr-mg-per-100-ml-and-dl',
+		{
+			lc => "fr",
+			ingredients_text => "Eau, sucre, calcium 120 mg/100 ml, magnésium 5 mg/dl, sel 2 g/l, ferments 10 UFC/ml",
+		}
+	],
+	# subscript digits in vitamin names
+	[
+		'de-vitamins-subscript-digits',
+		{
+			lc => "de",
+			ingredients_text => "Zucker, Vitamine (B₁, B₂, B₆, B₁₂, C, E, D₃), Salz",
+		}
+	],
+	[
+		'es-vitamins-subscript-digits',
+		{
+			lc => "es",
+			ingredients_text => "azúcar, vitaminas (B₁, B₂, B₆, B₁₂, D₃), sal",
+		}
+	],
+	# HTML entities mangled into ",quot,"
+	[
+		'it-mangled-html-entities',
+		# 8017596115225
+		{
+			lc => "it",
+			ingredients_text =>
+				"Farina di GRANO tenero tipo ,quot,0,quot, 32%, acqua, semi di chia ,quot,Salvia hispanica,quot, (2,7%), sale ,lt,1%",
+		}
+	],
+	[
+		'en-html-entities',
+		{
+			lc => "en",
+			ingredients_text => "wheat flour type ,quot,0,quot,, water, salt &amp; pepper, sugar &lt;1%",
+		}
+	],
+	# Portuguese origins in parenthesis: "origem", "país de origem"
+	[
+		'pt-origins-in-parenthesis',
+		{
+			lc => "pt",
+			ingredients_text =>
+				"Leite (Origem: UE), carne de porco (País de origem: Portugal), azeite (origem: Espanha, Itália), açúcar (país de origem: França), amido (de origem vegetal)",
+		}
+	],
+	# "Denominação de Origem Protegida" is a label (PDO), not an origin statement
+	[
+		'pt-pdo-not-origin',
+		{
+			lc => "pt",
+			ingredients_text =>
+				"Queijo (Denominação de Origem Protegida), vinho (Denominação de Origem Controlada), leite (origem: Portugal)",
+		}
+	],
+	# Portuguese vitamins enumeration
+	[
+		'pt-vitamins',
+		{
+			lc => "pt",
+			ingredients_text => "Leite, vitaminas (B1, B2, B6, B12, C, D3), vitaminas A e E",
+		}
+	],
+	# IT - frequent unknown Italian ingredients (cereals, sugars, fats, fibres)
+	[
+		'it-cereals-sugars-fats-fibres',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Semola rimacinata di grano duro, acqua, legumi, gocce di cioccolato fondente 10%, olio di semi di girasole altoleico, palmisti, fibre alimentari, psillio, cruschello di frumento, granturco, amido di frumento deglutinato, zucchero impalpabile, melasso, zucchero grezzo di canna, lievito per panificazione, proteine vegetali idrolizzate, semola di mais",
+		}
+	],
+	# IT - frequent unknown Italian ingredients (vegetables, fruits, fish, meat)
+	[
+		'it-vegetables-fish-meat',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Lattughino verde, lattughino rosso, spinacino, cavolo nero, bieta, asparagi, barbabietola rossa, peperone rosso, cetriolo, fagioli di soia, amarena, armelline, cotenna, merluzzo, gamberetti, alga nori",
+		}
+	],
+	# IT - frequent unknown Italian ingredients (dairy, ferments, eggs)
+	[
+		'it-dairy-ferments-eggs',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Yogurt di latte intero, yogurt colato, fermenti lattici specifici vivi (Lactococcus cremoris, Leuconostoc mesenteroides), fermenti vivi, uova da galline allevate a terra, preparazione alla vaniglia, galattosio",
+		}
+	],
+	# European Portuguese (pt-PT) ingredient names: polme, alperce, sêmea, couratos, fiambre, colza...
+	[
+		'pt-european-portuguese-fruit-and-dairy',
+		# based on real ingredient lists of Portuguese products (5601312078630, 5601312504337, 7613035619425)
+		{
+			lc => "pt",
+			ingredients_text =>
+				"Polme de Pêssego (55%), Polme de Maçã (35%), polme de manga, polme de pêra, polme de morango, alperce, framboesa, kiwi, tâmaras, frutos vermelhos, sólidos lácteos reconstituídos, matéria gorda láctea anidra, concentrado de minerais do leite, lactosoro ácido, ovo líquido, albumina de ovo, bifidobactérias, ricota, queijo emmental, pepitas de chocolate, chocolate negro, coco, açúcar de coco, oligofrutose, sêmea de trigo, trigo sarraceno, farinha de trigo espelta, farinha de alfarroba, óleo de girassol alto oleico, óleos vegetais (colza, palmoleína), matéria gorda vegetal, fibra de citrinos, fibra solúvel de milho, amido de tapioca, fécula de mandioca, concentrado de cenoura negra, bagas de goji, goma base, ésteres de esteróis vegetais.",
+		}
+	],
+	[
+		'pt-european-portuguese-meat-and-vegetables',
+		# based on real ingredient lists of Portuguese products (8480000057815, 5601119007970, 5601240022088)
+		{
+			lc => "pt",
+			ingredients_text =>
+				"Perna de suíno (74%), carne de bovino, carne de vaca, frango, fiambre, entremeada de suíno, carnes separadas mecanicamente de frango, couratos, proteína de suíno, hemoglobina, feijão encarnado, feijão manteiga, massa de alho, malagueta, cravinho, ervas aromáticas, água, sal.",
+		}
+	],
+	# Frequent Czech ingredients and additive class names
+	[
+		'cs-frequent-unknown-ingredients',
+		{
+			lc => "cs",
+			ingredients_text =>
+				"celozrnné ovesné vločky, kukuřičné lupínky, pšeničná sladová mouka, hrachová mouka, hrachová vláknina, citrusová vláknina, bambusová vláknina, karamelizovaný cukr, řepný cukr, kokosový cukr, javorový sirup, kakao se sníženým obsahem tuku, kakaové boby, čokoládový prášek, sezamová pasta, datlová pasta, rajčatový prášek, meruňkové pyré, jahodové pyré, višně, květák, ledový salát, černá mrkev, koncentrát z mrkve, kuřecí maso, bramborová bílkovina, bramborové vločky, mák, dýňová semínka, zeleninový vývar, pramenitá voda, himalájská sůl, jedlá sůl s jódem, řepkový lecitin, lékořicový extrakt, kypřící látky (uhličitany draselné), konzervanty (E202), nosič (E1520), balicí plyny (E941).",
+		}
+	],
+	[
+		'sk-frequent-unknown-ingredients',
+		{
+			lc => "sk",
+			ingredients_text =>
+				"pitná voda, soľ, cibuľa, zemiaky, mrkva, jahody, cuketa, datle, cícer, okara, múka pšeničná, múka sójová, zemiakový škrob, pšeničný škrob, rastlinné oleje, kokosový olej, rastlinné tuky, kokosový tuk, sušené odtučnené mlieko, mliečna bielkovina, hrachová bielkovina, odtučnený kakaový prášok, trstinový cukor, fruktóza, droždie, kvasničný extrakt, kvasný ocot liehový, koreniny, byliny, kurkuma, biele korenie, sušený cesnak, cesnak, koreň petržlenu, zelerové semeno, karamelový sirup, maltodextrín, prírodná minerálna voda, ryžové vločky, ľanové semienko, kvasný ocot vínny, kvasnicový extrakt, namočený cícer, horčičné semeno, petržlenová vňať, prírodná aróma, arómy, jogurtová kultúra, enzým laktáza, poleva, kyseliny (kyselina citrónová), regulátory kyslosti (citrany sodné), emulgátory (E471), stabilizátory (guma guar, xantánová guma), zahusťovadlá (metylcelulóza), antioxidanty (E300, E306), konzervačné látky (E202, disiričitan draselný), kypriace látky (uhličitany amónne), farbivá (karotény, amoniakový sulfitový karamel), protihrudkové činidlo (E551), zvýrazňovače chuti (E621), želírujúce látky (E440), polevové činidlá (E903), nosič (E1520), baliace plyny (E941), zvlhčovadlá (E422).",
+		}
+	],
+	[
+		'sl-ingredients-and-traces',
+		{
+			lc => "sl",
+			ingredients_text =>
+				"izvirska voda, fižol 38 %, pražena čebula, polnomastno mleko, lešnikova pasta, breskov sok, izvleček črnega čaja, koncentrirani izvleček pomaranče, kokošja maščoba, kokošje meso, rižev škrob, grahova moka, jajčni rumenjak, naravna aroma vanilije, pektini, natrijevi citrati, kalcijevi citrati. Lahko vsebuje sledi mleka, jajc, glutena, pšenice, rakov, rib, arašidov, oreškov, oreščkov, lešnikov, mandljev, listne zelene, gorčičnega semena, sezamovih semen, volčji bob, volčjega boba in sezama.",
+		}
+	],
+	[
+		'lv-oils-fibres-and-traces',
+		{
+			lc => "lv",
+			ingredients_text =>
+				"cukurs, augu eļļas (rapšu, rapšu sēklu, palmu, kokosriekstu), augu tauki (palmu, palmu kodolu, palmu sēklu), šķiedrvielas (kartupeļu, ceļmalītes), augu eļļas un tauki (saulespuķu, kokosriekstu), sāls. Var saturēt olas un sojas daļiņas.",
+		}
+	],
+	[
+		'hr-frequent-unknown-ingredients',
+		{
+			lc => "hr",
+			ingredients_text =>
+				"pšenično brašno T 850, pšenične bjelančevine, tapiokin škrob, dijetalna vlakna, vlakna cikorije, suncokretove sjemenke, integralne zobene pahuljice, pšenične klice, proteini graška, mliječni protein, sir mascarpone, zrnati sir, atlantski losos, životinjsko sirilo, kvaščevi ekstrakti, limunova kora, mladi luk, bijeli grah, aroma vanilina, natrijev alginat, eritritol, karminska kiselina, kolin klorid, vitamin A palmitat, željezo, kromov klorid, crni slanutak, zeleni grah, sok crvene naranče, ječmena krupica, pileća koža, zrna soje, zaštitne kulture, sredstvo za obradu brašna (E300), sredstva za želiranje (E440), tvar za rahljenje tijesta (E500), sekvestrant (E385), nosač (E1520), plinovi za pakiranje (E941).",
+		}
+	],
+	[
+		'et-frequent-unknown-ingredients',
+		{
+			lc => "et",
+			ingredients_text =>
+				"maitsetaimed, ürdid, sinepipulber, jodeeritud sool, joogivesi, suhkrusiirup, õunapüree, piimašokolaad, rukkijahu, hernevalk, meresool, rukkilinnasejahu, veiniäädikas, cayenne'i pipar, cayenne pipar, ensüümid, invertsuhkrusiirup, kartulihelbed, linnaseekstrakt, peedisuhkur, sidrunimahl, marineeritud kurk, mikrobioloogiline laap, modifitseeritud kartulitärklis, munakollasepulber, taimne kiud, täielikult hüdrogeenitud kookosõli, õunamahla kontsentraat, chia seemned, hernekiud, juustupulber, kanepijahu, kanepiseemned, kirsipüree, köögiviljad, küpsised, nisulinnasejahu, peedipulber, punapeet, puuviljapektiin, rabarberimahl, rafineeritud rapsiõli, rasvatu piim, riivsai, sealihavalk, sheaõli, suitsuaroom, toorjuust, tsitruskiud, täielikult hüdrogeenitud päevalilleõli, vaarikad, broileriliha, glükoosisiirupi pulber, loomne valk, apelsinimahl kontsentreeritud mahlast, hirveliha, kodujuust, kõvanisujahu, kaerapõhi, maasikamahl, pruun suhkur, rukkitäisterajahu, valge peakapsas, viinamarjamahl kontsentreeritud mahlast, kuivatatud sibul, piiritusäädikas, sealiha, broileri rinnafilee, hibiskus, seapekk, tainas, rukkipüülijahu, koorejäätis, vitamiin c, mononaatriumglutamaat, naatriumisoaskorbaat, trifosfaat, dekstriin, difosfaadid, guargummi, stabilisaatorid (E407), emulgaatorid (E471), värvaine (E160a), toiduvärvid (E150c), värvained (E100), antioksüdandid (E306), happed (E330), maitsetugevdajad (E621), maitsetugevdaja (E631), paakumisvastased ained (E551), vahutamisvastased ained (E900), kandeaine (E1520), kandeained (E1518), mahuained (E1200), emulgeerivad soolad (E339), tardained (E509), vahustusained (E999), želeerivad ained (E440), tarret andvad ained (E406), glaseerained (E903), niiskusesäilitajad (E422), modifitseeritud tärklised (E1422), pakendusgaas (E941), pakendusgaasid (E938), propellendid (E942), sekvestrandid (E385), magusained (E950), konservant (E202), konservandid (E211), jahu parendajad (E300).",
+		}
+	],
+	[
+		'sr-frequent-unknown-ingredients',
+		{
+			lc => "sr",
+			ingredients_text =>
+				"aroma, pšenično brašno, obrano mleko u prahu, surutka u prahu, suncokretovo ulje, biljna mast, biljno ulje, palmino ulje, maltodekstrin, kakao masa, laktoza, crni luk, punomasno mleko u prahu, krompirov skrob, ekstrakt kvasca, prirodna aroma, kokosovo ulje, mleko, morska so, senf, beli luk u prahu, svinjsko meso, koncentrat paradajza, pirinčano brašno, pšenični skrob, seme susama, lešnik, kikiriki, med, kurkuma, čokolada, pekarski kvasac, prezle, instant kafa, jogurtna kultura, maslinovo ulje, pšenični griz, kukuruz, ražano brašno, vinsko sirće, sušeni crni luk, mrkva, ruzmarin, šećer u prahu, beli pasulj, suvo grožđe, cimet, grašak, jodirana so, tunjevina, crni čaj, sojino ulje, mleveni crni biber, pšenično brašno t500, kakao prah sa redukovanim sadržajem kakao maslaca, mononatrijum glutaminat, natrijum hidrogenkarbonat, askorbinska kiselina, guar guma, karagenan, ksantan guma, natrijum nitrit, aspartam, difosfati, sorbitol, natrijum benzoat, kalcijum karbonat, sukraloza, kalcijum propionat, želatin, riboflavini, karoteni, vitamini, tiamin, kalcijum d pantotenat, taurin, emulgator (E471), emulgatori (E322), konzervans (E202), konzervansi (E211), antioksidans (E300), stabilizator (E407), stabilizatori (E412), zgušnjivač (E415), zgušnjivači (E410), sredstvo za dizanje testa (E500), sredstva za dizanje testa (E503), pojačivač arome (E621), pojačivač ukusa (E631), boje (E150d), modifikovani skrob (E1422), zaslađivač (E951), zaslađivači (E955), sredstvo za želiranje (E440), humektant (E422), regulatori kiselosti (E330), sredstvo protiv zgrudnjavanja (E551), sredstvo za tretiranje brašna (E300), sredstvo za glaziranje (E903), učvršćivač (E509). može sadržati tragove jezgrastog voća, lešnika, mleka, slačice, glutena, susama, sezama, lupine, soju.",
+		}
+	],
+	[
+		'cs-frequent-unknown-ingredients-2',
+		{
+			lc => "cs",
+			ingredients_text =>
+				"chilli, sóju, sóji, surový třtinový cukr, celeru, ibišek, petrželová nať, citronový koncentrát, švestky, sul, jablečný protlak, strouhaný kokos, sladká paprika, vajec, vanilkové aroma, zeleninová směs, citrónová šťáva, jedlá želatina, citrón, sezamová semínka, ředkev, pšeničná mouka hladká, bezvodý mléčný tuk, hořčici, saturejka, sezamu, škrobový sirup, extrakt z kurkumy, guma euchema, mandlová pasta, regulator kyselosti (E330). Muže obsahovat stopy mléka, celeru, hořčici.",
+		}
+	],
+	[
+		'sv-recognise-origin-odlat-i',
+		{
+			# https://se.openfoodfacts.org/product/7318690501237/penne-rigate-ica-basic
+			lc => "sv",
+			ingredients_text => "Mjöl av _vete_* och _durumvete_**, vatten. *Odlat i: Lettland. **Odlat i: EU/icke EU.",
+		}
+	],
+	[
+		'et-dash-before-and-is-not-a-separator',
+		{
+			lc => "et",
+			ingredients_text =>
+				"vesi, happesuse regulaator - sidrunhape, looduslik lõhna - ja maitseaine, looduslikud lõhna- ja maitseained, lõhna- ja maitseaine - vanilliin.",
+		}
+	],
+	[
+		'lv-frequent-unknown-ingredients',
+		{
+			lc => "lv",
+			ingredients_text =>
+				"kakao masa, saldais krējums, vanilīns, šokolāde, lauru lapas, sinepju pulveris, maizes raugs, pārtikas ražošanas sāls, vārāmā sāls, dzērvenes, garšaugi, ābolu biezenis, želatīns, pārtikas želatīns, kefīrs, kokosriekstu ella, rafinēta rapšu eļļa, ķiploku pulveris, ķirbju sēklas, citronu sulas koncentrāts, olu pulveris, bietes, rabarberi, siera pulveris, tomāti, zemeņu biezenis, dabīgs minerālūdens, ierauga kultūra, palmu ella, sausie sīpoli, kaltēti sīpoli, grauzdēti zemesrieksti, kviešu iesala milti, olu dzeltenuma pulveris, tomātu biezenis, apelsīnu sula, augu ella, augu eļļa, baltie galviņkāposti, emulgators sojas lecitīni, ferments laktāze, fruktozes glikozes sīrups, glikuronolaktons, kakao pulveris ar samazinātu tauku saturu, krustnagliņas, margarīns, melno burkānu koncentrāts, mencu aknas, nātrija ciklamāts, pastinaks, pūdercukurs, rīsu ciete, smaržīgie pipari, teksturēts zirņu proteīns, zemenes, zirnīši, čili, auzu pārslas pilngraudu, kviešu ieraugs, kviešu olbaltumvielas, rudzu pārslas, sojas olbaltumviela, sviests saldkrējuma, acerolas milti, aromatizētājs vanilīns, cāļa ādas, vistu ādas, cūku tauki, iebiezināts piens ar cukuru, mehāniski atdalīta cāļa gaļa, melno burkānu sulas koncentrāts, pelēkie zirņi, rudzu ieraugs, rudzu iesala milti, skumbrijas scomber scombrus, ābolu sulas koncentrāts, dabīga ābolu sula, miežu putraimi, vaniļas cukurs, mandeļu skaidiņas, apelsīnu miziņa, rīsu proteīns, sarkanie asie pipari, citrons, avene, vistas krūtiņas fileja, selerijas sakne, cieto kviešu mannas putraimi, vistas gaļa, cūkgaļas olbaltumvielas, pākšu pupiņas, sēņu pulveris, sojas pupiņu milti, pektīns, nātrija citrāti, dzeramā soda, kalcija citrāts, karotīni, rozmarīna ekstrakts, trinātrija citrāts, karmīns, vitamīns b12, krāsvielas (E100), pārtikas krāsviela (E100), pārtikas krāsvielas (E100), biezinātāji (E415), stabilizators (E407), antioksidanti (E306), maizes uzlabotājs (E300), modificētā ciete (E1422), modificētās cietes (E1422), nesējviela (E1520), nesējvielas (E1520), skābes (E330), pretsalipes vielas (E551), putu dzēsēji (E900), apjoma palielinātāji (E1200), cietinātāji (E509), putu veidotāji (E999), recinātāji (E440), glazētājvielas (E903), mitrumuzturētāji (E422), aizsarggāze (E941), aizsarggāzes (E941), propelenti (E942), irdinātāji (E500), sekvestranti (E385), miltu apstrādes līdzekļi (E300). Var saturēt piena, riekstu, riekstus, citus riekstus, citu riekstu, citu riekstu daļiņas, mandeļu, zemesriekstu, zemesriekstus, olu, olu daļiņas, pienu, piena daļiņas, seleriju, sinepju, lupīnu, soju, sojas produktu, sojas daļiņas, sezama sēklu, sezama sēklu daļiņas, kviešu daļiņas.",
+		}
+	],
+	[
+		'fi-frequent-unknown-ingredients',
+		{
+			lc => "fi",
+			ingredients_text =>
+				"silava, salaattisekoitus, kuorittu soijapapu, vadelmahillo, e322 soijalesitiini, entsyymit, vihreä papu, kevätsipuli, oligofruktoosikuitu, suippokaali, e322 auringonkukkalesitiini, jääsalaatti, chilitahna, glukoosifruktoosisiirappi, savupaprika, sushiriisi, granola, kananmunan keltuainen, omenaviinietikka, hiilihappopitoinen vesi, poltettu sokeri, siipikarjanrasva, linssiproteiini, rasvaton maito jauheesta, puristettu kookospähkinä, ksantaani, rasvahappojen monoglyseridi, rasvahappojen monoglyseridit, rasvahappojen diglyseridi, rasvahappojen diglyseridit, pyridoksiini, happamuudensaatoaine (E331), sailontaaine (E200), kantaja-aineet (E1520), kantaja-aine (E1520), kiillotusaineet (E903), kiillotusaine (E903), jauhon käsittelyaineet (E300), jauhon käsittelyaine (E300), aromivahventeet (E621), antioksidantit (E306), elintarvikevärit (E100), sakeutusaine (E415), sakeutusaineet (E415). Saattaa sisältää maito, spelttivehnä, spelttivehnää, kamut-vehnä, kamut-vehnää, muuta gluteenia sisältävää viljaa, soijan.",
 		}
 	],
 );
@@ -1699,5 +2219,135 @@ is(
 	[['en:l-glutamine', 1], ['en:l-arginine', 1], ['en:l-isoleucine', 1], ['en:e641', 1]],
 	'amino acids from the amino_acids taxonomy are recognized as ingredients'
 );
+
+# Real taxonomy: conjunctions must survive origin extraction and trailing quantities.
+for my $case (
+	['en', 'milk and cream', ['en:milk', 'en:cream']],
+	['en', 'French milk and cream', ['en:milk', 'en:cream']],
+	['en', 'French lactic acid and cultures', ['en:e270', 'en:microbial-culture']],
+	['fr', 'sucre et caramel', ['en:sugar', 'en:e150']],
+	['fr', 'viandes et sous-produits animaux 95% (dont poulet 4%)', ['en:meat-and-animal-derivatives']],
+	['fr', 'oeufs, et graines de sésame', ['en:egg', 'en:sesame-seeds']],
+	['fr', 'lait de brebis et de chèvre bio', ['en:sheep-and-goat-milk']],
+	['fr', 'viande et sous-produits animaux bio', ['en:meat-and-animal-derivatives']],
+	['en', 'organic milk and cream', ['en:milk', 'en:cream']],
+	)
+{
+	my ($lc, $text, $ids) = @$case;
+	my $product = {lc => $lc, ingredients_text => $text, product_type => 'food'};
+	extract_ingredients_from_text($product);
+	is([map {$_->{id}} @{$product->{ingredients}}], $ids, "real taxonomy conjunction: $text");
+}
+
+my $compound_percent = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text => 'viandes et sous-produits animaux 95% (dont poulet 4%)'
+};
+ProductOpener::Ingredients::parse_ingredients_text_service($compound_percent, {}, []);
+is($compound_percent->{ingredients}[0]{percent}, 95, 'real compound keeps its percentage');
+is($compound_percent->{ingredients}[0]{ingredients}[0]{percent}, 4, 'real compound keeps its child percentage');
+
+my $stray_conjunction = {lc => 'fr', product_type => 'food', ingredients_text => 'oeufs, et graines de sésame'};
+extract_ingredients_from_text($stray_conjunction);
+ProductOpener::Ingredients::detect_allergens_from_text($stray_conjunction);
+is($stray_conjunction->{allergens_tags}, ['en:eggs', 'en:sesame-seeds'], 'stray conjunction keeps both allergens');
+
+# 8720256082934: the allergen-label note is not an ingredient.
+my $allergen_label_note = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text => 'Eau, sel. Allergènes signalés en majuscules et en gras.',
+};
+extract_ingredients_from_text($allergen_label_note);
+is(
+	[map {$_->{id}} @{$allergen_label_note->{ingredients}}],
+	['en:water', 'en:salt'],
+	'allergen-label note does not add an ingredient'
+);
+
+# Real taxonomy: a coordination without labels whose second part is not a known ingredient
+# (a processing, a variety) keeps its percentage on the known first part
+sub flatten_ingredients ($ingredients_ref) {
+	return map {($_, flatten_ingredients($_->{ingredients} // []))} @$ingredients_ref;
+}
+
+# 3270160137664: "assaisonnée" is a processing of the cooked potato, not another ingredient
+my $processed_coordination = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text =>
+		"Soupe de poissons 40,7% (eau, poissons, carotte, crustacés, concentré de tomate, poireau, vin blanc, sel, ail, oignon frit, huile d'olive, muscade, poivre, fenouil, piment, laurier), eau, pomme de terre cuite et assaisonnée 12,5% (pomme de terre, sel), filet de colin d'Alaska (poissons) 8,5%, moule cuite décoquillée du Pacifique (mollusques) 6,5%, filet de tacaud (poissons) 4,5%, concentré de tomate"
+};
+extract_ingredients_from_text($processed_coordination);
+is(
+	[map {[$_->{id}, $_->{percent}, $_->{processing}]} @{$processed_coordination->{ingredients}}[2 .. 3]],
+	[['en:cooked-potato', 12.5, 'en:seasoned'], ['en:alaskan-pollock-fillet', 8.5, undef]],
+	'a coordinated processing stays on a single ingredient with its percentage'
+);
+
+# 3041091434043: the percentage of "saumon kéta et/ou rose" stays on the chum salmon
+my $variety_coordination = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text =>
+		"Eau de cuisson - Pommes de terre 19,7 % - Epinards 16,0 % - Carottes 10,0 % - Saumon kéta et/ou rose du Pacifique en proportion variable 8,10 % (POISSON) - Panais - Oignons - Haricots verts - Amidon de maïs - Crème (LAIT) - Céleri (CELERI) - Huiles végétales (colza, tournesol) - Sel - Muscade - Poivre noir"
+};
+extract_ingredients_from_text($variety_coordination);
+is(scalar @{$variety_coordination->{ingredients}}, 16, 'the coordination is split in 2 ingredients');
+is(
+	[map {[$_->{id}, $_->{percent}]} @{$variety_coordination->{ingredients}}[3 .. 5]],
+	[['en:carrot', 10], ['en:chum-salmon', 8.1], ['fr:rose', undef]],
+	'an unknown coordinated part does not take the percentage of the known part'
+);
+
+# When an unknown name is split in 2 later in the parsing, its percent or quantity is not given to both ingredients
+for my $case (
+	['poulet et xyzabc 20%', [['en:chicken', 20, undef], ['fr:xyzabc', undef, undef]]],
+	['xyzabc et poulet 20%', [['fr:xyzabc', undef, undef], ['en:chicken', 20, undef]]],
+	['poulet 10% et xyzabc', [['en:chicken', 10, undef], ['fr:xyzabc', undef, undef]]],
+	['poulet et xyzabc 20 g', [['en:chicken', undef, '20 g'], ['fr:xyzabc', undef, undef]]],
+	)
+{
+	my ($text, $expected) = @$case;
+	my $product = {lc => 'fr', product_type => 'food', ingredients_text => "eau, $text, sel"};
+	extract_ingredients_from_text($product);
+	is(
+		[map {[$_->{id}, $_->{percent}, $_->{quantity}]} @{$product->{ingredients}}],
+		[['en:water', undef, undef], @$expected, ['en:salt', undef, undef]],
+		"$text: the percent or quantity is counted once"
+	);
+}
+
+# 3560071252038: an origin statement with "et" must not create ingredients
+my $origin_statement = {
+	lc => 'fr',
+	product_type => 'food',
+	ingredients_text =>
+		"Viande de porc, gras de porc, piments d'Espagne séchés en poudre 3,9%, sel, _lactose_, ail, piment doux séché en poudre 0,5%, sucre, origan, piment de Cayenne séché en poudre 0,1%, muscade, cumin, conservateurs : ascorbate de sodium - nitrate de potassium - nitrite de sodium, ferments, boyau naturel de porc, conservateurs du boyau : sorbate de potassium et natamycine. \n135g de viande de porc mis en œuvre pour 100g de produit fini.\nViande et gras de porc origine Union Européenne et non-Union Européenne (Royaume-Uni)."
+};
+extract_ingredients_from_text($origin_statement);
+my @origin_statement_texts = map {$_->{text}} flatten_ingredients($origin_statement->{ingredients});
+ok((grep {$_ eq 'Viande et gras de porc'} @origin_statement_texts), 'origin statement keeps "viande et gras de porc"');
+is([grep {/Union/i} @origin_statement_texts], [], 'origin statement does not create an ingredient from an origin');
+
+# Single-ingredient synonyms and entries, each one checked on its own
+foreach my $case (
+	['en', 'Chrysanthemum', 'en:chrysanthemum'],
+	['en', 'Lemon Myrtle', 'en:lemon-myrtle'],
+	['en', 'food vinegar', 'en:table-vinegar'],
+	['de', 'Leinsamenmehl', 'en:flax-flour'],
+	['de', 'Hopfenauszüge', 'en:hop-extract'],
+	['fr', 'jus de cerises à base de jus concentré', 'en:cherry-juice-from-concentrated-cherry-juice'],
+	['pl', 'syrop z buraków cukrowych', 'en:sugar-beet-syrup'],
+	['pt', 'proteína isolada de soja', 'en:soy-protein-isolate'],
+	['hu', 'tejsav baktérium kultúra', 'en:lactic-ferments'],
+	)
+{
+	my ($lc, $text, $id) = @$case;
+	my $product_ref = {lc => $lc, ingredients_text => $text};
+	extract_ingredients_from_text($product_ref);
+	is([map {[$_->{id}, $_->{is_in_taxonomy}]} @{$product_ref->{ingredients}}], [[$id, 1]], "$lc: $text");
+}
 
 done_testing();

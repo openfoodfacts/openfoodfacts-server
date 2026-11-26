@@ -8,6 +8,7 @@
       "en:canned-foods",
       "en:vegetables-based-foods",
       "en:canned-plant-based-foods",
+      "en:processed-vegetables",
       "en:canned-vegetables"
    ],
    "categories_lc" : "fr",
@@ -19,6 +20,7 @@
       "en:canned-foods",
       "en:vegetables-based-foods",
       "en:canned-plant-based-foods",
+      "en:processed-vegetables",
       "en:canned-vegetables"
    ],
    "environmental_impact" : {
@@ -38,8 +40,8 @@
                "name" : "eau"
             },
             {
-               "ecobalyse_name" : "Sel -2025-",
-               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
+               "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
                "mass" : 16.6666666666667,
                "name" : "sel"
             }
@@ -69,7 +71,7 @@
                   "mass" : 16.6666666666667
                },
                {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+                  "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
                   "mass" : 16.6666666666667
                }
             ],
@@ -84,7 +86,7 @@
          "results" : {
             "distribution" : {
                "total" : {
-                  "ecs" : 0.236433
+                  "ecs" : 0.197146
                },
                "transports" : {
                   "air" : 0,
@@ -101,7 +103,7 @@
                "ecs" : 0
             },
             "perKg" : {
-               "ecs" : 179.054
+               "ecs" : 188.77
             },
             "preparation" : {
                "ecs" : 0
@@ -109,16 +111,16 @@
             "preparedMass" : 0.0933333,
             "recipe" : {
                "ingredientsTotal" : {
-                  "ecs" : 4.99427
+                  "ecs" : 4.9957
                },
                "total" : {
-                  "ecs" : 15.1391
+                  "ecs" : 16.0852
                },
                "totalBonusImpact" : {
                   "cropDiversity" : 0,
-                  "hedges" : -0.000112,
+                  "hedges" : 0,
                   "permanentPasture" : 0,
-                  "plotSize" : -0.00132
+                  "plotSize" : 0
                },
                "transform" : {
                   "ecs" : 1.954
@@ -126,39 +128,39 @@
                "transports" : {
                   "air" : 0,
                   "impacts" : {
-                     "ecs" : 8.19084
+                     "ecs" : 9.13554
                   },
-                  "road" : 3320,
+                  "road" : 5320,
                   "roadCooled" : 2660,
-                  "sea" : 0,
+                  "sea" : 18000,
                   "seaCooled" : 18000
                }
             },
             "scoring" : {
-               "all" : 179.054,
-               "biodiversity" : 78.7886,
-               "climate" : 39.3557,
-               "health" : 21.7735,
-               "resources" : 39.1387
+               "all" : 188.77,
+               "biodiversity" : 81.1483,
+               "climate" : 43.294,
+               "health" : 23.6264,
+               "resources" : 40.6919
             },
             "total" : {
-               "ecs" : 16.7117
+               "ecs" : 17.6185
             },
             "totalMass" : 0.0933333,
             "transports" : {
                "air" : 0,
                "impacts" : {
-                  "ecs" : 9.527
+                  "ecs" : 10.4717
                },
-               "road" : 3320,
+               "road" : 5320,
                "roadCooled" : 3260,
-               "sea" : 0,
+               "sea" : 18000,
                "seaCooled" : 18000
             }
          }
       },
       "ecs_per" : "100g",
-      "ecs_per_100g_or_100ml" : 16.7117
+      "ecs_per_100g_or_100ml" : 17.6185
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
@@ -190,8 +192,8 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-         "ecobalyse_name" : "Sel -2025-",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 16.6666666666667,

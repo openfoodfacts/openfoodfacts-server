@@ -10,9 +10,12 @@
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruits-and-vegetables-based-foods",
+      "en:vegetable-based-foods-and-beverages",
       "en:pickles",
+      "en:vegetables-based-foods",
       "en:plant-based-pickles",
-      "en:prepared-vegetables",
+      "en:processed-vegetables",
       "en:pickled-vegetables"
    ],
    "categories_lc" : "pl",
@@ -28,9 +31,12 @@
    "categories_tags" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruits-and-vegetables-based-foods",
+      "en:vegetable-based-foods-and-beverages",
       "en:pickles",
+      "en:vegetables-based-foods",
       "en:plant-based-pickles",
-      "en:prepared-vegetables",
+      "en:processed-vegetables",
       "en:pickled-vegetables"
    ],
    "environmental_impact" : {
@@ -62,8 +68,8 @@
                "name" : "czosnek"
             },
             {
-               "ecobalyse_name" : "Sel -2025-",
-               "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+               "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
+               "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
                "mass" : 0.3,
                "name" : "sól"
             },
@@ -100,7 +106,7 @@
                   "mass" : 0.6
                },
                {
-                  "id" : "77defb24-cec3-4de9-8388-63229d1052fb",
+                  "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
                   "mass" : 0.3
                },
                {
@@ -113,10 +119,10 @@
       }
    },
    "estimate_ingredients_percent_service" : "product_opener",
-   "food_groups" : "en:salty-and-fatty-products",
+   "food_groups" : "en:vegetables",
    "food_groups_tags" : [
-      "en:salty-snacks",
-      "en:salty-and-fatty-products"
+      "en:fruits-and-vegetables",
+      "en:vegetables"
    ],
    "forest_footprint_2026" : {
       "grade" : "a",
@@ -181,8 +187,8 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-         "ecobalyse_name" : "Sel -2025-",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.3,
@@ -1490,14 +1496,14 @@
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 69.7666666666667,
    "other_nutritional_substances_tags" : [],
-   "pnns_groups_1" : "Salty snacks",
+   "pnns_groups_1" : "Fruits and vegetables",
    "pnns_groups_1_tags" : [
-      "salty-snacks",
+      "fruits-and-vegetables",
       "known"
    ],
-   "pnns_groups_2" : "Salty and fatty products",
+   "pnns_groups_2" : "Vegetables",
    "pnns_groups_2_tags" : [
-      "salty-and-fatty-products",
+      "vegetables",
       "known"
    ],
    "tags_sources" : {

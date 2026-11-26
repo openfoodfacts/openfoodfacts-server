@@ -225,6 +225,19 @@ is(get_inherited_property("ingredients", "en:milk", "vegetarian:en"), "yes");
 is(get_property("ingredients", "en:milk", "vegan:en"), "no");
 is(get_inherited_property("ingredients", "en:milk", "vegan:en"), "no");
 
+is(get_inherited_property("ingredients", "en:rabbit", "vegan:en"), "no");
+is(get_inherited_property("ingredients", "en:rabbit", "vegetarian:en"), "no");
+is(get_inherited_property("ingredients", "en:game-animal", "vegan:en"), "no");
+is(get_inherited_property("ingredients", "en:game-animal", "vegetarian:en"), "no");
+is(get_inherited_property("ingredients", "en:krill", "vegan:en"), "no");
+is(get_inherited_property("ingredients", "en:krill", "vegetarian:en"), "no");
+is(get_inherited_property("ingredients", "en:poultry-fond", "vegan:en"), "no");
+is(get_inherited_property("ingredients", "en:poultry-fond", "vegetarian:en"), "no");
+is(get_inherited_property("ingredients", "en:fish-stock", "vegan:en"), "no");
+is(get_inherited_property("ingredients", "en:fish-stock", "vegetarian:en"), "no");
+is(get_inherited_property("ingredients", "en:meat-stock", "vegan:en"), "no");
+is(get_inherited_property("ingredients", "en:meat-stock", "vegetarian:en"), "no");
+
 is(display_taxonomy_tag("en", "ingredients_analysis", "en:non-vegan"), "Non-vegan");
 
 is(canonicalize_taxonomy_tag("de", "test", "Grünkohl"), "en:kale");

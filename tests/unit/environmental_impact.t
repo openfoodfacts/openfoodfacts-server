@@ -126,6 +126,8 @@ if (@$errors_ref) {
 	fail($json->pretty->encode($errors_ref));
 }
 else {
+	# The time of the results changes at each run
+	ok(delete $product_ref->{environmental_impact}{ecobalyse_results_t}, "time of Ecobalyse results is set");
 	compare_to_expected_results($product_ref, "$expected_result_dir/environmental_impact.json",
 		$update_expected_results);
 

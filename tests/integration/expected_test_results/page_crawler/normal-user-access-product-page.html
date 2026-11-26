@@ -202,7 +202,7 @@
 						<li>
 							<ul class="country_language_selection">
 								<li class="has-form has-dropdown" id="select_country_li">
-									<select id="select_country" style="width:100%" data-placeholder="Country">
+									<select id="select_country" style="width:100%" data-placeholder="Country" data-search-placeholder="Search for a country…">
 										<option></option>
 									</select>
 								</li>
@@ -586,7 +586,7 @@
     // this is used to filter external knowledge panels
     window.productData = {
       code: "0200000000235",
-      categories: ["en:breakfasts","en:snacks","en:spreads","en:sweet-snacks","en:sweet-spreads","en:biscuits-and-cakes","en:cakes","fr:pates-a-tartiner","en:hazelnut-spreads"],
+      categories: ["en:snacks","en:breakfasts","en:spreads","en:sweet-snacks","en:sweet-spreads","en:biscuits-and-cakes","en:cakes","fr:pates-a-tartiner","en:hazelnut-spreads"],
       country: "world",
       language: "en",
       product_type: "food"
@@ -640,6 +640,19 @@
                 </div>
             </div>
         </div>
+        
+        <div id="provenance" class="row h-space-normal" hidden>
+            <div class="large-12">
+                <p class="provenance">From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by 300+ apps</p>
+            </div>
+        </div>
+        <script>
+            // The arm is read by matomo-events.js
+            if (crypto.getRandomValues(new Uint8Array(1))[0] < 128) {
+                document.getElementById('provenance').hidden = false;
+            }
+        </script>
+        
     </div>
     <div class="block v-space-tiny prod-nav product_banner_unranked" id="prodNav">
         <div class="row h-space-normal">
@@ -763,7 +776,7 @@
 
 <p id="field_categories">
     <span class="field">Categories: </span>
-    <span class="field_value" id="field_categories_value"><a href="/facets/categories/Breakfasts" class="tag well_known">Breakfasts</a>, <a href="/facets/categories/Snacks" class="tag well_known">Snacks</a>, <a href="/facets/categories/Spreads" class="tag well_known">Spreads</a>, <a href="/facets/categories/Sweet%20snacks" class="tag well_known">Sweet snacks</a>, <a href="/facets/categories/Sweet%20spreads" class="tag well_known">Sweet spreads</a>, <a href="/facets/categories/Biscuits%20and%20cakes" class="tag well_known">Biscuits and cakes</a>, <a href="/facets/categories/Cakes" class="tag well_known">Cakes</a>, <a href="/facets/categories/fr%3AP%C3%A2tes%20%C3%A0%20tartiner" class="tag user_defined" lang="fr">fr:Pâtes à tartiner</a>, <a href="/facets/categories/Hazelnut%20spreads" class="tag well_known">Hazelnut spreads</a></span>
+    <span class="field_value" id="field_categories_value"><a href="/facets/categories/Snacks" class="tag well_known">Snacks</a>, <a href="/facets/categories/Breakfasts" class="tag well_known">Breakfasts</a>, <a href="/facets/categories/Spreads" class="tag well_known">Spreads</a>, <a href="/facets/categories/Sweet%20snacks" class="tag well_known">Sweet snacks</a>, <a href="/facets/categories/Sweet%20spreads" class="tag well_known">Sweet spreads</a>, <a href="/facets/categories/Biscuits%20and%20cakes" class="tag well_known">Biscuits and cakes</a>, <a href="/facets/categories/Cakes" class="tag well_known">Cakes</a>, <a href="/facets/categories/fr%3AP%C3%A2tes%20%C3%A0%20tartiner" class="tag user_defined" lang="fr">fr:Pâtes à tartiner</a>, <a href="/facets/categories/Hazelnut%20spreads" class="tag well_known">Hazelnut spreads</a></span>
 </p>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
@@ -1471,6 +1484,23 @@ The score is calculated from the data of the nutrition facts table and the compo
             
         </tbody>
     </table>
+    </div>
+              <div style="margin-bottom:0.5rem">
+       <div>
+    
+
+    Could you add the nutrition facts?
+
+    
+        <div>
+            <a class="button small action-add_nutrition_facts"
+                href="/cgi/product.pl?type=edit&code=0200000000235#nutrition">
+                Add nutrition facts
+            </a>
+        </div>
+    
+
+    </div>
     </div>
               
 
@@ -4790,6 +4820,9 @@ var product_type = "food";
 
 <script>
 $(document).foundation({
+	topbar: {
+		back_text: 'Back'
+	},
 	equalizer : {
 		equalize_on_stack: true
 	},
@@ -4799,6 +4832,8 @@ $(document).foundation({
 		}
 	}
 });
+
+$('.top-bar .back h5 > a').text('Back').attr('aria-label', 'Back');
 
 </script>
 <script type="application/ld+json">
