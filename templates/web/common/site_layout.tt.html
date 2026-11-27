@@ -17,6 +17,7 @@
     [% options_favicons %]
 	<meta name="apple-itunes-app" content="app-id=588797948">
     <link rel="canonical" href="[% canon_url %]">
+<script src="[% static_subdomain %]/js/dist/theme-toggle.js"></script>
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% edq(lang('text_direction')) %].css?v=[% css_timestamp %]" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/select2.min.css">
@@ -156,6 +157,16 @@
 					<!-- Right Nav Section -->
 
 					<ul class="right">
+						<li class="has-dropdown theme-toggle">
+							<a href="#" id="theme_toggle_link" aria-label="[% edq(lang('theme_selector')) %]" title="[% edq(lang('theme_selector')) %]">
+								<span class="material-icons" aria-hidden="true">brightness_6</span>
+							</a>
+							<ul class="dropdown">
+								<li><a href="#" data-theme-choice="light">[% lang('theme_light') %]</a></li>
+								<li><a href="#" data-theme-choice="dark">[% lang('theme_dark') %]</a></li>
+								<li><a href="#" data-theme-choice="system">[% lang('theme_system') %]</a></li>
+							</ul>
+						</li>
 						[% IF not user_id.defined %]
 							<li class="h-space-tiny has-form">
 								<a href=[% IF oidc_implementation_level < 3 %]"/cgi/session.pl"[% ELSE %]"/cgi/oidc_signin.pl?return_url=[% uri_escape(canon_url) %]"[% END %] class="round button secondary">
@@ -220,7 +231,8 @@
 						<li class="name">
 							<div style="position:relative;max-width:292px;">
 								<a href="[% IF server_options_producers_platform %][% owner_pretty_path %][% ELSE %]/[% END %]">
-								<img id="logo" src="[% static_subdomain %]/images/logos/[% flavor %]-logo-horizontal-light.svg" alt="[% options.site_name %]" style="margin:8px;height:48px;width:auto;">
+								<img class="logo-light" src="[% static_subdomain %]/images/logos/[% flavor %]-logo-horizontal-light.svg" alt="[% options.site_name %]" style="margin:8px;height:48px;width:auto;">
+								<img class="logo-dark" src="[% static_subdomain %]/images/logos/[% flavor %]-logo-horizontal-dark.svg" alt="" aria-hidden="true" loading="lazy" style="margin:8px;height:48px;width:auto;">
 								[% IF server_options_producers_platform %]
 								<span id="professionals" style="position:absolute;bottom:2px;right:8px;line-height:1rem;font-size:1.2rem;">professionals</span>
 								[% END %]

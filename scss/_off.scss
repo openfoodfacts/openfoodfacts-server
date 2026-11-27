@@ -101,7 +101,7 @@ $material-icons: "Material Icons";
 }
 
 .block_light {
-  color: $black;
+  color: var(--text);          
 }
 
 .block_dark.block_off a {
@@ -113,11 +113,12 @@ $material-icons: "Material Icons";
 }
 
 .block_latte {
-  background-color: $latte;
+  background-color: var(--surface-page);   
 }
 
+
 .block_cappucino {
-  background-color: $cappucino;
+  background-color: var(--surface-alt);   
 }
 
 .block_main {
@@ -762,11 +763,11 @@ html[dir="rtl"] {
 }
 
 #product_banner {
-  color: black;
+  color: var(--text);
 }
 
 .product_banner_unranked {
-  background-color: #dff4ff;
+  background-color: var(--surface-info);
 }
 
 .product_banner_does_not_match {
@@ -934,7 +935,7 @@ html[dir="rtl"] {
 
 /* smaller text for descriptions */
 .panel_text .description {
-  color: #555;
+  color: var(--text-subtle);
   font-size: 0.8em;
 }
 
@@ -1559,7 +1560,7 @@ $border-pink: #ff6e78;
   align-items: center;
   text-align: center;
 
-  color: #000000;
+  color: var(--text);
 }
 
 #footer_install_the_app {
