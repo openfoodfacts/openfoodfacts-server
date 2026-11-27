@@ -365,6 +365,12 @@ $symbols_regexp = join('|', @symbols);
 		["х/п", "хлебопекарная"],    # bakery/baking, also for flour.
 	],
 
+	sr => [
+		# minimum / maximum before a percent: "so max. 1.5%"
+		["min.", "minimum"],
+		["max.", "maksimum"],
+	],
+
 	sv => [
 		["bl. a.", "bland annat"],
 		["förtjockn.medel", "förtjockningsmedel"],
@@ -571,6 +577,7 @@ including localized strings like "minimum"
 	pl => "min|min\.|minimum",
 	pt => "min|min\.|mín|mín\.|mínimo|minimo|no mínimo",
 	ro => "min|min\.|minim|minimum",
+	sr => "min|min\.|minimum|najmanje",
 	sv => "minimum|minst",
 );
 
@@ -592,6 +599,7 @@ including localized strings like "minimum"
 	pl => "max|max\.|maximum",
 	pt => "max|max\.|máx|máx\.|máximo|maximo",
 	ro => "max|max\.|maxim|maximum",
+	sr => "max|max\.|maksimum|najviše",
 	sv => "max|maximum|högst",
 );
 
