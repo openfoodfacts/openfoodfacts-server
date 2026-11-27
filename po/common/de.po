@@ -6327,6 +6327,11 @@ msgctxt "nutriscore_not_applicable"
 msgid "Nutri-Score not applicable for this product category."
 msgstr "Nutri-Score ist für diese Produktkategorie nicht anwendbar."
 
+# variable names between { } must not be translated
+msgctxt "f_nutriscore_not_applicable_for_category"
+msgid "Nutri-Score cannot currently be calculated for this product category: {category}."
+msgstr ""
+
 msgctxt "nutriscore_missing_category"
 msgid "The category of the product must be specified in order to compute the Nutri-Score."
 msgstr "Zur Berechnung des Nutri-Score muss die Kategorie des Produkts angegeben werden."
