@@ -371,6 +371,13 @@ sub create_additives_panel ($product_ref, $target_lc, $target_cc, $options_ref, 
 			$additive_panel_data_ref->{anses_additive_of_interest} = 1
 				if (get_property("additives", $additive, "anses_additives_of_interest:en") // "") eq "yes";
 
+			my $efsa_url = get_property("additives", $additive, "efsa_evaluation_url:en") // "";
+			if ($efsa_url =~ /^https?:\/\//) {
+				$additive_panel_data_ref->{efsa_evaluation_url} = $efsa_url;
+				($additive_panel_data_ref->{efsa_evaluation_year})
+					= (get_property("additives", $additive, "efsa_evaluation_date:en") // "") =~ /^(\d{4})/;
+			}
+
 			create_panel_from_json_template($additive_panel_id,
 				"api/knowledge-panels/health/ingredients/additive.tt.json",
 				$additive_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);

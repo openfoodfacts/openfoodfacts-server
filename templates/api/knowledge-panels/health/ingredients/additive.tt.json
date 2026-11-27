@@ -38,5 +38,16 @@
             }
         },
         [% END %]
+        [% IF panel.efsa_evaluation_url -%]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `<a href="[% panel.efsa_evaluation_url %]">[% lang("additives_efsa_evaluation") %]</a>`,
+                "source_text": "EFSA[% IF panel.efsa_evaluation_year %] ([% panel.efsa_evaluation_year %])[% END %]",
+                "source_url": "[% panel.efsa_evaluation_url %]",
+                "source_language": "en"
+            }
+        },
+        [% END %]
     ]
 }

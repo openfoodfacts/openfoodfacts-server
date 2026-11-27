@@ -272,7 +272,7 @@ foreach my $test_ref (@tests) {
 	my $anses_source_url
 		= "https://www.anses.fr/fr/content/rapport-oqali-bilan-et-%C3%A9volution-de-lutilisation-des-additifs-dans-les-produits-transform%C3%A9s";
 	my $e100_elements_ref = $product_ref->{knowledge_panels_en}{"additive_en:e100"}{elements};
-	is(scalar @$e100_elements_ref, 1, "flagged additive has only the ANSES element");
+	is(scalar @$e100_elements_ref, 2, "flagged additive has the ANSES and EFSA elements");
 	is(
 		$e100_elements_ref->[0]{text_element},
 		{
@@ -303,6 +303,25 @@ foreach my $test_ref (@tests) {
 	is(get_property("additives", "en:e450", "anses_additives_of_interest:en"), "yes", "flag on the parent");
 	is(get_property("additives", "en:e450iv", "anses_additives_of_interest:en"),
 		undef, "flag not inherited by the child");
+
+	is(
+		$e100_elements_ref->[1]{text_element},
+		{
+			html => '<a href="http://dx.doi.org/10.2903/j.efsa.2010.1679">EFSA evaluation</a>',
+			source_text => "EFSA (2010)",
+			source_url => "http://dx.doi.org/10.2903/j.efsa.2010.1679",
+			source_language => "en",
+		},
+		"additive with an EFSA opinion links to it"
+	);
+	is(
+		scalar(
+			grep {($_->{text_element}{source_text} // "") =~ /^EFSA/}
+				@{$product_ref->{knowledge_panels_en}{"additive_en:e450iv"}{elements} // []}
+		),
+		0,
+		"EFSA opinion of the parent is not shown on the child"
+	);
 }
 
 # The root panel lists ingredients and nutrition first only when the option is set
