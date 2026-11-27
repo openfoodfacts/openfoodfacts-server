@@ -2555,6 +2555,46 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				}
 			}
 
+			# Tag fields from %writable_tags_fields:
+			# If a tag field was updated via its input tags (stored in tags_sources),
+			# the scalar field is not set after schema 1004 (except for brands).
+			# We compare tags_sources (excluding source "ingredients") to track what the user
+			# wrote without false positives from taxonomy parents or ingredients-derived allergens.
+			foreach my $tag_field (@writable_tags_fields_list) {
+				# Brands keeps its scalar after schema 1004 upgrade, keep it for ?blame=1
+				next if defined $current{fields}{$tag_field} and $current{fields}{$tag_field} ne '';
+
+				my @user_tags;
+				if (defined $product_ref->{tags_sources}{$tag_field}) {
+					foreach my $source (sort keys %{$product_ref->{tags_sources}{$tag_field}}) {
+						next if $source eq 'ingredients';
+						my $source_tags = $product_ref->{tags_sources}{$tag_field}{$source}{tags};
+						if (defined $source_tags and ref($source_tags) eq 'ARRAY') {
+							push @user_tags, @$source_tags;
+						}
+					}
+				}
+				elsif (not exists $product_ref->{tags_sources}) {
+					# Fallback for old schema revisions or test mocks without tags_sources
+					my $tags_key = $tag_field . '_tags';
+					if (    defined $product_ref->{$tags_key}
+						and ref($product_ref->{$tags_key}) eq 'ARRAY'
+						and @{$product_ref->{$tags_key}})
+					{
+						# Avoid ingredients-derived allergens when tags_sources is absent
+						if ($tag_field ne 'allergens' and $tag_field ne 'traces') {
+							push @user_tags, @{$product_ref->{$tags_key}};
+						}
+					}
+				}
+
+				if (@user_tags) {
+					my %seen;
+					my @unique_tags = sort grep {!$seen{$_}++} @user_tags;
+					$current{fields}{$tag_field} = join(',', @unique_tags);
+				}
+			}
+
 			# Language specific fields
 			if (defined $product_ref->{languages_codes}) {
 				$current{languages_codes} = [keys %{$product_ref->{languages_codes}}];
@@ -3644,6 +3684,12 @@ sub compute_changes_diff_text ($change_ref) {
 	my $diffs = '';
 	if (defined $change_ref->{diffs}) {
 		my %diffs = %{$change_ref->{diffs}};
+
+		# Support both 'packagings' and legacy 'packaging' group key
+		if (defined $diffs{packagings} and not defined $diffs{packaging}) {
+			$diffs{packaging} = $diffs{packagings};
+		}
+
 		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutrition', 'packaging') {
 			if (defined $diffs{$group}) {
 				$diffs .= lang("change_$group") . " ";
