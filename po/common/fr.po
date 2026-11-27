@@ -4336,7 +4336,7 @@ msgstr "Faites un Don"
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_provenance_line"
 msgid "From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by {apps_count}+ apps"
-msgstr "Par <b>Open Food Facts</b>, la base de données alimentaire libre · construite par des bénévoles depuis 2012 · données réutilisées par {apps_count}+ applications"
+msgstr "D'<b>Open Food Facts</b>, la base de données alimentaire libre · créée par des bénévoles depuis 2012 · données réutilisées par plus de {apps_count} applications"
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -8436,7 +8436,7 @@ msgstr "Importer des photos depuis un dossier Google Drive"
 
 msgctxt "google_drive_import_description"
 msgid "Share the Google Drive folder with \"Anyone with the link\", then copy its URL below. The photos of the folder and of its subfolders are processed in the order of their file names: a photo that does not have a barcode in its file name or in the image is added to the product of the previous photo."
-msgstr "Partagez le dossier Google Drive avec \"Tous les utilisateurs disposant du lien\", puis copiez son URL ci-dessous. Les photos du dossier et de ses sous-dossiers sont traitées dans l'ordre de leurs noms de fichiers : une photo qui ne possède pas de code-barres dans son nom de fichier ou dans l'image est ajoutée au produit de la photo précédente."
+msgstr "Partagez le dossier Google Drive avec « Tous les utilisateurs disposant du lien », puis copiez son URL ci-dessous. Les photos du dossier et de ses sous-dossiers sont traitées dans l'ordre de leurs noms de fichier : une photo ne contenant pas de code-barres dans son nom de fichier ou sur l'image est ajoutée au produit de la photo précédente."
 
 msgctxt "google_drive_folder_url"
 msgid "Google Drive folder URL"
@@ -8456,7 +8456,7 @@ msgstr "L'importation de photos depuis Google Drive n'est pas disponible : aucun
 
 msgctxt "google_drive_folder_not_found"
 msgid "The Google Drive folder could not be found. Check that it is shared with \"Anyone with the link\"."
-msgstr "Le dossier Google Drive n'a pas pu être trouvé. Vérifiez qu'il est partagé avec \"Tous les utilisateurs disposant du lien\"."
+msgstr "Le dossier Google Drive est introuvable. Vérifiez qu'il est partagé avec « Tous les utilisateurs disposant du lien »."
 
 msgctxt "google_drive_folder_too_many_items"
 msgid "The Google Drive folder contains too many files."
@@ -8464,11 +8464,11 @@ msgstr "Le dossier Google Drive contient trop de fichiers."
 
 msgctxt "google_drive_api_error"
 msgid "Google Drive returned an error."
-msgstr "Google Drive a retourné une erreur."
+msgstr "Google Drive a renvoyé une erreur."
 
 msgctxt "google_drive_import_listing"
 msgid "Listing the photos of the folder..."
-msgstr "Listage des photos du dossier..."
+msgstr "Recherche des photos du dossier..."
 
 msgctxt "google_drive_import_photos_in_folder"
 msgid "Photos in the folder"
@@ -8476,7 +8476,7 @@ msgstr "Photos dans le dossier"
 
 msgctxt "google_drive_import_skipped_files"
 msgid "Files that are not photos (e.g. videos), not imported"
-msgstr "Fichiers qui ne sont pas des photos (par ex. vidéos), non importés"
+msgstr "Fichiers qui ne sont pas des photos (ex. vidéos), non importés"
 
 msgctxt "google_drive_import_max_images"
 msgid "The folder contains too many photos, only the first ones are imported"
@@ -8488,7 +8488,7 @@ msgstr "Photos traitées"
 
 msgctxt "job_not_found"
 msgid "The photo import job could not be found."
-msgstr "La tâche d'importation de photos n'a pas pu être trouvée."
+msgstr "La tâche d'importation de photos est introuvable."
 
 msgctxt "job_failed"
 msgid "The photo import job failed."
@@ -8504,5 +8504,5 @@ msgstr "Action inconnue."
 
 msgctxt "google_drive_import_already_running"
 msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
-msgstr "Une importation de photos depuis Google Drive est déjà en cours. Vous pourrez démarrer une nouvelle importation lorsqu'elle sera terminée."
+msgstr "Une importation de photos depuis Google Drive est déjà en cours. Vous pourrez en démarrer une nouvelle une fois celle-ci terminée."
 
