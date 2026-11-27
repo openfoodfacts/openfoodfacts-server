@@ -310,6 +310,7 @@ paths:
                     selected:
                       description: |
                         Optional instructions to select (and possibly crop) the uploaded image for specific information (e.g. front, ingredients, nutrition, packaging) for specific languages.
+                        Note: `null` values at the language level are not accepted on this endpoint; to unselect an image, use `PATCH /api/v3/product/{code}`.
                       $ref: "./schemas/image_selected.yaml#/components/schemas/ImagesSelected"
           application/xml:
             schema:
