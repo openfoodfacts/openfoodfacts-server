@@ -1890,7 +1890,7 @@ nl: microbieel stremsel, microbieel stremmiddel
 pl: podpuszczka mikrobiologiczna
 pt: coalho microbiano
 ro: cheag microbian
-sl: mikrobno sirilo
+sl: mikrobno sirilo, sirilo mikrobnega izvora
 sv: mikrobiell ostlöpe, ystenzym, mikrobiellt ystenzym, mikrobiellt löpe, mikrobiellt
 description:en: Some molds such as Rhizomucor miehei are able to produce proteolytic enzymes. Cheeses produced this way are suitable for vegetarians, provided no animal-based alimentation was used during the production.
 vegan:en: yes
@@ -2926,7 +2926,7 @@ el: αποβουτυρωμένο γάλα
 es: Leche descremada, Leche desnatada, leche sin grasas, Leche baja en grasa
 et: Lõss, rasvatu piim
 fa: شیر خشک بدون چربی
-fi: rasvaton maito, Vähärasvainen maito, rasvaton maito jauheesta
+fi: rasvaton maito, Vähärasvainen maito
 fr: lait écrémé, lait maigre
 gl: Leite desnatado
 he: חלב רזה
@@ -4897,7 +4897,7 @@ ro: smântână dulce, smântână lichidă, frișcă lichidă
 ru: Сливки, сливки нормализованные, нормализованные сливки, сливки из коровьего молока
 sh: Krem
 sk: Smotana
-sl: smetana
+sl: smetana, sladka smetana
 sn: Ruomba
 so: Labeen
 sq: Pana
@@ -14125,7 +14125,6 @@ es: grasa de cerdo, grasa animal de cerdo
 et: seapekk
 eu: txerri-gantz
 fa: چربی خوک
-fi: silava
 fr: gras de porc
 hr: svinjska mast, svinjsko masno tkivo, svinjsko čvrsto masno tkivo
 hu: slanina, sertészsír
@@ -14161,7 +14160,7 @@ cv: смалец
 de: Schmalz
 eo: ŝmalco
 es: manteca de cerdo, manteca de cerdo iberico
-fi: ilava
+fi: silava
 fr: saindoux, lard gras
 fy: riezel
 ga: blonag
@@ -15319,7 +15318,7 @@ no: Ærtestivelse
 pl: skrobia grochowa, skrobia z grochu, skrobi grochowej, skrobi z grochu
 pt: Amido de ervilha
 ru: Гороховый крахмал
-sl: Škrob graha
+sl: Škrob graha, grahov škrob
 sv: ärtstärkelse
 
 < en: barley
@@ -17791,7 +17790,7 @@ sa: जिततैलम्
 sc: Ozu de olìa
 sh: Maslinovo ulje
 sk: Olivový olej
-sl: Oljčno olje
+sl: Oljčno olje, olivno olje
 sq: Vaji i ullirit
 sr: Маслиново уље, maslinovo ulje
 sv: olivolja
@@ -20389,6 +20388,7 @@ pl: Alkohol
 pt: Álcool
 ro: alcool
 ru: Алкоголь
+sl: alkohol
 sv: alkohol
 tr: alkol
 #ja:酒
@@ -22608,7 +22608,7 @@ pt: aromatizante, aroma, aromas
 ro: aromă, aroma, arome, aromatizant, aromatizanți
 ru: ароматизатор пищевой, ароматизаторы пищевые, ароматизатор, ароматизаторы, вкусоароматические вещества
 sk: aróma, arómy
-sl: arome, aroma
+sl: arome, aroma, aromi
 sr: aroma, arome
 sv: arom, aromer, smakämnen, aromämne, aromämnen, aroma
 zh: 调味剂
@@ -25909,6 +25909,7 @@ nl: tarwemout
 pl: słód pszenny, słód pszeniczny
 pt: Malte de trigo
 ro: malț din grâu, malț de grâu
+sl: pšenični slad
 sv: vetemalt, mältade vetekorn, malt av vete
 
 < en: wheat fiber
@@ -26112,7 +26113,7 @@ pt: trigo-duro
 ro: grâu dur
 ru: пшеница твёрдая
 sk: pšenica tvrdá
-sl: trda pšenica
+sl: trda pšenica, durum pšenica
 sv: durumvete
 tr: durum buğdayı
 vi: lúa mì cứng
@@ -27102,7 +27103,7 @@ nl: gort
 pl: kasza jęczmienna, kaszy jęczmiennej
 pt: cevadinha
 ro: arpacș de orz
-sl: ješprenj
+sl: ješprenj, ječmenov zdrob
 tr: gevrek arpa
 #nds:pillegarste
 comment:en: Detailed info on different barley groats varietes on Polish wiki - https://pl.wikipedia.org/wiki/Kasza_j%C4%99czmienna#Rodzaje_kasz_j%C4%99czmiennych
@@ -30431,7 +30432,7 @@ hu: teljes kiőrlésű rozsliszt
 it: farina di segale integrale
 lv: rudzu pilngraudu milti
 nb: fullkornsrugmel, sammalt rugmel, fullkornsmel av rug
-nl: volkoren roggemeel
+nl: volkoren roggemeel, roggevolkorenmeel
 pl: mąka żytnia pełnoziarnista, mąka żytnia razowa, pełnoziarnista mąka żytnia
 pt: farinha integral de centeio
 sl: polnozrnata ržena moka
@@ -36587,18 +36588,22 @@ usda_ndb_proxy_code:en: 16422
 usda_ndb_proxy_name:en: Soy protein isolate, potassium type
 
 < en: soy protein
+en: soy protein concentrate
+fi: soijaproteiinikonsentraatti
+
+< en: soy protein concentrate
 en: soy protein concentrate (acid wash)
 usda_fdc_code:en: 174301
 usda_ndb_code:en: 16420
 usda_ndb_name:en: Soy protein concentrate, produced by acid wash
 
-< en: soy protein
+< en: soy protein concentrate
 en: soy protein concentrate (alcohol extraction)
 usda_fdc_code:en: 172447
 usda_ndb_code:en: 16121
 usda_ndb_name:en: Soy protein concentrate, produced by alcohol extraction
 
-< en: soy protein
+< en: soy protein concentrate
 en: soy protein isolate (soy protein concentrate)
 usda_fdc_code:en: 174302
 usda_ndb_code:en: 16422
@@ -42342,6 +42347,7 @@ pt: pêssegos, pêssego
 ro: piersici
 ru: персик
 sk: Broskyňa
+sl: breskve
 sv: persika, persikor
 tr: şeftali
 zh: 桃子
@@ -46898,6 +46904,7 @@ ro: mură, mure
 ru: ежевика
 sd: ڪاريون ٻيريون
 sk: černica
+sl: robide
 sr: kupina, купина
 sv: björnbär
 ta: நாகப்பழம்
@@ -47863,6 +47870,7 @@ fi: hapankirsikkamehu
 fr: jus de cerise aigre
 hr: koncentrirani sok višnje
 it: Succo di amarena
+sl: višnjev sok
 
 < en: cherry juice
 de: Sauerkirschsaft aus Sauerkirschsaftkonzentrat
@@ -48118,7 +48126,7 @@ eo: kokosnukso
 es: coco
 et: Kookospähkel
 eu: koko
-fi: kookos, kookospähkinä, puristettu kookospähkinä
+fi: kookos, kookospähkinä
 fr: noix de coco, coco
 gl: Coco
 he: קוקוס
@@ -48136,7 +48144,7 @@ pt: cocos, coco
 ro: nucă de cocos, nuca de cocos, cocos
 ru: кокос, мякоть кокоса
 sa: नारिकेलम्
-sl: kokos
+sl: kokos, kokosov oreh
 sq: Arra e kokosit
 sr: kokos
 sv: Kokosnöt, Kokos
@@ -58931,6 +58939,7 @@ de: Rote Betesaft, Rote Bete Saft, Rote Beete Saft
 en: red beetroot juice concentrate
 de: Rote Bete-Saftkonzentrat, Rote Betesaft aus Fruchtsaftkonzentrat, Rote Betesaftkonzentrat, Rote Beetesaftkonzentrat, Rote Beete-Saftkonzentrat, färbendes Rote Bete-Saftkonzentrat, färbendes Rote Betesaftkonzentrat, färbendes Rote Beetesaftkonzentrat, färbendes Rote Beete-Saftkonzentrat
 fr: jus concentré de betterave rouge
+sl: zgoščeni sok rdeče pese
 #fr:jus de betterave rouge concentré, concentré de jus de betterave rouge, jus concentré de betterave rouge
 #nl:geconcentreerd rodebietensap
 
@@ -59119,6 +59128,7 @@ pt: cebola
 ro: ceapă, ceapa
 ru: лук, лук репчатый
 sk: cibuľa
+sl: čebula
 sr: crni luk, luk
 sv: lök, lökar
 tr: soğan
@@ -59362,7 +59372,7 @@ pl: czosnek dęty
 pt: cebolleta
 ro: ceapă de tuns
 ru: Лук-батун
-sl: čebula
+sl: zimska čebula
 sr: аљма
 su: Bawang daun
 sv: piplök, walesisk lök, koreansk purjolök
@@ -59470,6 +59480,7 @@ pl: suszona cebula, cebula suszona, sproszkowana cebula
 pt: cebola desidratada, cebola seca
 ro: ceapă deshidratată
 ru: лук репчатый сушеный, лук-репчатый сушёный, лук репчатый-сушёный
+sl: sušena čebula
 sr: sušeni crni luk
 sv: torkad lök
 uk: цибуля ріпчаста сушена
@@ -60268,6 +60279,7 @@ nn: tørket hvitløk
 pl: suszony czosnek, czosnek suszony
 ru: чеснок сушеный
 sk: sušený cesnak
+sl: sušeni česen
 sv: torkad vitlök, torkad hvidlök
 # fr:ail séché contains 35 products in 8 languages @2018-10-22
 ciqual_food_code:en: 11023
@@ -61274,6 +61286,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Scorzonera_hispanica
 en: salsify juice concentrate
 hr: koncentriani sok crnog korijena, ugośćeni sok crnog korijena
 it: concentrato di succo di scorzonera
+sl: zgoščeni sok črnega korena
 
 < en: root vegetable
 en: vegetable oyster
@@ -63528,7 +63541,7 @@ rw: Radi
 sa: मूलकम्
 sh: Rotkvica
 sk: Reďkev siata
-sl: Redkvica
+sl: Redkvica, redkev
 sq: Rrepa
 sr: Ротквица
 su: Lobak
@@ -72262,7 +72275,7 @@ sa: जीरकम्
 #sco:cumin
 sd: اڇو جيرو
 si: සූදුරු
-sl: orientalska kumina
+sl: orientalska kumina, kumin
 sr: кумин, kumin
 su: jinten bodas
 sv: spiskummin
@@ -80863,6 +80876,7 @@ fr: tégument de psyllium blond
 hr: plava ljuska psiliuma
 it: buccia di psillio biondo
 pl: łupina nasienna babki jajowatej, łupiny nasion babki jajowatej, łuska babki jajowatej
+sl: luščine svetlega trpotca
 
 < en: blond psyllium
 < en: psyllium fibre
@@ -81360,6 +81374,7 @@ pt: Cártamo
 ru: Сафлор
 sd: کھنبو
 sh: Šafranika
+sl: žafranika
 sr: Шафраника
 sv: Safflor, färgtistel
 te: కుసుమ
@@ -102223,6 +102238,7 @@ pl: kruton, grzanka, grzanki
 pt: croûton
 ro: crutoane
 ru: гренки
+sl: popečeni kruhki
 sv: krutong, krutonger
 tr: kruton
 uk: грінки

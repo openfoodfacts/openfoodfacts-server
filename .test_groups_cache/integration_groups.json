@@ -8,7 +8,7 @@
       "tests/integration/import_file_fields_authorization.t",
       "tests/integration/org_user_delete.t",
       "tests/integration/recent_changes.t",
-      "tests/integration/upload_images.t"
+      "tests/integration/unknown_tags.t"
     ],
     "total_time": 240.0
   },
@@ -21,7 +21,7 @@
       "tests/integration/import_systemeu.t",
       "tests/integration/page_crawler.t",
       "tests/integration/recipes_stats.t",
-      "tests/integration/web_html.t"
+      "tests/integration/upload_images.t"
     ],
     "total_time": 240.0
   },
@@ -33,9 +33,10 @@
       "tests/integration/delete_user.t",
       "tests/integration/keycloak_device_activity_session_sync.t",
       "tests/integration/password_api_no_keycloak_session.t",
-      "tests/integration/remove_documents_by_ids.t"
+      "tests/integration/remove_documents_by_ids.t",
+      "tests/integration/web_html.t"
     ],
-    "total_time": 210.0
+    "total_time": 240.0
   },
   {
     "tests": [
@@ -105,7 +106,7 @@
       "tests/integration/import_csv_file.t",
       "tests/integration/oidc_signout.t",
       "tests/integration/protected_product.t",
-      "tests/integration/unknown_tags.t"
+      "tests/integration/tags_rules.t"
     ],
     "total_time": 210.0
   }

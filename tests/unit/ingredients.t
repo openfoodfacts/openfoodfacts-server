@@ -2073,6 +2073,14 @@ puffed orange and caramelized unknown_fruit4.",
 				"silava, salaattisekoitus, kuorittu soijapapu, vadelmahillo, e322 soijalesitiini, entsyymit, vihreä papu, kevätsipuli, oligofruktoosikuitu, suippokaali, e322 auringonkukkalesitiini, jääsalaatti, chilitahna, glukoosifruktoosisiirappi, savupaprika, sushiriisi, granola, kananmunan keltuainen, omenaviinietikka, hiilihappopitoinen vesi, poltettu sokeri, siipikarjanrasva, linssiproteiini, rasvaton maito jauheesta, puristettu kookospähkinä, ksantaani, rasvahappojen monoglyseridi, rasvahappojen monoglyseridit, rasvahappojen diglyseridi, rasvahappojen diglyseridit, pyridoksiini, happamuudensaatoaine (E331), sailontaaine (E200), kantaja-aineet (E1520), kantaja-aine (E1520), kiillotusaineet (E903), kiillotusaine (E903), jauhon käsittelyaineet (E300), jauhon käsittelyaine (E300), aromivahventeet (E621), antioksidantit (E306), elintarvikevärit (E100), sakeutusaine (E415), sakeutusaineet (E415). Saattaa sisältää maito, spelttivehnä, spelttivehnää, kamut-vehnä, kamut-vehnää, muuta gluteenia sisältävää viljaa, soijan.",
 		}
 	],
+	[
+		'sl-processing-and-frequent-unknown-ingredients',
+		{
+			lc => "sl",
+			ingredients_text =>
+				"durum pšenica, olivno olje, kumin, grahov škrob, sušena čebula, sušeni česen, luščine svetlega trpotca, sirilo mikrobnega izvora, aromi, alkohol, žafranika, kokosov oreh, redkev, pšenični slad, robide, popečeni kruhki, ječmenov zdrob, zgoščeni sok rdeče pese, višnjev sok, zgoščeni sok črnega korena, breskve, sladka smetana, čebula, pasterizirano mleko, fermentirana smetana, sušeno korenje, dehidrirana čebula, popolnoma hidrogenirana kokosova maščoba, hidrogenirano palmino olje, rehidrirano posneto mleko, olupljeni mandlji, pražena kava, mleta kava, kuhana čičerika, sterilizirana smetana, liofilizirane maline, nariban kokos, homogenizirano mleko. lahko vsebuje sledi mleka, lupinasto sadje, lupinastega sadja, pistacije.",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

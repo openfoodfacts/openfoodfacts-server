@@ -241,6 +241,7 @@ Do **not** run a bare `docker system prune` — it is unscoped and will remove a
 ## Disclosure
 
 * Always disclose yourself when creating a PR with or on behalf of your user (prompt used, model used, effort)
+* Always disclose yourself when creating an issue with or on behalf of your user (prompt used, model used, effort)
 
 ### Signed-off-by
 
