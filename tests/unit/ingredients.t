@@ -1987,6 +1987,22 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	[
+		'lt-oils-fats-and-traces',
+		{
+			lc => "lt",
+			ingredients_text =>
+				"visų grūdo dalių kvietiniai miltai, cukrus, augaliniai aliejai (palmių, rapsų, saulėgrąžų), augaliniai riebalai (palmių branduolių, palmių, sviestmedžio), riebalai (kokosų), aliejai (rapsų, kukurūzų), palmių ir rapsų aliejus, druska. Gali turėti sojų pupelių ir kitų riešutų pėdsakų.",
+		}
+	],
+	[
+		'lt-frequent-unknown-ingredients',
+		{
+			lc => "lt",
+			ingredients_text =>
+				"natūrali kvapioji medžiaga, varškė, joduotoji druska, kukurūzų kruopos, ruginiai miltai, augalinis aliejus, kiaulienos baltymai, mažesnio riebumo kakavos milteliai, sumažinto riebumo kakavos milteliai, jūros druska, kmynai, gliukozės ir fruktozės sirupas, pieno rūgšties bakterijų kultūros, pieno rūgšties bakterijos, invertuotas cukraus sirupas, kokosų riebalai, agurkai, spirito actas, razinos, fermentai, jautiena, šokolado gabaliukai, kviečių krakmolas, juodieji pipirai, apyniai, avietės, bananai, juodoji ceilono arbata, pomidorai, kefyrinis raugas, liesas pienas, mangai, obuolių tyrė, jogurtinių bakterijų kultūros, jogurto bakterijų kultūros, jogurto bakterijos, linų sėmenys, braškės, juodieji serbentai, natūrali vanilės kvapioji medžiaga, skrebučiai, sūrio milteliai, cukraus sirupas, gliukuronolaktonas, kiaulienos nugarinė, kukurūzų dribsniai, laktazės fermentas, mikrobiologinės kilmės fermentas, pomidorų milteliai, vyšnios, česnakas, oligofruktozė, saulėgrąžų sėklos, garstyčių sėklos, kvapioji rūkymo medžiaga, sojos baltymų izoliatas, sausas gliukozės sirupas, svogūnas, raudonos paprikos, raudonėliai, čiobreliai, kvapieji pipirai, kalendros, dašis, bazilikai, manų kruopų, saldžiųjų išrūgų milteliai, ementalio sūrio, vištų kiaušinių milteliai, kokoso aliejus, kiaulienos kumpis, sojų baltymų hidrolizatas, ryžiai, saldžiosios paprikos, palmių branduolių aliejus, palmių branduolių riebalai, alyvpalmių riebalai, sviestmedžių riebalai, sviestmedžio riebalai, taukmedžio riebalai, sviestmedžių aliejus, sviestmedžio aliejus, taukmedžio aliejus, avižų aliejus, natrio citratai, karotenai, difosfatai, pektinai, karminas, citrinos rūgštis, guaro guma, natrio sacharinas, taurinas, stabilizatoriai (E407), rūgštingumą reguliuojančios medžiagos (E331), konservantai (E200), dažikliai (E100), tirštikliai (E415), tešlos kildymo medžiagos (E500), antioksidantai (E306), saldikliai (E420), aromato ir skonio stiprikliai (E621), pakeistų savybių krakmolas (E1422), pagalbinė medžiaga (E1520), pagalbinės medžiagos (E1520), glazūros medžiaga (E903), glazūros medžiagos (E903), įpakavimo dujos (E941), propelentas (E942), propelentai (E942), izoliuojanti medžiaga (E385), izoliuojančios medžiagos (E385), rūgštys (E330), drėgmę išlaikančios medžiagos (E422). Gali turėti pieno, sojų pupelių, sezamo sėklų.",
+		}
+	],
+	[
 		'hr-frequent-unknown-ingredients',
 		{
 			lc => "hr",

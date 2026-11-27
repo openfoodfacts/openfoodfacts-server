@@ -5916,7 +5916,11 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 
 	my $a_of_b;
 
-	if (($ingredients_lc eq "en") or ($ingredients_lc eq "hr") or ($ingredients_lc eq "lv")) {
+	if (   ($ingredients_lc eq "en")
+		or ($ingredients_lc eq "hr")
+		or ($ingredients_lc eq "lt")
+		or ($ingredients_lc eq "lv"))
+	{
 		# start by "with" (example: "mlijeko (s 1.0% mliječne masti)"), in which case it $b should be added after $a
 		# start by "with etc." should be added at the end of the previous ingredient
 		my %with = (hr => '(s | sa )',);
@@ -5951,7 +5955,6 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 		or ($ingredients_lc eq "hu")
 		or ($ingredients_lc eq "ru")
 		or ($ingredients_lc eq "pl")
-		or ($ingredients_lc eq "lt")
 		or ($ingredients_lc eq "rs")
 		or ($ingredients_lc eq "sk")
 		or ($ingredients_lc eq "sl")
@@ -7602,10 +7605,25 @@ my %ingredients_categories_and_types = (
 	],
 
 	lt => [
-		#oils
+		# oils
 		{
-			categories => ["aliejai", "augaliniai aliejai",],
-			types => ["palmių", "rapsų", "saulėgrąžų",],
+			categories => ["augaliniai aliejai", "augalinis aliejus", "aliejai", "aliejus",],
+			types => [
+				"palmių branduolių", "alyvpalmių", "palmių", "kokosų",
+				"rapsų", "saulėgrąžų", "kukurūzų", "sviestmedžių",
+				"sviestmedžio", "taukmedžio", "avižų",
+			],
+			alternate_names => ["<type> aliejus", "<type> riebalai"],
+		},
+		# fats
+		{
+			categories => ["augaliniai riebalai", "riebalai",],
+			types => [
+				"palmių branduolių", "alyvpalmių", "palmių", "kokosų",
+				"rapsų", "saulėgrąžų", "kukurūzų", "sviestmedžių",
+				"sviestmedžio", "taukmedžio",
+			],
+			alternate_names => ["<type> riebalai", "<type> aliejus"],
 		},
 	],
 
@@ -7877,6 +7895,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				or ($ingredients_lc eq "da")
 				or ($ingredients_lc eq "de")
 				or ($ingredients_lc eq "hr")
+				or ($ingredients_lc eq "lt")
 				or ($ingredients_lc eq "lv")
 				or ($ingredients_lc eq "ru")
 				or ($ingredients_lc eq "sv")
