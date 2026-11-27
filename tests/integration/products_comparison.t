@@ -196,16 +196,45 @@ subtest 'Legacy API v2 still returns success for no-op writes.' => sub {
 		product_name => 'Legacy Comparison Product',
 	);
 
-	edit_product($ua, \%edit_fields);
+	my $before_create = read_persisted_state($code);
+	my $create_response = edit_product($ua, \%edit_fields);
+	my $create_response_ref = JSON::MaybeXS::decode_json($create_response->decoded_content);
 
 	my $before_noop = read_persisted_state($code);
+	assert_saved_revision($before_create, $before_noop, 'legacy API v2 create');
+	is(
+		$create_response_ref,
+		{status => 1, status_verbose => 'fields saved'},
+		'Legacy API v2 create returns expected response'
+	);
+
 	my $response = edit_product($ua, \%edit_fields);
 	my $after_noop = read_persisted_state($code);
 	my $response_ref = JSON::MaybeXS::decode_json($response->decoded_content);
 
 	assert_skipped_revision($before_noop, $after_noop, 'legacy API v2 no-op');
-	is($response_ref->{status}, 1, 'Legacy API v2 no-op still returns success');
-	is($response_ref->{status_verbose}, 'fields saved', 'Legacy API v2 no-op still reports fields saved');
+	is(
+		$response_ref,
+		{status => 1, status_verbose => 'fields saved'},
+		'Legacy API v2 no-op returns expected compatible response'
+	);
+
+	my $cgi_response = $ua->post(
+		construct_test_url('/cgi/product_jqm_multilingual.pl'),
+		Content => {
+			%edit_fields, product_name => '  Legacy Comparison Product  ',
+		},
+	);
+	ok($cgi_response->is_success, 'Direct product_jqm_multilingual.pl no-op HTTP request succeeds');
+	my $after_cgi_noop = read_persisted_state($code);
+	my $cgi_response_ref = JSON::MaybeXS::decode_json($cgi_response->decoded_content);
+
+	assert_skipped_revision($after_noop, $after_cgi_noop, 'direct product_jqm_multilingual.pl no-op');
+	is(
+		$cgi_response_ref,
+		{status => 1, status_verbose => 'fields saved'},
+		'Direct product_jqm_multilingual.pl no-op returns expected compatible response'
+	);
 };
 
 subtest 'API v3 returns the persisted state after a skipped save.' => sub {
