@@ -172,6 +172,8 @@
          "vegetarian" : "yes"
       },
       {
+         "ecobalyse_proxy_id" : "6f3939f7-408c-45d5-8653-61f3336bf305",
+         "ecobalyse_proxy_name" : "Chocolat noir par défaut -2025-",
          "id" : "en:chocolate",
          "ingredients" : [
             {
@@ -216,8 +218,8 @@
             },
             {
                "ciqual_proxy_food_code" : "19051",
-               "ecobalyse_id" : "17cb3a3e-04e0-4550-bd9b-91a28d8bcec0",
-               "ecobalyse_name" : "Lait par défaut -2025-",
+               "ecobalyse_proxy_id" : "413dbd30-f224-580c-bf02-51664910430e",
+               "ecobalyse_proxy_name" : "Lait de vache HORS UE",
                "id" : "en:milk",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 1.3671875,
@@ -291,8 +293,8 @@
       },
       {
          "ciqual_food_code" : "11058",
-         "ecobalyse_id" : "77defb24-cec3-4de9-8388-63229d1052fb",
-         "ecobalyse_name" : "Sel -2025-",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.68359375,
@@ -370,10 +372,8 @@
       "en:chocolate"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:chocolate"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 12,
    "lc" : "fr",
    "misc_tags" : [

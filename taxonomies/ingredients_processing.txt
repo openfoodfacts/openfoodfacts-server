@@ -404,7 +404,7 @@ wikidata:en: Q104439353
 < en: chopped
 en: finely chopped
 da: finhakket, finhakkede
-fr: finement hachées, finement hachée, finement hachés
+fr: finement hachées, finement hachée, finement hachés, finement haché, haché finement, hachée finement, hachés finement, hachées finement, ciselé, ciselée, ciselés, ciselées
 sv: finhackad, finhackat, finhackade
 wikidata:en: Q26883106
 
@@ -430,7 +430,7 @@ ca: a daus, a dauets
 de: würfel, gewürfelt, gewürfelte, in würfel geschnitten, in würfel
 es: en cubitos, encuadritos, en dados, a dados
 fi: kuutioitu, kuutioidut
-fr: en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
+fr: en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d', coupé en dés, coupée en dés, coupés en dés, coupées en dés, coupé en cubes, coupée en cubes, coupés en cubes, coupées en cubes
 hu: kockázott, kockázva, kockára vágva, kockára vágott
 it: dadi, dado, a dadi, a dadini, in dadi, in dadini
 nl: blokjes, in blokjes, blokje
@@ -453,7 +453,7 @@ en: crushed, crushing
 bg: натрошенo, натрошен, натрошена, натрошени
 es: aplastada, aplastado, aplastadas, aplastados, triturado, triturada, triturados, trituradas
 fi: murskattu, murskatut
-fr: concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées, broyage
+fr: concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées, broyage, écrasé, écrasée, écrasés, écrasées, pilé, pilée, pilés, pilées
 hr: izdrobljeno, smrvljeno
 hu: zúzott, összetörve, összetört
 nl: gebroken
@@ -484,6 +484,7 @@ en: grated
 bg: настърган, настъргано, настъргана, настъргани
 ca: ratllat
 cs: strouhaný
+da: revet, raspet
 de: gerieben, geriebener, geriebene, geriebenes, geraspelt, geraspelte, geraspelter, geraspeltes, gerebelt
 es: rallada, rallado, ralladas, rallados, rayada, rayado, rayadas, rayados
 fi: raastettu, raastetut
@@ -498,12 +499,17 @@ nl: geraspt, geraspte
 pl: tarty, tarta, tarte
 pt: ralado, ralada, ralados, raladas
 ro: ras, rasă, rasi, rase
+sl: nariban, naribana, naribano, naribani, naribane
 sv: riven, rivet, rivna
 uk: тертий, терта, терте, терті
 # nl:parse:geraspte_$
 # fi:parse:raastettu $, $raaste
 # sv:parse:riven $
 # en:wiktionary:grated
+
+< en: grated
+en: freshly grated
+fr: fraîchement râpé, fraîchement râpée, fraîchement râpés, fraîchement râpées, fraichement rapé, fraichement rapée, fraichement rapés, fraichement rapées, fraîchement rapé, fraîchement rapée, fraichement râpé, fraichement râpée
 
 en: rubbed
 description:en: Generally herbs, dried then rubbed against each other and the stems/stalks discarded
@@ -552,7 +558,7 @@ pl: mielony, mielone, mielona, mielonego, mielonej, mielonych, zmielony, zmielon
 pt: moído, moída, moídos, moídas
 ro: măcinat, măcinată, măcinați, măcinate
 ru: дробленое
-sl: mleti
+sl: mleti, mlet, mleta, mleto, mlete
 sv: malen, mald, malet, malt, malna, malda
 uk: мелений, мелена, мелене, мелені, дроблений, дроблена, дроблене, дроблені
 description:en: To reduce to smaller pieces by crushing with lateral motion.
@@ -564,6 +570,7 @@ wikidata:en: Q26882416
 en: finely ground
 cs: jemně mleté, jemně mletá, jemně mletý
 de: fein gemahlen, fein gemahlene, fein gemahlener, fein gemahlenes
+fr: finement moulu, finement moulue, finement moulus, finement moulues
 hr: fino mljeveno
 hu: finomra őrölt
 pl: drobno mielona, drobno mielone, drobno mielony
@@ -579,6 +586,8 @@ sv: grovmalen, grovmald, grovmalet, grovmalt, grovmalna, grovmalda
 < en: ground
 en: freshly ground
 de: frischgemahlen, frischgemahlene, frischgemahlener, frischgemahlenes
+# "poivre du moulin" (pepper from the mill) means freshly ground pepper in recipes
+fr: fraîchement moulu, fraîchement moulue, fraîchement moulus, fraîchement moulues, fraichement moulu, fraichement moulue, fraichement moulus, fraichement moulues, du moulin, au moulin
 hu: frissen őrölt
 
 < en: ground
@@ -705,7 +714,7 @@ bg: наполовина
 ca: meitat, meitats, meitats de
 cs: půlený, půlená, půlené
 de: halbiert, halbierte, halbierter, halbiertes, halbe
-fr: demi
+fr: demi, coupé en deux, coupée en deux, coupés en deux, coupées en deux, en deux, coupé en 2, coupée en 2, coupés en 2, coupées en 2
 hr: polovice
 pl: połówki
 pt: metade, metades
@@ -817,7 +826,7 @@ eo: pulvoro, pulvorigita
 es: en polvo, polvo de
 et: pulber
 fa: پودر
-fi: jauhe, jauhetta
+fi: jauhe, jauhetta, jauheesta
 fr: en poudre, poudre de, poudre d', semoule de, semoule d', semoule, en semoule, poudre, à base de poudre de, poudres de
 he: אבקה, אבקת
 hi: चूर्ण, पाउडर
@@ -978,7 +987,7 @@ de: ungeschält, ungeschälte, ungeschälter, ungeschältes
 sv: med skal, oskalad, oskalat, oskalade
 
 < en: peeled or shelled
-en: peeled, hulled
+en: peeled, hulled, husked, dehulled
 bg: обелен, обелено, обелена, обелени, белен, белена, белено, белени, грухана
 ca: sense pell
 da: skrællet, skrællede, uden skræl
@@ -993,6 +1002,7 @@ nl: gepeld, gepelde
 pl: obrany, obrana, obrane
 pt: pelado, pelada, pelados, peladas, sem pele, sem peles
 ro: decojit, decojită, decojiți, decojite, curățat, curățată, curățate
+sl: oluščen, oluščena, oluščeno, oluščeni, oluščene, olupljen, olupljena, olupljeno, olupljeni, olupljene
 uk: чищений, чищена, чищене, чищені
 description:en: With the outermost layer or skin removed
 wikidata:en: Q23022934
@@ -1375,6 +1385,9 @@ sv: inte från koncentrat
 en: from comminute
 description:en: A comminute is a puree that is derived from whole citrus fruits.
 
+en: comminuted, comminute
+description:en: Made into a comminute: a puree derived from whole citrus fruits.
+
 #description:en: Dehydration by artificial or natural processes
 # anhydrous: No water, dehydrated: Water removed, dried: Less water.
 en: dried, dry
@@ -1404,6 +1417,7 @@ pt: seco, seca, secos, secas
 ro: uscate, uscată, uscat, uscați
 ru: сушеный, Сушеное, сушёная, сушёный, сухое, из сухого, из сухого молока
 sk: sušené
+sl: sušen, sušena, sušeno, sušeni, sušene
 sr: sušeno
 sv: torkad, torkat, torkade
 th: ตาก, ออบแห้ง
@@ -1430,10 +1444,11 @@ hr: liofilizirane, liofiliziran, liofilizirana, liofilizirani, liofiliziranih, l
 hu: fagyasztva szárított
 it: liofilizzata, liofilizzate, liofilizzato, liofilizzati
 nb: frysetørkede
-nl: gevriesdroogde
+nl: gevriesdroogde, geviesdroogd
 pl: liofilizowane, liofilizowana, liofilizowany, liofilizowanej
 pt: liofilizado, liofilizados, liofilizada, liofilizadas
 ro: liofilizat, liofilizată, liofilizați, liofilizate
+sl: liofiliziran, liofilizirana, liofilizirano, liofilizirani, liofilizirane
 sv: frystorkad, frystorkat, frystorkade
 zh: 冻干
 
@@ -1549,6 +1564,7 @@ nl: gedehydrateerde
 pl: odwodniony, odwodnione, odwodniona
 pt: desidratado, desidratada, desidratados, desidratadas
 ro: deshidratată, deshidratat, deshidratați, deshidratate
+sl: dehidriran, dehidrirana, dehidrirano, dehidrirani, dehidrirane
 sv: dehydrerat, dehydrerad, dehydrerade
 uk: дегідратований, зневоднений, зневоднена, зневоднене, зневоднені, дегідратована, дегідратоване, дегідратовані, дегідрований, дегідрована, дегідроване, дегідровані
 
@@ -1583,6 +1599,7 @@ nb: rehydrerte, rehydrert
 nl: gerehydrateerde
 pl: uwodnione, uwodniony, uwodniona
 pt: reidratado, reidratada, reidratados, reidratadas
+sl: rehidriran, rehidrirana, rehidrirano, rehidrirani, rehidrirane
 sv: rehydrerat, rehydrerad, rehydrerade
 uk: регідратований, регідратована, регідратоване, регідратовані, регідрований, регідрована, регідроване, регідровані
 
@@ -1733,6 +1750,7 @@ ca: premsat
 da: presset, pressede
 de: abgepresste
 es: espremido de, prensado, prensada
+fi: puristettu
 fr: pressé, pressée, pressées
 hr: prešano, ekspeler, pogača
 hu: préselt, sajtolt
@@ -2053,6 +2071,7 @@ nl: gesteriliseerd, gesteriliseerde
 pl: sterylizowane
 pt: esterilizado, esterilizada, esterilizados, esterilizadas
 ro: sterilizat, sterilizată, sterilizați, sterilizate
+sl: steriliziran, sterilizirana, sterilizirano, sterilizirani, sterilizirane
 sv: steriliserad, steriliserat, steriliserade
 uk: стерилізований, стерилізована, стерилізоване, стерилізовані
 description:en: Sterilization (or sterilisation) refers to any process that removes, kills, or deactivates all forms of life and other biological agents present in or on a specific surface, object, or fluid. Sterilization can be achieved through various means, including heat, chemicals, irradiation, high pressure, and filtration.
@@ -2082,6 +2101,7 @@ pl: pasteryzowana, pasteryzowane, pasteryzowany, pasteryzowanego, pasteryzowanej
 pt: pasteurizado, pasteurizados, pasteurizada, pasteurizadas
 ro: pasteurizat, pasteurizata, pasteurizată, pasteurizați, pasteurizate
 ru: пастеризованные, Пастеризованное
+sl: pasteriziran, pasterizirana, pasterizirano, pasterizirani, pasterizirane
 sr: pasterizovana
 sv: pastöriserad, pastöriserat, pastöriserade
 tr: pastörize
@@ -2210,11 +2230,12 @@ nn: kogte
 pl: gotowana, gotowany, gotowane, gotowanej, gotowanego, gotowanych, ugotowana, ugotowany, ugotowane, ugotowanej, ugotowanego, ugotowanych
 pt: cozido, cozida, cozidos, cozidas
 ro: gătit, gătită, gătiți, gătite
+sl: kuhan, kuhana, kuhano, kuhani, kuhane
 uk: відварений, відварена, відварене, відварені, варений, варена, варене, варені
 zh: 熟制
 description:en: General term covering a number of heat treatments carried out under specific conditions to influence the nutritional value or the structure of the material
-ecobalyse_transformation:en: a2836bb8-7f45-5cfa-bb00-8b38046291cf
-ecobalyse_transformation_name:en: Cooking, industrial, 1kg of cooked product {FR} U
+ecobalyse_transformation:en: e297d2a0-1945-4f48-838f-fbbb4a6cde72
+ecobalyse_transformation_name:en: Cooking
 ecobalyse_transformation_name:fr: Cuisson
 wikidata:en: Q104439289
 
@@ -2289,7 +2310,7 @@ zh: 焦糖化
 
 #en:pregelatinisation
 en: puffed, inflated
-da: puffede, poppede
+da: puffet, puffede, poppede
 de: gepufft, gepuffte, gepuffter, gepufftes, gepoppt, gepoppte, gepoppter
 es: hinchado, hinchada, hinchados, hinchadas, inflado, inflada, inflados, infladas
 fr: soufflé, soufflée, soufflés, soufflées
@@ -2398,7 +2419,7 @@ nl: geroosterd, geroosterde, getoaste, gebrand
 pl: prażony, prażone, prażona, prażonego, prażonej, prażonych
 pt: tostado, tostada, tostados, tostadas, torrado, torrada, torrados, torradas
 ro: rumenit, rumenită, rumeniți, rumenite
-sl: praženi
+sl: praženi, pražen, pražena, praženo, pražene
 zh: 焙烤
 comment:en: In the actual translations on products, there is not always a difference between toasted and roasted
 description:en: To lightly cook by browning via direct exposure to a fire or other heat source.
@@ -2451,6 +2472,46 @@ nl: gesmolten
 pl: topiony, topiona, topione
 pt: fundido, fundida, fundidos, fundidas
 sv: smält, smälta, smälta
+
+# Temperature and state of ingredients, mostly found in cooking recipes ("eau tiède", "beurre ramolli")
+en: lukewarm
+fr: tiède, tièdes, tiédi, tiédie, tiédis, tiédies
+
+en: cold
+fr: froid, froide, froids, froides
+
+# "glacé" / "iced" is too ambiguous to be a processing, false positives include:
+# - candied: marrons glacés, cerises glacées, écorces d'orange glacées, fruits glacés
+# - frozen desserts: nougat glacé, soufflé glacé, parfait glacé, bûche glacée
+# - drinks: thé glacé, café glacé, iced tea, iced coffee
+# - glazed: oignons glacés, carottes glacées, corn flakes glacés au sucre
+# - with icing: iced biscuits, iced buns
+# "eau glacée" (ice water) is an ingredient instead
+#en: ice-cold, ice cold
+#fr: glacé, glacée, glacés, glacées
+
+# breakfast cereals: "corn flakes glacés au sucre"
+en: sugar-coated, sugar coated, sugar iced, sugar frosted, frosted
+fr: glacé au sucre, glacée au sucre, glacés au sucre, glacées au sucre, enrobé de sucre, enrobée de sucre, enrobés de sucre, enrobées de sucre
+
+en: hot
+fr: chaud, chaude, chauds, chaudes
+
+< en: hot
+en: boiling
+fr: bouillant, bouillante, bouillants, bouillantes
+
+en: softened
+fr: ramolli, ramollie, ramollis, ramollies, mou, mous, pommade, en pommade
+
+en: stale
+fr: rassis, rassise, rassises
+
+en: crumbled
+fr: émietté, émiettée, émiettés, émiettées
+
+en: beaten
+fr: battu, battue, battus, battues
 
 #######################################################################
 #
@@ -2773,9 +2834,6 @@ uk: стандартизований, стандартизована, станд
 en: normalized, normalised
 uk: нормалізований, нормалізоване, нормалізована, нормалізовані
 
-en: seasoned, with seasoning, with liquid seasoning
-de: gewürzter, gewuerzter, gewürzter, gewuerzter, flüssig gewürzt
-
 #######################################################################
 #
 #                T R E A T I N G   P R O C E S S E S
@@ -2811,6 +2869,10 @@ sv: sköljd, sköljt, sköljda
 en: washed
 sv: tvättad, tvättat, tvättade
 wikidata:en: Q134401232
+
+en: polished
+sv: polerad, polerat, polerade
+wikidata:en: Q1054722
 
 en: bleached
 de: gebleicht, gebleichte, gebleichter, gebleichtes, gebleichten, gebleichtem
@@ -2950,6 +3012,7 @@ nl: gehomogeniseerd
 pl: homogenizowany
 pt: homogeneizado
 ro: omogenizat, omogenizată, omogenizați, omogenizate
+sl: homogeniziran, homogenizirana, homogenizirano, homogenizirani, homogenizirane
 uk: гомогенізований, гомогенізована, гомогенізоване, гомогенізовані
 wikidata:en: Q1165158
 wikipedia:en: https://en.wikipedia.org/wiki/Homogenization_(chemistry)
@@ -3016,7 +3079,8 @@ nl: gefermenteerd, gefermenteerde
 pl: fermentowany, fermentowana, fermentowane, kiszony, kiszona, kiszone, kiszonych, kiszonego, kiszonej
 pt: fermentado, fermentada, fermentados, fermentadas
 ro: fermentat, fermentată, fermentați, fermentate
-sv: fermenterat, fermenterad, fermenterade
+sl: fermentiran, fermentirana, fermentirano, fermentirani, fermentirane
+sv: fermenterad, fermenterat, fermenterade, syrad, syrat, syrade
 uk: ферментований, ферментована, ферментоване, ферментовані, квашений, квашена, квашене, квашені
 wikidata:en: Q6950796
 
@@ -3104,9 +3168,15 @@ wikidata:en: Q29560
 
 de: ungepökelt
 
+en: seasoned, with seasoning, with liquid seasoning
+de: gewürzter, gewuerzter, gewürzter, gewuerzter, flüssig gewürzt
+fr: assaisonné, assaisonnée, assaisonnés, assaisonnées
+wikidata:en: Q773108
+
 en: flavoured, flavored
 bg: ароматизирано, ароматизиран, ароматизирани
 ca: aromatitzada
+da: smagsat, smagsatte, med smag
 de: aromatisiert, aromatisierte, aromatisierter, aromatisiertes, aromatisierten, aromatisiertem
 es: sabour, saboreado, saboreada
 fr: aromatisé, aromatisée, aromatisées
@@ -3117,7 +3187,10 @@ ja: 調味
 nl: gearomatiseerd, gearomatiseerde
 pl: aromatyzowany, aromatyzowana, aromatyzowane, przyprawiony, przyprawiona, przyprawione, smakowy, smakowe, smakowa
 pt: aromatizado, aromatizada, aromatizados, aromatizadas
+ro: condimentat
+sv: smaksatt, smaksatta, med smak
 uk: ароматизований, ароматизована, ароматизоване, ароматизовані
+wikidata:en: Q142212669
 
 en: unflavoured, unflavoured
 bg: без аромат, без аромат
@@ -3400,6 +3473,11 @@ pt: nâo hidrogenada
 ro: nehidrogenate, nehidrogenat, nehidrogenată, nehidrogenați
 sv: ohärdad, ohärdat, ohärdade, icke-hydrogenerad, icke-hydrogenerat, icke-hydrogenerade
 
+en: autolysed, autolyzed
+de: autolysiert, autolysierte, autolysierter, autolysiertes
+fr: autolysé, autolysée, autolysés, autolysées
+description:en: Broken down by the organism's own enzymes, e.g. autolysed yeast
+
 # note: both hydrolised and hydrolysed are used in British English
 en: hydrolysed, hydrolized, hydrolised
 de: hydrolisiert, hydrolisierte, hydrolisierten, hydrolisiertem, hydrolisierter, hydrolisiertes
@@ -3432,6 +3510,7 @@ it: idrogenato, idrogenati, idrogenata, idrogenate
 nl: Gehydrogeneerde
 pl: uwodorniony, uwodorniona, uwodornione, utwardzony, utwardzone, utwardzona
 ro: hidrogenat, hidrogenată, hidrogenați, hidrogenate
+sl: hidrogeniran, hidrogenirana, hidrogenirano, hidrogenirani, hidrogenirane
 sv: härdad, härdat, härdade
 uk: гідрогенований, гідрогенована, гідрогеноване, гідрогеновані
 description:en: Transformation of unsaturated glycerides into saturated glycerides (of oils and fats)
@@ -3452,6 +3531,7 @@ nb: fullherdet
 nl: geheel gehard, geheel geharde, volledig gehydrogeneerde
 pl: całkowicie uwodorniony, całkowicie uwodorniona, całkowicie uwodornione, całkowicie utwardzony, całkowicie utwardzona, całkowicie utwardzone
 ro: total hidrogenat, total hidrogenată, total hidrogenate, complet hidrogenat, complet hidrogenată, complet hidrogenate
+sl: popolnoma hidrogeniran, popolnoma hidrogenirana, popolnoma hidrogenirano, popolnoma hidrogenirani, popolnoma hidrogenirane
 sv: fullhärdad, fullhärdat, fullhärdade
 nova:en: 4
 
@@ -3590,7 +3670,7 @@ en: preserved
 en: canned, appertised, appertized
 fr: conserve, en conserve, boite, boîte, boite de conserve, boîte de conserve, en boite, en boîte, en boite de conserve, en boîte de conserve, appertisé, appertisée, appertisés, appertisées
 uk: консервований, консервована, консервоване, консервовані
-ecobalyse_transformation:en: a83c94af-6e31-5599-8022-7ae795862a99
-ecobalyse_transformation_name:en: Canning fruits or vegetables, industrial, 1kg of canned product {FR} U
+ecobalyse_transformation:en: b797d2cc-1ecb-4fa0-b049-48b44a88e283
+ecobalyse_transformation_name:en: Canning
 ecobalyse_transformation_name:fr: Mise en conserve
 

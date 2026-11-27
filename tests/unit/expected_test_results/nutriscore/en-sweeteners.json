@@ -13,8 +13,9 @@
       "en:beverages-and-beverages-preparations",
       "en:beverages",
       "en:non-alcoholic-beverages",
-      "en:carbonated-drinks",
       "en:soft-drinks",
+      "en:carbonated-drinks",
+      "en:flavoured-soft-drinks",
       "en:sodas"
    ],
    "categories_lc" : "en",
@@ -37,8 +38,9 @@
       "en:beverages-and-beverages-preparations",
       "en:beverages",
       "en:non-alcoholic-beverages",
-      "en:carbonated-drinks",
       "en:soft-drinks",
+      "en:carbonated-drinks",
+      "en:flavoured-soft-drinks",
       "en:sodas"
    ],
    "environmental_impact" : {
@@ -65,6 +67,7 @@
             }
          ],
          "ingredients_coverage_percent" : 87,
+         "ingredients_total_mass" : 87.5,
          "packaging_skip_reason" : "unknown_product_quantity",
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
@@ -72,24 +75,57 @@
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "40a4432b-2b12-45f3-aed2-a8c4e165e15f",
-                  "mass" : 70.5
+                  "elements" : [
+                     {
+                        "amount" : 0.0705,
+                        "material" : {
+                           "id" : "40a4432b-2b12-45f3-aed2-a8c4e165e15f"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "apple juice",
+                  "quantity" : 1
                },
                {
-                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 14.75
+                  "elements" : [
+                     {
+                        "amount" : 0.01475,
+                        "material" : {
+                           "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "water",
+                  "quantity" : 1
                },
                {
-                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 2.25
+                  "elements" : [
+                     {
+                        "amount" : 0.00225,
+                        "material" : {
+                           "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "sugar",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:artificially-sweetened-beverages",
@@ -230,7 +266,7 @@
       "en:nutriscore-2021-c-2023-c",
       "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-80-and-89",
-      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-api-not-called",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"

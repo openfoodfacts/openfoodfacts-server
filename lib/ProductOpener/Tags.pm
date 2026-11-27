@@ -161,6 +161,8 @@ BEGIN {
 
 		&generate_regexps_matching_taxonomy_stopwords
 		&generate_regexps_matching_taxonomy_entries
+		&get_taxonomy_entry_synonyms_regexps
+		&join_regexps_longest_first
 
 		&cmp_taxonomy_tags_alphabetically
 
@@ -1330,9 +1332,14 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 	# Concatenate taxonomy files if needed
 	my $file_path;
+	# Source file of each line of $file_path, as a list of [first line number, source file] (sorted by line number)
+	# Used to tell apart intended merges of entries from different source files (e.g. additives and ingredients)
+	# from accidental merges of entries within the same source file
+	my @source_files_line_ranges = ();
 	if ((scalar @files) == 1) {
 		# Only 1 file
 		$file_path = get_path_for_taxonomy_file($files[0]);
+		push @source_files_line_ranges, [1, $files[0]];
 	}
 	else {
 		# Multiple files
@@ -1341,18 +1348,26 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		open(my $OUT, ">:encoding(UTF-8)", $file_path)
 			or die("Cannot write $file_path : $!\n");
 
+		my $output_lines = 0;
 		foreach my $taxonomy_file (@files) {
 			my $taxonomy_path = get_path_for_taxonomy_file($taxonomy_file);
 			open(my $IN, "<:encoding(UTF-8)", $taxonomy_path)
 				or die("Cannot open $taxonomy_path: $!\n");
 
 			print $OUT "# $taxonomy_file\n\n";
+			$output_lines += 2;
+			push @source_files_line_ranges, [$output_lines + 1, $taxonomy_file];
 
+			my $last_line = "\n";
 			while (<$IN>) {
 				print $OUT $_;
+				$output_lines++;
+				$last_line = $_;
 			}
 
 			print $OUT "\n\n";
+			# if the file does not end with a newline, the first \n terminates its last line
+			$output_lines += ($last_line =~ /\n$/) ? 2 : 1;
 			close($IN);
 		}
 
@@ -1463,6 +1478,18 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		my $line_number = 0;
 
+		# line number of the first line of the block that defined each canonical tagid
+		my %canon_tagid_line_number = ();
+		# source taxonomy file of a line of $file_path, and line number in this source file
+		my $get_source_file_and_line = sub ($n) {
+			my ($start, $source_file) = @{$source_files_line_ranges[0]};
+			foreach my $range_ref (@source_files_line_ranges) {
+				last if $range_ref->[0] > $n;
+				($start, $source_file) = @$range_ref;
+			}
+			return ($source_file, $n - $start + 1);
+		};
+
 		while (<$IN>) {
 
 			my $line = sanitize_taxonomy_line($_);
@@ -1517,6 +1544,33 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 						# Normalized search variants must not merge distinct declared concepts.
 						my $possible_canon_tagid = $synonyms{$tagtype}{$lc}{get_string_id_for_lang($lc, $tag)};
 						if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
+							# Merging entries is intended when they come from different source files
+							# (e.g. an additive that is also listed in ingredients.txt), but merging two
+							# entries of the same source file is almost always an accidental duplicate synonym
+							my $existing_canon_tagid = $translations_from{$tagtype}{"$lc:$possible_canon_tagid"}
+								// "$lc:$possible_canon_tagid";
+							my $existing_line_number = $canon_tagid_line_number{$existing_canon_tagid};
+							if (defined $existing_line_number) {
+								my ($source_file, $source_line_number) = $get_source_file_and_line->($line_number);
+								my ($existing_source_file, $existing_source_line_number)
+									= $get_source_file_and_line->($existing_line_number);
+								if ($source_file eq $existing_source_file) {
+									my $msg;
+									if ("$lc:$lc_tagid" eq $existing_canon_tagid) {
+										# same entry defined twice: the blocks are merged, it is less harmful
+										$msg
+											= "WARNING - duplicate_entry - $source_file - entry $lc:$lc_tagid (line $source_line_number)"
+											. " is defined again, it is merged with the entry at line $existing_source_line_number\n";
+									}
+									else {
+										$msg
+											= "WARNING - synonym_merge - $source_file - entry $lc:$lc_tagid (line $source_line_number)"
+											. " is merged into entry $existing_canon_tagid (line $existing_source_line_number)"
+											. " because they share the $lc synonym \"$tag\"\n";
+									}
+									print STDERR $msg;
+								}
+							}
 							$canon_tagid = "$lc:" . $possible_canon_tagid;
 							$lc_tagid = $possible_canon_tagid;
 							# we already have a canon_tagid $canon_tagid for the tag
@@ -1536,6 +1590,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				if (not defined $canon_tagid) {
 					# this is the first entry for the block, so it defines the canonical tagid
 					$canon_tagid = "$lc:$lc_tagid";
+					$canon_tagid_line_number{$canon_tagid} //= $line_number;
 					# print STDERR "new canon_tagid: $canon_tagid\n";
 					if ((defined $qualifier) and ($qualifier eq 'synonyms:')) {
 						# register that it's just a synonym
@@ -4977,6 +5032,101 @@ sub generate_regexps_matching_taxonomy_stopwords ($taxonomy) {
 	return $result_ref;
 }
 
+=head2 get_taxonomy_entry_synonyms_regexps($taxonomy, $tagid, $language, $options_ref)
+
+Create regular expressions that match the synonyms of one taxonomy entry in one language.
+
+=head3 Arguments
+
+=head4 $taxonomy
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tagid
+
+The canonical id of the entry (e.g. en:coffee)
+
+=head4 $language
+
+The language of the synonyms (e.g. en, or xx for language-independent synonyms)
+
+=head4 $options_ref
+
+A reference to a hash to enable options to indicate how to match:
+
+- add_simple_plurals : in some languages, like French, we will allow an extra "s" at the end of entries
+- add_simple_singulars: same with removing the "s" at the end of entries
+- match_space_with_dash: spaces or dashes in entries will match either a space or a dash (e.g. "South America" will match "South-America")
+- loose_separators: runs of spaces, dashes and apostrophes in entries will match any run of whitespace, dashes
+  and apostrophes, or nothing (e.g. "l'eau" will match "l' eau", "l eau" and "leau")
+
+=head3 Return values
+
+A list of regular expressions (strings), one for each synonym, in the order of the synonyms (the first synonym
+is the main translation), each followed by its unaccented variant if it is different.
+
+The list is empty if the entry has no synonyms in that language.
+
+=cut
+
+sub get_taxonomy_entry_synonyms_regexps ($taxonomy, $tagid, $language, $options_ref = {}) {
+
+	my @regexps = ();
+
+	foreach my $synonym (get_taxonomy_tag_synonyms($language, $taxonomy, $tagid)) {
+
+		# Escape some characters
+		my $regexp = regexp_escape($synonym);
+
+		if ($options_ref->{add_simple_singulars}) {
+			if ($regexp =~ /s$/) {
+				# match entry without final s
+				$regexp =~ s/s$/\(\?:s\?\)/;
+			}
+		}
+
+		if ($options_ref->{add_simple_plurals}) {
+			if ($regexp !~ /s$/) {
+				# match entry with additional final s
+				$regexp =~ s/$/\(\?:s\?\)/;
+			}
+		}
+
+		if ($options_ref->{match_space_with_dash}) {
+			# Make spaces match dashes and the reverse
+			$regexp =~ s/( |-)/\(\?: \|-\)/g;
+		}
+
+		if ($options_ref->{loose_separators}) {
+			# Make runs of spaces, dashes and apostrophes match any run of them, or nothing
+			$regexp =~ s/[ \-'’]+/[\\s\\-'’]*/g;
+		}
+
+		push @regexps, $regexp;
+
+		if ((my $unaccented_regexp = unac_string_perl($regexp)) ne $regexp) {
+			push @regexps, $unaccented_regexp;
+		}
+	}
+
+	return @regexps;
+}
+
+=head2 join_regexps_longest_first(@regexps)
+
+Join regular expressions (strings) in one regular expression that tries the longest ones first,
+so that the longest strings are matched.
+
+=head3 Return values
+
+A string with the regular expressions separated by |, sorted by decreasing length, then alphabetically.
+
+=cut
+
+sub join_regexps_longest_first (@regexps) {
+	return join('|', sort {(length $b <=> length $a) || ($a cmp $b)} @regexps);
+}
+
 =head2 generate_regexps_matching_taxonomy_entries($taxonomy, $return_type, $options_ref)
 
 Create regular expressions that will match entries of a taxonomy.
@@ -5003,6 +5153,8 @@ A reference to a hash to enable options to indicate how to match:
 - add_simple_singulars: same with removing the "s" at the end of entries
 - match_space_with_dash: spaces or dashes in entries will match either a space or a dash (e.g. "South America" will match "South-America")
 
+See get_taxonomy_entry_synonyms_regexps() for all options.
+
 =cut
 
 sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $options_ref) {
@@ -5027,43 +5179,14 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 
 			defined $synonyms_regexps{$language} or $synonyms_regexps{$language} = [];
 
-			# the synonyms below also contain the main translation as the first entry
-			# (3rd element of the pairs below), used to deterministically pick the
-			# entry that keeps a synonym listed for several entries
+			# the synonyms regexps also contain the regexps of the main translation first (first synonym, and
+			# its unaccented variant), used to deterministically pick the entry that keeps a synonym listed
+			# for several entries (3rd element of the triplets below)
+			my @regexps = get_taxonomy_entry_synonyms_regexps($taxonomy, $tagid, $language, $options_ref);
+			next if not @regexps;
+			my %main_translation_regexps = map {$_ => 1} ($regexps[0], unac_string_perl($regexps[0]));
 
-			my $is_main_translation = 1;
-
-			foreach my $synonym (get_taxonomy_tag_synonyms($language, $taxonomy, $tagid)) {
-
-				# Escape some characters
-				$synonym = regexp_escape($synonym);
-
-				if ($options_ref->{add_simple_singulars}) {
-					if ($synonym =~ /s$/) {
-						# match entry without final s
-						$synonym =~ s/s$/\(\?:s\?\)/;
-					}
-				}
-
-				if ($options_ref->{add_simple_plurals}) {
-					if ($synonym !~ /s$/) {
-						# match entry with additional final s
-						$synonym =~ s/$/\(\?:s\?\)/;
-					}
-				}
-
-				if ($options_ref->{match_space_with_dash}) {
-					# Make spaces match dashes and the reverse
-					$synonym =~ s/( |-)/\(\?: \|-\)/g;
-				}
-
-				push @{$synonyms_regexps{$language}}, [$tagid, $synonym, $is_main_translation];
-
-				if ((my $unaccented_synonym = unac_string_perl($synonym)) ne $synonym) {
-					push @{$synonyms_regexps{$language}}, [$tagid, $unaccented_synonym, $is_main_translation];
-				}
-				$is_main_translation = 0;
-			}
+			push @{$synonyms_regexps{$language}}, map {[$tagid, $_, $main_translation_regexps{$_} ? 1 : 0]} @regexps;
 		}
 	}
 
@@ -5093,10 +5216,7 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 	# We want to match the longest strings first
 	if ($return_type eq 'unique_regexp') {
 		foreach my $language (keys %synonyms_regexps) {
-			$result_ref->{$language} = join('|',
-				map {$_->[1]}
-					sort {(length $b->[1] <=> length $a->[1]) || ($a->[1] cmp $b->[1])}
-					@{$synonyms_regexps{$language}});
+			$result_ref->{$language} = join_regexps_longest_first(map {$_->[1]} @{$synonyms_regexps{$language}});
 		}
 	}
 	elsif ($return_type eq 'list_of_regexps') {

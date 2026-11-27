@@ -308,6 +308,80 @@ $tt = Template->new(
 				return $json_utf8->encode($text);
 			},
 		},
+		# Global template functions (not filters): e.g. [% encode_json(pointers) %]
+		# Filters stringify refs (ARRAY(0x...)), while a function preserves them,
+		# so structures must go through a function. Uses $json (utf8(0))
+		# to return character strings for TT with ENCODING => 'UTF-8'.
+		# Only pure / static subs live here: no per-request state ($request_ref,
+		# $target_lc, time()). Per-process stash values override these globals.
+		VARIABLES => {
+			encode_json => sub ($var) {
+				return $json->encode($var);
+			},
+			# Note: use late-binding wrappers (not \&foo refs) so that mocks
+			# and redefinitions (e.g. in unit tests) are honored at call time.
+			feature_enabled => sub {
+				return feature_enabled(@_);
+			},
+			# escaping quotes for use in javascript or json
+			# using short names to favour readability
+			esq => sub {escape_char(@_, "\'")},    # esq as escape_single_quote_and_newlines
+			edq => sub {escape_char(@_, '"')},    # edq as escape_double_quote
+			display_icon => sub {
+				return display_icon(@_);
+			},
+			display_date_without_time => sub {
+				return display_date_without_time(@_);
+			},
+			display_date_ymd => sub {
+				return display_date_ymd(@_);
+			},
+			display_date_tag => sub {
+				return display_date_tag(@_);
+			},
+			product_url => sub {
+				return product_url(@_);
+			},
+			product_action_url => sub {
+				return product_action_url(@_);
+			},
+			product_name_brand_quantity => sub {
+				return product_name_brand_quantity(@_);
+			},
+			# These closures read the global $lc at call time, same as before.
+			canonicalize_taxonomy_tag_link => sub ($tagtype, $tag) {
+				return canonicalize_taxonomy_tag_link($lc, $tagtype, $tag);
+			},
+			display_taxonomy_tag => sub ($tagtype, $tag) {
+				return display_taxonomy_tag($lc, $tagtype, $tag);
+			},
+			display_taxonomy_tag_name => sub ($tagtype, $tag) {
+				return display_taxonomy_tag_name($lc, $tagtype, $tag);
+			},
+			display_taxonomy_tags_list => sub ($tagtype, $tags_ref) {
+				if (defined $tags_ref) {
+					return join(", ", map {display_taxonomy_tag($lc, $tagtype, $_)} @$tags_ref);
+				}
+				else {
+					return "";
+				}
+			},
+			round => sub ($var) {
+				# Check if $var is defined and is numeric
+				if (defined $var && $var =~ /^-?\d+(\.\d+)?$/) {
+					return sprintf("%.0f", $var);
+				}
+				else {
+					return;
+				}
+			},
+			sprintf => sub ($var1, $var2) {
+				return sprintf($var1, $var2);
+			},
+			uri_escape => sub ($var) {
+				return uri_escape($var);
+			},
+		},
 	}
 );
 
@@ -345,9 +419,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	# give priority to request_ref lc but eventually fallback to global $lc
 	my $target_lc = $request_ref->{lc} // $lc;
 	# Add functions and values that are passed to all templates
-
-	# Features for each product type
-	$template_data_ref->{feature_enabled} = \&feature_enabled;
 
 	$template_data_ref->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
@@ -397,20 +468,9 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{f_lang} = sub ($stringid, $variables_ref) {
 		return f_lang_in_lc($target_lc, $stringid, $variables_ref);
 	};
-	# escaping quotes for use in javascript or json
-	# using short names to favour readability
-	$template_data_ref->{esq} = sub {escape_char(@_, "\'")};    # esq as escape_single_quote_and_newlines
-	$template_data_ref->{edq} = sub {escape_char(@_, '"')};    # edq as escape_double_quote
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} //= $request_ref->{cc};
-	$template_data_ref->{display_icon} = \&display_icon;
 	$template_data_ref->{time_t} = time();
-	$template_data_ref->{display_date_without_time} = \&display_date_without_time;
-	$template_data_ref->{display_date_ymd} = \&display_date_ymd;
-	$template_data_ref->{display_date_tag} = \&display_date_tag;
-	$template_data_ref->{product_url} = \&product_url;
-	$template_data_ref->{product_action_url} = \&product_action_url;
-	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
 	$template_data_ref->{has_permission} = sub ($permission) {
 		return has_permission($request_ref, $permission);
 	};
@@ -420,53 +480,6 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{header} = $request_ref->{header};
 	$template_data_ref->{styles} = $request_ref->{styles};
 	$template_data_ref->{bodyabout} = $request_ref->{bodyabout};
-
-	# Return a link to one taxonomy entry in the target language
-	$template_data_ref->{canonicalize_taxonomy_tag_link} = sub ($tagtype, $tag) {
-		return canonicalize_taxonomy_tag_link($lc, $tagtype, $tag);
-	};
-
-	# Display one taxonomy entry in the target language
-	$template_data_ref->{display_taxonomy_tag} = sub ($tagtype, $tag) {
-		return display_taxonomy_tag($lc, $tagtype, $tag);
-	};
-
-	# Display one taxonomy entry in the target language, without language prefix
-	$template_data_ref->{display_taxonomy_tag_name} = sub ($tagtype, $tag) {
-		return display_taxonomy_tag_name($lc, $tagtype, $tag);
-	};
-
-	# Display a list of taxonomy entries in the target language
-	$template_data_ref->{display_taxonomy_tags_list} = sub ($tagtype, $tags_ref) {
-		if (defined $tags_ref) {
-			return join(", ", map {display_taxonomy_tag($lc, $tagtype, $_)} @$tags_ref);
-		}
-		else {
-			return "";
-		}
-	};
-
-	$template_data_ref->{round} = sub ($var) {
-		# Check if $var is defined and is numeric
-		if (defined $var && $var =~ /^-?\d+(\.\d+)?$/) {
-			return sprintf("%.0f", $var);
-		}
-		else {
-			return;
-		}
-	};
-
-	$template_data_ref->{sprintf} = sub ($var1, $var2) {
-		return sprintf($var1, $var2);
-	};
-
-	$template_data_ref->{encode_json} = sub ($var) {
-		return $json->encode($var);
-	};
-
-	$template_data_ref->{uri_escape} = sub ($var) {
-		return uri_escape($var);
-	};
 
 	return ($tt->process($template_filename, $template_data_ref, $result_content_ref));
 }
@@ -3885,7 +3898,6 @@ sub display_tag_page ($request_ref) {
 			}
 		}
 
-		my @markers = ();
 		if ($tagtype eq 'emb_codes') {
 
 			my $city_code = get_city_code($tagid);
@@ -3901,198 +3913,13 @@ sub display_tag_page ($request_ref) {
 					. separator_before_colon($lc) . ": "
 					. display_tag_link('cities', $emb_codes_cities{$city_code}) . "</p>";
 			}
-
-			$log->debug("checking if the canon_tagid is a packager code") if $log->is_debug();
-			if (exists $packager_codes{$canon_tagid}) {
-				$log->debug("packager code found for the canon_tagid", {cc => $packager_codes{$canon_tagid}{cc}})
-					if $log->is_debug();
-
-				# Generate a map if we have coordinates
-				my ($lat, $lng) = get_packager_code_coordinates($canon_tagid);
-				if ((defined $lat) and (defined $lng)) {
-					my @geo = ($lat + 0.0, $lng + 0.0);
-					push @markers, \@geo;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'at') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Österreich)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'ch') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{full_address}</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'cy') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Cyprus)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'cz') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Czech)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'dk') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{postalcode} $packager_codes{$canon_tagid}{city} (Denmark)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'es') {
-					# Razón Social;Provincia/Localidad
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{razon_social}<br>
-$packager_codes{$canon_tagid}{provincia_localidad}
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'fi') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{postalcode} $packager_codes{$canon_tagid}{city} (Finland)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{raison_sociale_enseigne_commerciale}<br>
-$packager_codes{$canon_tagid}{adresse} $packager_codes{$canon_tagid}{code_postal} $packager_codes{$canon_tagid}{commune}<br>
-SIRET : $packager_codes{$canon_tagid}{siret} - <a href="$packager_codes{$canon_tagid}{section}">Source</a>
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'hr') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{street} $packager_codes{$canon_tagid}{city} $packager_codes{$canon_tagid}{postalcode} (Croatia/Hrvatska)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'hu') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Hungary)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'ie') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Ireland)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'it') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address}, $packager_codes{$canon_tagid}{region} (Italy)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'lu') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Luxembourg)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'si') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$packager_codes{$canon_tagid}{address} (Slovenija)
-</p>
-HTML
-						;
-				}
-
-				if ($packager_codes{$canon_tagid}{cc} eq 'uk') {
-
-					my $district = '';
-					my $local_authority = '';
-					if ($packager_codes{$canon_tagid}{district} =~ /\w/) {
-						$district = "District: $packager_codes{$canon_tagid}{district}<br>";
-					}
-					if ($packager_codes{$canon_tagid}{local_authority} =~ /\w/) {
-						$local_authority = "Local authority: $packager_codes{$canon_tagid}{local_authority}<br>";
-					}
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{name}<br>
-$district
-$local_authority
-</p>
-HTML
-						;
-					# FSA ratings
-					if (exists $packager_codes{$canon_tagid}{fsa_rating_business_name}) {
-						my $logo = '';
-						my $img = "images/countries/uk/ratings/large/72ppi/"
-							. lc($packager_codes{$canon_tagid}{fsa_rating_key}) . ".jpg";
-						if (-e "$www_root/$img") {
-							$logo = <<HTML
-<img src="/$img" alt="Rating">
-HTML
-								;
-						}
-						$description .= <<HTML
-<div>
-<a href="https://ratings.food.gov.uk/">Food Hygiene Rating</a> from the Food Standards Agency (FSA):
-<p>
-Business name: $packager_codes{$canon_tagid}{fsa_rating_business_name}<br>
-Business type: $packager_codes{$canon_tagid}{fsa_rating_business_type}<br>
-Address: $packager_codes{$canon_tagid}{fsa_rating_address}<br>
-Local authority: $packager_codes{$canon_tagid}{fsa_rating_local_authority}<br>
-Rating: $packager_codes{$canon_tagid}{fsa_rating_value}<br>
-Rating date: $packager_codes{$canon_tagid}{fsa_rating_date}<br>
-</p>
-$logo
-</div>
-HTML
-							;
-					}
-				}
-			}
 		}
 
 		my $map_html;
-		if (((scalar @wikidata_objects) > 0) or ((scalar @markers) > 0)) {
+		if ((scalar @wikidata_objects) > 0) {
 			my $map_template_data_ref = {
 				wikidata => \@wikidata_objects,
-				pointers => \@markers
+				pointers => []
 			};
 			process_template('web/pages/tags_map/map_of_tags.tt.html', $map_template_data_ref, \$map_html, $request_ref)
 				|| ($map_html .= 'template error: ' . $tt->error());
@@ -4269,7 +4096,7 @@ HTML
 				my $tag_ref = {};    # Object to store the knowledge panels
 				my $panels_created
 					= create_tag_knowledge_panels($tag_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref,
-					$tagtype, $canon_tagid, $request_ref);
+					$tagtype, $canon_tagid // $new_tagid, $request_ref);
 				if ($panels_created) {
 					$tag_template_data_ref->{tag_panels}
 						= display_knowledge_panel($tag_ref, $tag_ref->{"knowledge_panels_" . $lc}, "root");
@@ -5164,7 +4991,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	{
 
 		if (feature_enabled("popularity")) {
-			$sort_by = 'popularity_key';
+			$sort_by = 'popularity';
 		}
 		else {
 			$sort_by = 'last_modified_t';
@@ -5175,11 +5002,9 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		my $order = 1;
 		my $sort_by_key = $sort_by;
 
-		if ($sort_by eq "popularity") {
+		if ($sort_by eq "popularity" || $sort_by eq "popularity_key") {
 			$sort_by_key = "popularity_key";
-			$order = -1;
-		}
-		elsif ($sort_by eq "popularity_key") {
+			$sort_by = "popularity";
 			$order = -1;
 		}
 		elsif ($sort_by eq "environmental_score_score") {
@@ -7333,28 +7158,29 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 	while (my $product_ref = $products_iter->()) {
 		my $url = $request_ref->{formatted_subdomain} . product_url($product_ref->{code});
 
-		my $manufacturing_places = escape_single_quote_and_newlines($product_ref->{"manufacturing_places"});
+		# Plain-text lines for the map popup. Values are JSON-encoded by the
+		# template and rendered with textContent in display-map.js, so no
+		# HTML building or escaping is needed here.
+		my @origins_lines = ();
+
+		my $manufacturing_places = $product_ref->{"manufacturing_places"} // '';
 		$manufacturing_places =~ s/,( )?/, /g;
 		if ($manufacturing_places ne '') {
-			$manufacturing_places
-				= ucfirst(lang("manufacturing_places_p"))
-				. separator_before_colon($lc) . ": "
-				. $manufacturing_places . "<br>";
+			push @origins_lines,
+				ucfirst(lang("manufacturing_places_p")) . separator_before_colon($lc) . ": " . $manufacturing_places;
 		}
 
-		my $origins = escape_single_quote_and_newlines($product_ref->{origins});
+		my $origins = $product_ref->{origins} // '';
 		$origins =~ s/,( )?/, /g;
 		if ($origins ne '') {
-			$origins = ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins . "<br>";
+			push @origins_lines, ucfirst(lang("origins_p")) . separator_before_colon($lc) . ": " . $origins;
 		}
-
-		$origins = $manufacturing_places . $origins;
 
 		my $pointer = {
 			product_name => $product_ref->{product_name},
 			brands => $product_ref->{brands},
 			url => $url,
-			origins => $origins,
+			origins => \@origins_lines,
 			img => display_image($product_ref, "front", $request_ref->{lc}, $thumb_size)
 		};
 
@@ -9102,6 +8928,8 @@ sub compare_product_nutrition_facts_to_categories ($product_ref, $target_lc, $ta
 		if (defined $categories_stats_ref) {
 
 			foreach my $cid (@{$product_ref->{categories_tags}}) {
+
+				next unless exists_taxonomy_tag('categories', $cid);
 
 				if (    (defined $categories_stats_ref->{$cid})
 					and (defined $categories_stats_ref->{$cid}{stats}))

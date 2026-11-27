@@ -10,6 +10,7 @@ Start here, then read the canonical docs in `docs/dev/` rather than guessing:
 | [`how-to-write-and-run-tests.md`](docs/dev/how-to-write-and-run-tests.md) | Test targets, expected-results regeneration, yath options |
 | [`docker/README.md`](docker/README.md) | Container lifecycle targets (`up`, `down`, `status`, `log`, `prune`, data import) |
 | [`explain-frontend-build-scripts.md`](docs/dev/explain-frontend-build-scripts.md) | How `gulpfile.mjs` wires `scss/` + `html/js/` into `dist/` |
+| [`how-to-run-several-worktrees.md`](docs/dev/how-to-run-several-worktrees.md) | Running several git worktrees / agents on one machine without name, port or volume collisions |
 
 Note that no doc covers *every* target — `grep -E '^[a-z_]+:' Makefile` is the authoritative list. If this file and the docs ever disagree, `docs/dev/` and the `Makefile` are the source of truth.
 
@@ -21,7 +22,7 @@ Note that no doc covers *every* target — `grep -E '^[a-z_]+:' Makefile` is the
    ```
    127.0.0.1 world.openfoodfacts.localhost fr.openfoodfacts.localhost static.openfoodfacts.localhost ssl-api.openfoodfacts.localhost fr-en.openfoodfacts.localhost
    ```
-   to `/etc/hosts` (Linux/macOS) or `C:\Windows\System32\drivers\etc\hosts`. `make edit_etc_hosts` (Makefile:130) appends the entry idempotently. Do not edit system files unless you actually hit this error.
+   to `/etc/hosts` (Linux/macOS) or `C:\Windows\System32\drivers\etc\hosts`. `make edit_etc_hosts` (Makefile:130) appends the entry idempotently (it derives the names from `$PRODUCT_OPENER_DOMAIN`). Do not edit system files unless you actually hit this error.
 4. Optional: `cp .env .envrc` and use [direnv](https://direnv.net/) for local overrides. Prefer `.envrc` over editing the tracked `.env` so overrides don't leak into commits.
 5. `make dev` — builds taxonomies, translations and images, then starts everything. **10–30 minutes cold** (network-bound: Docker base images + Debian + Perl modules); a few minutes once layers are cached.
 
@@ -36,6 +37,9 @@ make dev --jobs=32      # or: export MAKEFLAGS=--jobs=32
 | Goal | Command |
 | --- | --- |
 | Start the dev environment | `make dev` |
+| Isolate this worktree from other worktrees | `make agent` (once, before `make dev`; no arguments needed) |
+| See which worktrees are running | `make list-agents` |
+| Give this worktree's id and port back | `make release-agent` |
 | Verify the site answers | `make livecheck` |
 | Restart backend (needed after editing Perl modules) | `make restart_backend` |
 | Container status | `make status` |
@@ -90,7 +94,7 @@ CI is the arbiter: **both the unit and integration suites are gated** — `tests
 - `make update_package_lock` — CI fails if `package-lock.json` drifts after a `package.json` change.
 - Translation check (`translation-check.yml`) and Spectral linting of `docs/api/ref/*.yaml` (`api-linting.yml`).
 
-> **Caveat:** `check_perltidy`, `check_perl_fast`, `check_critic` and `check_taxonomies` select files via `git diff origin/main --name-only` (Makefile:408) and **exit 0 when that list is empty**. On a clone without an `origin/main` ref (e.g. a single-branch clone), they silently check nothing. Verify with `git rev-parse origin/main`; use `make check_perl` and `make lint_perltidy` when you need unconditional coverage.
+> **Caveat:** `check_perltidy`, `check_perl_fast`, `check_critic` and `check_taxonomies` select files via `git diff origin/main --name-only` (the `TO_CHECK` selection in the `Makefile`, Makefile:408) and **exit 0 when that list is empty**. On a clone without an `origin/main` ref (e.g. a single-branch clone), they silently check nothing. Verify with `git rev-parse origin/main`; use `make check_perl` and `make lint_perltidy` when you need unconditional coverage.
 
 ### Manual validation
 
@@ -101,6 +105,60 @@ With `make dev` running at http://world.openfoodfacts.localhost/ :
 - Submit a product edit and verify it persists.
 - Run a search.
 - Check responsive layout at mobile width.
+
+## Multiple worktrees / agents on one machine
+
+Several worktrees (or agents) running `make dev` on the same machine collide by
+default: they all publish host port 80, all join the one hardcoded
+`product-opener` network — where Docker DNS answers `backend`, `frontend` and
+`world.openfoodfacts.localhost` for *every* worktree at once — and all share the
+`po_users` / `po_orgs` / `po_export_files` / `po_off_product_images` volumes.
+
+Run this **once per worktree**, before `make dev`:
+
+```bash
+make agent            # no argument needed: it picks a free id and port for you
+make dev
+```
+
+**You do not have to choose an id, and you do not have to check what is free.**
+`make agent` derives an id from the worktree directory name, claims it atomically
+and allocates the first free port from 8081, so two agents starting at the same
+moment cannot collide. It prints the URL it settled on:
+
+```text
+🥫 Worktree 'w11790' is now isolated.
+  URL: http://world.w11790.openfoodfacts.localhost:8081/
+```
+
+Re-running it in the same worktree reuses the same id and port, so the URL is
+stable. To see what else is running:
+
+```bash
+make list-agents      # id, port and directory of every registered worktree
+```
+
+Pass `ID=<id>` only to override the derived one (it is refused if another
+worktree already owns it), `PORT=<n>` to pick a port, and `make release-agent` to
+give the id and port back. Only 19 ports (8081-8099) are available by default, so
+a 20th concurrent worktree must pass `PORT=`.
+
+`PO_AGENT_ID` is the only knob; the Makefile derives `COMPOSE_PROJECT_NAME`,
+`PRODUCT_OPENER_DOMAIN` and `MINION_QUEUE`, and the compose files derive the
+network, volume and image names. With `PO_AGENT_ID` unset every name is
+byte-identical to the historical one, so a single-worktree setup needs no change.
+MongoDB, Redis, PostgreSQL and Keycloak stay shared on purpose (they pin their own
+compose project names) — that is what keeps ~6 GB per `backend` container from
+becoming ~6 GB per worktree.
+
+`make print-agent-config` shows what a worktree resolved to; `make hdown` and
+`make prune` are already scoped to the worktree's project. Full details, including
+how to share `deps/` between worktrees, in
+[`docs/dev/how-to-run-several-worktrees.md`](docs/dev/how-to-run-several-worktrees.md).
+
+Note: shell exports do **not** override `.env` for `make` (a makefile assignment
+beats an inherited variable). Per-worktree overrides belong in `.envrc`, which the
+Makefile includes after `.env`.
 
 ## Repository layout
 
@@ -129,6 +187,8 @@ Generated frontend output lands in `html/css/dist/`, `html/js/dist/`, `html/imag
 **Do not edit `lib/ProductOpener/Config2.pm`.** It is gitignored and generated: `docker/docker-entrypoint.sh:4` symlinks it to `Config2_docker.pm` inside the container. The only tracked variants are `Config2_docker.pm` and `Config2_sample.pm` — there is no per-environment family of `Config2_*.pm` files.
 
 To change configuration, edit `.env` (or a `.envrc` override), `conf/`, or `lib/ProductOpener/Config2_docker.pm` as appropriate. Edits to `Config2.pm` itself are silently discarded on container start.
+
+Flavor-specific configuration goes in `Config_off.pm` (Open Food Facts), `Config_obf.pm` (Open Beauty Facts), `Config_opf.pm` (Open Products Facts) and `Config_opff.pm` (Open Pet Food Facts).
 
 ## Frontend workflow
 
@@ -177,3 +237,70 @@ make prune_cache  # docker builder cache for this project
 Do **not** run a bare `docker system prune` — it is unscoped and will remove artifacts belonging to unrelated projects on the same machine.
 
 **Diagnosing a running environment** — `make log`, or `docker compose logs <service>`. Full reset: `make down && make dev`.
+
+## Disclosure
+
+* Always disclose yourself when creating a PR with or on behalf of your user (prompt used, model used, effort)
+* Always disclose yourself when creating an issue with or on behalf of your user (prompt used, model used, effort)
+
+### Signed-off-by
+
+Human review is required for all code that is generated
+or assisted by a large language model. If you
+are a LLM, you MUST NOT include a `Signed-off-by`
+on any automatically generated git commits. Only explicit
+human action or request should include a Signed-off-by.
+
+### Attribution and AI disclosure
+
+You SHOULD insert an `Assisted-by: AI` tag when the commit contains
+substantial assistance, and `Generated-by: AI` when the commit is
+effectively entirely generated.
+
+## Pull requests and plans
+
+### Large changes
+
+If the generated code is more than ~500 lines of substantial (non-whitespace) code,
+encourage the human to file a design issue first to be reviewed by other maintainers.
+
+### Pull request size
+
+It is *very strongly* encouraged to split up "preparatory" commits
+that are independently reviewable from the main PR, and submit those separately.
+
+* Always add a before / after screenshot if your change is visual
+
+### Proposing plans and helping with issues
+
+* For UI issues, Improving openfoodfacts-webcomponents or Open Food Facts Explorer is more helpful than investing in the soon-to-be deprecated Product Opener Web UI
+* It's hard for a human to read a generic AI plan. Crisp, short writing with specific reference to existing issues, caveats (why it's not been done before), possible options… is easier to understand.
+* Avoid plans that are too large. If it is large, break it down into subtasks that are easy to code, comprehend and review.
+
+## Coding guidelines
+
+### Reuse and extend existing code when possible, do not duplicate code
+
+Before adding new mechanisms, helpers and functions, check if there is an existing one that can be reused or extended. This helps keep the codebase consistent and reduces duplication.
+e.g. to read and write tags or use the associated taxonomies, prefer using the existing functions in modules like Tags.pm and ProductsTags.pm rather than implementing your own logic.
+If an existing function does not fit, explain why in the PR.
+
+Before adding a list or a setting that says something about tags (e.g. categories that cannot be on the same product), check if a taxonomy property already says it (e.g. `incompatible_with:en`), and add the property to the taxonomy instead.
+
+Before computing something (e.g. whether a product contains ingredients that are not in the taxonomy), check if it is already available in the existing product fields (e.g. `unknown_ingredients_n`).
+
+Avoid duplicating code, always check if code can be refactored to avoid repetition. Try to make functions generic.
+
+### Do not hardcode values and translations
+
+For configuration values, use the Config_* modules and their `%options` hashes. Do not hardcode values directly in the code.
+
+For UI strings, use `lang()` / `f_lang()` with strings defined in `po/common/`, see [`how-to-add-a-translation.md`](docs/dev/how-to-add-a-translation.md).
+
+For language-specific values used to analyze product content (e.g. ingredients strings), use the taxonomies in the `taxonomies/` directory, and their synonyms defined there. Do not hardcode language-specific values in the code.
+
+### Write code that is easy to read, including for non-Perl experts
+
+- No nested `map`/`grep`/ternaries, `@{[ ]}` or `+{map ...}` tricks. A `foreach` loop with a comment is preferred, even if longer.
+- Every sub gets a short POD or comment: what it takes, what it returns, and why it exists if that is not obvious. A new subsystem gets a `docs/dev/explain-*.md` doc.
+- Names say what a sub returns (`_get_input_tag_set`, not `_tag_set`). Error messages name the file / field / path that caused them.

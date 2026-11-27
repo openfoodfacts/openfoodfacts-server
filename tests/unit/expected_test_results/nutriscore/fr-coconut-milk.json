@@ -14,8 +14,8 @@
       "en:fruits-and-vegetables-based-foods",
       "en:dairy-substitutes",
       "en:fruit-based-foods",
-      "en:milk-substitutes",
       "en:plant-based-beverages",
+      "en:milk-substitutes",
       "en:plant-based-milk-alternatives",
       "en:coconuts-and-their-products",
       "en:coconut-milks-and-creams",
@@ -48,8 +48,8 @@
       "en:fruits-and-vegetables-based-foods",
       "en:dairy-substitutes",
       "en:fruit-based-foods",
-      "en:milk-substitutes",
       "en:plant-based-beverages",
+      "en:milk-substitutes",
       "en:plant-based-milk-alternatives",
       "en:coconuts-and-their-products",
       "en:coconut-milks-and-creams",
@@ -73,26 +73,51 @@
             }
          ],
          "ingredients_coverage_percent" : 100,
+         "ingredients_total_mass" : 100,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "927231a5-c0c4-560f-8e89-ca4b01795fe6",
-                  "mass" : 60
+                  "elements" : [
+                     {
+                        "amount" : 0.06,
+                        "material" : {
+                           "id" : "927231a5-c0c4-560f-8e89-ca4b01795fe6"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "Noix de coco",
+                  "quantity" : 1
                },
                {
-                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 40
+                  "elements" : [
+                     {
+                        "amount" : 0.04,
+                        "material" : {
+                           "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "eau",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:plant-based-milk-substitutes",
@@ -184,7 +209,7 @@
       "en:nutriscore-2021-a-2023-b",
       "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
-      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-api-not-called",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"

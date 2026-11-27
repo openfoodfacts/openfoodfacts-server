@@ -3198,7 +3198,7 @@ sub compute_codes ($product_ref) {
 		if (retrieve_product('0' . $code)) {
 			push @codes, "conflict-with-ean-13";
 		}
-		elsif (retrieve_product('0' . $code), 1) {
+		elsif (retrieve_product('0' . $code, 1)) {
 			push @codes, "conflict-with-deleted-ean-13";
 		}
 	}

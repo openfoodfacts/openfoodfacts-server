@@ -24,7 +24,7 @@ bg: витамини, витамин, vitamins, vit.
 bn: ভিটামিন
 bs: vitamini, vitamin, vit.
 ca: vitamina, vitamines, vit.
-cs: vitaminy, vitamín, vit.
+cs: vitaminy, vitamín, vit., vitamíny
 cv: витамин
 cy: fitaminau, fitamin
 da: vitaminer, vitamin, vit.
@@ -84,14 +84,14 @@ pl: witamina, witaminy
 ps: ويټامين
 pt: vitaminas, vitamina, premezcla de vitaminas, vit.
 ro: vitamine, vitamină, vit.
-ru: витамин
+ru: витамин, витамины
 sh: vitamini, vitamin, vit.
 si: විටමින්
 sk: vitamíny, vitamín, vit.
 sl: vitamini, vitamin, vit.
 so: fiitamiin
 sq: vitamina, vitaminat, vit.
-sr: витамини, витамин
+sr: витамини, витамин, vitamini
 su: vitamin, vit.
 sv: vitaminer, vitamin, vit., vitaminmix
 sw: vitamini, vit.
@@ -253,6 +253,7 @@ xx: 3a672a
 bg: ретинил ацетат
 ca: acetat de retinol
 cs: retinyl-acetát
+da: retinylacetat
 de: Retinylacetat
 el: οξική ρετινόλη
 es: acetato de retinilo, acetato de vitamina A
@@ -287,6 +288,7 @@ en: retinyl palmitate, Vitamin A palmitate, palmitate
 xx: 3a672b
 bg: Ретинил палмитат
 cs: retinyl-palmitát
+da: retinylpalmitat
 de: Retinylpalmitat
 el: παλμιτική ρετινόλη
 es: palmitato de retinilo, palmitato
@@ -294,6 +296,7 @@ et: retinüülpalmitaat
 fa: رتینیل پالمیتات
 fi: retinyylipalmitaatti
 fr: palmitate de rétinol, palmitate de rétinyle
+hr: vitamin a palmitat
 hu: retinil-palmitát
 it: palmitato di retinile
 lt: retinilo palmitatas
@@ -514,6 +517,7 @@ bg: Ергокалциферол
 ca: Ergocalciferol, vitamina D2, D2
 cs: ergokalciferol, Vitamín D2
 cy: ergocalcifferol
+da: ergocalciferol, vitamin D2
 de: Ergocalciferol, Vitamin D2, vitamine D2
 el: εργοκαλσιφερόλη
 eo: Ergokalciferolo
@@ -600,7 +604,7 @@ or: କୋଲିକ୍ୟାଲସିଫେରଲ
 pl: cholekalcyferol, Witamina D3
 pt: colecalciferol, Vitamina D3
 ro: colecalciferol, Vitamina D3
-ru: Холекальциферол, Витамин д3
+ru: Холекальциферол, Витамин д3, витамин d3, d3, д3
 sh: Holekalciferol
 sk: Cholekalciferol
 sl: Holekalciferol
@@ -687,7 +691,7 @@ pa: ਵਿਟਾਮਿਨ ਈ
 pl: Witamina E
 pt: Vitamina E
 ro: Vitamina E
-ru: токоферол, витамин E
+ru: токоферол, витамин E, витамин е
 sh: Vitamin E
 si: විටමින් E
 sk: Vitamín E
@@ -795,7 +799,7 @@ pt: acetato de DL-alfa-tocoferilo
 ro: acetat de tocoferil DL-alfa
 sk: DL-alfa-tokoferylacetát
 sl: DL-alfa-tokoferil acetat
-sr: DL-a-tokoferil-acetat
+sr: DL-a-tokoferil-acetat, dl-α-tokoferilacetat, dl-alfa-tokoferil-acetat
 sv: DL-alfa-tokoferylacetat
 vegan:en: yes
 vegetarian:en: yes
@@ -1037,7 +1041,7 @@ dv: ވިޓަމިން ސީ
 el: Βιταμίνη C
 eo: Vitamino C
 es: vitamina C
-et: C-vitamiin
+et: C-vitamiin, vitamiin c
 eu: C bitamina
 fa: ویتامین ث
 fi: C-vitamiini
@@ -1072,7 +1076,7 @@ pa: ਵਿਟਾਮਿਨ ਸੀ
 pl: witamina C
 pt: vitamina C
 ro: Vitamina C
-ru: витамин c
+ru: витамин c, витамин с
 rw: Vitamini C
 sh: Vitamin C
 sl: Vitamin C
@@ -1150,7 +1154,7 @@ vegan:en: yes
 vegetarian:en: yes
 
 < en: Vitamin C
-en: sodium-L-ascorbate, fscorbate
+en: sodium-L-ascorbate
 bg: Натриев-L-аскорбат
 cs: L-askorbát sodný
 de: Natrium-L-ascorbat
@@ -1262,7 +1266,7 @@ bs: Vitamin B1
 ca: tiamina, Vitamina B1
 cs: thiamin, vitamin B1
 cy: Thiamin, Fitamin B1
-da: Tiamin, Vitamin B1
+da: thiamin, tiamin, Vitamin B1
 de: Thiamin, Vitamin B1
 dv: ވިޓަމިން ބީ1
 el: θιαμίνη, βιταμίνη Β1
@@ -1303,13 +1307,13 @@ or: ଥାୟାମିନ, ଜୀବସାର ଖ୧
 pl: tiamina, witamina B1
 pt: tiamina, vitamina B1
 ro: Tiamină, Vitamina B1
-ru: тиамин, Витамин B1
+ru: тиамин, Витамин B1, витамин в1, в1
 rw: Vitamini B1
 sh: Tiamin, Vitamin B1
 sk: Tiamín, Vitamín B1
 sl: Tiamin, vitamin B1
 sq: Tiamina, Vitamina B1
-sr: vitamin B1
+sr: vitamin B1, tiamin
 su: Tiamin
 sv: tiamin, vitamin B1
 sw: Tiamin, B1-vitamin
@@ -1388,6 +1392,7 @@ pt: mononitrato de tiamina
 ro: mononitrat de tiamină
 sk: tiamínmononitrát
 sl: tiamin mononitrat
+sr: tiamin mononitrat
 sv: tiaminmononitrat
 vegan:en: maybe
 vegetarian:en: maybe
@@ -1556,6 +1561,7 @@ bg: никотинамид
 ca: niacinamida
 cs: nikotinamid
 cy: nicotinamid
+da: nicotinamid
 de: Nicotinamid
 el: νικοτιναμίδη, νικοτιναμίδιο
 eo: nikotinamido
@@ -1646,7 +1652,7 @@ oc: vitamina B6
 pl: witamina B6
 pt: vitamina B6
 ro: vitamina B6, piridoxină
-ru: витамин B6
+ru: витамин B6, в6, витамин в6
 rw: vitamini B6
 sk: vitamín B6
 ta: உயிர்ச்சத்து பி6
@@ -1676,6 +1682,7 @@ bg: пиридоксин
 ca: piridoxina
 de: Pyridoxin
 es: piridoxina
+fi: pyridoksiini
 fr: pyridoxine
 hu: piridoxin
 it: piridoxina
@@ -1702,6 +1709,7 @@ en: pyridoxine hydrochloride
 xx: 3a831
 bg: пиридоксин хидрохлорид
 cs: pyridoxin-hydrochlorid
+da: pyridoxinhydrochlorid
 de: Pyridoxinhydrochlorid
 el: υδροχλωρική πυριδοξίνη
 es: clorhidrato de piridoxina
@@ -1850,7 +1858,7 @@ sh: Vitamin B9
 sk: kyselina listová, kyselina pteroylmonoglutámová
 sl: folna kislina, pteroilmonoglutaminska kislina
 sq: Acidi folik
-sr: фолна киселина
+sr: фолна киселина, pteroilmonoglutaminska kiselina
 sv: folsyra, pteroylmonoglutaminsyra
 ta: இலைக்காடி
 te: ఫోలిక్ ఆమ్లం
@@ -1951,7 +1959,7 @@ ko: 비타민 B12
 ky: Витамин В12
 lb: Cobalamin, Vitamin B12
 lt: Kobalaminas, Vitaminas B12
-lv: B12 vitamīns
+lv: B12 vitamīns, vitamīns b12
 mk: Кобаламин
 mn: Витамин В12
 ms: Vitamin B12
@@ -1964,7 +1972,7 @@ oc: Cobalamina, Vitamina B12
 pl: Kobalamina, witamina B12
 pt: Cobalamina, vitamina B12
 ro: Cobalamină, Vitamina B12
-ru: витамин B12
+ru: витамин B12, витамин в12, в12
 rw: Vitamini B12
 sh: Vitamin B12
 sk: Kobalamín, Vitamín B12
@@ -2203,8 +2211,8 @@ pt: ácido pantoténico, vitamina b5
 ro: acid pantotenic, vitamina B5, pantotenat de calciu
 ru: пантотеновая кислота, витамин B5
 sk: kyselina pantoténová, vitamín B5
-sl: pantonenska kislina
-sr: пантотенска киселина, витамин Б5
+sl: pantonenska kislina, pantotenska kislina
+sr: пантотенска киселина, витамин Б5, pantotenska kiselina
 sv: pantotensyra, pantotenat
 ta: பான்டோதெனிக் அமிலம், உயிர்ச்சத்து பி5
 th: กรดแพนโทเทนิก, วิตามินบี5
@@ -2271,6 +2279,7 @@ pt: D-pantotenato de cálcio
 ro: D-pantotenat de calciu
 sk: D-pantotenát vápenatý
 sl: kalcijev D-pantotenat
+sr: kalcijum d pantotenat
 sv: kalcium-D-pantotenat
 vegan:en: yes
 vegetarian:en: yes
