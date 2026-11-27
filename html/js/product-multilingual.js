@@ -184,6 +184,14 @@ function update_nutrition_image_copy() {
 }        
 
 
+function getFullSizeImageUrl(displayUrl) {
+    if (!displayUrl || typeof displayUrl !== 'string') {
+        return '';
+    }
+
+    return displayUrl.replace(/\.\d+\.(?=\w+$)/, '.full.');
+}
+
 function update_display(imagefield, first_display, protected_product) {
 
     const display_url = imagefield_url[imagefield];
@@ -191,8 +199,13 @@ function update_display(imagefield, first_display, protected_product) {
     if (display_url) {
 
         const imagetype = imagefield.replace(/_\w\w$/, '');
+        const full_url = getFullSizeImageUrl(display_url);
 
         let html = lang().product_js_current_image + '<br/><img src="' + img_path + display_url + '" />';
+        if (full_url) {
+            const full_image_label = escapeHtml(lang().image_full_size || lang().product_js_image_open_full_size_image || 'Full size');
+            html += '<div class="button_div" id="fullsizebuttondiv_' + escapeHtml(imagefield) + '"><a id="fullsizebutton_' + escapeHtml(imagefield) + '" class="small button" href="' + escapeHtml(encodeURI(img_path + full_url)) + '" target="_blank" rel="noopener noreferrer">' + full_image_label + '</a></div>';
+        }
         // handling the display of unselect button
         if (!protected_product) {
             html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
@@ -217,7 +230,6 @@ function update_display(imagefield, first_display, protected_product) {
             html += '<div id="ocrbutton_loading_' + imagefield + '"></div><div class="button_div" id="ocrbuttondiv_' + imagefield + '">' +
                 ' <button id="ocrbuttongooglecloudvision_' + imagefield + '" class="small button" type="button">' + lang()["product_js_extract_" + imagetype] + '</button></div>';
 
-            const full_url = display_url.replace(/\.400\./, ".full.");
             $('#' + imagefield + '_image_full').html('<img src="' + img_path + full_url + '" class="' + imagetype + '_image_full"/>');
 
             $('div[id="display_' + imagefield + '"]').html(html);
