@@ -1999,7 +1999,15 @@ puffed orange and caramelized unknown_fruit4.",
 		{
 			lc => "cs",
 			ingredients_text =>
-				"cukr, rostlinné tuky (palmový, palmojádrový, bambucký), rostlinné oleje (řepkový, slunečnicový), rostlinný olej (kokosový), rostlinný tuk: palmový, sůl",
+				"cukr, rostlinné tuky (palmový, palmojádrový, bambucký), rostlinné oleje (řepkový, slunečnicový), rostlinný olej (kokosový), rostlinný tuk: palmový, rostlinný tuk (řepkový), sůl",
+		}
+	],
+	[
+		'cs-frequent-unknown-ingredients-3',
+		{
+			lc => "cs",
+			ingredients_text =>
+				"texturovaná hrachová bílkovina, mlékařská kultura, mlékařské kultury, sýrařské kultury, mlékárenské kultury, mléčné kultury, sušený vaječný bílek, přírodní citronové aroma, ječná mouka sladová, mouka pšeničná sladová, xylanáza, dýňové semínko, startovací kultury, salát lollo bionda, bazalkové pesto, petržel hladkolistá, rýžová krupice, chilli koření, bílá cibule, nové koření celé, výtažek z bezového květu, fruktózový sirup, máselný tuk, hovězí maso, sirup z karamelizovaného cukru, pohanková mouka, citronová tráva, celozrnný oves, koncentrát ze spiruliny, žampiony, syrovátkový výrobek, červené fazole, škrob kukuřičný, cibule červená, kamenná sůl, sůl kamenná, drcená rajčata, banány, maltózový sirup, citronový olej, rajský protlak, rostlinný olej palmový, meduňka, koncentrát šťávy z černé mrkve, mrkvová šťáva, paprika zelená, rýžové vločky, bramborový protein, fosforečnany draselné, přírodní extrakt s vysokým obsahem tokoferolů, fosforečnany vápenaté, alginát sodný, citronan sodný, vinan draselný, extrakt z papriky, betakaroten, pyrofosforečnan železitý. Může obsahovat stopy mléka, ořechy, ořechů, mandlí, lískových ořechů, suché skořápkové plody, kešu ořechů, lepku, obiloviny obsahující lepek, pšenici, ryb, korýšů, lupiny, oxidu siřičitého, siřičitanů, sezamových semen.",
 		}
 	],
 	[
