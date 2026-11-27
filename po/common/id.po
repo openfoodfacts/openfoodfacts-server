@@ -415,7 +415,7 @@ msgstr "Dapatkan di Google Play"
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Produk ini belum ada di basis data <<site_name>>. Dapatkah Anda mengambil beberapa gambar dari produk, kode batang, daftar bahan, dan informasi nilai gizi untuk ditambahkan pada <a href=\"https://world-id.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p> \n"
+msgstr "<p>Produk ini belum ada di basis data <<site_name>>. Dapatkah Anda mengambil beberapa gambar dari produk, kode batang, daftar bahan, dan informasi nilai gizi untuk ditambahkan pada <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p> \n"
 "<p>Terima kasih sebelumnya! </p>\n"
 
 msgctxt "app_take_a_picture"
@@ -1070,6 +1070,33 @@ msgstr "Open Beauty Facts - Kosmetik"
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world.openbeautyfacts.org"
+
+# Do not translate Open Products Facts
+msgctxt "footer_opf"
+msgid "Open Products Facts"
+msgstr "Open Products Facts"
+
+msgctxt "footer_opf_link"
+msgid "https://world.openproductsfacts.org"
+msgstr ""
+
+# Do not translate Open Pet Food Facts
+msgctxt "footer_opff"
+msgid "Open Pet Food Facts"
+msgstr "Open Pet Food Facts"
+
+msgctxt "footer_opff_link"
+msgid "https://world.openpetfoodfacts.org"
+msgstr ""
+
+# Do not translate Open Prices
+msgctxt "footer_op"
+msgid "Open Prices"
+msgstr ""
+
+msgctxt "footer_op_link"
+msgid "https://prices.openfoodfacts.org/"
+msgstr ""
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
@@ -1765,6 +1792,16 @@ msgstr "Nilai - nilai gizi"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Nilai gizi"
+
+# Do not translate
+msgctxt "nutriscore_p"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
+
+# Do not translate
+msgctxt "nutriscore_s"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -4280,6 +4317,11 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Silakan Berdonasi"
 
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_provenance_line"
+msgid "From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by {apps_count}+ apps"
+msgstr ""
+
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Moderasi platform para produsen"
@@ -5296,8 +5338,8 @@ msgid "Products for which we currently miss data to determine if they match your
 msgstr "Produk yang tentangnya kami saat ini tidak memiliki data untuk menentukan apakah mereka sesuai dengan preferensi Anda"
 
 msgctxt "forest_footprint"
-msgid "Forest footprint"
-msgstr "Jejak hutan"
+msgid "Forest Footprint"
+msgstr ""
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
@@ -5324,8 +5366,8 @@ msgid "Deforestation risk"
 msgstr "Resiko deforestasi"
 
 msgctxt "total_forest_footprint"
-msgid "Total forest footprint"
-msgstr "Total jejak hutan"
+msgid "Total Forest Footprint"
+msgstr ""
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
@@ -5348,8 +5390,8 @@ msgid "% in product"
 msgstr "% dalam produk"
 
 msgctxt "forest_footprint_calculation_details"
-msgid "Details of the calculation of the forest footprint"
-msgstr "Detail penghitungan jejak hutan"
+msgid "Details of the calculation of the Forest Footprint"
+msgstr ""
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
@@ -5393,64 +5435,96 @@ msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score
 msgstr "Platform tersebut menghitung indikator seperti Nutri-Score, NOVA, dan Green-Score, dan secara otomatis mengidentifikasi saran untuk meningkatkan mereka (contohnya, semua produk yang akan mendapat nilai Nutri-Score yang lebih baik dengan sedikit perubahan komposisi)."
 
 msgctxt "attribute_forest_footprint_name"
-msgid "Forest footprint"
-msgstr "Jejak hutan"
+msgid "Forest Footprint"
+msgstr "Jejak Hutan"
 
 msgctxt "attribute_forest_footprint_setting_name"
-msgid "Low risk of deforestation (Forest footprint)"
-msgstr "Resiko deforestasi rendah (Jejak hutan)"
+msgid "Low risk of deforestation (Forest Footprint)"
+msgstr "Risiko deforestasi rendah (Jejak Hutan)"
 
 msgctxt "attribute_forest_footprint_setting_note"
-msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr "Jejak hutan sesuai dengan risiko penggundulan hutan yang disebabkan bahan-bahan yang terkandung."
+msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
+msgstr "Jejak Hutan sesuai dengan risiko deforestasi yang terkait dengan bahan-bahannya."
 
 msgctxt "attribute_forest_footprint_a_title"
-msgid "Very small forest footprint"
-msgstr "Jejak hutan sangat kecil"
+msgid "Forest Footprint A"
+msgstr "Jejak Hutan A"
 
 msgctxt "attribute_forest_footprint_b_title"
-msgid "Small forest footprint"
-msgstr "Jejak hutan kecil"
+msgid "Forest Footprint B"
+msgstr "Jejak Hutan B"
 
 msgctxt "attribute_forest_footprint_c_title"
-msgid "Medium forest footprint"
-msgstr "Jejak hutan sedang"
+msgid "Forest Footprint C"
+msgstr "Jejak Hutan C"
 
 msgctxt "attribute_forest_footprint_d_title"
-msgid "Large forest footprint"
-msgstr "Jejak hutan besar"
+msgid "Forest Footprint D"
+msgstr "Jejak Hutan D"
 
-msgctxt "attribute_forest_footprint_e_title"
-msgid "Very large forest footprint"
-msgstr "Jejak hutan sangat besar"
+msgctxt "attribute_forest_footprint_a_description"
+msgid "No ingredient associated with a deforestation risk."
+msgstr "Tidak ada bahan yang terkait dengan risiko deforestasi."
+
+msgctxt "attribute_forest_footprint_b_description"
+msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
+msgstr "Terdapat satu atau lebih bahan berisiko deforestasi, tetapi risikonya rendah mengingat jumlah, asal, dan/atau labelnya."
+
+msgctxt "attribute_forest_footprint_c_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
+msgstr "Terdapat satu atau lebih bahan berisiko deforestasi, dengan risiko sedang mengingat jumlah, asal, dan/atau labelnya."
+
+msgctxt "attribute_forest_footprint_d_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
+msgstr "Terdapat satu atau lebih bahan berisiko deforestasi, dengan risiko tinggi mengingat jumlah, asal, dan/atau labelnya."
 
 msgctxt "attribute_forest_footprint_not_computed_title"
-msgid "Forest footprint not computed"
-msgstr "Jejak hutan tidak dihitung"
+msgid "Forest Footprint not computed"
+msgstr "Jejak Hutan belum dihitung"
+
+msgctxt "attribute_forest_footprint_not_computed_description"
+msgid "Potential deforestation risk but not yet computed."
+msgstr "Potensi risiko deforestasi tetapi belum dihitung."
 
 msgctxt "attribute_forest_footprint_a_description_short"
-msgid "Almost no risk of deforestation"
-msgstr "Hampir tidak ada resiko deforestasi"
+msgid "No deforestation risk"
+msgstr "Tidak ada risiko deforestasi"
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
 msgstr "Resiko deforestasi rendah"
 
 msgctxt "attribute_forest_footprint_c_description_short"
-msgid "Moderate risk of deforestation"
-msgstr "Resiko deforestasi sedang"
+msgid "Medium risk of deforestation"
+msgstr "Risiko deforestasi sedang"
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
 msgstr "Resiko deforestasi tinggi"
 
-msgctxt "attribute_forest_footprint_e_description_short"
-msgid "Very high risk of deforestation"
-msgstr "Resiko deforestasi sangat tinggi"
-
 msgctxt "attribute_forest_footprint_not_computed_description_short"
-msgid "Currently only for products with chicken or eggs"
-msgstr "Saat ini hanya untuk produk dengan bahan pembuat ayam atau telur"
+msgid "Potential deforestation risk not computed"
+msgstr "Potensi risiko deforestasi belum dihitung"
+
+msgctxt "attribute_forest_footprint_unknown_title"
+msgid "Forest Footprint not available"
+msgstr "Jejak Hutan tidak tersedia"
+
+msgctxt "attribute_forest_footprint_unknown_description"
+msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
+msgstr "Jejak Hutan tidak dapat dihitung karena daftar bahan tidak ada."
+
+msgctxt "attribute_forest_footprint_unknown_description_short"
+msgid "Missing ingredients list"
+msgstr "Daftar bahan yang hilang"
+
+msgctxt "forest_footprint_2026_other_risky_ingredients"
+msgid "Other risky ingredients"
+msgstr ""
+
+msgctxt "forest_footprint_2026_other_risky_ingredients_description"
+msgid "These ingredients are not yet assessed for deforestation risk:"
+msgstr ""
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
@@ -5679,8 +5753,8 @@ msgid "If you use the same column on multiple lines to provide images URLs for a
 msgstr "Jika Anda menggunakan kolom yang sama pada banyak baris untuk menyediakan URL gambar produk tunggal, Anda bisa menggunakan field ini untuk menunjukkan tipe gambarnya: tampak depan, kandungan bahan, kandungan gizi atau kemasan."
 
 msgctxt "forest_footprint_one_line_explanation"
-msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr "Jejak hutan dihitung dengan mempertimbangkan bahan - bahan yang produksinya memerlukan kacang kedelai, yang budidayanya terkait dengan kegiatan deforestasi."
+msgid "The Forest Footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
+msgstr ""
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
@@ -6043,23 +6117,23 @@ msgstr "SAYA MENDUKUNG"
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr "Kami masih membutuhkan €120.000 untuk menyelesaikan tahun 2026!"
+msgstr "Masih diperlukan dana sebesar €120.000 untuk menuntaskan target 2026!"
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr "Menjadi pelindung Open Food Facts"
+msgstr "Bergabung sebagai patron Open Food Facts"
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr "Setiap bulan, kami melayani 8 juta pengunjung, dan berkali-kali lipat melalui API. Dukungan Anda sangat penting untuk:"
+msgstr "Tiap bulan, ada 8 juta pengunjung yang kami layani, belum termasuk akses via API yang jauh lebih banyak. Kontribusi Anda krusial untuk:"
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr "menjaga Open Food Facts tetap terbuka dan dapat diakses oleh semua orang,"
+msgstr "menjaga Open Food Facts tetap terbuka & dapat diakses oleh semua orang,"
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr "mendukung infrastruktur, situs web, aplikasi seluler, dan API dengan tim tetap yang kecil"
+msgstr "mendukung infrastruktur, situs web, aplikasi seluler, dan API dengan tim permanen yang kecil"
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
@@ -6075,7 +6149,7 @@ msgstr "mendukung sains"
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr "Jika setiap pengunjung bulan ini mengeklik Donasi dan menyumbang hanya 1€, kami akan mendapatkan lebih dari 8 kali lipat anggaran tahunan kami!"
+msgstr "Bila semua pengunjung bulan ini berdonasi sebesar 1€, dana yang terkumpul akan melebihi 8 kali anggaran tahunan kami!"
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
@@ -6492,6 +6566,83 @@ msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
 msgstr "Pelajari lebih lanjut tentang Green-Score"
 
+# Environmental Cost (Ecobalyse)
+msgctxt "environmental_cost_title"
+msgid "Environmental Cost"
+msgstr ""
+
+msgctxt "environmental_cost_description"
+msgid "Total environmental impact score from Ecobalyse"
+msgstr ""
+
+msgctxt "environmental_cost_stale"
+msgid "This environmental cost was computed before the latest changes to the product and may not be up to date."
+msgstr ""
+
+msgctxt "ecs_breakdown"
+msgid "ECS Breakdown"
+msgstr ""
+
+msgctxt "environmental_cost_stage"
+msgid "Stage"
+msgstr "Tahap"
+
+msgctxt "environmental_cost_points_for_100g"
+msgid "Points for 100 g"
+msgstr ""
+
+msgctxt "environmental_cost_points_for_100ml"
+msgid "Points for 100 ml"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_points_for_product"
+msgid "Points for the product ({quantity})"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_product"
+msgid "{points} points for the product ({quantity})"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100g"
+msgid "{points} points for 100 g"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100ml"
+msgid "{points} points for 100 ml"
+msgstr ""
+
+msgctxt "environmental_cost_ingredients"
+msgid "Ingredients"
+msgstr "bahan"
+
+msgctxt "environmental_cost_packaging"
+msgid "Packaging"
+msgstr "Kemasan"
+
+msgctxt "environmental_cost_transport"
+msgid "Transport"
+msgstr ""
+
+msgctxt "environmental_cost_processing"
+msgid "Processing"
+msgstr "Memproses"
+
+msgctxt "environmental_cost_distribution"
+msgid "Distribution"
+msgstr "Distribusi"
+
+msgctxt "environmental_cost_preparation"
+msgid "Preparation"
+msgstr "Penyajian"
+
+msgctxt "environmental_cost_total"
+msgid "Total"
+msgstr "Total"
+
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
@@ -6533,6 +6684,10 @@ msgstr "Nutri-Score, Green-Score, dan tingkat pengolahan makanan (NOVA)"
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
 msgstr "Bisakah Anda menambahkan daftar bahan?"
+
+msgctxt "actions_add_nutrition_facts"
+msgid "Could you add the nutrition facts?"
+msgstr ""
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
@@ -7285,6 +7440,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "Kategori, label, bahan, alergen, informasi nilai gizi, foto, dll."
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Kategori, label, bahan, alergen, informasi nilai gizi, foto, dll."
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "Jika informasi tidak sesuai dengan informasi pada kemasan, Anda dapat melengkapi atau memperbaikinya. Terima kasih!"
@@ -7292,6 +7459,18 @@ msgstr "Jika informasi tidak sesuai dengan informasi pada kemasan, Anda dapat me
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts merupakan basis data kolaboratif dan setiap kontribusi bermanfaat untuk semua."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7620,6 +7799,10 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "Bersentuhan dengan makanan"
 
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr ""
+
 msgctxt "contact_us_producers"
 msgid "Contact Us"
 msgstr "Hubungi Kami"
@@ -7740,6 +7923,10 @@ msgstr "Cari produk dalam kategori yang sama tanpa tambahan gula:"
 msgctxt "per_100g"
 msgid "for 100 g"
 msgstr "untuk 100 g"
+
+msgctxt "points"
+msgid "points"
+msgstr ""
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
@@ -8017,7 +8204,7 @@ msgstr ""
 
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
-msgstr ""
+msgstr "Informasi Nilai Gizi"
 
 msgctxt "test_ingredients_parsing_estimates_and_analysis"
 msgid "Ingredients parsing and quantity estimation"
@@ -8039,21 +8226,21 @@ msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr ""
 
-msgctxt "forest_footprint_2026"
-msgid "Forest Footprint 2026"
+msgctxt "forest_footprint_2026_methodology"
+msgid "The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption."
 msgstr ""
 
-msgctxt "forest_footprint_2026_under_development"
-msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgctxt "forest_footprint_2026_methodology_more_info"
+msgid "More information on the methodology"
 msgstr ""
 
 msgctxt "forest_footprint_2026_overall_grade"
-msgid "Forest footprint grade"
+msgid "Forest Footprint grade"
 msgstr ""
 
 msgctxt "forest_footprint_2026_total"
-msgid "Total forest footprint"
-msgstr "Total jejak hutan"
+msgid "Total Forest Footprint"
+msgstr ""
 
 msgctxt "forest_footprint_2026_primary_ingredient_grade"
 msgid "Primary ingredient grade"
@@ -8064,10 +8251,142 @@ msgid "Primary ingredient"
 msgstr ""
 
 msgctxt "forest_footprint_2026_origin_footprint"
-msgid "Forest footprint for the origin"
+msgid "Forest Footprint for the origin"
 msgstr ""
 
 msgctxt "forest_footprint_2026_label"
 msgid "Label"
 msgstr "Label"
+
+msgctxt "forest_footprint_2026_grade_unknown"
+msgid "Unknown"
+msgstr "Tidak diketahui"
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_cocoa"
+msgid "Cocoa production, concentrated mainly in West Africa, contributes significantly to deforestation. For example, Côte d'Ivoire, the leading cocoa-producing country, has lost 90% of its forests since the 1960s."
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_palm_oil"
+msgid "Palm oil production, concentrated mainly in Indonesia and Malaysia, contributes significantly to deforestation. Borneo has lost more than half of its forests since the 1970s."
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_coffee"
+msgid "Coffee cultivation, concentrated mainly in Central and South America and Southeast Asia, is responsible for 130,000 hectares of deforestation each year since 2000."
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_chicken_and_eggs"
+msgid "Chicken and egg production, even when raised in France, contributes significantly to deforestation through their feed: soy. France imports two-thirds of its soy from Brazil, where its cultivation contributes to the destruction of the Amazon."
+msgstr ""
+
+msgctxt "forest_footprint_2026_labels_description"
+msgid "The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers."
+msgstr ""
+
+msgctxt "related_categories"
+msgid "Related categories"
+msgstr ""
+
+msgctxt "product_history_revision"
+msgid "Revision"
+msgstr ""
+
+msgctxt "product_history_date"
+msgid "Date"
+msgstr "Tanggal"
+
+msgctxt "product_history_contributor"
+msgid "Contributor"
+msgstr "Kontributor"
+
+msgctxt "product_history_changes"
+msgid "Changes"
+msgstr ""
+
+msgctxt "product_history_comment"
+msgid "Comment"
+msgstr "Komentar"
+
+msgctxt "product_history_most_recent_changes"
+msgid "Only the most recent changes are shown."
+msgstr ""
+
+msgctxt "product_history_see_full_history"
+msgid "See the full changes history"
+msgstr ""
+
+msgctxt "google_drive_import_title"
+msgid "Import photos from a Google Drive folder"
+msgstr ""
+
+msgctxt "google_drive_import_description"
+msgid "Share the Google Drive folder with \"Anyone with the link\", then copy its URL below. The photos of the folder and of its subfolders are processed in the order of their file names: a photo that does not have a barcode in its file name or in the image is added to the product of the previous photo."
+msgstr ""
+
+msgctxt "google_drive_folder_url"
+msgid "Google Drive folder URL"
+msgstr ""
+
+msgctxt "google_drive_import_button"
+msgid "Import the photos"
+msgstr ""
+
+msgctxt "google_drive_invalid_folder_url"
+msgid "This is not the URL of a Google Drive folder."
+msgstr ""
+
+msgctxt "google_drive_no_api_key"
+msgid "Importing photos from Google Drive is not available: no Google Drive API key is configured on this server."
+msgstr ""
+
+msgctxt "google_drive_folder_not_found"
+msgid "The Google Drive folder could not be found. Check that it is shared with \"Anyone with the link\"."
+msgstr ""
+
+msgctxt "google_drive_folder_too_many_items"
+msgid "The Google Drive folder contains too many files."
+msgstr ""
+
+msgctxt "google_drive_api_error"
+msgid "Google Drive returned an error."
+msgstr ""
+
+msgctxt "google_drive_import_listing"
+msgid "Listing the photos of the folder..."
+msgstr ""
+
+msgctxt "google_drive_import_photos_in_folder"
+msgid "Photos in the folder"
+msgstr ""
+
+msgctxt "google_drive_import_skipped_files"
+msgid "Files that are not photos (e.g. videos), not imported"
+msgstr ""
+
+msgctxt "google_drive_import_max_images"
+msgid "The folder contains too many photos, only the first ones are imported"
+msgstr ""
+
+msgctxt "google_drive_import_photos_processed"
+msgid "Photos processed"
+msgstr ""
+
+msgctxt "job_not_found"
+msgid "The photo import job could not be found."
+msgstr ""
+
+msgctxt "job_failed"
+msgid "The photo import job failed."
+msgstr ""
+
+msgctxt "post_required"
+msgid "This action requires a POST request."
+msgstr ""
+
+msgctxt "unknown_action"
+msgid "Unknown action."
+msgstr ""
+
+msgctxt "google_drive_import_already_running"
+msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
+msgstr ""
 

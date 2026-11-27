@@ -456,6 +456,9 @@ def check_po_files(po_files=None):
 
 def check_html_files():
     brand_issues = []
+    placeholder_issues = []
+    asset_issues = []
+
     for html_file in glob.glob("html/donate/*.html"):
         if 'en.html' in html_file: continue
         
@@ -464,8 +467,30 @@ def check_html_files():
             
         if "Open Food Facts" not in content:
             brand_issues.append(f"- **Open Food Facts** in `{html_file}`: Brand name seems to be missing or translated entirely.")
+
+    for html_file in glob.glob("html/donate/thanks/*.html"):
+        with open(html_file, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        if "Open Food Facts" not in content:
+            brand_issues.append(f"- **Open Food Facts** in `{html_file}`: Brand name seems to be missing or translated entirely.")
+
+        # Check required placeholders for Donorbox personalizations
+        for ph in ("{name}", "{amount}", "{lookups}"):
+            if ph not in content:
+                placeholder_issues.append(f"- **Missing placeholder `{ph}`** in `{html_file}`: dynamic thank-you personalization broken.")
+
+        # Check factorized CSS/JS and no inline styles
+        if '<style' in content:
+            asset_issues.append(f"- **Inline `<style>` found** in `{html_file}`: styles should be factorized in `/css/donate-thanks.css`.")
+
+        if '/css/donate-thanks.css' not in content:
+            asset_issues.append(f"- **Missing stylesheet link** `/css/donate-thanks.css` in `{html_file}`.")
+
+        if '/js/donate-thanks.js' not in content:
+            asset_issues.append(f"- **Missing script link** `/js/donate-thanks.js` in `{html_file}`.")
             
-    return brand_issues
+    return brand_issues, placeholder_issues, asset_issues
 
 def check_tags_facets():
     issues = []
@@ -498,18 +523,29 @@ def main():
     print("")
     
     brand_issues, url_issues, image_issues, placeholder_issues, badge_issues = check_po_files()
-    html_brand_issues = check_html_files()
+    html_brand_issues, html_placeholder_issues, html_asset_issues = check_html_files()
     facet_issues = check_tags_facets()
     
     brand_issues.extend(html_brand_issues)
+    placeholder_issues.extend(html_placeholder_issues)
     
-    total_issues = len(brand_issues) + len(url_issues) + len(image_issues) + len(placeholder_issues) + len(facet_issues) + len(badge_issues)
+    total_issues = (
+        len(brand_issues) + len(url_issues) + len(image_issues) +
+        len(placeholder_issues) + len(facet_issues) + len(badge_issues) +
+        len(html_asset_issues)
+    )
     
     if total_issues == 0:
         print("### ✅ No Issues Found")
         print("All translations look good!")
         sys.exit(0)
         
+    if html_asset_issues:
+        print("### ⚠️ CSS / JS Asset Factorization Issues")
+        print(f"Found {len(html_asset_issues)} issues:")
+        for issue in html_asset_issues[:50]: print(issue)
+        if len(html_asset_issues) > 50: print(f"...and {len(html_asset_issues) - 50} more issues.\n")
+
     if facet_issues:
         print("### ⚠️ Invalid Facet URLs")
         print(f"Found {len(facet_issues)} issues:")

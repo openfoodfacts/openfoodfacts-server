@@ -2101,6 +2101,22 @@ puffed orange and caramelized unknown_fruit4.",
 				"silava, salaattisekoitus, kuorittu soijapapu, vadelmahillo, e322 soijalesitiini, entsyymit, vihreä papu, kevätsipuli, oligofruktoosikuitu, suippokaali, e322 auringonkukkalesitiini, jääsalaatti, chilitahna, glukoosifruktoosisiirappi, savupaprika, sushiriisi, granola, kananmunan keltuainen, omenaviinietikka, hiilihappopitoinen vesi, poltettu sokeri, siipikarjanrasva, linssiproteiini, rasvaton maito jauheesta, puristettu kookospähkinä, ksantaani, rasvahappojen monoglyseridi, rasvahappojen monoglyseridit, rasvahappojen diglyseridi, rasvahappojen diglyseridit, pyridoksiini, happamuudensaatoaine (E331), sailontaaine (E200), kantaja-aineet (E1520), kantaja-aine (E1520), kiillotusaineet (E903), kiillotusaine (E903), jauhon käsittelyaineet (E300), jauhon käsittelyaine (E300), aromivahventeet (E621), antioksidantit (E306), elintarvikevärit (E100), sakeutusaine (E415), sakeutusaineet (E415). Saattaa sisältää maito, spelttivehnä, spelttivehnää, kamut-vehnä, kamut-vehnää, muuta gluteenia sisältävää viljaa, soijan.",
 		}
 	],
+	[
+		'sl-processing-and-frequent-unknown-ingredients',
+		{
+			lc => "sl",
+			ingredients_text =>
+				"durum pšenica, olivno olje, kumin, grahov škrob, sušena čebula, sušeni česen, luščine svetlega trpotca, sirilo mikrobnega izvora, aromi, alkohol, žafranika, kokosov oreh, redkev, pšenični slad, robide, popečeni kruhki, ječmenov zdrob, zgoščeni sok rdeče pese, višnjev sok, zgoščeni sok črnega korena, breskve, sladka smetana, čebula, pasterizirano mleko, fermentirana smetana, sušeno korenje, dehidrirana čebula, popolnoma hidrogenirana kokosova maščoba, hidrogenirano palmino olje, rehidrirano posneto mleko, olupljeni mandlji, pražena kava, mleta kava, kuhana čičerika, sterilizirana smetana, liofilizirane maline, nariban kokos, homogenizirano mleko. lahko vsebuje sledi mleka, lupinasto sadje, lupinastega sadja, pistacije.",
+		}
+	],
+	[
+		'sr-frequent-unknown-ingredients-round-2',
+		{
+			lc => "sr",
+			ingredients_text =>
+				"suncokretovo, suncokretovo biljno ulje, kokosovo, palmina, palmino, lešnici, kukuruzni maltodekstrin, začin, repičino, uljane repice, ekstrakt paprike, kukuruzno brašno, kakao buter, čokolada u prahu, kaša jagode, slatka pavlaka, heljdino brašno, pirinač, koncentrisani sok limuna, proteini mleka, acerola u prahu, jabuka, kokosova, kvaščev ekstrakt, lan, čili u prahu, starter kultura, modifikovani krompirov skrob, vlakna graška, pileće kožice, jagode, hidrolizovani biljni protein, palmin olein, belance u prahu, koncentrovani sok od jabuke, suncokretova, maltozni sirup, sojini proteini, smeđi šećer, cvekla, prirodna aroma limuna, potpuno hidrogenizovana palmina mast, kafa, seme lana, sok od breskve, krastavac, pileće meso, kukuruz šećerac, alkoholno sirće, alkohol, kanola ulje, crni biber, jestivi želatin, crveni pasulj, potpuno hidrogenizovano palmino ulje koštice, spanać, kajsija, estri mono- i diacetilvinske kiseline i mono- i diglicerida masnih kiselina, mono- i diacetil estri vinske kiseline mono i diglicerida masnih kiselina, mono i diacetil estri vinske kiseline, l-askorbinska kiselina, silicijum dioksid, lecitini, karamel amonijačni, jabučna kiselina, natrijum-acetati, pektini, poliglicerolpoliricinoleat, amonijum-karbonati, natrijum-fosfati, natrijum-eritorbat, kalcijum hlorid, dl-α-tokoferilacetat, dl-alfa-tokoferil-acetat, kiselina (E330), kiseline (E330).",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

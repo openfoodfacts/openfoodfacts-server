@@ -42,6 +42,11 @@ Products without a schema_version field will be considered to be at a schema ver
 
 We will keep a list of functions that can convert product data between different schema versions.
 
+=head2 Quirks
+
+While ideally schema conversion should not depends on globals,
+there might be sub functions relying on them, especially C<$Org_id>
+
 =cut
 
 package ProductOpener::ProductSchemaChanges;
@@ -73,13 +78,6 @@ use ProductOpener::Nutrition
 	qw/default_unit_for_nid generate_nutrient_aggregated_set_from_sets filter_out_nutrients_not_in_taxonomy remove_empty_nutrition_data/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 use ProductOpener::Products qw/get_source_for_site_and_org/;
-
-# on the pro platform, we need to know the org to set the correct source for schema upgrades
-# (e.g. manufacturer or a label organization or database)
-# ideally we would not use the global $Org_id variable in the ProductSchemaChanges module,
-# but we would need to change many functions like retrieve_product() to pass the org_id as a parameter,
-# so for now we will just set the global variable
-use ProductOpener::Users qw/$Org_id/;
 
 use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
@@ -457,7 +455,9 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 
 		# Generates the nutrition sets
 		# Nutrition data did not have a source before, we use the default source corresponding to the site (off or off-pro) and organization
-		my $source = get_source_for_site_and_org();
+		my $org_id;
+		$org_id = $product_ref->{'owner_id'} if $server_options{producers_platform};
+		my $source = get_source_for_site_and_org($org_id);
 		foreach my $set_type (keys %$new_nutrition_sets_ref) {
 			$new_nutrition_sets_ref->{$set_type}{preparation} = $nutrition_preparations_ref->{$set_type}{state};
 			$new_nutrition_sets_ref->{$set_type}{source} = $source;
@@ -928,7 +928,9 @@ sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
 	$product_ref->{tags_sources} = {};
 
 	# Tags did not have a source before, we use the default source corresponding to the site (off or off-pro) and organization
-	my $source = get_source_for_site_and_org();
+	my $org_id;
+	$org_id = $product_ref->{'owner_id'} if $server_options{producers_platform};
+	my $source = get_source_for_site_and_org($org_id);
 
 	# We go through the input tags fields (e.g. categories, labels) that can be written directly
 	# and that are not derived from other fields (e.g. states_tags, ingredients_tags)

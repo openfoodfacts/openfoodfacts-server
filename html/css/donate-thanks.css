@@ -1,0 +1,174 @@
+.wrapper {
+  background-image: url("https://static.openfoodfacts.org/images/misc/2023-donation/background.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-height: 100vh;
+}
+#donate-thanks {
+  font-family: "Plus Jakarta Sans", "Public Sans", Helvetica, Roboto, Arial, sans-serif;
+  color: #201A17;
+}
+#donate-thanks [hidden] {
+  display: none !important;
+}
+#donate-thanks h1,
+#donate-thanks h3,
+#donate-thanks p {
+  margin: 0;
+}
+#donate-thanks .donate-logo {
+  padding-top: 18px;
+}
+#donate-thanks .thanks-card {
+  max-width: 760px;
+  margin: 24px 12px 48px;
+  padding: 24px 20px 26px;
+  background: #fff;
+  border: 1px solid #EDE0DB;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(52, 17, 0, 0.06);
+}
+#donate-thanks h1 {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+#donate-thanks .thanks-lead {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #52443D;
+  margin-bottom: 8px;
+}
+#donate-thanks .thanks-signature {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+#donate-thanks .thanks-meter {
+  background: #F6F3F0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+#donate-thanks .thanks-meter-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  font-size: 13px;
+  color: #52443D;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 6px;
+}
+#donate-thanks .thanks-meter-row b {
+  color: #201A17;
+}
+#donate-thanks .thanks-bar {
+  height: 10px;
+  background: #EDE0DB;
+  border-radius: 5px;
+  overflow: hidden;
+}
+#donate-thanks .thanks-bar-fill {
+  display: block;
+  height: 100%;
+  background: #ff8714;
+}
+#donate-thanks h3 {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 20px 0 10px;
+  color: #52443D;
+}
+#donate-thanks .thanks-share {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+#donate-thanks .thanks-share-btn {
+  display: block;
+  border: 1.5px solid #201A17;
+  border-radius: 24px;
+  padding: 11px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #201A17;
+  background: #fff;
+  text-decoration: none;
+  margin: 0;
+  cursor: pointer;
+}
+#donate-thanks .thanks-upgrade {
+  border: 1.5px solid #ff8714;
+  background: #FFF8F2;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-top: 20px;
+}
+#donate-thanks .thanks-upgrade p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #52443D;
+  margin-bottom: 12px;
+}
+#donate-thanks .thanks-upgrade b {
+  display: block;
+  color: #201A17;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+#donate-thanks .thanks-upgrade-btn {
+  display: inline-block;
+  background: #201A17;
+  color: #fff;
+  border-radius: 24px;
+  padding: 11px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+#donate-thanks .thanks-fine {
+  font-size: 13px;
+  color: #85746C;
+  line-height: 1.55;
+  margin-top: 20px;
+}
+#donate-thanks .thanks-fine b {
+  font-weight: 600;
+  color: #52443D;
+}
+#donate-thanks .thanks-fine a {
+  color: inherit;
+  text-decoration: underline;
+}
+@media (min-width: 640px) {
+  #donate-thanks .thanks-card {
+    margin: 48px auto;
+    padding: 36px 40px;
+  }
+  #donate-thanks h1 {
+    font-size: 36px;
+  }
+  #donate-thanks .thanks-lead {
+    font-size: 17px;
+  }
+  #donate-thanks .thanks-share {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  #donate-thanks .thanks-upgrade {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+  #donate-thanks .thanks-upgrade p {
+    flex: 1;
+    margin-bottom: 0;
+  }
+}

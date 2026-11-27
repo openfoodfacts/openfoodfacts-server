@@ -415,7 +415,7 @@ msgstr ""
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Ang produktong ito ay wala pa sa datos ng <<site_name>>. Puwede ba kayong kumuha ng ilang mga larawan ng produkto, barcode, listahan ng sangkap at nutrisyon ng mga katotohanan upang idagdag ito sa <a href=\"https://world-tl.openfoodfacts.org\" target=\"_blank\"> <<site_name>> </a>? </p> <p>Nagpapasalamat </p>\n"
+msgstr "<p>Ang produktong ito ay wala pa sa datos ng <<site_name>>. Puwede ba kayong kumuha ng ilang mga larawan ng produkto, barcode, listahan ng sangkap at nutrisyon ng mga katotohanan upang idagdag ito sa <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"> <<site_name>> </a>? </p> <p>Nagpapasalamat </p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
@@ -1067,6 +1067,33 @@ msgstr ""
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr ""
+
+# Do not translate Open Products Facts
+msgctxt "footer_opf"
+msgid "Open Products Facts"
+msgstr ""
+
+msgctxt "footer_opf_link"
+msgid "https://world.openproductsfacts.org"
+msgstr "https://world.openproductsfacts.org"
+
+# Do not translate Open Pet Food Facts
+msgctxt "footer_opff"
+msgid "Open Pet Food Facts"
+msgstr "Open Pet Food Facts"
+
+msgctxt "footer_opff_link"
+msgid "https://world.openpetfoodfacts.org"
+msgstr "https://world.openpetfoodfacts.org"
+
+# Do not translate Open Prices
+msgctxt "footer_op"
+msgid "Open Prices"
+msgstr "Open Prices"
+
+msgctxt "footer_op_link"
+msgid "https://prices.openfoodfacts.org/"
+msgstr "https://prices.openfoodfacts.org/"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
@@ -1759,6 +1786,16 @@ msgstr "Ang mga marka ng nutrisyon"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Marka ng nutrisyon"
+
+# Do not translate
+msgctxt "nutriscore_p"
+msgid "Nutri-Score"
+msgstr ""
+
+# Do not translate
+msgctxt "nutriscore_s"
+msgid "Nutri-Score"
+msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -4272,6 +4309,11 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Mangyaring Mag-donate"
 
+# HTML tags and variable names between { } must not be translated
+msgctxt "f_provenance_line"
+msgid "From <b>Open Food Facts</b>, the free food database · built by volunteers since 2012 · data reused by {apps_count}+ apps"
+msgstr "Mula sa <b>Open Food Facts</b>, ang libreng database ng pagkain · binuo ng mga boluntaryo mula noong 2012 · datos na ginagamit muli ng {apps_count}+ app"
+
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr ""
@@ -5288,8 +5330,8 @@ msgid "Products for which we currently miss data to determine if they match your
 msgstr ""
 
 msgctxt "forest_footprint"
-msgid "Forest footprint"
-msgstr ""
+msgid "Forest Footprint"
+msgstr "Footprint sa Kagubatan"
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
@@ -5316,8 +5358,8 @@ msgid "Deforestation risk"
 msgstr ""
 
 msgctxt "total_forest_footprint"
-msgid "Total forest footprint"
-msgstr ""
+msgid "Total Forest Footprint"
+msgstr "Kabuuang Footprint sa Kagubatan"
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
@@ -5340,8 +5382,8 @@ msgid "% in product"
 msgstr ""
 
 msgctxt "forest_footprint_calculation_details"
-msgid "Details of the calculation of the forest footprint"
-msgstr ""
+msgid "Details of the calculation of the Forest Footprint"
+msgstr "Mga detalye ng pagkalkula ng Footprint sa Kagubatan"
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
@@ -5385,64 +5427,96 @@ msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score
 msgstr ""
 
 msgctxt "attribute_forest_footprint_name"
-msgid "Forest footprint"
-msgstr ""
+msgid "Forest Footprint"
+msgstr "Footprint sa Kagubatan"
 
 msgctxt "attribute_forest_footprint_setting_name"
-msgid "Low risk of deforestation (Forest footprint)"
-msgstr ""
+msgid "Low risk of deforestation (Forest Footprint)"
+msgstr "Mababang panganib ng deforestation (Footprint sa Kagubatan)"
 
 msgctxt "attribute_forest_footprint_setting_note"
-msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr ""
+msgid "The Forest Footprint corresponds to the risk of deforestation associated with its ingredients."
+msgstr "Ang Footprint sa Kagubatan ay tumutugma sa panganib ng deforestation na nauugnay sa mga sangkap nito."
 
 msgctxt "attribute_forest_footprint_a_title"
-msgid "Very small forest footprint"
-msgstr ""
+msgid "Forest Footprint A"
+msgstr "Footprint sa Kagubatan A"
 
 msgctxt "attribute_forest_footprint_b_title"
-msgid "Small forest footprint"
-msgstr ""
+msgid "Forest Footprint B"
+msgstr "Footprint sa Kagubatan B"
 
 msgctxt "attribute_forest_footprint_c_title"
-msgid "Medium forest footprint"
-msgstr ""
+msgid "Forest Footprint C"
+msgstr "Footprint sa Kagubatan C"
 
 msgctxt "attribute_forest_footprint_d_title"
-msgid "Large forest footprint"
-msgstr ""
+msgid "Forest Footprint D"
+msgstr "Footprint sa Kagubatan D"
 
-msgctxt "attribute_forest_footprint_e_title"
-msgid "Very large forest footprint"
-msgstr ""
+msgctxt "attribute_forest_footprint_a_description"
+msgid "No ingredient associated with a deforestation risk."
+msgstr "Walang sangkap na nauugnay sa panganib ng deforestation."
+
+msgctxt "attribute_forest_footprint_b_description"
+msgid "Presence of one or more ingredients at risk of deforestation, but low risk given their quantity, origin and/or labels."
+msgstr "Presensya ng isa o higit pang sangkap na may panganib ng deforestation, ngunit mababa ang panganib ayon sa dami, pinagmulan at/o mga label."
+
+msgctxt "attribute_forest_footprint_c_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with moderate risk given their quantity, origin and/or labels."
+msgstr "Presensya ng isa o higit pang sangkap na may panganib ng deforestation, na may katamtamang panganib ayon sa dami, pinagmulan at/o mga label."
+
+msgctxt "attribute_forest_footprint_d_description"
+msgid "Presence of one or more ingredients at risk of deforestation, with high risk given their quantity, origin and/or labels."
+msgstr "Presensya ng isa o higit pang sangkap na may panganib ng deforestation, na may mataas na panganib ayon sa dami, pinagmulan at/o mga label."
 
 msgctxt "attribute_forest_footprint_not_computed_title"
-msgid "Forest footprint not computed"
-msgstr ""
+msgid "Forest Footprint not computed"
+msgstr "Hindi nakalkula ang Footprint sa Kagubatan"
+
+msgctxt "attribute_forest_footprint_not_computed_description"
+msgid "Potential deforestation risk but not yet computed."
+msgstr "Potensyal na panganib ng deforestation ngunit hindi pa nakalkula."
 
 msgctxt "attribute_forest_footprint_a_description_short"
-msgid "Almost no risk of deforestation"
-msgstr ""
+msgid "No deforestation risk"
+msgstr "Walang panganib ng deforestation"
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
-msgstr ""
+msgstr "Mababang panganib ng deforestation"
 
 msgctxt "attribute_forest_footprint_c_description_short"
-msgid "Moderate risk of deforestation"
-msgstr ""
+msgid "Medium risk of deforestation"
+msgstr "Katamtamang panganib ng deforestation"
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
-msgstr ""
-
-msgctxt "attribute_forest_footprint_e_description_short"
-msgid "Very high risk of deforestation"
-msgstr ""
+msgstr "Mataas na panganib ng deforestation"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
-msgid "Currently only for products with chicken or eggs"
-msgstr ""
+msgid "Potential deforestation risk not computed"
+msgstr "Potensyal na panganib ng deforestation na hindi pa nakalkula"
+
+msgctxt "attribute_forest_footprint_unknown_title"
+msgid "Forest Footprint not available"
+msgstr "Hindi available ang Footprint sa Kagubatan"
+
+msgctxt "attribute_forest_footprint_unknown_description"
+msgid "The Forest Footprint cannot be computed because the ingredient list is missing."
+msgstr "Hindi makalkula ang Footprint sa Kagubatan dahil nawawala ang listahan ng sangkap."
+
+msgctxt "attribute_forest_footprint_unknown_description_short"
+msgid "Missing ingredients list"
+msgstr "Nawawala ang listahan ng sangkap"
+
+msgctxt "forest_footprint_2026_other_risky_ingredients"
+msgid "Other risky ingredients"
+msgstr "Iba pang mapanganib na sangkap"
+
+msgctxt "forest_footprint_2026_other_risky_ingredients_description"
+msgid "These ingredients are not yet assessed for deforestation risk:"
+msgstr "Ang mga sangkap na ito ay hindi pa nasusuri para sa panganib ng deforestation:"
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
@@ -5671,8 +5745,8 @@ msgid "If you use the same column on multiple lines to provide images URLs for a
 msgstr ""
 
 msgctxt "forest_footprint_one_line_explanation"
-msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr ""
+msgid "The Forest Footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
+msgstr "Ang Footprint sa Kagubatan ay kinakalkula sa pamamagitan ng pagsasaalang-alang sa mga sangkap na ang produksyon ay nangangailangan ng soybeans, na ang pagtatanim ay nauugnay sa deforestation."
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
@@ -6484,6 +6558,83 @@ msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
 msgstr ""
 
+# Environmental Cost (Ecobalyse)
+msgctxt "environmental_cost_title"
+msgid "Environmental Cost"
+msgstr "Gastos sa Kapaligiran"
+
+msgctxt "environmental_cost_description"
+msgid "Total environmental impact score from Ecobalyse"
+msgstr "Kabuuang marka ng epekto sa kapaligiran mula sa Ecobalyse"
+
+msgctxt "environmental_cost_stale"
+msgid "This environmental cost was computed before the latest changes to the product and may not be up to date."
+msgstr "Ang gastos sa kapaligiran na ito ay kinakalkula bago ang mga pinakabagong pagbabago sa produkto at maaaring hindi napapanahon."
+
+msgctxt "ecs_breakdown"
+msgid "ECS Breakdown"
+msgstr "Paghahati-hati ng ECS"
+
+msgctxt "environmental_cost_stage"
+msgid "Stage"
+msgstr ""
+
+msgctxt "environmental_cost_points_for_100g"
+msgid "Points for 100 g"
+msgstr "Mga puntos para sa 100 g"
+
+msgctxt "environmental_cost_points_for_100ml"
+msgid "Points for 100 ml"
+msgstr "Mga puntos para sa 100 ml"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_points_for_product"
+msgid "Points for the product ({quantity})"
+msgstr "Mga puntos para sa produkto ({quantity})"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_product"
+msgid "{points} points for the product ({quantity})"
+msgstr "{points} puntos para sa produkto ({quantity})"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100g"
+msgid "{points} points for 100 g"
+msgstr "{points} puntos para sa 100 g"
+
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_for_100ml"
+msgid "{points} points for 100 ml"
+msgstr "{points} puntos para sa 100 ml"
+
+msgctxt "environmental_cost_ingredients"
+msgid "Ingredients"
+msgstr "Mga Sangkap"
+
+msgctxt "environmental_cost_packaging"
+msgid "Packaging"
+msgstr "Balot"
+
+msgctxt "environmental_cost_transport"
+msgid "Transport"
+msgstr "Transportasyon"
+
+msgctxt "environmental_cost_processing"
+msgid "Processing"
+msgstr ""
+
+msgctxt "environmental_cost_distribution"
+msgid "Distribution"
+msgstr ""
+
+msgctxt "environmental_cost_preparation"
+msgid "Preparation"
+msgstr ""
+
+msgctxt "environmental_cost_total"
+msgid "Total"
+msgstr ""
+
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
@@ -6525,6 +6676,10 @@ msgstr ""
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
 msgstr ""
+
+msgctxt "actions_add_nutrition_facts"
+msgid "Could you add the nutrition facts?"
+msgstr "Maaari mo bang idagdag ang facts tungkol sa nutrisyon?"
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
@@ -7277,6 +7432,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr ""
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr "Kategorya, mga label, mga sangkap, mga allergen, mga larawan atbp."
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr "Kategorya, mga label, mga sangkap, mga katangian ng produkto, mga larawan atbp."
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr ""
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr ""
@@ -7284,6 +7451,18 @@ msgstr ""
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Ang Open Beauty Facts ay isang collaborative database, at ang bawat kontribusyon ay kapaki-pakinabang para sa lahat."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Ang Open Products Facts ay isang collaborative database, at ang bawat kontribusyon ay kapaki-pakinabang para sa lahat."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Ang Open Pet Food Facts ay isang collaborative database, at ang bawat kontribusyon ay kapaki-pakinabang para sa lahat."
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7612,6 +7791,10 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr ""
 
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr "Nakikipag-ugnayan sa produkto"
+
 msgctxt "contact_us_producers"
 msgid "Contact Us"
 msgstr ""
@@ -7732,6 +7915,10 @@ msgstr "Maghanap ng mga produkto sa parehong kategorya na walang idinagdag na as
 msgctxt "per_100g"
 msgid "for 100 g"
 msgstr ""
+
+msgctxt "points"
+msgid "points"
+msgstr "mga puntos"
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
@@ -8031,35 +8218,167 @@ msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr ""
 
-msgctxt "forest_footprint_2026"
-msgid "Forest Footprint 2026"
+msgctxt "forest_footprint_2026_methodology"
+msgid "The Forest Footprint is a methodology developed by the association <a href=\"https://envol-vert.org/\">Envol Vert</a> to estimate the risk of deforestation related to our consumption."
 msgstr ""
 
-msgctxt "forest_footprint_2026_under_development"
-msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
-msgstr ""
+msgctxt "forest_footprint_2026_methodology_more_info"
+msgid "More information on the methodology"
+msgstr "Higit pang impormasyon sa pamamaraan"
 
 msgctxt "forest_footprint_2026_overall_grade"
-msgid "Forest footprint grade"
-msgstr ""
+msgid "Forest Footprint grade"
+msgstr "Grado ng Footprint sa Kagubatan"
 
 msgctxt "forest_footprint_2026_total"
-msgid "Total forest footprint"
-msgstr ""
+msgid "Total Forest Footprint"
+msgstr "Kabuuang Footprint sa Kagubatan"
 
 msgctxt "forest_footprint_2026_primary_ingredient_grade"
 msgid "Primary ingredient grade"
-msgstr ""
+msgstr "Grado ng pangunahing sangkap"
 
 msgctxt "forest_footprint_2026_primary_ingredient"
 msgid "Primary ingredient"
-msgstr ""
+msgstr "Pangunahing sangkap"
 
 msgctxt "forest_footprint_2026_origin_footprint"
-msgid "Forest footprint for the origin"
-msgstr ""
+msgid "Forest Footprint for the origin"
+msgstr "Footprint sa Kagubatan para sa pinagmulan"
 
 msgctxt "forest_footprint_2026_label"
 msgid "Label"
 msgstr "Tanda"
+
+msgctxt "forest_footprint_2026_grade_unknown"
+msgid "Unknown"
+msgstr "Hindi alam"
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_cocoa"
+msgid "Cocoa production, concentrated mainly in West Africa, contributes significantly to deforestation. For example, Côte d'Ivoire, the leading cocoa-producing country, has lost 90% of its forests since the 1960s."
+msgstr "Ang produksyon ng kakaw, na pangunahing nakatutok sa West Africa, ay malaki ang kontribusyon sa deforestation. Halimbawa, ang Côte d'Ivoire, ang nangungunang bansang gumagawa ng kakaw, ay nawalan ng 90% ng kagubatan nito mula noong 1960s."
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_palm_oil"
+msgid "Palm oil production, concentrated mainly in Indonesia and Malaysia, contributes significantly to deforestation. Borneo has lost more than half of its forests since the 1970s."
+msgstr "Ang produksyon ng palm oil, na pangunahing nakatutok sa Indonesia at Malaysia, ay malaki ang kontribusyon sa deforestation. Ang Borneo ay nawalan ng higit sa kalahati ng mga kagubatan nito mula noong 1970s."
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_coffee"
+msgid "Coffee cultivation, concentrated mainly in Central and South America and Southeast Asia, is responsible for 130,000 hectares of deforestation each year since 2000."
+msgstr "Ang pagtatanim ng kape, na pangunahing nakatutok sa Central at South America at Southeast Asia, ay responsable para sa 130,000 ektarya ng deforestation bawat taon mula noong 2000."
+
+msgctxt "forest_footprint_2026_primary_ingredient_description_chicken_and_eggs"
+msgid "Chicken and egg production, even when raised in France, contributes significantly to deforestation through their feed: soy. France imports two-thirds of its soy from Brazil, where its cultivation contributes to the destruction of the Amazon."
+msgstr "Ang produksyon ng manok at itlog, kahit pinalaki sa France, ay malaki ang kontribusyon sa deforestation sa pamamagitan ng kanilang pagkain: soy. Ang France ay nag-aangkat ng dalawang-katlo ng soy nito mula sa Brazil, kung saan ang pagtatanim nito ay nag-aambag sa pagkawasak ng Amazon."
+
+msgctxt "forest_footprint_2026_labels_description"
+msgid "The presence of certain labels can greatly help reduce the risk of deforestation, through the presence of environmental criteria and/or through better remuneration of producers."
+msgstr "Ang pagkakaroon ng ilang partikular na label ay maaaring lubos na makatulong na mabawasan ang panganib ng deforestation, sa pamamagitan ng pagkakaroon ng mga pamantayan sa kapaligiran at/o sa pamamagitan ng mas mahusay na kabayaran ng mga producer."
+
+msgctxt "related_categories"
+msgid "Related categories"
+msgstr "Mga kaugnay na kategorya"
+
+msgctxt "product_history_revision"
+msgid "Revision"
+msgstr "Rebisyon"
+
+msgctxt "product_history_date"
+msgid "Date"
+msgstr ""
+
+msgctxt "product_history_contributor"
+msgid "Contributor"
+msgstr "Taga-ambag"
+
+msgctxt "product_history_changes"
+msgid "Changes"
+msgstr "Mga Pagbabago"
+
+msgctxt "product_history_comment"
+msgid "Comment"
+msgstr ""
+
+msgctxt "product_history_most_recent_changes"
+msgid "Only the most recent changes are shown."
+msgstr "Ang pinakabagong mga pagbabago lamang ang ipinapakita."
+
+msgctxt "product_history_see_full_history"
+msgid "See the full changes history"
+msgstr "Tingnan ang buong kasaysayan ng mga pagbabago"
+
+msgctxt "google_drive_import_title"
+msgid "Import photos from a Google Drive folder"
+msgstr "Mag-import ng mga larawan mula sa folder ng Google Drive"
+
+msgctxt "google_drive_import_description"
+msgid "Share the Google Drive folder with \"Anyone with the link\", then copy its URL below. The photos of the folder and of its subfolders are processed in the order of their file names: a photo that does not have a barcode in its file name or in the image is added to the product of the previous photo."
+msgstr ""
+
+msgctxt "google_drive_folder_url"
+msgid "Google Drive folder URL"
+msgstr "URL ng folder ng Google Drive"
+
+msgctxt "google_drive_import_button"
+msgid "Import the photos"
+msgstr "I-import ang mga larawan"
+
+msgctxt "google_drive_invalid_folder_url"
+msgid "This is not the URL of a Google Drive folder."
+msgstr "Hindi ito ang URL ng isang folder ng Google Drive."
+
+msgctxt "google_drive_no_api_key"
+msgid "Importing photos from Google Drive is not available: no Google Drive API key is configured on this server."
+msgstr "Hindi available ang pag-import ng mga larawan mula sa Google Drive: walang naka-configure na Google Drive API key sa server na ito."
+
+msgctxt "google_drive_folder_not_found"
+msgid "The Google Drive folder could not be found. Check that it is shared with \"Anyone with the link\"."
+msgstr ""
+
+msgctxt "google_drive_folder_too_many_items"
+msgid "The Google Drive folder contains too many files."
+msgstr "Naglalaman ng napakaraming file ang folder ng Google Drive."
+
+msgctxt "google_drive_api_error"
+msgid "Google Drive returned an error."
+msgstr "Nagbalik ng error ang Google Drive."
+
+msgctxt "google_drive_import_listing"
+msgid "Listing the photos of the folder..."
+msgstr "Inililista ang mga larawan sa folder..."
+
+msgctxt "google_drive_import_photos_in_folder"
+msgid "Photos in the folder"
+msgstr "Mga larawan sa folder"
+
+msgctxt "google_drive_import_skipped_files"
+msgid "Files that are not photos (e.g. videos), not imported"
+msgstr "Mga file na hindi larawan (hal. mga video), hindi na-import"
+
+msgctxt "google_drive_import_max_images"
+msgid "The folder contains too many photos, only the first ones are imported"
+msgstr "Naglalaman ng napakaraming larawan ang folder, ang mga nauna lamang ang na-import"
+
+msgctxt "google_drive_import_photos_processed"
+msgid "Photos processed"
+msgstr "Naprosesong mga larawan"
+
+msgctxt "job_not_found"
+msgid "The photo import job could not be found."
+msgstr "Hindi mahanap ang gawain sa pag-import ng larawan."
+
+msgctxt "job_failed"
+msgid "The photo import job failed."
+msgstr "Nabigo ang gawain sa pag-import ng larawan."
+
+msgctxt "post_required"
+msgid "This action requires a POST request."
+msgstr "Nangangailangan ang aksyong ito ng isang kahilingan sa POST."
+
+msgctxt "unknown_action"
+msgid "Unknown action."
+msgstr "Hindi kilalang aksyon."
+
+msgctxt "google_drive_import_already_running"
+msgid "An import of photos from Google Drive is already in progress. You can start a new import when it is finished."
+msgstr "Kasalukuyan nang isinasagawa ang pag-import ng mga larawan mula sa Google Drive. Maaari kang magsimula ng bago kapag natapos na ito."
 
