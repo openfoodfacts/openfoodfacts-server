@@ -1934,14 +1934,40 @@ puffed orange and caramelized unknown_fruit4.",
 				"Yogurt di latte intero, yogurt colato, fermenti lattici specifici vivi (Lactococcus cremoris, Leuconostoc mesenteroides), fermenti vivi, uova da galline allevate a terra, preparazione alla vaniglia, galattosio",
 		}
 	],
-	# IT - label annotations and OCR noise that must not be parsed as ingredients
+	# IT - storage, best before and other statements printed inside the ingredients list
 	[
-		'it-label-annotations',
-		# based on real ingredient lists of Italian products
+		'it-label-statements',
 		{
 			lc => "it",
 			ingredients_text =>
-				"Latte intero, zucchero, cacao magro (cacao: 25% min), Conservare in luogo fresco e asciutto, Da consumarsi preferibilmente entro il: vedi retro, Lotto L1234, Paese di molitura: Italia, Confezionato in atmosfera protettiva, 4°C, A, vedi capsula",
+				"Latte intero, zucchero, cacao magro (cacao: 25% min). Conservare in luogo fresco e asciutto, al riparo dalla luce. Dopo l'apertura conservare in frigorifero. Da consumarsi preferibilmente entro il: vedi retro. Confezionato in atmosfera protettiva. L'eventuale separazione dell'olio è un processo naturale. Prodotto nello stabilimento di Lavis (TN)",
+		}
+	],
+	# IT - origin of the wheat (Italian pasta labelling), the milling country is not an origin
+	[
+		'it-origin-paese-di-coltivazione',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Semola di grano duro, acqua. Paese di coltivazione del grano: Italia. Paese di molitura: Italia",
+		}
+	],
+	# IT - percentages of the finished product
+	[
+		'it-percent-sul-prodotto-finito',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Farina di mais 7% sul prodotto finito, zucchero, olio di semi di girasole 3% sul prodotto finito. Le percentuali sono espresse sul prodotto finito",
+		}
+	],
+	# IT - fruit content of jams
+	[
+		'it-frutta-utilizzata',
+		{
+			lc => "it",
+			ingredients_text =>
+				"Pesche, zucchero, gelificante: pectina, correttore di acidità: acido citrico. Frutta utilizzata: 50 g per 100 g di prodotto finito",
 		}
 	],
 	# European Portuguese (pt-PT) ingredient names: polme, alperce, sêmea, couratos, fiambre, colza...

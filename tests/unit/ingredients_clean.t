@@ -246,14 +246,8 @@ Edit ingredients (en)",
 
 	[
 		"it",
-		"Farina di mais 7% sul prodotto finito, zucchero, olio di semi di girasole 7% sul prodotto finito, Energia 627 kJ",
-		"Farina di mais 7%, zucchero, olio di semi di girasole 7%, Energia 627 kJ"
-	],
-
-	[
-		"it",
-		"farina di grano (77% percentuali espresse sul prodotto finito), zucchero",
-		"farina di grano (77%), zucchero"
+		"Farina di grano tenero, zucchero, sale. Energia 627 kJ / 149 kcal, Grassi 3 g. Lotto L1234",
+		"Farina di grano tenero, zucchero, sale."
 	],
 
 );

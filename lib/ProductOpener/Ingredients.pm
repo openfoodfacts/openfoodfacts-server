@@ -867,6 +867,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 	# include space if mandatory
 	my %ingredient_content = (
 		en => " content",
+		it => " utilizzat[aoie]",    # "Frutta utilizzata: 50 g per 100 g di prodotto finito"
 		sv => "mängd"
 	);
 	my $ingredient_content = $ingredient_content{$ingredients_lc};
@@ -1119,10 +1120,12 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		if (   ($ingredients_lc eq "en")
 			|| ($ingredients_lc eq "fr")
 			|| ($ingredients_lc eq "da")
+			|| ($ingredients_lc eq "it")
 			|| ($ingredients_lc eq "sv"))
 		{
 			# Origin of the milk: United Kingdom
 			# Origine du Cacao: Pérou
+			# Paese di coltivazione del grano: Italia
 			# Oprindelse jalapeño chili: Peru
 			# Ursprung fullkornsrågmjöl: Sverige och Danmark
 			# Only if nothing matched above: otherwise the origin would replace the ingredient
@@ -1288,7 +1291,11 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		hu => "(?:származási (?:hely|ország))",
 		id => "(?:asal|negara asal)",
 		is => "(?:upprunaland|uppruni)",
-		it => "(?:origine|paese di (?:origine|molitura|coltivazione del grano))",
+		# "Origine del latte: Italia", "Paese di coltivazione del grano: Italia"
+		# the ingredient is captured after the article ("grano"), as for French
+		# (not "Paese di molitura": the country where the wheat was milled is not its origin)
+		it =>
+			"(?:(?:paese di )?(?:origine|coltivazione|provenienza)(?: (?:del |della |dello |dei |degli |delle |dell'|di ))?)",
 		ja => "(?:原産国(?:名)?|原産地)",
 		ko => "(?:원산지)",
 		lt => "(?:kilmės (?:šalis|valstybė)|kilmė)",
@@ -3605,30 +3612,34 @@ Text to analyze
 
 							'it' => [
 								'^in proporzion[ei] variabil[ei]$',
-								'^conservare\b',    # storage instructions: "Conservare in luogo fresco e asciutto", "Conservare in frigorifero"
-								"^dopo l['’](apertura|acquisto)\b",    # after opening / after purchase: "Dopo l'apertura conservare in frigorifero"
-								'^d(a )?consumarsi\b',    # best before: "Da consumarsi preferibilmente entro il: ...", "consumarsi previa cottura"
-								'^da consumare entro\b',    # use by: "Da consumare entro: vedi capsula"
-								'^al riparo\b',    # away from light / heat sources: "al riparo dalla luce"
-								'^paese di\b',    # country of origin info: "Paese di coltivazione del grano: Italia", "Paese di molitura", "Paese di trasformazione"
-								'^lotto\b',    # batch number: "Lotto e da consumarsi preferibilmente entro il: ..."
-								'^non adatto a bambini\b',    # choking warning
-								'^energia\b',    # OCR noise from nutrition declarations: "Energia 627 kJ / 149 kcal"
-								'^frutta utilizzata\b',    # fruit content: "Frutta utilizzata: 50g per 100g"
-								'^stabilimento\b',    # facility info: "Stabilimento di Lavis (TN)"
-								'^prodotto nello stabilimento\b',
-								'^il prodotto contiene\b',    # lactose-free statement: "Il prodotto contiene glucosio e galattosio in conseguenza della scissione del lattosio"
+								# Statements that producers print inside the ingredients list.
+								# Text that is not part of the list (nutrition facts, lot numbers...)
+								# is cut by %phrases_after_ingredients_list when extracted from a photo.
+								# storage: "Conservare in luogo fresco e asciutto, al riparo dalla luce"
+								'^conservare\b',
+								'^al riparo\b',
+								'^(dopo l.apertura|una volta aperto)\b',
+								'^agitare bene\b',
+								# best before / use by: "Da consumarsi preferibilmente entro il: vedi retro"
+								'^da consumar(si|e)\b',
+								# packaged in a protective atmosphere
+								'^(prodotto )?confezionato in atmosfera\b',
+								# "Paese di molitura: Italia": where the wheat was milled, not its origin.
+								# "Paese di coltivazione del grano: Italia" is an origin, see
+								# match_origin_of_the_ingredient_origin()
+								'^paese di (molitura|trasformazione|confezionamento)\b',
+								# "Prodotto nello stabilimento di Lavis (TN)": mandatory in Italy
+								'^(prodotto nello )?stabilimento (di|in)\b',
+								# "Il prodotto contiene glucosio e galattosio in conseguenza della scissione del lattosio"
 								'in conseguenza della scissione del lattosio$',
-								'^confezionato (in|il)\b',    # packaged in a protective atmosphere / packaged on (date)
-								'^certificato\b',    # certification mention: "Certificato Rainforest Alliance"
-								"^l['’]eventuale separazione\b",    # "L'eventuale separazione dell'olio è un processo naturale"
-								'^agitare bene\b',    # shake well before use
-								'^(vedere|vedi)\b',    # leftovers of split annotations: "vedi capsula", "vedi sopra"
-								'^\d+\s*°\s*c\b',    # temperature: "0 °C"
-								'^min(im|imo)?\.?$',    # "(cacao: 25% min)" leftovers
-								'^min\.? ?\d+$',    # "min 56%" leftovers
-								'^[alps013]$',    # OCR junk: stray letters and digits
-								'^vr$',    # OCR junk: Italian province codes from addresses (VR, AR...)
+								# "Certificato Rainforest Alliance"
+								'^certificato\b',
+								# "L'eventuale separazione dell'olio è un processo naturale"
+								'^l.eventuale separazione\b',
+								# choking warning
+								'^non adatto a bambini\b',
+								# "Le percentuali sono espresse sul prodotto finito"
+								'^(le )?percentuali (sono )?(espresse|riferite) (sul|al) prodotto finito$',
 							],
 
 							'ja' => [
@@ -6725,9 +6736,15 @@ my %phrases_after_ingredients_list = (
 		'componenti analitici',    # pet food
 		'Confezionato in atmosfera protettiva',    # Packaged in a protective atmosphere
 		'(dopo l\'apertura )?Conservare in (frigo|luogo)',
+		'Conservare (al riparo|lontano|a temperatura)',
+		'Dopo l.apertura',    # after opening
+		'Agitare bene prima',    # shake well before use
 		'consigli per la preparazione',
 		'Da consumarsi',    # best before
+		'Da consumare entro',    # use by
 		'di cui zuccheri',
+		'Energia\s*:?\s*\d+',    # start of the nutrition table: "Energia 627 kJ / 149 kcal"
+		'Lotto',    # lot number
 		'MODALITA D\'USO',
 		'MODALITA DI CONSERVAZIONE',
 		'Preparazione\:',
@@ -6925,9 +6942,6 @@ my %ignore_phrases = (
 	hu => [
 		'a késztermékben',    # in the finished product
 		'valamennyi százalékos adat a késztermékre vonatkozik',    # All percentages refer to the finished product.
-	],
-	it => [
-		'(percentuali espresse )?sul prodotto finito',    # 7% sul prodotto finito
 	],
 	sk => [
 		'obsah laktózy',    # lactose content <0,1g/100 g
