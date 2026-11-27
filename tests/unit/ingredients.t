@@ -1995,6 +1995,14 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	[
+		'cs-oils-and-fats',
+		{
+			lc => "cs",
+			ingredients_text =>
+				"cukr, rostlinné tuky (palmový, palmojádrový, bambucký), rostlinné oleje (řepkový, slunečnicový), rostlinný olej (kokosový), rostlinný tuk: palmový, sůl",
+		}
+	],
+	[
 		'lt-frequent-unknown-ingredients',
 		{
 			lc => "lt",
