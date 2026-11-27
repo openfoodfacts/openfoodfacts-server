@@ -1285,30 +1285,32 @@
                {
                   "ecobalyse_name" : "Pomme, pulpe, crue Origine Inconnue",
                   "id" : "f489c1d2-d770-4614-9878-f6445a8a937f",
-                  "mass" : 58.3333333333333,
+                  "mass" : 61.5384615384615,
                   "name" : "apple"
                },
                {
                   "ecobalyse_name" : "Lait de vache HORS UE",
                   "id" : "413dbd30-f224-580c-bf02-51664910430e",
-                  "mass" : 20.8333333333333,
+                  "mass" : 21.978021978022,
                   "name" : "milk"
                },
                {
                   "ecobalyse_name" : "Oeuf, décoquillé, de poule, de cane ou d'oie, cru Origine Inconnue",
                   "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e",
-                  "mass" : 10.4166666666667,
+                  "mass" : 10.989010989011,
                   "name" : "eggs"
                },
                {
                   "ecobalyse_name" : "Huile de palme -raffinée- par défaut -2025-",
                   "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
-                  "mass" : 5.20833333333333,
+                  "mass" : 5.49450549450549,
                   "name" : "palm oil"
                }
             ],
             "ingredients_coverage_percent" : 94,
-            "ingredients_total_mass" : 94.7916666666667,
+            "ingredients_matched_mass" : 94.7916666666667,
+            "ingredients_scaling_factor" : 1.0549,
+            "ingredients_total_mass" : 100.0,
             "packaging" : [
                {
                   "category" : "",
@@ -1327,7 +1329,7 @@
                   {
                      "elements" : [
                         {
-                           "amount" : 0.058333,
+                           "amount" : 0.061538,
                            "material" : {
                               "id" : "f489c1d2-d770-4614-9878-f6445a8a937f"
                            },
@@ -1340,7 +1342,7 @@
                   {
                      "elements" : [
                         {
-                           "amount" : 0.020833,
+                           "amount" : 0.021978,
                            "material" : {
                               "id" : "413dbd30-f224-580c-bf02-51664910430e"
                            },
@@ -1353,7 +1355,7 @@
                   {
                      "elements" : [
                         {
-                           "amount" : 0.010417,
+                           "amount" : 0.010989,
                            "material" : {
                               "id" : "f3410a4c-8760-4d79-b1be-7bc961483b6e"
                            },
@@ -1366,7 +1368,7 @@
                   {
                      "elements" : [
                         {
-                           "amount" : 0.005208,
+                           "amount" : 0.005495,
                            "material" : {
                               "id" : "45658c32-66d9-4305-a34b-21d6a4cef89c"
                            },
