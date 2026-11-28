@@ -2,6 +2,7 @@
 <script src="[% static_subdomain %]/js/dist/JsBarcode.all.min.js"></script>
 
 [% INCLUDE web/common/includes/external_sources_scripts.tt.html %]
+<script src="[% static_subdomain %]/js/dist/open-prices.js" defer></script> 
 
 [% IF product_changes_saved %]
     <div data-alert class="alert-box info">
@@ -98,6 +99,13 @@
                             <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>[% lang("health") %]</span></a></li>
                         [% END %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>[% lang("environment") %]</span></a></li>
+                        [% IF ! server_options_producers_platform %]
+                        <li class="product-section-button">
+                            <a class="nav-link scrollto button small round white-button" href="#prices">
+                                <span>[% lang("open_prices_title") %]</span>
+                            </a>
+                        </li>
+                        [% END %]
                         [% IF secondhand_card_panel %]
                         <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#secondhand"><span>[% lang("secondhand") %]</span></a></li>
                         [% END %]
@@ -133,7 +141,7 @@
                     [% END %]
 
 
-                    <h2 class="title-1" property="food:name" itemprop="name">[% title %]</h1>
+                    <h2 class="title-1" property="food:name" itemprop="name">[% title %]</h2>
 
                     [% IF server_options_producers_platform %]
                         <p>→ <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
@@ -329,6 +337,40 @@
             </div>
         </div>
     </section>
+[% END %]
+
+[% IF ! server_options_producers_platform %]
+<section class="row" id="prices">
+    <div class="large-12 column">
+        <div class="card">
+            <div class="card-section">
+                <h2>[% lang("open_prices_title") %]</h2>
+
+                <p id="open-prices-content" aria-live="polite">
+                [% lang("open_prices_loading") %]
+                </p>
+
+                <div class="open-prices-actions">
+                    <a
+                        id="open-prices-view"
+                        class="button small round"
+                        href="#"
+                    >
+                        [% lang("open_prices_view") %]
+                    </a>
+
+                    <a
+                        id="open-prices-add"
+                        class="button small round"
+                        href="#"
+                    >
+                        [% lang("open_prices_add") %]
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 [% END %]
 
 <!-- Report problem card, if not on the platform for producers -->
