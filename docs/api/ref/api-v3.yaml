@@ -24,7 +24,7 @@ info:
 servers:
   - url: "https://world.openfoodfacts.org"
     description: prod
-  - description: dev
+  - description: dev (staging, needs basic auth off:off)
     url: "https://world.openfoodfacts.net"
 paths:
   "/api/v3/product/{code}":

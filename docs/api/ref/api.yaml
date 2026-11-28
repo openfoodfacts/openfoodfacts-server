@@ -23,10 +23,10 @@ externalDocs:
     **IMPORTANT**: Please read the API introduction before using this API.
   url: https://openfoodfacts.github.io/openfoodfacts-server/api/
 servers:
-  - description: dev
-    url: "https://world.openfoodfacts.net"
   - description: prod
     url: "https://world.openfoodfacts.org"
+  - description: dev (staging, needs basic auth off:off)
+    url: "https://world.openfoodfacts.net"
   - description: proxy (for doc purpose)
     url: "http://localhost:8080"
 
