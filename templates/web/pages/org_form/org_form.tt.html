@@ -13,6 +13,7 @@
 	[% IF org_members.size %]
 	<h2>[% lang("organization_members") %]</h2>
 		<p>[% lang("number_of_members") %][% sep %]: [% org_members.size %]</p>
+		<p><small>[% lang("remove_user_from_org_note_user_account_active") %]</small></p>
 		<div style="position:relative">
 		<table>
 			<thead>
@@ -44,7 +45,7 @@
 				<td>[% users.preferred_language %]</td>
 				<td>[% users.user_cc %]</td>
 				<td>
-					<form method="post" action="/cgi/org.pl" onsubmit="return confirm('Are you sure you want to remove this user?')">
+					<form method="post" action="/cgi/org.pl" onsubmit="return confirm('[% esq(lang('confirm_remove_user_from_org')) %]')">
 						<input type="hidden" name="action" value="process" />
 						<input type="hidden" name="type" value="user_delete" />
 						<input type="hidden" name="orgid" value="[% orgid %]">
@@ -140,6 +141,7 @@
 					<input type="checkbox" name="delete" value="on" />
 					[% lang("delete_org") %]
 				</label>
+				<p><small>[% lang("delete_org_note_user_account_active") %]</small></p>
 			</div>
 		[% END %]
 		

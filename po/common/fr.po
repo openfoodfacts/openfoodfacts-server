@@ -5157,6 +5157,18 @@ msgctxt "delete_org"
 msgid "Delete the organization"
 msgstr "Supprimer l'organisation"
 
+msgctxt "delete_org_note_user_account_active"
+msgid "Deleting the organization only removes it from the producer platform. The Open Food Facts accounts of its members remain active."
+msgstr "La suppression de l'organisation la retire uniquement de la plateforme producteurs. Les comptes Open Food Facts de ses membres restent actifs."
+
+msgctxt "confirm_remove_user_from_org"
+msgid "Are you sure you want to remove this user from the organization? Their Open Food Facts account will remain active."
+msgstr "Êtes-vous sûr de vouloir retirer cet utilisateur de l'organisation ? Son compte Open Food Facts restera actif."
+
+msgctxt "remove_user_from_org_note_user_account_active"
+msgid "Removing a user only removes them from this organization on the producer platform; their Open Food Facts account remains active."
+msgstr "Le retrait d'un utilisateur le retire uniquement de cette organisation sur la plateforme producteurs ; son compte Open Food Facts reste actif."
+
 msgctxt "official_site"
 msgid "Official site"
 msgstr "Site officiel"
