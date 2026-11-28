@@ -702,19 +702,14 @@ function isPageType() {
 
 
 function loginProcess(callback) {
-    // Try to authenticate using the Open Food Facts cookie first
-    const cookie = $.cookie('session') ? $.cookie('session') : "";
-    if (cookie) {
-        console.log("FEUS - loginProcess(callback) => getCredentialsFromCookie()");
-        getCredentialsFromCookie(cookie, callback);
-        
-        //return;
-    }
-    else {
-        window.alert("You must be logged in first!");
+    // Authenticate against the Folksonomy Engine using the Open Food Facts session cookie.
+    // Note: the cookie is HttpOnly, so we must not read it from JavaScript: the browser attaches
+    // it to the cross-origin request by itself, because of credentials: 'include' below.
+    // We therefore cannot tell whether the user is signed in before making the request, and rely
+    // on the response to tell us instead.
+    console.log("FEUS - loginProcess(callback) => getCredentialsFromCookie()");
+    getCredentialsFromCookie(callback);
 
-        //return;
-    }
     // TODO: Reenable login ?
     // Else display a form
     // const loginWindow =
@@ -749,16 +744,16 @@ function loginProcess(callback) {
 }
 
 
-function getCredentialsFromCookie(_cookie, callback) {
+function getCredentialsFromCookie(callback) {
     console.log("FEUS - getCredentialsFromCookie - call " + feAPI + "/auth with callback", callback);
     console.log(`
     curl -X 'POST' \\
         'http://api.fr.openfoodfacts.localhost:8000/auth_by_cookie' \\
         -H 'accept: application/json' \\
-        -H 'Cookie: ${_cookie}' \\
         -d ''`
     );
-    // Cookie should be in the form: session=user_session&1WVzzIhNZgV1WtUtuw2s4vuSkeBqBn3bBC9I4tcRcYX5FlMTnPXSz89Fh0MO4hIR&user_id&charlesnepote'
+    // The session cookie is HttpOnly: the browser attaches it to this cross-origin request by
+    // itself, thanks to credentials: 'include', so we never handle the credential in JavaScript.
     fetch(feAPI + '/auth_by_cookie',{
         method: 'POST',
         //credentials: 'same-origin',
@@ -776,12 +771,19 @@ function getCredentialsFromCookie(_cookie, callback) {
             console.log("FEUS - getCredentialsFromCookie - bearer: " + bearer);
             localStorage.setItem('bearer',resp.access_token);
             localStorage.setItem('date',new Date().getTime());
+            // Callers send authenticated requests using `bearer`, so we must only continue once it
+            // is set: calling back on failure would fire requests with "Bearer undefined".
+            // Note: several callers do not pass a callback.
+            if (typeof callback === 'function') {
+                return callback();
+            }
         }
         else {
-            console.log("FEUS - getCredentialsFromCookie - Enable to get credentials!");
-            window.alert("Enable to get credentials!");
+            // No access token: the user is not signed in, or the cookie was not sent.
+            // Do not call the callback: the callers would send unauthenticated requests.
+            console.log("FEUS - getCredentialsFromCookie - Could not get credentials!");
+            window.alert("You must be logged in first!");
         }
-        callback();
     }).
         catch((err) => {
         console.log('FEUS - getCredentialsFromCookie - ERROR. Something went wrong:' + err);
