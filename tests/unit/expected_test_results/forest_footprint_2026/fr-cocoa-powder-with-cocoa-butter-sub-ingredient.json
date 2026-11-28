@@ -1,0 +1,57 @@
+{
+   "forest_footprint_2026" : {
+      "grade" : "c",
+      "primary_ingredients" : {
+         "en:cocoa" : {
+            "footprint_per_kg" : 0.09472,
+            "grade" : "c",
+            "ingredients" : [
+               {
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0.09472,
+                  "ingredient_category_id" : "en:cocoa",
+                  "ingredient_id" : "en:cocoa",
+                  "origin_footprint" : 0.296,
+                  "origin_id" : "en:unknown",
+                  "percent" : 32,
+                  "primary_ingredient_id" : "en:cocoa",
+                  "risk_factor" : 1,
+                  "transformation_factor" : 1
+               }
+            ]
+         }
+      },
+      "summary" : "with_primary_ingredients",
+      "total_footprint_per_kg" : 0.09472
+   },
+   "ingredients" : [
+      {
+         "id" : "en:sugar",
+         "percent_estimate" : 57,
+         "text" : "Sucre"
+      },
+      {
+         "id" : "en:fat-reduced-cocoa-powder",
+         "ingredients" : [
+            {
+               "id" : "en:cocoa-butter",
+               "percent" : 11,
+               "text" : "beurre de cacao"
+            }
+         ],
+         "percent" : 32,
+         "text" : "cacao maigre en poudre"
+      },
+      {
+         "id" : "en:flavouring",
+         "percent_estimate" : 11,
+         "text" : "arôme"
+      }
+   ],
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:forest-footprint-computed",
+      "en:forest-footprint-grade-c"
+   ]
+}

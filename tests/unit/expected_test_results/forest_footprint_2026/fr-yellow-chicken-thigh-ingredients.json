@@ -1,0 +1,121 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "forest_footprint_2026" : {
+      "grade" : "d",
+      "primary_ingredients" : {
+         "en:chicken-and-eggs" : {
+            "footprint_per_kg" : 2.14467408585056,
+            "grade" : "d",
+            "ingredients" : [
+               {
+                  "conditions_tags" : [],
+                  "footprint_per_kg" : 2.14467408585056,
+                  "matching_tag_id" : "en:chicken-thigh",
+                  "percent" : 100,
+                  "processing_factor" : 1,
+                  "tag_id" : "fr:cuisse-de-poulet-jaune",
+                  "tag_type" : "ingredients",
+                  "type" : {
+                     "deforestation_risk" : 0.71,
+                     "name" : "Poulet Importé",
+                     "soy_feed_factor" : 0.95,
+                     "soy_yield" : 0.3145
+                  }
+               }
+            ]
+         },
+         "en:cocoa" : {},
+         "en:coffee" : {},
+         "en:palm-oil" : {}
+      },
+      "summary" : "with_primary_ingredients",
+      "total_footprint_per_kg" : 2.14467408585056
+   },
+   "forest_footprint_data" : {
+      "footprint_per_kg" : 2.14467408585056,
+      "grade" : "d",
+      "ingredients" : [
+         {
+            "conditions_tags" : [],
+            "footprint_per_kg" : 2.14467408585056,
+            "matching_tag_id" : "en:chicken-thigh",
+            "percent" : 100,
+            "processing_factor" : 1,
+            "tag_id" : "fr:cuisse-de-poulet-jaune",
+            "tag_type" : "ingredients",
+            "type" : {
+               "deforestation_risk" : 0.71,
+               "name" : "Poulet Importé",
+               "soy_feed_factor" : 0.95,
+               "soy_yield" : 0.3145
+            }
+         }
+      ]
+   },
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "36006",
+         "ecobalyse_proxy_id" : "8fb5024c-ceec-4201-b069-ea253c537ad6",
+         "ecobalyse_proxy_name" : "Blanc de poulet cru -alim. ani. 100%BR- par défaut",
+         "id" : "fr:cuisse-de-poulet-jaune",
+         "is_in_taxonomy" : 1,
+         "percent" : 100,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "cuisse de poulet jaune",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "fr:cuisse-de-poulet-jaune"
+      ],
+      "en:non-vegetarian" : [
+         "fr:cuisse-de-poulet-jaune"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "fr:cuisse-de-poulet-jaune"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "fr:cuisse-de-poulet-jaune",
+      "en:chicken-thigh",
+      "en:chicken-meat",
+      "en:chicken",
+      "en:poultry"
+   ],
+   "ingredients_text" : "100% cuisse de poulet jaune.",
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "known_ingredients_n" : 1,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:all-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-d",
+      "en:forest-footprint-grade-d"
+   ],
+   "unknown_ingredients_n" : 0
+}

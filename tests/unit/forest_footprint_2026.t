@@ -307,6 +307,82 @@ my @tests = (
 			ingredients_text => "maïs doux, farine de manioc, sucre, huile de palme, sel",
 		}
 	],
+	# Sub-ingredient that describes only part of the parent ingredient: keep the parent
+	[
+		'fr-cocoa-powder-with-cocoa-butter-sub-ingredient',
+		{
+			lc => "fr",
+			ingredients => [
+				{
+					id => "en:sugar",
+					percent_estimate => 57,
+					text => "Sucre",
+				},
+				{
+					id => "en:fat-reduced-cocoa-powder",
+					percent => 32,
+					text => "cacao maigre en poudre",
+					ingredients => [
+						{
+							id => "en:cocoa-butter",
+							percent => 11,
+							text => "beurre de cacao",
+						}
+					],
+				},
+				{
+					id => "en:flavouring",
+					percent_estimate => 11,
+					text => "arôme",
+				},
+			],
+		}
+	],
+	# Sub-ingredients that detail the parent ingredient: keep the sub-ingredients
+	[
+		'fr-chocolate-with-cocoa-sub-ingredients',
+		{
+			lc => "fr",
+			ingredients => [
+				{
+					id => "en:chocolate",
+					percent => 20,
+					text => "chocolat",
+					ingredients => [
+						{
+							id => "en:cocoa-paste",
+							percent => 12,
+							text => "pâte de cacao",
+						},
+						{
+							id => "en:cocoa-butter",
+							percent => 8,
+							text => "beurre de cacao",
+						}
+					],
+				},
+				{
+					id => "en:wheat-flour",
+					percent_estimate => 80,
+					text => "farine de blé",
+				},
+			],
+		}
+	],
+	[
+		'fr-chicken-gizzards-ingredients',
+		{
+			lc => "fr",
+			ingredients_text => "Gésiers de poulet confits 78%, graisse de canard : 13%, sel, arômes",
+		}
+	],
+	[
+		'fr-yellow-chicken-thigh-ingredients',
+		{
+			lc => "fr",
+			ingredients_text => "100% cuisse de poulet jaune.",
+		}
+	],
 	[
 		'fr-category-eggs-without-ingredients',
 		{
