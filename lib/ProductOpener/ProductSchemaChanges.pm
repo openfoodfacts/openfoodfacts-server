@@ -76,7 +76,7 @@ use ProductOpener::Booleans qw/normalize_boolean/;
 use ProductOpener::Images qw/normalize_generation_ref/;
 use ProductOpener::Nutrition
 	qw/default_unit_for_nid generate_nutrient_aggregated_set_from_sets filter_out_nutrients_not_in_taxonomy remove_empty_nutrition_data/;
-use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
+use ProductOpener::Units qw/normalize_product_quantity_and_serving_size get_standard_unit/;
 use ProductOpener::Products qw/get_source_for_site_and_org/;
 
 use Data::DeepAccess qw(deep_get deep_set);
@@ -553,15 +553,28 @@ and on the fact that the created set is per 100g or per serving
 
 sub set_per_unit ($product_quantity_unit, $serving_quantity_unit, $set_type) {
 	my $per_unit = undef;
-	if (defined $product_quantity_unit) {
-		$per_unit = $product_quantity_unit;
+	if ($set_type eq "100g" || $set_type eq "prepared_100g") {
+		for my $unit ($product_quantity_unit, $serving_quantity_unit) {
+			if (defined $unit) {
+				my $u = lc($unit);
+				my $std
+					= ($u eq 'g' || $u eq 'kg' || $u eq 'mg') ? 'g'
+					: ($u eq 'ml' || $u eq 'l' || $u eq 'cl' || $u eq 'dl') ? 'ml'
+					: ($u eq 'kj' || $u eq 'kcal') ? 'kj'
+					: get_standard_unit($unit);
+				if (defined $std && ($std eq "g" || $std eq "ml")) {
+					$per_unit = $std;
+					last;
+				}
+			}
+		}
+		$per_unit //= "g";
 	}
 	elsif (defined $serving_quantity_unit) {
 		$per_unit = $serving_quantity_unit;
 	}
-	# unit is either g or ml for set types of 100g or prepared_100g because, the default being g
-	elsif ($set_type eq "100g" || $set_type eq "prepared_100g") {
-		$per_unit = "g";
+	elsif (defined $product_quantity_unit) {
+		$per_unit = $product_quantity_unit;
 	}
 	return $per_unit;
 }

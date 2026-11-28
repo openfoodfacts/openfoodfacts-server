@@ -1612,6 +1612,23 @@ foreach my $test_ref (@tests) {
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
+subtest "legacy 100g nutrition keeps its basis when product quantity uses kJ" => sub {
+	my $product = {
+		schema_version => 1002,
+		product_type => "food",
+		product_quantity => 100,
+		product_quantity_unit => "kJ",
+		nutrition_data => "on",
+		nutrition_data_per => "100g",
+		nutriments => {calcium_100g => 0.118},
+	};
+	convert_product_schema($product, 1003);
+	is($product->{nutrition}{input_sets}[0]{per}, "100g", "legacy nutrition reference remains per 100g");
+	is($product->{nutrition}{input_sets}[0]{per_unit}, "g", "product quantity unit does not replace nutrition basis");
+	is($product->{nutrition}{input_sets}[0]{nutrients}{calcium}{value},
+		0.118, "the migrated nutrient value is preserved");
+};
+
 # Also pretend to be the pro platform to test that we set the correct source
 
 $server_options{producers_platform} = 1;
