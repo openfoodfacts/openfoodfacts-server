@@ -8935,11 +8935,17 @@ sub extract_additives_from_text ($product_ref) {
 			my $canon_ingredient_vitamins = canonicalize_taxonomy_tag($ingredients_lc, "vitamins", $ingredient_id_copy);
 			my $canon_ingredient_minerals = canonicalize_taxonomy_tag($ingredients_lc, "minerals", $ingredient_id_copy);
 			my $canon_ingredient_amino_acids
-				= canonicalize_taxonomy_tag($ingredients_lc, "amino_acids", $ingredient_id_copy);
+				= $loaded_taxonomies{"amino_acids"}
+				? canonicalize_taxonomy_tag($ingredients_lc, "amino_acids", $ingredient_id_copy)
+				: "";
 			my $canon_ingredient_nucleotides
-				= canonicalize_taxonomy_tag($ingredients_lc, "nucleotides", $ingredient_id_copy);
+				= $loaded_taxonomies{"nucleotides"}
+				? canonicalize_taxonomy_tag($ingredients_lc, "nucleotides", $ingredient_id_copy)
+				: "";
 			my $canon_ingredient_other_nutritional_substances
-				= canonicalize_taxonomy_tag($ingredients_lc, "other_nutritional_substances", $ingredient_id_copy);
+				= $loaded_taxonomies{"other_nutritional_substances"}
+				? canonicalize_taxonomy_tag($ingredients_lc, "other_nutritional_substances", $ingredient_id_copy)
+				: "";
 
 			$product_ref->{'additives'} .= " [ $ingredient_id_copy -> $canon_ingredient ";
 
