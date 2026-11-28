@@ -2255,4 +2255,29 @@ compare_to_expected_results(
 	);
 }
 
+# Test that compute_energy_from_nutrients_for_nutrients_set skips computation
+# when macronutrients are empty strings (Issue #14062)
+{
+	my $nutrients_ref = {
+		carbohydrates => {value => ""},
+		fat => {value => 10},
+		proteins => {value => 5},
+	};
+	my $computed = compute_energy_from_nutrients_for_nutrients_set($nutrients_ref, "kcal");
+	ok(!defined $computed,
+		"compute_energy_from_nutrients_for_nutrients_set returns undef when a macronutrient is empty string");
+	ok(
+		!exists $nutrients_ref->{"energy-kcal"}{value_computed},
+		"value_computed is not set when a macronutrient is empty string"
+	);
+
+	# When all macronutrients have valid values, energy is computed
+	$nutrients_ref->{carbohydrates}{value} = 20;
+	$computed = compute_energy_from_nutrients_for_nutrients_set($nutrients_ref, "kcal");
+	ok(defined $computed && $computed > 0,
+		"compute_energy_from_nutrients_for_nutrients_set computes energy when all macronutrients are valid");
+	is($nutrients_ref->{"energy-kcal"}{value_computed},
+		$computed, "value_computed is stored when all macronutrients are valid");
+}
+
 done_testing();
