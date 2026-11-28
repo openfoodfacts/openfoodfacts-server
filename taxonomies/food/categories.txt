@@ -125374,7 +125374,10 @@ fr: Rondelles d'oignon panées, Onion rings panés, Onion rings
 hr: Pohani kolutići luka
 nl: Gepaneerde uienringen
 
-< en: Frozen cereals and their products
+# “Frozen cereals and their products” as parent somehow cause a circular parent loop
+#< en: Frozen cereals and their products
+< en: Cereals and their products
+< en: Frozen plant-based foods
 en: Frozen cereals
 es: Cereales congelados
 fr: Céréales surgelés
