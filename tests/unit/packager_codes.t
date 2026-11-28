@@ -8,7 +8,9 @@ use utf8;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
+use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes %packager_codes/;
+use ProductOpener::Display qw/get_packager_code_coordinates/;
+use ProductOpener::Tags qw/%emb_codes_geo/;
 
 # initial tests
 is(normalize_packager_codes("emb54253"), "EMB 54253");
@@ -82,5 +84,42 @@ is(normalize_packager_codes("EE 110 EÜ"), "EE 110 EC", "EE: normalized code cor
 is(normalize_packager_codes(normalize_packager_codes("EE 110 EÜ")),
 	"EE 110 EC", "EE: normalizing code twice does not change it any more than normalizing once");
 is(localize_packager_code(normalize_packager_codes("EE 110 EÜ")), "EE 110 EÜ", "EE: round-tripped code correctly");
+
+# get_packager_code_coordinates
+$packager_codes{"test-code-empty-coords"} = {cc => "fr", lat => "", lng => ""};
+my ($empty_lat, $empty_lng) = get_packager_code_coordinates("test-code-empty-coords");
+is($empty_lat, undef, "Empty latitude returns undef");
+is($empty_lng, undef, "Empty longitude returns undef");
+
+$packager_codes{"test-code-invalid-coords"} = {cc => "fr", lat => "invalid", lng => "not-a-number"};
+my ($invalid_lat, $invalid_lng) = get_packager_code_coordinates("test-code-invalid-coords");
+is($invalid_lat, undef, "Invalid non-numeric latitude returns undef");
+is($invalid_lng, undef, "Invalid non-numeric longitude returns undef");
+
+$packager_codes{"test-code-inf-coords"} = {cc => "fr", lat => "Inf", lng => "-Inf"};
+my ($inf_lat, $inf_lng) = get_packager_code_coordinates("test-code-inf-coords");
+is($inf_lat, undef, "Inf latitude returns undef");
+is($inf_lng, undef, "-Inf longitude returns undef");
+
+$packager_codes{"test-code-nan-coords"} = {cc => "fr", lat => "NaN", lng => "NaN"};
+my ($nan_lat, $nan_lng) = get_packager_code_coordinates("test-code-nan-coords");
+is($nan_lat, undef, "NaN latitude returns undef");
+is($nan_lng, undef, "NaN longitude returns undef");
+
+$packager_codes{"test-code-out-of-range-coords"} = {cc => "fr", lat => "95.0", lng => "-185.0"};
+my ($oor_lat, $oor_lng) = get_packager_code_coordinates("test-code-out-of-range-coords");
+is($oor_lat, undef, "Out of range latitude returns undef");
+is($oor_lng, undef, "Out of range longitude returns undef");
+
+$packager_codes{"test-code-valid-coords"} = {cc => "fr", lat => "48.12", lng => "-2.45"};
+my ($valid_lat, $valid_lng) = get_packager_code_coordinates("test-code-valid-coords");
+is($valid_lat, "48.12", "Valid latitude returned correctly");
+is($valid_lng, "-2.45", "Valid longitude returned correctly");
+
+$emb_codes_geo{"FREMB99999"} = ["45.5", "3.2"];
+$packager_codes{"emb-99999a"} = {cc => "fr", lat => "invalid", lng => ""};
+my ($fallback_lat, $fallback_lng) = get_packager_code_coordinates("emb-99999a");
+is($fallback_lat, "45.5", "Invalid packager latitude falls back to city latitude");
+is($fallback_lng, "3.2", "Invalid packager longitude falls back to city longitude");
 
 done_testing();
