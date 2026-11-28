@@ -32,6 +32,7 @@ use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Owner_id $User_id %User/;
 use ProductOpener::Images qw/is_protected_image process_image_crop get_image_type_and_image_lc_from_imagefield/;
+use ProductOpener::Auth qw/enforce_scope_if_token_present/;
 use ProductOpener::Products
 	qw/normalize_code product_data_is_protected product_id_for_owner retrieve_product process_product_edit_rules/;
 
@@ -44,6 +45,8 @@ use Log::Any qw($log);
 use Data::DeepAccess qw(deep_get);
 
 my $request_ref = ProductOpener::Display::init_request();
+
+enforce_scope_if_token_present($request_ref, 'products:write');
 
 my $type = single_param('type') || 'add';
 my $action = single_param('action') || 'display';

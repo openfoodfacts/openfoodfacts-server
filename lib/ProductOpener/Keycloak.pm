@@ -36,7 +36,8 @@ use ProductOpener::PerlStandards;
 
 use Log::Any qw($log);
 
-use ProductOpener::Auth qw/get_oidc_configuration get_token_using_client_credentials get_oidc_implementation_level/;
+use ProductOpener::Auth
+	qw/get_oidc_configuration get_token_using_client_credentials get_oidc_implementation_level verify_access_token verify_access_token_scopes/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Health qw/:all/;
 use ProductOpener::Tags qw/country_to_cc cc_to_country/;
@@ -101,7 +102,53 @@ sub get_or_refresh_token ($self) {
 		}
 	}
 
+	# Validate that the admin token is bound to the expected audience and carries the standard
+	# API scopes. A validation failure is only a warning during migration, as the Keycloak
+	# Admin API does not enforce the audience claim itself.
+	if (my $error = _validate_admin_token($self->{token})) {
+		$log->warn('Keycloak admin token validation failed', {error => $error}) if $log->is_warn();
+	}
+
 	return $self->{token} // die 'Could not get token to manage users with users_endpoint';
+}
+
+=head2 _validate_admin_token($token)
+
+Validates the access token used for the Keycloak Admin API.
+
+The token is obtained directly from the Keycloak token endpoint over TLS, but validating it
+ensures that the client is correctly configured: the token must be bound to the configured
+audience (oidc_audience) and carry the standard API scopes. This prevents a misconfigured
+client from silently producing tokens that are also valid for the ProductOpener API.
+
+=head3 Arguments
+
+=head4 The token hash ref as returned by the token endpoint. $token
+
+=head3 Return values
+
+Undef if the token is valid, otherwise an error message.
+
+=cut
+
+sub _validate_admin_token ($token) {
+	unless (defined $token and defined $token->{access_token}) {
+		return 'missing access token';
+	}
+
+	# verify_access_token traps decode failures internally and returns undef.
+	my $access_token = verify_access_token($token->{access_token});
+	unless (defined $access_token) {
+		return 'token verification failed';
+	}
+
+	# verify_access_token enforces the audience when oidc_audience is configured.
+	# Additionally check that the token carries the standard read scope.
+	if (my @missing_scopes = verify_access_token_scopes($access_token, 'products:read')) {
+		return 'token is missing scopes: ' . join(', ', @missing_scopes);
+	}
+
+	return;
 }
 
 sub convert_scrypt_password_to_keycloak_credentials ($hashed_password) {

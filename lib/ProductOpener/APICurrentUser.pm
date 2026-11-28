@@ -38,6 +38,7 @@ which sets $request_ref->{oidc_user_id} to the authenticated user's ID.
 package ProductOpener::APICurrentUser;
 
 use ProductOpener::PerlStandards;
+use ProductOpener::Auth qw/require_scope_if_token_present/;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
@@ -90,6 +91,8 @@ On error (invalid sub-action): HTTP 404 with error details
 sub read_current_user_permissions_api ($request_ref) {
 
 	$log->debug("read_current_user_permissions_api - start", {request => $request_ref}) if $log->is_debug();
+
+	return if (not require_scope_if_token_present($request_ref, 'products:read'));
 
 	my $response_ref = $request_ref->{api_response};
 
