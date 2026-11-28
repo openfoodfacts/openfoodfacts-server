@@ -28,6 +28,9 @@ UID ?= $(shell id -u)
 export USER_UID:=${UID}
 ifeq ($(OS), Darwin)
   export CPU_COUNT=$(shell sysctl -n hw.logicalcpu || echo 1)
+else ifdef NUMBER_OF_PROCESSORS
+  # Windows (nproc is not available there)
+  export CPU_COUNT=$(NUMBER_OF_PROCESSORS)
 else
   export CPU_COUNT=$(shell nproc || echo 1)
 endif
