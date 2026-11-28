@@ -2699,7 +2699,9 @@ sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
 
 =head2 has_non_estimated_nutrition_data ( $product_ref )
 
-Checks if the product has at least one nutrient with a non-estimated value
+Checks if the product has at least one nutrient with a non-estimated value,
+excluding classification or estimation nutrients such as nova-group or fruits-vegetables
+(see issues #7061, #15560).
 
 =head3 Arguments
 
@@ -2707,20 +2709,37 @@ Checks if the product has at least one nutrient with a non-estimated value
 
 Reference to the product hash
 
+=head3 Returns
+
+1 if the product has non-estimated nutrition data, 0 otherwise.
+
 =cut
 
 sub has_non_estimated_nutrition_data ($product_ref) {
 
 	# Go through each input set, check if source is different than "estimate"
-	# Empty input sets should have been removed before calling this function
+	# and contains nutrients other than classification/estimation entries
+	# (e.g. nova-group or fruits-vegetables* - see issues #7061, #15560)
 
 	my $inputs_sets_array_ref = deep_get($product_ref, "nutrition", "input_sets");
 
-	if (defined $inputs_sets_array_ref) {
+	if (defined $inputs_sets_array_ref and ref($inputs_sets_array_ref) eq 'ARRAY') {
 		foreach my $input_set_ref (@{$inputs_sets_array_ref}) {
 			my $source = $input_set_ref->{source};
 			if (defined $source and ($source ne "estimate")) {
-				# We have at least one input set with a non-estimated source
+				if (defined $input_set_ref->{nutrients} and ref($input_set_ref->{nutrients}) eq 'HASH') {
+					foreach my $nutrient_id (keys %{$input_set_ref->{nutrients}}) {
+						if ($nutrient_id !~ /^(nova|fruits-vegetables)/) {
+							return 1;
+						}
+					}
+				}
+			}
+		}
+	}
+	elsif (defined $product_ref->{nutriments} and ref($product_ref->{nutriments}) eq 'HASH') {
+		foreach my $nutrient_key (keys %{$product_ref->{nutriments}}) {
+			if ($nutrient_key !~ /^(nova|fruits-vegetables)/) {
 				return 1;
 			}
 		}

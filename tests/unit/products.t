@@ -461,4 +461,111 @@ foreach my $test_ref (@uploaded_images_misc_tags_tests) {
 		[], 'uploaded image count tags are not exposed as product states');
 }
 
+# Regression tests for #7061, #15560:
+# A product without actual nutrition facts (e.g. only nova-group or fruits-vegetables)
+# must not be marked en:nutrition-facts-completed
+{
+	# Product with only nova-group in non-estimated input_sets
+	my $product_nova = {
+		product_type => 'food',
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+					nutrients => {
+						"nova-group" => {value => 4, unit => ""},
+					},
+				},
+			],
+		},
+	};
+	compute_completeness_and_missing_tags($product_nova, {}, {});
+	ok(
+		(grep {$_ eq 'en:nutrition-facts-to-be-completed'} @{$product_nova->{states_tags}}),
+		'product with only nova-group has nutrition-facts-to-be-completed state'
+	);
+	ok(
+		!(grep {$_ eq 'en:nutrition-facts-completed'} @{$product_nova->{states_tags}}),
+		'product with only nova-group does NOT have nutrition-facts-completed state'
+	);
+
+	# Product with only fruits-vegetables in non-estimated input_sets
+	my $product_fruits_veg = {
+		product_type => 'food',
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+					nutrients => {
+						"fruits-vegetables-nuts-estimate-from-ingredients_100g" => {value => 50, unit => "%"},
+					},
+				},
+			],
+		},
+	};
+	compute_completeness_and_missing_tags($product_fruits_veg, {}, {});
+	ok(
+		(grep {$_ eq 'en:nutrition-facts-to-be-completed'} @{$product_fruits_veg->{states_tags}}),
+		'product with only fruits-vegetables has nutrition-facts-to-be-completed state'
+	);
+	ok(
+		!(grep {$_ eq 'en:nutrition-facts-completed'} @{$product_fruits_veg->{states_tags}}),
+		'product with only fruits-vegetables does NOT have nutrition-facts-completed state'
+	);
+
+	# Product with nova-group AND actual nutrient (fat)
+	my $product_nova_and_fat = {
+		product_type => 'food',
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+					nutrients => {
+						"nova-group" => {value => 4, unit => ""},
+						"fat" => {value => 5, unit => "g"},
+					},
+				},
+			],
+		},
+	};
+	compute_completeness_and_missing_tags($product_nova_and_fat, {}, {});
+	ok(
+		(grep {$_ eq 'en:nutrition-facts-completed'} @{$product_nova_and_fat->{states_tags}}),
+		'product with nova-group and fat has nutrition-facts-completed state'
+	);
+	ok(
+		!(grep {$_ eq 'en:nutrition-facts-to-be-completed'} @{$product_nova_and_fat->{states_tags}}),
+		'product with nova-group and fat does NOT have nutrition-facts-to-be-completed state'
+	);
+
+	# Product with non-estimated input_sets having no nutrients
+	my $product_packaging_empty = {
+		product_type => 'food',
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+				},
+			],
+		},
+	};
+	compute_completeness_and_missing_tags($product_packaging_empty, {}, {});
+	ok(
+		(grep {$_ eq 'en:nutrition-facts-to-be-completed'} @{$product_packaging_empty->{states_tags}}),
+		'product with empty packaging input set has nutrition-facts-to-be-completed state'
+	);
+	ok(
+		!(grep {$_ eq 'en:nutrition-facts-completed'} @{$product_packaging_empty->{states_tags}}),
+		'product with empty packaging input set does NOT have nutrition-facts-completed state'
+	);
+}
+
 done_testing();
