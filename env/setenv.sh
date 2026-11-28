@@ -16,14 +16,28 @@ fi
 
 set -o allexport
 
-# Clear environment variables
-COMPOSE_PROFILES=
-COMPOSE_PROJECT_NAME=
-MONGO_EXPOSE_PORT=
-PRODUCT_OPENER_FLAVOR=
-PRODUCT_OPENER_FLAVOR_SHORT=
-PRODUCERS_PLATFORM=
-MINION_QUEUE=
+# Clear / unset environment variables to avoid cross-flavor bleed.
+# Only variables that every env.* file re-sets (or that setenv.sh itself
+# re-sets below) are listed here. ROBOTOFF_URL and QUERY_URL are omitted
+# because only some flavors define them; docker compose picks up their
+# defaults from .env, but direct shell usage would lose the value.
+unset COMPOSE_PROFILES \
+      COMPOSE_PROJECT_NAME \
+      MONGO_EXPOSE_PORT \
+      PRODUCT_OPENER_DOMAIN \
+      PRODUCT_OPENER_PORT \
+      PRODUCT_OPENER_HOST_PORT \
+      PRODUCT_OPENER_NETWORK \
+      PRODUCT_OPENER_FLAVOR \
+      PRODUCT_OPENER_FLAVOR_SHORT \
+      PRODUCERS_PLATFORM \
+      MONGODB_DATABASE \
+      POSTGRES_DB \
+      MINION_QUEUE \
+      COMMON_NET_NAME \
+      NUTRIPATROL_URL \
+      APACHE_ENVVARS \
+      PERL5LIB
 
 # Load environment variables from env file
 source env/env.$1
