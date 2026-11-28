@@ -664,6 +664,10 @@ $options{display_tag_ingredients} = [
 
 ];
 
+# This flavor has no producers platform (pro.<domain> does not exist):
+# do not link to it from the web pages
+$options{no_producers_platform} = 1;
+
 $options{no_nutrition_table} = 1;
 
 # Name of the Redis stream to which product updates are published
