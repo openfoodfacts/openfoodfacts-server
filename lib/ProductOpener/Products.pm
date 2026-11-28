@@ -1308,11 +1308,13 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	# Structural moves still need persistence side effects:
 	# - old_code: can move product directories and delete the old Mongo document.
 	# - server or old_product_type: can remove the product from its previous collection.
+	# - deleted: removes the product from Mongo and moves images to the deleted directory.
 	# Do not skip the save in those cases.
 	my $has_structural_move
 		= defined $product_ref->{old_code}
 		|| defined $product_ref->{old_product_type}
-		|| defined $product_ref->{server};
+		|| defined $product_ref->{server}
+		|| $product_ref->{deleted};
 
 	# Update product schema version
 	$product_ref->{schema_version} = $current_schema_version;
@@ -1663,6 +1665,11 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 			{code => $code, product_id => $product_id})
 			if $log->is_info();
 		return 1;    # Legacy callers treat store_product() as a success check.
+	}
+
+	if ($product_ref->{deleted}) {
+		require ProductOpener::Images;
+		ProductOpener::Images::delete_all_product_images($product_ref);
 	}
 
 	# First store the product data in a .json file on disk
