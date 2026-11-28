@@ -13,7 +13,8 @@ use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/cut_ingredients_text_for_lang split_generic_name_from_ingredients/;
+use ProductOpener::Ingredients
+	qw/clean_ingredients_text_for_lang cut_ingredients_text_for_lang split_generic_name_from_ingredients/;
 use ProductOpener::ImportConvert qw/clean_fields/;
 use ProductOpener::Config qw/:all/;
 
@@ -308,6 +309,28 @@ foreach my $test_ref (@tests) {
 
 	clean_fields($product_ref);
 	is($product_ref->{$ingredients_lc}, $test_ref->[2]);
+}
+
+# clean_ingredients_text_for_lang() tests
+
+# A hyphen followed by "and" is a suspended hyphen that stands for the end of a compound word:
+# the text must be kept as it was entered, without a space before the hyphen
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/13578
+foreach my $test_ref (
+	["sv", "raps- och majsprotein", "raps- och majsprotein"],
+	["sv", "vatten, hydrolyserat raps- och majsprotein, salt", "vatten, hydrolyserat raps- och majsprotein, salt"],
+	["sv", "mono- och diglycerider av fettsyror", "mono- och diglycerider av fettsyror"],
+	["sv", "RAPS- OCH MAJSPROTEIN", "RAPS- OCH MAJSPROTEIN"],
+	["da", "raps- og majsprotein", "raps- og majsprotein"],
+	["de", "Schafs- und Ziegenmilch", "Schafs- und Ziegenmilch"],
+	["nl", "alcohol- en witte wijnazijn", "alcohol- en witte wijnazijn"],
+	# other dashes with a missing space separate ingredients: the missing space is still added
+	["sv", "socker- salt -peppar", "socker - salt - peppar"],
+	["fr", "persil- poivre blanc -ail", "persil - poivre blanc - ail"],
+	)
+{
+	my ($language, $text, $expected_text) = @$test_ref;
+	is(clean_ingredients_text_for_lang($text, $language), $expected_text, "suspended hyphens: $language / $text");
 }
 
 $server_options{producers_platform} = 1;

@@ -543,6 +543,26 @@ foreach my $case (
 		$expected_ref, "$lc: $text - ingredients and labels");
 }
 
+# Compound words with a suspended hyphen followed by "and" are 1 ingredient when they are in the taxonomy
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/13578
+foreach my $case (
+	["sv", "raps- och majsprotein", ["en:rapeseed-and-corn-protein"]],
+	["sv", "vatten, raps- och majsprotein, salt", ["en:water", "en:rapeseed-and-corn-protein", "en:salt"]],
+	["sv", "mono- och diglycerider av fettsyror", ["en:e471"]],
+	["de", "Schafs- und Ziegenmilch", ["en:sheep-and-goat-milk"]],
+	["nl", "alcohol- en witte wijnazijn", ["en:spirit-and-white-wine-vinegar"]],
+	)
+{
+	my ($lc, $text, $expected_ids_ref) = @$case;
+	my $product_ref = {lc => $lc, ingredients_text => $text};
+	parse_ingredients_text_service($product_ref, {}, []);
+	my @ids = ();
+	foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
+		push @ids, $ingredient_ref->{id};
+	}
+	is(\@ids, $expected_ids_ref, "$lc: $text - suspended hyphen followed by and");
+}
+
 # The label of a sub-ingredient ending with a dot, before a closing parenthesis
 my $parmigiano_ref = {lc => "de", ingredients_text => "Käse (Parmigiano Reggiano g.U.), Salz"};
 parse_ingredients_text_service($parmigiano_ref, {}, []);

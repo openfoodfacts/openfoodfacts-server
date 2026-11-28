@@ -6961,6 +6961,29 @@ sub split_generic_name_from_ingredients ($product_ref, $language) {
 	return;
 }
 
+=head2 get_and_regexp_without_spaces ( $text_lc )
+
+Returns the "and" words of a language as the alternatives of a regular expression,
+without the spaces that surround each word in the %and hash.
+
+Languages that have no "and" word get the English word, as in preparse_ingredients_text().
+
+It is used to match "and" where it is not preceded by a space, for instance after a hyphen
+that stands for the end of a compound word.
+
+=cut
+
+sub get_and_regexp_without_spaces ($text_lc) {
+
+	# sv: " och " -> "och", br: " ha | hag " -> "ha|hag"
+	# so that we can match "och " in "raps- och majsprotein" (the space before "och" is taken by the hyphen)
+	my $and_without_spaces = $and{$text_lc} || " and ";
+	# remove the spaces at the start and at the end of each alternative
+	$and_without_spaces =~ s/(?:^|(?<=\|)) +| +(?=\||$)//g;
+
+	return $and_without_spaces;
+}
+
 =head2 clean_ingredients_text_for_lang ( product_ref language_code )
 
 Perform some cleaning of the ingredients list.
@@ -7002,7 +7025,11 @@ sub clean_ingredients_text_for_lang ($text, $language) {
 	$text =~ s/(\%)- /$1 - /g;
 
 	# persil- poivre blanc -ail
-	$text =~ s/(\w|\*)- /$1 - /g;
+	# A hyphen followed by "and" is a suspended hyphen: it stands for the end of a compound word,
+	# it does not separate 2 ingredients, so we keep the text as it was entered.
+	# sv: "raps- och majsprotein" (rapeseed and corn protein), de: "Schafs- und Ziegenmilch"
+	my $and_without_spaces = get_and_regexp_without_spaces($language);
+	$text =~ s/(\w|\*)- (?!(?i:$and_without_spaces) )/$1 - /g;
 	$text =~ s/ -(\w)/ - $1/g;
 
 	$text =~ s/^\s*(:|-)\s*//;
@@ -8125,8 +8152,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	init_sizes_regexps();
 
 	my $and = $and{$ingredients_lc} || " and ";
-	my $and_without_spaces = $and;
-	$and_without_spaces =~ s/(?:^|(?<=\|)) +| +(?=\||$)//g;
+	my $and_without_spaces = get_and_regexp_without_spaces($ingredients_lc);
 
 	my $of = ' - ';
 	if (defined $of{$ingredients_lc}) {
@@ -8500,7 +8526,10 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 		=~ s/\b(e|[1-9][ab])(\d{3,4})([a-h]?)\s*\(\s*($roman_numerals)\s*\)(?=\W|$)/normalize_additive_code($1,$2,$3,$4,$&)/ieg;
 
 	# dash with 1 missing space
-	$text =~ s/(\w)- /$1 - /ig;
+	# but not a suspended hyphen followed by "and": it stands for the end of a compound word, and the words
+	# around "and" are the name of 1 ingredient that can be in the taxonomy
+	# sv: "raps- och majsprotein", de: "Schafs- und Ziegenmilch", nl: "alcohol- en witte wijnazijn"
+	$text =~ s/(\w)- (?!(?:$and_without_spaces) )/$1 - /ig;
 	$text =~ s/ -(\w)/ - $1/ig;
 	# a dash before "and" stands for the shared end of two compound words, it is not a separator:
 	# "lõhna - ja maitseaine" -> "lõhna- ja maitseaine"
