@@ -469,9 +469,10 @@ sub _search_lc_and_string ($search_lc, $string) {
 # suggestion work (resolving the display name and normalizing the synonyms) does not depend on
 # the context, so it can be shared between requests; the order the entries are scanned in does,
 # so the order is taken from the list of entries the request came in with instead.
-sub _build_suggestions_index ($tagtype, $search_lc, $tags_ref) {
+sub _build_suggestions_index ($tagtype, $search_lc, $tags_ref, $with_category_prefix_index = 0) {
 
 	my %entries = ();
+	my %category_prefix_index = ();
 
 	foreach my $canon_tagid (@$tags_ref) {
 
@@ -489,7 +490,23 @@ sub _build_suggestions_index ($tagtype, $search_lc, $tags_ref) {
 		);
 
 		$entries{$canon_tagid} = {tag => $tag, synonyms => \@synonyms};
+
+		if ($with_category_prefix_index) {
+			my %seen_prefixes = ();
+			foreach my $synonym_pair_ref (@synonyms) {
+				my $normalized_synonym = $synonym_pair_ref->[0];
+				next if length($normalized_synonym) < 2;
+
+				my $prefix = substr($normalized_synonym, 0, 2);
+				next if $seen_prefixes{$prefix}++;
+				push @{$category_prefix_index{$prefix}}, $canon_tagid;
+			}
+		}
 	}
+
+	# The categories taxonomy has a stable order, so each prefix bucket can preserve the
+	# same ranking as $tags_ref while narrowing common-prefix searches to a smaller candidate set.
+	$entries{__category_prefix_index} = \%category_prefix_index if $with_category_prefix_index;
 
 	return \%entries;
 }
@@ -500,7 +517,7 @@ sub _get_suggestions_index ($tagtype, $search_lc, $tags_ref) {
 
 	if (not exists $suggestions_index{$key}) {
 
-		$suggestions_index{$key} = _build_suggestions_index($tagtype, $search_lc, $tags_ref);
+		$suggestions_index{$key} = _build_suggestions_index($tagtype, $search_lc, $tags_ref, $tagtype eq "categories");
 		push @suggestions_index_order, $key;
 
 		# keep the memory bounded: drop the index that was added first
@@ -592,6 +609,39 @@ sub _filter_suggestions ($entries_ref, $tags_ref, $tagtype, $search_lc, $string,
 		$string = "";
 	}
 
+	my $category_search_stringid;
+	if ($tagtype eq "categories" and exists $entries_ref->{__category_prefix_index}) {
+		$category_search_stringid = get_string_id_for_lang($search_lc, $string);
+		$category_search_stringid =~ s/^-//;
+		$category_search_stringid =~ s/^-$//;
+
+		# The prefix index only includes synonyms with this two-character prefix. If it
+		# contains enough exact prefix matches, they are the complete result set: the existing
+		# algorithm also stops once it has found $limit start matches. Otherwise, fall through
+		# to the complete scan so contains and fuzzy matches keep their existing behaviour.
+		if (length($category_search_stringid) >= 2 and $limit > 0) {
+			my $prefix = substr($category_search_stringid, 0, 2);
+			my $candidate_tags_ref = $entries_ref->{__category_prefix_index}{$prefix};
+			if (defined $candidate_tags_ref) {
+				my @prefix_suggestions = ();
+				foreach my $canon_tagid (@$candidate_tags_ref) {
+					next if defined $just_synonyms{$tagtype}{$canon_tagid};
+
+					my $entry_ref = $entries_ref->{$canon_tagid};
+					foreach my $synonym_pair_ref (@{$entry_ref->{synonyms}}) {
+						next if index($synonym_pair_ref->[0], $category_search_stringid) != 0;
+
+						push @prefix_suggestions, {tag => $entry_ref->{tag}, matched_synonym => $synonym_pair_ref->[1]};
+						last;
+					}
+					last if scalar(@prefix_suggestions) >= $limit;
+				}
+
+				return @prefix_suggestions if scalar(@prefix_suggestions) >= $limit;
+			}
+		}
+	}
+
 	my @suggestions = ();    # Suggestions starting with the string
 	my @suggestions_c = ();    # Suggestions containing the string
 	my @suggestions_f = ();    # fuzzy suggestions
@@ -616,7 +666,10 @@ sub _filter_suggestions ($entries_ref, $tags_ref, $tagtype, $search_lc, $string,
 		# search for string in a taxonomy
 
 		# normalize string
-		my $stringid = get_string_id_for_lang($search_lc, $string);
+		my $stringid
+			= defined($category_search_stringid)
+			? $category_search_stringid
+			: get_string_id_for_lang($search_lc, $string);
 		# remove eventual leading or ending "-"
 		$stringid =~ s/^-//;
 		$stringid =~ s/^-$//;
