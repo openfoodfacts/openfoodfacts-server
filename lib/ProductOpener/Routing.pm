@@ -60,6 +60,11 @@ use ProductOpener::Redis qw/:all/;
 use ProductOpener::RequestStats qw/:all/;
 use ProductOpener::URL qw/get_owner_pretty_path/;
 
+# The rate-limiter lives in its own module, because the accounting is done in
+# ProductOpener::Display (which this module imports) for every entry point.
+# It is imported after Display, as it imports the modules that Display imports.
+use ProductOpener::RateLimiter qw/:all/;
+
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -230,9 +235,11 @@ sub analyze_request($request_ref) {
 		$request_ref->{no_index} = 1;
 	}
 
-	# Check and update rate limits if not disabled (default is ENABLED for production safety)
+	# The request was already accounted for in ProductOpener::Display::init_request(), which every
+	# entry point calls: the route may have changed its bucket, so we only have to move the count
+	# and refresh the limit that is checked.
 	if (not $rate_limiter_disabled) {
-		check_and_update_rate_limits($request_ref);
+		move_rate_limit_accounting($request_ref);
 	}
 
 	$log->debug("request analyzed", {lc => $request_ref->{lc}, request_ref => sanitize($request_ref)})
@@ -421,7 +428,7 @@ sub api_route($request_ref) {
 	set_request_stats_value($request_ref->{stats}, "api_version", $request_ref->{api_version});
 
 	if ($api_action eq "product") {
-		$request_ref->{rate_limiter_bucket} = "product";
+		set_rate_limit_bucket($request_ref, "product");
 	}
 
 	$log->debug("api_route", {request_ref => sanitize($request_ref)}) if $log->is_debug();
@@ -433,7 +440,7 @@ sub api_route($request_ref) {
 sub search_route($request_ref) {
 	$request_ref->{search} = 1;
 	set_request_stats_value($request_ref->{stats}, "route", "search");
-	$request_ref->{rate_limiter_bucket} = "search";
+	set_rate_limit_bucket($request_ref, "search");
 	return 1;
 }
 
@@ -486,7 +493,7 @@ sub product_route($request_ref) {
 		$request_ref->{product} = 1;
 		$request_ref->{code} = $code;
 		$request_ref->{titleid} = $request_ref->{components}[2] // '';
-		$request_ref->{rate_limiter_bucket} = "product";
+		set_rate_limit_bucket($request_ref, "product");
 		set_request_stats_value($request_ref->{stats}, "route", "product");
 	}
 	else {
@@ -676,12 +683,12 @@ sub facets_route($request_ref) {
 	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
-		$request_ref->{rate_limiter_bucket} = "facet_tags";
+		set_rate_limit_bucket($request_ref, "facet_tags");
 		set_request_stats_value($request_ref->{stats}, "route", "facets_tags");
 		set_request_stats_value($request_ref->{stats}, "groupby_tagtype", $request_ref->{groupby_tagtype});
 	}
 	else {
-		$request_ref->{rate_limiter_bucket} = "facet_products";
+		set_rate_limit_bucket($request_ref, "facet_products");
 		set_request_stats_value($request_ref->{stats}, "route", "facets_products");
 	}
 	set_request_stats_value($request_ref->{stats}, "facets_tags", (scalar @{$request_ref->{tags}}));
@@ -1061,136 +1068,6 @@ sub _component_is_singular_tag_in_specific_lc ($component, $tag) {
 	else {
 		return 0;
 	}
-}
-
-=head2 set_rate_limit_attributes ($request_ref, $ip)
-
-Set attributes related to rate-limiting in the request object:
-
-- rate_limiter_user_requests: the number of requests performed by the user for the current minute
-- rate_limiter_limit: the maximum number of requests allowed for the current minute
-- rate_limiter_blocking: 1 if the user has reached the rate-limit, 0 otherwise
-
-
-=cut
-
-sub set_rate_limit_attributes ($request_ref, $ip) {
-	$request_ref->{rate_limiter_user_requests} = undef;
-	$request_ref->{rate_limiter_limit} = undef;
-	$request_ref->{rate_limiter_blocking} = 0;
-
-	my $rate_limit_bucket = $request_ref->{rate_limiter_bucket};
-
-	if (not defined $rate_limit_bucket) {
-		# The request is not rate-limited
-		return;
-	}
-	$request_ref->{rate_limiter_user_requests} = get_rate_limit_user_requests($ip, $rate_limit_bucket);
-
-	my $limit;
-	if ($rate_limit_bucket eq "search") {
-		$limit = $options{rate_limit_search};
-	}
-	elsif ($rate_limit_bucket eq "product") {
-		$limit = $options{rate_limit_product};
-	}
-	elsif ($rate_limit_bucket eq "facet_products") {
-		if ($request_ref->{is_crawl_bot}) {
-			$limit = $options{rate_limit_facet_products_crawl_bot};
-		}
-		elsif (defined $request_ref->{user_id}) {
-			$limit = $options{rate_limit_facet_products_registered};
-		}
-		else {
-			$limit = $options{rate_limit_facet_products_unregistered};
-		}
-	}
-	elsif ($rate_limit_bucket eq "facet_tags") {
-		if ($request_ref->{is_crawl_bot}) {
-			$limit = $options{rate_limit_facet_tags_crawl_bot};
-		}
-		elsif (defined $request_ref->{user_id}) {
-			$limit = $options{rate_limit_facet_tags_registered};
-		}
-		else {
-			$limit = $options{rate_limit_facet_tags_unregistered};
-		}
-	}
-	$request_ref->{rate_limiter_limit} = $limit;
-
-	if (
-		# if $limit is not defined, the rate-limiter is disabled for this route and/or user
-		defined $limit
-		and defined $request_ref->{rate_limiter_user_requests}
-		and $request_ref->{rate_limiter_user_requests} >= $limit
-		)
-	{
-		my $block_message = "Rate-limiter blocking: the user has reached the rate-limit";
-		# Check if rate-limit blocking is enabled
-		if ($rate_limiter_blocking_enabled) {
-			# Check that the ip is not local (e.g. integration tests)
-			if ($ip eq "127.0.0.1") {
-				# The IP address is local, we don't block the request
-				$block_message
-					= "Rate-limiter blocking is disabled for local IP addresses, but the user has reached the rate-limit";
-			}
-			# Check that the ip is not in the OFF private network
-			elsif ($ip =~ /^10\.1\./) {
-				# The IP address is in the OFF private network, we don't block the request
-				$block_message
-					= "Rate-limiter blocking is disabled for the OFF private network, but the user has reached the rate-limit";
-			}
-			# Check that the IP address is not in the allow list
-			elsif (defined $options{rate_limit_allow_list}{$ip}) {
-				# The IP address is in the allow list, we don't block the request
-				$block_message
-					= "Rate-limiter blocking is disabled for the user, but the user has reached the rate-limit";
-			}
-			else {
-				# The user has reached the rate-limit, we block the request
-				$request_ref->{rate_limiter_blocking} = 1;
-
-				# Unless the IP is in an allowed block
-				if (defined $options{rate_limit_allow_list_blocks}) {
-					if (Net::CIDR::cidrlookup($ip, @{$options{rate_limit_allow_list_blocks}})) {
-						$request_ref->{rate_limiter_blocking} = 0;
-						$block_message
-							= "Rate-limiter blocking is disabled for the user, but the user has reached the rate-limit and the IP address is in an allowed block";
-					}
-				}
-			}
-		}
-		else {
-			# Rate-limit blocking is disabled, we just log a warning
-			$block_message = "Rate-limiter blocking is disabled, but the user has reached the rate-limit";
-		}
-		$ratelimiter_log->info(
-			$block_message,
-			{
-				ip => $ip,
-				rate_limit_bucket => $rate_limit_bucket,
-				user_requests => $request_ref->{rate_limiter_user_requests},
-				limit => $limit,
-				user_agent => $request_ref->{user_agent},
-			}
-		) if $ratelimiter_log->is_info();
-	}
-	return;
-}
-
-sub check_and_update_rate_limits($request_ref) {
-	# There is no need to check the rate-limiter if we return a no-index page
-	if (not $request_ref->{no_index}) {
-		my $ip_address = remote_addr();
-		# Set rate-limiter related request attributes
-		set_rate_limit_attributes($request_ref, $ip_address);
-
-		if (defined $request_ref->{rate_limiter_bucket}) {
-			# Increment the number of requests performed by the user for the current minute
-			increment_rate_limit_requests($ip_address, $request_ref->{rate_limiter_bucket});
-		}
-	}
-	return;
 }
 
 1;
