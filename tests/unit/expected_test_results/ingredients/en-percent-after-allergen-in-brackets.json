@@ -4,14 +4,12 @@
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "16400",
-         "ecobalyse_id" : "1dd1d7ed-2266-4317-bb45-709f850bd1e1",
-         "ecobalyse_name" : "Beurre à 39-41% MG, léger, doux Origine Inconnue",
+         "ecobalyse_id" : "9f7ca704-e3b6-4ad9-b376-6c0662ebeeec",
+         "ecobalyse_name" : "Beurre à 82% MG ou huile de beurre Origine Inconnue",
          "id" : "en:butter",
          "is_in_taxonomy" : 1,
          "percent" : 34,
          "percent_estimate" : 34,
-         "percent_max" : 34,
-         "percent_min" : 34,
          "text" : "butter",
          "vegan" : "no",
          "vegetarian" : "yes"
@@ -23,17 +21,12 @@
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 66,
-         "percent_max" : 66,
-         "percent_min" : 66,
          "text" : "sugar",
          "vegan" : "maybe",
          "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
-      "en:maybe-vegan" : [
-         "en:sugar"
-      ],
       "en:non-vegan" : [
          "en:butter"
       ]
@@ -53,7 +46,7 @@
       "en:butter",
       "en:sugar"
    ],
-   "ingredients_percent_analysis" : 1,
+   "ingredients_percent_analysis" : -1,
    "ingredients_tags" : [
       "en:butter",
       "en:dairy",
