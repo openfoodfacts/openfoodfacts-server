@@ -34,6 +34,10 @@ foreach my $url (
 	"https://world.$server_domain/?code=1",
 	"http://world.$server_domain/cgi/session.pl",    # http is accepted, as before
 	"https://world.$server_domain:8080/cgi/product.pl",
+	"https://world.$server_domain/facets/brands/Coca-Cola",
+	"https://world.$server_domain/facets/categories/Breads",
+	"https://world.$server_domain/facets/labels/organic",
+	"https://world.$server_domain/facets/countries/france",
 	"https://fr.$server_domain/cgi/product.pl",    # a url on a language subdomain
 	)
 {
@@ -41,7 +45,7 @@ foreach my $url (
 }
 
 # Urls that are not ours are refused. The first ones are the ones the prefix match accepted.
-my $other_domain = $server_domain =~ s/openfoodfacts/openpetfoodfacts/;
+my $other_domain = $server_domain =~ s/openfoodfacts/openpetfoodfacts/r;
 
 my @refused = (
 	["https://world.$server_domain.evil.example/steal", 'a host suffixed to ours'],
@@ -89,6 +93,83 @@ foreach my $target ("https://world.$server_domain.evil.example/steal", "https://
 	my $location = $response->header('Location') // '';
 	isnt($location, $target, "login.pl does not redirect to '$target'");
 	isnt($location, $target . '/', "login.pl does not redirect to '$target/'");
+}
+
+my $facet_url = "https://world.$server_domain/facets/brands/Coca-Cola";
+
+# return_url is only used to populate the sign-in form. It must not change the redirect of a user
+# who is already authenticated.
+$response = $ua->get(construct_test_url('/cgi/session.pl?return_url=' . uri_escape($facet_url)));
+my $location = $response->header('Location') // '';
+isnt($location, $facet_url, 'session.pl does not redirect a logged-in user to return_url');
+
+# The existing Referer handling is preserved: an allowed Referer is still used after sign-in.
+$response = $ua->get(construct_test_url('/cgi/session.pl'), Referer => $facet_url);
+is($response->header('Location'), $facet_url, 'session.pl still redirects to an allowed Referer');
+
+# Authenticated Referer pointing to an auth script must not trigger a redirect loop.
+$response = $ua->get(construct_test_url('/cgi/session.pl'), Referer => construct_test_url('/cgi/login.pl'));
+is($response->header('Location'), undef, 'session.pl does not redirect authenticated user to an auth script Referer');
+
+foreach my $target ("https://world.$server_domain.evil.example/steal", "https://evil.example/") {
+	$response = $ua->get(construct_test_url('/cgi/session.pl?return_url=' . uri_escape($target)));
+	$location = $response->header('Location') // '';
+	isnt($location, $target, "session.pl does not redirect to '$target'");
+	isnt($location, $target . '/', "session.pl does not redirect to '$target/'");
+}
+
+# Unauthenticated sign-in form: legitimate relative return_url / redirect,
+# auth-loop rejection, protocol-relative rejection, missing/empty values, and XSS escaping.
+my $anon_ua = new_client();    # fresh client – not logged in
+$anon_ua->max_redirect(0);
+
+$response = $anon_ua->get(construct_test_url('/cgi/session.pl?return_url=' . uri_escape('/facets/brands/Coca-Cola')));
+like(
+	$response->decoded_content // '',
+	qr{<input type="hidden" name="redirect" value="https?://world\.\Q$server_domain\E/facets/brands/Coca-Cola"/>},
+	'session.pl populates hidden redirect for legitimate relative return_url'
+);
+
+$response = $anon_ua->get(construct_test_url('/cgi/session.pl?redirect=' . uri_escape('/facets/categories/Breads')));
+like(
+	$response->decoded_content // '',
+	qr{<input type="hidden" name="redirect" value="https?://world\.\Q$server_domain\E/facets/categories/Breads"/>},
+	'session.pl populates hidden redirect for legitimate relative redirect param'
+);
+
+foreach my $rejected_param ('/cgi/login.pl', '/cgi/session.pl', '//evil.example/', '',) {
+	$response = $anon_ua->get(construct_test_url('/cgi/session.pl?return_url=' . uri_escape($rejected_param)));
+	like(
+		$response->decoded_content // '',
+		qr{<input type="hidden" name="redirect" value=""/>},
+		"session.pl clears hidden redirect for rejected/empty return_url '$rejected_param'"
+	);
+}
+
+$response = $anon_ua->get(construct_test_url('/cgi/session.pl'));
+like(
+	$response->decoded_content // '',
+	qr{<input type="hidden" name="redirect" value=""/>},
+	'session.pl renders empty hidden redirect when return_url and Referer are missing'
+);
+
+my $path_payload = '/"><svg onload=alert(1)>';
+my $escaped_path_payload = '/&quot;&gt;&lt;svg onload=alert(1)&gt;';
+
+foreach my $xss_payload ($path_payload, 'javascript:alert(1)', '"><script>evil()</script>') {
+	$response = $anon_ua->get(construct_test_url('/cgi/session.pl?return_url=' . uri_escape($xss_payload)));
+	my $body = $response->decoded_content // '';
+	ok(index($body, $xss_payload) == -1,
+		"session.pl sign-in form does not reflect unescaped XSS payload: $xss_payload");
+
+	if ($xss_payload eq $path_payload) {
+		like(
+			$body,
+			qr{<input type="hidden" name="redirect" value="https?://world\.\Q$server_domain\E\Q$escaped_path_payload\E"/>},
+			'sign-in form expands and HTML-escapes the path-only XSS payload in the redirect input'
+		);
+		unlike($body, qr{<svg\b[^>]*\bonload\s*=}i, 'sign-in form does not render an executable SVG payload');
+	}
 }
 
 done_testing();
