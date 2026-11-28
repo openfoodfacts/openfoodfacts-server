@@ -2097,6 +2097,22 @@ puffed orange and caramelized unknown_fruit4.",
 				"suncokretovo, suncokretovo biljno ulje, kokosovo, palmina, palmino, lešnici, kukuruzni maltodekstrin, začin, repičino, uljane repice, ekstrakt paprike, kukuruzno brašno, kakao buter, čokolada u prahu, kaša jagode, slatka pavlaka, heljdino brašno, pirinač, koncentrisani sok limuna, proteini mleka, acerola u prahu, jabuka, kokosova, kvaščev ekstrakt, lan, čili u prahu, starter kultura, modifikovani krompirov skrob, vlakna graška, pileće kožice, jagode, hidrolizovani biljni protein, palmin olein, belance u prahu, koncentrovani sok od jabuke, suncokretova, maltozni sirup, sojini proteini, smeđi šećer, cvekla, prirodna aroma limuna, potpuno hidrogenizovana palmina mast, kafa, seme lana, sok od breskve, krastavac, pileće meso, kukuruz šećerac, alkoholno sirće, alkohol, kanola ulje, crni biber, jestivi želatin, crveni pasulj, potpuno hidrogenizovano palmino ulje koštice, spanać, kajsija, estri mono- i diacetilvinske kiseline i mono- i diglicerida masnih kiselina, mono- i diacetil estri vinske kiseline mono i diglicerida masnih kiselina, mono i diacetil estri vinske kiseline, l-askorbinska kiselina, silicijum dioksid, lecitini, karamel amonijačni, jabučna kiselina, natrijum-acetati, pektini, poliglicerolpoliricinoleat, amonijum-karbonati, natrijum-fosfati, natrijum-eritorbat, kalcijum hlorid, dl-α-tokoferilacetat, dl-alfa-tokoferil-acetat, kiselina (E330), kiseline (E330).",
 		}
 	],
+	[
+		'sk-oils-fats-and-traces',
+		{
+			lc => "sk",
+			ingredients_text =>
+				"cukor, rastlinné tuky (palmový, palmojadrový), rastlinné oleje (repkový, slnečnicový, v rôznych pomeroch), rastlinný olej (kukuričný), rastlinný tuk (kokosový), soľ. Môže obsahovať stopy arašidov, sezam a iné orechy.",
+		}
+	],
+	[
+		'sk-frequent-unknown-ingredients-round-2',
+		{
+			lc => "sk",
+			ingredients_text =>
+				"izoglukózový sirup, červená paprika, pšeničná bielkovina, ražná múka, tekvicové semená, jahodové pyré, lesné jahody, glukózo-fruktózový sirup, sójové lecitíny, lieskovooriešková pasta, vanilkový extrakt, sója, dymová aróma, kukuričná krupica, maslový tuk, mikrobiálne syridlo, citrusová vláknina, jedlá morská soľ, sušená sladká srvátka, čili, extra panenský olivový olej, ryžový škrob, invertný cukrový sirup, sirup z invertného cukru, lieskovce, cibuľový prášok, kokos, celozrnné ovsené vločky, odtučnená sójová múka, muškátový orech, červená repa, rastlinný olej slnečnicový, zmes korenín, hrachová vláknina, kokosový krém, mlieko sušené odtučnené, sušené mlieko odtučnené, paradajkový koncentrát, kukurica, jablká, sušený glukózový sirup, koncentrát citrónovej šťavy, pohánková múka, alkohol, koreninové extrakty, kakaový prášok so zníženým obsahom tuku, koncentrát spiruliny, kvasnice, odtučnené mlieko, rímska rasca, kakaová pasta, melasa z trstinového cukru, paradajková šťava, celozrnná jačmenná múka, celozrnná ražná múka, extrakt z jačmenného sladu, kardamóm, sirup z karamelizovaného cukru, koncentrát z čiernej mrkvy, citrónová šťava, karamelizovaný cukor, hrachový bielkovinový izolát, pšeničný bulgur, prírodný paprikový extrakt, hroznový cukor, čierna ríbezľa, ibištek, palmojadrový olej, palmojadrový tuk, kukuričný olej, ľanový olej, sójový olej, tokoferolový extrakt, pektíny, invertáza, octany sodné, sorbitoly, fosforečnany sodné, askorbylpalmitát. Môže obsahovať mlieko, orechov, škrupinové plody, lieskové orechy, sezam, semená sezamu, pšenicu, obilniny obsahujúce glutén, lepku.",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

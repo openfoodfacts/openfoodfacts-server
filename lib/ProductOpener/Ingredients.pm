@@ -3713,6 +3713,10 @@ Text to analyze
 								'^идентичный натуральному$', '^(g|ж|ул)$'
 							],
 
+							'sk' => [
+								'^v rôzn(?:ych|om) pomer(?:och|e)$',    # in variable proportions
+							],
+
 							'sl' => [
 								'lahko vsebuje',
 								'lahko vsebuje sledi',    # may contain traces
@@ -7717,9 +7721,18 @@ my %ingredients_categories_and_types = (
 	sk => [
 		# oils
 		{
-			categories => ['rastlinné oleje'],
-			types => ["repkový", "slnečnicový",],
+			categories => ['rastlinné oleje', 'rastlinný olej'],
+			types => [
+				"kokosový", "kukuričný", "ľanový", "olivový", "palmojadrový", "palmový",
+				"repkový", "slnečnicový", "sójový",
+			],
 			alternate_names => ["<type> olej"],
+		},
+		# fats
+		{
+			categories => ['rastlinné tuky', 'rastlinný tuk'],
+			types => ["kokosový", "palmojadrový", "palmový",],
+			alternate_names => ["<type> tuk"],
 		},
 	],
 
@@ -7898,6 +7911,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				or ($ingredients_lc eq "lt")
 				or ($ingredients_lc eq "lv")
 				or ($ingredients_lc eq "ru")
+				or ($ingredients_lc eq "sk")
 				or ($ingredients_lc eq "sv")
 				or ($ingredients_lc eq "pl"))
 			{

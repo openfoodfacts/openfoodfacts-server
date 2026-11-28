@@ -1,0 +1,246 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 58.3333333333333,
+         "percent_max" : 100,
+         "percent_min" : 16.6666666666667,
+         "text" : "cukor",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "from_palm_oil" : "maybe",
+         "id" : "en:vegetable-fat",
+         "ingredients" : [
+            {
+               "ciqual_proxy_food_code" : "16129",
+               "ecobalyse_proxy_id" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+               "ecobalyse_proxy_name" : "Huile de palme -raffinée- par défaut -2025-",
+               "from_palm_oil" : "yes",
+               "id" : "en:palm-fat",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 10.4166666666667,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "palmový tuk",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "from_palm_oil" : "yes",
+               "id" : "en:palm-kernel-fat",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 10.4166666666667,
+               "percent_max" : 25,
+               "percent_min" : 0,
+               "text" : "palmojadrový tuk",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 20.8333333333333,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "rastlinné tuky",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "17001",
+         "ecobalyse_proxy_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "ecobalyse_proxy_name" : "Huile de colza par défaut -2025-",
+         "from_palm_oil" : "maybe",
+         "id" : "en:vegetable-oil",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "17130",
+               "ecobalyse_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+               "ecobalyse_name" : "Huile de colza par défaut -2025-",
+               "from_palm_oil" : "no",
+               "id" : "en:rapeseed-oil",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 5.20833333333333,
+               "percent_max" : 33.3333333333333,
+               "percent_min" : 0,
+               "text" : "rastlinné oleje repkový",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "17440",
+               "ecobalyse_id" : "583d00ab-0340-444b-9581-71175f0a937b",
+               "ecobalyse_name" : "Huile de tournesol -raffinée- FR -2025-",
+               "from_palm_oil" : "no",
+               "id" : "en:sunflower-oil",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 5.20833333333333,
+               "percent_max" : 16.6666666666667,
+               "percent_min" : 0,
+               "text" : "rastlinné oleje slnečnicový",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10.4166666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "rastlinné oleje",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "17001",
+         "ecobalyse_proxy_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+         "ecobalyse_proxy_name" : "Huile de colza par défaut -2025-",
+         "from_palm_oil" : "maybe",
+         "id" : "en:vegetable-oil",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "17190",
+               "ecobalyse_proxy_id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+               "ecobalyse_proxy_name" : "Huile de colza par défaut -2025-",
+               "from_palm_oil" : "no",
+               "id" : "en:corn-oil",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 5.20833333333333,
+               "percent_max" : 25,
+               "percent_min" : 0,
+               "text" : "kukuričný olej",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.20833333333333,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "rastlinný olej",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "from_palm_oil" : "maybe",
+         "id" : "en:vegetable-fat",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "16040",
+               "ecobalyse_id" : "927231a5-c0c4-560f-8e89-ca4b01795fe6",
+               "ecobalyse_name" : "Noix de coco décortiquée HORS UE",
+               "from_palm_oil" : "no",
+               "id" : "en:coconut-fat",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 2.60416666666666,
+               "percent_max" : 20,
+               "percent_min" : 0,
+               "text" : "kokosový tuk",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "rastlinný tuk",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "ecobalyse_proxy_id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
+         "ecobalyse_proxy_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "soľ",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:sugar"
+      ],
+      "en:palm-oil" : [
+         "en:palm-fat",
+         "en:palm-kernel-fat"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil",
+      "en:maybe-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "sk",
+   "ingredients_n" : 12,
+   "ingredients_n_tags" : [
+      "12",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:sugar",
+      "en:vegetable-fat",
+      "en:vegetable-oil",
+      "en:vegetable-oil",
+      "en:vegetable-fat",
+      "en:salt",
+      "en:palm-fat",
+      "en:palm-kernel-fat",
+      "en:rapeseed-oil",
+      "en:sunflower-oil",
+      "en:corn-oil",
+      "en:coconut-fat"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:sugar",
+      "en:disaccharide",
+      "en:added-sugar",
+      "en:vegetable-fat",
+      "en:vegetable-oil-and-fat",
+      "en:oil-and-fat",
+      "en:vegetable-oil",
+      "en:salt",
+      "en:palm-fat",
+      "en:palm-oil-and-fat",
+      "en:palm-kernel-fat",
+      "en:palm-kernel-oil-and-fat",
+      "en:rapeseed-oil",
+      "en:sunflower-oil",
+      "en:corn-oil",
+      "en:coconut-fat",
+      "en:coconut",
+      "en:fruit"
+   ],
+   "ingredients_text" : "cukor, rastlinné tuky (palmový, palmojadrový), rastlinné oleje (repkový, slnečnicový, v rôznych pomeroch), rastlinný olej (kukuričný), rastlinný tuk (kokosový), soľ. Môže obsahovať stopy arašidov, sezam a iné orechy.",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 8,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:palm-kernel-fat",
+      "en:vegetable-fat"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:palm-kernel-fat",
+      "en:vegetable-fat"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 12,
+   "lc" : "sk",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}
