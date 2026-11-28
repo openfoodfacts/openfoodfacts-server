@@ -612,6 +612,7 @@ including localized strings like "minimum"
 	es => "(?:en el chocolate(?: con leche)?)",
 	fi => "jauhojen määrästä",
 	fr => "(?:dans le chocolat(?: (?:blanc|noir|au lait))?)|(?:du poids total|du poids)",
+	it => "(?:sul|del|nel) prodotto finito",    # "farina di mais 7% sul prodotto finito"
 	sv => "fetthalt",
 );
 

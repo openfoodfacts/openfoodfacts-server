@@ -244,6 +244,12 @@ Edit ingredients (en)",
 		"67% Pizzateig: Weizenmehl, Trinkwasser. ZUTATEN: 33% zubereitete Tomatensosse: 92,7 % Tomatenpüree mit kleinen Tomatenstückchen."
 	],
 
+	[
+		"it",
+		"Farina di grano tenero, zucchero, sale. Energia 627 kJ / 149 kcal, Grassi 3 g. Lotto L1234",
+		"Farina di grano tenero, zucchero, sale."
+	],
+
 );
 
 foreach my $test_ref (@tests) {

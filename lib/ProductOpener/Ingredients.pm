@@ -867,6 +867,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 	# include space if mandatory
 	my %ingredient_content = (
 		en => " content",
+		it => " utilizzat[aoie]",    # "Frutta utilizzata: 50 g per 100 g di prodotto finito"
 		sv => "mängd"
 	);
 	my $ingredient_content = $ingredient_content{$ingredients_lc};
@@ -1119,10 +1120,12 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		if (   ($ingredients_lc eq "en")
 			|| ($ingredients_lc eq "fr")
 			|| ($ingredients_lc eq "da")
+			|| ($ingredients_lc eq "it")
 			|| ($ingredients_lc eq "sv"))
 		{
 			# Origin of the milk: United Kingdom
 			# Origine du Cacao: Pérou
+			# Paese di coltivazione del grano: Italia
 			# Oprindelse jalapeño chili: Peru
 			# Ursprung fullkornsrågmjöl: Sverige och Danmark
 			# Only if nothing matched above: otherwise the origin would replace the ingredient
@@ -1288,7 +1291,11 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		hu => "(?:származási (?:hely|ország))",
 		id => "(?:asal|negara asal)",
 		is => "(?:upprunaland|uppruni)",
-		it => "(?:origine|paese di (?:origine|molitura|coltivazione del grano))",
+		# "Origine del latte: Italia", "Paese di coltivazione del grano: Italia"
+		# the ingredient is captured after the article ("grano"), as for French
+		# (not "Paese di molitura": the country where the wheat was milled is not its origin)
+		it =>
+			"(?:(?:paese di )?(?:origine|coltivazione|provenienza)(?: (?:del |della |dello |dei |degli |delle |dell'|di ))?)",
 		ja => "(?:原産国(?:名)?|原産地)",
 		ko => "(?:원산지)",
 		lt => "(?:kilmės (?:šalis|valstybė)|kilmė)",
@@ -3603,7 +3610,37 @@ Text to analyze
 
 							],
 
-							'it' => ['^in proporzion[ei] variabil[ei]$',],
+							'it' => [
+								'^in proporzion[ei] variabil[ei]$',
+								# Statements that producers print inside the ingredients list.
+								# Text that is not part of the list (nutrition facts, lot numbers...)
+								# is cut by %phrases_after_ingredients_list when extracted from a photo.
+								# storage: "Conservare in luogo fresco e asciutto, al riparo dalla luce"
+								'^conservare\b',
+								'^al riparo\b',
+								'^(dopo l.apertura|una volta aperto)\b',
+								'^agitare bene\b',
+								# best before / use by: "Da consumarsi preferibilmente entro il: vedi retro"
+								'^da consumar(si|e)\b',
+								# packaged in a protective atmosphere
+								'^(prodotto )?confezionato in atmosfera\b',
+								# "Paese di molitura: Italia": where the wheat was milled, not its origin.
+								# "Paese di coltivazione del grano: Italia" is an origin, see
+								# match_origin_of_the_ingredient_origin()
+								'^paese di (molitura|trasformazione|confezionamento)\b',
+								# "Prodotto nello stabilimento di Lavis (TN)": mandatory in Italy
+								'^(prodotto nello )?stabilimento (di|in)\b',
+								# "Il prodotto contiene glucosio e galattosio in conseguenza della scissione del lattosio"
+								'in conseguenza della scissione del lattosio$',
+								# "Certificato Rainforest Alliance"
+								'^certificato\b',
+								# "L'eventuale separazione dell'olio è un processo naturale"
+								'^l.eventuale separazione\b',
+								# choking warning
+								'^non adatto a bambini\b',
+								# "Le percentuali sono espresse sul prodotto finito"
+								'^(le )?percentuali (sono )?(espresse|riferite) (sul|al) prodotto finito$',
+							],
 
 							'ja' => [
 								'その他',    # etc.
@@ -6702,9 +6739,15 @@ my %phrases_after_ingredients_list = (
 		'componenti analitici',    # pet food
 		'Confezionato in atmosfera protettiva',    # Packaged in a protective atmosphere
 		'(dopo l\'apertura )?Conservare in (frigo|luogo)',
+		'Conservare (al riparo|lontano|a temperatura)',
+		'Dopo l.apertura',    # after opening
+		'Agitare bene prima',    # shake well before use
 		'consigli per la preparazione',
 		'Da consumarsi',    # best before
+		'Da consumare entro',    # use by
 		'di cui zuccheri',
+		'Energia\s*:?\s*\d+',    # start of the nutrition table: "Energia 627 kJ / 149 kcal"
+		'Lotto',    # lot number
 		'MODALITA D\'USO',
 		'MODALITA DI CONSERVAZIONE',
 		'Preparazione\:',
