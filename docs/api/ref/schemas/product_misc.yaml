@@ -21,12 +21,28 @@ properties:
     type: integer
     description: |
       See also: `ecoscore_tags`
+  environmental_score_grade:
+    type: string
+    description: |
+      Green-Score (formerly Eco-Score) grade (`a`, `b`, `c`, `d`, `e`, `not-applicable`, or `unknown`).
+      Replaces `ecoscore_grade` since API v3.1. See also `environmental_score_tags`.
+  environmental_score_score:
+    type: integer
+    description: |
+      Numeric Green-Score (formerly Eco-Score) value.
+      Replaces `ecoscore_score` since API v3.1. See also `environmental_score_tags`.
   food_groups:
     type: string
   food_groups_tags:
     type: array
     items:
       type: string
+  nova_group_debug:
+    type: string
+    description: Debug details for NOVA group calculation.
+  nova_group_error:
+    type: string
+    description: Error message if NOVA group could not be computed.
   nutrient_levels:
     description: |
       Traffic light indicators on main nutrients levels

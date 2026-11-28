@@ -39,6 +39,11 @@ properties:
 
   countries_beforescanbot:
     type: string
+  debug_tags:
+    type: array
+    description: Internal debugging tags.
+    items:
+      type: string
   nucleotides_prev_tags:
     type: array
     items:
@@ -82,6 +87,11 @@ properties:
       type: object
   sortkey:
     type: integer
+  users_tags:
+    type: array
+    description: Legacy/internal user tags field, superseded by specific role tags (`editors_tags`, `photographers_tags`, etc.).
+    items:
+      type: string
 
   vitamins_prev_tags:
     type: array
