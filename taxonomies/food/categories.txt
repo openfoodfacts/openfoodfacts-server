@@ -2033,6 +2033,8 @@ en: Pastis
 xx: Pastis
 fr: Pastis
 nl: Pastis, Anijsdranken
+pt: Pastis
+ro: Pastis
 agribalyse_food_code:en: 1000
 ciqual_food_code:en: 1000
 ciqual_food_name:en: Pastis (anise-flavoured spirit)
@@ -2106,7 +2108,8 @@ hu: Szaké
 it: Sake, Sakè
 ja: 日本酒, にほんしゅ
 nl: Saké
-pt: Saquê
+pl: Sake, Wina ryżowe
+pt: Saquê, vinhos de arroz
 agribalyse_food_code:en: 1026
 ciqual_food_code:en: 1026
 ciqual_food_name:en: Sake or rice wine
@@ -2120,6 +2123,7 @@ pt: Shochu
 < en: Shoshu
 en: Awamori
 xx: Awamori
+pt: Awamori
 agribalyse_proxy_food_code:en: 1026
 ciqual_proxy_food_code:en: 1026
 ciqual_proxy_food_name:en: Sake or rice wine
@@ -2128,6 +2132,7 @@ wikidata:en: Q1069948
 < en: Shoshu
 en: Kome-shochu
 xx: Kome-shochu
+pt: Kome-shochu
 agribalyse_proxy_food_code:en: 1026
 ciqual_proxy_food_code:en: 1026
 ciqual_proxy_food_name:en: Sake or rice wine
@@ -2143,22 +2148,27 @@ ciqual_proxy_food_name:en: Sake or rice wine
 < en: Shoshu
 en: Imo-Shoshu
 xx: Imo-Shoshu
+pt: Imo shoshu
 
 < en: Shoshu
 en: Mugi-Shoshu
 xx: Mugi-Shoshu
+pt: Mugi shoshu
 
 < en: Shoshu
 en: Soba-Shoshu
 xx: Soba-Shoshu
+pt: Soba shoshu
 
 < en: Shoshu
 en: Kokuto-Shoshu, Kokutojochu
 xx: Kokuto-Shoshu, Kokutojochu
+pt: Kokuto-shoshu, kokutojochu
 
 < en: Shoshu
 en: Kuri-Shoshu
 xx: Kuri-Shoshu
+pt: Kuri shoshu
 
 < en: Condiments
 en: Mirin
@@ -2320,6 +2330,7 @@ wikidata:en: Q208385
 < en: Ales
 en: Pale ales, Pale ale
 xx: Pale ales
+pt: Pale ale
 foodex2_code:en: A03MJ
 foodex2_extended_name:en: Pale ale beer
 foodex2_implicit_facets:en: F28.A0C01$F33.A0C1N
@@ -2331,9 +2342,10 @@ foodex2_scope_note:en: The group includes any type of pale ale beer, usually a t
 < en: Pale ales
 ca: Cervesa IPA, IPA
 xx: India Pale Ale (IPA), IPA, IPA ales, India pale ale, India pale ales
-en: India Pale Ale (IPA), IPA, IPA ales, India pale ale, India pale ales
+en: India Pale Ale (IPA)
 es: Cerveza IPA
 fr: Bières IPA, Bieres IPA, Bière ipa
+pt: India pale ale (ipa)
 wikidata:en: Q1543214
 
 < en: India Pale Ale (IPA)
@@ -2357,12 +2369,14 @@ pt: IPA da cornualha
 < en: India Pale Ale (IPA)
 en: Citra IPA
 xx: Citra IPA
+pt: Citra ipa
 description:en: IPA made with Citra hops
 
 < en: India Pale Ale (IPA)
 < en: Strong beers
 en: Double IPA, Imperial IPA, Extra IPA, DIPA
 xx: Double IPA, Imperial IPA, Extra IPA, DIPA
+pt: Double ipa
 
 < en: India Pale Ale (IPA)
 en: East Coast IPA, East IPA
@@ -2372,10 +2386,12 @@ pt: Costa leste ipa, leste ipa
 < en: India Pale Ale (IPA)
 en: Hurricane IPA, Tornado IPA
 xx: Hurricane IPA, Tornado IPA
+pt: Furacão ipa
 
 < en: India Pale Ale (IPA)
 en: Hazy IPA
 xx: Hazy IPA
+pt: Ipa nebuloso
 
 < en: Hazy IPA
 en: New England IPA, NEIPA
