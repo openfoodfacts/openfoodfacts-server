@@ -76,14 +76,15 @@ sub read_product_api ($request_ref) {
 
 	my $response_ref = $request_ref->{api_response};
 	my $cc = $request_ref->{cc};
+	my $target_lc = $request_ref->{lc} // $lc;
 
 	# Is a sample product requested?
 	if ((defined $request_ref->{code}) and ($request_ref->{code} eq "example")) {
 
 		$request_ref->{code}
-			= $options{"sample_product_code_country_${cc}_language_${lc}"}
+			= $options{"sample_product_code_country_${cc}_language_${target_lc}"}
 			|| $options{"sample_product_code_country_${cc}"}
-			|| $options{"sample_product_code_language_${lc}"}
+			|| $options{"sample_product_code_language_${target_lc}"}
 			|| $options{"sample_product_code"}
 			|| "";
 	}
@@ -179,7 +180,7 @@ sub read_product_api ($request_ref) {
 	else {
 		$response_ref->{result} = {id => "product_found"};
 
-		add_images_urls_to_product($product_ref, $lc);
+		add_images_urls_to_product($product_ref, $target_lc);
 
 		# Select / compute only the fields requested by the caller, default to all
 		$response_ref->{product} = customize_response_for_product($request_ref, $product_ref,
