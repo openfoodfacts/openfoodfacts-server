@@ -731,6 +731,57 @@
               v2.hidden = false;
 
               var AMERICAS = 'US CA MX BM BZ CR SV GT HN NI PA AI AG AW BS BB BQ VG KY CU CW DM DO GD HT JM MS PR KN LC VC SX TT TC VI AR BO BR CL CO EC FK GY PY PE SR UY VE'.split(' ');
+              // Generated from currency_codes:en in taxonomies/countries.txt (keyed by country_code_2:en and official_country_code_2:en)
+              var COUNTRY_CURRENCIES = {"AD":"eur","AE":"aed","AF":"afn","AG":"xcd","AI":"xcd","AL":"all","AM":"amd","AO":"aoa","AR":"ars","AS":"usd","AT":"eur","AU":"aud","AW":"awg","AX":"eur","AZ":"azn","BA":"bam","BB":"bbd","BD":"bdt","BE":"eur","BF":"xof","BG":"eur","BH":"bhd","BI":"bif","BJ":"xof","BL":"eur","BM":"bmd","BN":"bnd","BO":"bob","BQ":"usd","BR":"brl","BS":"bsd","BT":"btn,inr","BV":"nok","BW":"bwp","BY":"byn","BZ":"bzd","CA":"cad","CC":"aud","CD":"cdf","CF":"xaf","CG":"xaf","CH":"chf","CI":"xof","CK":"nzd","CL":"clp","CM":"xaf","CN":"cny","CO":"cop","CR":"crc","CU":"cup","CV":"cve","CW":"xcg","CX":"aud","CY":"eur","CZ":"czk","DE":"eur","DJ":"djf","DK":"dkk","DM":"xcd","DO":"dop","DZ":"dzd","EC":"usd","EE":"eur","EG":"egp","EH":"mad","ER":"ern","ES":"eur","ET":"etb","FI":"eur","FJ":"fjd","FK":"fkp","FM":"usd","FO":"dkk","FR":"eur","GA":"xaf","GB":"gbp","GD":"xcd","GE":"gel","GF":"eur","GG":"gbp","GH":"ghs","GI":"gip","GL":"dkk","GM":"gmd","GN":"gnf","GP":"eur","GQ":"xaf","GR":"eur","GS":"gbp","GT":"gtq","GU":"usd","GW":"xof","GY":"gyd","HK":"hkd","HM":"aud","HN":"hnl","HR":"eur","HT":"htg,usd","HU":"huf","ID":"idr","IE":"eur","IL":"ils","IM":"gbp","IN":"inr","IO":"usd","IQ":"iqd","IR":"irr","IS":"isk","IT":"eur","JE":"gbp","JM":"jmd","JO":"jod","JP":"jpy","KE":"kes","KG":"kgs","KH":"khr","KI":"aud","KM":"kmf","KN":"xcd","KP":"kpw","KR":"krw","KW":"kwd","KY":"kyd","KZ":"kzt","LA":"lak","LB":"lbp","LC":"xcd","LI":"chf","LK":"lkr","LR":"lrd","LS":"lsl,zar","LT":"eur","LU":"eur","LV":"eur","LY":"lyd","MA":"mad","MC":"eur","MD":"mdl","ME":"eur","MF":"eur","MG":"mga","MH":"usd","MK":"mkd","ML":"xof","MM":"mmk","MN":"mnt","MO":"mop","MP":"usd","MQ":"eur","MR":"mru","MS":"xcd","MT":"eur","MU":"mur","MV":"mvr","MW":"mwk","MX":"mxn","MY":"myr","MZ":"mzn","NA":"nad,zar","NC":"xpf","NE":"xof","NF":"aud","NG":"ngn","NI":"nio","NL":"eur","NO":"nok","NP":"npr","NR":"aud","NU":"nzd","NZ":"nzd","OM":"omr","PA":"pab,usd","PE":"pen","PF":"xpf","PG":"pgk","PH":"php","PK":"pkr","PL":"pln","PM":"eur","PN":"nzd","PR":"usd","PS":"ils,jod","PT":"eur","PW":"usd","PY":"pyg","QA":"qar","RE":"eur","RO":"ron","RS":"rsd","RU":"rub","RW":"rwf","SA":"sar","SB":"sbd","SC":"scr","SD":"sdg","SE":"sek","SG":"sgd","SH":"shp","SI":"eur","SJ":"nok","SK":"eur","SL":"sle","SM":"eur","SN":"xof","SO":"sos","SR":"srd","SS":"ssp","ST":"stn","SV":"usd","SX":"xcg","SY":"syp","SZ":"szl","TC":"usd","TD":"xaf","TF":"eur","TG":"xof","TH":"thb","TJ":"tjs","TK":"nzd","TL":"usd","TM":"tmt","TN":"tnd","TO":"top","TR":"try","TT":"ttd","TV":"aud","TW":"twd","TZ":"tzs","UA":"uah","UG":"ugx","UK":"gbp","UM":"usd","US":"usd","UY":"uyu","UZ":"uzs","VA":"eur","VC":"xcd","VE":"ves","VG":"usd","VI":"usd","VN":"vnd","VU":"vuv","WF":"xpf","WS":"wst","XK":"eur","YE":"yer","YT":"eur","ZA":"zar","ZM":"zmw","ZW":"zwg,usd"};
+
+              function subdomainCountry(hostname) {
+                var sub = (hostname || '').split('.')[0].split('-')[0];
+                return /^[a-z]{2}$/i.test(sub) ? sub.toUpperCase() : '';
+              }
+
+              function formatMoney(value, cur) {
+                var code = (cur || 'eur').toLowerCase();
+                if (typeof Intl !== 'undefined' && Intl.NumberFormat) {
+                  try {
+                    return new Intl.NumberFormat('en', {
+                      style: 'currency',
+                      currency: code.toUpperCase(),
+                      minimumFractionDigits: 0,
+                      maximumFractionDigits: 2
+                    }).format(value);
+                  } catch (e) {}
+                }
+                if (code === 'usd') {
+                  return '$' + value;
+                }
+                if (code === 'eur') {
+                  return '€' + value;
+                }
+                return code.toUpperCase() + ' ' + value;
+              }
+
+              function resolveCurrency(countryCode, supported) {
+                var target = (countryCode || '').toUpperCase();
+                var hasSupported = supported && Object.keys(supported).length > 0;
+                var raw = target && Object.prototype.hasOwnProperty.call(COUNTRY_CURRENCIES, target)
+                  ? COUNTRY_CURRENCIES[target]
+                  : '';
+                if (raw) {
+                  var codes = raw.split(',');
+                  var c;
+                  for (c = 0; c < codes.length; c++) {
+                    var cur = codes[c].trim().toLowerCase();
+                    if (cur && (!hasSupported || Object.prototype.hasOwnProperty.call(supported, cur))) {
+                      return cur;
+                    }
+                  }
+                }
+                var guess = AMERICAS.indexOf(target) >= 0 ? 'usd' : 'eur';
+                if (hasSupported && !Object.prototype.hasOwnProperty.call(supported, guess)) {
+                  return Object.prototype.hasOwnProperty.call(supported, 'eur') ? 'eur' : Object.keys(supported)[0];
+                }
+                return guess;
+              }
 
               var widget = v1.querySelector('dbox-widget');
               var slot = v2.querySelector('.donate-slot');
@@ -784,15 +835,25 @@
               function apply(syncInput) {
                 var j;
                 var matchedTile = false;
-                var symbol;
                 for (j = 0; j < toggleButtons.length; j++) {
                   toggleButtons[j].setAttribute('aria-pressed', toggleButtons[j].getAttribute('data-interval') === interval ? 'true' : 'false');
                 }
                 for (j = 0; j < tierButtons.length; j++) {
-                  var isMatch = String(amount) === tierButtons[j].getAttribute('data-amount');
+                  var tierAmount = tierButtons[j].getAttribute('data-amount');
+                  var isMatch = String(amount) === tierAmount;
                   tierButtons[j].setAttribute('aria-pressed', isMatch ? 'true' : 'false');
                   if (isMatch) {
                     matchedTile = true;
+                  }
+                  var tierNodes = tierButtons[j].childNodes;
+                  if (tierNodes) {
+                    var n;
+                    for (n = 0; n < tierNodes.length; n++) {
+                      if (tierNodes[n].nodeType === 3 && tierNodes[n].nodeValue.trim()) {
+                        tierNodes[n].nodeValue = formatMoney(Number(tierAmount), currency);
+                        break;
+                      }
+                    }
                   }
                 }
                 if (syncInput) {
@@ -800,9 +861,8 @@
                   otherMinNote.hidden = true;
                 }
 
-                symbol = currency === 'usd' ? '$' : '€';
-                payLabel.textContent = payTemplates[interval].replace('{amount}', symbol + amount);
-                otherMinNote.textContent = otherMinTemplate.replace('{amount}', symbol + minAmount);
+                payLabel.textContent = payTemplates[interval].replace('{amount}', formatMoney(amount, currency));
+                otherMinNote.textContent = otherMinTemplate.replace('{amount}', formatMoney(minAmount, currency));
 
                 widget.setAttribute('interval', interval);
                 if (currencyKnown) {
@@ -896,14 +956,18 @@
                 widget.shadowRoot.appendChild(style);
 
                 var campaign = widget.campaignData || {};
-                currency = AMERICAS.indexOf(campaign.current_country) >= 0 ? 'usd' : 'eur';
+                var supported = campaign.min_currencies_values || {};
+                var countryCode = subdomainCountry(location.hostname) || (campaign.current_country || '').toUpperCase();
+
+                currency = resolveCurrency(countryCode, supported);
                 currencyKnown = true;
-                minAmount = (campaign.min_currencies_values || {})[currency] || 1;
+                minAmount = supported[currency] || 1;
                 currencyChip.textContent = currency.toUpperCase();
                 apply();
 
                 var nextButton = widget.shadowRoot.querySelector('#standard_checkout_section button');
-                var nextTemplate = v2.querySelector('.donate-next-tpl[data-currency="' + currency + '"]');
+                var nextTemplate = v2.querySelector('.donate-next-tpl[data-currency="' + currency + '"]')
+                  || v2.querySelector('.donate-next-tpl[data-currency="usd"]');
                 if (nextButton && nextTemplate && nextButton.firstChild && nextButton.firstChild.nodeType === 3) {
                   nextButton.firstChild.nodeValue = nextTemplate.textContent;
                 }
