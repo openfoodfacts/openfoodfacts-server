@@ -9303,6 +9303,8 @@ CSS
 			if (exists_taxonomy_tag("nutrients", "zz:$nid")) {
 				$name = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 				$unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';
+				# The taxonomy stores kj in lowercase (used by the API), the SI symbol for kilojoule is kJ
+				$unit eq 'kj' and $unit = 'kJ';
 			}
 
 			my @columns;
