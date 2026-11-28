@@ -14,7 +14,7 @@
     </div>
 </div>
 
-    [% IF !( server_options_private_products.defined && server_options_private_products ) && org_id %]
+    [% IF !( server_options_private_products.defined && server_options_private_products ) && org_id && !options.no_producers_platform %]
         <div class="panel callout">
             <p><strong>[% lang("product_edits_by_producers") %] </strong></p>
             <p>[% lang("product_edits_by_producers_platform") %]</p>

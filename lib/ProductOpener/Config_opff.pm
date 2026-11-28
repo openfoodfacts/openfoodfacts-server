@@ -688,6 +688,10 @@ $options{attribute_default_preferences_json}
 
 );
 
+# This flavor has no producers platform (pro.<domain> does not exist):
+# do not link to it from the web pages
+$options{no_producers_platform} = 1;
+
 # Name of the Redis stream to which product updates are published
 $options{redis_stream_name_product_updates} = "product_updates";
 # Name of the Redis stream where we notify that OCR results
