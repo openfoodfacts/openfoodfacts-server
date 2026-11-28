@@ -66,6 +66,16 @@ my $tests_ref = [
 		path => '/api/v3/product/1234567890007',
 		body => '{"product": { "packagings_add": [{"shape": {"lc_name": "bottle"}}]}}'
 	},
+	# Optimistic Concurrency Control (OCC): test stale If-Match returns 412 Precondition Failed
+	{
+		test_case => 'patch-occ-precondition-failed-stale-if-match',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890007',
+		headers_in => {'If-Match' => 'W/"1234567890007-0"'},
+		body => '{"product": {"product_name": "Updated name"}}',
+		expected_status_code => 412,
+		setup => 1,
+	},
 	# Only the PATCH method is valid, test other methods
 	{
 		test_case => 'post-packagings',

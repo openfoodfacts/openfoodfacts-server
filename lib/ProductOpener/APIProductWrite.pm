@@ -61,7 +61,7 @@ use ProductOpener::Tags qw/%language_fields %writable_tags_fields %tags_fields %
 use ProductOpener::ProductsTags qw/add_tags_to_field compute_field_tags set_field_input_tags_for_source/;
 use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::Auth qw/get_azp/;
-use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
+use ProductOpener::HTTP qw/request_param single_param redirect_to_url get_http_request_header/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Nutrition qw/assign_nutrition_values_from_request_object/;
 use ProductOpener::Ingredients qw/%may_contain_regexps/;
@@ -698,6 +698,46 @@ sub write_product_api ($request_ref) {
 			$product_ref->{interface_version_created} = "20221102/api/v3";
 		}
 		else {
+			# Optimistic Concurrency Control (OCC) check via If-Match header or body field
+			my $if_match = get_http_request_header('If-Match') // $request_body_ref->{if_match};
+			if (defined $if_match && $if_match ne '' && $if_match ne '*') {
+				my $last_modified_t = $product_ref->{last_modified_t} || 0;
+				my $expected_etag = qq(W/"$product_ref->{code}-$last_modified_t");
+				my $clean_if_match = $if_match;
+				$clean_if_match =~ s/^\s+//;
+				$clean_if_match =~ s/\s+$//;
+
+				if (   ($clean_if_match ne $expected_etag)
+					&& ($clean_if_match ne qq("$product_ref->{code}-$last_modified_t"))
+					&& ($clean_if_match ne "$last_modified_t"))
+				{
+					$log->info(
+						"write_product_api - precondition failed",
+						{
+							if_match => $if_match,
+							expected_etag => $expected_etag,
+							last_modified_t => $last_modified_t,
+						}
+					) if $log->is_info();
+
+					add_error(
+						$response_ref,
+						{
+							message => {
+								id => "precondition_failed",
+								text => "Product has been modified since last retrieved",
+							},
+							field => {id => "If-Match", value => $if_match},
+							impact => {id => "failure"},
+						},
+						412
+					);
+					$response_ref->{result} = {id => "precondition_failed"};
+					$response_ref->{etag} = $expected_etag;
+					return;
+				}
+			}
+
 			# There is an existing product
 			# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
 			# unless we are on the pro platform
