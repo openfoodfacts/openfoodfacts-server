@@ -6,10 +6,15 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 use Log::Any qw($log);
 
-use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
-use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::APITest qw/construct_test_url create_user execute_api_tests new_client wait_application_ready/;
+use ProductOpener::Test qw/get_base64_image_data_from_file remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Auth qw/get_token_using_password_credentials/;
+use ProductOpener::Products qw/product_path_from_id/;
+use ProductOpener::Store qw/retrieve_object/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use JSON::MaybeXS qw/encode_json/;
+use Encode qw/encode/;
 
 use File::Basename "dirname";
 
@@ -244,5 +249,56 @@ my $tests_ref = [
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
+
+subtest 'upload with non-ASCII comment (CGI)' => sub {
+	my $code = '1234567890019';
+	my $comment = 'slovenščina photo upload';
+	my $response = $ua->post(
+		construct_test_url('/cgi/product_image_upload.pl'),
+		Content_Type => 'form-data',
+		Content => [
+			code => $code,
+			imagefield => 'other_en',
+			comment => encode('UTF-8', $comment),
+			imgupload_other_en => ["$sample_products_images_path/pulses-cereals.jpg", 'pulses-cereals.jpg'],
+		],
+	);
+	is($response->code, 200, 'CGI image upload with non-ASCII comment succeeds');
+
+	my $path = product_path_from_id($code);
+	my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes") // [];
+	ok(@{$changes_ref} > 0, 'product has changes recorded');
+	my ($upload_change) = grep {$_->{comment} =~ /^new image 1 /} @{$changes_ref};
+	ok($upload_change, 'found upload change entry');
+	like($upload_change->{comment}, qr/slovenščina photo upload/,
+		'upload change comment contains decoded UTF-8 string');
+};
+
+subtest 'upload with non-ASCII comment (API v3)' => sub {
+	my $code = '1234567890020';
+	my $comment = 'slovenščina API upload';
+	my $response = $ua->post(
+		construct_test_url("/api/v3/product/$code/images"),
+		'Content-Type' => 'application/json',
+		Content => encode_json(
+			{
+				image_data_base64 => get_base64_image_data_from_file("$sample_products_images_path/pulses-cereals.jpg"),
+				comment => $comment,
+			}
+		),
+	);
+	is($response->code, 200, 'API v3 image upload with non-ASCII comment succeeds');
+
+	my $path = product_path_from_id($code);
+	my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes") // [];
+	ok(@{$changes_ref} > 0, 'product has changes recorded');
+	my ($api_upload_change) = grep {$_->{comment} =~ /^new image 1 /} @{$changes_ref};
+	ok($api_upload_change, 'found upload change entry');
+	like(
+		$api_upload_change->{comment},
+		qr/slovenščina API upload/,
+		'upload change comment contains decoded UTF-8 comment'
+	);
+};
 
 done_testing();

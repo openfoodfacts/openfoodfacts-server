@@ -50,6 +50,8 @@ my $previous_code = normalize_code(single_param('previous_code'));
 my $previous_imgid = single_param('previous_imgid');
 my $imagefield = single_param('imagefield');
 my $delete = single_param('delete');
+my $comment = single_param('comment') // single_param('photo_comment');
+defined $comment and $comment = decode utf8 => $comment;
 
 local $log->context->{upload_session} = int(rand(100000000));
 
@@ -101,6 +103,7 @@ my $response_ref = import_product_image_file(
 		previous_code => $previous_code,
 		previous_imgid => $previous_imgid,
 		source => single_param('source'),
+		comment => $comment,
 	}
 );
 
