@@ -2,8 +2,8 @@
 
 Everything you need to know about Open Food Facts API.
 
-> [!CAUTION]
-> Are you going to use our API? Please **read this documentation <ins>entirely</ins>** before using it.
+!!! danger "Please read this"
+    Are you going to use our API? Please **read this documentation <ins>entirely</ins>** before using it.
 
 ## Overview
 
