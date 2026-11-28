@@ -1291,9 +1291,10 @@ sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options
 
 	# Create paneld for donations
 
-	create_panel_from_json_template("donated_products_fr_geev",
-		"api/knowledge-panels/secondhand/donated_products_fr_geev.tt.json",
-		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	# The Geev panel is disabled: Geev no longer supports deeplinks (#12133). Kept to be repurposed for other donation websites.
+	# create_panel_from_json_template("donated_products_fr_geev",
+	# 	"api/knowledge-panels/secondhand/donated_products_fr_geev.tt.json",
+	# 	$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	create_panel_from_json_template("donated_products", "api/knowledge-panels/secondhand/donated_products.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
