@@ -368,6 +368,17 @@ sub create_additives_panel ($product_ref, $target_lc, $target_cc, $options_ref, 
 				$additive_panel_data_ref->{additive_description} = $additive_description;
 			}
 
+			my $classes = get_inherited_property("additives", $additive, "additives_classes:en");
+			if (defined $classes) {
+				$additive_panel_data_ref->{classes} = [];
+				foreach my $class (split(/\s*,\s*/, $classes)) {
+					my $class_ref = {id => $class};
+					add_taxonomy_properties_in_target_languages_to_object($class_ref, "additives_classes", $class,
+						["description"], $target_lcs_ref);
+					push(@{$additive_panel_data_ref->{classes}}, $class_ref);
+				}
+			}
+
 			$additive_panel_data_ref->{anses_additive_of_interest} = 1
 				if (get_property("additives", $additive, "anses_additives_of_interest:en") // "") eq "yes";
 

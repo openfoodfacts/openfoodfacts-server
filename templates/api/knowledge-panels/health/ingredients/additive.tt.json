@@ -27,6 +27,19 @@
             }
         },
         [% END %]
+        [% IF panel.classes -%]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `<p><strong>[% lang('additives_classes') %]</strong>[% sep %]:</p>
+<ul>
+[%- FOREACH class IN panel.classes %]
+<li><strong>[% display_taxonomy_tag_name('additives_classes', class.id) %]</strong>[% IF class.description %][% sep %]: [% class.description %][% END %]</li>
+[%- END %]
+</ul>`
+            }
+        },
+        [% END %]
         [% IF panel.anses_additive_of_interest -%]
         {
             "element_type": "text",
