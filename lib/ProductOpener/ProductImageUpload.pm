@@ -227,9 +227,11 @@ sub import_product_image_file ($args_ref) {
 		$log->warn("no code");
 		$response_ref->{status} = 'status not ok';
 		$response_ref->{error} = lang("image_upload_error_no_barcode_specified_or_found");
+		$response_ref->{error_key} = "image_upload_error_no_barcode_specified_or_found";
 		if (not $code_specified) {
 			# for jquery.fileupload-ui.js
 			$response_ref->{files}[0]{error} = $response_ref->{error};
+			$response_ref->{files}[0]{error_key} = $response_ref->{error_key};
 		}
 		return $response_ref;
 	}
@@ -335,9 +337,18 @@ sub import_product_image_file ($args_ref) {
 		$response_ref->{status} = 'status not ok';
 		$response_ref->{error} = "error";
 		($imgid_returncode == -2) and $response_ref->{error} = "field imgupload_$imagefield not set";
-		($imgid_returncode == -3) and $response_ref->{error} = lang("image_upload_error_image_already_exists");
-		($imgid_returncode == -4) and $response_ref->{error} = lang("image_upload_error_image_too_small");
-		($imgid_returncode == -5) and $response_ref->{error} = lang("image_upload_error_could_not_read_image");
+		if ($imgid_returncode == -3) {
+			$response_ref->{error} = lang("image_upload_error_image_already_exists");
+			$response_ref->{error_key} = "image_upload_error_image_already_exists";
+		}
+		elsif ($imgid_returncode == -4) {
+			$response_ref->{error} = lang("image_upload_error_image_too_small");
+			$response_ref->{error_key} = "image_upload_error_image_too_small";
+		}
+		elsif ($imgid_returncode == -5) {
+			$response_ref->{error} = lang("image_upload_error_could_not_read_image");
+			$response_ref->{error_key} = "image_upload_error_could_not_read_image";
+		}
 
 		if (not $code_specified) {
 			# for jquery.fileupload-ui.js
@@ -346,6 +357,9 @@ sub import_product_image_file ($args_ref) {
 			}
 			else {
 				$response_ref->{files}[0]{error} = $response_ref->{error};
+			}
+			if (defined $response_ref->{error_key}) {
+				$response_ref->{files}[0]{error_key} = $response_ref->{error_key};
 			}
 		}
 

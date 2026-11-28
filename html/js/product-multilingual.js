@@ -377,6 +377,120 @@ const maximumRecentEntriesPerTag = 10;
         images.push(image_data);
     }
 
+    const KNOWN_BACKEND_ERROR_KEYS = {
+        image_upload_error_image_already_exists: 'This picture has already been sent.',
+        image_upload_error_image_too_small: 'The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself.',
+        image_upload_error_could_not_read_image: 'The image could not be read.',
+        image_upload_error_no_barcode_specified_or_found: 'No barcode specified or found in the image or filename.'
+    };
+
+    const LEGACY_IMGID_ERROR_KEYS = {
+        '-4': 'image_upload_error_image_too_small',
+        '-5': 'image_upload_error_could_not_read_image'
+    };
+
+    function getLangString(key, fallback) {
+        if (typeof lang === 'function') {
+            const langData = lang();
+            if (langData && langData[key]) {
+                return langData[key];
+            }
+        }
+
+        return fallback;
+    }
+
+    function resolveSafeBackendError(obj) {
+        if (!obj || typeof obj !== 'object') {
+            return null;
+        }
+
+        const errorKey = obj.error_key || (typeof obj.imgid !== 'undefined' && LEGACY_IMGID_ERROR_KEYS[String(obj.imgid)]);
+        if (errorKey && KNOWN_BACKEND_ERROR_KEYS[errorKey]) {
+            return getLangString(errorKey, KNOWN_BACKEND_ERROR_KEYS[errorKey]);
+        }
+
+        return null;
+    }
+
+    function extractServerError(jqXHR) {
+        if (jqXHR && jqXHR.responseJSON) {
+            return resolveSafeBackendError(jqXHR.responseJSON);
+        }
+
+        return null;
+    }
+
+    function getUploadFailureErrorMessage(data) {
+        if (!data || typeof data !== 'object') {
+            return getLangString('product_js_image_upload_error', 'Error while uploading image');
+        }
+
+        if (data.textStatus === 'abort') {
+            return null;
+        }
+
+        const serverError = extractServerError(data.jqXHR);
+        if (serverError) {
+            return serverError;
+        }
+
+        const jqXHR = data.jqXHR;
+        const hasStatus = jqXHR && typeof jqXHR.status === 'number';
+        const status = hasStatus ? jqXHR.status : null;
+
+        if (status === 413) {
+            return getLangString('product_js_image_upload_error_file_too_large', 'This image is too large. Please choose a smaller image.');
+        }
+
+        if (data.textStatus === 'timeout' || (hasStatus && status === 0)) {
+            return getLangString('product_js_image_upload_error_network', 'Network error while uploading the image. Please try again.');
+        }
+
+        if (typeof status === 'number' && status >= 500 && status < 600) {
+            return getLangString('product_js_image_upload_error_server', 'The image could not be uploaded due to a server error. Please try again later.');
+        }
+
+        return getLangString('product_js_image_upload_error', 'Error while uploading image');
+    }
+
+    function getUploadDoneErrorMessage(result) {
+        const safeError = resolveSafeBackendError(result);
+        if (safeError) {
+            return safeError;
+        }
+
+        return getLangString('product_js_image_upload_error', 'Error while uploading image');
+    }
+
+    function showImageUploadError(imagefield, message) {
+        if (!message) {
+            return;
+        }
+        const selector = '#imgsearcherror_' + imagefield;
+        let $errorDiv = $(selector);
+        if (!$errorDiv.length) {
+            $errorDiv = $('<div id="imgsearcherror_' + imagefield + '" data-alert class="alert-box alert" style="display:none"></div>');
+            const $msg = $('#imgsearchmsg_' + imagefield);
+            if ($msg.length) {
+                $msg.after($errorDiv);
+            } else {
+                const $progress = $('#progressbar_' + imagefield);
+                if ($progress.length) {
+                    $progress.after($errorDiv);
+                }
+            }
+        }
+        $errorDiv.empty();
+        $errorDiv.append(document.createTextNode(message));
+        $errorDiv.append(' <a href="#" class="close">&times;</a>');
+        $errorDiv.show();
+    }
+
+    function hideImageUploadError(imagefield) {
+        $('#imgsearcherror_' + imagefield).hide();
+    }
+
     function imageFieldsShow($fields) {
 
         $fields.each(function () {
@@ -422,13 +536,14 @@ const maximumRecentEntriesPerTag = 10;
                         '</div>' +
                         '<div id="imgsearchmsg_' + id + '" data-alert class="alert-box info" style="display:none">' + lang().product_js_uploading_image +
                         '<a href="#" class="close">&times;</a>' +
+                        '</div>' +
+                        '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' +
+                        escapeHtml((typeof lang === 'function' && lang().product_js_image_upload_error) || 'Error while uploading image') +
+                        '<a href="#" class="close">&times;</a>' +
                         '</div>';
 
 
                     if (typeof data_info === "undefined" || !stringStartsWith(data_info, "protect")) {
-                        html += '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' + lang().product_js_image_upload_error +
-                            '<a href="#" class="close">&times;</a>' +
-                            '</div>';
                         html += '<input type="checkbox" class="use_low_res_images" name="use_low_res_images_' + id + '" id="use_low_res_images_' + id + '">';
                         html += '<label for="use_low_res_images_' + id + '">' + lang().product_js_use_low_res_images + '</label>';
 
@@ -499,29 +614,36 @@ const maximumRecentEntriesPerTag = 10;
                         resizeMaxWidth: 2000,
                         resizeMaxHeight: 2000,
 
-
                         done: function (e, data) {
 
-                            if (data.result) {
-                                if (data.result.image) {
-                                    $("#imgsearchmsg_" + imagefield).html(lang().product_js_image_received);
-                                    $("input:hidden[name=\"" + data.imagefield + ".imgid\"]").val(data.result.image.imgid);
-                                    imageFieldsAddImage(data.result.image);
-                                    imageFieldsShow($(".select_crop"));
+                            if (data.result && data.result.image) {
+                                hideImageUploadError(imagefield);
+                                $("#imgsearchmsg_" + imagefield).html(lang().product_js_image_received);
+                                $("input:hidden[name=\"" + data.imagefield + ".imgid\"]").val(data.result.image.imgid);
+                                imageFieldsAddImage(data.result.image);
+                                imageFieldsShow($(".select_crop"));
 
-                                    $('#' + imagefield + '_' + data.result.image.imgid).addClass("ui-selected").siblings().removeClass("ui-selected");
-                                    change_image(imagefield, data.result.image.imgid);
-                                    trackMatomoEvent('product', 'image upload', imagefield);
-                                }
+                                $('#' + imagefield + '_' + data.result.image.imgid).addClass("ui-selected").siblings().removeClass("ui-selected");
+                                change_image(imagefield, data.result.image.imgid);
+                                trackMatomoEvent('product', 'image upload', imagefield);
+                            } else {
+                                const message = getUploadDoneErrorMessage(data.result);
+                                showImageUploadError(imagefield, message);
 
-                                if (data.result.error) {
-                                    $("#imgsearcherror_" + imagefield).html(data.result.error);
-                                    $("#imgsearcherror_" + imagefield).show();
+                                if (data.result && data.result.error_key === 'image_upload_error_image_already_exists' && data.result.imgid > 0) {
+                                    const $existingThumb = $('#' + imagefield + '_' + data.result.imgid);
+                                    if ($existingThumb.length) {
+                                        $existingThumb.addClass("ui-selected").siblings().removeClass("ui-selected");
+                                        change_image(imagefield, data.result.imgid);
+                                    }
                                 }
                             }
                         },
-                        fail: function () {
-                            $("#imgsearcherror_" + imagefield).show();
+                        fail: function (e, data) {
+                            const message = getUploadFailureErrorMessage(data);
+                            if (message) {
+                                showImageUploadError(imagefield, message);
+                            }
                         },
                         always: function () {
                             $("#progressbar_" + imagefield).hide();
@@ -536,8 +658,8 @@ const maximumRecentEntriesPerTag = 10;
                             $('.img_input').prop("disabled", false);
                         },
                         start: function () {
+                            hideImageUploadError(imagefield);
                             $("#imgsearchbutton_" + imagefield).hide();
-                            $("#imgsearcherror_" + imagefield).hide();
                             $("#imgsearchmsg_" + imagefield).html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_uploading_image).show();
                             $("#progressbar_" + imagefield).show();
                             $("#progressmeter_" + imagefield).css('width', "0%");
@@ -606,6 +728,10 @@ const maximumRecentEntriesPerTag = 10;
         setImages: imageFieldsSetImages,
         addImage: imageFieldsAddImage,
         show: imageFieldsShow,
+        getUploadFailureErrorMessage: getUploadFailureErrorMessage,
+        getUploadDoneErrorMessage: getUploadDoneErrorMessage,
+        showError: showImageUploadError,
+        hideError: hideImageUploadError
     };
 
     $('#back-btn').click(function () {
