@@ -1,0 +1,140 @@
+# Representative products dataset
+
+For each FoodEx2 term selected by the FOODTURE project (541 terms, see
+`../foodture/foodture_foodex2_to_off_categories.csv`) and each country, the most scanned complete product
+of the OFF category mapped to the term.
+
+Countries: the 32 FOODTURE countries (EU27, Norway, Switzerland, UK, Serbia, Montenegro), plus Canada and
+Iceland, which FOODTURE does not need (`foodture_country` = 0).
+
+The set changes over time: contributors add products in stores for the categories that have none, and the
+selection is run again.
+
+## Files
+
+- `selected_products.csv`: source of truth, one row per (country, FOODTURE code) that had a product.
+  `status` is `active` or `removed` (with `date_removed` and the reason). The git history shows how the set evolved.
+- `update_selected_products.py`: updates `selected_products.csv` from a new `representative_products.csv`,
+  and writes `added_codes.txt` and `removed_codes.txt`.
+
+## Marking the products in OFF: the `representative-products` team
+
+The products of the set have the team `representative-products` in `teams_tags`. It can be queried in
+MongoDB (`teams_tags=representative-products`) and browsed at https://world.openfoodfacts.org/team/representative-products
+
+No human user must have this team in their profile: a team is added to every product that a member edits.
+Contributors of the in-store campaign use another team, `representative-products-contributors`.
+
+The first FOODTURE selection stays marked with `editors_tags=foodture`.
+
+### The `foodture-2026` team: products selected by the in-store campaign
+
+`list_campaign_needed_categories.pl` (run every day) writes the codes of the selected products (the most scanned
+complete product of each needed category and country, in the FOODTURE countries and in Iceland and Canada) that do not
+have the `foodture-2026` team yet to `foodture_selected_products_without_team.txt`, next to `foodture_campaign.json`
+(https://static.openfoodfacts.org/data/foodture/foodture_selected_products_without_team.txt). To add the team,
+and recompute the product data (ingredients analysis etc.) at the same time:
+
+```bash
+./scripts/update_all_products.pl --query-codes-from-file $OFF_PUBLIC_DATA_DIR/foodture/foodture_selected_products_without_team.txt \
+  --analyze-and-enrich-product-data --user-id foodture-2026 --team foodture-2026 --force-new-version \
+  --comment "FOODTURE campaign: selected product"
+```
+
+The products can then be reprocessed with `--query teams_tags=foodture-2026`. Products stay in the team when another
+product is selected later for their category. The `--team` option sets the bot user's team, as for
+`representative-products` (see the notes below); the codes are listed again until the next daily run.
+
+## In-store campaign: categories needed in each country
+
+FOODTURE does not need every term in every country. The countries needed for each term come from the ACTIA workbook
+(tab `Food_product_to_model`, L7s with Yes or Maybe in the "Is_needed_a_recipe ? Mano" column of `Is_needed_a_recipe`;
+"EU27+N" = all 32 FOODTURE countries). The workbook is not in the repo, so the result is committed:
+
+```bash
+# needs openpyxl; writes projects/foodture/foodture_needed_term_countries.csv (2,750 term x country pairs)
+# and projects/foodture/foodture_needed_countries_per_term.csv
+python3 projects/foodture/generate_needed_term_countries.py actia.xlsx
+```
+
+The same script writes `projects/foodture/representative_dataset_other_countries.csv` for the 2 dataset countries that
+FOODTURE does not need: Iceland gets the terms needed in at least 2 of the 4 Nordic FOODTURE countries (87 terms),
+Canada the terms needed in at least 9 of the 32 FOODTURE countries (88 terms). The thresholds are options of the script.
+
+`projects/foodture/list_campaign_needed_categories.pl` lists, for each needed pair, the most scanned complete product of the
+category in the country (same ranking as `select_representative_products.pl`), and the numbers of products, complete
+products and incomplete products with photos, with a status: OK, INCOMPLETE (incomplete products only) or MISSING.
+`--all-pairs` adds the pairs that FOODTURE does not need (other terms, Canada, Iceland) with `foodture_needed` = 0.
+Fallback categories are not used: the `fallback_category` column is empty, for the end of the campaign.
+
+It writes `foodture_campaign.csv` and `foodture_campaign.json`. `projects/foodture/build_campaign_site.pl` makes the
+web pages from the JSON file: `index.html` (summary per country, sortable; `index.html?country=at` opens the Austria page),
+one page per country (`at.html`, `be.html`... country subdomain codes) and `all.html`. Next to each category, an ⓘ
+shows the FoodEx2 description (scope note of the EFSA MTX catalogue) from `projects/foodture/foodture_foodex2_scope_notes.csv`
+(regenerate it with `export_foodex2_scope_notes.py <mtx_terms.json>` when the mapping changes). It also writes:
+- `data.js`, in the format of the Scan Champion and Data Detective mini-sites
+  (https://github.com/openfoodfacts/smooth-app_assets): they can load it from
+  https://static.openfoodfacts.org/data/foodture/data.js instead of their own copy.
+  Their progress is computed against `scan_champion_baseline.json`, created on the first run and then kept.
+- `foodture_ingredients_by_country.csv` (% of known ingredients in the selected products of each country) and
+  `foodture_unknown_ingredients.csv`, for the Taxonomy Wiz mission (it replaces the Taxonomy Wiz spreadsheet: each
+  country page has its instructions, the products with the most unknown ingredients and the unknown ingredients in the
+  most products). An ingredient is known if it is in the current ingredients taxonomy. FOODTURE needs at least 95% of
+  the estimated quantity of the ingredients recognized to compute the environmental impact of a product: the number of
+  selected products that reach it is shown for each country.
+- `foodture_history.csv`: the metrics of each country for each day (updated for the same date if the script runs again),
+  used for the progress charts of the pages. Like the baseline file, it is kept in the output directory.
+
+The partners of each country (organizations that relay the campaign) are listed in `projects/foodture/partners.json`
+(keys are the country page codes: `be`, `ch`...), with their logos in `projects/foodture/assets/partner_logos/`
+(official logos from the partners' websites), copied to `partner_logos/` in the output directory.
+
+Both run every day in `scripts/gen_feeds_daily.sh`, after the JSONL export, and write to
+https://static.openfoodfacts.org/data/foodture/
+
+```bash
+./projects/foodture/list_campaign_needed_categories.pl --jsonl openfoodfacts-products.jsonl.gz --output-dir /tmp/foodture
+./projects/foodture/build_campaign_site.pl --json /tmp/foodture/foodture_campaign.json --output-dir /tmp/foodture
+```
+
+## Pipeline
+
+All commands run on the production server, from the Product Opener directory
+(scans are read from the `scans.json` files of the products).
+
+```bash
+# 1. ranking (categories are recomputed with the current taxonomy)
+#    also ranks incomplete products that have photos (ingredients + nutrition photos selected, or 3+ photos)
+./projects/foodture/select_representative_products.pl --jsonl openfoodfacts-products.jsonl.gz --years 2025,2026 \
+  --output projects/foodture/ranked_products.csv \
+  --incomplete-output projects/foodture/ranked_incomplete_products.csv
+
+# 2. extraction with the FoodEx2 -> OFF mapping
+#    missing_products.csv: country / category pairs without a complete product, with up to 3 incomplete
+#    products that contributors could complete from their photos (for the in-store campaign)
+./projects/foodture/extract_data_for_representative_products.pl --ranked-file projects/foodture/ranked_products.csv \
+  --incomplete-ranked-file projects/foodture/ranked_incomplete_products.csv \
+  --output projects/foodture/representative_products.csv --ingredients-output projects/foodture/ingredients_sum.csv \
+  --missing-output projects/foodture/missing_products.csv
+
+# 3. update the versioned list (then commit selected_products.csv)
+python3 projects/representative_products/update_selected_products.py projects/foodture/representative_products.csv
+
+# 4. add the team to the new products
+./scripts/update_all_products.pl --query-codes-from-file projects/representative_products/added_codes.txt \
+  --fields teams --user-id representative-products --team representative-products --force-new-version \
+  --comment "representative products dataset: added"
+
+# 5. remove the team from the products that left the set
+./scripts/update_all_products.pl --query-codes-from-file projects/representative_products/removed_codes.txt \
+  --remove-team representative-products --user-id representative-products \
+  --comment "representative products dataset: removed"
+```
+
+Notes:
+- `--fields teams` is needed in step 4: without a field or another action, `update_all_products.pl` stops with
+  "Missing fields to update". With `--user-id` and `--force-new-version`, `store_product` runs and adds the
+  `--team` of the user to `teams_tags`. The bot user also lands in `editors_tags`.
+- In step 5, the query is the codes of the file *and* `teams_tags=representative-products`.
+- `--query-codes-from-file` only keeps codes made of digits.
+- Try each command with `--pretend` on a few codes first.

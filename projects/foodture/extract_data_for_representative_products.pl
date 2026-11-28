@@ -37,18 +37,27 @@ use Text::CSV_XS;
 use Getopt::Long;
 
 # This script:
-# - reads a list of categories (and other columns) from projects/foodture/foodture_foodex2_categories_mapping_to_off.csv
+# - reads the FoodEx2 terms selected by FOODTURE and their OFF category from projects/foodture/foodture_foodex2_to_off_categories.csv
+# (exported from foodture_foodex2_l7_to_off_mapping.xlsx with foodex2_mapping/export_mapping_csv.py),
+# or, with --old-mapping, the ACTIA mapping (projects/foodture/foodture_foodex2_categories_mapping_to_off.csv)
+# with display names of OFF categories in the "Segmentation OFF" column
 # - reads a list of most scanned products by country and category from projects/foodture/ranked_products_202602231414.csv
 # (from off-query) or from the file given with --ranked-file (made by select_representative_products.pl)
 # - for each product matching a category from the first list and 1 country from the EU27
-# + Norway, Switzerland, UK, Serbia and Montenegro),
+# + Norway, Switzerland, UK, Serbia and Montenegro (FOODTURE countries), and Canada and Iceland
+# (countries of the representative products dataset that FOODTURE does not need: foodture_country = 0),
 # we fetch its data directly from the products folder
 # - we then extract / process the needed data to output a new CSV file containing representative products
+# - with --incomplete-ranked-file (made by select_representative_products.pl --incomplete-output),
+# we also output the country / category pairs without a complete product (--missing-output),
+# with the most scanned incomplete products that have photos, so that contributors can complete them
 
+# same countries as select_representative_products.pl
 my @countries = qw/
 	Austria
 	Belgium
 	Bulgaria
+	Canada
 	Croatia
 	Cyprus
 	Czechia
@@ -59,6 +68,7 @@ my @countries = qw/
 	Germany
 	Greece
 	Hungary
+	Iceland
 	Ireland
 	Italy
 	Latvia
@@ -86,19 +96,37 @@ my %countries_names = map {
 } @countries;
 my @countries_tags = sort keys %countries_names;
 
+# countries of the representative products dataset that are not needed for FOODTURE
+my %not_foodture_countries = map {canonicalize_taxonomy_tag('en', 'countries', $_) => 1} qw/Canada Iceland/;
+
 my $ranked_file = "projects/foodture/ranked_products_202602231414.csv";
 my $out_file = "projects/foodture/representative_products.csv";
 my $ingredients_file = "projects/foodture/ingredients_sum.csv";
 my $only_output_codes = 0;
+my $mapping_file;
+my $old_mapping = 0;
+my $incomplete_ranked_file;
+my $missing_file = "projects/foodture/missing_products.csv";
+my $max_incomplete = 3;
 
 GetOptions(
 	"ranked-file=s" => \$ranked_file,
 	"output=s" => \$out_file,
 	"ingredients-output=s" => \$ingredients_file,
 	"only-output-codes" => \$only_output_codes,
+	"mapping-file=s" => \$mapping_file,
+	"old-mapping" => \$old_mapping,
+	"incomplete-ranked-file=s" => \$incomplete_ranked_file,
+	"missing-output=s" => \$missing_file,
 	)
 	or die
-	"Usage: $0 [--ranked-file <file.csv>] [--output <file.csv>] [--ingredients-output <file.csv>] [--only-output-codes]\n";
+	"Usage: $0 [--ranked-file <file.csv>] [--output <file.csv>] [--ingredients-output <file.csv>] [--only-output-codes]\n"
+	. "\t[--mapping-file <file.csv>] [--old-mapping] [--incomplete-ranked-file <file.csv>] [--missing-output <file.csv>]\n";
+
+$mapping_file
+	//= $old_mapping
+	? "projects/foodture/foodture_foodex2_categories_mapping_to_off.csv"
+	: "projects/foodture/foodture_foodex2_to_off_categories.csv";
 
 # Years of scans to output
 my @scan_years = (2021 .. 2026);
@@ -234,11 +262,61 @@ while (my $row = $parser->getline($RANK)) {
 }
 close $RANK;
 
-# read target country/category pairs and output rows as we go
-print STDERR "Reading target country/category pairs...\n";
-my $list_file = "projects/foodture/foodture_foodex2_categories_mapping_to_off.csv";
-open my $LIST, '<:encoding(UTF-8)', $list_file or die "Cannot open $list_file: $!\n";
-<$LIST>;    # skip header
+# incomplete products with photos, by country and category
+my %incomplete_ranked = ();    # $incomplete_ranked{ctag}{cat_tag} = [rows of the file, by rank]
+my %incomplete_count = ();    # number of incomplete products with photos
+if (defined $incomplete_ranked_file) {
+	print STDERR "Reading incomplete products from $incomplete_ranked_file...\n";
+	open my $INCOMPLETE, '<:encoding(UTF-8)', $incomplete_ranked_file
+		or die "Cannot open $incomplete_ranked_file: $!\n";
+	my $incomplete_csv = Text::CSV->new({binary => 1, auto_diag => 1});
+	$incomplete_csv->column_names($incomplete_csv->getline($INCOMPLETE));
+	while (my $row_ref = $incomplete_csv->getline_hr($INCOMPLETE)) {
+		my ($country_tag) = recanonicalize_tag('countries', $row_ref->{country});
+		my ($category_tag) = recanonicalize_tag('categories', $row_ref->{category});
+		push @{$incomplete_ranked{$country_tag}{$category_tag}}, $row_ref;
+		$incomplete_count{$country_tag}{$category_tag} //= $row_ref->{incomplete_products};
+	}
+	close $INCOMPLETE;
+}
+
+# read the target categories:
+# [L1, L2, L7 name, OFF category name, OFF category tag, exists in taxonomy, batch 1 / needs recipe,
+#  FOODTURE code, FoodEx2 code, FoodEx2 name, mapping status]
+print STDERR "Reading target categories from $mapping_file...\n";
+my @targets = ();
+open my $LIST, '<:encoding(UTF-8)', $mapping_file or die "Cannot open $mapping_file: $!\n";
+if ($old_mapping) {
+	<$LIST>;    # skip header
+	while (<$LIST>) {
+		chomp;
+		my ($l1, $l2, $l7, $segmentation, $batch1) = split /\t/, $_, 5;
+		my $last_category = $segmentation;
+		$last_category =~ s/.*>//;
+		$last_category =~ s/^\s+|\s+$//g;
+		my ($category_tag, $exists_in_taxonomy) = canonicalize_category_name($last_category);
+		push @targets, [$l1, $l2, $l7, $segmentation, $category_tag, $exists_in_taxonomy, $batch1, '', '', '', ''];
+	}
+}
+else {
+	my $mapping_csv = Text::CSV->new({binary => 1, auto_diag => 1});
+	$mapping_csv->column_names($mapping_csv->getline($LIST));
+	while (my $mapping_ref = $mapping_csv->getline_hr($LIST)) {
+		# the OFF category is a tag: canonicalize it, in case it was renamed in the taxonomy
+		my ($category_tag, $exists_in_taxonomy) = recanonicalize_tag('categories', $mapping_ref->{off_category});
+		push @targets,
+			[
+			$mapping_ref->{l1}, $mapping_ref->{l2},
+			$mapping_ref->{foodture_name}, display_taxonomy_tag('en', 'categories', $category_tag),
+			$category_tag, $exists_in_taxonomy,
+			$mapping_ref->{needs_recipe}, $mapping_ref->{foodture_code},
+			$mapping_ref->{foodex2_code}, $mapping_ref->{foodex2_name},
+			$mapping_ref->{status}
+			];
+	}
+}
+close $LIST;
+print STDERR scalar(@targets) . " target categories\n";
 
 # prepare output file
 open my $OUT, '>:encoding(UTF-8)', $out_file or die "Cannot write $out_file: $!\n";
@@ -247,18 +325,22 @@ my $csv_out = Text::CSV->new({binary => 1, eol => "\n"})
 my @hdr = (
 	"L1", "L2",
 	"Food Product L7", "Segmentation OFF",
-	"off_category_id", "Batch 1?",
+	"off_category_id", ($old_mapping ? "Batch 1?" : "needs_recipe"),
+	"foodture_code", "foodex2_code",
+	"foodex2_name", "mapping_status",
 	"Country", "off_country_id",
-	"category_exists_in_taxonomy", "agribalyse_code",
-	"agribalyse_proxy_code", "recent_scans",
-	"url", "api_url",
-	"code", "product_name",
-	"brands", "quantity",
-	"product_quantity", "product_quantity_unit",
-	"lang", "ingredients_lc",
-	"ingredients_text", (map {"ingredients_text_$_"} @ingredient_languages),
-	"image_url", "image_ingredients_url",
-	"image_nutrition_url", "image_packaging_url"
+	"foodture_country", "category_exists_in_taxonomy",
+	"agribalyse_code", "agribalyse_proxy_code",
+	"recent_scans", "url",
+	"api_url", "code",
+	"product_name", "product_name_en",
+	"product_name_fr", "brands",
+	"quantity", "product_quantity",
+	"product_quantity_unit", "lang",
+	"ingredients_lc", "ingredients_text",
+	(map {"ingredients_text_$_"} @ingredient_languages), "image_url",
+	"image_ingredients_url", "image_nutrition_url",
+	"image_packaging_url"
 );
 
 # ingredient columns (top 10 ingredients by quantity)
@@ -303,25 +385,58 @@ push @hdr, "complete";
 
 $csv_out->print($OUT, \@hdr);
 
+# country / category pairs without a complete product
+my $MISSING;
+my @incomplete_fields = qw/code name url scans photos ingredients_photo_selected nutrition_photo_selected missing/;
+if (defined $incomplete_ranked_file) {
+	open $MISSING, '>:encoding(UTF-8)', $missing_file or die "Cannot write $missing_file: $!\n";
+	$csv_out->print(
+		$MISSING,
+		[
+			@hdr[0 .. 15],
+			"incomplete_products_with_photos",
+			map {
+				my $i = $_;
+				map {"incomplete_${i}_$_"} @incomplete_fields
+			} (1 .. $max_incomplete)
+		]
+	);
+}
+my %missing_counts = ();
+
 # iterate through each country/category in list
 my $n = 0;
 my $total_products = 0;    # number of products with actual data (used for avg_percent)
-while (<$LIST>) {
-	chomp;
+foreach my $target_ref (@targets) {
 
-	my ($l1, $l2, $l7, $segmentation, $batch1) = split /\t/, $_, 5;
-	# print STDERR "Processing category: $l1 / $l2 / $l7 / $segmentation ($batch1)...\n";
+	my (
+		$l1, $l2, $l7, $segmentation,
+		$category_tag, $exists_in_taxonomy, $batch1, $foodture_code,
+		$foodex2_code, $foodex2_name, $mapping_status
+	) = @$target_ref;
 
-	# Skip hidden lines without segmentation
-	# next if (not defined $segmentation) or ($segmentation eq '') or ($segmentation =~ /N\/D/i);
-
-	my $last_category = $segmentation;
-	$last_category =~ s/.*>//;
-	$last_category =~ s/^\s+|\s+$//g;
-	my ($category_tag, $exists_in_taxonomy) = canonicalize_category_name($last_category);
+	# Agribalyse code and proxy of categories without a ranked product
+	if (not exists $categories_agb{$category_tag}) {
+		$categories_agb{$category_tag} = get_inherited_property("categories", $category_tag, "agribalyse_food_code:en");
+		if (not defined $categories_agb{$category_tag}) {
+			$categories_agb_proxy{$category_tag}
+				= get_inherited_property("categories", $category_tag, "agribalyse_proxy_food_code:en");
+		}
+	}
 
 	# Loop on countries
 	foreach my $country_tag (@countries_tags) {
+
+		my @target_columns = (
+			$l1, $l2,
+			$l7, $segmentation,
+			$category_tag, $batch1,
+			$foodture_code, $foodex2_code,
+			$foodex2_name, $mapping_status,
+			$countries_names{$country_tag} // '', $country_tag,
+			$not_foodture_countries{$country_tag} ? 0 : 1, $exists_in_taxonomy || 0,
+			$categories_agb{$category_tag} || '', $categories_agb_proxy{$category_tag} || ''
+		);
 
 		# print STDERR
 		#	"Processing country: $country_tag / $last_category ($category_tag (known: $exists_in_taxonomy))...\n";
@@ -373,14 +488,10 @@ while (<$LIST>) {
 			my $img_pack = $product_ref->{image_packaging_url} // '';
 
 			my @row = (
-				$l1, $l2,
-				$l7, $segmentation,
-				$category_tag, $batch1,
-				$countries_names{$country_tag} // '', $country_tag,
-				$exists_in_taxonomy || 0, $categories_agb{$category_tag} || '',
-				$categories_agb_proxy{$category_tag} || '', $recent_scans,
+				@target_columns, $recent_scans,
 				$url, $api_url,
 				$code, $name,
+				$product_ref->{product_name_en} // '', $product_ref->{product_name_fr} // '',
 				$brands, $product_ref->{quantity} // '',
 				$product_ref->{product_quantity} // '', $product_ref->{product_quantity_unit} // '',
 				$lang, $ingredients_lc,
@@ -508,23 +619,42 @@ while (<$LIST>) {
 		else {
 			# no product matched this country/category – output identifiers anyway
 			# next;    # for testing, don't output blank rows
-			my @row = (
-				$l1, $l2,
-				$l7, $segmentation,
-				$category_tag, $batch1,
-				$countries_names{$country_tag} // '', $country_tag,
-				$exists_in_taxonomy || 0, $categories_agb{$category_tag} || '',
-				$categories_agb_proxy{$category_tag} || ''
-			);
+			my @row = @target_columns;
 			push @row, ('') x (scalar(@hdr) - scalar(@row));
 			$csv_out->print($OUT, \@row);
+
+			if (defined $MISSING) {
+				my @candidates = @{$incomplete_ranked{$country_tag}{$category_tag} // []};
+				splice(@candidates, $max_incomplete) if @candidates > $max_incomplete;
+				my @missing_row = (@target_columns, $incomplete_count{$country_tag}{$category_tag} // 0);
+				foreach my $candidate_ref (@candidates) {
+					push @missing_row, map {
+						$_ eq 'url'
+							? "https://world.openfoodfacts.org" . product_url($candidate_ref->{code})
+							: $candidate_ref->{$_}
+					} @incomplete_fields;
+				}
+				$csv_out->print($MISSING, \@missing_row);
+				my $type = $not_foodture_countries{$country_tag} ? "dataset only" : "FOODTURE";
+				$missing_counts{$type}{@candidates ? "with incomplete products" : "without"}++;
+			}
 		}
 		$n++;
 		#$n > 600 and last;    # for testing, limit to 100 lines
 	}
 }
-close $LIST;
 close $OUT;
+if (defined $MISSING) {
+	close $MISSING;
+	print STDERR "Missing country / category pairs written to $missing_file: " . join(
+		"; ",
+		map {
+			my $type = $_;
+			"$type: " . join(", ", map {"$missing_counts{$type}{$_} $_"} sort keys %{$missing_counts{$type}})
+			}
+			sort keys %missing_counts
+	) . "\n";
+}
 
 # Create a second CSV table that lists all ingredients with the sum of their percentages across all products
 open my $ING_OUT, '>:encoding(UTF-8)', $ingredients_file or die "Cannot write $ingredients_file: $!\n";
