@@ -1,5 +1,46 @@
 # Changelog
 
+## [2.128.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.127.0...v2.128.0) (2026-11-28)
+
+
+### Features
+
+* **nutriscore:** explain category-based non-calculation ([#15194](https://github.com/openfoodfacts/openfoodfacts-server/issues/15194)) ([c8a850f](https://github.com/openfoodfacts/openfoodfacts-server/commit/c8a850f2aa4ac1b9d90fb68b225358826ead84eb))
+
+
+### Bug Fixes
+
+* focus tag inputs when clicking label or border ([#15133](https://github.com/openfoodfacts/openfoodfacts-server/issues/15133)) ([2d55ca3](https://github.com/openfoodfacts/openfoodfacts-server/commit/2d55ca3ca4701f90ad902aeff5c902846db40042))
+* remove unreachable store_product failure branch ([#15561](https://github.com/openfoodfacts/openfoodfacts-server/issues/15561)) ([e1221e4](https://github.com/openfoodfacts/openfoodfacts-server/commit/e1221e4a8369005da71e7a8f756e6a9e247c9d78))
+* **taxonomy:** add Spanish synonyms for sodium isoascorbate ([#15616](https://github.com/openfoodfacts/openfoodfacts-server/issues/15616)) ([c17e5d2](https://github.com/openfoodfacts/openfoodfacts-server/commit/c17e5d274668334cb0df59c0ae0069642674b169))
+* validate selected parameter in API v3 image upload ([#15553](https://github.com/openfoodfacts/openfoodfacts-server/issues/15553)) ([33479fe](https://github.com/openfoodfacts/openfoodfacts-server/commit/33479feda7c3acd773b392900b72693a6e121975))
+
+
+### Taxonomy
+
+* **additives:** E-number first on Serbian additive lines ([#15572](https://github.com/openfoodfacts/openfoodfacts-server/issues/15572)) ([54b074c](https://github.com/openfoodfacts/openfoodfacts-server/commit/54b074cc40e2962d65bf847baf7f74fa183b594c))
+* **brands:** 18 breakfast cereal & dessert brands ([#15607](https://github.com/openfoodfacts/openfoodfacts-server/issues/15607)) ([1b6eec1](https://github.com/openfoodfacts/openfoodfacts-server/commit/1b6eec152e979f8a7657a4d8693dc79b01b471f3))
+* **brands:** 25 confectionery brands ([#15605](https://github.com/openfoodfacts/openfoodfacts-server/issues/15605)) ([fab5668](https://github.com/openfoodfacts/openfoodfacts-server/commit/fab56682abe8e2a3d74d5ec940405654423ed507))
+* **brands:** 38 sweet spread, jam, honey & sugar brands ([#15606](https://github.com/openfoodfacts/openfoodfacts-server/issues/15606)) ([869e145](https://github.com/openfoodfacts/openfoodfacts-server/commit/869e145dcaa65a376b5896f1b4820c096758e454))
+* **brands:** 52 biscuit & cake brands ([#15603](https://github.com/openfoodfacts/openfoodfacts-server/issues/15603)) ([0a21af3](https://github.com/openfoodfacts/openfoodfacts-server/commit/0a21af32fed5632f16e856307464b993b6d04a4f))
+* **brands:** 55 chocolate & cereal bar brands ([#15604](https://github.com/openfoodfacts/openfoodfacts-server/issues/15604)) ([8793913](https://github.com/openfoodfacts/openfoodfacts-server/commit/8793913fe9cb7814bfff1eb52024f6e738182883))
+* Dutch translation ingredients ([#15567](https://github.com/openfoodfacts/openfoodfacts-server/issues/15567)) ([d36dada](https://github.com/openfoodfacts/openfoodfacts-server/commit/d36dada4adbf0294e5912f957cdb627134a88eb9))
+* **food:** add more general flake categories ([#15565](https://github.com/openfoodfacts/openfoodfacts-server/issues/15565)) ([75321ec](https://github.com/openfoodfacts/openfoodfacts-server/commit/75321ecb88f31b78f0e34133d6e05df8aa9d4655))
+* **food:** edits for Sensational Burger ([#15575](https://github.com/openfoodfacts/openfoodfacts-server/issues/15575)) ([e69bb65](https://github.com/openfoodfacts/openfoodfacts-server/commit/e69bb650fcb48872668f948011d9cd18ba7c80b4))
+* Foodture dutch translations ([#15591](https://github.com/openfoodfacts/openfoodfacts-server/issues/15591)) ([d5c08a5](https://github.com/openfoodfacts/openfoodfacts-server/commit/d5c08a5e4c1a618f95f70e6c615c9d62d2a9708a))
+* foodture translations ([#15555](https://github.com/openfoodfacts/openfoodfacts-server/issues/15555)) ([b700081](https://github.com/openfoodfacts/openfoodfacts-server/commit/b7000816797d9f029254b5e93d8b6b6a8fd3a2d4))
+* **ingredients:** Finnish review follow-up to [#15547](https://github.com/openfoodfacts/openfoodfacts-server/issues/15547) ([#15574](https://github.com/openfoodfacts/openfoodfacts-server/issues/15574)) ([0d57c88](https://github.com/openfoodfacts/openfoodfacts-server/commit/0d57c883e16f796b90f2967efe21573421f3e875))
+* **ingredients:** Lithuanian synonyms, oil and fat lists and "may contain" sentences ([#15589](https://github.com/openfoodfacts/openfoodfacts-server/issues/15589)) ([6aba118](https://github.com/openfoodfacts/openfoodfacts-server/commit/6aba118c3944135fb546d08004e063a2ef97107e))
+* **ingredients:** Russian synonyms for frequent unknown ingredients ([#15545](https://github.com/openfoodfacts/openfoodfacts-server/issues/15545)) ([7905e2f](https://github.com/openfoodfacts/openfoodfacts-server/commit/7905e2ff40672d19d952f2781934d0b3498362d6))
+* **ingredients:** Serbian synonyms round 2 and min./max. quantity statements ([#15583](https://github.com/openfoodfacts/openfoodfacts-server/issues/15583)) ([a4110e7](https://github.com/openfoodfacts/openfoodfacts-server/commit/a4110e74956a7102864cbb85721f27ffd9247eea))
+* **ingredients:** Slovenian processing words, onion fix, remaining unknown ingredients and category names ([#15587](https://github.com/openfoodfacts/openfoodfacts-server/issues/15587)) ([4926087](https://github.com/openfoodfacts/openfoodfacts-server/commit/4926087bb700efb19cff17ecfe6d84cc476688c5))
+* Update E261 entry for potassium acetate ([#15568](https://github.com/openfoodfacts/openfoodfacts-server/issues/15568)) ([af86434](https://github.com/openfoodfacts/openfoodfacts-server/commit/af86434b04e70a6cf112d88a79f9df71b50fff82))
+
+
+### Technical
+
+* document compute_product_history_and_completeness ([#15584](https://github.com/openfoodfacts/openfoodfacts-server/issues/15584)) ([01bab4c](https://github.com/openfoodfacts/openfoodfacts-server/commit/01bab4cb54680e89c34203fb22cc3fc99d51ea62))
+
 ## [2.127.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.126.0...v2.127.0) (2026-11-25)
 
 
