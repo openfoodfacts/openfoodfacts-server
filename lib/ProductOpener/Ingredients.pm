@@ -2910,7 +2910,20 @@ Text to analyze
 				$last_separator = $sep;
 			}
 
-			if ($after =~ compiled_regexp('^' . $percent_or_quantity_regexp . '(' . $separators . '|$)')) {
+			# a percent after an allergen or a label in brackets applies to the parent ingredient
+			# e.g. "butter (milk) 34%" or "butter (milk) (34%)"
+			my $bracketed_percent_regexp
+				= compiled_regexp('^\s*\(?\s*' . $percent_or_quantity_regexp . '\s*\)?(' . $separators . '|$)');
+			if (    ($between eq '')
+				and ($sep =~ /^[(\[{\N{U+FF08}]$/)
+				and (not defined $percent_or_quantity_value)
+				and ($after =~ $bracketed_percent_regexp))
+			{
+				$percent_or_quantity_value = convert_text_value_to_number($ingredients_lc, $1);
+				$percent_or_quantity_unit = $2;
+				$after = $';
+			}
+			elsif ($after =~ compiled_regexp('^' . $percent_or_quantity_regexp . '(' . $separators . '|$)')) {
 				$percent_or_quantity_value = $1;
 				$percent_or_quantity_unit = $2;
 				$after = $';
