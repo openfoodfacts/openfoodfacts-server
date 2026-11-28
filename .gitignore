@@ -2,6 +2,11 @@
 lib/ProductOpener/Config2.pm
 lib/ProductOpener/SiteLang.pm
 po/site-specific
+conf/forbidden_words.txt
+conf/forbidden_words*.local.txt
+conf/forbidden_words_allowlist*.local.txt
+*.parquet
+forbidden_words_issues*.csv
 
 # tests outputs
 tests/unit/outputs/

@@ -205,6 +205,33 @@ check_quality_and_test_product_has_quality_tag(
 	'product without a product name', 0
 );
 
+# forbidden-words checks
+check_quality_and_test_product_has_quality_tag(
+	{product_type => 'food', code => '3000000000000', product_name => 'sexe amour pipi caca bite cul gazi', lang => 'fr'},
+	'en:product-name-contains-forbidden-words',
+	'product name with forbidden words has product-name-contains-forbidden-words tag', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	{product_type => 'food', code => '3000000000000', product_name => 'sexe amour pipi caca bite cul gazi', lang => 'fr'},
+	'en:forbidden-words-warnings',
+	'product with forbidden words in name has parent forbidden-words-warnings tag', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	{product_type => 'food', code => '3000000000000', ingredients_text => 'Farine, sucre, merde, sel', lang => 'fr'},
+	'en:ingredients-contain-forbidden-words',
+	'product ingredients with forbidden words has ingredients-contain-forbidden-words tag', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	{product_type => 'food', code => '3000000000000', brands => 'Connard', lang => 'fr'},
+	'en:brands-contain-forbidden-words',
+	'product brand with forbidden words has brands-contain-forbidden-words tag', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	{product_type => 'food', code => '3000000000000', product_name => 'Chocolate Bites', lang => 'en'},
+	'en:product-name-contains-forbidden-words',
+	'legitimate product name Chocolate Bites does not have forbidden words tag', 0
+);
+
 # Products can be reclassified before being moved to the destination server.
 # Food checks require a food product and food server; common checks remain enabled.
 foreach my $private_products (0, 1) {
