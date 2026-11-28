@@ -13,8 +13,7 @@ on:
       - 'emb_codes/**'
       - 'external-data/**'
       - 'po/**'        # Translation files
-      - 'tests/integration/expected_test_results/**'
-      - 'tests/unit/expected_test_results/**'
+      - 'tests/**'       # Test files — Perl .t not analyzed by CodeQL, JS tests don't ship to prod
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [main]
@@ -28,8 +27,7 @@ on:
       - 'emb_codes/**'
       - 'external-data/**'
       - 'po/**'        # Translation files
-      - 'tests/integration/expected_test_results/**'
-      - 'tests/unit/expected_test_results/**'
+      - 'tests/**'       # Test files — Perl .t not analyzed by CodeQL, JS tests don't ship to prod
   schedule:
     - cron: '0 23 * * 4'
 

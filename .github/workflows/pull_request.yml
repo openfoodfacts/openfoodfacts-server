@@ -109,7 +109,8 @@ jobs:
       # needed to push the backend-deps image and buildx cache
       packages: write
     runs-on: ubuntu-latest
-    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
+    needs: [filter]
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
     outputs:
       deps_image: ${{ steps.registry_ref.outputs.deps_image }}
       from_artifact: ${{ steps.deps_image.outputs.exists != 'true' && steps.registry_ref.outputs.can_push != 'true' }}
@@ -253,7 +254,8 @@ jobs:
       contents: read
       packages: write
     runs-on: ubuntu-latest
-    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
+    needs: [filter]
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:

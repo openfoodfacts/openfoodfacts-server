@@ -6,6 +6,13 @@ on:
     branches:
       - main
       - deploy-*
+    # Must mirror container-build.yml: deploy waits on its checks,
+    # so both must skip docs-only changes together
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - 'mkdocs.yml'
+      - '.spectral.yaml'
 
 permissions:
   contents: read
