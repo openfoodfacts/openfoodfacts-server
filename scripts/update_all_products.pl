@@ -1634,13 +1634,21 @@ while (my $product_ref = $cursor->next) {
 					store_object("$BASE_DIRS{PRODUCTS}/$path/product", $product_ref);
 				}
 
-				# Store data to mongodb
-				my $collection = "current";
-				if ($product_ref->{obsolete}) {
-					$collection = "obsolete";
+				# Store data to mongodb only if the product belongs to this server's collection
+				my $target_server = get_server_for_product($product_ref);
+				if ((not $server_options{private_products})
+					and ($target_server ne $mongodb))
+				{
+					print STDERR ". Skipping MongoDB write (product_type belongs to $target_server)";
 				}
-				$products_collections{$collection}
-					->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				else {
+					my $collection = "current";
+					if ($product_ref->{obsolete}) {
+						$collection = "obsolete";
+					}
+					$products_collections{$collection}
+						->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				}
 
 				# If the obsolete flag of the product does not
 				# correspond to the collection we are iterating over
