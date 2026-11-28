@@ -7337,11 +7337,17 @@ my %ingredients_categories_and_types = (
 	],
 
 	cs => [
-		# oil and fat
+		# oil
 		{
-			categories => ["rostlinné oleje, rostlinné tuky"],
-			types => ["bambucký", "kokosový", "olivový", "palmový", "palmojadrový", "řepkový", "slunečnicový",],
+			categories => ["rostlinný olej", "rostlinné oleje"],
+			types => ["bambucký", "kokosový", "olivový", "palmojádrový", "palmový", "řepkový", "slunečnicový",],
 			alternate_names => ["<type> olej"],
+		},
+		# fat
+		{
+			categories => ["rostlinný tuk", "rostlinné tuky"],
+			types => ["bambucký", "kokosový", "olivový", "palmojádrový", "palmový", "řepkový", "slunečnicový",],
+			alternate_names => ["<type> tuk", "<type> olej"],
 		},
 	],
 
@@ -7892,6 +7898,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 			$text =~ s/$regexps_ref->{dash_separated_types}/$1, $2/ig;
 
 			if (   ($ingredients_lc eq "en")
+				or ($ingredients_lc eq "cs")
 				or ($ingredients_lc eq "da")
 				or ($ingredients_lc eq "de")
 				or ($ingredients_lc eq "hr")
