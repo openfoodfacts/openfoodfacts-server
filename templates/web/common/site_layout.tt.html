@@ -458,9 +458,7 @@
               <li><a class="button small white-button radius" href="[% edq(lang('footer_opf_link')) %]">[% lang('footer_opf') %]</a></li>
               <li><a class="button small white-button radius" href="[% edq(lang('footer_opff_link')) %]">[% lang('footer_opff') %]</a></li>
               <li><a class="button small white-button radius" href="[% edq(lang('footer_op_link')) %]">[% lang('footer_op') %]</a></li>
-							[% IF !options.no_producers_platform %]
-							<li><a class="button small white-button radius" href="[% producers_platform_url %]">[% edq(lang('footer_pro')) %]</a></li>
-							[% END %]
+							[% IF !options.no_producers_platform %]<li><a class="button small white-button radius" href="[% producers_platform_url %]">[% edq(lang('footer_pro')) %]</a></li>[% END %]
 						</ul>
 					</div>
 				</div>
