@@ -140,8 +140,13 @@ li.accordion-navigation.accordion-navigation-inactive:after {
 
 .open-prices-actions {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     gap: 0.75rem;
+
+    .button {
+        margin: 0;
+    }
 }
 
 .buttons_prod {
