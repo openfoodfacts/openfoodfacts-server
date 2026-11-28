@@ -8719,6 +8719,26 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 		}
 	}
 
+	# Traces statements where the "may contain" words come after the allergens
+	# e.g. Hungarian: Nyomokban földimogyorót, dióféléket és glutént tartalmazhat.
+	if ((defined $may_contain_suffix_regexps{$ingredients_lc}) and (defined $allergens_regexps{$ingredients_lc})) {
+
+		my $allergens_regexp = $allergens_regexps{$ingredients_lc};
+		my $suffix_regexp = $may_contain_suffix_regexps{$ingredients_lc};
+		my $prefix_regexp = $may_contain_regexps{$ingredients_lc} || "";
+
+		# optional "may contain" words before the list, then the allergens, then the "may contain" suffix
+		my $separators = '(?: |\/| \/ | - |,|, |' . $and . '|' . $of . '|' . $and_of . ')+';
+		my $list_regexp = '((?:(?:' . $allergens_regexp . ')' . $separators . ')*(?:' . $allergens_regexp . '))';
+		my $prefix_part_regexp = '\b(?:(?:' . $prefix_regexp . ')\s+)?';
+		my $suffix_part_regexp = '\s+(?:' . $suffix_regexp . ')\b';
+		my $suffix_traces_regexp = compiled_regexp($prefix_part_regexp . $list_regexp . $suffix_part_regexp);
+
+		$text =~ s/$suffix_traces_regexp/normalize_allergens_enumeration("traces",$ingredients_lc,"",$1,"")/eg;
+		# we may have added an extra dot in order to make sure we have at least one
+		$text =~ s/\.\./\./g;
+	}
+
 	# Try to find the signification of symbols like *
 	# Jus de pomme*** 68%, jus de poire***32% *** Ingrédients issus de l'agriculture biologique
 	# Pâte de cacao°* du Pérou 65 %, sucre de canne°*, beurre de cacao°*. °Issus de l'agriculture biologique (100 %). *Issus du commerce équitable (100 % du poids total avec 93 % SPP).

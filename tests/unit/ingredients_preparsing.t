@@ -1392,6 +1392,22 @@ my @tests = (
 		id => 'pt-vitamins-enumeration',
 		lc => 'pt',
 		ingredients_text => 'Leite, vitaminas (B1, B2, B6, C, D), vitaminas A e E'
+	},
+	# Hungarian traces: the "may contain" word comes after the allergens
+	{
+		id => 'hu-traces-stop-word-at-end-1',
+		lc => 'hu',
+		ingredients_text => 'Egyéb dióféléket és földimogyorót tartalmazhat.'
+	},
+	{
+		id => 'hu-traces-stop-word-at-end-2',
+		lc => 'hu',
+		ingredients_text => 'Nyomokban földimogyorót, dióféléket és glutént tartalmazhat.'
+	},
+	{
+		id => 'hu-traces-stop-word-at-end-3',
+		lc => 'hu',
+		ingredients_text => 'Földimogyorót, szóját, tejet, dióféléket és szezámmagot tartalmazhat.'
 	}
 );
 
