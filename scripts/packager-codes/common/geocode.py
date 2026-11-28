@@ -33,6 +33,15 @@ CACHE_DB_BASE = 'geocode_cache'
 CACHE_DB_EXTENSION = '.db'
 
 
+def get_nominatim_country_code(country_code: str) -> str:
+    """Return Nominatim-compatible country code for query filtering."""
+    country_code_lower = country_code.lower()
+    # Nominatim expects 'gb' for United Kingdom in countrycodes filters.
+    if country_code_lower == 'uk':
+        return 'gb'
+    return country_code_lower
+
+
 def build_nominatim_url(params: dict) -> str:
     """
     Build Nominatim API URL from parameters.
@@ -123,13 +132,15 @@ def convert_address_to_lat_lng(debug: bool, country_name: str, country_code: str
     city = row[3] if len(row) > 3 else ""
     postalcode = row[4] if len(row) > 4 else ""
 
+    nominatim_country_code = get_nominatim_country_code(country_code)
+
     # Build query parameters
     params = {
         'street': street,
         'city': city,
         'postalcode': postalcode,
         'country': country_name,
-        'countrycodes': country_code,
+        'countrycodes': nominatim_country_code,
         'format': 'jsonv2'
     }
 
