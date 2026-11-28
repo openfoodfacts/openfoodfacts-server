@@ -662,15 +662,6 @@ build_taxonomies_test: create_folders
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
 	${DOCKER_COMPOSE_TEST} run --quiet-pull --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}"
 
-_clean_old_external_volumes:
-# THIS IS A MIGRATION STEP, TO BE REMOVED IN THE FUTURE
-# we need to stop dockers to remove old volumes
-	( docker volume inspect ${COMPOSE_PROJECT_NAME}_{users,orgs,products,product_images} | grep /rpool/off/clones && docker compose down ) || true
-	( docker volume inspect ${COMPOSE_PROJECT_NAME}_users|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_users ) || true
-	( docker volume inspect ${COMPOSE_PROJECT_NAME}_orgs|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_orgs ) || true
-	( docker volume inspect ${COMPOSE_PROJECT_NAME}_products|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_products ) || true
-	( docker volume inspect ${COMPOSE_PROJECT_NAME}_product_images|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_product_images ) || true
-
 save_orgs_to_mongodb:
 	@echo "🥫 Saving existing orgs into MongoDB …"
 	${DOCKER_COMPOSE_BUILD} run --rm backend perl -I/opt/product-opener/lib /opt/product-opener/scripts/migrations/2024_06_save_existing_orgs_to_mongodb.pl "/mnt/podata/orgs"
@@ -697,7 +688,7 @@ build_asyncapi:
 #------------#
 # Production #
 #------------#
-create_external_volumes: _clean_old_external_volumes
+create_external_volumes:
 	@echo "🥫 Creating external volumes (production only) …"
 # zfs clones hosted on Ovh3 as NFS
 	[[ -n "${PRODUCT_OPENER_FLAVOR_SHORT}" ]] || (echo "🥫 PRODUCT_OPENER_FLAVOR_SHORT is not set, can't create external volumes" && exit 1)
