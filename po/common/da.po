@@ -1559,7 +1559,7 @@ msgstr "Tilbage"
 
 msgctxt "search_country"
 msgid "Search for a country…"
-msgstr ""
+msgstr "Søg efter et land…"
 
 msgctxt "mission_"
 msgid "Mission: "
@@ -3132,7 +3132,7 @@ msgstr "%d produkter indeholdende %s"
 
 msgctxt "additives_anses_additive_of_interest"
 msgid "The French food safety agency (ANSES) lists this additive among the additives that should be monitored. Additives on this list meet at least one of these criteria: some people may consume more than the acceptable daily intake; there is no legal maximum amount in foods; the acceptable daily intake was lowered after a recent re-evaluation; or the additive can be present as nanoparticles. Being on this list does not mean the additive is unsafe at usual levels of consumption."
-msgstr ""
+msgstr "Det franske fødevaresikkerhedsagentur (ANSES) har opført dette tilsætningsstof blandt de tilsætningsstoffer, der bør overvåges. Tilsætningsstoffer på denne liste opfylder mindst et af disse kriterier: nogle mennesker indtager muligvis mere end det acceptable daglige indtag; der er ingen lovlig maksimal mængde i fødevarer; det acceptable daglige indtag blev sænket efter en nylig revurdering; eller tilsætningsstoffet kan være til stede som nanopartikler. At være på denne liste betyder ikke, at tilsætningsstoffet er usikkert ved normale forbrugsniveauer."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
 msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
@@ -6330,7 +6330,7 @@ msgstr "Nutri-Score gælder ikke for denne produktkategori."
 # variable names between { } must not be translated
 msgctxt "f_nutriscore_not_applicable_for_category"
 msgid "Nutri-Score cannot currently be calculated for this product category: {category}."
-msgstr ""
+msgstr "Nutri-Score kan i øjeblikket ikke beregnes for denne produktkategori: {category}."
 
 msgctxt "nutriscore_missing_category"
 msgid "The category of the product must be specified in order to compute the Nutri-Score."
@@ -6662,24 +6662,24 @@ msgstr "I alt"
 
 msgctxt "environmental_cost_use"
 msgid "Use"
-msgstr ""
+msgstr "Brug"
 
 msgctxt "environmental_cost_other_stages"
 msgid "Other stages"
-msgstr ""
+msgstr "Andre faser"
 
 msgctxt "environmental_cost_calculation_title"
 msgid "How the environmental cost is calculated"
-msgstr ""
+msgstr "Sådan beregnes miljøomkostningerne"
 
 # variable names between { } must not be translated
 msgctxt "f_environmental_cost_calculation"
 msgid "Impacts: {impacts} points - Positive impact: {positive_impact} points = Environmental cost: {total} points"
-msgstr ""
+msgstr "Påvirkninger: {impacts} point - Positiv påvirkning: {positive_impact} point = Miljøomkostninger: {total} point"
 
 msgctxt "environmental_cost_impacts_by_stage"
 msgid "Where the impacts come from"
-msgstr ""
+msgstr "Hvor virkningerne kommer fra"
 
 msgctxt "environmental_cost_share"
 msgid "Share"
@@ -6687,74 +6687,74 @@ msgstr "Del"
 
 msgctxt "environmental_cost_total_impacts"
 msgid "Total impacts"
-msgstr ""
+msgstr "Samlede påvirkninger"
 
 msgctxt "environmental_cost_impacts_by_ingredient"
 msgid "Impact of each ingredient"
-msgstr ""
+msgstr "Virkningen af hver ingrediens"
 
 msgctxt "environmental_cost_impacts_by_ingredient_note"
 msgid "Production, processing and transport of each ingredient. Packaging, distribution and use are counted for the whole product."
-msgstr ""
+msgstr "Produktion, forarbejdning og transport af hver ingrediens. Emballering, distribution og brug tæller med for hele produktet."
 
 msgctxt "environmental_cost_ingredient"
 msgid "Ingredient"
-msgstr ""
+msgstr "Ingrediens"
 
 msgctxt "environmental_cost_ecobalyse_ingredient"
 msgid "Ecobalyse ingredient"
-msgstr ""
+msgstr "Ecobalyse-ingrediens"
 
 msgctxt "environmental_cost_quantity_g"
 msgid "Quantity (g)"
-msgstr ""
+msgstr "Mængde (g)"
 
 # variable names between { } must not be translated
 msgctxt "f_environmental_cost_other_ingredients"
 msgid "Other ingredients ({number})"
-msgstr ""
+msgstr "Andre ingredienser ({number})"
 
 # variable names between { } must not be translated
 msgctxt "f_environmental_cost_ingredients_mass"
 msgid "{ingredients_mass} g of ingredients before cooking, including {water_loss} g of water that evaporates during cooking (estimate), for {product_mass} g of product."
-msgstr ""
+msgstr "{ingredients_mass} g ingredienser før tilberedning, inklusive {water_loss} g vand, der fordamper under tilberedning (estimat), for {product_mass} g produkt."
 
 msgctxt "environmental_cost_ecosystem_services_title"
 msgid "Positive impact: ecosystem services"
-msgstr ""
+msgstr "Positiv effekt: økosystem tjenester"
 
 # variable names between { } must not be translated
 msgctxt "f_environmental_cost_positive_impact_points"
 msgid "-{points} points"
-msgstr ""
+msgstr "-{points} point"
 
 msgctxt "environmental_cost_ecosystem_services_description"
 msgid "Some agricultural practices are beneficial for the environment: hedges, permanent pastures, small plots, crop diversity. These benefits are deducted from the environmental cost."
-msgstr ""
+msgstr "Nogle landbrugsmetoder er gavnlige for miljøet: hække, permanente græsningsarealer, regenerativ dyrkning, små jordlodder, afgrødediversitet. Disse fordele fratrækkes miljøomkostningerne."
 
 msgctxt "environmental_cost_ecosystem_service"
 msgid "Ecosystem service"
-msgstr ""
+msgstr "Økosystem tjeneste"
 
 msgctxt "environmental_cost_complement_permanent_pasture"
 msgid "Permanent pastures"
-msgstr ""
+msgstr "Permanente græsningsarealer"
 
 msgctxt "environmental_cost_complement_hedges"
 msgid "Hedges"
-msgstr ""
+msgstr "Hække"
 
 msgctxt "environmental_cost_complement_plot_size"
 msgid "Plot size"
-msgstr ""
+msgstr "Markens størrelse"
 
 msgctxt "environmental_cost_complement_crop_diversity"
 msgid "Crop diversity"
-msgstr ""
+msgstr "Afgrødediversitet"
 
 msgctxt "environmental_cost_ecosystem_services_ingredients"
 msgid "Ingredients concerned:"
-msgstr ""
+msgstr "Berørte ingredienser:"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
