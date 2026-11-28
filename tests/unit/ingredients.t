@@ -946,6 +946,15 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "butter (milk), cheese (parmigiano reggiano)",
 		}
 	],
+	# Percent after an allergen in brackets applies to the parent ingredient
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/11812
+	[
+		"en-percent-after-allergen-in-brackets",
+		{
+			lc => "en",
+			ingredients_text => "butter (milk) 34%, sugar",
+		}
+	],
 	[
 		"fr-ingredients-in-parenthesis-that-are-in-the-allergens-taxonomy",
 		{
