@@ -675,7 +675,17 @@
    "ingredients_without_ecobalyse_ids_n" : 5,
    "knowledge_panels_en" : {
       "additive_en:e150" : {
-         "elements" : [],
+         "elements" : [
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "<a href=\"http://dx.doi.org/10.2903/j.efsa.2012.3030\">EFSA evaluation</a>",
+                  "source_language" : "en",
+                  "source_text" : "EFSA (2012)",
+                  "source_url" : "http://dx.doi.org/10.2903/j.efsa.2012.3030"
+               }
+            }
+         ],
          "level" : "info",
          "size" : "small",
          "title_element" : {
@@ -739,6 +749,15 @@
                   "source_lc" : "en",
                   "source_text" : "Wikipedia",
                   "source_url" : "https://en.wikipedia.org/wiki/Citric acid"
+               }
+            },
+            {
+               "element_type" : "text",
+               "text_element" : {
+                  "html" : "<a href=\"http://dx.doi.org/10.2903/j.efsa.2013.3152\">EFSA evaluation</a>",
+                  "source_language" : "en",
+                  "source_text" : "EFSA (2013)",
+                  "source_url" : "http://dx.doi.org/10.2903/j.efsa.2013.3152"
                }
             }
          ],
