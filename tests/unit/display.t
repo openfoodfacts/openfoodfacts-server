@@ -4,6 +4,7 @@ use ProductOpener::PerlStandards;
 use utf8;
 
 use Test2::V0;
+use Test2::Tools::ClassicCompare qw(is_deeply);
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
@@ -670,5 +671,79 @@ is($json_facet_request_ref->{redirect}, undef, "API facet requests are not redir
 my $html_facet_request_ref = {tags => [{tagtype => "categories", tagid => "breakfast-cereals"}]};
 ProductOpener::Display::canonicalize_request_tags_and_redirect_to_canonical_url($html_facet_request_ref);
 isnt($html_facet_request_ref->{redirect}, undef, "HTML facet requests retain canonical redirects");
+
+subtest 'NOVA groups query params backward compatibility (Issue #15405)' => sub {
+	my $q1 = {};
+	add_params_to_query({nova_groups_tags => 'en:unknown'}, $q1);
+	is_deeply(
+		$q1->{nova_groups_tags},
+		{'$in' => ['en:unknown', 'unknown']},
+		"add_params_to_query for en:unknown queries both canonical and legacy"
+	);
+
+	my $q2 = {};
+	add_params_to_query({nova_groups_tags => 'unknown'}, $q2);
+	is_deeply(
+		$q2->{nova_groups_tags},
+		{'$in' => ['en:unknown', 'unknown']},
+		"add_params_to_query for legacy unknown queries both canonical and legacy"
+	);
+
+	my $q3 = {};
+	add_params_to_query({nova_groups_tags => 'en:not-applicable'}, $q3);
+	is_deeply(
+		$q3->{nova_groups_tags},
+		{'$in' => ['en:not-applicable', 'not-applicable']},
+		"add_params_to_query for en:not-applicable queries both"
+	);
+
+	my $q4 = {};
+	add_params_to_query({nova_groups_tags => 'not-applicable'}, $q4);
+	is_deeply(
+		$q4->{nova_groups_tags},
+		{'$in' => ['en:not-applicable', 'not-applicable']},
+		"add_params_to_query for legacy not-applicable queries both"
+	);
+
+	my $q5 = {};
+	add_params_to_query({nova_groups_tags => '-en:unknown'}, $q5);
+	is_deeply(
+		$q5->{nova_groups_tags},
+		{'$nin' => ['en:unknown', 'unknown']},
+		"add_params_to_query for negated -en:unknown queries nin"
+	);
+};
+
+subtest 'NOVA groups facet list coalescing and count summing' => sub {
+	no warnings 'redefine';
+	local *ProductOpener::Display::query_list_of_tags = sub {
+		return (
+			[
+				{_id => 'en:unknown', count => 10},
+				{_id => 'unknown', count => 5},
+				{_id => 'en:1-unprocessed-or-minimally-processed-foods', count => 20},
+				{_id => '1', count => 7},
+				{_id => 'en:not-applicable', count => 3},
+				{_id => 'not-applicable', count => 2},
+			],
+			'count'
+		);
+	};
+	my $req = {
+		lc => 'en',
+		groupby_tagtype => 'nova_groups',
+		structured_response => {},
+		page_size => 100,
+		page => 1,
+		current_link => '/nova-groups',
+	};
+	ProductOpener::Display::display_list_of_tags($req, {});
+	my $tags = $req->{structured_response}{tags};
+	ok($tags, "structured_response tags populated");
+	my %counts_by_id = map {$_->{id} => $_->{products}} @$tags;
+	is($counts_by_id{'en:unknown'}, 15, 'unknown counts are summed');
+	is($counts_by_id{'en:1-unprocessed-or-minimally-processed-foods'}, 27, 'group 1 counts are summed');
+	is($counts_by_id{'en:not-applicable'}, 5, 'not-applicable counts are summed');
+};
 
 done_testing();

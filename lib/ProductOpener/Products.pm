@@ -1217,6 +1217,17 @@ sub change_product_type ($product_ref, $new_product_type) {
 		$log->info("changing product type",
 			{old_product_type => $product_ref->{old_product_type}, product_type => $new_product_type})
 			if $log->is_info();
+
+		# If the new product type does not support NOVA, remove obsolete NOVA fields
+		if (!feature_enabled("nova", {product_type => $new_product_type})) {
+			remove_fields(
+				$product_ref,
+				[
+					"nova_group_debug", "nova_group", "nova_groups", "nova_groups_tags",
+					"nova_group_tags", "nova_groups_markers", "nova_group_error"
+				]
+			);
+		}
 	}
 
 	return;
