@@ -8728,10 +8728,11 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 		my $prefix_regexp = $may_contain_regexps{$ingredients_lc} || "";
 
 		# optional "may contain" words before the list, then the allergens, then the "may contain" suffix
-		my $suffix_traces_regexp = compiled_regexp(
-			'\b(?:(?:' . $prefix_regexp . ')\s+)?'
-				. '((?:(?:' . $allergens_regexp . ')(?: |\/| \/ | - |,|, |' . $and . '|' . $of . '|' . $and_of . ')+)*'
-				. '(?:' . $allergens_regexp . '))\s+(?:' . $suffix_regexp . ')\b');
+		my $separators = '(?: |\/| \/ | - |,|, |' . $and . '|' . $of . '|' . $and_of . ')+';
+		my $list_regexp = '((?:(?:' . $allergens_regexp . ')' . $separators . ')*(?:' . $allergens_regexp . '))';
+		my $prefix_part_regexp = '\b(?:(?:' . $prefix_regexp . ')\s+)?';
+		my $suffix_part_regexp = '\s+(?:' . $suffix_regexp . ')\b';
+		my $suffix_traces_regexp = compiled_regexp($prefix_part_regexp . $list_regexp . $suffix_part_regexp);
 
 		$text =~ s/$suffix_traces_regexp/normalize_allergens_enumeration("traces",$ingredients_lc,"",$1,"")/eg;
 		# we may have added an extra dot in order to make sure we have at least one
