@@ -34842,7 +34842,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Bread (Shelf Stable)
 
 < en: Breads
-< en: Frozen foods
+< en: Frozen cereals and their products
 en: Frozen breads
 de: Tiefkühlbrote
 es: Pan congelado
@@ -43462,7 +43462,7 @@ sv: Majs och majsprodukter
 
 < en: Cereal grains
 < en: Corns and their products
-en: Corn, Maize
+en: Corns, Corn, Maize
 bg: Царевица
 da: Majs
 de: Mais
@@ -43482,8 +43482,8 @@ zh: 玉米
 google_product_taxonomy_id:en: 6609
 wikidata:en: Q11575
 
-< en: Corn
-en: Sweet corn
+< en: Corns
+en: Sweet corns, Sweet corn
 bg: Сладка царевица
 de: Zuckermais, süße Maise
 es: Maíz dulce
@@ -43500,23 +43500,25 @@ intake24_category_code:en: SWTC
 intake24_category_code:fr: SWTC
 wikidata:en: Q18966
 
-< en: Sweet Corn
-en: Fresh sweet corn
+< en: Fresh corns
+< en: Sweet corns
+en: Fresh sweet corns, Fresh sweet corn
 fr: Maïs doux frais
 
-< en: Corn
-en: Sweet corn on the cob
+< en: Sweet corns
+< en: Corns on the cob
+en: Sweet corns on the cob, Sweet corn on the cob
 fr: Maïs doux en épis
 
-< en: Sweet corn on the cob
-en: Cooked sweet corn on the cob
+< en: Sweet corns on the cob
+en: Cooked sweet corns on the cob, Cooked sweet corn on the cob
 fr: Epis de Maïs cuit, Maïs doux en épis cuit
 agribalyse_food_code:en: 20049
 ciqual_food_code:en: 20049
 ciqual_food_name:en: Sweet corn, on the cob, cooked
 ciqual_food_name:fr: Maïs doux, en épis, cuit
 
-< en: Corn
+< en: Corns
 en: Corn grain, Maize grain
 fr: Maïs en grain
 hr: Zrno kukuruza
@@ -43527,10 +43529,18 @@ ciqual_food_name:en: Corn or maize grain, raw
 ciqual_food_name:fr: Maïs entier, cru
 sales_format:en: package, weight
 
-< en: Corn
-en: Fresh corn, Fresh maize
+< en: Corns
+en: Fresh corns, Fresh corn, Fresh maize
+da: Friske majs
 fr: Maïs frais
+sv: Färska majs
 season_in_country_fr:en: 7,8,9
+
+< en: Corns
+en: Corn kernels
+da: Majskorn
+sv: Majskorn
+wikidata:en: Q3936020
 
 < en: Cereal grains
 en: Crabgrass, Finger-grass
@@ -44841,7 +44851,8 @@ pt: Cereais em lata
 
 < en: Canned cereals
 < en: Canned vegetables
-en: Canned corn
+< en: Corns
+en: Canned corns, Canned corn
 bg: Консервирана царевица
 de: Dosenmais, Maiskonserve
 es: Maíz en conserva
@@ -44860,8 +44871,9 @@ agribalyse_proxy_food_name:en: Sweet corn, canned, drained
 agribalyse_proxy_food_name:fr: Maïs doux, appertisé, égoutté
 wikidata:en: Q67858763
 
-< en: Canned corn
-en: Canned sweet corn
+< en: Canned corns
+< en: Sweet corns
+en: Canned sweet corns, Canned sweet corn
 bg: Консервирана сладка царевица
 de: Dosenzuckermais, Zuckermaiskonserve
 es: Maíz dulce en conserva
@@ -44881,6 +44893,10 @@ foodex2_extended_name:en: Sweet corn canned
 foodex2_implicit_facets:en: F27.A00KP$F28.A0BYP$F33.A0C4S
 foodex2_old_code:en: A.01.000349
 foodex2_scope_note:en: The group includes any type of Sweet corn canned.
+
+< en: Canned corns
+< en: Corn kernels
+en: Canned corn kernels
 
 < en: Cereals and their products
 en: Brick sheets, Baked filo pastry sheets without fat, Baked phyllo pastry sheets without fat
@@ -125358,43 +125374,45 @@ fr: Rondelles d'oignon panées, Onion rings panés, Onion rings
 hr: Pohani kolutići luka
 nl: Gepaneerde uienringen
 
-# “Frozen cereals and their products” as parent somehow cause a circular parent loop
-#< en:Frozen cereals and their products
-< en: Cereals and their products
-< en: Frozen plant-based foods
+< en: Frozen cereals and their products
 en: Frozen cereals
 es: Cereales congelados
 fr: Céréales surgelés
 hr: Smrznute žitarice
 nl: Diepvriesgranen
+sv: Djupfrysta spannmål
 food_groups:en: en:cereals
 gpc_category_code:en: 10000315
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury grain not ready to eat product, such as Rice, Polenta, Couscous. These products must not include any additional ingredients and are not part of a recipe prior to sale. These products are not ready to eat and require cooking prior to consumption. These products must be refrigerated to extend their consumable life. Definition Excludes: Specifically excludes all grain based prepared products such as Risotto and Cereal Products. Excludes products such as Frozen and Shelf Stable Not Ready to Eat and Ready to Eat Grain and all Grain Based Prepared Recipe Products.
 gpc_category_name:en: Grains/Cereal - Not Ready to Eat - (Perishable)
 pnns_group_2:en: Cereals
 
+< en: Corns
 < en: Frozen cereals
-en: Frozen corn, Frozen maize, Frozen sweet corn
+en: Frozen corns, Frozen corn, Frozen maize, Frozen sweet corn
 es: Maíz congelado
 fr: Maïs surgelé, Maïs doux surgelé
 hr: Smrznuti kukuruz
 it: Mais surgelato
 nl: Diepvriesmais
+sv: Djupfrysta majs
 agribalyse_food_code:en: 20233
 ciqual_food_code:en: 20233
 ciqual_food_name:en: Sweet corn, frozen, raw
 ciqual_food_name:fr: Maïs doux, surgelé, cru
 
-< en: Frozen corn
+< en: Corn kernels
+< en: Frozen corns
 en: Frozen corn kernels
 es: Maíz en grano congelado, Granos de maíz congelados
 fr: Grains de maïs surgelés
 hr: Smrznuta zrna kukuruza
 nl: Diepvriesmaiskorrels
+sv: Djupfrysta majskorn
 
-< en: Frozen corn
-< en: Sweet corn on the cob
-en: Frozen corn on the cob, Frozen sweet corn on the cob
+< en: Frozen corns
+< en: Corns on the cob
+en: Frozen corns on the cob, Frozen corn on the cob, Frozen sweet corn on the cob
 de: Gefrorene Maise
 es: Maíz en mazorca congelado, Mazorcas de maíz congeladas
 fr: Maïs en épis surgelé, Épis de maïs surgelé, Maïs doux en épis surgelé
@@ -125404,8 +125422,9 @@ ciqual_food_code:en: 20108
 ciqual_food_name:en: Sweet corn, on the cob, frozen, raw
 ciqual_food_name:fr: Maïs doux, en épis, surgelé, cru
 
-< en: Frozen cereals
-en: Frozen pre-cooked rice
+< en: Frozen cereals and their products
+< en: Precooked rices
+en: Frozen precooked rices, Frozen pre-cooked rice
 de: Gefrorene vorgekochte Reise
 es: Arroz precocido congelado, Arroz congelado
 fr: Riz précuits congelés
@@ -131525,9 +131544,8 @@ hu: Édes Fánkok
 it: Frittelle dolci
 nl: Zoete gefrituurde producten
 
-< en: Cereal grains
-< en: Corns and their products
-en: Corn on the cob
+< en: Corns
+en: Corns on the cob, Corn on the cob
 fr: Maïs en épi
 hr: Klip kukuruza
 it: Pannocchie
