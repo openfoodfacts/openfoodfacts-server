@@ -17,12 +17,12 @@ use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 my @tests = (
-	# Spanish sodium isoascorbate and sodium citrate (issue #8138)
+	# Spanish sodium isoascorbate and sodium citrate (issue #8138; "citrato de sodio" is a minerals synonym, so not added here)
 	[
-		'es-isoascorbato-citrato-de-sodio',
+		'es-isoascorbato-de-sodio',
 		{
 			lc => "es",
-			ingredients_text => "Agua, antioxidantes: isoascorbato de sodio y citrato de sodio."
+			ingredients_text => "Agua, antioxidante: isoascorbato de sodio."
 		}
 	],
 
