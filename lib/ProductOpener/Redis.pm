@@ -42,6 +42,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&get_rate_limit_user_requests
 		&increment_rate_limit_requests
+		&rate_limit_retry_after_seconds
 		&subscribe_to_redis_streams
 		&push_product_update_to_redis
 		&push_ocr_ready_to_redis
@@ -646,6 +647,49 @@ sub push_ocr_ready_to_redis ($code, $image_id, $json_url, $timestamp = time()) {
 	return;
 }
 
+use constant RATE_LIMIT_WINDOW_SECONDS => 60;
+use constant RATE_LIMIT_REPLY_TIMEOUT_SECONDS => 1;
+
+sub rate_limit_key ($ip, $bucket) {
+	my $window = int(time() / RATE_LIMIT_WINDOW_SECONDS);
+	return "po-rate-limit:$ip:$bucket:$window";
+}
+
+=head2 rate_limit_retry_after_seconds ()
+
+Return the number of whole seconds to wait until the next rate-limit window.
+
+=cut
+
+sub rate_limit_retry_after_seconds () {
+	return RATE_LIMIT_WINDOW_SECONDS - (time() % RATE_LIMIT_WINDOW_SECONDS);
+}
+
+sub wait_for_callback ($timeout, $timeout_error, $start) {
+	# Redis commands submit asynchronously. The condition variable runs the
+	# AnyEvent loop until the callback or the deadline wakes the caller.
+	my $cv = AE::cv;
+	my $timed_out = 0;
+	# Apache workers can go idle between calls into the event loop.
+	AnyEvent->now_update();
+	my $timer = AE::timer $timeout, 0, sub {
+		$timed_out = 1;
+		$cv->send();
+	};
+	$start->(
+		sub {
+			# A late callback can still arrive after the deadline wakes the caller.
+			return if $timed_out;
+			undef $timer;
+			$cv->send(@_);
+		}
+	);
+
+	my @result = $cv->recv;
+	die "$timeout_error\n" if $timed_out;
+	return @result;
+}
+
 =head2 get_rate_limit_user_requests ($ip, $bucket)
 
 Return the number of requests performed by the given user for the current minute for the given rate-limit bucket.
@@ -685,8 +729,20 @@ sub get_rate_limit_user_requests ($ip, $bucket) {
 	if (defined $redis_client) {
 		$ratelimiter_log->debug("Getting rate-limit user requests", {ip => $ip, bucket => $bucket})
 			if $ratelimiter_log->is_debug();
-		my $current_minute = int(time() / 60);
-		eval {$resp = $redis_client->get("po-rate-limit:$ip:$bucket:$current_minute");};
+		eval {
+			my $key;
+			do {
+				$key = rate_limit_key($ip, $bucket);
+				my $redis_error;
+				($resp, $redis_error) = wait_for_callback(
+					RATE_LIMIT_REPLY_TIMEOUT_SECONDS,
+					"Timed out waiting for Redis GET reply",
+					sub ($on_reply) {$redis_client->get($key, $on_reply);}
+				);
+				die $redis_error->message() if defined $redis_error;
+				# The reply can arrive after this counter's window ends.
+			} while ($key ne rate_limit_key($ip, $bucket));
+		};
 		$error = $@;
 	}
 	else {
@@ -750,13 +806,19 @@ sub increment_rate_limit_requests ($ip, $bucket) {
 	if (defined $redis_client) {
 		$ratelimiter_log->debug("Incrementing rate-limit requests", {ip => $ip, bucket => $bucket})
 			if $ratelimiter_log->is_debug();
-		my $current_minute = int(time() / 60);
+		my $key = rate_limit_key($ip, $bucket);
 		eval {
-			# Use a MULTI/EXEC block to increment the counter and set the expiration atomically
+			# Increment and set the expiration atomically.
 			$redis_client->multi();
-			$redis_client->incr("po-rate-limit:$ip:$bucket:$current_minute");
-			$redis_client->expire("po-rate-limit:$ip:$bucket:$current_minute", 59);
-			$redis_client->exec();
+			$redis_client->incr($key);
+			$redis_client->expire($key, 59);
+			# Redis may apply the transaction even if its reply times out.
+			my (undef, $redis_error) = wait_for_callback(
+				RATE_LIMIT_REPLY_TIMEOUT_SECONDS,
+				"Timed out waiting for Redis EXEC reply",
+				sub ($on_reply) {$redis_client->exec($on_reply);}
+			);
+			die $redis_error->message() if defined $redis_error;
 		};
 		$error = $@;
 	}

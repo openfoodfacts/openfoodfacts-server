@@ -14,6 +14,9 @@ services:
       - KC_LOG_LEVEL=info
 
   backend:
+    environment:
+      # Integration tests share a client IP and run against the same backend.
+      RATE_LIMITER_BLOCKING_ENABLED: "0"
     depends_on:
       postgres:
         condition: service_healthy
