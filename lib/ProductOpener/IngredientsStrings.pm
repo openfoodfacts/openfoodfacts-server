@@ -56,6 +56,7 @@ BEGIN {
 		$symbols_regexp
 
 		%may_contain_regexps
+		%may_contain_suffix_regexps
 		%contains_regexps
 		%contains_or_may_contain_regexps
 
@@ -198,6 +199,11 @@ $symbols_regexp = join('|', @symbols);
 	sv =>
 		"denna produkt kan innet?h[åa]lla sp[åa]r av|kan innehålla små mängder|kan innehålla spår av|innehåller spår av|kan innehålla spår|kan innehålla",
 );
+
+# Languages where the "may contain" statement comes after the allergens
+# e.g. Hungarian: "Földimogyorót, szóját és tejet tartalmazhat."
+# (for the languages in %may_contain_regexps, it comes before: "May contain peanuts")
+%may_contain_suffix_regexps = (hu => "tartalmazhat",);
 
 %contains_regexps = (
 
