@@ -1796,6 +1796,25 @@ puffed orange and caramelized unknown_fruit4.",
 				"pšenična bela moka, glukozni sirup, kakavova masa, palmino olje, repično olje, jagode 12 %, maline, korenje, paradižnikov koncentrat, krompirjev škrob, modificiran škrob, maltodekstrin, jogurt, posneto mleko v prahu, piščančje meso, jedilna želatina, alkoholni kis, vinski kis, ekstrakt kvasa, kvas, karoteni, sirilo, kumarice, emulgatorja (sojini lecitini, E471), stabilizatorji (E407, E412), gostilo (E415), antioksidanta (E300, E306), konzervansa (E202, E211), sredstvi za vzhajanje (E500, E450), sredstvo za ohranjanje vlage (E422), barvila (E160a), sladili (E950, E955), vanilin sladkor.",
 		}
 	],
+	# Greek (el) - FOODTURE representative products for Greece
+	[
+		'el-mortadella',
+		# https://gr.openfoodfacts.org/product/20212780
+		{
+			lc => "el",
+			ingredients_text =>
+				"Κρέας χοιρινό 62%, νερό, άμυλο από πατάτα, αλάτι, πρωτεΐνες γάλακτος, σιρόπι γλυκόζης, ζάχαρη, μπαχαρικά, αρωματικές ύλες, σταθεροποιητές: διφωσφορικό νάτριο, τριφωσφορικό νάτριο, ρυθμιστής οξύτητας: κιτρικό οξύ, συντηρητικό: νιτρώδες νάτριο.",
+		}
+	],
+	[
+		'el-breadsticks',
+		# https://gr.openfoodfacts.org/product/5201004058379
+		{
+			lc => "el",
+			ingredients_text =>
+				"Αλεύρι σίτου, σουσάμι 21%, αλεύρι σίτου ολικής άλεσης 20%, φυτικό έλαιο (φοινικέλαιο), ζάχαρη, σιρόπι γλυκόζης, μαλτοδεξτρίνη, αλάτι, γλουτένη σίτου, αλεύρι βύνης κριθαριού, μαγιά, αρωματική ύλη.",
+		}
+	],
 	# concentrations per volume (g/l, mg/l, mg/100 ml) must not leave an orphan "l" ingredient
 	[
 		'de-extract-content-g-per-l',
@@ -1968,6 +1987,22 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	[
+		'lt-oils-fats-and-traces',
+		{
+			lc => "lt",
+			ingredients_text =>
+				"visų grūdo dalių kvietiniai miltai, cukrus, augaliniai aliejai (palmių, rapsų, saulėgrąžų), augaliniai riebalai (palmių branduolių, palmių, sviestmedžio), riebalai (kokosų), aliejai (rapsų, kukurūzų), palmių ir rapsų aliejus, druska. Gali turėti sojų pupelių ir kitų riešutų pėdsakų.",
+		}
+	],
+	[
+		'lt-frequent-unknown-ingredients',
+		{
+			lc => "lt",
+			ingredients_text =>
+				"natūrali kvapioji medžiaga, varškė, joduotoji druska, kukurūzų kruopos, ruginiai miltai, augalinis aliejus, kiaulienos baltymai, mažesnio riebumo kakavos milteliai, sumažinto riebumo kakavos milteliai, jūros druska, kmynai, gliukozės ir fruktozės sirupas, pieno rūgšties bakterijų kultūros, pieno rūgšties bakterijos, invertuotas cukraus sirupas, kokosų riebalai, agurkai, spirito actas, razinos, fermentai, jautiena, šokolado gabaliukai, kviečių krakmolas, juodieji pipirai, apyniai, avietės, bananai, juodoji ceilono arbata, pomidorai, kefyrinis raugas, liesas pienas, mangai, obuolių tyrė, jogurtinių bakterijų kultūros, jogurto bakterijų kultūros, jogurto bakterijos, linų sėmenys, braškės, juodieji serbentai, natūrali vanilės kvapioji medžiaga, skrebučiai, sūrio milteliai, cukraus sirupas, gliukuronolaktonas, kiaulienos nugarinė, kukurūzų dribsniai, laktazės fermentas, mikrobiologinės kilmės fermentas, pomidorų milteliai, vyšnios, česnakas, oligofruktozė, saulėgrąžų sėklos, garstyčių sėklos, kvapioji rūkymo medžiaga, sojos baltymų izoliatas, sausas gliukozės sirupas, svogūnas, raudonos paprikos, raudonėliai, čiobreliai, kvapieji pipirai, kalendros, dašis, bazilikai, manų kruopų, saldžiųjų išrūgų milteliai, ementalio sūrio, vištų kiaušinių milteliai, kokoso aliejus, kiaulienos kumpis, sojų baltymų hidrolizatas, ryžiai, saldžiosios paprikos, palmių branduolių aliejus, palmių branduolių riebalai, alyvpalmių riebalai, sviestmedžių riebalai, sviestmedžio riebalai, taukmedžio riebalai, sviestmedžių aliejus, sviestmedžio aliejus, taukmedžio aliejus, avižų aliejus, natrio citratai, karotenai, difosfatai, pektinai, karminas, citrinos rūgštis, guaro guma, natrio sacharinas, taurinas, stabilizatoriai (E407), rūgštingumą reguliuojančios medžiagos (E331), konservantai (E200), dažikliai (E100), tirštikliai (E415), tešlos kildymo medžiagos (E500), antioksidantai (E306), saldikliai (E420), aromato ir skonio stiprikliai (E621), pakeistų savybių krakmolas (E1422), pagalbinė medžiaga (E1520), pagalbinės medžiagos (E1520), glazūros medžiaga (E903), glazūros medžiagos (E903), įpakavimo dujos (E941), propelentas (E942), propelentai (E942), izoliuojanti medžiaga (E385), izoliuojančios medžiagos (E385), rūgštys (E330), drėgmę išlaikančios medžiagos (E422). Gali turėti pieno, sojų pupelių, sezamo sėklų.",
+		}
+	],
+	[
 		'hr-frequent-unknown-ingredients',
 		{
 			lc => "hr",
@@ -2000,11 +2035,66 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 	[
+		'ru-frequent-unknown-ingredients',
+		{
+			lc => "ru",
+			ingredients_text =>
+				"концентрат сывороточного белка, концентрат сывороточных белков, концентрат молочного белка, злаки, пищевые волокна, клетчатка, соль морская пищевая, экстракты пряностей, сухари панировочные, масло рапсовое, мука пшеничная хлебопекарная, молокосвертывающий ферментный препарат микробного происхождения, молокосвёртывающий ферментный препарат микробного происхождения, сливки нормализованные, нормализованные сливки, сливки из коровьего молока, изолят соевого белка, глютен пшеничный, шпик, мука кукурузная, закваска молочнокислых микроорганизмов, закваска мезофильных и термофильных молочнокислых микроорганизмов, закваска молочнокислых культур, экстракт дрожжей, изомальтоолигосахарид, белок соевый, шкурка свиная, клубни топинамбура, картофель свежий, инвертный сироп, сок лимона, сок лимона прямого отжима, вода питьевая подготовленная, питьевая вода, мука соевая, пшеничная клетчатка, клетчатка пшеничная, шоколад молочный, ароматизатор пищевой, ароматизаторы пищевые, ароматизатор, ароматизаторы, вкусоароматические вещества, чеснок сушеный, водорастворимые волокна кукурузы, овощи сушеные, сок лимона концентрированный, концентрированный сок лимона, филе куриное, масло кокосовое рафинированное, гороховый белок, белок гороховый, мука миндальная, сыворотка молочная, сырный порошок, сухой яичный белок, филе куриной грудки, морковь столовая свежая, ферментный препарат животного происхождения, огурцы свежие, масло ши, имбирь молотый, сироп глюкозный, белок молочный, моллюски, казеинат натрия, масло оливковое, пшеничный белок, зелень укропа, укроп свежий, семена горчицы, ароматизатор горчица, мясо птицы механической обвалки, мякоть кокоса, желток яичный, крупа гречневая, масло пальмовое рафинированное дезодорированное, маринад, печенье, текстурированный растительный белок, нитритная соль, растительные волокна, мясо куриное, чеснок молотый, чеснок сушёный молотый, лук зеленый, петрушка свежая, соус соевый, сок яблочный концентрированный, чабер, крахмал тапиоковый, темный шоколад, соя бобы, масло растительное рафинированное дезодорированное, уксус спиртовой, пюре из яблок, белок животный, коньяк, стружка кокосовая, морковь сушеная, сок яблочный, сахар молочный пищевой, сухой глюкозный сироп, хлопья картофельные, меланж яичный жидкий пастеризованный, молоко коровье цельное, орех мускатный, уксус рисовый, концентрированный сок черной моркови, экстракт ячменного солода, персиковое пюре, масло подсолнечное рафинированное высокоолеиновое, мальтодекстрин картофельный, сок ананаса концентрированный, курага, пюре из манго, сок апельсиновый, альфа токоферол, ацесульфам калия, цитраты натрия, трифосфаты, трикальций фосфат, стевиолгликозиды, стевия, эритрит, токоферолы, ацетаты натрия, полифосфат натрия, геллановая камедь, йодат калия, сахаринат натрия, тары камедь, камедь тары, диоксид кремния аморфный, диацетат натрия, агент антислеживающий e536, аскорбилпальмитат, агар агар, полидекстрозы, полидекстроза, камедь целлюлозы, эфиры полиглицерина и взаимоэтерифицированных рициноловых кислот, цитрат натрия 3 замещённый, глюконо дельта лактон, изомальт, гуанилат натрия, кислота аскорбиновая, эфиры глицерина и смоляных кислот, витамины, в6, витамин в6, витамин в12, в12, витамин с, витамин d3, d3, витамин в1, в1, витамин е, l карнитина l тартрат, агент антислеживающий (E551), антислеживающий агент (E551), носитель (E1520), глазирователь (E903). Может содержать следы кешью, глютена, пшеницы, злаков, ракообразных, яиц, яичных продуктов, рыбы, арахиса, сои, сою, молока, молочных продуктов, молочного белка, орехов, фундука, миндаля, грецкого ореха, пекана, ядер орехов, сельдерея, горчицы, кунжута, семян кунжута, диоксид серы, моллюсков.",
+		}
+	],
+	[
+		'ru-vitamins-list',
+		{
+			lc => "ru",
+			ingredients_text => "витамины (B6, B12), витамин d3, d3",
+		}
+	],
+	[
 		'sv-recognise-origin-odlat-i',
 		{
 			# https://se.openfoodfacts.org/product/7318690501237/penne-rigate-ica-basic
 			lc => "sv",
 			ingredients_text => "Mjöl av _vete_* och _durumvete_**, vatten. *Odlat i: Lettland. **Odlat i: EU/icke EU.",
+		}
+	],
+	[
+		'et-dash-before-and-is-not-a-separator',
+		{
+			lc => "et",
+			ingredients_text =>
+				"vesi, happesuse regulaator - sidrunhape, looduslik lõhna - ja maitseaine, looduslikud lõhna- ja maitseained, lõhna- ja maitseaine - vanilliin.",
+		}
+	],
+	[
+		'lv-frequent-unknown-ingredients',
+		{
+			lc => "lv",
+			ingredients_text =>
+				"kakao masa, saldais krējums, vanilīns, šokolāde, lauru lapas, sinepju pulveris, maizes raugs, pārtikas ražošanas sāls, vārāmā sāls, dzērvenes, garšaugi, ābolu biezenis, želatīns, pārtikas želatīns, kefīrs, kokosriekstu ella, rafinēta rapšu eļļa, ķiploku pulveris, ķirbju sēklas, citronu sulas koncentrāts, olu pulveris, bietes, rabarberi, siera pulveris, tomāti, zemeņu biezenis, dabīgs minerālūdens, ierauga kultūra, palmu ella, sausie sīpoli, kaltēti sīpoli, grauzdēti zemesrieksti, kviešu iesala milti, olu dzeltenuma pulveris, tomātu biezenis, apelsīnu sula, augu ella, augu eļļa, baltie galviņkāposti, emulgators sojas lecitīni, ferments laktāze, fruktozes glikozes sīrups, glikuronolaktons, kakao pulveris ar samazinātu tauku saturu, krustnagliņas, margarīns, melno burkānu koncentrāts, mencu aknas, nātrija ciklamāts, pastinaks, pūdercukurs, rīsu ciete, smaržīgie pipari, teksturēts zirņu proteīns, zemenes, zirnīši, čili, auzu pārslas pilngraudu, kviešu ieraugs, kviešu olbaltumvielas, rudzu pārslas, sojas olbaltumviela, sviests saldkrējuma, acerolas milti, aromatizētājs vanilīns, cāļa ādas, vistu ādas, cūku tauki, iebiezināts piens ar cukuru, mehāniski atdalīta cāļa gaļa, melno burkānu sulas koncentrāts, pelēkie zirņi, rudzu ieraugs, rudzu iesala milti, skumbrijas scomber scombrus, ābolu sulas koncentrāts, dabīga ābolu sula, miežu putraimi, vaniļas cukurs, mandeļu skaidiņas, apelsīnu miziņa, rīsu proteīns, sarkanie asie pipari, citrons, avene, vistas krūtiņas fileja, selerijas sakne, cieto kviešu mannas putraimi, vistas gaļa, cūkgaļas olbaltumvielas, pākšu pupiņas, sēņu pulveris, sojas pupiņu milti, pektīns, nātrija citrāti, dzeramā soda, kalcija citrāts, karotīni, rozmarīna ekstrakts, trinātrija citrāts, karmīns, vitamīns b12, krāsvielas (E100), pārtikas krāsviela (E100), pārtikas krāsvielas (E100), biezinātāji (E415), stabilizators (E407), antioksidanti (E306), maizes uzlabotājs (E300), modificētā ciete (E1422), modificētās cietes (E1422), nesējviela (E1520), nesējvielas (E1520), skābes (E330), pretsalipes vielas (E551), putu dzēsēji (E900), apjoma palielinātāji (E1200), cietinātāji (E509), putu veidotāji (E999), recinātāji (E440), glazētājvielas (E903), mitrumuzturētāji (E422), aizsarggāze (E941), aizsarggāzes (E941), propelenti (E942), irdinātāji (E500), sekvestranti (E385), miltu apstrādes līdzekļi (E300). Var saturēt piena, riekstu, riekstus, citus riekstus, citu riekstu, citu riekstu daļiņas, mandeļu, zemesriekstu, zemesriekstus, olu, olu daļiņas, pienu, piena daļiņas, seleriju, sinepju, lupīnu, soju, sojas produktu, sojas daļiņas, sezama sēklu, sezama sēklu daļiņas, kviešu daļiņas.",
+		}
+	],
+	[
+		'fi-frequent-unknown-ingredients',
+		{
+			lc => "fi",
+			ingredients_text =>
+				"silava, salaattisekoitus, kuorittu soijapapu, vadelmahillo, e322 soijalesitiini, entsyymit, vihreä papu, kevätsipuli, oligofruktoosikuitu, suippokaali, e322 auringonkukkalesitiini, jääsalaatti, chilitahna, glukoosifruktoosisiirappi, savupaprika, sushiriisi, granola, kananmunan keltuainen, omenaviinietikka, hiilihappopitoinen vesi, poltettu sokeri, siipikarjanrasva, linssiproteiini, rasvaton maito jauheesta, puristettu kookospähkinä, ksantaani, rasvahappojen monoglyseridi, rasvahappojen monoglyseridit, rasvahappojen diglyseridi, rasvahappojen diglyseridit, pyridoksiini, happamuudensaatoaine (E331), sailontaaine (E200), kantaja-aineet (E1520), kantaja-aine (E1520), kiillotusaineet (E903), kiillotusaine (E903), jauhon käsittelyaineet (E300), jauhon käsittelyaine (E300), aromivahventeet (E621), antioksidantit (E306), elintarvikevärit (E100), sakeutusaine (E415), sakeutusaineet (E415). Saattaa sisältää maito, spelttivehnä, spelttivehnää, kamut-vehnä, kamut-vehnää, muuta gluteenia sisältävää viljaa, soijan.",
+		}
+	],
+	[
+		'sl-processing-and-frequent-unknown-ingredients',
+		{
+			lc => "sl",
+			ingredients_text =>
+				"durum pšenica, olivno olje, kumin, grahov škrob, sušena čebula, sušeni česen, luščine svetlega trpotca, sirilo mikrobnega izvora, aromi, alkohol, žafranika, kokosov oreh, redkev, pšenični slad, robide, popečeni kruhki, ječmenov zdrob, zgoščeni sok rdeče pese, višnjev sok, zgoščeni sok črnega korena, breskve, sladka smetana, čebula, pasterizirano mleko, fermentirana smetana, sušeno korenje, dehidrirana čebula, popolnoma hidrogenirana kokosova maščoba, hidrogenirano palmino olje, rehidrirano posneto mleko, olupljeni mandlji, pražena kava, mleta kava, kuhana čičerika, sterilizirana smetana, liofilizirane maline, nariban kokos, homogenizirano mleko. lahko vsebuje sledi mleka, lupinasto sadje, lupinastega sadja, pistacije.",
+		}
+	],
+	[
+		'sr-frequent-unknown-ingredients-round-2',
+		{
+			lc => "sr",
+			ingredients_text =>
+				"suncokretovo, suncokretovo biljno ulje, kokosovo, palmina, palmino, lešnici, kukuruzni maltodekstrin, začin, repičino, uljane repice, ekstrakt paprike, kukuruzno brašno, kakao buter, čokolada u prahu, kaša jagode, slatka pavlaka, heljdino brašno, pirinač, koncentrisani sok limuna, proteini mleka, acerola u prahu, jabuka, kokosova, kvaščev ekstrakt, lan, čili u prahu, starter kultura, modifikovani krompirov skrob, vlakna graška, pileće kožice, jagode, hidrolizovani biljni protein, palmin olein, belance u prahu, koncentrovani sok od jabuke, suncokretova, maltozni sirup, sojini proteini, smeđi šećer, cvekla, prirodna aroma limuna, potpuno hidrogenizovana palmina mast, kafa, seme lana, sok od breskve, krastavac, pileće meso, kukuruz šećerac, alkoholno sirće, alkohol, kanola ulje, crni biber, jestivi želatin, crveni pasulj, potpuno hidrogenizovano palmino ulje koštice, spanać, kajsija, estri mono- i diacetilvinske kiseline i mono- i diglicerida masnih kiselina, mono- i diacetil estri vinske kiseline mono i diglicerida masnih kiselina, mono i diacetil estri vinske kiseline, l-askorbinska kiselina, silicijum dioksid, lecitini, karamel amonijačni, jabučna kiselina, natrijum-acetati, pektini, poliglicerolpoliricinoleat, amonijum-karbonati, natrijum-fosfati, natrijum-eritorbat, kalcijum hlorid, dl-α-tokoferilacetat, dl-alfa-tokoferil-acetat, kiselina (E330), kiseline (E330).",
 		}
 	],
 );
@@ -2050,9 +2140,7 @@ foreach my $test (
 	['pl', 'witamina E 105 mg', '105 mg', 0.105],
 	['el', 'βιταμίνη E 105 mg', '105 mg', 0.105],
 	['ru', 'витамин E 105 мг', '105 мг', 0.105],
-	# The Cyrillic spelling is not yet a vitamin E synonym: preserve the dose
-	# without inventing either an additive or a taxonomy match.
-	['ru', 'витамин е 105 мг', '105 мг', 0.105, 'ru:витамин е', 0],
+	['ru', 'витамин е 105 мг', '105 мг', 0.105],
 	)
 {
 	my ($lc, $text, $quantity, $quantity_g, $id, $known) = @$test;

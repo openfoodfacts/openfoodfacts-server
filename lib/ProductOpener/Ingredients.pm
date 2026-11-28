@@ -4583,8 +4583,10 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		}
 
 		# Assign a ecobalyse_id or a ecoalyse_proxy_code to the ingredient
-		delete $ingredient_ref->{ecobalyse_id};
-		delete $ingredient_ref->{ecobalyse_proxy_id};
+		# (remove the previous match, including its name and unit, as the new match may not have them)
+		foreach my $prefix ("ecobalyse", "ecobalyse_proxy") {
+			delete $ingredient_ref->{$prefix . $_} for qw(_id _name _unit);
+		}
 
 		# We are now looking for the appropriate ecobalyse id :
 		# ecobalyse_origins_france_labels_organic (if the product comes from france, and is organic)
@@ -4690,6 +4692,9 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 				# Also retrieve the corresponding French display name, from the same taxonomy level
 				my $ecobalyse_name = get_property("ingredients", $matching_tagid, $prefix . $suffix . "_name:fr");
 				$ingredient_ref->{$prefix . "_name"} = $ecobalyse_name if defined $ecobalyse_name;
+				# and the unit, only for ingredients that are not in kg (e.g. L for spring water and wine)
+				my $ecobalyse_unit = get_property("ingredients", $matching_tagid, $prefix . $suffix . "_unit:en");
+				$ingredient_ref->{$prefix . "_unit"} = $ecobalyse_unit if defined $ecobalyse_unit;
 				last;
 			}
 			# Exit the loop if a valid ecobalyse code was found
@@ -5911,7 +5916,11 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 
 	my $a_of_b;
 
-	if (($ingredients_lc eq "en") or ($ingredients_lc eq "hr") or ($ingredients_lc eq "lv")) {
+	if (   ($ingredients_lc eq "en")
+		or ($ingredients_lc eq "hr")
+		or ($ingredients_lc eq "lt")
+		or ($ingredients_lc eq "lv"))
+	{
 		# start by "with" (example: "mlijeko (s 1.0% mliječne masti)"), in which case it $b should be added after $a
 		# start by "with etc." should be added at the end of the previous ingredient
 		my %with = (hr => '(s | sa )',);
@@ -5946,7 +5955,6 @@ sub normalize_a_of_b ($ingredients_lc, $a, $b, $of_bool, $alternate_names_ref = 
 		or ($ingredients_lc eq "hu")
 		or ($ingredients_lc eq "ru")
 		or ($ingredients_lc eq "pl")
-		or ($ingredients_lc eq "lt")
 		or ($ingredients_lc eq "rs")
 		or ($ingredients_lc eq "sk")
 		or ($ingredients_lc eq "sl")
@@ -6114,6 +6122,7 @@ sub normalize_vitamin ($lc, $a) {
 		($lc eq 'is') and return "$a-vítamín";
 		($lc eq 'pl') and return "witamina $a";
 		($lc eq 'pt') and return "vitamina $a";
+		($lc eq 'ru') and return "витамин $a";
 		return "vitamin $a";
 	}
 	else {
@@ -6148,6 +6157,7 @@ sub normalize_vitamins_enumeration ($lc, $vitamins_list) {
 	elsif ($lc eq 'nl') {$split_vitamins_list = "vitaminen"}
 	elsif ($lc eq 'is') {$split_vitamins_list = "vítamín"}
 	elsif ($lc eq 'pl') {$split_vitamins_list = "witaminy"}
+	elsif ($lc eq 'ru') {$split_vitamins_list = "витамины"}
 	else {$split_vitamins_list = "vitamins"}
 
 	$split_vitamins_list .= ", " . join(", ", map {normalize_vitamin($lc, $_)} @vitamins);
@@ -7595,10 +7605,25 @@ my %ingredients_categories_and_types = (
 	],
 
 	lt => [
-		#oils
+		# oils
 		{
-			categories => ["aliejai", "augaliniai aliejai",],
-			types => ["palmių", "rapsų", "saulėgrąžų",],
+			categories => ["augaliniai aliejai", "augalinis aliejus", "aliejai", "aliejus",],
+			types => [
+				"palmių branduolių", "alyvpalmių", "palmių", "kokosų",
+				"rapsų", "saulėgrąžų", "kukurūzų", "sviestmedžių",
+				"sviestmedžio", "taukmedžio", "avižų",
+			],
+			alternate_names => ["<type> aliejus", "<type> riebalai"],
+		},
+		# fats
+		{
+			categories => ["augaliniai riebalai", "riebalai",],
+			types => [
+				"palmių branduolių", "alyvpalmių", "palmių", "kokosų",
+				"rapsų", "saulėgrąžų", "kukurūzų", "sviestmedžių",
+				"sviestmedžio", "taukmedžio",
+			],
+			alternate_names => ["<type> riebalai", "<type> aliejus"],
 		},
 	],
 
@@ -7870,6 +7895,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				or ($ingredients_lc eq "da")
 				or ($ingredients_lc eq "de")
 				or ($ingredients_lc eq "hr")
+				or ($ingredients_lc eq "lt")
 				or ($ingredients_lc eq "lv")
 				or ($ingredients_lc eq "ru")
 				or ($ingredients_lc eq "sv")
@@ -8476,6 +8502,11 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# dash with 1 missing space
 	$text =~ s/(\w)- /$1 - /ig;
 	$text =~ s/ -(\w)/ - $1/ig;
+	# a dash before "and" stands for the shared end of two compound words, it is not a separator:
+	# "lõhna - ja maitseaine" -> "lõhna- ja maitseaine"
+	if ($ingredients_lc eq "et") {
+		$text =~ s/(\p{L}) - ((?:$and_without_spaces)\s)/$1- $2/ig;
+	}
 
 	# mono-, di-, tri-, tetra- and poly- prefixes followed by "and" and another prefix:
 	# "mono - et diglycérides", "mono-et diglycérides", "di - et triphosphates", "tri - and dicalcium phosphate"

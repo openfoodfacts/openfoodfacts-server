@@ -177,7 +177,7 @@ $symbols_regexp = join('|', @symbols);
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
-	lt => "sudėtyje gali būti|Taip pat, gali būti|gali būti|dalių",
+	lt => "sudėtyje gali būti|Taip pat, gali būti|gali turėti|gali būti",
 	lv =>
 		"alergēni|iespējama šādu alergēnu klātbūtne|kupātdesiņa var|pārpalikumi|produkts var|dalinas|sastāva var but|var saturé|var ?satur[eēéë]t",
 	mk => "Производот може да содржи|може да содржи",
@@ -189,7 +189,8 @@ $symbols_regexp = join('|', @symbols);
 		"może zawierać śladowe ilości|produkt może zawierać|może zawierać alergeny|może zawierać ślady|może zawierać|możliwa obecność|w produkcie możliwa obecność|wyprodukowano w zakładzie przetwarzającym|w zakładzie przetwarzane są również|w związku z używaniem w zakładzie",
 	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţt]ine urme de|poate con[țţt]ine|poate con[țţt]in|produsul poate conţine urme de",
-	ru => "Могут содержаться следы",
+	ru =>
+		"может содержать незначительное количество|может содержать остаточные следы|может содержать следовые количества|может содержать следы|может содержать|возможно наличие незначительного количества|возможно наличие незначительных количеств|возможно наличие следовых количеств|возможно наличие следов|возможно наличие|возможно незначительное содержание|возможно незначительное количество|возможно незначительное наличие|возможно незначительное присутствие|возможно присутствие незначительного количества|возможно присутствие следов|возможно содержание|могут содержаться незначительные следы|могут содержаться следы|возможность содержания в наших продуктах следов следующих аллергенов|на предприятии|при производстве не использовались",
 	sk => "výrobok môže obsahovat|môže obsahovať",
 	sl => "lahko vsebuje sledi|lahko vsebuje sledove",
 	sr =>
@@ -362,6 +363,12 @@ $symbols_regexp = join('|', @symbols);
 	ru => [
 		["в/с", "высшего сорта"],    # or "высший сорт". = top grade, superfine. applied to flour.
 		["х/п", "хлебопекарная"],    # bakery/baking, also for flour.
+	],
+
+	sr => [
+		# minimum / maximum before a percent: "so max. 1.5%"
+		["min.", "minimum"],
+		["max.", "maksimum"],
 	],
 
 	sv => [
@@ -570,6 +577,7 @@ including localized strings like "minimum"
 	pl => "min|min\.|minimum",
 	pt => "min|min\.|mín|mín\.|mínimo|minimo|no mínimo",
 	ro => "min|min\.|minim|minimum",
+	sr => "min|min\.|minimum|najmanje",
 	sv => "minimum|minst",
 );
 
@@ -591,6 +599,7 @@ including localized strings like "minimum"
 	pl => "max|max\.|maximum",
 	pt => "max|max\.|máx|máx\.|máximo|maximo",
 	ro => "max|max\.|maxim|maximum",
+	sr => "max|max\.|maksimum|najviše",
 	sv => "max|maximum|högst",
 );
 

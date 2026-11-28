@@ -206,6 +206,14 @@ my @tests = (
 				"cacao min. 50%, zahăr, alune minim 10%, lapte praf 5% minim, sare max. 1%, vanilie maxim 0,5%"
 		},
 	],
+	[
+		'sr-minimum-maximum-percent',
+		{
+			lc => "sr",
+			ingredients_text =>
+				"kikiriki pasta min. 90%, ugljen-dioksid (min 2 g/l), šećer najmanje 3%, so (max. 1.5%), ulje najviše 2%, aroma maksimum 0,5%"
+		},
+	],
 
 	# Relative percent
 

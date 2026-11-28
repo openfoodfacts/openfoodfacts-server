@@ -448,14 +448,9 @@ else {
 
 	my $time = time();
 	$comment = $comment . remove_tags_and_quote(decode utf8 => single_param('comment'));
-	if (store_product($User_id, $product_ref, $comment)) {
-		$response{status} = 1;
-		$response{status_verbose} = 'fields saved';
-	}
-	else {
-		$response{status} = 0;
-		$response{status_verbose} = 'not modified';
-	}
+	store_product($User_id, $product_ref, $comment);
+	$response{status} = 1;
+	$response{status_verbose} = 'fields saved';
 }
 
 my $data = encode_json(\%response);

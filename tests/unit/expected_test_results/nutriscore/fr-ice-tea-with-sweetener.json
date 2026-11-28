@@ -76,34 +76,77 @@
             }
          ],
          "ingredients_coverage_percent" : 91,
+         "ingredients_total_mass" : 91.95,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
       },
       "ecobalyse_request" : {
          "data" : {
-            "distribution" : "ambient",
-            "ingredients" : [
+            "components" : [
                {
-                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-                  "mass" : 88.2
+                  "elements" : [
+                     {
+                        "amount" : 0.0882,
+                        "material" : {
+                           "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "Eau",
+                  "quantity" : 1
                },
                {
-                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-                  "mass" : 2.3
+                  "elements" : [
+                     {
+                        "amount" : 0.0023,
+                        "material" : {
+                           "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "sucre",
+                  "quantity" : 1
                },
                {
-                  "id" : "b767e665-ad96-5200-ad67-11ac66e81559",
-                  "mass" : 1.35
+                  "elements" : [
+                     {
+                        "amount" : 0.00135,
+                        "material" : {
+                           "id" : "b767e665-ad96-5200-ad67-11ac66e81559"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "extrait de the noir",
+                  "quantity" : 1
                },
                {
-                  "id" : "d7789ffc-b986-416f-bafa-b1e705d720c4",
-                  "mass" : 0.1
+                  "elements" : [
+                     {
+                        "amount" : 0.0001,
+                        "material" : {
+                           "id" : "d7789ffc-b986-416f-bafa-b1e705d720c4"
+                        },
+                        "transforms" : []
+                     }
+                  ],
+                  "name" : "pêche",
+                  "quantity" : 1
                }
-            ]
+            ],
+            "consumptions" : [],
+            "distribution" : "29118025-efa0-47bb-94e2-f5ccba31a903",
+            "transportOptions" : {
+               "cooling" : false
+            }
          },
-         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
-      }
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food2/simulator"
+      },
+      "ecobalyse_skip_reason" : "unknown_product_quantity",
+      "ecobalyse_skipped" : 1
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:sweetened-beverages",
@@ -348,7 +391,7 @@
       "en:nutriscore-2021-d-2023-d",
       "en:ecobalyse-reference-quantity-from-default",
       "en:ecobalyse-ingredients-matched-between-90-and-100",
-      "en:ecobalyse-api-skipped",
+      "en:ecobalyse-api-not-called",
       "en:forest-footprint-computed",
       "en:forest-footprint-grade-a",
       "en:nutrition-data-per-100g"
@@ -751,7 +794,7 @@
                }
             },
             "per" : "100g",
-            "per_quantity" : 100,
+            "per_quantity" : "100",
             "per_unit" : "g",
             "preparation" : "as_sold",
             "source" : "packaging"
@@ -778,7 +821,7 @@
                }
             },
             "per" : "100g",
-            "per_quantity" : 100,
+            "per_quantity" : "100",
             "per_unit" : "g",
             "preparation" : "as_sold",
             "source" : "estimate",

@@ -5271,21 +5271,29 @@ sv: fri från bisfenol A
 label_categories:en: en:Health
 
 #instruction:en:Do NOT change the english key.
-en: No caffeine, caffeine free, without caffeine
+en: No caffeine, caffeine free, without caffeine, zero caffeine, 0% caffeine, decaf, decaffeinated
 bg: Без кофеин
 ca: Sense cafeïna, lliure de cafeïna
-de: Koffeinfrei
-es: Sin cafeína
+cs: bez kofeinu
+da: koffeinfri
+de: Koffeinfrei, koffeinfreie, koffeinfreier, koffeinfreies, ohne Koffein, entkoffeiniert
+es: Sin cafeína, cero cafeína, zero cafeína, descafeinado
 fi: kofeiiniton, ilman kofeiinia
-fr: Sans caféine, sans théine
+fr: Sans caféine, sans théine, zéro caféine, décaféiné, décaféinée
 hr: bez kofeina
 hu: Koffeinmentes
-it: Senza caffeina
+it: Senza caffeina, zero caffeina, decaffeinato
+nb: koffeinfri
 nl: Cafeinevrij, Vrij van cafeine, Zonder cafeine
-pl: Bez kofeiny
-pt: Sem cafeína, livre de cafeína, 0% cafeína
+pl: Bez kofeiny, zero kofeiny
+pt: Sem cafeína, livre de cafeína, 0% cafeína, zero cafeína
+ro: fără cofeină, cofeină zero, zero cofeină
+ru: без кофеина
 si: brez kofeina
+sk: bez kofeínu
+sv: koffeinfri
 th: ไม่มีคาเฟอีน
+uk: без кофеїну
 label_categories:en: en:Health
 
 #instruction:en:Do NOT change the english key.
@@ -5939,6 +5947,12 @@ opposite:en: en:no-soy
 
 en: Made with soy, Made from soya, Made with Soy Protein
 incompatible_with:en: labels:en:no-soy
+label_categories:en: en:Soy
+
+< en: Made with soy
+en: Made with European soy
+ingredients:en: en:soya
+origins:en: en:europe
 
 #instruction:en:Do NOT change the english key.
 en: No garlic
@@ -6215,7 +6229,7 @@ hu: Bio, Öko, Organikus, biogazdálkodásból, ellenőrzött ökológiai gazdá
 it: Biologico, biologici, biologiche, da agricoltura biologica
 ja: 有機
 ko: 유기농
-lt: Ekologiškas, ekologiškai užaugintas, ekologiškai pagamintas, ingredientas pagamintas ekologiškai, iš ekologiško žemės ūkio, iš ekologiško žemės ūkio
+lt: Ekologiškas, ekologiški, ekologiškos, ekologiškų, ekologiškai užaugintas, ekologiškai pagamintas, ingredientas pagamintas ekologiškai, iš ekologiško žemės ūkio, iš ekologiško žemės ūkio
 nb: Økologisk, certificeret økologisk
 nl: Biologisch, biologische, bio, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode, van gecontroleerde biologische landbouw
 pl: ekologiczny, bio, ekologiczne, ekologiczna, ekologicznych, ekologicznego, z kontrolowanych upraw ekologicznych, z kontrolowanej produkcji ekologicznej, z kontrolowanego rolnictwa ekologicznego, certyfikowany składnik ekologiczny, składnik ekologiczny, produkt pochodzący z kontrolowanych certyfikowanych upraw ekologicznych
@@ -20737,7 +20751,7 @@ en: Vege Project Vegan, Vege Project Japan Vegan
 xx: Vege Project Vegan, Vege Project Japan Vegan
 
 < en: Vegan
-en: plant-based, plant based, plantbased
+en: plant-based, plant based, plantbased, made with plant-based ingredients
 fr: à base de plantes, à base de végétaux
 sv: växtbaserad
 
