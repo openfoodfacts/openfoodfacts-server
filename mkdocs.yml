@@ -35,6 +35,8 @@ theme:
         
 markdown_extensions:
   - footnotes
+  # support !!! note style admonition blocks
+  - admonition
   # support tables
   - tables
   # this one allow to have two space indentation counts as nested list, as in github/vscode
