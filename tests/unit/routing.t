@@ -391,4 +391,41 @@ foreach my $test_ref (@tests) {
 
 }
 
+# The intake24 integration identifies itself with a client-supplied X-User-Agent header:
+# it must be counted and limited like any other request, with a higher limit
+
+{
+
+	my $redis_module = mock 'ProductOpener::Routing' => (
+		override => [
+			get_rate_limit_user_requests => sub {
+				my $ip = shift;
+				my $bucket = shift;
+				# number of requests counted for this bucket
+				return ($bucket eq "search_intake24") ? 100 : 10;
+			}
+		]
+	);
+
+	my $intake24_request_ref = {rate_limiter_bucket => "search_intake24"};
+	ProductOpener::Routing::set_rate_limit_attributes($intake24_request_ref, "1.2.3.4");
+	is(
+		$intake24_request_ref->{rate_limiter_limit},
+		$ProductOpener::Config::options{rate_limit_search_intake24},
+		"intake24 requests have their own limit"
+	);
+	is($intake24_request_ref->{rate_limiter_blocking}, 1, "intake24 requests are blocked past the limit");
+
+	# Same number of requests, but with the regular search bucket: blocked sooner
+	my $search_request_ref = {rate_limiter_bucket => "search"};
+	ProductOpener::Routing::set_rate_limit_attributes($search_request_ref, "1.2.3.4");
+	is(
+		$search_request_ref->{rate_limiter_limit},
+		$ProductOpener::Config::options{rate_limit_search},
+		"regular search requests keep the regular limit"
+	);
+	is($search_request_ref->{rate_limiter_blocking}, 1, "regular search requests are blocked past the limit");
+
+}
+
 done_testing();
