@@ -1,0 +1,52 @@
+{
+   "errors" : [],
+   "result" : {
+      "id" : "tag_found",
+      "lc_name" : "",
+      "name" : ""
+   },
+   "status" : "success",
+   "tag" : {
+      "knowledge_panels" : {
+         "additive_facts" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<p>&rarr; <a href=\"https://en.wikipedia.org/wiki/Methylsulfonylmethane\">Learn more on Wikipedia</a></p>"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "methylsulfonylmethane - Dimethyl sulfone"
+            },
+            "topics" : [
+               "additives"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "additive_facts"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "topics" : [
+               "tags",
+               ""
+            ],
+            "type" : "card"
+         }
+      },
+      "tagid" : "en:methylsulfonylmethane",
+      "tagtype" : "additives"
+   },
+   "tagid" : "methylsulfonylmethane",
+   "tagtype" : "additives",
+   "warnings" : []
+}

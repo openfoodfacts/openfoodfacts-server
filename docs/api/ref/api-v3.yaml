@@ -653,6 +653,9 @@ paths:
 
         Packager codes:
         - Packager name and address, with a link to its location on OpenStreetMap
+
+        Additives:
+        - Additive facts: description, functions and their purpose, vegan and vegetarian status, and a link to its EFSA evaluation
   /api/v3/product_revert:
     parameters: []
     post:
