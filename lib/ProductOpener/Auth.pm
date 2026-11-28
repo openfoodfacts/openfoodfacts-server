@@ -167,15 +167,19 @@ sub is_allowed_return_url ($url) {
 		return !!0;
 	}
 
-	# Strip language subdomain from the host
-	$host =~ s/^[^.]*\.//;
 	my $expected_host = lc($server_domain);
+	my $host_lc = lc($host);
 
-	if (lc($host) ne $expected_host) {
-		$log->info("not redirecting to a url that is not ours",
-			{url => $url, host => $host, expected_host => $expected_host})
-			if $log->is_info();
-		return !!0;
+	if ($host_lc ne $expected_host) {
+		# Strip language or country subdomain from the host
+		$host_lc =~ s/^[^.]*\.//;
+
+		if ($host_lc ne $expected_host) {
+			$log->info("not redirecting to a url that is not ours",
+				{url => $url, host => $host, expected_host => $expected_host})
+				if $log->is_info();
+			return !!0;
+		}
 	}
 
 	return !!1;

@@ -30,6 +30,9 @@ my $our_url = "https://world.$server_domain/cgi/product.pl";
 
 foreach my $url (
 	$our_url,
+	"https://$server_domain",    # apex domain
+	"https://$server_domain/",
+	"http://$server_domain/cgi/session.pl",
 	"https://world.$server_domain",
 	"https://world.$server_domain/?code=1",
 	"http://world.$server_domain/cgi/session.pl",    # http is accepted, as before
@@ -41,7 +44,7 @@ foreach my $url (
 }
 
 # Urls that are not ours are refused. The first ones are the ones the prefix match accepted.
-my $other_domain = $server_domain =~ s/openfoodfacts/openpetfoodfacts/;
+my $other_domain = $server_domain =~ s/openfoodfacts/openpetfoodfacts/r;
 
 my @refused = (
 	["https://world.$server_domain.evil.example/steal", 'a host suffixed to ours'],
