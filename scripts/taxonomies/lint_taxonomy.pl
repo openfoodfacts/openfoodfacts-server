@@ -41,6 +41,83 @@ sub has_errors($errors_ref) {
 # TODO: replace by a list of all possible language codes… (would avoid false positive)
 my $language_prefix_re = qr/([a-zA-Z]{2,3}(?:[-_][a-zA-Z]{2,4})?)/;
 
+# Rules to capitalize the first synonym of each language line (the name displayed to users).
+# Only applied to taxonomies where it is enabled (see $capitalize_names in the main program).
+
+# languages that have no capital letters in normal text: Georgian Mtavruli letters are only used
+# for all caps text, so the first letter must be lowercased instead
+my %lowercase_first_letter_languages = (ka => 1);
+# language codes for which case is meaningful in a transliteration, and must not be changed
+# (e.g. "ge" lines are Georgian written with the Latin keyboard transliteration, where "w" and "W" are different letters)
+my %keep_case_languages = (ge => 1);
+# languages where the capital of "i" is the dotted "İ"
+my %dotted_capital_i_languages = (tr => 1, az => 1);
+# names that start with a lowercase letter on purpose (e.g. official protected names)
+# names whose first word already mixes cases (e.g. "iPhone", "pH-meters", "dell'Emilia") are kept automatically
+my %lowercase_names_exceptions = ("del Vastese" => 1,);
+
+# capitalize_first_synonym ($line)
+#
+# Change the case of the first letter of the first synonym of a language line
+# (e.g. "fr: pates, pate" becomes "fr: Pates, pate"), as it is the name displayed to users.
+#
+# Other synonyms are not changed: tags are matched case insensitively, so their case does not matter.
+#
+# Names are not changed if their first word already contains an uppercase letter after its first letter
+# (e.g. "iPhone", "pH-meters", "dell'Emilia"), as the case was then most likely chosen on purpose.
+#
+# Language specific rules: in "ka" (Georgian), Mtavruli capital letters are lowercased,
+# "ge" lines are unchanged, "i" becomes the dotted capital I in Turkish and Azerbaijani,
+# "ij" becomes "IJ" in Dutch.
+#
+# Returns the line with the first letter changed (or the unchanged line).
+
+sub capitalize_first_synonym ($line) {
+	if ($line !~ /^(${language_prefix_re}:\s*)(.*)$/s) {
+		return $line;
+	}
+	my ($prefix, $lc, $names) = ($1, lc($2), $3);
+	if ($keep_case_languages{$lc}) {
+		return $line;
+	}
+	my $first_name = (split(/\s*,\s*/, $names))[0] // "";
+	$first_name =~ s/\s+$//;
+	if (exists $lowercase_names_exceptions{$first_name}) {
+		return $line;
+	}
+	# keep names whose first word already mixes cases (e.g. "iPhone", "pH-meters", "USB")
+	my $first_word = (split(/\s+/, $first_name))[0] // "";
+	if (substr($first_word, 1) =~ /\p{Lu}/) {
+		return $line;
+	}
+	my $first_letter = substr($names, 0, 1);
+	my $new_first_letters;
+	if ($lowercase_first_letter_languages{$lc}) {
+		# only lowercase Georgian Mtavruli letters, not e.g. Latin letters of "USB"
+		if ($first_letter !~ /[\x{1C90}-\x{1CBF}]/) {
+			return $line;
+		}
+		$new_first_letters = lc($first_letter);
+	}
+	elsif (($lc eq "nl") and ($names =~ /^ij/i)) {
+		# Dutch "ij" digraph is capitalized as a whole: "IJs"
+		$first_letter = substr($names, 0, 2);
+		$new_first_letters = "IJ";
+	}
+	elsif (($dotted_capital_i_languages{$lc}) and ($first_letter eq "i")) {
+		$new_first_letters = "İ";
+	}
+	else {
+		# ucfirst uses the titlecase of the letter (e.g. "ǆ" -> "ǅ")
+		$new_first_letters = ucfirst($first_letter);
+	}
+	# do not change letters whose case conversion is not a single letter (e.g. "ß" -> "Ss")
+	if (length($new_first_letters) != length($first_letter)) {
+		return $line;
+	}
+	return $prefix . $new_first_letters . substr($names, length($first_letter));
+}
+
 # compare synonyms entries on language prefix with "xx" > "en" then alpha order
 # also work for property name + language prefix
 sub cmp_on_language : prototype($$) ($a, $b) {
@@ -378,7 +455,8 @@ sub add_entry_id($entry_ref, $errors_ref) {
 }
 
 # lint lines of an entry
-sub lint_entry($entry_ref, $do_sort, $normalize_commas = 1) {
+# $capitalize_names: if true, capitalize the first synonym of each language line (see capitalize_first_synonym)
+sub lint_entry($entry_ref, $do_sort, $normalize_commas = 1, $capitalize_names = 0) {
 	my @parents = @{$entry_ref->{parents}};
 	my $entry_id_line = $entry_ref->{entry_id_line};
 	my %entries = %{$entry_ref->{entries}};
@@ -406,11 +484,15 @@ sub lint_entry($entry_ref, $do_sort, $normalize_commas = 1) {
 	}
 	if (defined $entry_id_line) {
 		push @output_lines, @{$entry_id_line->{previous}};
-		push @output_lines, normalized_line($entry_id_line, $normalize_commas);
+		my $line = normalized_line($entry_id_line, $normalize_commas);
+		$line = capitalize_first_synonym($line) if $capitalize_names and $entry_id_line->{type} eq "entry_id";
+		push @output_lines, $line;
 	}
 	for my $key (@sorted_entries) {
 		push @output_lines, @{$entries{$key}->{previous}};
-		push @output_lines, normalized_line($entries{$key}, $normalize_commas);
+		my $line = normalized_line($entries{$key}, $normalize_commas);
+		$line = capitalize_first_synonym($line) if $capitalize_names;
+		push @output_lines, $line;
 	}
 	for my $key (@sorted_props) {
 		push @output_lines, @{$props{$key}->{previous}};
@@ -491,7 +573,8 @@ sub check_linted($entry_ref, $linted_output) {
 }
 
 # lint or check the taxonomy
-sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort, $normalize_commas = 1) {
+sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort, $normalize_commas = 1, $capitalize_names = 0)
+{
 	my @errors = ();
 	while (my $entry_ref = $entries_iterator->()) {
 		my @entry_errors = @{$entry_ref->{errors}};
@@ -500,7 +583,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort, $norm
 		# we will try to lint only if we don't have errors so far
 		my $linted_output;
 		if (!has_errors(\@entry_errors)) {
-			$linted_output = lint_entry($entry_ref, $do_sort, $normalize_commas);
+			$linted_output = lint_entry($entry_ref, $do_sort, $normalize_commas, $capitalize_names);
 		}
 		else {
 			# keep original lines
@@ -620,7 +703,13 @@ TXT
 		if ($file =~ m{/beauty/ingredients}) {
 			$normalize_commas = 0;
 		}
-		my $errors_ref = lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, !$no_sort, $normalize_commas);
+		# Capitalize the displayed name (first synonym) of each language in categories taxonomies
+		my $capitalize_names = 0;
+		if ($file =~ m{(^|/)categories\.txt$}) {
+			$capitalize_names = 1;
+		}
+		my $errors_ref = lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, !$no_sort, $normalize_commas,
+			$capitalize_names);
 		close($fd);
 		close($out);
 		if ((!$is_check) and $out_path) {
