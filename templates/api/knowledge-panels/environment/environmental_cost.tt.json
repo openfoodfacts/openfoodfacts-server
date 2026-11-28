@@ -172,6 +172,14 @@
             }
         },
         [% END %]
+        [% IF panel.ingredients_coverage_percent.defined AND panel.ingredients_coverage_percent < 100 %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": "[% edq(f_lang('f_environmental_cost_ingredients_coverage', { 'percent' => panel.ingredients_coverage_percent })) %]"
+            }
+        },
+        [% END %]
         [% IF panel.water_loss %]
         {
             "element_type": "text",

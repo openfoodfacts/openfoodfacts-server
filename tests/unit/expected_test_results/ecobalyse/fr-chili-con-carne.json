@@ -18,96 +18,98 @@
             {
                "ecobalyse_name" : "Riz cru, toutes variétés -blanc, sauvage, riz thaï ou basmati, cru- Origine Inconnue",
                "id" : "cd75bf39-ee3a-5532-9d70-d8b853be0460",
-               "mass" : 93,
+               "mass" : 93.6555891238671,
                "name" : "Riz long"
             },
             {
                "ecobalyse_name" : "Eau du robinet UE -2025-",
                "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "mass" : 55.7,
+               "mass" : 56.0926485397785,
                "name" : "eau"
             },
             {
                "ecobalyse_name" : "Viande de boeuf sans os par défaut",
                "id" : "91f8ec52-d3bb-44db-84be-08bb1996caf8",
-               "mass" : 36,
+               "mass" : 36.2537764350453,
                "name" : "viande de boeuf"
             },
             {
                "ecobalyse_name" : "Purée de tomates par défaut -2025-",
                "id" : "6523c72b-2c28-474d-9bf8-45e018bbd0be",
-               "mass" : 12.6,
+               "mass" : 12.6888217522659,
                "name" : "concentré de tomates"
             },
             {
                "ecobalyse_name" : "Poivron, vert, jaune ou rouge UE",
                "id" : "f03947eb-3f24-5de7-ba45-a01c3b3deabb",
-               "mass" : 11.4,
+               "mass" : 11.4803625377643,
                "name" : "poivrons rouges"
             },
             {
                "ecobalyse_name" : "Oignons HORS UE",
                "id" : "23d64366-18f7-5f10-a3a8-6c15176d16a9",
-               "mass" : 10.5,
+               "mass" : 10.5740181268882,
                "name" : "oignons"
             },
             {
                "ecobalyse_name" : "Vin rouge FR -2025-",
                "id" : "6621c18e-85de-4683-82be-7b236e68bc48",
-               "mass" : 8.1,
+               "mass" : 8.1570996978852,
                "name" : "vin rouge"
             },
             {
                "ecobalyse_name" : "Huile de colza par défaut -2025-",
                "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
-               "mass" : 3.9,
+               "mass" : 3.92749244712991,
                "name" : "huile de colza"
             },
             {
                "ecobalyse_name" : "Fécule de pomme de terre par défaut -2025-",
                "id" : "b042c68d-6c0d-448d-91e6-7a8a424abd4a",
-               "mass" : 3.9,
+               "mass" : 3.92749244712991,
                "name" : "amidon de riz"
             },
             {
                "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
                "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
-               "mass" : 12.05,
+               "mass" : 12.134944612286,
                "name" : "sel"
             },
             {
                "ecobalyse_name" : "Ail Origine Inconnue",
                "id" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
-               "mass" : 1.04999999999998,
+               "mass" : 1.0574018126888,
                "name" : "ail"
             },
             {
                "ecobalyse_name" : "Haricot blanc, appertisé, égoutté Origine Inconnue",
                "id" : "882c0d42-7f99-4ff5-ae5f-85277082e5f7",
-               "mass" : 44,
+               "mass" : 44.3101711983887,
                "name" : "haricots"
             },
             {
                "ecobalyse_name" : "Tomate sous serre chauffée par défaut",
                "id" : "a96c560e-7959-4698-b533-23f922bb62b9",
-               "mass" : 3.8,
+               "mass" : 3.82678751258812,
                "name" : "tomates"
             },
             {
                "ecobalyse_name" : "Jus de tomate UE -2025-",
                "id" : "65e6f518-e5fc-4fda-9af9-287d26e2bbe1",
-               "mass" : 0.95,
+               "mass" : 0.956696878147029,
                "name" : "jus de tomates"
             },
             {
                "ecobalyse_name" : "Jus de citron UE -2025-",
                "id" : "fd79d142-7e34-45a4-a0d1-59922b4c8d09",
-               "mass" : 0.95,
+               "mass" : 0.956696878147029,
                "name" : "jus de citron concentré"
             }
          ],
          "ingredients_coverage_percent" : 99,
-         "ingredients_total_mass" : 297.9,
+         "ingredients_matched_mass" : 297.9,
+         "ingredients_scaling_factor" : 1.007,
+         "ingredients_total_mass" : 300,
          "reference_quantity" : 300,
          "reference_quantity_source" : "product_quantity",
          "reference_quantity_unit" : "g",
@@ -125,7 +127,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.093,
+                        "amount" : 0.093656,
                         "material" : {
                            "id" : "cd75bf39-ee3a-5532-9d70-d8b853be0460"
                         },
@@ -140,7 +142,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.0557,
+                        "amount" : 0.056093,
                         "material" : {
                            "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
                         },
@@ -155,7 +157,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.036,
+                        "amount" : 0.036254,
                         "material" : {
                            "id" : "91f8ec52-d3bb-44db-84be-08bb1996caf8"
                         },
@@ -170,7 +172,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.0126,
+                        "amount" : 0.012689,
                         "material" : {
                            "id" : "6523c72b-2c28-474d-9bf8-45e018bbd0be"
                         },
@@ -185,7 +187,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.0114,
+                        "amount" : 0.01148,
                         "material" : {
                            "id" : "f03947eb-3f24-5de7-ba45-a01c3b3deabb"
                         },
@@ -200,7 +202,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.0105,
+                        "amount" : 0.010574,
                         "material" : {
                            "id" : "23d64366-18f7-5f10-a3a8-6c15176d16a9"
                         },
@@ -215,7 +217,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.0081,
+                        "amount" : 0.008157,
                         "material" : {
                            "id" : "6621c18e-85de-4683-82be-7b236e68bc48"
                         },
@@ -228,7 +230,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.0039,
+                        "amount" : 0.003927,
                         "material" : {
                            "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30"
                         },
@@ -243,7 +245,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.0039,
+                        "amount" : 0.003927,
                         "material" : {
                            "id" : "b042c68d-6c0d-448d-91e6-7a8a424abd4a"
                         },
@@ -258,7 +260,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.01205,
+                        "amount" : 0.012135,
                         "material" : {
                            "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3"
                         },
@@ -273,7 +275,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.00105,
+                        "amount" : 0.001057,
                         "material" : {
                            "id" : "d8c8a918-a11a-502f-a5cf-90052d96c133"
                         },
@@ -288,7 +290,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.044,
+                        "amount" : 0.04431,
                         "material" : {
                            "id" : "882c0d42-7f99-4ff5-ae5f-85277082e5f7"
                         },
@@ -303,7 +305,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.0038,
+                        "amount" : 0.003827,
                         "material" : {
                            "id" : "a96c560e-7959-4698-b533-23f922bb62b9"
                         },
@@ -318,7 +320,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.00095,
+                        "amount" : 0.000957,
                         "material" : {
                            "id" : "65e6f518-e5fc-4fda-9af9-287d26e2bbe1"
                         },
@@ -333,7 +335,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.00095,
+                        "amount" : 0.000957,
                         "material" : {
                            "id" : "fd79d142-7e34-45a4-a0d1-59922b4c8d09"
                         },

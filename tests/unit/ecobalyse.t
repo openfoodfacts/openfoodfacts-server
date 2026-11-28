@@ -31,12 +31,17 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 # Then to update tests results, run:
 #    ECOBALYSE_API_TOKEN=your_token_here prove -v tests/unit/ecobalyse.t --update-tests-results
 
+# Without the token, the expected results of the products are updated with the stored Ecobalyse mock responses,
+# which are not updated (e.g. to update the expected Ecobalyse requests after a change of the masses sent to Ecobalyse).
+# The stored responses then correspond to the previous requests.
+my $update_ecobalyse_responses = $update_expected_results;
 if (($update_expected_results) and (!$ENV{ECOBALYSE_API_TOKEN})) {
-	warn "ECOBALYSE_API_TOKEN is not set. Skipping update of expected results.\n";
-	$update_expected_results = 0;
+	warn "ECOBALYSE_API_TOKEN is not set. Updating expected results with the stored Ecobalyse mock responses.\n";
+	$update_ecobalyse_responses = 0;
 }
 
-# If the 3rd argument of a test case is set to 1, it indicates that the Ecobalyse API call is skipped (for example, when there are no ingredients to send to Ecobalyse, or when the product quantity is unknown).
+# If the 3rd argument of a test case is set to 1, it indicates that the Ecobalyse API call is skipped (for example, when there are no ingredients to send to Ecobalyse, or when the product quantity is unknown),
+# the request is only prepared.
 
 my @tests = (
 	[
@@ -121,6 +126,37 @@ my @tests = (
 			quantity => "300 g",
 		}
 	],
+	# Ingredients without an Ecobalyse id (unknown ingredient, 15%): coverage of 85%,
+	# the masses of the other ingredients are scaled so that their total is the product quantity (200 g)
+	[
+		'fr-unknown-ingredient-masses-scaled',
+		{
+			lc => "fr",
+			ingredients_text => "farine de blé 60%, sucre 25%, ingrédient inconnu xyz 15%",
+			quantity => "200 g",
+		},
+		1
+	],
+	# Same with an unknown product quantity: masses for 100 g (the request is only prepared,
+	# the API is not called when the product quantity is unknown)
+	[
+		'fr-unknown-ingredient-masses-scaled-no-quantity',
+		{
+			lc => "fr",
+			ingredients_text => "farine de blé 60%, sucre 25%, ingrédient inconnu xyz 15%",
+		},
+		1
+	],
+	# Coverage below the threshold (60%): the API is not called and the masses are not scaled
+	[
+		'fr-unknown-ingredient-coverage-below-threshold',
+		{
+			lc => "fr",
+			ingredients_text => "farine de blé 35%, sucre 25%, ingrédient inconnu xyz 40%",
+			quantity => "200 g",
+		},
+		1
+	],
 );
 
 # Reference quantity of product for which we send the ingredients to Ecobalyse
@@ -139,7 +175,7 @@ is([get_ecobalyse_reference_quantity({nutrition => {aggregated_set => {per => "1
 my $mock_calls = 0;
 my $ecobalyse_mock;
 
-if (!$update_expected_results) {
+if (!$update_ecobalyse_responses) {
 
 	$ecobalyse_mock = mock 'ProductOpener::EnvironmentalImpact' => (
 		override => [
@@ -189,7 +225,7 @@ foreach my $test_ref (@tests) {
 	my $updated_product_fields_ref = {};
 	my $errors_ref = [];
 	$mock_calls = 0;
-	estimate_environmental_impact_service($product_ref, $updated_product_fields_ref, $errors_ref);
+	estimate_environmental_impact_service($product_ref, $updated_product_fields_ref, $errors_ref, $skip_ecobalyse_call);
 
 	# Note: extract_ingredients_from_text will create fields allergens/traces_from_ingredients
 	# Those are kept in the unit tests, but in real processing, they are then removed by detect_allergens_from_text
@@ -200,7 +236,7 @@ foreach my $test_ref (@tests) {
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 
 	# Save the ecobalyse mocked response
-	if ($update_expected_results) {
+	if ($update_ecobalyse_responses) {
 		is($mock_calls, 0, "Ecobalyse mock not called");
 		my $mock_response_file = "$expected_result_dir/$testid.ecobalyse.json";
 		open(my $response, ">:encoding(UTF-8)", $mock_response_file)
@@ -208,7 +244,10 @@ foreach my $test_ref (@tests) {
 		print $response $json->pretty->encode($product_ref->{environmental_impact}->{ecobalyse_response});
 		close($response);
 	}
-	elsif (!$skip_ecobalyse_call) {
+	elsif ($skip_ecobalyse_call) {
+		is($mock_calls, 0, "Ecobalyse mock not called");
+	}
+	else {
 		is($mock_calls, 1, "Ecobalyse mock called");
 	}
 }

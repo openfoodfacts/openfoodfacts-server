@@ -6708,6 +6708,11 @@ msgctxt "f_environmental_cost_ingredients_mass"
 msgid "{ingredients_mass} g of ingredients before cooking, including {water_loss} g of water that evaporates during cooking (estimate), for {product_mass} g of product."
 msgstr "{ingredients_mass} g of ingredients before cooking, including {water_loss} g of water that evaporates during cooking (estimate), for {product_mass} g of product."
 
+# variable names between { } must not be translated
+msgctxt "f_environmental_cost_ingredients_coverage"
+msgid "Estimated from the ingredients that represent {percent}% of the product: the quantities of the other ingredients, which are not yet in Ecobalyse, are distributed to these ingredients."
+msgstr "Estimated from the ingredients that represent {percent}% of the product: the quantities of the other ingredients, which are not yet in Ecobalyse, are distributed to these ingredients."
+
 msgctxt "environmental_cost_ecosystem_services_title"
 msgid "Positive impact: ecosystem services"
 msgstr "Positive impact: ecosystem services"

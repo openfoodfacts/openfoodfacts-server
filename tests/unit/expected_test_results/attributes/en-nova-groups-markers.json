@@ -435,30 +435,32 @@
             {
                "ecobalyse_name" : "Lait de vache HORS UE",
                "id" : "413dbd30-f224-580c-bf02-51664910430e",
-               "mass" : 57.1428571428571,
+               "mass" : 67.7966101694915,
                "name" : "Cow milk"
             },
             {
                "ecobalyse_name" : "Sel de mer, sel de céleri ou fleur de sel Origine Inconnue",
                "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3",
-               "mass" : 21.4285714285714,
+               "mass" : 25.4237288135593,
                "name" : "salt"
             },
             {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 2.5,
+               "mass" : 2.96610169491525,
                "name" : "sugar"
             },
             {
                "ecobalyse_name" : "Sirop de glucose FR ou UE ou par défaut -2025-",
                "id" : "06dffb5c-07ad-48de-9630-632f4c84e02d",
-               "mass" : 3.21428571428572,
+               "mass" : 3.81355932203391,
                "name" : "high fructose corn syrup"
             }
          ],
          "ingredients_coverage_percent" : 84,
-         "ingredients_total_mass" : 84.2857142857143,
+         "ingredients_matched_mass" : 84.2857142857143,
+         "ingredients_scaling_factor" : 1.1864,
+         "ingredients_total_mass" : 100,
          "packaging_skip_reason" : "unknown_product_quantity",
          "preparation" : [
             "refrigeration"
@@ -473,7 +475,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.057143,
+                        "amount" : 0.067797,
                         "material" : {
                            "id" : "413dbd30-f224-580c-bf02-51664910430e"
                         },
@@ -486,7 +488,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.021429,
+                        "amount" : 0.025424,
                         "material" : {
                            "id" : "9e3c5bdd-474a-561a-8d5f-ea03b9c537a3"
                         },
@@ -499,7 +501,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.0025,
+                        "amount" : 0.002966,
                         "material" : {
                            "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
                         },
@@ -512,7 +514,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.003214,
+                        "amount" : 0.003814,
                         "material" : {
                            "id" : "06dffb5c-07ad-48de-9630-632f4c84e02d"
                         },

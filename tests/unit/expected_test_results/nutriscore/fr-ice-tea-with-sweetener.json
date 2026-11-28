@@ -53,30 +53,32 @@
             {
                "ecobalyse_name" : "Eau du robinet UE -2025-",
                "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
-               "mass" : 88.2,
+               "mass" : 95.9216965742251,
                "name" : "Eau"
             },
             {
                "ecobalyse_name" : "Sucre de betterave par défaut -2025-",
                "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
-               "mass" : 2.3,
+               "mass" : 2.50135943447526,
                "name" : "sucre"
             },
             {
                "ecobalyse_name" : "Thé, feuilles séchées HORS UE",
                "id" : "b767e665-ad96-5200-ad67-11ac66e81559",
-               "mass" : 1.35,
+               "mass" : 1.46818923327896,
                "name" : "extrait de the noir"
             },
             {
                "ecobalyse_name" : "Pêche, pulpe et peau, crue Origine Inconnue",
                "id" : "d7789ffc-b986-416f-bafa-b1e705d720c4",
-               "mass" : 0.1,
+               "mass" : 0.108754758020663,
                "name" : "pêche"
             }
          ],
          "ingredients_coverage_percent" : 91,
-         "ingredients_total_mass" : 91.95,
+         "ingredients_matched_mass" : 91.95,
+         "ingredients_scaling_factor" : 1.0875,
+         "ingredients_total_mass" : 100,
          "reference_quantity" : 100,
          "reference_quantity_source" : "default",
          "reference_quantity_unit" : "g"
@@ -87,7 +89,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.0882,
+                        "amount" : 0.095922,
                         "material" : {
                            "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6"
                         },
@@ -100,7 +102,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.0023,
+                        "amount" : 0.002501,
                         "material" : {
                            "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3"
                         },
@@ -113,7 +115,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.00135,
+                        "amount" : 0.001468,
                         "material" : {
                            "id" : "b767e665-ad96-5200-ad67-11ac66e81559"
                         },
@@ -126,7 +128,7 @@
                {
                   "elements" : [
                      {
-                        "amount" : 0.0001,
+                        "amount" : 0.000109,
                         "material" : {
                            "id" : "d7789ffc-b986-416f-bafa-b1e705d720c4"
                         },
